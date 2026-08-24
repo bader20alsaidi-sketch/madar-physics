@@ -998,7 +998,7 @@ ${kb}
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.GEMINI_API_KEY}`
+          'x-goog-api-key': env.GEMINI_API_KEY
         },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
