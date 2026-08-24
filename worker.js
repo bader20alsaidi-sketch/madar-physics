@@ -1009,7 +1009,7 @@ ${kb}
 
     if (!geminiRes.ok) {
       const errText = await geminiRes.text();
-      return new Response(JSON.stringify({ error: 'تعذّر الوصول للخدمة حالياً، حاول بعد قليل.', detail: errText.slice(0,200) }), {
+      return new Response(JSON.stringify({ error: 'خطأ من Gemini (' + geminiRes.status + '): ' + errText.slice(0,300), detail: errText.slice(0,300) }), {
         status: 502,
         headers: { 'Content-Type': 'application/json; charset=utf-8' }
       });
