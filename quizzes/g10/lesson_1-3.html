@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختبار: المخاطر الكهربائية | الهدف 1-3 | فيزياء - الصف العاشر</title>
+<style>
+
+  :root{
+    --primary:#0f5c8a;
+    --primary-dark:#0a3d5c;
+    --accent:#1a8f6b;
+    --bg:#f5f7f9;
+    --card:#ffffff;
+    --border:#dfe6ea;
+    --text:#22303a;
+    --muted:#5c6b74;
+    --hover:#eef6fb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI","Tahoma","Arial",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+  }
+  header{
+    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+    color:#fff;
+    padding:20px 20px 22px;
+  }
+  header .wrap{max-width:980px;margin:0 auto;}
+  .nav-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:16px;
+    padding-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+  }
+  .nav-row .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .logo-slot{
+    width:88px;
+    height:88px;
+    border-radius:16px;
+    border:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    text-align:center;
+    line-height:1.3;
+    color:rgba(255,255,255,.8);
+    flex-shrink:0;
+    overflow:hidden;
+    background:#fff;
+    padding:4px;
+    box-shadow:0 3px 10px rgba(0,0,0,.35);
+  }
+  .logo-slot img{width:100%;height:100%;object-fit:contain;}
+  .brand-text{display:flex;flex-direction:column;gap:2px;}
+  .brand-name{font-size:20px;font-weight:800;color:#fff;letter-spacing:.3px;}
+  .brand-links{display:flex;flex-wrap:wrap;gap:12px;}
+  .brand-phone, .brand-instagram{font-size:13.5px;color:rgba(255,255,255,.85);letter-spacing:.5px;text-decoration:none;}
+  .brand-phone:hover, .brand-instagram:hover{color:#fff;text-decoration:underline;}
+  .brand-phone::before{content:"📞 ";}
+  .brand-instagram::before{content:"📷 ";}
+  .nav-links{display:flex;flex-wrap:wrap;gap:8px;}
+  .nav-links a, .nav-links button{
+    display:inline-block;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.28);
+    color:#fff;
+    padding:6px 12px;
+    border-radius:7px;
+    font-size:12.5px;
+    text-decoration:none;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .nav-links a:hover, .nav-links button:hover{background:rgba(255,255,255,.24);}
+  .nav-links a.disabled{opacity:.4;pointer-events:none;}
+  header .tag{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:13px;
+    margin-bottom:10px;
+  }
+  header h1{margin:0 0 6px;font-size:26px;}
+  header .sub{font-size:15px;opacity:.9;}
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:16px;
+  }
+  .meta-chip{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25);
+    padding:6px 14px;
+    border-radius:8px;
+    font-size:14px;
+  }
+  .meta-chip b{font-weight:700;}
+  main{max-width:980px;margin:0 auto;padding:24px 20px 60px;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px 22px;
+    margin-bottom:22px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  .card h2{
+    margin:0 0 14px;
+    font-size:19px;
+    color:var(--primary-dark);
+    border-bottom:2px solid var(--border);
+    padding-bottom:10px;
+  }
+  .obj-box{
+    background:var(--hover);
+    border-right:4px solid var(--primary);
+    padding:12px 16px;
+    border-radius:8px;
+    margin-bottom:14px;
+    font-size:15.5px;
+  }
+  ul.criteria{margin:0;padding-inline-start:22px;}
+  ul.criteria li{margin-bottom:6px;font-size:14.5px;color:var(--text);}
+  .filter-bar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .filter-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    color:var(--text);
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .filter-btn.active{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#fff;
+    font-weight:600;
+  }
+  table.qtable{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.qtable th{
+    background:var(--primary-dark);
+    color:#fff;
+    padding:10px 8px;
+    text-align:right;
+    font-weight:600;
+  }
+  table.qtable td{
+    padding:10px 8px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  table.qtable tr.qrow{cursor:pointer;transition:background .15s;}
+  table.qtable tr.qrow:hover{background:var(--hover);}
+  table.qtable tr.qrow.hide{display:none;}
+  .go-btn{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    padding:6px 14px;
+    border-radius:6px;
+    font-size:13px;
+    text-decoration:none;
+    white-space:nowrap;
+    border:none;
+    cursor:pointer;
+  }
+  .go-btn:hover{background:var(--primary-dark);}
+  .badge{
+    display:inline-block;
+    background:#e7f1f7;
+    color:var(--primary-dark);
+    border-radius:6px;
+    padding:2px 8px;
+    font-size:12.5px;
+    font-weight:600;
+  }
+  .badge.page{background:#eaf6ef;color:#1a7a53;}
+  .badge.official{background:#e7f7ea;color:#1a7a3d;}
+  .badge.practice{background:#fdf2e3;color:#a15c00;}
+  .sol-section{
+    scroll-margin-top:16px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:16px;
+    background:var(--card);
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  .sol-section.highlight{animation:flash 1.4s ease;}
+  @keyframes flash{
+    0%{background:#fff6dd;}
+    100%{background:var(--card);}
+  }
+  .sol-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .sol-head h3{margin:0;font-size:16.5px;color:var(--primary-dark);}
+  .q-text{
+    background:var(--hover);
+    padding:12px 14px;
+    border-radius:8px;
+    margin-bottom:12px;
+    font-size:14.5px;
+  }
+  .q-source{color:var(--muted);font-size:13px;margin-bottom:10px;}
+  .q-text-box{background:var(--hover);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:14.5px;line-height:1.9;white-space:pre-line;color:var(--text);}
+  .q-image-wrap{
+    margin-bottom:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .q-image-wrap img{display:block;width:100%;height:auto;}
+  .q-image-cap{
+    font-size:12px;
+    color:var(--muted);
+    padding:6px 10px;
+    border-top:1px solid var(--border);
+    background:#fafbfc;
+  }
+  .q-text-block{
+    margin-bottom:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    padding:16px 18px;
+  }
+  .q-text-body{
+    font-size:15.5px;
+    line-height:1.95;
+  }
+  .q-text-cap{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:12px;
+    padding-top:8px;
+    border-top:1px solid var(--border);
+  }
+  .show-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:9px 18px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    margin-bottom:4px;
+  }
+  .show-btn:hover{filter:brightness(0.93);}
+  .sol-answer{
+    display:none;
+    margin-top:12px;
+  }
+  .sol-answer.open{display:block;}
+  .sol-body{
+    background:#fbfcfd;
+    border:1px dashed var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+    font-size:14.5px;
+    white-space:pre-wrap;
+    line-height:2;
+  }
+  .grade-note{
+    margin-top:10px;
+    font-size:13px;
+    color:var(--accent);
+    font-weight:600;
+  }
+  .back-link{
+    display:inline-block;
+    margin-top:10px;
+    font-size:13px;
+    color:var(--primary);
+    text-decoration:none;
+  }
+  .back-link:hover{text-decoration:underline;}
+  .legend{
+    font-size:13.5px;
+    color:var(--muted);
+  }
+  .legend table{width:100%;border-collapse:collapse;margin-top:8px;}
+  .legend td{padding:6px 8px;border-bottom:1px solid var(--border);}
+  .legend td:first-child{font-weight:700;color:var(--text);white-space:nowrap;width:140px;}
+  footer{
+    text-align:center;
+    padding:24px 20px 40px;
+    color:var(--muted);
+    font-size:13.5px;
+  }
+  footer .credit{
+    margin-top:6px;
+    font-weight:700;
+    color:var(--primary-dark);
+    font-size:14.5px;
+  }
+  .toc-note{font-size:13px;color:var(--muted);margin-top:-4px;margin-bottom:14px;}
+
+  @media print{
+    body{background:#fff;}
+    header{background:#fff !important;color:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-bottom:2px solid #000;}
+    .nav-links, .filter-bar, .toc-note, .go-btn, .show-btn, footer .print-btn{display:none !important;}
+    .nav-row{border-bottom:1px solid #000;}
+    .brand-name{color:#000 !important;}
+    .brand-phone, .brand-instagram{color:#333 !important;}
+    .logo-slot{box-shadow:none;border:1px solid #999;}
+    .meta-chip{background:#fff;border:1px solid #000;color:#000;}
+    .card{box-shadow:none;border:1px solid #999;break-inside:avoid;}
+    .sol-section{break-inside:avoid;page-break-inside:avoid;}
+    .sol-answer{display:block !important;}
+    table.qtable tr.qrow.hide{display:table-row !important;}
+    a[href]:after{content:"" !important;}
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="nav-row">
+      <div class="brand">
+        <span class="brand-name">أ. بدر السعيدي</span>
+      </div>
+      <div class="nav-links">
+        <a class="disabled" href="javascript:void(0)">☰ الفهرس</a>
+        <button onclick="window.print()">🖶 طباعة الدرس</button>
+      </div>
+    </div>
+    <span class="tag">مادة الفيزياء · الصف العاشر · الفصل الدراسي الأول</span>
+    <h1>الدرس: المخاطر الكهربائية</h1>
+    <div class="sub">الوحدة الثالثة: مخاطر الكهرباء — المخاطر الكهربائية</div>
+    <div class="meta-row">
+      <div class="meta-chip">رقم الهدف: <b>1-3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>1</b></div>
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="card">
+    <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
+    <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <table class="qtable">
+      <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
+      <tbody>
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+          <td>1</td>
+          <td>متى يتعرض الشخص لخطر الصدمة الكهربائية؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>بطاقات الأسئلة ونماذج الحل</h2>
+    <div class="sol-section" id="q1">
+      <div class="sol-head">
+        <h3>السؤال 1</h3>
+        <span class="badge">الهدف 1-3</span><span class="badge">صفحة 38</span><span class="badge official">إجابة رسمية</span>
+      </div>
+      <div class="q-source">امتحان الفيزياء — الصف العاشر — الفصل الأول — الدور الأول — 2023/2024م</div>
+      <div class="q-text-box">متى يتعرض الشخص لخطر الصدمة الكهربائية؟</div>
+      <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q1-ans">
+        <div class="sol-body">عند لمس السلك الكهربائي المكشوف مباشرة.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+  </section>
+
+  <section class="card legend" id="top">
+    <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز</h2>
+    <table>
+      <tr><td>رقم الهدف</td><td>الرقم المرجعي للهدف التعليمي كما وضعته الوزارة ضمن معايير النجاح للمادة.</td></tr>
+      <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
+      <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
+  <div class="credit">إعداد: أ. بدر السعيدي — 93669399</div>
+</footer>
+
+<script>
+  function toggleSol(id, btn){
+    var el = document.getElementById(id);
+    if(el.classList.contains('open')){ el.classList.remove('open'); btn.textContent='إظهار نموذج الحل ↓'; }
+    else { el.classList.add('open'); btn.textContent='إخفاء نموذج الحل ↑'; }
+  }
+  function goTo(id){
+    var el = document.getElementById(id);
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
+  }
+</script>
+</body>
+</html>

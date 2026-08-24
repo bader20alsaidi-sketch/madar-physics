@@ -1,0 +1,10 @@
+{
+  "name": "مدار — مكتبة الفيزياء",
+  "short_name": "مدار",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "lang": "ar",
+  "dir": "rtl"
+}
