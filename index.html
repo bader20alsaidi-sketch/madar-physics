@@ -20,13 +20,29 @@
     --success: #5ecf9c;
     --danger: #e8697f;
   }
+  body.light-theme{
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --surface-2: #eef1f7;
+    --accent: #3b6fd6;
+    --accent-warm: #d9822b;
+    --text-primary: #17202e;
+    --text-secondary: #5a6478;
+    --border: #dde3ee;
+    --success: #2f9e6e;
+    --danger: #d1435a;
+  }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{
     background: radial-gradient(ellipse at top, #0f1526 0%, #060810 70%);
+    transition: background .2s ease;
     min-height:100vh;
     display:flex; align-items:center; justify-content:center;
     padding:24px;
     font-family:'Tajawal', sans-serif;
+  }
+  body.light-theme{
+    background: radial-gradient(ellipse at top, #eef2f9 0%, #dde4ef 70%);
   }
 
   .phone{
@@ -38,6 +54,7 @@
     overflow:hidden;
     position:relative;
     display:flex; flex-direction:column;
+    transition: width .2s ease;
   }
 
   /* على الجوال: يملأ الشاشة بالكامل بدل إطار العرض التجريبي */
@@ -47,6 +64,17 @@
       width:100vw; height:100vh; height:100dvh;
       border-radius:0; border:none; box-shadow:none;
     }
+  }
+
+  /* على الأجهزة اللوحية والحواسيب: نوسّع الحاوية بدل ترك مساحة فارغة على الجوانب */
+  @media (min-width: 521px) and (max-width: 900px){
+    .phone{ width:560px; height:85vh; max-height:900px; }
+  }
+  @media (min-width: 901px){
+    .phone{ width:760px; height:88vh; max-height:960px; }
+  }
+  @media (min-width: 1280px){
+    .phone{ width:920px; }
   }
 
   .topbar{
@@ -149,6 +177,9 @@
 
   /* category grid */
   .cat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (min-width: 901px){
+    .cat-grid{ grid-template-columns:1fr 1fr 1fr; }
+  }
   .cat-tile{
     background:var(--surface); border:1px solid var(--border); border-radius:18px;
     padding:18px 14px; cursor:pointer; display:flex; flex-direction:column; gap:10px;
@@ -185,6 +216,15 @@
     background:var(--surface-2); padding:2px 8px; border-radius:6px;
   }
   .card-snippet{ font-size:12.5px; color:var(--text-secondary); line-height:1.6; }
+  .progress-badge{
+    width:38px; height:38px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .progress-badge-inner{
+    width:30px; height:30px; border-radius:50%; background:var(--surface);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono'; font-size:9.5px; font-weight:500; color:var(--text-secondary);
+  }
 
   .empty{ text-align:center; padding: 60px 20px; color:var(--text-secondary); }
   .empty .orbit-mark{ width:56px; height:56px; margin:0 auto 16px; opacity:0.5; }
@@ -356,6 +396,7 @@
       <div class="brand-name" id="brandText">مدار</div>
     </div>
     <div style="flex:1"></div>
+    <div class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="تبديل الوضع الليلي/النهاري">🌙</div>
     <div class="icon-btn" id="addBtn" style="display:none;" onclick="showAddModal()">＋</div>
   </div>
 
@@ -1003,14 +1044,20 @@ function renderLessons(c, grade, unitId){
   c.innerHTML = `
     <div class="eyebrow">${gradeLabel(grade)}</div>
     <div class="page-title">${u.title}</div>
-    ${u.lessons.map(l => `
+    ${u.lessons.map(l => {
+      const pct = lessonProgressPercent(grade, l.id);
+      return `
       <div class="card" onclick="push({screen:'categories', grade:'${grade}', lesson:'${l.id}'})">
         <div class="card-icon" style="background:var(--accent)22; color:var(--accent);">${l.id}</div>
         <div class="card-body">
           <div class="card-title">${l.title}</div>
           ${l.page ? `<div class="card-snippet">صفحة ${l.page} في كتاب الطالب</div>` : ''}
         </div>
-      </div>`).join('')}
+        <div class="progress-badge" style="background: conic-gradient(var(--accent) ${pct}%, var(--border) 0);">
+          <div class="progress-badge-inner">${pct}%</div>
+        </div>
+      </div>`;
+    }).join('')}
   `;
 }
 
@@ -1079,6 +1126,10 @@ function openItem(id){
     renderSubscribeScreen(item);
     document.getElementById('panel').classList.add('open');
     return;
+  }
+
+  if(item.type!=='quiz' && item.type!=='shortset'){
+    markItemComplete(item.id);
   }
 
   if(item.type==='pdf'){
@@ -1177,6 +1228,7 @@ function renderQuizPanel(){
   const item = items.find(i=>i.id===quizState.itemId);
   const body = document.getElementById('panelBody');
   if(quizState.index >= item.questions.length){
+    markItemComplete(item.id);
     body.innerHTML = `
       <div class="quiz-card" style="text-align:center;">
         <div style="font-family:'Space Grotesk'; font-size:38px; font-weight:700; color:var(--accent); margin-bottom:8px;">${quizState.score}/${item.questions.length}</div>
@@ -1210,6 +1262,7 @@ function renderFlashPanel(){
   const item = items.find(i=>i.id===flashState.itemId);
   const body = document.getElementById('panelBody');
   if(flashState.index >= item.qa.length){
+    markItemComplete(item.id);
     body.innerHTML = `
       <div class="quiz-card" style="text-align:center;">
         <div style="font-size:15px; margin-bottom:16px;">أنهيت مراجعة كل الأسئلة القصيرة 👍</div>
@@ -1359,6 +1412,40 @@ async function sendAskMadar(){
     addAskMadarMessage('bot', 'تعذّر الاتصال بالخدمة. تأكد من اتصالك بالإنترنت وحاول مرة ثانية.');
   }
 }
+
+/* ===== مؤشر التقدّم ===== */
+function getProgressData(){
+  try{ return JSON.parse(localStorage.getItem('madar_progress') || '{}'); }
+  catch(e){ return {}; }
+}
+function markItemComplete(itemId){
+  const data = getProgressData();
+  if(data[itemId]) return;
+  data[itemId] = true;
+  localStorage.setItem('madar_progress', JSON.stringify(data));
+}
+function lessonProgressPercent(grade, lessonId){
+  const data = getProgressData();
+  const lessonItems = items.filter(i=>i.grade===grade && i.lesson===lessonId);
+  if(lessonItems.length === 0) return 0;
+  const done = lessonItems.filter(i=>data[i.id]).length;
+  return Math.round((done / lessonItems.length) * 100);
+}
+
+/* ===== الوضع الليلي/النهاري ===== */
+function toggleTheme(){
+  const isLight = document.body.classList.toggle('light-theme');
+  localStorage.setItem('madar_theme', isLight ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
+}
+function initTheme(){
+  const saved = localStorage.getItem('madar_theme');
+  if(saved === 'light'){
+    document.body.classList.add('light-theme');
+    document.getElementById('themeBtn').textContent = '☀️';
+  }
+}
+initTheme();
 
 function showAddModal(){ document.getElementById('addOverlay').classList.add('open'); }
 function hideAddModal(){ document.getElementById('addOverlay').classList.remove('open'); }
