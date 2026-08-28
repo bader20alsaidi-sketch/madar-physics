@@ -33,6 +33,25 @@
     --danger: #d1435a;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+
+  /* better-accessibility: تركيز واضح للوحة المفاتيح فقط */
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+  :focus:not(:focus-visible){ outline:none; }
+
+  /* better-accessibility: احترام تفضيل تقليل الحركة */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  /* better-typography: أرقام ثابتة العرض للأسعار والنسب المتغيّرة */
+  .promo-price-num, .progress-badge-inner, .quiz-progress, .promo-price{
+    font-variant-numeric: tabular-nums;
+  }
   body{
     background: radial-gradient(ellipse at top, #0f1526 0%, #060810 70%);
     transition: background .2s ease;
@@ -94,13 +113,16 @@
   }
   .crumb{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-secondary); }
   .icon-btn{
-    width:38px; height:38px; border-radius:12px;
+    width:40px; height:40px; border-radius:12px;
     background:var(--surface); border:1px solid var(--border);
     display:flex; align-items:center; justify-content:center;
     color:var(--text-secondary); cursor:pointer;
-    transition: all .15s ease; flex-shrink:0;
+    transition: color .15s ease, border-color .15s ease, transform .1s ease;
+    flex-shrink:0;
+    font-size:15px; font-family:inherit;
   }
   .icon-btn:hover{ color:var(--accent); border-color:var(--accent); }
+  .icon-btn:active{ transform:scale(0.96); }
 
   .content{ flex:1; overflow-y:auto; padding: 4px 20px 20px; }
   .content::-webkit-scrollbar{ width:0; }
@@ -113,7 +135,8 @@
   .page-title{
     font-family:'Space Grotesk', sans-serif;
     font-size:26px; font-weight:700; color:var(--text-primary);
-    margin-bottom:18px;
+    margin-bottom:18px; line-height:1.15;
+    text-wrap:balance;
   }
 
   /* grade grid (home) */
@@ -121,10 +144,10 @@
   .grade-tile{
     background:var(--surface); border:1px solid var(--border); border-radius:20px;
     padding:22px 16px; cursor:pointer; text-align:center;
-    transition: transform .15s ease, border-color .15s ease;
+    transition: transform .1s ease, border-color .15s ease;
     position:relative; overflow:hidden;
   }
-  .grade-tile:active{ transform: scale(0.97); }
+  .grade-tile:active{ transform: scale(0.96); }
   .grade-tile:hover{ border-color: rgba(91,141,239,0.5); }
   .grade-num{
     font-family:'Space Grotesk'; font-size:40px; font-weight:700;
@@ -209,9 +232,9 @@
   .cat-tile{
     background:var(--surface); border:1px solid var(--border); border-radius:18px;
     padding:18px 14px; cursor:pointer; display:flex; flex-direction:column; gap:10px;
-    transition: transform .15s ease, border-color .15s ease;
+    transition: transform .1s ease, border-color .15s ease;
   }
-  .cat-tile:active{ transform: scale(0.97); }
+  .cat-tile:active{ transform: scale(0.96); }
   .cat-tile:hover{ border-color: rgba(91,141,239,0.4); }
   .cat-badge{
     width:38px; height:38px; border-radius:11px;
@@ -225,7 +248,7 @@
   .card{
     background:var(--surface); border:1px solid var(--border); border-radius:16px;
     padding:16px; margin-bottom:12px; display:flex; gap:14px; align-items:flex-start;
-    cursor:pointer; transition: transform .15s ease, border-color .15s ease;
+    cursor:pointer; transition: transform .1s ease, border-color .15s ease;
   }
   .card:active{ transform: scale(0.98); }
   .card:hover{ border-color: rgba(91,141,239,0.4); }
@@ -273,7 +296,8 @@
     font-family:'Tajawal', sans-serif;
   }
   .search-input::placeholder{ color:var(--text-secondary); }
-  .search-input:focus{ outline:none; border-color:var(--accent); }
+  .search-input:focus{ border-color:var(--accent); }
+  .search-input:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
 
   .panel{
     position:absolute; inset:0; background:var(--bg);
@@ -375,7 +399,8 @@
     flex:1; padding:12px 14px; border-radius:22px; background:var(--surface-2);
     border:1px solid var(--border); color:var(--text-primary); font-family:'Tajawal'; font-size:13.5px;
   }
-  .ask-madar-input:focus{ outline:none; border-color:var(--accent); }
+  .ask-madar-input:focus{ border-color:var(--accent); }
+  .ask-madar-input:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
   .ask-madar-send{
     width:42px; height:42px; border-radius:50%; border:none; cursor:pointer;
     background: var(--accent); color:#fff; font-size:16px; flex-shrink:0;
@@ -410,10 +435,10 @@
 <div class="phone">
 
   <div class="topbar">
-    <div class="icon-btn" id="backBtn" style="display:none;" onclick="goBack()">→</div>
-    <div class="brand" id="brandRow" onclick="handleLogoTap()">
+    <button class="icon-btn" id="backBtn" style="display:none;" onclick="goBack()" aria-label="الرجوع للخلف">→</button>
+    <div class="brand" id="brandRow" onclick="handleLogoTap()" role="button" tabindex="0" aria-label="مدار" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); handleLogoTap();}">
       <div class="orbit-mark">
-        <svg viewBox="0 0 30 30" fill="none">
+        <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
           <circle cx="15" cy="15" r="3" fill="#5b8def"/>
           <ellipse cx="15" cy="15" rx="13" ry="6" stroke="#5b8def" stroke-width="1.4" opacity="0.5"/>
           <g class="orbit-dot"><circle cx="28" cy="15" r="2.4" fill="#f2a65a"/></g>
@@ -422,8 +447,8 @@
       <div class="brand-name" id="brandText">مدار</div>
     </div>
     <div style="flex:1"></div>
-    <div class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="تبديل الوضع الليلي/النهاري">🌙</div>
-    <div class="icon-btn" id="addBtn" style="display:none;" onclick="showAddModal()">＋</div>
+    <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" aria-label="تبديل الوضع الليلي أو النهاري" title="تبديل الوضع الليلي/النهاري">🌙</button>
+    <button class="icon-btn" id="addBtn" style="display:none;" onclick="showAddModal()" aria-label="إضافة محتوى">＋</button>
   </div>
 
   <div class="content" id="content"></div>
@@ -437,7 +462,7 @@
   <!-- Panel used for reader / quiz / shortset / simulator -->
   <div class="panel" id="panel">
     <div class="panel-top">
-      <div class="icon-btn" onclick="closePanel()">→</div>
+      <button class="icon-btn" onclick="closePanel()" aria-label="إغلاق">→</button>
       <div class="panel-title" id="panelTitle"></div>
     </div>
     <div class="panel-body" id="panelBody"></div>
@@ -448,7 +473,7 @@
     <div class="ask-madar-panel">
       <div class="ask-madar-header">
         <div class="ask-madar-title"><span class="ask-madar-title-icon">✦</span> اسأل مدار</div>
-        <div class="icon-btn" onclick="closeAskMadar()">✕</div>
+        <button class="icon-btn" onclick="closeAskMadar()" aria-label="إغلاق اسأل مدار">✕</button>
       </div>
       <div class="ask-madar-note">إجابات مبنية على محتوى الموقع (الأسئلة والملخصات) لصفك الدراسي فقط.</div>
       <div class="ask-madar-messages" id="askMadarMessages"></div>
@@ -1019,7 +1044,7 @@ function renderHome(c){
     <div class="grade-grid">
       ${grades.map(g => {
         const target = unitsData[g.id] ? `{screen:'units', grade:'${g.id}'}` : `{screen:'categories', grade:'${g.id}'}`;
-        return `<div class="grade-tile" onclick="push(${target})">
+        return `<div class="grade-tile" onclick="push(${target})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); push(${target});}">
           <div class="grade-num">${g.id}</div>
           <div class="grade-label">الصف ${g.label}</div>
         </div>`;
@@ -1045,7 +1070,7 @@ function renderHome(c){
       <div class="promo-free-vs-paid">
         <div class="promo-fv-row">
           <span class="promo-fv-tag free">مجاناً</span>
-          <span>كل محتوى أول درسين من كل صف — بدون أي قيود</span>
+          <span>محتوى أول درسين من كل صف — بدون أي قيود</span>
         </div>
         <div class="promo-fv-row">
           <span class="promo-fv-tag locked">مقفول 🔒</span>
@@ -1075,7 +1100,7 @@ function renderUnits(c, grade){
     <div class="eyebrow">الصف ${gradeLabel(grade)}</div>
     <div class="page-title">وحدات الكتاب</div>
     ${units.map(u => `
-      <div class="card" onclick="push({screen:'lessons', grade:'${grade}', unit:'${u.id}'})">
+      <div class="card" onclick="push({screen:'lessons', grade:'${grade}', unit:'${u.id}'})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); push({screen:'lessons', grade:'${grade}', unit:'${u.id}'});}">
         <div class="card-icon" style="background:var(--accent)22; color:var(--accent);">${u.lessons.length}</div>
         <div class="card-body">
           <div class="card-title">${u.title}</div>
@@ -1094,7 +1119,7 @@ function renderLessons(c, grade, unitId){
     ${u.lessons.map(l => {
       const pct = lessonProgressPercent(grade, l.id);
       return `
-      <div class="card" onclick="push({screen:'categories', grade:'${grade}', lesson:'${l.id}'})">
+      <div class="card" onclick="push({screen:'categories', grade:'${grade}', lesson:'${l.id}'})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); push({screen:'categories', grade:'${grade}', lesson:'${l.id}'});}">
         <div class="card-icon" style="background:var(--accent)22; color:var(--accent);">${l.id}</div>
         <div class="card-body">
           <div class="card-title">${l.title}</div>
@@ -1119,7 +1144,7 @@ function renderCategories(c, grade, lesson){
       ${catDefs.map(cd => {
         const count = items.filter(i=>i.grade===grade && i.cat===cd.id && (lesson ? i.lesson===lesson : !i.lesson)).length;
         const lessonParam = lesson ? `, lesson:'${lesson}'` : '';
-        return `<div class="cat-tile" onclick="push({screen:'list', grade:'${grade}', cat:'${cd.id}'${lessonParam}})">
+        return `<div class="cat-tile" onclick="push({screen:'list', grade:'${grade}', cat:'${cd.id}'${lessonParam}})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); push({screen:'list', grade:'${grade}', cat:'${cd.id}'${lessonParam}});}">
           <div class="cat-badge" style="background:${cd.color}22; color:${cd.color};">${cd.badge}</div>
           <div class="cat-name">${cd.name}</div>
           <div class="cat-count">${count} عنصر</div>
@@ -1153,7 +1178,7 @@ function itemCardHTML(item){
   else if(item.type==='sim') snippet = item.sim==='soon' ? 'محاكاة قريباً' : 'محاكاة تفاعلية — اضغط للتجربة';
   else if(item.type==='simlink') snippet = 'محاكاة تفاعلية خارجية' + (item.source ? (' (' + item.source + ')') : '') + ' — اضغط للفتح';
   else if(item.type==='image') snippet = 'ملخص مصوّر — اضغط للمعاينة';
-  return `<div class="card" onclick="openItem(${item.id})">
+  return `<div class="card" onclick="openItem(${item.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); openItem(${item.id});}">
     <div class="card-icon" style="background:${cd.color}22; color:${cd.color};">${locked ? '🔒' : cd.badge}</div>
     <div class="card-body">
       <div class="card-title">${item.title}</div>
