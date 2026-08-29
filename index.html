@@ -666,6 +666,39 @@ function tryUnlock(code){
 function isLocked(item){ return !item.free && !unlocked; }
 
 let items = [
+  {id:800, grade:'10', cat:'presentations', type:'pdf', title:'عرض: الشحنة الكهربائية الساكنة والشحن بالاحتكاك', lesson:'1-1', fileUrl:'files/g10/static_electricity.pdf'},
+  {id:801, grade:'10', cat:'presentations', type:'pdf', title:'عرض إضافي: الشحن بالاحتكاك', lesson:'2-1', fileUrl:'files/g10/static_electricity.pdf'},
+  {id:802, grade:'10', cat:'summaries', type:'image', title:'ملخص: أساسيات الكهرباء الساكنة', lesson:'1-1', fileUrl:'files/g10/static_electricity_summary.png'},
+  {id:803, grade:'10', cat:'summaries', type:'image', title:'ملخص إضافي: أساسيات الشحن بالاحتكاك', lesson:'2-1', fileUrl:'files/g10/static_electricity_summary.png'},
+
+  {id:804, grade:'10', cat:'presentations', type:'pdf', title:'عرض: المجال الكهربائي والموصلات والعوازل', lesson:'3-1', fileUrl:'files/g10/field_conductors.pdf'},
+  {id:805, grade:'10', cat:'presentations', type:'pdf', title:'عرض إضافي: الموصلات والعوازل', lesson:'4-1', fileUrl:'files/g10/field_conductors.pdf'},
+  {id:806, grade:'10', cat:'summaries', type:'image', title:'ملخص: المجال الكهربائي والموصلات والعوازل', lesson:'3-1', fileUrl:'files/g10/field_conductors_summary.png'},
+  {id:807, grade:'10', cat:'summaries', type:'image', title:'ملخص إضافي: الموصلات والعوازل', lesson:'4-1', fileUrl:'files/g10/field_conductors_summary.png'},
+
+  {id:810, grade:'10', cat:'short', type:'quiz', title:'أسئلة قصيرة: الشحن بالاحتكاك', lesson:'2-1',
+   questions:[
+     {q:'صح أم خطأ: عند دلك قضيبين مختلفين ببعض، تنتقل البروتونات من أحدهما إلى الآخر.', opts:['صح','خطأ'], correct:1},
+     {q:'قضيب أبونايت دُلك بقطعة قماش فاكتسب شحنة سالبة. ماذا حدث للقماش؟', opts:['اكتسب إلكترونات وأصبح سالباً أيضاً','فقد إلكترونات وأصبح موجباً','لم تتغيّر شحنته'], correct:1},
+     {q:'صح أم خطأ: لحدوث الشحن بالاحتكاك، يجب أن تكون المادتان المُتدلّكتان مختلفتين عن بعضهما.', opts:['صح','خطأ'], correct:0},
+     {q:'بالون مشحون بشحنة سالبة يقترب من حائط متعادل الشحنة، فينجذب إليه. سبب هذا الانجذاب هو:', opts:['الاستقطاب: ابتعاد إلكترونات الحائط عن سطحه الداخلي وتجمّع شحنة موجبة مستحثة هناك','الحائط أصلاً مشحون بشحنة موجبة دائماً','لا يوجد تفسير علمي لهذه الظاهرة'], correct:0},
+   ]},
+
+  {id:811, grade:'10', cat:'short', type:'quiz', title:'أسئلة قصيرة: المجال الكهربائي', lesson:'3-1',
+   questions:[
+     {q:'المجال الكهربائي هو:', opts:['المنطقة المحيطة بجسم مشحون تتأثر فيها الشحنات الأخرى بقوة كهربائية','مادة تسمح بمرور التيار الكهربائي','نوع من أنواع الشحن بالاحتكاك'], correct:0},
+     {q:'صح أم خطأ: البروتونات ثابتة داخل نواة الذرة ولا تتحرك أبداً أثناء عمليات الشحن.', opts:['صح','خطأ'], correct:0},
+     {q:'شحنة الإلكترون الواحد تساوي تقريباً:', opts:['1.6×10⁻¹⁹ C (سالبة)','1.6×10⁻¹⁹ C (موجبة)','صفر'], correct:0},
+     {q:'صح أم خطأ: الشحن يحدث دائماً عبر إضافة أو إزالة إلكترونات فقط، وليس بروتونات.', opts:['صح','خطأ'], correct:0},
+   ]},
+
+  {id:812, grade:'10', cat:'short', type:'quiz', title:'أسئلة قصيرة: الموصّلات الكهربائية والعوازل', lesson:'4-1',
+   questions:[
+     {q:'الموصل الكهربائي هو مادة تحتوي على:', opts:['إلكترونات حرة الحركة تسمح بتدفق التيار بسهولة','بروتونات حرة الحركة فقط','لا تحتوي على أي شحنات إطلاقاً'], correct:0},
+     {q:'أي المواد التالية تُعدّ عازلاً كهربائياً؟', opts:['النحاس','المطاط','الفضة'], correct:1},
+     {q:'صح أم خطأ: يُغلَّف السلك النحاسي بطبقة من المطاط لأن المطاط موصل جيد يزيد كفاءة نقل التيار.', opts:['صح','خطأ'], correct:1},
+     {q:'صح أم خطأ: الكرات المعدنية المستخدمة في تجارب الكهرباء الساكنة تُحمل على قاعدة عازلة لمنع تسرّب الشحنة إلى الأرض.', opts:['صح','خطأ'], correct:0},
+   ]},
   {id:700, grade:'11', cat:'presentations', type:'pdf', title:'عرض إضافي: الدقّة والضبط وعدم اليقين', lesson:'3-1', fileUrl:'files/g11/lesson4-1_presentation.pdf'},
   {id:701, grade:'11', cat:'presentations', type:'pdf', title:'عرض إضافي: النسبة المئوية لعدم اليقين', lesson:'5-1', fileUrl:'files/g11/lesson4-1_presentation.pdf'},
 
