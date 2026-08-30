@@ -33,9 +33,11 @@
     --danger: #d1435a;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+
   /* better-accessibility: تركيز واضح للوحة المفاتيح فقط */
   :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
   :focus:not(:focus-visible){ outline:none; }
+
   /* better-accessibility: احترام تفضيل تقليل الحركة */
   @media (prefers-reduced-motion: reduce){
     *, *::before, *::after{
@@ -45,6 +47,7 @@
       scroll-behavior:auto !important;
     }
   }
+
   /* better-typography: أرقام ثابتة العرض للأسعار والنسب المتغيّرة */
   .promo-price-num, .progress-badge-inner, .quiz-progress, .promo-price{
     font-variant-numeric: tabular-nums;
@@ -60,6 +63,7 @@
   body.light-theme{
     background: radial-gradient(ellipse at top, #eef2f9 0%, #dde4ef 70%);
   }
+
   .phone{
     width:390px; height:800px;
     background: var(--bg);
@@ -71,6 +75,7 @@
     display:flex; flex-direction:column;
     transition: width .2s ease;
   }
+
   /* على الجوال: يملأ الشاشة بالكامل بدل إطار العرض التجريبي */
   @media (max-width: 520px){
     body{ padding:0; }
@@ -79,6 +84,7 @@
       border-radius:0; border:none; box-shadow:none;
     }
   }
+
   /* على الأجهزة اللوحية والحواسيب: نوسّع الحاوية بدل ترك مساحة فارغة على الجوانب */
   @media (min-width: 521px) and (max-width: 900px){
     .phone{ width:560px; height:85vh; max-height:900px; }
@@ -89,6 +95,7 @@
   @media (min-width: 1280px){
     .phone{ width:920px; }
   }
+
   .topbar{
     padding: calc(22px + env(safe-area-inset-top)) 20px 14px;
     display:flex; align-items:center; justify-content:space-between;
@@ -116,8 +123,10 @@
   }
   .icon-btn:hover{ color:var(--accent); border-color:var(--accent); }
   .icon-btn:active{ transform:scale(0.96); }
+
   .content{ flex:1; overflow-y:auto; padding: 4px 20px 20px; }
   .content::-webkit-scrollbar{ width:0; }
+
   .eyebrow{
     font-family:'JetBrains Mono', monospace;
     font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
@@ -129,6 +138,7 @@
     margin-bottom:18px; line-height:1.15;
     text-wrap:balance;
   }
+
   /* grade grid (home) */
   .grade-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
   .grade-tile{
@@ -149,6 +159,7 @@
     width:70px; height:70px; border-radius:50%;
     border:1px solid rgba(91,141,239,0.15);
   }
+
   /* ad banner (tutoring) */
   .promo-card{
     margin-top:22px;
@@ -212,6 +223,7 @@
   }
   .promo-link.primary{ background: var(--accent-warm); color:#1a1206; }
   .promo-link.secondary{ background: rgba(242,166,90,0.12); color:var(--accent-warm); border:1px solid rgba(242,166,90,0.3); }
+
   /* category grid */
   .cat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   @media (min-width: 901px){
@@ -231,6 +243,7 @@
   }
   .cat-name{ font-weight:700; font-size:13.5px; color:var(--text-primary); }
   .cat-count{ font-family:'JetBrains Mono'; font-size:10.5px; color:var(--text-secondary); }
+
   /* content cards */
   .card{
     background:var(--surface); border:1px solid var(--border); border-radius:16px;
@@ -261,9 +274,11 @@
     display:flex; align-items:center; justify-content:center;
     font-family:'JetBrains Mono'; font-size:9.5px; font-weight:500; color:var(--text-secondary);
   }
+
   .empty{ text-align:center; padding: 60px 20px; color:var(--text-secondary); }
   .empty .orbit-mark{ width:56px; height:56px; margin:0 auto 16px; opacity:0.5; }
   .empty p{ font-size:14px; line-height:1.7; }
+
   .fab{
     position:absolute; left:20px; bottom:calc(26px + env(safe-area-inset-bottom));
     width:52px; height:52px; border-radius:50%;
@@ -273,6 +288,7 @@
     box-shadow: 0 10px 30px -6px rgba(91,141,239,0.6);
     border:none; z-index:5;
   }
+
   .search-input{
     width:100%; padding:14px 16px; border-radius:14px;
     background:var(--surface); border:1px solid var(--border);
@@ -282,6 +298,7 @@
   .search-input::placeholder{ color:var(--text-secondary); }
   .search-input:focus{ border-color:var(--accent); }
   .search-input:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+
   .panel{
     position:absolute; inset:0; background:var(--bg);
     display:flex; flex-direction:column; z-index:10;
@@ -297,6 +314,7 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     height:100%; gap:14px; color:var(--text-secondary); text-align:center; padding:30px;
   }
+
   /* subscription lock screen */
   .lock-screen{ padding-top:20px; text-align:center; }
   .lock-icon{
@@ -306,6 +324,7 @@
   }
   .lock-title{ font-family:'Space Grotesk'; font-weight:700; font-size:17px; margin-bottom:10px; }
   .lock-text{ font-size:13px; color:var(--text-secondary); line-height:1.8; margin-bottom:20px; }
+
   .quiz-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px; }
   .quiz-q{ font-weight:700; font-size:15px; margin-bottom:16px; line-height:1.7; }
   .quiz-opt{
@@ -317,6 +336,7 @@
   .quiz-opt.correct{ background: rgba(94,207,156,0.15); border-color:var(--success); color:var(--success); }
   .quiz-opt.wrong{ background: rgba(232,105,127,0.15); border-color:var(--danger); color:var(--danger); }
   .quiz-progress{ font-family:'JetBrains Mono'; font-size:12px; color:var(--text-secondary); margin-bottom:14px; }
+
   /* short answer flashcard */
   .flash{
     background:var(--surface); border:1px solid var(--border); border-radius:18px;
@@ -326,6 +346,7 @@
   .flash-label{ font-family:'JetBrains Mono'; font-size:10.5px; color:var(--accent); letter-spacing:1px; margin-bottom:12px; }
   .flash-text{ font-size:15px; font-weight:600; line-height:1.8; color:var(--text-primary); }
   .flash-hint{ margin-top:16px; font-size:11px; color:var(--text-secondary); }
+
   /* simulator */
   .sim-wrap{ padding:10px 4px; }
   .sim-canvas-box{
@@ -338,6 +359,7 @@
   .sim-row label span{ font-family:'JetBrains Mono'; color:var(--accent); }
   .sim-row input[type=range]{ width:100%; accent-color: var(--accent); }
   .sim-readout{ font-family:'JetBrains Mono'; font-size:12px; color:var(--text-secondary); text-align:center; margin-top:10px; }
+
   /* اسأل مدار */
   .ask-madar-fab{
     position:absolute; left:20px; bottom:26px; z-index:8;
@@ -348,6 +370,7 @@
     box-shadow: 0 12px 30px -8px rgba(139,91,239,0.55);
   }
   .ask-madar-fab-icon{ font-size:15px; }
+
   .ask-madar-overlay{
     position:absolute; inset:0; background:rgba(6,8,16,0.75); backdrop-filter: blur(3px);
     display:none; align-items:flex-end; z-index:25;
@@ -382,6 +405,7 @@
     width:42px; height:42px; border-radius:50%; border:none; cursor:pointer;
     background: var(--accent); color:#fff; font-size:16px; flex-shrink:0;
   }
+
   .modal-overlay{
     position:absolute; inset:0; background:rgba(6,8,16,0.7); backdrop-filter: blur(3px);
     display:none; align-items:flex-end; z-index:20;
@@ -407,7 +431,9 @@
 </style>
 </head>
 <body>
+
 <div class="phone">
+
   <div class="topbar">
     <button class="icon-btn" id="backBtn" style="display:none;" onclick="goBack()" aria-label="الرجوع للخلف">→</button>
     <div class="brand" id="brandRow" onclick="handleLogoTap()" role="button" tabindex="0" aria-label="مدار" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); handleLogoTap();}">
@@ -424,12 +450,15 @@
     <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" aria-label="تبديل الوضع الليلي أو النهاري" title="تبديل الوضع الليلي/النهاري">🌙</button>
     <button class="icon-btn" id="addBtn" style="display:none;" onclick="showAddModal()" aria-label="إضافة محتوى">＋</button>
   </div>
+
   <div class="content" id="content"></div>
+
   <!-- زر اسأل مدار العائم -->
   <button class="ask-madar-fab" id="askMadarFab" style="display:none;" onclick="openAskMadar()">
     <span class="ask-madar-fab-icon">✦</span>
     <span>اسأل مدار</span>
   </button>
+
   <!-- Panel used for reader / quiz / shortset / simulator -->
   <div class="panel" id="panel">
     <div class="panel-top">
@@ -438,6 +467,7 @@
     </div>
     <div class="panel-body" id="panelBody"></div>
   </div>
+
   <!-- نافذة اسأل مدار -->
   <div class="ask-madar-overlay" id="askMadarOverlay">
     <div class="ask-madar-panel">
@@ -453,6 +483,7 @@
       </div>
     </div>
   </div>
+
   <!-- Add content modal -->
   <div class="modal-overlay" id="addOverlay">
     <div class="modal">
@@ -485,7 +516,9 @@
       <div class="note">هذه اللوحة مخفية عن الطلاب ولا تظهر إلا بعد كلمة المرور.</div>
     </div>
   </div>
+
 </div>
+
 <script>
 /* ===== Data ===== */
 const grades = [
@@ -494,6 +527,7 @@ const grades = [
   {id:'11', label:'الحادي عشر'},
   {id:'12', label:'الثاني عشر'},
 ];
+
 const catDefs = [
   {id:'presentations', name:'عروض تقديمية', badge:'PPT', color:'var(--accent)'},
   {id:'explanations',  name:'شروحات',       badge:'شرح', color:'var(--accent-warm)'},
@@ -502,6 +536,7 @@ const catDefs = [
   {id:'exam',          name:'أسئلة اختبارية', badge:'EXM', color:'var(--accent-warm)'},
   {id:'short',         name:'أسئلة قصيرة',   badge:'Q&A', color:'var(--danger)'},
 ];
+
 /* ===== وحدات ودروس الكتاب المدرسي (من الفهرس) =====
    الصفوف غير المدرجة هنا (9، 10، 12) تستخدم الأقسام مباشرة كما كانت،
    إلى أن تُرسل فهارسها لاحقاً بنفس الطريقة. */
@@ -605,47 +640,48 @@ const unitsData = {
       {id:'9-4', title:'مركّبات المتّجهات', page:110},
     ]},
   ],
-'12': [
+  '12': [
     { id:'u1', title:'الوحدة الأولى: مجالات الجاذبية', lessons:[
-      {id:'1-1', title:'تمثيل مجال الجاذبية', page:'21-24'},
-      {id:'2-1', title:'شدة مجال الجاذبية (g)', page:'25-26'},
-      {id:'3-1', title:'الطاقة وجهد الجاذبية', page:'27-30'},
-      {id:'4-1', title:'الدوران تحت تأثير الجاذبية', page:'31-34'},
+      {id:'1-1', title:'تمثيل مجال الجاذبية', page:21},
+      {id:'2-1', title:'شدة مجال الجاذبية (g)', page:25},
+      {id:'3-1', title:'الطاقة وجهد الجاذبية', page:27},
+      {id:'4-1', title:'الدوران تحت تأثير الجاذبية', page:31},
     ]},
     { id:'u2', title:'الوحدة الثانية: المجالات الكهربائية وقانون كولوم', lessons:[
-      {id:'1-2', title:'المجال الكهربائي', page:'44-47'},
-      {id:'2-2', title:'شدة المجال الكهربائي', page:'48-50'},
-      {id:'3-2', title:'القوة المؤثّرة على شحنة كهربائية', page:'51'},
-      {id:'4-2', title:'قانون كولوم والمجالات الشعاعية', page:'52-56'},
-      {id:'5-2', title:'الجهد وطاقة الوضع الكهربائية', page:'57-73'},
+      {id:'1-2', title:'المجال الكهربائي', page:44},
+      {id:'2-2', title:'شدة المجال الكهربائي', page:48},
+      {id:'3-2', title:'القوة المؤثّرة على شحنة كهربائية', page:51},
+      {id:'4-2', title:'قانون كولوم والمجالات الشعاعية', page:52},
+      {id:'5-2', title:'الجهد وطاقة الوضع الكهربائية', page:57},
     ]},
     { id:'u3', title:'الوحدة الثالثة: الدوائر الكهربائية', lessons:[
-      {id:'1-3', title:'التيار الكهربائي', page:'77-84'},
-      {id:'2-3', title:'فرق الجهد الكهربائي', page:'85-86'},
-      {id:'3-3', title:'المقاومة النوعية', page:'87-91'},
-      {id:'4-3', title:'قانونا كيرشوف', page:'92-97'},
-      {id:'5-3', title:'الدوائر العملية', page:'98-109'},
+      {id:'1-3', title:'التيار الكهربائي', page:77},
+      {id:'2-3', title:'فرق الجهد الكهربائي', page:85},
+      {id:'3-3', title:'المقاومة النوعية', page:87},
+      {id:'4-3', title:'قانونا كيرشوف', page:92},
+      {id:'5-3', title:'الدوائر العملية', page:98},
     ]},
     { id:'u4', title:'الوحدة الرابعة: المكثفات', lessons:[
-      {id:'1-4', title:'التعرف على المكثفات', page:'111-115'},
-      {id:'2-4', title:'الطاقة المخزنة في مكثف', page:'116-121'},
-      {id:'3-4', title:'توصيل المكثفات على التوازي', page:'122-127'},
-      {id:'4-4', title:'توصيل المكثفات على التوالي', page:'128-130'},
-      {id:'5-4', title:'شبكات المكثفات', page:'131-133'},
-      {id:'6-4', title:'شحن المكثفات وتفريغها', page:'130-141'},
+      {id:'1-4', title:'التعرف على المكثفات', page:111},
+      {id:'2-4', title:'الطاقة المخزنة في مكثف', page:116},
+      {id:'3-4', title:'توصيل المكثفات على التوازي', page:122},
+      {id:'4-4', title:'توصيل المكثفات على التوالي', page:128},
+      {id:'5-4', title:'شبكات المكثفات', page:131},
+      {id:'6-4', title:'شحن المكثفات وتفريغها', page:130},
     ]},
     { id:'u5', title:'الوحدة الخامسة: المغناطيسية والحث الكهرومغناطيسي', lessons:[
-      {id:'1-5', title:'توليد المجالات المغناطيسية وتمثيلها', page:'142-145'},
-      {id:'2-5', title:'القوة المغناطيسية', page:'146-148'},
-      {id:'3-5', title:'كثافة الفيض المغناطيسي', page:'149-158'},
-      {id:'4-5', title:'المزيد عن القوى على الموصلات الحاملة لتيار كهربائي', page:'159-163'},
-      {id:'5-5', title:'الحث الكهرومغناطيسي', page:'164-179'},
-      {id:'6-5', title:'قانون فاراداي للحث الكهرومغناطيسي', page:'180-185'},
-      {id:'7-5', title:'قانون لنز', page:'186-191'},
-      {id:'8-5', title:'تطبيقات الحث الكهرومغناطيسي', page:'192-196'},
+      {id:'1-5', title:'توليد المجالات المغناطيسية وتمثيلها', page:142},
+      {id:'2-5', title:'القوة المغناطيسية', page:146},
+      {id:'3-5', title:'كثافة الفيض المغناطيسي', page:149},
+      {id:'4-5', title:'المزيد عن القوى على الموصلات الحاملة لتيار كهربائي', page:159},
+      {id:'5-5', title:'الحث الكهرومغناطيسي', page:164},
+      {id:'6-5', title:'قانون فاراداي للحث الكهرومغناطيسي', page:180},
+      {id:'7-5', title:'قانون لنز', page:186},
+      {id:'8-5', title:'تطبيقات الحث الكهرومغناطيسي', page:192},
     ]},
   ],
 };
+
 /* ===== نظام الاشتراك =====
    3 عناصر فقط (المُعلّمة free:true) مفتوحة للجميع كعيّنة مجانية.
    باقي المحتوى يتطلب كود اشتراك. كل كود في القائمة يمثّل طالباً مشتركاً.
@@ -654,8 +690,10 @@ const unitsData = {
    يُستخدم مرة واحدة، ربط كل كود باسم الطالب، إلغاء كود مسرّب) نحتاج خادم
    وقاعدة بيانات فعلية بدل موقع ثابت. */
 const SUBSCRIPTION_CODES = ['PHYS-2026-001', 'PHYS-2026-002', 'PHYS-2026-003', 'PHYS-2026-004', 'PHYS-2026-005', 'PHYS-2026-006', 'PHYS-2026-007', 'PHYS-2026-008', 'PHYS-2026-009', 'PHYS-2026-010', 'PHYS-2026-011', 'PHYS-2026-012', 'PHYS-2026-013', 'PHYS-2026-014', 'PHYS-2026-015', 'PHYS-2026-016', 'PHYS-2026-017', 'PHYS-2026-018', 'PHYS-2026-019', 'PHYS-2026-020'];
+
 let unlocked = false;
 try{ unlocked = localStorage.getItem('madar_unlocked') === '1'; } catch(e){ unlocked = false; }
+
 function tryUnlock(code){
   const ok = SUBSCRIPTION_CODES.includes(code.trim());
   if(ok){
@@ -664,16 +702,48 @@ function tryUnlock(code){
   }
   return ok;
 }
+
 function isLocked(item){ return !item.free && !unlocked; }
+
 let items = [
+  {id:900, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: تمثيل مجال الجاذبية (11 سؤال)', lesson:'1-1', fileUrl:'quizzes/g12/lesson1_objective_1-1.html'},
+  {id:901, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شدة مجال الجاذبية (g) (6 سؤال)', lesson:'2-1', fileUrl:'quizzes/g12/lesson2_objective_2-1.html'},
+  {id:902, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الطاقة وجهد الجاذبية (12 سؤال)', lesson:'3-1', fileUrl:'quizzes/g12/lesson3_objective_3-1.html'},
+  {id:903, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الدوران تحت تأثير الجاذبية (9 سؤال)', lesson:'4-1', fileUrl:'quizzes/g12/lesson4_objective_4-1.html'},
+  {id:904, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: المجال الكهربائي (4 سؤال)', lesson:'1-2', fileUrl:'quizzes/g12/lesson5_objective_1-2.html'},
+  {id:905, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شدة المجال الكهربائي (2 سؤال)', lesson:'2-2', fileUrl:'quizzes/g12/lesson6_objective_2-2.html'},
+  {id:906, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: القوة المؤثّرة على شحنة كهربائية (4 سؤال)', lesson:'3-2', fileUrl:'quizzes/g12/lesson7_objective_3-2.html'},
+  {id:907, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانون كولوم والمجالات الشعاعية (10 سؤال)', lesson:'4-2', fileUrl:'quizzes/g12/lesson8_objective_4-2.html'},
+  {id:908, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الجهد وطاقة الوضع الكهربائية (8 سؤال)', lesson:'5-2', fileUrl:'quizzes/g12/lesson9_objective_5-2.html'},
+  {id:909, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: التيار الكهربائي (9 سؤال)', lesson:'1-3', fileUrl:'quizzes/g12/lesson10_objective_1-3.html'},
+  {id:910, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: فرق الجهد الكهربائي (1 سؤال)', lesson:'2-3', fileUrl:'quizzes/g12/lesson11_objective_2-3.html'},
+  {id:911, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: المقاومة النوعية (5 سؤال)', lesson:'3-3', fileUrl:'quizzes/g12/lesson12_objective_3-3.html'},
+  {id:912, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانونا كيرشوف (5 سؤال)', lesson:'4-3', fileUrl:'quizzes/g12/lesson13_objective_4-3.html'},
+  {id:913, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الدوائر العملية (12 سؤال)', lesson:'5-3', fileUrl:'quizzes/g12/lesson14_objective_5-3.html'},
+  {id:914, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: التعرف على المكثفات (4 سؤال)', lesson:'1-4', fileUrl:'quizzes/g12/lesson15_objective_1-4.html'},
+  {id:915, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الطاقة المخزنة في مكثف (5 سؤال)', lesson:'2-4', fileUrl:'quizzes/g12/lesson16_objective_2-4.html'},
+  {id:916, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: توصيل المكثفات على التوازي (5 سؤال)', lesson:'3-4', fileUrl:'quizzes/g12/lesson17_objective_3-4.html'},
+  {id:917, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: توصيل المكثفات على التوالي (2 سؤال)', lesson:'4-4', fileUrl:'quizzes/g12/lesson18_objective_4-4.html'},
+  {id:918, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شبكات المكثفات (2 سؤال)', lesson:'5-4', fileUrl:'quizzes/g12/lesson19_objective_5-4.html'},
+  {id:919, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شحن المكثفات وتفريغها (6 سؤال)', lesson:'6-4', fileUrl:'quizzes/g12/lesson20_objective_6-4.html'},
+  {id:920, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: توليد المجالات المغناطيسية وتمثيلها (3 سؤال)', lesson:'1-5', fileUrl:'quizzes/g12/lesson21_objective_1-5.html'},
+  {id:921, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: القوة المغناطيسية (2 سؤال)', lesson:'2-5', fileUrl:'quizzes/g12/lesson22_objective_2-5.html'},
+  {id:922, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: كثافة الفيض المغناطيسي (9 سؤال)', lesson:'3-5', fileUrl:'quizzes/g12/lesson23_objective_3-5.html'},
+  {id:923, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: المزيد عن القوى على الموصلات الحاملة لتيار كهربائي (4 سؤال)', lesson:'4-5', fileUrl:'quizzes/g12/lesson24_objective_4-5.html'},
+  {id:924, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الحث الكهرومغناطيسي (15 سؤال)', lesson:'5-5', fileUrl:'quizzes/g12/lesson25_objective_5-5.html'},
+  {id:925, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانون فاراداي للحث الكهرومغناطيسي (5 سؤال)', lesson:'6-5', fileUrl:'quizzes/g12/lesson26_objective_6-5.html'},
+  {id:926, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانون لنز (5 سؤال)', lesson:'7-5', fileUrl:'quizzes/g12/lesson27_objective_7-5.html'},
+  {id:927, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: تطبيقات الحث الكهرومغناطيسي (1 سؤال)', lesson:'8-5', fileUrl:'quizzes/g12/lesson28_objective_8-5.html'},
   {id:800, grade:'10', cat:'presentations', type:'pdf', title:'عرض: الشحنة الكهربائية الساكنة والشحن بالاحتكاك', lesson:'1-1', fileUrl:'files/g10/static_electricity.pdf'},
   {id:801, grade:'10', cat:'presentations', type:'pdf', title:'عرض إضافي: الشحن بالاحتكاك', lesson:'2-1', fileUrl:'files/g10/static_electricity.pdf'},
   {id:802, grade:'10', cat:'summaries', type:'image', title:'ملخص: أساسيات الكهرباء الساكنة', lesson:'1-1', fileUrl:'files/g10/static_electricity_summary.png'},
   {id:803, grade:'10', cat:'summaries', type:'image', title:'ملخص إضافي: أساسيات الشحن بالاحتكاك', lesson:'2-1', fileUrl:'files/g10/static_electricity_summary.png'},
+
   {id:804, grade:'10', cat:'presentations', type:'pdf', title:'عرض: المجال الكهربائي والموصلات والعوازل', lesson:'3-1', fileUrl:'files/g10/field_conductors.pdf'},
   {id:805, grade:'10', cat:'presentations', type:'pdf', title:'عرض إضافي: الموصلات والعوازل', lesson:'4-1', fileUrl:'files/g10/field_conductors.pdf'},
   {id:806, grade:'10', cat:'summaries', type:'image', title:'ملخص: المجال الكهربائي والموصلات والعوازل', lesson:'3-1', fileUrl:'files/g10/field_conductors_summary.png'},
   {id:807, grade:'10', cat:'summaries', type:'image', title:'ملخص إضافي: الموصلات والعوازل', lesson:'4-1', fileUrl:'files/g10/field_conductors_summary.png'},
+
   {id:810, grade:'10', cat:'short', type:'quiz', title:'أسئلة قصيرة: الشحن بالاحتكاك', lesson:'2-1',
    questions:[
      {q:'صح أم خطأ: عند دلك قضيبين مختلفين ببعض، تنتقل البروتونات من أحدهما إلى الآخر.', opts:['صح','خطأ'], correct:1},
@@ -681,6 +751,7 @@ let items = [
      {q:'صح أم خطأ: لحدوث الشحن بالاحتكاك، يجب أن تكون المادتان المُتدلّكتان مختلفتين عن بعضهما.', opts:['صح','خطأ'], correct:0},
      {q:'بالون مشحون بشحنة سالبة يقترب من حائط متعادل الشحنة، فينجذب إليه. سبب هذا الانجذاب هو:', opts:['الاستقطاب: ابتعاد إلكترونات الحائط عن سطحه الداخلي وتجمّع شحنة موجبة مستحثة هناك','الحائط أصلاً مشحون بشحنة موجبة دائماً','لا يوجد تفسير علمي لهذه الظاهرة'], correct:0},
    ]},
+
   {id:811, grade:'10', cat:'short', type:'quiz', title:'أسئلة قصيرة: المجال الكهربائي', lesson:'3-1',
    questions:[
      {q:'المجال الكهربائي هو:', opts:['المنطقة المحيطة بجسم مشحون تتأثر فيها الشحنات الأخرى بقوة كهربائية','مادة تسمح بمرور التيار الكهربائي','نوع من أنواع الشحن بالاحتكاك'], correct:0},
@@ -688,6 +759,7 @@ let items = [
      {q:'شحنة الإلكترون الواحد تساوي تقريباً:', opts:['1.6×10⁻¹⁹ C (سالبة)','1.6×10⁻¹⁹ C (موجبة)','صفر'], correct:0},
      {q:'صح أم خطأ: الشحن يحدث دائماً عبر إضافة أو إزالة إلكترونات فقط، وليس بروتونات.', opts:['صح','خطأ'], correct:0},
    ]},
+
   {id:812, grade:'10', cat:'short', type:'quiz', title:'أسئلة قصيرة: الموصّلات الكهربائية والعوازل', lesson:'4-1',
    questions:[
      {q:'الموصل الكهربائي هو مادة تحتوي على:', opts:['إلكترونات حرة الحركة تسمح بتدفق التيار بسهولة','بروتونات حرة الحركة فقط','لا تحتوي على أي شحنات إطلاقاً'], correct:0},
@@ -697,6 +769,7 @@ let items = [
    ]},
   {id:700, grade:'11', cat:'presentations', type:'pdf', title:'عرض إضافي: الدقّة والضبط وعدم اليقين', lesson:'3-1', fileUrl:'files/g11/lesson4-1_presentation.pdf'},
   {id:701, grade:'11', cat:'presentations', type:'pdf', title:'عرض إضافي: النسبة المئوية لعدم اليقين', lesson:'5-1', fileUrl:'files/g11/lesson4-1_presentation.pdf'},
+
   {id:710, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: الدقّة والضبط والأخطاء وعدم اليقين', lesson:'3-1',
    questions:[
      {q:'صح أم خطأ: الدقة (Precision) تعني مدى تقارب نتائج القياس من بعضها عند تكرار القياس عدة مرات.', opts:['صح','خطأ'], correct:0},
@@ -705,6 +778,7 @@ let items = [
      {q:'ميزان حرارة يحتوي فقاعات هواء يعطي دائماً قياسات أقل من القيمة الحقيقية لدرجة الحرارة. أي نوع خطأ هذا؟', opts:['خطأ عشوائي','خطأ نظامي','لا يُعتبر خطأ قياس'], correct:1},
      {q:'صح أم خطأ: يمكن أن يكون القياس مضبوطاً (Accurate) في المتوسط، لكنه غير دقيق (not Precise) بسبب تشتت القراءات.', opts:['صح','خطأ'], correct:0},
    ]},
+
   {id:711, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: إيجاد قيمة عدم اليقين', lesson:'4-1',
    questions:[
      {q:'صح أم خطأ: عدم اليقين هو مدى الشك في تقدير الفرق بين القراءة المقاسة والقيمة الحقيقية للكمّية.', opts:['صح','خطأ'], correct:0},
@@ -712,36 +786,42 @@ let items = [
      {q:'صح أم خطأ: يجب أن تُكتب كل نتيجة قياس رقمية مع قيمة عدم يقين ووحدة قياس معاً.', opts:['صح','خطأ'], correct:0},
      {q:'عند قياس إزاحة بندول باستخدام مسطرة مدرّجة بالمليمتر، ما القيمة النموذجية لعدم اليقين المطلق لقراءة واحدة؟', opts:['0.5 mm','5 cm','لا يوجد عدم يقين إطلاقاً'], correct:0},
    ]},
+
   {id:712, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: النسبة المئوية لعدم اليقين', lesson:'5-1',
    questions:[
      {q:'النسبة المئوية لعدم اليقين تُحسب من:', opts:['(عدم اليقين المطلق ÷ القيمة المقاسة) × 100','القيمة المقاسة ÷ عدم اليقين المطلق','عدم اليقين المطلق وحده بدون قسمة'], correct:0},
      {q:'صح أم خطأ: زيادة عدد التكرارات (مثل قياس 20 تأرجحاً بدل تأرجح واحد) تقلّل النسبة المئوية لعدم اليقين النهائية.', opts:['صح','خطأ'], correct:0},
      {q:'صح أم خطأ: النسبة المئوية لعدم اليقين تُكتب كعدد فقط بدون علامة % بجانبها.', opts:['صح','خطأ'], correct:1},
    ]},
+
   {id:713, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: جمع قيَم عدم اليقين', lesson:'6-1',
    questions:[
      {q:'عند جمع أو طرح كمّيتين لهما عدم يقين، كيف نتعامل مع عدم اليقين الخاص بكل منهما؟', opts:['نجمع القيمتين المطلقتين لعدم اليقين دائماً','نطرح إحداهما من الأخرى','نتجاهل عدم اليقين تماماً'], correct:0},
      {q:'عند ضرب أو قسمة كمّيتين، ماذا نجمع لإيجاد عدم اليقين الكلي للناتج؟', opts:['القيم المطلقة لعدم اليقين فقط','النسب المئوية لعدم اليقين لكل منهما'], correct:1},
      {q:'صح أم خطأ: حتى عند طرح كمّيتين من بعضهما، عدم اليقين المطلق يُجمع دائماً ولا يُطرح أبداً.', opts:['صح','خطأ'], correct:0},
    ]},
+
   {id:714, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: تسجيل النتائج', lesson:'7-1',
    questions:[
      {q:'صح أم خطأ: يجب أن يتضمّن عنوان كل عمود في جدول النتائج اسم الكمّية ووحدة قياسها معاً.', opts:['صح','خطأ'], correct:0},
      {q:'عند حساب كمّية من قياسات أداة معيّنة، ما العدد المناسب من الأرقام العشرية لكتابة الناتج؟', opts:['بما يتماشى مع دقة القياسات الأصلية المستخدمة في الحساب','أكبر عدد ممكن من الخانات العشرية دائماً','بدون أي كسر عشري إطلاقاً'], correct:0},
      {q:'صح أم خطأ: من الأخطاء الشائعة كتابة نتيجة محسوبة بأرقام معنوية أكثر من دقة القراءات الأصلية التي حُسبت منها.', opts:['صح','خطأ'], correct:0},
    ]},
+
   {id:715, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: فهم الوحدات في النظام الدولي', lesson:'8-1',
    questions:[
      {q:'كم عدد الوحدات الأساسية (Base units) في النظام الدولي للوحدات (SI)؟', opts:['3','7','10'], correct:1},
      {q:'صح أم خطأ: الوحدة المشتقة (Derived unit) تتكوّن من مجموعة من الوحدات الأساسية.', opts:['صح','خطأ'], correct:0},
      {q:'أي مما يلي مثال على وحدة مشتقة (Derived unit)؟', opts:['الكيلوغرام (kg)','المتر (m)','السرعة (m/s)'], correct:2},
    ]},
+
   {id:716, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: المسافة والإزاحة', lesson:'1-2',
    questions:[
      {q:'صح أم خطأ: الإزاحة كمّية متجهة لها مقدار واتجاه، بينما المسافة كمّية عددية لها مقدار فقط.', opts:['صح','خطأ'], correct:0},
      {q:'شخص مشى مسافة كلية 15 كم، لكن إزاحته النهائية عن نقطة البداية كانت 10 كم فقط. هذا يعني:', opts:['مساره لم يكن خطاً مستقيماً باتجاه واحد طوال الطريق','إزاحته أكبر من مسافته المقطوعة دائماً','حصل خطأ في عملية القياس'], correct:0},
      {q:'صح أم خطأ: يمكن أن تتساوى قيمة الإزاحة مع المسافة المقطوعة إذا تحرك الجسم في خط مستقيم باتجاه واحد فقط.', opts:['صح','خطأ'], correct:0},
    ]},
+
   {id:717, grade:'11', cat:'short', type:'quiz', title:'أسئلة قصيرة: السرعة والسرعة المتّجهة', lesson:'2-2',
    questions:[
      {q:'السرعة المتوسطة لجسم تُحسب من:', opts:['المسافة الكلية المقطوعة ÷ الزمن الكلي المستغرق','الإزاحة ÷ الزمن فقط','الزمن ÷ المسافة'], correct:0},
@@ -797,8 +877,10 @@ let items = [
   {id:622, grade:'11', cat:'summaries', type:'image', title:'ملخص: التمثيل البياني إزاحة-زمن ودلالات المنحنى', lesson:'3-2', fileUrl:'files/g11/lessons_3-5-4_2_summary.png'},
   {id:623, grade:'11', cat:'summaries', type:'image', title:'ملخص: قاعدة جمع السرعات المتّجهة', lesson:'5-2', fileUrl:'files/g11/lessons_3-5-4_2_summary.png'},
   {id:624, grade:'11', cat:'summaries', type:'image', title:'ملخص إضافي: طرق جمع الإزاحات وقانون الجيب/التمام', lesson:'4-2', fileUrl:'files/g11/lessons_3-5-4_2_summary.png'},
+
   {id:625, grade:'11', cat:'presentations', type:'pdf', title:'عرض: طرح المتّجهات', lesson:'6-2', fileUrl:'files/g11/lesson6-2_presentation.pdf'},
   {id:626, grade:'11', cat:'summaries', type:'image', title:'دليل إتقان طرح المتجهات', lesson:'6-2', fileUrl:'files/g11/lesson6-2_summary.png'},
+
   {id:627, grade:'11', cat:'presentations', type:'pdf', title:'عرض: معنى التسارع', lesson:'1-3', fileUrl:'files/g11/lessons_1-3-3-4_3_presentation.pdf'},
   {id:628, grade:'11', cat:'presentations', type:'pdf', title:'عرض: استنتاج التسارع من الرسم البياني', lesson:'3-3', fileUrl:'files/g11/lessons_1-3-3-4_3_presentation.pdf'},
   {id:629, grade:'11', cat:'presentations', type:'pdf', title:'عرض: استنتاج الإزاحة من الرسم البياني', lesson:'4-3', fileUrl:'files/g11/lessons_1-3-3-4_3_presentation.pdf'},
@@ -855,6 +937,7 @@ let items = [
   {id:205, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: جمع قيم عدم اليقين', lesson:'6-1', source:'GeoGebra — Adding and Subtracting Uncertainties', url:'https://www.geogebra.org/m/Uy5Zq8ws'},
   {id:206, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: تسجيل النتائج', lesson:'7-1', source:'GeoGebra — Line of Best Fit', url:'https://www.geogebra.org/m/f96zyayz'},
   {id:207, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: فهم الوحدات في النظام الدولي للوحدات (SI)', lesson:'8-1', source:'GeoGebra — Micrometer Screw Gauge', url:'https://www.geogebra.org/m/vwrafxmp'},
+
   /* الوحدة الثانية: السرعة والسرعة المتّجهة */
   {id:208, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المسافة والإزاحة', lesson:'1-2', source:'PhET — Moving Man', url:'https://phet.colorado.edu/en/simulations/moving-man'},
   {id:209, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: السرعة والسرعة المتّجهة', lesson:'2-2', source:'PhET — Moving Man', url:'https://phet.colorado.edu/en/simulations/moving-man'},
@@ -863,6 +946,7 @@ let items = [
   {id:212, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: جمع السرعات المتّجهة', lesson:'5-2', source:'GeoGebra — Relative Velocity: Boat Crossing a River', url:'https://www.geogebra.org/m/jgA3FrVk'},
   {id:213, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: طرح المتّجهات', lesson:'6-2', source:'PhET — Vector Addition', url:'https://phet.colorado.edu/en/simulations/vector-addition'},
   {id:214, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: أمثلة أخرى للكمّيات العددية والكمّيات المتّجهة', lesson:'7-2', source:'GeoGebra — Resolution of Vectors', url:'https://www.geogebra.org/m/j63uznk7'},
+
   /* الوحدة الثالثة: الحركة المتسارعة */
   {id:215, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: معنى التسارع', lesson:'1-3', source:'GeoGebra — Acceleration and Velocity Graphs', url:'https://www.geogebra.org/m/ynwtuvf5'},
   {id:216, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: وحدات قياس التسارع', lesson:'2-3', source:'PhET — Moving Man', url:'https://phet.colorado.edu/en/simulations/moving-man'},
@@ -876,6 +960,7 @@ let items = [
   {id:224, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: التسارع بسبب الجاذبية الأرضية', lesson:'10-3', source:'GeoGebra — Graphs of a Ball Thrown Vertically', url:'https://www.geogebra.org/m/qpxcs6vb'},
   {id:225, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: تحديد تسارع السقوط الحرّ (g)', lesson:'11-3', source:'GeoGebra — Graphs of a Ball Thrown Vertically', url:'https://www.geogebra.org/m/qpxcs6vb'},
   {id:226, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: الحركة في بُعدَين: المقذوفات وفهمها', lesson:'12-3', source:'PhET — Projectile Motion', url:'https://phet.colorado.edu/en/simulations/projectile-motion'},
+
   /* الوحدة الرابعة: القوى */
   {id:227, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: قانون نيوتن الثاني للحركة', lesson:'1-4', source:'PhET — Forces and Motion: Basics', url:'https://phet.colorado.edu/en/simulations/forces-and-motion-basics'},
   {id:228, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: التعرّف على أنواع القوى', lesson:'2-4', source:'GeoGebra — Friction and Free Body Diagrams', url:'https://www.geogebra.org/m/kadDJnnw'},
@@ -886,6 +971,7 @@ let items = [
   {id:233, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: الوحدات الأساسية والنيوتن', lesson:'7-4', source:'PhET — Forces and Motion: Basics', url:'https://phet.colorado.edu/en/simulations/forces-and-motion-basics'},
   {id:234, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: جمع القوى', lesson:'8-4', source:'PhET — Vector Addition', url:'https://phet.colorado.edu/en/simulations/vector-addition'},
   {id:235, grade:'11', cat:'simulator', type:'simlink', title:'محاكاة الدرس: مركّبات المتّجهات', lesson:'9-4', source:'PhET — Vector Addition: Equations', url:'https://phet.colorado.edu/en/simulations/vector-addition-equations'},
+
   {id:100, grade:'11', cat:'exam', type:'quizpage', title:'اختبار الدرس: استخدام الأدوات واتّباع التعليمات', lesson:'1-1', fileUrl:'quizzes/lesson1_objective_1-1.html', free:true},
   {id:101, grade:'11', cat:'exam', type:'quizpage', title:'اختبار الدرس: جمع الأدلة', lesson:'2-1', fileUrl:'quizzes/lesson2_objective_1-2.html', free:true},
   {id:102, grade:'11', cat:'exam', type:'quizpage', title:'اختبار الدرس: الدقّة والضبط والأخطاء وعدم اليقين', lesson:'3-1', fileUrl:'quizzes/lesson3_objective_1-3.html'},
@@ -1016,35 +1102,8 @@ let items = [
      {q:'كم عدد قوانين نيوتن للحركة؟', a:'ثلاثة قوانين'},
      {q:'ما اسم المبدأ الذي يصفه قانون نيوتن الأول؟', a:'مبدأ القصور الذاتي'},
    ]},
-  {id:1200, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: تمثيل مجال الجاذبية', lesson:'1-1', fileUrl:'quizzes/g12/lesson1_objective_1-1.html'},
-  {id:1201, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شدة مجال الجاذبية (g)', lesson:'2-1', fileUrl:'quizzes/g12/lesson2_objective_2-1.html'},
-  {id:1202, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الطاقة وجهد الجاذبية', lesson:'3-1', fileUrl:'quizzes/g12/lesson3_objective_3-1.html'},
-  {id:1203, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الدوران تحت تأثير الجاذبية', lesson:'4-1', fileUrl:'quizzes/g12/lesson4_objective_4-1.html'},
-  {id:1204, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: المجال الكهربائي', lesson:'1-2', fileUrl:'quizzes/g12/lesson5_objective_1-2.html'},
-  {id:1205, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شدة المجال الكهربائي', lesson:'2-2', fileUrl:'quizzes/g12/lesson6_objective_2-2.html'},
-  {id:1206, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: القوة المؤثّرة على شحنة كهربائية', lesson:'3-2', fileUrl:'quizzes/g12/lesson7_objective_3-2.html'},
-  {id:1207, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانون كولوم والمجالات الشعاعية', lesson:'4-2', fileUrl:'quizzes/g12/lesson8_objective_4-2.html'},
-  {id:1208, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الجهد وطاقة الوضع الكهربائية', lesson:'5-2', fileUrl:'quizzes/g12/lesson9_objective_5-2.html'},
-  {id:1209, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: التيار الكهربائي', lesson:'1-3', fileUrl:'quizzes/g12/lesson10_objective_1-3.html'},
-  {id:1210, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: فرق الجهد الكهربائي', lesson:'2-3', fileUrl:'quizzes/g12/lesson11_objective_2-3.html'},
-  {id:1211, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: المقاومة النوعية', lesson:'3-3', fileUrl:'quizzes/g12/lesson12_objective_3-3.html'},
-  {id:1212, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانونا كيرشوف', lesson:'4-3', fileUrl:'quizzes/g12/lesson13_objective_4-3.html'},
-  {id:1213, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الدوائر العملية', lesson:'5-3', fileUrl:'quizzes/g12/lesson14_objective_5-3.html'},
-  {id:1214, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: التعرف على المكثفات', lesson:'1-4', fileUrl:'quizzes/g12/lesson15_objective_1-4.html'},
-  {id:1215, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الطاقة المخزنة في مكثف', lesson:'2-4', fileUrl:'quizzes/g12/lesson16_objective_2-4.html'},
-  {id:1216, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: توصيل المكثفات على التوازي', lesson:'3-4', fileUrl:'quizzes/g12/lesson17_objective_3-4.html'},
-  {id:1217, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: توصيل المكثفات على التوالي', lesson:'4-4', fileUrl:'quizzes/g12/lesson18_objective_4-4.html'},
-  {id:1218, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شبكات المكثفات', lesson:'5-4', fileUrl:'quizzes/g12/lesson19_objective_5-4.html'},
-  {id:1219, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: شحن المكثفات وتفريغها', lesson:'6-4', fileUrl:'quizzes/g12/lesson20_objective_6-4.html'},
-  {id:1220, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: توليد المجالات المغناطيسية وتمثيلها', lesson:'1-5', fileUrl:'quizzes/g12/lesson21_objective_1-5.html'},
-  {id:1221, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: القوة المغناطيسية', lesson:'2-5', fileUrl:'quizzes/g12/lesson22_objective_2-5.html'},
-  {id:1222, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: كثافة الفيض المغناطيسي', lesson:'3-5', fileUrl:'quizzes/g12/lesson23_objective_3-5.html'},
-  {id:1223, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: المزيد عن القوى على الموصلات الحاملة لتيار كهربائي', lesson:'4-5', fileUrl:'quizzes/g12/lesson24_objective_4-5.html'},
-  {id:1224, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: الحث الكهرومغناطيسي', lesson:'5-5', fileUrl:'quizzes/g12/lesson25_objective_5-5.html'},
-  {id:1225, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانون فاراداي للحث الكهرومغناطيسي', lesson:'6-5', fileUrl:'quizzes/g12/lesson26_objective_6-5.html'},
-  {id:1226, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: قانون لنز', lesson:'7-5', fileUrl:'quizzes/g12/lesson27_objective_7-5.html'},
-  {id:1227, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: تطبيقات الحث الكهرومغناطيسي', lesson:'8-5', fileUrl:'quizzes/g12/lesson28_objective_8-5.html'},
 ];
+
 /* ===== رموز الاشتراك =====
    كل طالب يحصل على رمز خاص به من الأستاذ. أضف/احذف رموزاً هنا كما تحتاج.
    ملاحظة أمانية مهمة: بما أن هذا موقع ثابت بدون خادم، هذه الرموز مكتوبة
@@ -1053,10 +1112,12 @@ let items = [
    هذا حاجز كافٍ عملياً لصف دراسي عادي، لكنه ليس حماية صارمة حقيقية —
    تلك تتطلب خادماً وقاعدة بيانات فعلية. */
 const subscriptionCodes = ['PHY-1001','PHY-1002','PHY-1003','PHY-1004','PHY-1005'];
+
 /* ===== Navigation state ===== */
 let stack = [{screen:'home'}];
 let quizState = {itemId:null, index:0, score:0, answered:false};
 let flashState = {itemId:null, index:0, revealed:false};
+
 /* ===== وضع الإدارة (مخفي عن الطلاب) =====
    اضغط شعار "مدار" 5 مرات خلال ثانيتين لإظهار زر الإضافة.
    ملاحظة أمانية: هذا يمنع الطلاب العاديين من الوصول العرضي لإضافة محتوى،
@@ -1081,9 +1142,11 @@ function handleLogoTap(){
     }
   }
 }
+
 function cur(){ return stack[stack.length-1]; }
 function push(s){ stack.push(s); render(); }
 function goBack(){ if(stack.length>1){ stack.pop(); render(); } }
+
 function updateTopbar(){
   const backBtn = document.getElementById('backBtn');
   const brandText = document.getElementById('brandText');
@@ -1101,6 +1164,7 @@ function updateTopbar(){
     else { brandText.textContent = 'مدار'; }
   }
 }
+
 function gradeLabel(id){ return grades.find(g=>g.id===id).label; }
 function catName(id){ return catDefs.find(c=>c.id===id).name; }
 function catDef(id){ return catDefs.find(c=>c.id===id); }
@@ -1112,6 +1176,7 @@ function lessonTitle(grade, lessonId){
   }
   return '';
 }
+
 function lessonPage(grade, lessonId){
   for(const u of (unitsData[grade]||[])){
     const l = u.lessons.find(l=>l.id===lessonId);
@@ -1119,6 +1184,7 @@ function lessonPage(grade, lessonId){
   }
   return null;
 }
+
 function render(){
   updateTopbar();
   const c = document.getElementById('content');
@@ -1131,6 +1197,7 @@ function render(){
   if(s.screen==='categories') return renderCategories(c, s.grade, s.lesson);
   if(s.screen==='list') return renderList(c, s.grade, s.cat, s.lesson);
 }
+
 /* ===== HOME: grade selection ===== */
 function renderHome(c){
   c.innerHTML = `
@@ -1159,7 +1226,9 @@ function renderHome(c){
           <div class="promo-price-period">للفصل الدراسي أونلاين</div>
         </div>
       </div>
+
       <div class="promo-free-note">🎁 أول درسين من كل صف مفتوحان بالكامل مجاناً (اختبارات، محاكيات، ملخصات) — جرّبهما قبل الاشتراك</div>
+
       <div class="promo-free-vs-paid">
         <div class="promo-fv-row">
           <span class="promo-fv-tag free">مجاناً</span>
@@ -1170,11 +1239,14 @@ function renderHome(c){
           <span>بنك الأسئلة الاختبارية ونماذج الحل لباقي دروس الفصل</span>
         </div>
       </div>
+
       <div class="promo-perks">
         <div class="promo-perk"><span class="promo-perk-check">✓</span> فتح كل أسئلة الاختبارات النهائية بنماذج الحل الرسمية</div>
         <div class="promo-perk"><span class="promo-perk-check">✓</span> حصة تقوية أسبوعية طوال الفصل الدراسي</div>
       </div>
+
       <div class="promo-urgency">⏳ مقاعد حصة التقوية الأسبوعية محدودة لكل مجموعة</div>
+
       <div class="promo-links">
         <a href="https://wa.me/96893669399" target="_blank" rel="noopener" class="promo-link primary">💬 اشترك الآن عبر واتساب</a>
         <a href="https://instagram.com/mr.baderalsaidi" target="_blank" rel="noopener" class="promo-link secondary">📷 mr.baderalsaidi@</a>
@@ -1182,6 +1254,7 @@ function renderHome(c){
     </div>
   `;
 }
+
 /* ===== UNITS for a grade (from textbook index) ===== */
 function renderUnits(c, grade){
   const units = unitsData[grade] || [];
@@ -1198,6 +1271,7 @@ function renderUnits(c, grade){
       </div>`).join('')}
   `;
 }
+
 /* ===== LESSONS within a unit ===== */
 function renderLessons(c, grade, unitId){
   const u = unitDef(grade, unitId);
@@ -1220,6 +1294,7 @@ function renderLessons(c, grade, unitId){
     }).join('')}
   `;
 }
+
 /* ===== CATEGORIES for a grade (+ optional lesson) ===== */
 function renderCategories(c, grade, lesson){
   const pageNum = lesson ? lessonPage(grade, lesson) : null;
@@ -1240,6 +1315,7 @@ function renderCategories(c, grade, lesson){
     </div>
   `;
 }
+
 /* ===== LIST of items for grade + category (+ optional lesson) ===== */
 function renderList(c, grade, cat, lesson){
   const filtered = items.filter(i=>i.grade===grade && i.cat===cat && (lesson ? i.lesson===lesson : !i.lesson));
@@ -1250,6 +1326,7 @@ function renderList(c, grade, cat, lesson){
     ${filtered.length ? filtered.map(itemCardHTML).join('') : `<div class="empty"><p>لا يوجد محتوى في هذا القسم بعد.<br>اضغط على زر (+) لإضافة أول عنصر.</p></div>`}
   `;
 }
+
 function itemCardHTML(item){
   const cd = catDef(item.cat);
   const locked = isLocked(item);
@@ -1272,19 +1349,23 @@ function itemCardHTML(item){
     </div>
   </div>`;
 }
+
 /* ===== Open an item into the sliding panel ===== */
 function openItem(id){
   const item = items.find(i=>i.id===id);
   document.getElementById('panelTitle').textContent = item.title;
   const body = document.getElementById('panelBody');
+
   if(isLocked(item)){
     renderSubscribeScreen(item);
     document.getElementById('panel').classList.add('open');
     return;
   }
+
   if(item.type!=='quiz' && item.type!=='shortset'){
     markItemComplete(item.id);
   }
+
   if(item.type==='pdf'){
     if(item.fileUrl){
       body.innerHTML = `
@@ -1340,6 +1421,7 @@ function openItem(id){
   document.getElementById('panel').classList.add('open');
 }
 function closePanel(){ document.getElementById('panel').classList.remove('open'); }
+
 function renderSubscribeScreen(item){
   const body = document.getElementById('panelBody');
   body.innerHTML = `
@@ -1354,6 +1436,7 @@ function renderSubscribeScreen(item){
     </div>
   `;
 }
+
 function submitCode(id){
   const input = document.getElementById('codeInput');
   const err = document.getElementById('codeError');
@@ -1363,6 +1446,7 @@ function submitCode(id){
     err.style.display = 'block';
   }
 }
+
 function downloadText(id){
   const item = items.find(i=>i.id===id);
   const blob = new Blob([item.title + '\n\n' + item.body], {type:'text/plain;charset=utf-8'});
@@ -1372,6 +1456,7 @@ function downloadText(id){
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
 /* ===== Quiz ===== */
 function renderQuizPanel(){
   const item = items.find(i=>i.id===quizState.itemId);
@@ -1405,6 +1490,7 @@ function answerQuiz(i){
   else quizState.score++;
   setTimeout(()=>{ quizState.index++; quizState.answered=false; renderQuizPanel(); }, 900);
 }
+
 /* ===== Short-answer flashcards ===== */
 function renderFlashPanel(){
   const item = items.find(i=>i.id===flashState.itemId);
@@ -1433,6 +1519,7 @@ function toggleFlash(){
   else { flashState.revealed = false; flashState.index++; }
   renderFlashPanel();
 }
+
 /* ===== Simulator ===== */
 let simAnim = null;
 function renderSimPanel(item){
@@ -1470,6 +1557,7 @@ function renderSimPanel(item){
   let t = 0;
   const g = 9.8;
   const pivotX = 150, pivotY = 30, pxPerM = 80;
+
   function period(){ return 2*Math.PI*Math.sqrt(L/g); }
   function updateReadout(){
     document.getElementById('lenVal').textContent = L.toFixed(1)+' م';
@@ -1479,6 +1567,7 @@ function renderSimPanel(item){
   lenSlider.oninput = ()=>{ L = parseFloat(lenSlider.value); updateReadout(); };
   angSlider.oninput = ()=>{ theta0 = parseFloat(angSlider.value)*Math.PI/180; updateReadout(); };
   updateReadout();
+
   if(simAnim) cancelAnimationFrame(simAnim);
   function frame(){
     t += 1/60;
@@ -1486,19 +1575,25 @@ function renderSimPanel(item){
     const theta = theta0 * Math.cos(omega * t);
     const bobX = pivotX + Math.sin(theta) * L * pxPerM;
     const bobY = pivotY + Math.cos(theta) * L * pxPerM;
+
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.strokeStyle = '#232b40'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(0,pivotY); ctx.lineTo(canvas.width,pivotY); ctx.stroke();
+
     ctx.strokeStyle = '#5b8def'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(pivotX, pivotY); ctx.lineTo(bobX, bobY); ctx.stroke();
+
     ctx.fillStyle = '#5b8def';
     ctx.beginPath(); ctx.arc(pivotX, pivotY, 4, 0, 7); ctx.fill();
+
     ctx.fillStyle = '#f2a65a';
     ctx.beginPath(); ctx.arc(bobX, bobY, 12, 0, 7); ctx.fill();
+
     simAnim = requestAnimationFrame(frame);
   }
   frame();
 }
+
 /* ===== Add content modal ===== */
 /* ===== اسأل مدار ===== */
 let askMadarHistory = [];
@@ -1511,6 +1606,7 @@ function openAskMadar(){
   }
 }
 function closeAskMadar(){ document.getElementById('askMadarOverlay').classList.remove('open'); }
+
 function addAskMadarMessage(role, text, isLoading){
   const box = document.getElementById('askMadarMessages');
   const div = document.createElement('div');
@@ -1520,15 +1616,18 @@ function addAskMadarMessage(role, text, isLoading){
   box.scrollTop = box.scrollHeight;
   return div;
 }
+
 async function sendAskMadar(){
   const input = document.getElementById('askMadarInput');
   const question = input.value.trim();
   if(!question) return;
   const s = cur();
   const grade = s.grade || '10';
+
   addAskMadarMessage('user', question);
   input.value = '';
   const loadingMsg = addAskMadarMessage('bot', 'يفكّر...', true);
+
   try{
     const res = await fetch('/api/ask', {
       method:'POST',
@@ -1547,6 +1646,7 @@ async function sendAskMadar(){
     addAskMadarMessage('bot', 'تعذّر الاتصال بالخدمة. تأكد من اتصالك بالإنترنت وحاول مرة ثانية.');
   }
 }
+
 /* ===== مؤشر التقدّم ===== */
 function getProgressData(){
   try{ return JSON.parse(localStorage.getItem('madar_progress') || '{}'); }
@@ -1565,6 +1665,7 @@ function lessonProgressPercent(grade, lessonId){
   const done = lessonItems.filter(i=>data[i.id]).length;
   return Math.round((done / lessonItems.length) * 100);
 }
+
 /* ===== الوضع الليلي/النهاري ===== */
 function toggleTheme(){
   const isLight = document.body.classList.toggle('light-theme');
@@ -1579,8 +1680,10 @@ function initTheme(){
   }
 }
 initTheme();
+
 function showAddModal(){ document.getElementById('addOverlay').classList.add('open'); }
 function hideAddModal(){ document.getElementById('addOverlay').classList.remove('open'); }
+
 function updateLessonSelect(){
   const grade = document.getElementById('newGrade').value;
   const sel = document.getElementById('newLesson');
@@ -1589,6 +1692,7 @@ function updateLessonSelect(){
   sel.innerHTML = units.map(u => u.lessons.map(l => `<option value="${l.id}">${u.title.split(':')[0]} — ${l.title}</option>`).join('')).join('');
   sel.style.display = 'block';
 }
+
 function addItem(){
   const grade = document.getElementById('newGrade').value;
   const cat = document.getElementById('newCat').value;
@@ -1603,6 +1707,7 @@ function addItem(){
   stack = [{screen:'home'}, {screen:'categories', grade, lesson}, {screen:'list', grade, cat, lesson}];
   render();
 }
+
 render();
 </script>
 </body>
