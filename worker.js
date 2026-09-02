@@ -998,21 +998,33 @@ ${kb}
 
 مهم جداً: أجب دائماً إجابة كاملة ومباشرة على سؤال الطالب بالاعتماد على المحتوى أعلاه. لا تكتفِ بعبارة ترحيب أو تشجيع فقط — يجب أن تتضمن إجابتك دائماً الشرح أو الحل الفعلي المطلوب.`;
 
-    const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-goog-api-key': env.GEMINI_API_KEY
-        },
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: systemInstructionText }] },
-          contents: [{ role: 'user', parts: [{ text: question.trim() }] }],
-          generationConfig: { temperature: 0.3, maxOutputTokens: 1200 }
-        })
-      }
-    );
+    async function callGemini(){
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-goog-api-key': env.GEMINI_API_KEY
+          },
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: systemInstructionText }] },
+            contents: [{ role: 'user', parts: [{ text: question.trim() }] }],
+            generationConfig: { temperature: 0.3, maxOutputTokens: 1200 }
+          })
+        }
+      );
+      return res;
+    }
+
+    let geminiRes = await callGemini();
+    // إعادة محاولة تلقائية مرتين عند ازدحام خوادم Gemini المؤقت (503) قبل عرض خطأ للطالب
+    let retries = 0;
+    while (geminiRes.status === 503 && retries < 2) {
+      await new Promise(r => setTimeout(r, 800 * (retries + 1)));
+      geminiRes = await callGemini();
+      retries++;
+    }
 
     if (!geminiRes.ok) {
       const errText = await geminiRes.text();
