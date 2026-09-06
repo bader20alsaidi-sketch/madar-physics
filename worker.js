@@ -968,7 +968,7 @@ const SYSTEM_INSTRUCTIONS = `أنت "اسأل مدار"، مساعد تعليم�
 
 async function handleAsk(request, env) {
   try {
-    const { question, grade } = await request.json();
+    const { question, grade, history } = await request.json();
 
     if (!question || typeof question !== 'string' || question.trim().length === 0) {
       return new Response(JSON.stringify({ error: 'الرجاء كتابة سؤال.' }), {
@@ -986,13 +986,24 @@ async function handleAsk(request, env) {
 
     const kb = grade === '11' ? KB_11 : KB_10;
 
-    const prompt = `${SYSTEM_INSTRUCTIONS}
+    const systemInstructionText = `${SYSTEM_INSTRUCTIONS}
 
 === محتوى الصف (${grade === '11' ? 'الحادي عشر' : 'العاشر'}) المتاح للاستناد عليه ===
 ${kb}
 === نهاية المحتوى ===
 
-سؤال الطالب: ${question.trim()}`;
+مهم: هذه محادثة مستمرة قد تحتوي أسئلة متابعة تشير إلى ما قيل سابقاً (مثل "اشرح أكثر" أو "أعطني مثال")؛ استخدم سياق الرسائل السابقة في المحادثة لفهم مقصود الطالب من سؤاله الحالي.`;
+
+    // بناء تاريخ المحادثة (حتى آخر 12 رسالة) حتى تفهم Gemini أسئلة المتابعة بسياقها الصحيح
+    const contents = [];
+    if (Array.isArray(history)) {
+      for (const turn of history.slice(-12)) {
+        if (turn && (turn.role === 'user' || turn.role === 'model') && typeof turn.text === 'string' && turn.text.trim()) {
+          contents.push({ role: turn.role, parts: [{ text: turn.text.trim() }] });
+        }
+      }
+    }
+    contents.push({ role: 'user', parts: [{ text: question.trim() }] });
 
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent`,
@@ -1003,7 +1014,8 @@ ${kb}
           'x-goog-api-key': env.GEMINI_API_KEY
         },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
+          systemInstruction: { parts: [{ text: systemInstructionText }] },
+          contents,
           generationConfig: { temperature: 0.3, maxOutputTokens: 2200 }
         })
       }

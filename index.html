@@ -1885,16 +1885,21 @@ async function sendAskMadar(){
   input.value = '';
   const loadingMsg = addAskMadarMessage('bot', 'يفكّر...', true);
 
+  // نرسل تاريخ المحادثة السابق (قبل إضافة هذا السؤال) حتى يفهم النموذج أسئلة المتابعة بسياقها الصحيح
+  const historyToSend = askMadarHistory.slice(-12);
+  askMadarHistory.push({role:'user', text: question});
+
   try{
     const res = await fetch('/api/ask', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ question, grade })
+      body: JSON.stringify({ question, grade, history: historyToSend })
     });
     const data = await res.json();
     loadingMsg.remove();
     if(data.answer){
       addAskMadarMessage('bot', data.answer);
+      askMadarHistory.push({role:'model', text: data.answer});
     } else {
       addAskMadarMessage('bot', data.error || 'صار خطأ، حاول مرة ثانية.');
     }
