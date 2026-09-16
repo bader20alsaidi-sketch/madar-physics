@@ -1051,6 +1051,99 @@ ${kb}
   }
 }
 
+// ===== نظام أكواد الاشتراك: كل كود مسموح له بجهازين فقط =====
+// (يُخزَّن الاستخدام في Cloudflare KV المربوط باسم CODE_USAGE — راجع wrangler.jsonc)
+const SUBSCRIPTION_CODES = new Set([
+  // أكواد عامة (قديمة)
+  'PHYS-2026-001', 'PHYS-2026-002', 'PHYS-2026-003', 'PHYS-2026-004', 'PHYS-2026-005',
+  'PHYS-2026-006', 'PHYS-2026-007', 'PHYS-2026-008', 'PHYS-2026-009', 'PHYS-2026-010',
+  'PHYS-2026-011', 'PHYS-2026-012', 'PHYS-2026-013', 'PHYS-2026-014', 'PHYS-2026-015',
+  'PHYS-2026-016', 'PHYS-2026-017', 'PHYS-2026-018', 'PHYS-2026-019', 'PHYS-2026-020',
+  // أكواد المشتركين (كل كود = رقم المشترك)
+  '9793',  // Ibrahim
+  '9553',  // Mohammed
+  '7744',  // Saeed
+  '7181',  // Faisal
+  '7686',  // Naser
+  '9239',  // Mjd
+  '9282',  // Almzini
+  '9460',  // Abdullah
+  '91199818'
+]);
+const MAX_DEVICES_PER_CODE = 2;
+
+async function handleRedeem(request, env) {
+  try {
+    const { code, deviceId } = await request.json();
+
+    if (!code || typeof code !== 'string' || !code.trim()) {
+      return new Response(JSON.stringify({ ok: false, error: 'الرجاء إدخال الكود.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+    }
+    const cleanCode = code.trim();
+
+    if (!SUBSCRIPTION_CODES.has(cleanCode)) {
+      return new Response(JSON.stringify({ ok: false, error: 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.' }), {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+    }
+
+    if (!deviceId || typeof deviceId !== 'string' || !deviceId.trim()) {
+      return new Response(JSON.stringify({ ok: false, error: 'تعذّر التحقق من الجهاز، أعد المحاولة.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+    }
+    const cleanDevice = deviceId.trim().slice(0, 100);
+
+    if (!env.CODE_USAGE) {
+      // قاعدة بيانات الأجهزة (KV) غير مربوطة بالموقع بعد — نسمح بالفتح مؤقتاً بدون حد أجهزة
+      // (راجع تعليمات ربط CODE_USAGE في wrangler.jsonc لتفعيل حد الجهازين)
+      return new Response(JSON.stringify({ ok: true, warning: 'kv-not-bound' }), {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+    }
+
+    const kvKey = 'code:' + cleanCode;
+    let devices = [];
+    const existing = await env.CODE_USAGE.get(kvKey);
+    if (existing) {
+      try {
+        const parsed = JSON.parse(existing);
+        if (Array.isArray(parsed)) devices = parsed;
+      } catch (e) { devices = []; }
+    }
+
+    if (devices.indexOf(cleanDevice) !== -1) {
+      // نفس الجهاز يتحقق مجدداً (مثلاً بعد مسح بيانات المتصفح) — نسمح دائماً بدون احتساب جهاز جديد
+      return new Response(JSON.stringify({ ok: true }), {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+    }
+
+    if (devices.length >= MAX_DEVICES_PER_CODE) {
+      return new Response(JSON.stringify({ ok: false, error: 'هذا الكود مفعّل على الحد الأقصى من الأجهزة (جهازان). تواصل مع الأستاذ بدر إذا احتجت جهازاً إضافياً.' }), {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' }
+      });
+    }
+
+    devices.push(cleanDevice);
+    await env.CODE_USAGE.put(kvKey, JSON.stringify(devices));
+
+    return new Response(JSON.stringify({ ok: true }), {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    });
+
+  } catch (err) {
+    return new Response(JSON.stringify({ ok: false, error: 'حدث خطأ غير متوقع.', detail: String(err).slice(0,200) }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json; charset=utf-8' }
+    });
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -1062,6 +1155,10 @@ export default {
           headers: { 'Content-Type': 'application/json; charset=utf-8' }
         });
       }
+    }
+
+    if (url.pathname === '/api/redeem' && request.method === 'POST') {
+      return handleRedeem(request, env);
     }
 
     // كل الطلبات الأخرى: قدّم الملفات الثابتة كالمعتاد (index.html، الصور، الاختبارات...)

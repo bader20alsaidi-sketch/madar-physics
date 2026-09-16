@@ -392,19 +392,46 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
 </div>
 <script>
 (function(){
-  var codes = ['PHYS-2026-001','PHYS-2026-002','PHYS-2026-003','PHYS-2026-004','PHYS-2026-005','PHYS-2026-006','PHYS-2026-007','PHYS-2026-008','PHYS-2026-009','PHYS-2026-010','PHYS-2026-011','PHYS-2026-012','PHYS-2026-013','PHYS-2026-014','PHYS-2026-015','PHYS-2026-016','PHYS-2026-017','PHYS-2026-018','PHYS-2026-019','PHYS-2026-020'];
+  function getDeviceId(){
+    var id = null;
+    try{ id = localStorage.getItem('madar_device_id'); }catch(e){}
+    if(!id){
+      id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('dev-' + Date.now() + '-' + Math.random().toString(36).slice(2));
+      try{ localStorage.setItem('madar_device_id', id); }catch(e){}
+    }
+    return id;
+  }
   var btn = document.getElementById('madarCodeBtn');
   var input = document.getElementById('madarCodeInput');
   var err = document.getElementById('madarCodeErr');
   if(!btn) return;
   function attempt(){
     var v = (input.value || '').trim();
-    if(codes.indexOf(v) !== -1){
-      try{ localStorage.setItem('madar_unlocked','1'); }catch(e){}
-      document.documentElement.removeAttribute('data-madar-lock');
-    } else {
+    if(!v) return;
+    err.style.display = 'none';
+    var prevText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'جارٍ التحقق...';
+    fetch('/api/redeem', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ code: v, deviceId: getDeviceId() })
+    }).then(function(res){ return res.json(); }).then(function(data){
+      if(data && data.ok){
+        try{ localStorage.setItem('madar_unlocked','1'); }catch(e){}
+        document.documentElement.removeAttribute('data-madar-lock');
+      } else {
+        err.textContent = (data && data.error) || 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.';
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = prevText;
+      }
+    }).catch(function(){
+      err.textContent = 'تعذّر الاتصال بالخدمة، تأكد من اتصالك بالإنترنت وحاول مرة ثانية.';
       err.style.display = 'block';
-    }
+      btn.disabled = false;
+      btn.textContent = prevText;
+    });
   }
   btn.addEventListener('click', attempt);
   input.addEventListener('keydown', function(e){ if(e.key === 'Enter') attempt(); });

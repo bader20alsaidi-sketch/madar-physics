@@ -675,24 +675,46 @@ const unitsData = {
 };
 
 /* ===== نظام الاشتراك =====
-   3 عناصر فقط (المُعلّمة free:true) مفتوحة للجميع كعيّنة مجانية.
-   باقي المحتوى يتطلب كود اشتراك. كل كود في القائمة يمثّل طالباً مشتركاً.
-   ملاحظة أمانية: هذا تحقق من جهة المتصفح فقط، وليس نظام تسجيل دخول حقيقي —
-   شخص تقني يقدر يشوف الأكواد داخل كود الصفحة. للحماية الحقيقية (كود فريد
-   يُستخدم مرة واحدة، ربط كل كود باسم الطالب، إلغاء كود مسرّب) نحتاج خادم
-   وقاعدة بيانات فعلية بدل موقع ثابت. */
-const SUBSCRIPTION_CODES = ['PHYS-2026-001', 'PHYS-2026-002', 'PHYS-2026-003', 'PHYS-2026-004', 'PHYS-2026-005', 'PHYS-2026-006', 'PHYS-2026-007', 'PHYS-2026-008', 'PHYS-2026-009', 'PHYS-2026-010', 'PHYS-2026-011', 'PHYS-2026-012', 'PHYS-2026-013', 'PHYS-2026-014', 'PHYS-2026-015', 'PHYS-2026-016', 'PHYS-2026-017', 'PHYS-2026-018', 'PHYS-2026-019', 'PHYS-2026-020'];
+   العناصر المُعلّمة free:true فقط مفتوحة للجميع كعيّنة مجانية.
+   باقي المحتوى يتطلب كود اشتراك. التحقق من الكود الآن يتم على الخادم
+   (worker.js) وليس داخل هذه الصفحة — قائمة الأكواد وعدد الأجهزة المسموح
+   بها لكل كود (جهازان) محفوظة في worker.js وقاعدة بيانات CODE_USAGE،
+   ولا تظهر أبداً في كود الصفحة الذي يراه الطالب. */
 
 let unlocked = false;
 try{ unlocked = localStorage.getItem('madar_unlocked') === '1'; } catch(e){ unlocked = false; }
 
-function tryUnlock(code){
-  const ok = SUBSCRIPTION_CODES.includes(code.trim());
-  if(ok){
-    unlocked = true;
-    try{ localStorage.setItem('madar_unlocked','1'); } catch(e){}
+function getMadarDeviceId(){
+  let id = null;
+  try{ id = localStorage.getItem('madar_device_id'); } catch(e){}
+  if(!id){
+    id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('dev-' + Date.now() + '-' + Math.random().toString(36).slice(2));
+    try{ localStorage.setItem('madar_device_id', id); } catch(e){}
   }
-  return ok;
+  return id;
+}
+
+// التحقق من الكود الآن يمر عبر الخادم (worker.js) الذي يتتبع عدد الأجهزة
+// المفعّلة على كل كود (جهازان كحد أقصى) عبر قاعدة بيانات CODE_USAGE.
+async function tryUnlock(code){
+  const clean = (code || '').trim();
+  if(!clean) return { ok:false, error:'الرجاء إدخال الكود.' };
+  try{
+    const res = await fetch('/api/redeem', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ code: clean, deviceId: getMadarDeviceId() })
+    });
+    const data = await res.json();
+    if(data && data.ok){
+      unlocked = true;
+      try{ localStorage.setItem('madar_unlocked','1'); } catch(e){}
+      return { ok:true };
+    }
+    return { ok:false, error: (data && data.error) || 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.' };
+  } catch(e){
+    return { ok:false, error:'تعذّر الاتصال بالخدمة. تأكد من اتصالك بالإنترنت وحاول مرة ثانية.' };
+  }
 }
 
 function isLocked(item){ return !item.free && !unlocked; }
@@ -1686,21 +1708,28 @@ function renderSubscribeScreen(item){
       <div class="lock-icon">🔒</div>
       <div class="lock-title">هذا المحتوى للمشتركين فقط</div>
       <p class="lock-text">"${item.title}" جزء من دروس التقوية. اشترك مع الأستاذ بدر السعيدي للحصول على كود يفتح كل المحتوى.</p>
-      <input type="text" id="codeInput" class="search-input" placeholder="أدخل كود الاشتراك هنا" style="text-align:center; margin-bottom:10px;">
-      <button class="btn btn-primary" style="width:100%; margin-bottom:10px;" onclick="submitCode(${item.id})">تحقق من الكود</button>
+      <input type="text" id="codeInput" class="search-input" placeholder="أدخل كود الاشتراك هنا" style="text-align:center; margin-bottom:10px;" onkeydown="if(event.key==='Enter'){ event.preventDefault(); submitCode(${item.id}); }">
+      <button class="btn btn-primary" id="codeSubmitBtn" style="width:100%; margin-bottom:10px;" onclick="submitCode(${item.id})">تحقق من الكود</button>
       <div id="codeError" style="color:var(--danger); font-size:12.5px; text-align:center; margin-bottom:10px; display:none;">الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.</div>
       <a href="https://wa.me/96893669399" target="_blank" rel="noopener" class="btn btn-ghost" style="display:block; text-decoration:none; text-align:center;">للاشتراك تواصل عبر واتساب</a>
     </div>
   `;
 }
 
-function submitCode(id){
+async function submitCode(id){
   const input = document.getElementById('codeInput');
   const err = document.getElementById('codeError');
-  if(tryUnlock(input.value)){
+  const btn = document.getElementById('codeSubmitBtn');
+  err.style.display = 'none';
+  const prevLabel = btn ? btn.textContent : '';
+  if(btn){ btn.disabled = true; btn.textContent = 'جارٍ التحقق...'; }
+  const result = await tryUnlock(input.value);
+  if(result.ok){
     openItem(id);
   } else {
+    err.textContent = result.error || 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.';
     err.style.display = 'block';
+    if(btn){ btn.disabled = false; btn.textContent = prevLabel; }
   }
 }
 
