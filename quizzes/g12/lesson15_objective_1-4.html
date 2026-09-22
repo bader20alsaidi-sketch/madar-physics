@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -526,6 +526,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>تمثيل بياني (V مقابل Q) لأربعة مكثّفات مختلفة (A, B, C, D)؛ أيّها له أكبر سعة؟ (اختيار من متعدد)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الاختبار التجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>تعريف مفهومي لوظيفة المكثّف كعنصر تخزين للشحنة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>حساب السعة من الشحنة وفرق الجهد باستخدام C = Q/V<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>تحديد السعة من نقطة على منحنى فرق الجهد مقابل الشحنة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>حفظ الشحنة عند توصيل مكثّف مشحون مع مكثّف غير مشحون بنفس القطبية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>تفسير سبب كون الفاراد وحدة كبيرة عمليًا واستخدام مضاعفاتها الصغرى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>10</td>
+          <td>حفظ الشحنة عند توصيل مكثّفين مشحونين بقطبية متعاكسة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -677,6 +713,167 @@ CT = 15 µF
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">العنصر الكهربائي الذي يُصمَّم أساسًا لتخزين الشحنة الكهربائية (وبالتالي الطاقة الكهربائية) بين لوحين موصلين يفصل بينهما عازل، يُسمى: (اختر الإجابة الصحيحة)
+(أ) المقاوم
+(ب) المكثّف
+(ج) الملف (الحثّ)
+(د) الثنائي (الديود)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">المقاوم يحوّل الطاقة الكهربائية إلى حرارة ولا يخزّن شحنة بشكل أساسي، والملف يخزّن طاقة في مجال مغناطيسي ناتج عن مرور تيار وليس شحنة ساكنة، والثنائي عنصر يسمح بمرور التيار في اتجاه واحد ولا يُصمَّم لتخزين الشحنة.
+
+أما المكثّف فهو العنصر المصمَّم خصيصًا لتخزين الشحنة الكهربائية على لوحيه الموصلين (المتقابلين والمفصولين بعازل)، وبالتالي تخزين طاقة كهربائية في المجال الكهربائي بين اللوحين.
+
+الإجابة الصحيحة: (ب) المكثّف.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شُحن مكثّف بشحنة مقدارها 450 μC عند توصيله بفرق جهد قدره 90 V بين لوحيه. احسب سعة هذا المكثّف بوحدة الفاراد.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">تُعرَّف السعة الكهربائية بأنها الشحنة المخزَّنة على لوحي المكثّف لكل وحدة فرق جهد بينهما: C = Q / V.
+
+بالتعويض: Q = 450 μC = 450×10⁻⁶ C، V = 90 V.
+
+C = (450×10⁻⁶) / 90 = 5×10⁻⁶ F.
+
+إذن سعة المكثّف C = 5×10⁻⁶ F = 5 μF.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند رسم العلاقة بين فرق الجهد V المطبَّق على مكثّف والشحنة Q المخزَّنة عليه، ينتج خط مستقيم يمر بنقطة الأصل. إذا كانت النقطة (V = 10 V، Q = 300 μC) تقع على هذا الخط المستقيم، حدد سعة المكثّف.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن العلاقة بين Q و V خطية ومارّة بنقطة الأصل (Q = CV)، فإن ميل الخط المستقيم في تمثيل Q مقابل V يساوي السعة C.
+
+C = Q / V = (300×10⁻⁶ C) / (10 V) = 30×10⁻⁶ F.
+
+إذن سعة المكثّف C = 30×10⁻⁶ F = 30 μF.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شُحن مكثّف سعته C1 = 20 μF حتى بلغ فرق الجهد بين لوحيه 12 V، ثم فُصل عن مصدر الجهد وتم توصيله على التوازي مع مكثّف آخر غير مشحون سعته C2 = 30 μF (بحيث تتصل اللوحتان ذواتا الشحنة نفس الإشارة ببعضهما). حدد فرق الجهد المشترك النهائي بين لوحي المكثّفين، والشحنة على كل منهما بعد الاتصال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">الشحنة الابتدائية المخزَّنة على C1 قبل الفصل (وهي الشحنة الكلية في المنظومة المعزولة بعد الفصل عن المصدر، حسب مبدأ حفظ الشحنة):
+Q0 = C1 × V0 = 20×10⁻⁶ × 12 = 240×10⁻⁶ C = 240 μC.
+
+بعد التوصيل على التوازي، تتوزع هذه الشحنة الكلية (المحفوظة) بين المكثّفين، وتصبح السعة المكافئة:
+CT = C1 + C2 = 20 + 30 = 50 μF.
+
+بما أن الشحنة الكلية محفوظة ولم تتغير (لا يوجد مسار لتسرّب الشحنة خارج المنظومة المعزولة):
+V = Q0 / CT = (240×10⁻⁶) / (50×10⁻⁶) = 4.8 V.
+
+الشحنة على كل مكثّف عند فرق الجهد المشترك الجديد:
+Q1 = C1 × V = 20×10⁻⁶ × 4.8 = 96×10⁻⁶ C = 96 μC.
+Q2 = C2 × V = 30×10⁻⁶ × 4.8 = 144×10⁻⁶ C = 144 μC.
+
+للتحقق: Q1 + Q2 = 96 + 144 = 240 μC = Q0، وهذا يؤكد تحقق مبدأ حفظ الشحنة.
+
+إذن فرق الجهد المشترك = 4.8 V، والشحنة على C1 = 96 μC، والشحنة على C2 = 144 μC.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر لماذا يُعَدّ الفاراد (F) وحدة كبيرة جدًا من الناحية العملية، ولماذا تُستخدم في أغلب المكثّفات التجارية مضاعفات صغرى مثل الميكروفاراد (μF) أو النانوفاراد (nF) أو البيكوفاراد (pF) بدلًا من الفاراد نفسه؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الفاراد الواحد يعني أن المكثّف يخزّن شحنة مقدارها كولوم واحد مقابل كل فولت واحد من فرق الجهد بين لوحيه (C = Q/V)، وهذه كمية شحنة هائلة عمليًا لعنصر بحجم معقول.
+
+فمثلًا، لو تخيّلنا مكثّفًا سعته 1 F مشحونًا عند فرق جهد معقول مثل 100 V، فإن الشحنة المخزَّنة عليه تكون:
+Q = C × V = 1 × 100 = 100 C،
+وهذه شحنة كبيرة جدًا مقارنة بالشحن التي تتعامل معها الدوائر الإلكترونية العادية (عادةً في حدود الميكروكولوم أو أقل).
+
+كذلك فإن الطاقة المخزَّنة تصبح كبيرة جدًا: W = ½CV² = ½ × 1 × 100² = 5000 J، وهي طاقة كبيرة لعنصر إلكتروني صغير.
+
+لتحقيق سعة قريبة من الفاراد الواحد فعليًا يحتاج المكثّف إلى لوحين بمساحة كبيرة جدًا أو مسافة فصل صغيرة جدًا بينهما (أو عازل ذي ثابت عزل كبير جدًا)، وهو أمر غير عملي في معظم التطبيقات الإلكترونية الصغيرة.
+
+لذلك تُصنَّع أغلب المكثّفات التجارية بسعات أصغر بكثير من الفاراد، وتُقاس عادة بالميكروفاراد (10⁻⁶ F) أو النانوفاراد (10⁻⁹ F) أو حتى البيكوفاراد (10⁻¹² F)، وهي قيم تناسب الأحجام والتطبيقات العملية للدوائر الإلكترونية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شُحن مكثّف C1 = 15 μF حتى بلغ فرق الجهد بين لوحيه 20 V، وشُحن مكثّف آخر C2 = 25 μF بشكل منفصل حتى بلغ فرق الجهد بين لوحيه 8 V. فُصل المكثّفان عن مصدريهما، ثم وُصلا معًا على التوازي بحيث تتلامس اللوحة الموجبة لأحدهما مع اللوحة السالبة للآخر (أي بقطبية متعاكسة). حدد فرق الجهد المشترك النهائي بين لوحي المكثّفين بعد الاتصال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">الشحنة الابتدائية على كل مكثّف قبل الفصل:
+Q1 = C1 × V1 = 15×10⁻⁶ × 20 = 300×10⁻⁶ C = 300 μC.
+Q2 = C2 × V2 = 25×10⁻⁶ × 8 = 200×10⁻⁶ C = 200 μC.
+
+بما أن التوصيل تم بقطبية متعاكسة (اللوحة الموجبة لأحدهما مقابل اللوحة السالبة للآخر)، فإن الشحنتين تتعاكسان في الإشارة عند حساب الشحنة الكلية الصافية بعد الاتصال. وبتطبيق مبدأ حفظ الشحنة على المنظومة المعزولة، تكون الشحنة الكلية الصافية بعد الاتصال:
+Q_net = Q1 − Q2 = 300 − 200 = 100 μC.
+
+السعة المكافئة للمكثّفين المتوازيين:
+CT = C1 + C2 = 15 + 25 = 40 μF.
+
+فرق الجهد المشترك النهائي:
+V = Q_net / CT = (100×10⁻⁶) / (40×10⁻⁶) = 2.5 V.
+
+وللتحقق: الشحنة على كل مكثّف بعد الاتصال تكون Q1' = C1×V = 15×10⁻⁶×2.5 = 37.5 μC، و Q2' = C2×V = 25×10⁻⁶×2.5 = 62.5 μC، ومجموعهما 37.5 + 62.5 = 100 μC = Q_net، وهذا يؤكد صحة الحل.
+
+إذن فرق الجهد المشترك النهائي بين لوحي المكثّفين = 2.5 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

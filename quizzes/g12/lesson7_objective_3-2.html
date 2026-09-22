@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -526,6 +526,36 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>توضح سحابة رعدية فرق جهد (200 MV) بينها وبين الأرض، وتبعد عن الأرض مسافة (5000 m). ما مقدار القوة الكهربائية المؤثرة على قطرة مطر شحنتها (4.0 pC) توجد بين السحابة والأرض؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>حساب القوة الكهربائية على إلكترون بين لوحين متوازيين باستخدام F = eV/d<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>وصف وتفسير اتجاه القوة الكهربائية على بروتون وإلكترون في نفس المجال المنتظم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>تحليل أثر تقريب لوحي مكثف من بعضهما (مع ثبات الجهد) على المجال والقوة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>تحديد نسبة القوة الجديدة عند مضاعفة المسافة بين اللوحين مع ثبات فرق الجهد (اختياري)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>حساب القوة على قطرة مطر مشحونة داخل المجال الكهربائي بين سحابة رعدية والأرض<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -627,6 +657,133 @@ F = E×Q = (4.0×10⁴) × (4.0×10⁻¹²) = 1.6×10⁻⁷ N</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يفصل بين لوحين متوازيين مسافة d = 4.0 cm، ويُطبَّق بينهما فرق جهد كهربائي V = 600 V. احسب مقدار القوة الكهربائية المؤثرة على إلكترون موضوع بين اللوحين، باستخدام العلاقة F = eV/d.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">المعطيات: V = 600 V، d = 4.0 cm = 4.0×10⁻² m، e = 1.6×10⁻¹⁹ C.
+
+F = eV/d = (1.6×10⁻¹⁹ × 600) / (4.0×10⁻²)
+
+نحسب البسط أولًا: 1.6×10⁻¹⁹ × 600 = 9.6×10⁻¹⁷
+
+ثم نقسم على المقام: F = (9.6×10⁻¹⁷) / (4.0×10⁻²) = 2.4×10⁻¹⁵ N
+
+إذن مقدار القوة الكهربائية المؤثرة على الإلكترون F = 2.4×10⁻¹⁵ N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يوضع بروتون وإلكترون في اللحظة نفسها عند النقطة نفسها بين لوحين متوازيين، حيث يكون اللوح العلوي موجب الشحنة والسفلي سالب الشحنة. صف اتجاه القوة الكهربائية المؤثرة على كل من البروتون والإلكترون، وفسّر السبب.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">اتجاه المجال الكهربائي المنتظم بين اللوحين يكون من اللوح الموجب (العلوي) إلى اللوح السالب (السفلي)، أي أن E موجّه إلى الأسفل.
+
+القوة الكهربائية المؤثرة على أي شحنة تُعطى بالعلاقة F = QE، وإشارة الشحنة Q هي التي تحدد اتجاه القوة بالنسبة لاتجاه المجال: فإذا كانت Q موجبة تكون القوة في نفس اتجاه E، وإذا كانت Q سالبة تكون القوة معاكسة تمامًا لاتجاه E.
+
+البروتون شحنته موجبة (+e)، لذا فإن القوة المؤثرة عليه تكون في نفس اتجاه المجال، أي إلى الأسفل (نحو اللوح السالب).
+
+الإلكترون شحنته سالبة (−e)، لذا فإن القوة المؤثرة عليه تكون معاكسة لاتجاه المجال، أي إلى الأعلى (نحو اللوح الموجب).
+
+وبما أن مقدار شحنة كل منهما متساوٍ (e نفسها)، فإن مقدار القوة المؤثرة على كليهما متساوٍ أيضًا (F = eE)، والفرق بينهما هو الاتجاه فقط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثف ذو لوحين متوازيين متصل بمصدر جهد كهربائي ثابت V. إذا قُرِّب اللوحان من بعضهما بحيث أصبحت المسافة بينهما نصف قيمتها الأصلية، مع بقاء فرق الجهد V ثابتًا، بيّن أثر ذلك على: (a) شدة المجال الكهربائي المنتظم بين اللوحين. (b) مقدار القوة المؤثرة على شحنة ثابتة Q موضوعة بين اللوحين. اذكر في كل حالة النسبة بين القيمة الجديدة والقيمة الأصلية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(a) شدة المجال بين لوحين متوازيين تُعطى بالعلاقة E = V/d. بما أن V ثابت والمسافة الجديدة d' = d/2:
+E' = V/d' = V/(d/2) = 2V/d = 2E
+
+إذن شدة المجال الجديدة تساوي ضعف شدة المجال الأصلية (النسبة = 2).
+
+(b) القوة على الشحنة الثابتة Q تُعطى بالعلاقة F = EQ. بما أن Q ثابتة وE تضاعفت:
+F' = E'Q = 2EQ = 2F
+
+إذن القوة الجديدة تساوي ضعف القوة الأصلية أيضًا (النسبة = 2)، لأن تقريب اللوحين مع ثبات فرق الجهد يزيد شدة المجال (E = V/d)، وبالتالي تزداد القوة (F = EQ) بنفس النسبة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لوحان متوازيان بينهما فرق جهد ثابت V ومسافة d، تُوضع بينهما شحنة نقطية Q فتتأثر بقوة كهربائية مقدارها F. إذا زادت المسافة بين اللوحين إلى الضعف (2d) مع بقاء فرق الجهد V ثابتًا وبقاء الشحنة Q كما هي، فإن القوة الجديدة المؤثرة على الشحنة تساوي: (اختر الإجابة الصحيحة)
+(أ) 4F
+(ب) 2F
+(ج) F/2
+(د) F/4</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">شدة المجال بين اللوحين: E = V/d، والقوة على الشحنة: F = EQ = (V/d)Q = VQ/d.
+
+بما أن V وQ ثابتان، فإن F تتناسب عكسيًا طرديًا مع d فقط: F ∝ 1/d.
+
+عندما تتضاعف المسافة إلى d' = 2d:
+F' = VQ/d' = VQ/(2d) = (1/2)(VQ/d) = F/2
+
+إذن القوة الجديدة تساوي نصف القوة الأصلية، والإجابة الصحيحة هي (ج) F/2.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثناء عاصفة رعدية، ينشأ بين قاعدة السحابة وسطح الأرض تحتها مجال كهربائي شبه منتظم شدته 1.5×10⁴ V/m موجّه نحو سطح الأرض. تحمل قطرة مطر داخل هذا المجال شحنة سالبة مقدارها 2.0×10⁻¹⁴ C اكتسبتها بسبب الاحتكاك بالهواء. احسب مقدار القوة الكهربائية المؤثرة على قطرة المطر، وصف اتجاهها بالنسبة لاتجاه المجال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">المعطيات: E = 1.5×10⁴ V/m، Q = 2.0×10⁻¹⁴ C (سالبة).
+
+مقدار القوة: F = EQ = (1.5×10⁴) × (2.0×10⁻¹⁴) = 3.0×10⁻¹⁰ N
+
+بما أن شحنة قطرة المطر سالبة، فإن اتجاه القوة الكهربائية عليها يكون معاكسًا لاتجاه المجال الكهربائي؛ وبما أن المجال موجّه نحو سطح الأرض (إلى الأسفل)، فإن القوة الكهربائية على القطرة تكون موجهة إلى الأعلى (بعيدًا عن الأرض، نحو السحابة)، أي أنها تعمل على معاكسة سقوط القطرة الناتج عن الجاذبية الأرضية.
+
+إذن مقدار القوة F = 3.0×10⁻¹⁰ N، واتجاهها إلى الأعلى نحو السحابة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

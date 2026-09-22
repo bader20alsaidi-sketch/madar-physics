@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (15)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (21)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (15)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -592,6 +592,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>إطار نافذة من الألمنيوم (ABCD) بأبعاد (60cm × 85cm)، عندما تكون النافذة مغلقة يكون مقدار كثافة الفيض المغناطيسي المركّبة (B) العمودية على مستوى النافذة (A) يساوي (1.8×10⁻⁴T). إذا فُتحت النافذة خلال (0.20s) بحيث أصبحت مساحتها موازية لمتجه المجال المغناطيسي للأرض، احسب القوة الدافعة الكهربائية المستحثّة في الضلع (CD) من النافذة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>اختبار تجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q15')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>16</td>
+          <td>وصف قاعدة اليد اليمنى لفلمنج لتحديد اتجاه التيار المستحث<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>17</td>
+          <td>تحديد اتجاه التيار المستحث في قضيب متحرك أفقيًا داخل مجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>18</td>
+          <td>حساب القوة الدافعة الكهربائية المستحثة من مساحة ممسوحة خلال زمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>19</td>
+          <td>حساب EMF من تغيّر الفيض الكلي عند إيقاف مجال ملف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>20</td>
+          <td>تفسير أثر معدل الدوران وكثافة الفيض وعدد اللفات على EMF<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>21</td>
+          <td>وصف وتفسير تجربة فاراداي: مغناطيس يسقط عبر ملف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -948,6 +984,167 @@ N = 1 (ضلع واحد/إطار واحد)
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 5-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صف قاعدة اليد اليمنى لفلمنج (Fleming's right-hand rule)، موضحًا ماذا يمثّل كل إصبع من الأصابع الثلاثة المستخدمة فيها (الإبهام والسبابة والوسطى) عند تحديد اتجاه التيار (القوة الدافعة الكهربائية) المستحث في موصل يتحرك داخل مجال مغناطيسي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">قاعدة اليد اليمنى لفلمنج تُستخدم لتحديد اتجاه التيار (أو القوة الدافعة الكهربائية) المستحث في موصل متحرك داخل مجال مغناطيسي (ظاهرة الحث الكهرومغناطيسي، أي "تأثير المولّد").
+
+تُمَدّ أصابع اليد اليمنى الثلاثة (الإبهام، والسبابة، والوسطى) بحيث تكون متعامدة على بعضها البعض تمامًا (كل إصبع عمودي على الإصبعين الآخرين)، ويمثّل كل منها:
+
+- الإبهام (Thumb): اتجاه حركة الموصل (السرعة، Motion).
+
+- السبابة (First finger): اتجاه المجال المغناطيسي (Field).
+
+- الإصبع الوسطى (seCond finger): اتجاه التيار المستحث، أي اتجاه القوة الدافعة الكهربائية (Current/EMF).
+
+وبمجرد توجيه الإبهام والسبابة وفق اتجاهي حركة الموصل والمجال المغناطيسي فعليًا، يشير الإصبع الوسطى مباشرة إلى اتجاه التيار المستحث في الموصل.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 5-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قضيب موصل أفقي يتحرك بسرعة ثابتة نحو اليمين، داخل مجال مغناطيسي منتظم يتجه إلى داخل الصفحة (⊗)، والقضيب رأسي وعمودي على كل من اتجاه حركته واتجاه المجال. باستخدام قاعدة اليد اليمنى لفلمنج، حدد اتجاه سريان التيار (الاصطلاحي) المستحث داخل القضيب (من الطرف العلوي إلى السفلي أو العكس)، وحدد أي طرفي القضيب يصبح ذا الجهد الأعلى (القطب الموجب).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">بتطبيق قاعدة اليد اليمنى لفلمنج: الإبهام يشير إلى اتجاه حركة القضيب (نحو اليمين)، والسبابة تشير إلى اتجاه المجال المغناطيسي (إلى داخل الصفحة)، فتشير الإصبع الوسطى إلى اتجاه التيار المستحث.
+
+ينتج عن ذلك أن التيار الاصطلاحي المستحث داخل القضيب يسري من الطرف السفلي إلى الطرف العلوي (إلى الأعلى داخل القضيب).
+
+بما أن القضيب يعمل كمصدر للقوة الدافعة الكهربائية، فإن الشحنة الموجبة تتراكم عند الطرف الذي يتجه إليه التيار داخل المصدر، أي عند الطرف العلوي؛ لذلك يصبح الطرف العلوي هو القطب ذو الجهد الأعلى (الموجب)، بينما يصبح الطرف السفلي ذا الجهد الأدنى (السالب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 5-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك قضيب موصل مستقيم طوله 0.30 m بسرعة ثابتة مقدارها 4.0 m/s، عموديًا على مجال مغناطيسي منتظم كثافة فيضه 0.25 T، وعموديًا أيضًا على طول القضيب نفسه. خلال فترة زمنية مقدارها 0.10 s: (1) احسب المساحة التي يمسحها القضيب، (2) احسب مقدار التغيّر في الفيض المغناطيسي خلال هذه المساحة، (3) احسب مقدار القوة الدافعة الكهربائية المستحثة ε باستخدام ε = ΔNφ/Δt.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(1) المساحة الممسوحة: ΔA = L × v × Δt
+
+ΔA = 0.30 × 4.0 × 0.10
+
+ΔA = 0.12 m²
+
+(2) التغيّر في الفيض المغناطيسي: ΔΦ = B × ΔA
+
+ΔΦ = 0.25 × 0.12
+
+ΔΦ = 0.030 Wb
+
+(3) القوة الدافعة الكهربائية المستحثة (لموصل واحد، أي N = 1):
+
+ε = ΔΦ / Δt = 0.030 / 0.10
+
+ε = 0.30 V
+
+إذن القوة الدافعة الكهربائية المستحثة في القضيب تساوي 0.30 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 5-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف من 300 لفة، مساحة كل لفة منه 0.015 m²، موضوع بحيث يكون مستواه عموديًا تمامًا على مجال مغناطيسي منتظم كثافة فيضه 0.20 T (θ = 0°). أُوقف المجال المغناطيسي فجأة وانخفض بانتظام من قيمته إلى الصفر خلال 0.050 s. احسب مقدار القوة الدافعة الكهربائية المستحثة في الملف خلال هذه الفترة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">الفيض المتداخل (الكلي) الابتدائي: Nφ₁ = N A B cosθ = 300 × 0.015 × 0.20 × cos0°
+
+Nφ₁ = 300 × 0.015 × 0.20 × 1
+
+Nφ₁ = 0.90 Wb
+
+بما أن المجال ينخفض إلى الصفر، فإن الفيض المتداخل النهائي: Nφ₂ = 0
+
+مقدار التغيّر في الفيض المتداخل: ΔNφ = Nφ₁ − Nφ₂ = 0.90 − 0 = 0.90 Wb
+
+مقدار القوة الدافعة الكهربائية المستحثة:
+
+ε = ΔNφ / Δt = 0.90 / 0.050
+
+ε = 18 V
+
+إذن مقدار القوة الدافعة الكهربائية المستحثة في الملف خلال فترة إيقاف المجال يساوي 18 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 5-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر أثر كل من العوامل التالية على مقدار القوة الدافعة الكهربائية المستحثة (ε) في ملف يدور داخل مجال مغناطيسي منتظم، مستخدمًا العلاقة ε = ΔNφ/Δt: (1) زيادة معدل دوران الملف (أي تقليل الزمن اللازم لدورة واحدة)، (2) زيادة كثافة الفيض المغناطيسي B، (3) زيادة عدد لفات الملف N.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(1) زيادة معدل الدوران: عند زيادة معدل دوران الملف، يحدث نفس مقدار التغيّر في الفيض المتداخل ΔNφ (بين وضعي الفيض الأقصى والأدنى) خلال زمن Δt أقصر. وبما أن ε = ΔNφ/Δt، فإن تقليل Δt (مع بقاء ΔNφ كما هو تقريبًا) يزيد من قيمة ε، أي تزداد القوة الدافعة الكهربائية المستحثة.
+
+(2) زيادة كثافة الفيض B: الفيض المتداخل الأقصى للملف يساوي NAB (عند θ=0°)، فزيادة B تزيد من مقدار الفيض المتداخل الأقصى، وبالتالي تزيد من مقدار التغيّر في الفيض ΔNφ الحادث خلال كل دورة (لنفس Δt)، مما يزيد من مقدار ε.
+
+(3) زيادة عدد اللفات N: بما أن Nφ يتناسب طرديًا مباشرة مع N (لكل لفة إسهام مساوٍ تقريبًا في الفيض)، فإن زيادة عدد اللفات تزيد من مقدار التغيّر الكلي في الفيض المتداخل ΔNφ لكل دورة بنفس النسبة، وبالتالي تزيد من مقدار ε طرديًا مع N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 5-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة كلاسيكية للحث الكهرومغناطيسي، يُسقَط مغناطيس قضيبي (بقطبه الشمالي N للأسفل) رأسيًا خلال ملف سلكي ثابت متصل بجلفانومتر حساس. صف وفسّر ما يلاحظه المجرّب على الجلفانومتر أثناء اقتراب المغناطيس من الملف، وأثناء ابتعاده عنه بعد عبوره، مستندًا إلى مفهوم معدّل تغيّر الفيض المتداخل Nφ.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">أثناء اقتراب المغناطيس من الملف (قبل الدخول وأثناءه): يتزايد الفيض المتداخل Nφ المرتبط بالملف بسرعة (خصوصًا كلما اقترب المغناطيس واشتد المجال عند الملف)، فيُحدث ذلك معدل تغيّر كبير للفيض، فيسجّل الجلفانومتر انحرافًا واضحًا في اتجاه معيّن، يزداد كلما زادت سرعة سقوط المغناطيس (لأن معدل تغيّر الفيض يكبر مع السرعة، وε = ΔNφ/Δt).
+
+أثناء ابتعاد المغناطيس عن الملف بعد عبوره بالكامل: يتناقص الفيض المتداخل بسرعة أيضًا (باتجاه معاكس للحالة الأولى)، فيسجّل الجلفانومتر انحرافًا واضحًا لكن في الاتجاه المعاكس لاتجاه الانحراف الأول.
+
+في اللحظة التي يكون فيها المغناطيس ثابتًا تمامًا (لو أُوقف) داخل الملف أو بعيدًا جدًا عنه (حيث لا يتغيّر الفيض عمليًا)، لا يُسجَّل الجلفانومتر أي انحراف، لأن معدل تغيّر الفيض يكون تقريبًا صفرًا.
+
+هذا يوضّح أن القوة الدافعة الكهربائية المستحثة (وبالتالي التيار المستحث الذي يقيسه الجلفانومتر) لا تعتمد على وجود فيض مغناطيسي بحد ذاته، بل على معدّل تغيّر هذا الفيض المتداخل عبر الملف فقط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

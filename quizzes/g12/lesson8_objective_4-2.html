@@ -490,9 +490,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (16)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (10)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -563,6 +563,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>كرتان فلزيتان مشحونتان (+3.0×10⁻¹² C) و(+12×10⁻¹² C) تفصل بينهما مسافة (15 cm)، والنقطة P تبعد (5.0 cm) عن الكرة الأولى. أثبت أن شدة المجال الكهربائي عند النقطة P تساوي صفرًا.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q10')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>11</td>
+          <td>نص قانون كولوم وحساب القوة بين شحنتين نقطيتين مختلفتين النوع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>12</td>
+          <td>إيجاد القوة الجديدة عند مضاعفة إحدى الشحنتين والمسافة بينهما معًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>13</td>
+          <td>حساب شدة المجال والجهد الكهربائي الناشئين عن كرة موصلة مشحونة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>14</td>
+          <td>حساب محصلة شدة المجال الكهربائي الناتجة عن شحنتين عند نقطة تصنعان معها زاوية قائمة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>15</td>
+          <td>تحديد موضع نقطة المجال الكهربائي الصفري بين شحنتين موجبتين مختلفتي المقدار<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>16</td>
+          <td>تحديد موضع نقطة المجال الصفري بين شحنتين مختلفتي النوع (اختياري)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -827,6 +863,179 @@ ET = EA − EB = 0 ∎</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">انص على قانون كولوم للقوة الكهربائية بين شحنتين نقطيتين، مبينًا صيغته الرياضية. ثم احسب مقدار القوة الكهربائية بين شحنتين نقطيتين Q₁ = +3.0×10⁻⁶ C وQ₂ = −2.0×10⁻⁶ C، تفصل بينهما مسافة 0.30 m في الفراغ، مبينًا نوع هذه القوة (تجاذب أم تنافر).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">ينص قانون كولوم على أن القوة الكهربائية المتبادلة بين شحنتين نقطيتين تتناسب طرديًا مع حاصل ضرب مقداري الشحنتين، وعكسيًا مع مربع المسافة بينهما، وتكون واقعة على الخط الواصل بينهما. صيغته الرياضية:
+F = Q₁Q₂ / (4πε₀r²)
+
+حيث ε₀ = 8.85×10⁻¹² F/m سماحية الفراغ.
+
+نحسب أولًا الثابت k = 1/(4πε₀) = 1/(4π × 8.85×10⁻¹²) ≈ 8.99×10⁹ N·m²/C².
+
+بالتعويض: F = k × |Q₁| × |Q₂| / r² = (8.99×10⁹) × (3.0×10⁻⁶) × (2.0×10⁻⁶) / (0.30)²
+
+حاصل ضرب الشحنتين: 3.0×10⁻⁶ × 2.0×10⁻⁶ = 6.0×10⁻¹²
+
+r² = 0.30² = 0.09 m²
+
+F = (8.99×10⁹ × 6.0×10⁻¹²) / 0.09 ≈ (5.39×10⁻²) / 0.09 ≈ 0.60 N
+
+إذن مقدار القوة الكهربائية F ≈ 0.60 N. وبما أن الشحنتين مختلفتان في النوع (إحداهما موجبة والأخرى سالبة)، فإن القوة بينهما قوة تجاذب.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شحنتان نقطيتان تفصل بينهما مسافة r، وتتنافران بقوة كهربائية مقدارها F. إذا تضاعف مقدار إحدى الشحنتين وتضاعفت المسافة بينهما في الوقت نفسه، أوجد القوة الكهربائية الجديدة بدلالة F.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">من قانون كولوم: F = Q₁Q₂ / (4πε₀r²)
+
+لتكن الشحنة الجديدة 2Q₁ (تضاعف إحدى الشحنتين فقط، مع بقاء الأخرى Q₂ كما هي)، والمسافة الجديدة 2r.
+
+F' = (2Q₁)(Q₂) / [4πε₀(2r)²] = 2Q₁Q₂ / (4πε₀ × 4r²) = (2/4) × [Q₁Q₂ / (4πε₀r²)] = (1/2) F
+
+إذن القوة الجديدة F' = F/2، أي أنها تصبح نصف القوة الأصلية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">كرة موصلة صغيرة مشحونة بشحنة موجبة مقدارها +5.0×10⁻⁹ C. احسب شدة المجال الكهربائي والجهد الكهربائي الناشئين عنها عند نقطة تبعد 0.20 m عن مركزها (خارج الكرة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المعطيات: Q = 5.0×10⁻⁹ C، r = 0.20 m، k = 1/(4πε₀) ≈ 8.99×10⁹ N·m²/C².
+
+شدة المجال الكهربائي:
+E = Q/(4πε₀r²) = kQ/r² = (8.99×10⁹ × 5.0×10⁻⁹) / (0.20)²
+
+البسط: 8.99×10⁹ × 5.0×10⁻⁹ = 44.95
+
+r² = 0.04 m²
+
+E = 44.95 / 0.04 ≈ 1.12×10³ N/C
+
+الجهد الكهربائي:
+V = Q/(4πε₀r) = kQ/r = 44.95 / 0.20 ≈ 2.25×10² V
+
+إذن شدة المجال E ≈ 1.1×10³ N/C (أو V/m)، والجهد الكهربائي V ≈ 2.2×10² V ≈ 225 V، مع ملاحظة أن الكرة المشحونة (خارجها) تتصرف كأنها شحنة نقطية مركّزة عند مركزها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">توضع شحنتان نقطيتان موجبتان عند النقطتين A وB، وتوجد نقطة P بحيث تبعد عن A مسافة 0.30 m، وتبعد عن B مسافة 0.40 m، وتكون الزاوية APB بين الخطين PA وPB زاوية قائمة (90°). إذا كانت الشحنة عند A تساوي +2.0×10⁻⁹ C والشحنة عند B تساوي +3.0×10⁻⁹ C، احسب مقدار شدة المجال الكهربائي المحصلة عند النقطة P.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نحسب أولًا شدة المجال الناتج عن كل شحنة عند P على حدة، باستخدام E = kQ/r² وk ≈ 8.99×10⁹ N·m²/C².
+
+المجال الناتج عن الشحنة عند A (Q_A = 2.0×10⁻⁹ C، r_A = 0.30 m):
+E_A = (8.99×10⁹ × 2.0×10⁻⁹) / (0.30)² = 17.98 / 0.09 ≈ 199.8 N/C
+
+المجال الناتج عن الشحنة عند B (Q_B = 3.0×10⁻⁹ C، r_B = 0.40 m):
+E_B = (8.99×10⁹ × 3.0×10⁻⁹) / (0.40)² = 26.97 / 0.16 ≈ 168.6 N/C
+
+بما أن اتجاه E_A (على امتداد الخط من A إلى P) واتجاه E_B (على امتداد الخط من B إلى P) متعامدان (لأن الزاوية APB قائمة)، فإن محصلتهما تُحسب بنظرية فيثاغورس:
+
+E_R = √(E_A² + E_B²) = √(199.8² + 168.6²) = √(39920 + 28426) = √68346 ≈ 261.4 N/C
+
+إذن شدة المجال الكهربائي المحصلة عند النقطة P تساوي تقريبًا 2.6×10² N/C.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">توجد شحنتان نقطيتان موجبتان على استقامة واحدة: Q₁ = +4.0×10⁻⁶ C وQ₂ = +1.0×10⁻⁶ C، تفصل بينهما مسافة 0.60 m. حدد موضع النقطة الواقعة على الخط المستقيم الواصل بين الشحنتين التي يكون عندها المجال الكهربائي المحصل مساويًا للصفر.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن الشحنتين متشابهتان في النوع (كلاهما موجبة)، فإن النقطة التي يتساوى عندها المجالان في المقدار ويتعاكسان في الاتجاه تقع بين الشحنتين، وتكون أقرب إلى الشحنة الأصغر مقدارًا (Q₂) لأن مجالها يجب أن يقوى بالاقتراب منها ليوازن مجال الشحنة الأكبر Q₁ من مسافة أبعد.
+
+ليكن x بعد النقطة المطلوبة عن الشحنة Q₂، فيكون بعدها عن Q₁ يساوي (0.60 − x).
+
+عند تساوي المجالين: kQ₁/(0.60−x)² = kQ₂/x²
+
+الثابت k يُحذف من الطرفين:
+Q₁/Q₂ = [(0.60−x)/x]²
+
+4.0×10⁻⁶ / 1.0×10⁻⁶ = 4 = [(0.60−x)/x]²
+
+بأخذ الجذر التربيعي لكلا الطرفين: (0.60−x)/x = 2
+
+0.60 − x = 2x ⟹ 0.60 = 3x ⟹ x = 0.20 m
+
+إذن النقطة الصفرية تبعد 0.20 m عن الشحنة Q₂ (الأصغر)، أي 0.40 m عن الشحنة Q₁ (الأكبر)، وتقع بين الشحنتين كما هو متوقع.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 4-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شحنتان نقطيتان مختلفتان في النوع (إحداهما موجبة والأخرى سالبة، ومختلفتان في المقدار) تفصل بينهما مسافة r على خط مستقيم. أين تقع النقطة (إن وجدت) التي يكون عندها المجال الكهربائي المحصل الناتج عن الشحنتين مساويًا للصفر على امتداد هذا الخط؟ (اختر الإجابة الصحيحة)
+(أ) بين الشحنتين دائمًا، عند منتصف المسافة بينهما.
+(ب) خارج نطاق الشحنتين، على الجانب الأقرب إلى الشحنة الأصغر مقدارًا.
+(ج) خارج نطاق الشحنتين، على الجانب الأقرب إلى الشحنة الأكبر مقدارًا.
+(د) لا توجد أي نقطة يكون عندها المجال صفرًا مهما بعدنا على امتداد الخط.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">بين شحنتين مختلفتين في النوع، يكون المجالان الناتجان عن الشحنتين في أي نقطة تقع بينهما في نفس الاتجاه تقريبًا (كلاهما موجه من الموجبة نحو السالبة على ذلك الجزء من الخط)، فيتجمعان ولا يتلاشيان أبدًا؛ لذلك لا توجد نقطة صفرية بين الشحنتين، وهذا يستبعد الخيار (أ).
+
+أما خارج نطاق الشحنتين، فإن المجالين الناتجين عن الشحنتين يكونان متعاكسين في الاتجاه في تلك المنطقة، فيمكن أن يتساويا في المقدار عند نقطة معينة فيتلاشيا. ولإيجاد هذا التوازن، يجب أن تكون تلك النقطة أقرب إلى الشحنة الأصغر مقدارًا (حتى يتمكن مجالها الأضعف أساسًا من مجاراة مجال الشحنة الأكبر من مسافة أبعد نسبيًا)، أي على الجانب الخارجي المجاور للشحنة الأصغر مقدارًا.
+
+إذن الإجابة الصحيحة هي (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

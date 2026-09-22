@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (18)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (12)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -574,6 +574,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>خلية قوتها الدافعة الكهربائية (ε) موصولة بسلك مقاومة (AB) طوله 1.0m ضمن دائرة قياس القوة الدافعة الكهربائية لخلية أخرى (ε0)؛ نقطة الاتزان عند (C) على بعد 34cm من (B) — إيجاد ε بدلالة ε0.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q12')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>13</td>
+          <td>أثر المقاومة الداخلية للبطارية على الجهد الطرفي والقدرة المفقودة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>14</td>
+          <td>سؤال اختياري: حساب الجهد الخارج من دائرة مجزئ جهد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>15</td>
+          <td>إيجاد قيمة مقاومة في مجزئ الجهد للحصول على جهد خارج محدد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>16</td>
+          <td>حساب القوة الدافعة الكهربائية المجهولة باستخدام البوتنشيومتر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>17</td>
+          <td>حساب أثر توصيل فولتميتر حقيقي على المقاومة المكافئة للدائرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>18</td>
+          <td>حساب أثر مقاومة الأميتر الحقيقية على قراءة التيار<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -838,6 +874,158 @@ R2 = (9 × 80) ÷ 60 = 12 Ω</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 5-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بطارية قوتها الدافعة الكهربائية E = 6.0 V ومقاومتها الداخلية r = 0.50 Ω، متصلة بمقاومة متغيرة R = 2.5 Ω. احسب شدة التيار في الدائرة، والجهد الطرفي للبطارية، والقدرة المفقودة (المُبدَّدة) داخل البطارية نفسها. ثم فسّر ماذا يحدث للجهد الطرفي إذا قلّت قيمة R.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">شدة التيار: I = E / (R + r) = 6.0 / (2.5 + 0.50) = 6.0 / 3.0 = 2.0 A
+
+الجهد الطرفي: V = E − I r = 6.0 − (2.0 × 0.50) = 6.0 − 1.0 = 5.0 V
+(يمكن التحقق: V = IR = 2.0 × 2.5 = 5.0 V، وهو نفس الناتج)
+
+القدرة المفقودة داخل البطارية: P = I²r = (2.0)² × 0.50 = 4.0 × 0.50 = 2.0 W
+
+التفسير: عند تقليل قيمة R، تقل المقاومة الكلية للدائرة (R + r)، فتزداد شدة التيار I وفق العلاقة I = E/(R + r). وبما أن الجهد المفقود داخل البطارية يساوي Ir، فإن زيادة I تؤدي إلى زيادة الجهد المفقود داخلياً، وبالتالي ينخفض الجهد الطرفي المتاح للدائرة الخارجية (V = E − Ir) أكثر.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 5-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في دائرة مجزئ جهد، مصدر جهد Vin = 12 V متصل بمقاومتين على التوالي: R₁ = 8.0 Ω وR₂ = 4.0 Ω. ما قيمة الجهد الخارج Vout المأخوذ من طرفي R₂؟ (اختر الإجابة الصحيحة)
+(أ) 2.0 V
+(ب) 3.0 V
+(ج) 4.0 V
+(د) 8.0 V</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">في دائرة مجزئ الجهد: Vout = [R₂ / (R₁ + R₂)] × Vin
+
+Vout = [4.0 / (8.0 + 4.0)] × 12 = (4.0/12.0) × 12 = 4.0 V
+
+إذن الإجابة الصحيحة: (ج) 4.0 V</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 5-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">دائرة مجزئ جهد مصدرها Vin = 9.0 V، تحتوي على مقاومتين على التوالي R₁ وR₂، حيث R₁ = 12 Ω. إذا كان المطلوب الحصول على جهد خارج Vout = 3.0 V من طرفي R₂، حدد قيمة R₂ اللازمة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">من علاقة مجزئ الجهد: Vout = [R₂ / (R₁ + R₂)] × Vin
+
+3.0 = [R₂ / (12 + R₂)] × 9.0
+
+3.0 (12 + R₂) = 9.0 R₂
+
+36 + 3.0 R₂ = 9.0 R₂
+
+36 = 9.0 R₂ − 3.0 R₂ = 6.0 R₂
+
+R₂ = 36 / 6.0 = 6.0 Ω
+
+للتحقق: Vout = [6.0/(12+6.0)] × 9.0 = (6.0/18.0) × 9.0 = 3.0 V ✓</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 5-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك مقياس الجهد (البوتنشيومتر) طوله 1.00 m ومنتظم القطر، متصل بطرفي خلية قائدة قوتها الدافعة الكهربائية 2.0 V (مقاومتها الداخلية مهملة). عند توصيل خلية أخرى مجهولة القوة الدافعة الكهربائية مع جلفانومتر، وُجدت نقطة الاتزان (حيث لا يمر تيار في فرع الجلفانومتر) عند مسافة 65.0 cm من الطرف الصفري للسلك. احسب القوة الدافعة الكهربائية للخلية المجهولة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن السلك منتظم القطر، فإن فرق الجهد يتوزّع بانتظام على طوله (يتناسب طردياً مع المسافة من الطرف الصفري).
+
+التدرج الجهدي لكل وحدة طول: (فرق الجهد الكلي على السلك) / (الطول الكلي) = 2.0 V / 1.00 m = 2.0 V m⁻¹
+
+عند نقطة الاتزان، يكون فرق الجهد بين الطرف الصفري ونقطة الاتزان مساوياً تماماً للقوة الدافعة الكهربائية للخلية المجهولة (لأنه لا يمر تيار في فرعها عند الاتزان، فلا يوجد فرق جهد مفقود بسبب مقاومتها الداخلية):
+
+E_مجهولة = التدرج الجهدي × مسافة الاتزان = 2.0 × 0.650 = 1.3 V</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 5-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مقاومة قيمتها 500 Ω متصلة في دائرة، ويُراد قياس فرق الجهد بين طرفيها بواسطة فولتميتر مقاومته 1000 Ω. احسب المقاومة المكافئة للمقاومة والفولتميتر معاً (متصلين على التوازي)، ثم فسّر أثر توصيل الفولتميتر على قراءة فرق الجهد مقارنة بالحالة المثالية (فولتميتر مقاومته لا نهائية).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">عند توصيل الفولتميتر على التوازي مع المقاومة، تُحسب المقاومة المكافئة R_مكافئة من العلاقة:
+
+1/R_مكافئة = 1/R + 1/R_فولتميتر = 1/500 + 1/1000
+
+بصيغة موحدة: 1/R_مكافئة = 2/1000 + 1/1000 = 3/1000
+
+R_مكافئة = 1000/3 ≈ 333 Ω
+
+التفسير: بما أن مقاومة الفولتميتر (1000 Ω) ليست لا نهائية، فإن توصيله على التوازي مع المقاومة (500 Ω) يقلل المقاومة الكلية لهذا الفرع من الدائرة من 500 Ω إلى نحو 333 Ω (انخفاض بنسبة الثلث تقريباً). هذا يغيّر توزيع التيار والجهد في بقية الدائرة، فتكون قراءة الفولتميتر أقل قليلاً من فرق الجهد الفعلي الذي كان سيكون موجوداً لو لم يُوصَل الفولتميتر أصلاً. لذلك يُفضَّل أن تكون مقاومة الفولتميتر كبيرة جداً (تقترب من اللانهاية) حتى لا تؤثر عملياً على الدائرة التي يقيسها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 5-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">دائرة كهربائية تتكوّن من مصدر جهد قوته الدافعة الكهربائية E = 5.0 V (مقاومته الداخلية مهملة) متصل على التوالي بمقاومة R = 20 Ω وأميتر حقيقي مقاومته 2.0 Ω. احسب شدة التيار التي يسجلها الأميتر، ثم احسب شدة التيار التي كانت ستمر في الدائرة لو كان الأميتر مثالياً (مقاومته صفر)، وقارن بين القيمتين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">شدة التيار الفعلية (مع مقاومة الأميتر الحقيقية):
+I_فعلي = E / (R + R_أميتر) = 5.0 / (20 + 2.0) = 5.0 / 22 = 0.227 A (بثلاث منازل معنوية)
+
+شدة التيار المثالية (لو كانت مقاومة الأميتر صفراً):
+I_مثالي = E / R = 5.0 / 20 = 0.250 A
+
+المقارنة: نسبة الفرق = (I_مثالي − I_فعلي) / I_مثالي × 100% = (0.250 − 0.227) / 0.250 × 100% ≈ 9.1%
+
+إذن فإن وجود مقاومة للأميتر (2.0 Ω) يقلل التيار الفعلي في الدائرة بنحو 9% عن القيمة الحقيقية التي كانت ستُقاس لو كان الأميتر مثالياً، مما يبيّن أهمية أن تكون مقاومة الأميتر صغيرة جداً (تقترب من الصفر) حتى لا يؤثر توصيله في الدائرة على التيار الذي يقيسه.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -532,6 +532,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>إطار نافذة من الألمنيوم (ABCD) بأبعاد (60cm × 85cm)، مغلق في مجال مغناطيسي مركبته العمودية على مستوى النافذة (1.8×10⁻⁴T). فُتحت النافذة خلال (0.20s) حتى أصبحت مساحتها موازية لمتجه المجال. حساب القوة الدافعة الكهربائية المستحثة في الضلع (CD).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>اختبار تجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>حساب الفيض المغناطيسي Φ = BAcosθ لملف مائل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>حساب EMF لملف يدخل مجالًا مغناطيسيًا بانتظام خلال زمن معلوم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>حساب EMF لملف يدور ربع دورة داخل مجال مغناطيسي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب EMF لقضيب متحرك عموديًا باستخدام ε = BLv<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>بيان أثر مضاعفة معدل الدوران على القيمة العظمى لـ EMF<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>11</td>
+          <td>سؤال اختياري: أثر مضاعفة عدد اللفات ثلاث مرات على EMF<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -665,6 +701,185 @@ N = 1 (لفة واحدة — إطار النافذة)
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 6-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف سلكي (لفة واحدة) مساحته 0.020 m²، موضوع بحيث يصنع الناظم على مستوى الملف زاوية 40° مع اتجاه مجال مغناطيسي منتظم كثافة فيضه 0.60 T. احسب مقدار الفيض المغناطيسي Φ المار خلال الملف.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">نستخدم العلاقة: Φ = B A cosθ
+
+cos40° ≈ 0.766
+
+Φ = 0.60 × 0.020 × 0.766
+
+Φ = 0.012 × 0.766
+
+Φ ≈ 9.2×10⁻³ Wb
+
+إذن مقدار الفيض المغناطيسي المار خلال الملف يساوي تقريبًا 9.2×10⁻³ Wb.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 6-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف مستطيل من 120 لفة، مساحة كل لفة منه 1.5×10⁻³ m²، يُدفع بسرعة منتظمة ليدخل بالكامل داخل منطقة مجال مغناطيسي منتظم كثافة فيضه 0.80 T (بحيث يصبح مستوى الملف عموديًا تمامًا على المجال، θ = 0°)، ويستغرق دخوله بالكامل زمنًا مقداره 0.25 s. احسب متوسط القوة الدافعة الكهربائية المستحثة في الملف خلال دخوله المجال، مستخدمًا قانون فاراداي ε = NΔΦ/Δt.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الفيض المغناطيسي المار خلال لفة واحدة بعد دخول الملف بالكامل (θ = 0°، cosθ = 1):
+
+ΔΦ = B A = 0.80 × 1.5×10⁻³
+
+ΔΦ = 1.2×10⁻³ Wb
+
+(قبل الدخول كان الفيض المار خلال الملف صفرًا، لذا هذا هو مقدار التغيّر في الفيض لكل لفة)
+
+مقدار التغيّر في الفيض المتداخل الكلي:
+
+N ΔΦ = 120 × 1.2×10⁻³ = 0.144 Wb
+
+متوسط القوة الدافعة الكهربائية المستحثة:
+
+ε = N ΔΦ / Δt = 0.144 / 0.25
+
+ε ≈ 0.58 V
+
+إذن متوسط القوة الدافعة الكهربائية المستحثة في الملف أثناء دخوله المجال يساوي تقريبًا 0.58 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 6-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف من 200 لفة، مساحة كل لفة منه 0.010 m²، يدور داخل مجال مغناطيسي منتظم كثافة فيضه 0.15 T. عند لحظة البدء، يكون مستوى الملف عموديًا تمامًا على المجال (θ = 0° بين الناظم والمجال، أي الفيض في قيمته العظمى)، ثم يدور الملف ربع دورة (90°) خلال زمن مقداره 0.020 s، بحيث يصبح مستوى الملف موازيًا للمجال (θ = 90°، أي الفيض يساوي صفرًا). احسب متوسط القوة الدافعة الكهربائية المستحثة خلال هذا الربع من الدورة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">الفيض المتداخل عند البداية (θ = 0°، cosθ = 1):
+
+NΦ_ابتدائي = N A B cosθ = 200 × 0.010 × 0.15 × 1 = 0.30 Wb
+
+الفيض المتداخل عند النهاية (θ = 90°، cosθ = 0):
+
+NΦ_نهائي = 200 × 0.010 × 0.15 × 0 = 0
+
+مقدار التغيّر في الفيض المتداخل:
+
+Δ(NΦ) = 0.30 − 0 = 0.30 Wb
+
+متوسط القوة الدافعة الكهربائية المستحثة:
+
+ε = Δ(NΦ) / Δt = 0.30 / 0.020
+
+ε = 15 V
+
+إذن متوسط القوة الدافعة الكهربائية المستحثة في الملف خلال هذا الربع من الدورة يساوي 15 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 6-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك قضيب موصل مستقيم طوله 0.45 m بسرعة ثابتة مقدارها 6.0 m/s، عموديًا على مجال مغناطيسي منتظم كثافة فيضه 0.35 T، وعموديًا أيضًا على طوله. احسب مقدار القوة الدافعة الكهربائية المستحثة بين طرفي القضيب.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن حركة القضيب عمودية على كل من المجال المغناطيسي وعلى طول القضيب نفسه، نستخدم العلاقة: ε = B L v
+
+ε = 0.35 × 0.45 × 6.0
+
+ε = 0.35 × 0.45 = 0.1575
+
+ε = 0.1575 × 6.0
+
+ε ≈ 0.95 V
+
+إذن مقدار القوة الدافعة الكهربائية المستحثة بين طرفي القضيب يساوي تقريبًا 0.95 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 6-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بيّن، باستخدام قانون فاراداي ε = NΔΦ/Δt، أنه إذا تمت مضاعفة معدل دوران ملف مولّد كهربائي (أي أصبحت كل دورة تستغرق نصف الزمن السابق)، مع بقاء عدد اللفات N وكثافة الفيض B ومساحة الملف A دون تغيير، فإن القيمة العظمى للقوة الدافعة الكهربائية المستحثة تتضاعف أيضًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">القيمة القصوى لتغيّر الفيض المتداخل خلال ربع دورة (من الفيض الأقصى NAB إلى الصفر) تساوي: Δ(NΦ)max = N A B
+
+هذه القيمة لا تعتمد على سرعة الدوران، بل فقط على N وA وB، وهي جميعها ثابتة حسب المعطى، لذا Δ(NΦ)max لا يتغيّر.
+
+عند مضاعفة معدل الدوران، يصبح الزمن اللازم لإتمام نفس الربع من الدورة نصف الزمن الأصلي، أي Δt الجديد = Δt الأصلي / 2.
+
+بما أن: ε = Δ(NΦ) / Δt
+
+فإن تنصيف Δt (مع بقاء البسط Δ(NΦ)max ثابتًا) يؤدي إلى مضاعفة قيمة ε:
+
+ε_جديد = Δ(NΦ)max / (Δt/2) = 2 × [Δ(NΦ)max / Δt] = 2 × ε_قديم
+
+إذن القيمة العظمى للقوة الدافعة الكهربائية المستحثة تتضاعف فعلًا عند مضاعفة معدل الدوران، كما هو مطلوب إثباته.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 6-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف يدور داخل مجال مغناطيسي منتظم وينتج قوة دافعة كهربائية مستحثة قيمتها القصوى ε₀. إذا تم استبدال الملف بملف آخر مطابق له في كل شيء (نفس المساحة ونفس معدل الدوران ونفس كثافة الفيض) باستثناء أن عدد لفاته يساوي ثلاثة أضعاف عدد لفات الملف الأول، فماذا يحدث للقيمة القصوى للقوة الدافعة الكهربائية المستحثة الجديدة، مقارنة بـ ε₀؟ (اختر الإجابة الصحيحة)
+(أ) تبقى دون تغيير (تساوي ε₀)
+(ب) تصبح ثلاثة أضعاف قيمتها الأصلية (3ε₀)
+(ج) تصبح تسعة أضعاف قيمتها الأصلية (9ε₀)
+(د) تصبح ثلث قيمتها الأصلية (ε₀/3)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">بما أن ε = Δ(NΦ)/Δt = N × (ΔΦ/Δt)، فإن القوة الدافعة الكهربائية المستحثة تتناسب طرديًا ومباشرة مع عدد اللفات N، طالما بقيت جميع العوامل الأخرى (المساحة A، كثافة الفيض B، ومعدل الدوران، وبالتالي Δt) ثابتة دون تغيير.
+
+بما أن عدد لفات الملف الجديد يساوي ثلاثة أضعاف عدد لفات الملف الأصلي (نفس معدل تغيّر الفيض لكل لفة ΔΦ/Δt)، فإن القيمة القصوى الجديدة للقوة الدافعة الكهربائية المستحثة تصبح ثلاثة أضعاف القيمة الأصلية.
+
+الإجابة الصحيحة: (ب) تصبح ثلاثة أضعاف قيمتها الأصلية (3ε₀).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

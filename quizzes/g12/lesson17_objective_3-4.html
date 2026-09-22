@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -531,6 +531,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>مكثّفان (C1=2 µF، C2=4 µF) موصولان على التوازي ببطارية 6V عبر مفتاح؛ احسب السعة المكافئة، ثم احسب الشحنة الكلية المخزَّنة عند الشحن الكامل<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الاختبار التجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>المفهوم الصحيح لتساوي فرق الجهد وتوزّع الشحنة في التوازي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>حساب السعة المكافئة والشحنة الكلية والفردية لثلاثة مكثّفات متوازية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>اشتقاق علاقة السعة المكافئة للتوازي من حفظ الشحنة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>تحديد السعة المكافئة لشبكة تجمع توالٍ وتوازٍ معًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>حساب سعة مكثّف مجهول ضمن مجموعة متوازية والشحنة عليه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>11</td>
+          <td>حساب السعة المكافئة لثلاثة مكثّفات متطابقة متوازية (اختياري)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -710,6 +746,165 @@ Q = CT × V = 6×10⁻⁶ × 6 = 36×10⁻⁶ C</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند توصيل عدة مكثّفات على التوازي بين نفس النقطتين في الدائرة، فإن: (اختر الإجابة الصحيحة)
+(أ) الشحنة على كل مكثّف متساوية، وفرق الجهد يتوزّع بينها
+(ب) فرق الجهد بين لوحي كل مكثّف يساوي فرق الجهد الكلي بين النقطتين، بينما تتوزّع الشحنة الكلية بين المكثّفات
+(ج) السعة المكافئة أصغر من أصغر سعة فردية في المجموعة
+(د) التيار اللحظي المار في كل فرع متساوٍ دائمًا بغض النظر عن قيمة سعة المكثّف</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">في التوصيل على التوازي، تكون جميع المكثّفات موصولة بين نفس النقطتين (نفس العقدتين) في الدائرة، وبما أن فرق الجهد بين أي نقطتين في الدائرة له قيمة واحدة محددة، فإن فرق الجهد بين لوحي كل مكثّف من المكثّفات المتوازية يساوي فرق الجهد الكلي V بين تلك النقطتين.
+
+أما الشحنة الكلية القادمة من المصدر فتتوزّع بين المكثّفات بنسب تتناسب مع سعة كل منها (Q = CV لكل مكثّف على حدة، وبسعات مختلفة تكون الشحن مختلفة عند نفس V).
+
+الخيار (أ) خطأ لأن الشحنة ليست متساوية بل فرق الجهد هو المتساوي. الخيار (ج) خطأ لأن السعة المكافئة للتوازي أكبر من أكبر سعة فردية (CT = C1+C2+…)، لا أصغر. الخيار (د) خطأ لأن التيار في كل فرع يتناسب مع سعة ذلك الفرع وليس متساويًا بالضرورة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وُصلت ثلاثة مكثّفات سعاتها 2 μF و4 μF و6 μF على التوازي، ثم وُصلت مجموعة المكثّفات بمصدر جهد ثابت قدره 9 V. احسب: (أ) السعة المكافئة للمجموعة، (ب) الشحنة الكلية المسحوبة من المصدر، (ج) الشحنة المخزَّنة على كل مكثّف على حدة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">(أ) في التوصيل على التوازي: CT = C1 + C2 + C3 = 2 + 4 + 6 = 12 μF.
+
+(ب) الشحنة الكلية: Q_total = CT × V = 12×10⁻⁶ × 9 = 108×10⁻⁶ C = 108 μC.
+
+(ج) فرق الجهد على كل مكثّف في التوازي يساوي فرق الجهد الكلي V = 9 V، لذا:
+Q1 = C1 × V = 2×10⁻⁶ × 9 = 18×10⁻⁶ C = 18 μC.
+Q2 = C2 × V = 4×10⁻⁶ × 9 = 36×10⁻⁶ C = 36 μC.
+Q3 = C3 × V = 6×10⁻⁶ × 9 = 54×10⁻⁶ C = 54 μC.
+
+للتحقق: Q1+Q2+Q3 = 18+36+54 = 108 μC = Q_total، وهذا يتفق مع الإجابة في الفقرة (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثّفان سعتاهما C1 و C2 موصولان على التوازي بين نقطتين فرق الجهد بينهما V. استنتج، انطلاقًا من مبدأ حفظ الشحنة وتعريف السعة، العلاقة CT = C1 + C2 لسعة المكثّفين المكافئة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في التوصيل على التوازي، يكون فرق الجهد بين لوحي كل مكثّف مساويًا لفرق الجهد الكلي V بين النقطتين (لأن كلا المكثّفين موصول مباشرة بين نفس النقطتين).
+
+الشحنة على كل مكثّف: Q1 = C1 V، Q2 = C2 V.
+
+الشحنة الكلية المسحوبة من المصدر هي مجموع الشحنتين (بما أن الشحنة كمية إضافية/محفوظة، ولا يوجد مسار آخر لتخزينها):
+Q_total = Q1 + Q2 = C1V + C2V = (C1 + C2) V.
+
+من ناحية أخرى، يمكن التعبير عن الشحنة الكلية بدلالة سعة مكافئة واحدة CT توصَل بنفس فرق الجهد V وتخزّن نفس الشحنة الكلية:
+Q_total = CT V.
+
+بمساواة الطرفين: CT V = (C1 + C2) V، وبما أن V ≠ 0 يمكن قسمة الطرفين عليها:
+CT = C1 + C2. ∎</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثّفان سعتاهما 6 μF و3 μF موصولان على التوالي، وهذه المجموعة السلسلة موصولة بدورها على التوازي مع مكثّف ثالث سعته 5 μF. حدد السعة المكافئة للشبكة الكلية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">أولًا نوجد السعة المكافئة لفرع التوالي المكوَّن من 6 μF و3 μF:
+
+1/Cs = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2.
+
+Cs = 2 μF.
+
+الآن هذا الفرع (Cs = 2 μF) موصول على التوازي مع المكثّف الثالث C3 = 5 μF، فتكون السعة المكافئة الكلية:
+
+CT = Cs + C3 = 2 + 5 = 7 μF.
+
+إذن السعة المكافئة للشبكة الكلية CT = 7 μF.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثّفان موصولان على التوازي، سعة أحدهما 8 μF، والسعة المكافئة لمجموعهما 20 μF. احسب سعة المكثّف الآخر، ثم احسب الشحنة المخزَّنة عليه عند توصيل المجموعة بفرق جهد قدره 15 V.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">في التوصيل على التوازي: CT = C1 + C2.
+
+C2 = CT − C1 = 20 − 8 = 12 μF.
+
+الشحنة على المكثّف الثاني عند فرق جهد V = 15 V (وهو نفس فرق الجهد الكلي، لأنه توصيل توازٍ):
+
+Q2 = C2 × V = 12×10⁻⁶ × 15 = 180×10⁻⁶ C = 180 μC.
+
+إذن سعة المكثّف الآخر = 12 μF، والشحنة المخزَّنة عليه = 180 μC.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وُصلت ثلاثة مكثّفات متطابقة سعة كل منها 10 μF على التوازي. السعة المكافئة لهذه المجموعة تساوي: (اختر الإجابة الصحيحة)
+(أ) 3.33 μF
+(ب) 10 μF
+(ج) 20 μF
+(د) 30 μF</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">في التوصيل على التوازي تُجمع السعات مباشرة: CT = C1 + C2 + C3 = 10 + 10 + 10 = 30 μF.
+
+الخيار (أ) 3.33 μF ينتج عن الخلط مع قانون التوالي (1/CT = 1/10+1/10+1/10 = 3/10 → CT=3.33μF) وهو خطأ لأن التوصيل هنا توازٍ. الخيار (ب) يتجاهل وجود ثلاثة مكثّفات ويكرر قيمة واحدة فقط. الخيار (ج) ناتج عن جمع مكثّفين فقط من أصل ثلاثة.
+
+الإجابة الصحيحة: (د) 30 μF.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

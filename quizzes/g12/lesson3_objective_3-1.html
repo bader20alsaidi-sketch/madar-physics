@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (18)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (12)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -574,6 +574,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>قمر صناعي كتلته (360 kg) على ارتفاع (2.33×10⁸ m) من سطح كوكب نصف قطره (4.6×10⁶ m)؛ إذا كانت قوة التجاذب بينهما (1.83 N)، فما الشغل اللازم لرفع القمر الصناعي من سطح الكوكب إلى ذلك الارتفاع؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q12')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>13</td>
+          <td>تعريف جهد الجاذبية والعلاقة الرياضية له<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>14</td>
+          <td>حساب طاقة وضع الجاذبية لقمر صناعي يدور حول الأرض<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>15</td>
+          <td>حساب التغيّر في طاقة وضع الجاذبية عند انتقال جسم بين مسافتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>16</td>
+          <td>تفسير سبب سالبية طاقة وضع الجاذبية وأثر الابتعاد عن مركز المجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>17</td>
+          <td>مقارنة كمية بين طاقتي وضع الجاذبية لجسمين مختلفي الكتلة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>18</td>
+          <td>سؤال اختياري: قراءة منحنى جهد الجاذبية مقابل المسافة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -856,6 +892,157 @@ W ≈ 2.20×10¹⁰ J
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف جهد الجاذبية (φ) عند نقطة في مجال جاذبية جسم كتلته M، واكتب العلاقة الرياضية له بدلالة الثابت G والمسافة r عن مركز الجسم.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">جهد الجاذبية (φ) عند نقطة ما يُعرَّف بأنه الشغل المبذول لكل وحدة كتلة لنقل كتلة نقطية صغيرة من اللانهاية (حيث φ = 0) إلى تلك النقطة.
+
+φ = W / m
+
+وبما أن قوة الجاذبية قوة تجاذب، فإن φ = −GM/r
+
+حيث G ثابت الجذب العام، M كتلة الجسم المسبب للمجال، r المسافة من مركز ذلك الجسم إلى النقطة المعنية.
+
+وحدة φ هي J kg⁻¹، وإشارتها سالبة دائمًا (باستثناء عند اللانهاية حيث تساوي صفرًا) لأن الشغل المبذول من قِبل قوة الجذب أثناء تقريب الكتلة من اللانهاية موجب، بينما جهد الجاذبية يُعرَّف بحيث يكون أعلى قيمة له (صفر) عند اللانهاية ويقل (يصبح أكثر سالبية) كلما اقتربنا من الجسم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قمر صناعي كتلته 800 kg يدور حول الأرض على مسافة 7.2×10⁶ m من مركزها. احسب طاقة وضع الجاذبية لهذا القمر الصناعي. (كتلة الأرض M = 5.97×10²⁴ kg)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">Ep = − G M m / r
+
+GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴
+
+GMm = 3.982×10¹⁴ × 800 = 3.186×10¹⁷
+
+Ep = − 3.186×10¹⁷ / 7.2×10⁶ = − 4.42×10¹⁰ J
+
+إذن طاقة وضع الجاذبية للقمر الصناعي تساوي تقريبًا −4.42×10¹⁰ J. الإشارة السالبة تدل على أن القمر الصناعي في حالة ارتباط (مقيد) بمجال جاذبية الأرض، وأن طاقته أقل من طاقته عند اللانهاية (التي تساوي صفرًا).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ينتقل جسم كتلته 500 kg من نقطة تبعد 8.0×10⁶ m عن مركز الأرض إلى نقطة أخرى تبعد 1.2×10⁷ m عن مركز الأرض. احسب التغيّر في طاقة وضع الجاذبية للجسم. (كتلة الأرض M = 5.97×10²⁴ kg)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴
+
+GMm = 3.982×10¹⁴ × 500 = 1.991×10¹⁷
+
+طاقة الوضع عند النقطة الأولى: Ep₁ = −1.991×10¹⁷ / 8.0×10⁶ = −2.489×10¹⁰ J
+
+طاقة الوضع عند النقطة الثانية: Ep₂ = −1.991×10¹⁷ / 1.2×10⁷ = −1.659×10¹⁰ J
+
+ΔEp = Ep₂ − Ep₁ = (−1.659×10¹⁰) − (−2.489×10¹⁰) = +8.30×10⁹ J
+
+إذن طاقة وضع الجاذبية للجسم ازدادت بمقدار 8.30×10⁹ J (إشارة موجبة)، وهذا متوقع لأن الجسم ابتعد عن مركز الأرض، فيلزم بذل شغل موجب (من مصدر خارجي) ضد قوة الجذب لرفعه إلى مسافة أبعد.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر لماذا تكون طاقة وضع الجاذبية لجسمين متجاذبين سالبة الإشارة دائمًا (باستثناء عند اللانهاية)، وبيّن ماذا يعني ازدياد قيمتها الجبرية (اقترابها من الصفر) عندما يبتعد الجسم عن مركز الجسم المسبب للمجال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">يُختار الصفر المرجعي لطاقة وضع الجاذبية عند اللانهاية (حيث لا يوجد تأثير متبادل بين الجسمين). بما أن قوة الجاذبية قوة تجاذب، فإن تقريب جسم من اللانهاية نحو جسم آخر يجعل قوة الجذب تبذل شغلاً موجبًا على الجسم المتحرك، وهذا يعني أن طاقة الوضع تقل (تصبح أصغر من صفر، أي سالبة) كلما اقترب الجسمان من بعضهما.
+
+لذلك فإن Ep = −GMm/r سالبة الإشارة عند أي مسافة منتهية r، وتقترب من الصفر (قيمتها الجبرية تزداد) فقط عندما تزداد r، أي كلما ابتعد الجسم عن مركز الجاذبية.
+
+فيزيائيًا، هذا يعني أن الجسمين أكثر 'ارتباطًا' (bound) كلما كانت طاقة الوضع أكثر سلبية، ويحتاج فصلهما تمامًا (نقل الجسم إلى اللانهاية) إلى بذل شغل موجب من مصدر خارجي يساوي مقدار |Ep| الابتدائية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسمان كتلتاهما m₁ = 200 kg و m₂ = 600 kg يبعدان مسافة متساوية r = 5.0×10⁶ m عن مركز كوكب كتلته M = 4.0×10²⁴ kg. قارن كميًّا بين طاقتي وضع الجاذبية للجسمين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">GM = 6.67×10⁻¹¹ × 4.0×10²⁴ = 2.668×10¹⁴
+
+Ep₁ = −GMm₁/r = −(2.668×10¹⁴ × 200) / 5.0×10⁶ = −5.336×10¹⁶ / 5.0×10⁶ = −1.07×10¹⁰ J
+
+Ep₂ = −GMm₂/r = −(2.668×10¹⁴ × 600) / 5.0×10⁶ = −1.601×10¹⁷ / 5.0×10⁶ = −3.20×10¹⁰ J
+
+بما أن Ep تتناسب طرديًا مع الكتلة m عند ثبوت r و M، نجد أن Ep₂ / Ep₁ = 3، وهو نفس مقدار النسبة بين الكتلتين (m₂/m₁ = 3).
+
+إذن طاقة وضع الجاذبية للجسم الثاني (m₂) أكبر مقدارًا (أكثر سالبية) بثلاث مرات من طاقة وضع الجاذبية للجسم الأول (m₁)، أي Ep₂ أصغر جبريًا (أكثر سالبية) من Ep₁.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند رسم منحنى جهد الجاذبية φ بدلالة المسافة r من مركز كوكب (لقيم r خارج سطح الكوكب)، أي العبارات التالية تصف المنحنى بشكل صحيح؟ (اختر الإجابة الصحيحة)
+(أ) φ سالبة دائمًا، وتزداد سالبيتها (تبتعد عن الصفر) كلما زادت r
+(ب) φ سالبة دائمًا، وتقترب تدريجيًا من الصفر كلما زادت r، دون أن تصبح موجبة
+(ج) φ موجبة دائمًا، وتتناقص قيمتها كلما زادت r
+(د) φ لا تعتمد على r، بل تعتمد فقط على كتلة الكوكب M</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">φ = −GM/r. بما أن G و M ثابتان وموجبان، فإن φ سالبة الإشارة عند كل قيم r المنتهية (لأن −GM سالبة ونقسمها على r الموجبة).
+
+كلما زادت r (ابتعدنا عن مركز الكوكب)، يقل مقدار GM/r (لأن r في المقام)، وبالتالي تقترب φ (وهي سالبة) تدريجيًا من الصفر، لكنها لا تصل إلى الصفر إلا عند r = ∞ ولا تصبح موجبة أبدًا.
+
+منحنى φ مقابل r يبدأ بقيمة سالبة كبيرة المقدار عند أصغر r (قرب السطح)، ثم يرتفع (يقترب من الصفر) بشكل تدريجي متناقص المعدل كلما زادت r.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

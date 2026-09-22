@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (15)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -556,6 +556,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>يبلغ نصف قطر مدار الأرض حول الشمس (1.5×10¹¹ m)، ونصف قطر مدار كوكب نبتون حول الشمس (4.5×10¹² m)؛ كم يستغرق نبتون لإتمام دورة كاملة حول الشمس؟ (علمًا أن الزمن الدوري للأرض سنة واحدة)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q9')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>10</td>
+          <td>اشتقاق العلاقة بين السرعة المدارية ونصف قطر المدار<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>11</td>
+          <td>حساب السرعة المدارية لقمر صناعي يدور حول الأرض<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>12</td>
+          <td>تحديد نصف قطر مدار قمر صناعي وارتفاعه من زمنه الدوري<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>13</td>
+          <td>تفسير عدم اعتماد السرعة المدارية والزمن الدوري على كتلة القمر الصناعي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>14</td>
+          <td>تفسير مفهوم القمر الصناعي المتزامن مع الأرض وشروط تحقّقه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>15</td>
+          <td>حساب نصف قطر وارتفاع مدار القمر الصناعي المتزامن مع الأرض<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -767,6 +803,177 @@ T_نبتون = T_الأرض × (r_نبتون/r_الأرض)^1.5 = 1 × (4.5×10¹
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشتقّ العلاقة بين السرعة المدارية v لجسم يدور في مدار دائري حول كوكب كتلته M ونصف قطر مداره r، وذلك بالمساواة بين قوة الجاذبية المؤثرة عليه والقوة المركزية اللازمة لحركته الدائرية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">يدور الجسم (كتلته m) في مدار دائري نصف قطره r حول جسم مركزي كتلته M بسرعة مدارية v. القوة التي توفر القوة المركزية اللازمة لهذه الحركة الدائرية هي قوة الجاذبية بين الجسمين.
+
+بمساواة قوة الجاذبية بالقوة المركزية:
+
+G M m / r² = m v² / r
+
+بقسمة الطرفين على m (الكتلة m تُختصر من المعادلة تمامًا)، ثم ضرب الطرفين في r:
+
+G M / r = v²
+
+وبأخذ الجذر التربيعي للطرفين:
+
+v = √(GM/r)
+
+هذه هي العلاقة المطلوبة بين السرعة المدارية ونصف قطر المدار، وتُظهر أن كتلة الجسم المداري m لا تظهر في الصيغة النهائية على الإطلاق.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قمر صناعي يدور حول الأرض في مدار دائري نصف قطره 7.00×10⁶ m. احسب سرعته المدارية. (كتلة الأرض M = 5.97×10²⁴ kg)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">v = √(GM/r)
+
+GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴
+
+GM/r = 3.982×10¹⁴ / 7.00×10⁶ = 5.689×10⁷
+
+v = √(5.689×10⁷) = 7.54×10³ m s⁻¹
+
+إذن السرعة المدارية لهذا القمر الصناعي تساوي تقريبًا 7.54×10³ m s⁻¹ (نحو 27 200 km/h).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قمر صناعي يدور حول الأرض في مدار دائري بزمن دوري T = 7200 s. حدد نصف قطر مداره، ثم احسب ارتفاعه عن سطح الأرض. (كتلة الأرض M = 5.97×10²⁴ kg، نصف قطر الأرض R = 6.40×10⁶ m)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">وفق قانون كبلر الثالث: T² = 4π² r³ / GM، ومنها: r³ = GM T² / 4π²
+
+GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴
+
+T² = (7200)² = 5.184×10⁷ s²
+
+GM T² = 3.982×10¹⁴ × 5.184×10⁷ = 2.064×10²²
+
+4π² ≈ 39.48
+
+r³ = 2.064×10²² / 39.48 = 5.23×10²⁰ m³
+
+r = (5.23×10²⁰)^(1/3) ≈ 8.06×10⁶ m
+
+الارتفاع عن سطح الأرض: h = r − R = 8.06×10⁶ − 6.40×10⁶ = 1.66×10⁶ m
+
+إذن نصف قطر المدار يساوي تقريبًا 8.06×10⁶ m، ويقابل ذلك ارتفاعًا عن سطح الأرض يساوي تقريبًا 1.66×10⁶ m (نحو 1660 km).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر لماذا لا تعتمد كل من السرعة المدارية والزمن الدوري لقمر صناعي يدور حول الأرض على كتلة القمر الصناعي نفسه، بل تعتمدان فقط على كتلة الأرض ونصف قطر المدار.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">عند اشتقاق كل من v = √(GM/r) و T² = 4π²r³/GM، نبدأ بمساواة قوة الجاذبية (وهي G M m / r²، حيث m كتلة القمر الصناعي) بالقوة المركزية اللازمة للحركة الدائرية (وهي m v²/r، أو ما يعادلها بدلالة T).
+
+في كلتا الحالتين تظهر كتلة القمر الصناعي m في الطرفين (طرف قوة الجاذبية وطرف القوة المركزية) بنفس القوة، وبالتالي تُختصر m تمامًا من المعادلة عند القسمة عليها.
+
+النتيجة النهائية (سواء v أو T) تعتمد فقط على الكتلة المركزية M (كتلة الأرض، وهي مصدر المجال) وعلى نصف قطر المدار r، ولا تحتوي على m إطلاقًا. لذلك فإن أي قمر صناعي (مهما كانت كتلته: صغيرًا أو كبيرًا) يدور على نفس نصف القطر r حول الأرض سيكون له نفس السرعة المدارية ونفس الزمن الدوري بالضبط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر معنى مصطلح 'القمر الصناعي المتزامن مع الأرض' (Geostationary Satellite)، واذكر الشروط اللازم توفرها في مداره حتى يبقى هذا القمر الصناعي فوق نقطة ثابتة من سطح الأرض باستمرار.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">القمر الصناعي المتزامن مع الأرض هو قمر صناعي يبدو ثابتًا بالنسبة لمراقب على سطح الأرض، أي أنه يظل معلقًا فوق نفس النقطة على خط الاستواء طوال الوقت.
+
+لتحقيق ذلك، يجب توفر الشروط التالية في مداره:
+
+(1) أن يكون زمنه الدوري مساويًا تمامًا للزمن الدوري لدوران الأرض حول محورها (اليوم النجمي ≈ 24 ساعة)، بحيث يكمل القمر الصناعي دورة كاملة حول الأرض في نفس الوقت الذي تكمل فيه الأرض دورة كاملة حول محورها.
+
+(2) أن يكون مداره دائريًا وواقعًا بالكامل في مستوى خط استواء الأرض (لا يميل عنه).
+
+(3) أن تكون جهة دورانه حول الأرض هي نفس جهة دوران الأرض حول محورها (من الغرب إلى الشرق).
+
+عند توفر هذه الشروط الثلاثة معًا، تبقى المسافة الزاوية بين القمر الصناعي ونقطة ثابتة على خط الاستواء صفرًا دائمًا، فيبدو القمر الصناعي ساكنًا في السماء بالنسبة لمراقب أرضي.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">احسب نصف قطر مدار القمر الصناعي المتزامن مع الأرض، علمًا بأن زمنه الدوري يساوي الزمن الدوري لدوران الأرض حول محورها T = 24 h = 86400 s. (كتلة الأرض M = 5.97×10²⁴ kg، نصف قطر الأرض R = 6.40×10⁶ m)، ثم احسب ارتفاع هذا المدار عن سطح الأرض.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">من قانون كبلر الثالث: r³ = GM T² / 4π²
+
+GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴
+
+T² = (86400)² = 7.465×10⁹ s²
+
+GM T² = 3.982×10¹⁴ × 7.465×10⁹ = 2.973×10²⁴
+
+4π² ≈ 39.48
+
+r³ = 2.973×10²⁴ / 39.48 = 7.53×10²² m³
+
+r = (7.53×10²²)^(1/3) ≈ 4.22×10⁷ m
+
+الارتفاع عن سطح الأرض: h = r − R = 4.22×10⁷ − 6.40×10⁶ = 3.58×10⁷ m
+
+إذن نصف قطر مدار القمر الصناعي المتزامن مع الأرض يساوي تقريبًا 4.22×10⁷ m (42 200 km من مركز الأرض)، أي على ارتفاع 3.58×10⁷ m (نحو 35 800 km) فوق سطح الأرض، وهذه هي القيمة الحقيقية المعروفة تقريبًا لمدار الأقمار الصناعية الجيوستاسيونية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (2)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -513,6 +513,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>شبكة من ثلاثة مكثّفات متماثلة السعة (C1||C2 على التوالي مع C3)؛ إذا كانت شحنة C1 تساوي 2 µC فاحسب شحنة C3<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>الأسلوب الصحيح لتحليل شبكة مكثّفات مركّبة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>تحليل كامل لشبكة توالٍ داخل توازٍ: السعة والشحن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>إثبات السعة المكافئة لشبكة بفرعين متوازيين أحدهما توالٍ<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>حساب الطاقة الكلية وطاقة فرع منفرد في شبكة مركّبة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>استنتاج العلاقة الطردية بين السعة المكافئة والطاقة الكلية عند ثبات الجهد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>8</td>
+          <td>حساب السعة المكافئة لشبكة توازٍ موصولة على التوالي مع مكثّف ثالث<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -595,6 +631,177 @@ Q3 = Q_{12} = 4 µC
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند تحليل شبكة مركّبة من المكثّفات تحتوي على مجموعات متوالية ومتوازية معًا لإيجاد سعتها المكافئة، فإن الأسلوب الصحيح هو: (اختر الإجابة الصحيحة)
+(أ) جمع كل السعات مباشرة بغض النظر عن طريقة توصيلها
+(ب) البدء بتبسيط أصغر المجموعات الفرعية (المتوالية أو المتوازية بوضوح) إلى سعة مكافئة واحدة، ثم تكرار العملية تدريجيًا حتى تبقى سعة مكافئة واحدة للشبكة كاملة
+(ج) استخدام قانون التوالي فقط بغض النظر عن طريقة التوصيل الفعلية
+(د) حساب متوسط جميع السعات الفردية في الشبكة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الشبكات المركّبة (التي تجمع توصيلات متوالية ومتوازية معًا) تُحلَّل بتحديد أصغر مجموعة فرعية واضحة التوصيل (توالٍ خالص أو توازٍ خالص) أولًا، وإيجاد سعتها المكافئة باستخدام القانون المناسب لها، ثم معاملة هذه السعة المكافئة كمكثّف واحد ضمن بقية الشبكة، وتكرار هذه الخطوات تدريجيًا (من الداخل إلى الخارج) حتى تختزل الشبكة بأكملها إلى سعة مكافئة واحدة.
+
+الخيار (أ) خطأ لأن الجمع المباشر يصح فقط للتوازي وليس لكل الحالات. الخيار (ج) خطأ لنفس السبب مع التوالي. الخيار (د) لا أساس فيزيائيًا له إطلاقًا.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في شبكة مكثّفات، مكثّفان C1 = 4 μF و C2 = 12 μF موصولان على التوالي في فرع واحد، وهذا الفرع موصول على التوازي مع مكثّف ثالث C3 = 6 μF. وُصلت الشبكة كاملة بمصدر جهد ثابت قدره 24 V. احسب: (أ) السعة المكافئة للشبكة، (ب) الشحنة الكلية المسحوبة من المصدر، (ج) الشحنة المخزَّنة على المكثّف C3، (د) الشحنة المخزَّنة على كل من C1 و C2.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">(أ) أولًا نوجد السعة المكافئة لفرع التوالي (C1 مع C2):
+1/Cs = 1/C1 + 1/C2 = 1/4 + 1/12 = 3/12 + 1/12 = 4/12 = 1/3.
+Cs = 3 μF.
+
+هذا الفرع (Cs = 3 μF) موصول على التوازي مع C3 = 6 μF، فتكون السعة المكافئة الكلية للشبكة:
+CT = Cs + C3 = 3 + 6 = 9 μF.
+
+(ب) الشحنة الكلية المسحوبة من المصدر:
+Q_total = CT × V = 9×10⁻⁶ × 24 = 216×10⁻⁶ C = 216 μC.
+
+(ج) فرع C3 موصول مباشرة بين طرفي المصدر (توازٍ)، لذا فرق الجهد عليه يساوي 24 V كاملة:
+Q3 = C3 × V = 6×10⁻⁶ × 24 = 144×10⁻⁶ C = 144 μC.
+
+(د) فرع التوالي (C1 مع C2) يأخذ الشحنة المتبقية، وبما أنه فرع توازٍ آخر موصول أيضًا عند نفس فرق الجهد 24 V:
+Qs = Cs × V = 3×10⁻⁶ × 24 = 72×10⁻⁶ C = 72 μC.
+
+وبما أن C1 و C2 موصولان على التوالي، فإن الشحنة عليهما متساوية وتساوي شحنة الفرع نفسه:
+Q1 = Q2 = 72 μC.
+
+للتحقق: Q3 + Qs = 144 + 72 = 216 μC = Q_total، وهذا يتفق مع الإجابة في الفقرة (ب)، مما يؤكد صحة توزيع الشحنة وفق مبدأ حفظ الشحنة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شبكة مكثّفات موصولة بمصدر قوة دافعة كهربائية قدره 15 V، وتتكوّن من فرعين متوازيين: الفرع A عبارة عن مكثّف واحد سعته 8 μF، والفرع B عبارة عن مكثّفين سعة كل منهما 4 μF موصولين على التوالي. بيّن أن السعة المكافئة للشبكة كاملة تساوي 10 μF، ثم احسب الشحنة الكلية المسحوبة من المصدر.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">أولًا نوجد السعة المكافئة للفرع B (مكثّفان متطابقان سعة كل منهما 4 μF موصولان على التوالي):
+1/Cb = 1/4 + 1/4 = 2/4 = 1/2.
+Cb = 2 μF.
+
+الفرعان A (8 μF) وB (Cb = 2 μF) موصولان على التوازي بين نفس طرفي المصدر، لذا:
+CT = CA + Cb = 8 + 2 = 10 μF.
+
+وهذا يطابق القيمة المطلوب إثباتها: CT = 10 μF. ∎
+
+الشحنة الكلية المسحوبة من المصدر:
+Q_total = CT × V = 10×10⁻⁶ × 15 = 150×10⁻⁶ C = 150 μC.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بالنسبة لشبكة المكثّفات الموصوفة في السؤال السابق (CT = 10 μF، الفرع A سعته 8 μF، مصدر جهد 15 V)، حدد الطاقة الكلية المخزَّنة في الشبكة، ثم حدد الطاقة المخزَّنة في الفرع A وحده.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">الطاقة الكلية المخزَّنة في الشبكة كاملة باستخدام السعة المكافئة:
+W_total = ½ CT V² = ½ × 10×10⁻⁶ × 15² = ½ × 10×10⁻⁶ × 225 = ½ × 2250×10⁻⁶ = 1125×10⁻⁶ J = 1.125×10⁻³ J = 1.125 mJ.
+
+الفرع A موصول مباشرة بين طرفي المصدر (فرع توازٍ)، لذا فرق الجهد عليه أيضًا 15 V كاملة، والطاقة المخزَّنة فيه:
+W_A = ½ CA V² = ½ × 8×10⁻⁶ × 225 = ½ × 1800×10⁻⁶ = 900×10⁻⁶ J = 0.9×10⁻³ J = 0.9 mJ.
+
+للتحقق: طاقة الفرع B تكون W_B = W_total − W_A = 1.125 − 0.9 = 0.225 mJ، وهذا يطابق الحساب المباشر W_B = ½ Cb V² = ½ × 2×10⁻⁶ × 225 = 225×10⁻⁶ J = 0.225 mJ، مما يؤكد اتساق النتائج.
+
+إذن الطاقة الكلية في الشبكة = 1.125 mJ، والطاقة في الفرع A وحده = 0.9 mJ.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">استنتج العلاقة بين السعة المكافئة لشبكة مكثّفات والطاقة الكلية المخزَّنة فيها: إذا تمت مضاعفة السعة المكافئة CT لشبكة مكثّفات (بإعادة توصيلها) مع بقاء فرق الجهد الكلي V المطبَّق عليها ثابتًا، كيف تتغير الطاقة الكلية المخزَّنة؟ فسّر إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الطاقة الكلية المخزَّنة في شبكة مكثّفات تُعطى بالعلاقة: W = ½ CT V².
+
+عند ثبات فرق الجهد الكلي V، تكون العلاقة بين W وCT علاقة طردية خطية (W تتناسب طرديًا مع CT مباشرة، بما أن V² يبقى ثابتًا ولا يتغير).
+
+فإذا تضاعفت السعة المكافئة (أصبحت 2CT مع بقاء V ثابتًا):
+W' = ½ (2CT) V² = 2 × (½ CT V²) = 2W.
+
+أي أن الطاقة الكلية المخزَّنة تتضاعف هي الأخرى (تصبح ضعف قيمتها الأصلية).
+
+السبب فيزيائيًا: زيادة السعة المكافئة (عند ثبات V) تعني قدرة أكبر على تخزين شحنة أكبر عند نفس فرق الجهد (بما أن Q = CT V)، وبالتالي تُخزَّن طاقة أكبر في المجال الكهربائي بين لوحات الشبكة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في شبكة مكثّفات، مكثّفان C1 = 2 μF و C2 = 3 μF موصولان على التوازي، وهذه المجموعة المتوازية موصولة على التوالي مع مكثّف ثالث C3 = 5 μF. السعة المكافئة للشبكة كاملة تساوي: (اختر الإجابة الصحيحة)
+(أ) 10 μF
+(ب) 5 μF
+(ج) 2.5 μF
+(د) 0.4 μF</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">أولًا نوجد سعة المجموعة المتوازية (C1 مع C2):
+Cp = C1 + C2 = 2 + 3 = 5 μF.
+
+الآن Cp (= 5 μF) موصولة على التوالي مع C3 = 5 μF:
+1/CT = 1/Cp + 1/C3 = 1/5 + 1/5 = 2/5.
+
+CT = 5/2 = 2.5 μF.
+
+الخيار (أ) 10 μF ينتج عن جمع الثلاث سعات مباشرة وكأنها كلها متوازية، وهو خطأ لأن C3 موصولة على التوالي مع المجموعة. الخيار (ب) 5 μF يتجاهل وجود C3 تمامًا في الحساب النهائي. الخيار (د) 0.4 μF ينتج عن خطأ في عكس البسط والمقام عند حساب CT من المقلوب 2/5.
+
+الإجابة الصحيحة: (ج) 2.5 μF.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

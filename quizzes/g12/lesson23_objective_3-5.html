@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (15)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -556,6 +556,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>يوضّح الشكل قاعدة فليمنج لليد اليسرى. تحديد ما تشير إليه إصبع السبابة، من بين بدائل: اتجاه الحركة / كثافة الفيض المغناطيسي / شدة التيار / القوة المغناطيسية.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>اختبار تجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q9')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>10</td>
+          <td>تعريف كثافة الفيض المغناطيسي B ومعادلتها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>11</td>
+          <td>حساب القوة باستخدام F = BIL sinθ عند θ = 90°<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>12</td>
+          <td>تحديد كثافة الفيض B من قوة وسلك عمودي على المجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>13</td>
+          <td>حساب القوة عند زاوية 30° بين السلك والمجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>14</td>
+          <td>حساب الفيض المغناطيسي الكلي Nφ لملف عند θ = 0°<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>15</td>
+          <td>ربط زيادة كثافة الفيض بزيادة القوة في تجربة ميزان القطبين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -779,6 +815,175 @@ L = F/(B I) = 0.02256/(0.077 × 4.0) = 0.02256/0.308 ≈ 0.0732 m</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف كثافة الفيض المغناطيسي (B) عند نقطة معينة، مبينًا العلاقة الرياضية التي يُشتق منها هذا التعريف انطلاقًا من العلاقة العامة F = BIL sinθ.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">كثافة الفيض المغناطيسي (B) عند نقطة هي القوة المغناطيسية المؤثرة لكل وحدة تيار كهربائي لكل وحدة طول على موصل مستقيم موضوع بزاوية قائمة (عموديًا) على اتجاه المجال المغناطيسي عند تلك النقطة.
+
+تُشتق هذه العلاقة من F = BIL sinθ عند الوضع الخاص θ = 90° (أي عندما يكون السلك عموديًا على المجال، فتكون sinθ = 1):
+
+B = F / (I L)
+
+ووحدة كثافة الفيض المغناطيسي هي التسلا (T)، حيث 1 T = 1 N A⁻¹ m⁻¹.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك مستقيم طوله 0.25 m يحمل تيارًا كهربائيًا شدته 3.0 A، وهو موضوع بزاوية 90° مع اتجاه مجال مغناطيسي منتظم كثافة فيضه 0.40 T. احسب مقدار القوة المغناطيسية المؤثرة على السلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">نستخدم العلاقة: F = B I L sinθ
+
+F = 0.40 × 3.0 × 0.25 × sin90°
+
+F = 0.40 × 3.0 × 0.25 × 1
+
+F = 0.30 N
+
+إذن مقدار القوة المغناطيسية المؤثرة على السلك يساوي 0.30 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يحمل سلك مستقيم طوله 0.12 m تيارًا كهربائيًا شدته 5.0 A، وهو موضوع بزاوية قائمة على مجال مغناطيسي منتظم، فيتعرض لقوة مغناطيسية مقدارها 0.18 N. حدد كثافة الفيض المغناطيسي B لهذا المجال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن السلك عمودي على المجال (θ = 90°، sinθ = 1)، نعيد ترتيب العلاقة F = BIL sinθ لإيجاد B:
+
+B = F / (I L sinθ)
+
+B = 0.18 / (5.0 × 0.12 × 1)
+
+B = 0.18 / 0.60
+
+B = 0.30 T
+
+إذن كثافة الفيض المغناطيسي تساوي 0.30 T.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك مستقيم طوله 0.40 m يحمل تيارًا كهربائيًا شدته 2.5 A، وهو موضوع بحيث تصنع محور السلك زاوية 30° مع اتجاه مجال مغناطيسي منتظم كثافة فيضه 0.20 T. احسب مقدار القوة المغناطيسية المؤثرة على السلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نستخدم العلاقة العامة: F = B I L sinθ
+
+F = 0.20 × 2.5 × 0.40 × sin30°
+
+F = 0.20 × 2.5 × 0.40 × 0.50
+
+F = 0.20 N × 0.50 (بعد حساب 0.20 × 2.5 × 0.40 = 0.20)
+
+F = 0.10 N
+
+إذن مقدار القوة المغناطيسية المؤثرة على السلك يساوي 0.10 N، وهي أصغر من القوة التي كانت ستنتج لو كان السلك عموديًا على المجال (θ = 90°) بنفس القيم الأخرى، لأن sin30° &lt; sin90°.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف دائري مكوَّن من 250 لفة، مساحة كل لفة منه 8.0×10⁻³ m²، موضوع بحيث يكون مستوى الملف عموديًا تمامًا على اتجاه مجال مغناطيسي منتظم كثافة فيضه 0.15 T (أي أن الناظم على مستوى الملف يوازي اتجاه المجال تمامًا، θ = 0°). احسب الفيض المغناطيسي الكلي (الفيض المتداخل) Nφ المرتبط بهذا الملف.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">نستخدم العلاقة: Nφ = N A B cosθ
+
+بما أن الناظم على مستوى الملف يوازي المجال تمامًا، فإن θ = 0° وcosθ = 1.
+
+Nφ = 250 × 8.0×10⁻³ × 0.15 × 1
+
+Nφ = 250 × 8.0×10⁻³ = 2.0
+
+Nφ = 2.0 × 0.15
+
+Nφ = 0.30 Wb
+
+إذن الفيض المغناطيسي الكلي المرتبط بالملف يساوي 0.30 Wb (فيبر-لفة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 3-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة "ميزان القطبين" (current balance) لقياس القوة المغناطيسية، يمر تيار كهربائي شدته 1.5 A في سلك أفقي طوله 0.12 m، موضوع بزاوية قائمة على مجال مغناطيسي منتظم كثافة فيضه B₁ = 0.25 T بين قطبي مغناطيس دائم.
+(1) احسب الكتلة m₁ اللازم إضافتها على الطرف الآخر من الميزان لموازنة القوة المغناطيسية المؤثرة على السلك (خذ g = 9.81 m s⁻²، واعتبر mg = F عند حالة الاتزان).
+(2) إذا استُبدل المغناطيس بآخر كثافة فيضه B₂ = 0.50 T (أي ضعف الأول)، مع بقاء التيار وطول السلك كما هما، حدد الكتلة الجديدة m₂ اللازمة للموازنة، وفسّر العلاقة بين m₁ وm₂.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">(1) القوة المغناطيسية على السلك (θ = 90°): F₁ = B₁ I L
+
+F₁ = 0.25 × 1.5 × 0.12
+
+F₁ = 0.045 N
+
+عند الاتزان: m₁ g = F₁
+
+m₁ = F₁ / g = 0.045 / 9.81
+
+m₁ ≈ 4.6×10⁻³ kg = 4.6 g
+
+(2) بمضاعفة كثافة الفيض إلى B₂ = 0.50 T مع بقاء I وL ثابتين:
+
+F₂ = B₂ I L = 0.50 × 1.5 × 0.12 = 0.090 N
+
+m₂ = F₂ / g = 0.090 / 9.81 ≈ 9.2×10⁻³ kg = 9.2 g
+
+نلاحظ أن m₂ ≈ 2 × m₁ (9.2 g ≈ 2 × 4.6 g). هذا متوقع لأن F = BIL طردية مع B عند ثبات I وL، فمضاعفة كثافة الفيض المغناطيسي تُضاعف القوة المغناطيسية المؤثرة على السلك، وبالتالي تُضاعف الكتلة اللازمة لموازنتها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

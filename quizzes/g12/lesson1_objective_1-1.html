@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (17)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (11)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -568,6 +568,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>قمر صناعي كتلته (360 kg) على ارتفاع (2.33×10⁸ m) من سطح كوكب نصف قطره (4.6×10⁶ m)؛ إذا كانت قوة التجاذب بينهما (1.83 N)، فما الشغل اللازم لرفع القمر الصناعي من سطح الكوكب إلى ذلك الارتفاع؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q11')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>12</td>
+          <td>سؤال اختياري: اتجاه خطوط مجال الجاذبية حول كوكب كروي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>13</td>
+          <td>استنتاج نسبة شدة مجال الجاذبية بين نقطتين على مسافتين مختلفتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>14</td>
+          <td>حساب قوة الجذب بين جسمين باستخدام قانون نيوتن للجذب العام<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>15</td>
+          <td>حساب قوة جذب الأرض لقمر صناعي باستخدام قانون نيوتن للجذب العام<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>16</td>
+          <td>مقارنة قوة جذب الأرض للقمر وقوة القمر للأرض وفق قانون نيوتن الثالث<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>17</td>
+          <td>سؤال اختياري: أثر تغيّر الكتلة والمسافة معًا على قوة الجذب<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -840,6 +876,163 @@ W ≈ 2.20×10¹⁰ J
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي الأوصاف التالية تمثل بشكل صحيح اتجاه خطوط مجال الجاذبية حول كوكب كروي متجانس الكثافة؟ (اختر الإجابة الصحيحة)
+(أ) خطوط دائرية تحيط بالكوكب ولا تتقاطع معه أبدًا
+(ب) خطوط تنطلق من مركز الكوكب إلى الخارج في جميع الاتجاهات
+(ج) خطوط مستقيمة تتجه نحو مركز الكوكب من كل نقطة حوله
+(د) خطوط متوازية في اتجاه واحد ثابت بصرف النظر عن الموقع من الكوكب</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">شدة مجال الجاذبية عند أي نقطة تمثَّل بخط مجال يكون اتجاهه هو اتجاه القوة المؤثرة على كتلة اختبار صغيرة موجبة (كتلة نقطية) موضوعة في تلك النقطة.
+
+بما أن قوة الجاذبية بين أي كتلتين قوة تجاذب دائمًا (وليست تنافرًا)، فإن الكتلة الاختبارية عند أي نقطة حول الكوكب تُجذب دائمًا نحو مركز الكوكب.
+
+إذن خطوط المجال يجب أن تكون خطوطًا مستقيمة (شعاعية) تتجه من كل نقطة في الفراغ نحو مركز الكوكب، وتتقارب كلما اقتربنا من السطح.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يوجد جسمان A و B حول كوكب كتلته M: يبعد A مسافة r عن مركز الكوكب، ويبعد B مسافة 3r عن المركز. استنتج، باستخدام العلاقة بين شدة مجال الجاذبية والمسافة من المركز، النسبة بين شدة المجال عند A وشدتها عند B (gA : gB).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">شدة مجال الجاذبية عند نقطة تبعد r عن مركز جسم كتلته M تُعطى بالعلاقة g = GM/r²، أي أن g تتناسب عكسيًا مع مربع المسافة r (g ∝ 1/r²)؛ وهذا ما تعبر عنه أيضًا كثافة خطوط المجال (تتقارب كلما قلّت r).
+
+عند A: gA = GM/r²
+
+عند B: gB = GM/(3r)² = GM/(9r²)
+
+بقسمة المعادلتين: gA/gB = [GM/r²] ÷ [GM/(9r²)] = 9
+
+إذن النسبة gA : gB = 9 : 1، أي أن شدة المجال (وكثافة خطوط المجال) عند A أكبر بتسع مرات منها عند B.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسمان كتلتاهما 500 kg و 800 kg، تفصل بين مركزيهما مسافة 2.0 m. احسب مقدار قوة الجذب المتبادلة بينهما، مستخدمًا G = 6.67×10⁻¹¹ N m² kg⁻².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">وفق قانون نيوتن للجذب العام: F = G m₁ m₂ / r²
+
+F = (6.67×10⁻¹¹ × 500 × 800) / (2.0)²
+
+بسط البسط أولًا: 6.67×10⁻¹¹ × 500 = 3.335×10⁻⁸
+
+3.335×10⁻⁸ × 800 = 2.668×10⁻⁵
+
+ثم بالقسمة على المقام (2.0)² = 4.0:
+
+F = 2.668×10⁻⁵ / 4.0 = 6.67×10⁻⁶ N
+
+إذن قوة الجذب المتبادلة بين الجسمين تساوي تقريبًا 6.67×10⁻⁶ N (قوة ضئيلة جدًا مقارنة بالقوى التي نشعر بها يوميًا، لأن ثابت الجذب العام G صغير جدًا).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قمر صناعي كتلته 1200 kg يدور حول الأرض بحيث تبلغ المسافة بين مركزه ومركز الأرض 6.80×10⁶ m. احسب قوة جذب الأرض له. (كتلة الأرض M = 5.97×10²⁴ kg)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">باستخدام قانون نيوتن للجذب العام: F = G M m / r²
+
+GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴ N m² kg⁻¹
+
+GMm = 3.982×10¹⁴ × 1200 = 4.778×10¹⁷
+
+r² = (6.80×10⁶)² = 4.624×10¹³ m²
+
+F = 4.778×10¹⁷ / 4.624×10¹³ = 1.03×10⁴ N
+
+إذن تجذب الأرض القمر الصناعي بقوة مقدارها تقريبًا 1.03×10⁴ N، وهذه القوة هي نفسها التي توفر القوة المركزية اللازمة لبقائه في مداره.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قارن بين قوة جذب الأرض للقمر وقوة جذب القمر للأرض من حيث المقدار والاتجاه، وفسّر إجابتك مستخدمًا قانون نيوتن الثالث للحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">وفق قانون نيوتن للجذب العام، القوة التي تجذب بها الأرض القمر تساوي في المقدار القوة التي يجذب بها القمر الأرض؛ لأن كلتا القوتين تُحسب من نفس العلاقة F = G M_الأرض M_القمر / r²، وهي كمية واحدة تُطبَّق على كلا الجسمين بالتساوي (زوج قوى وفق قانون نيوتن الثالث للحركة: لكل فعل رد فعل مساوٍ له في المقدار ومضاد له في الاتجاه).
+
+اتجاه القوتين: قوة الأرض على القمر تتجه من القمر نحو مركز الأرض، بينما قوة القمر على الأرض تتجه من الأرض نحو مركز القمر؛ أي أن القوتين متضادتان في الاتجاه ومؤثرتان على جسمين مختلفين (وليس على نفس الجسم)، لذا فهما لا يُلغيان بعضهما.
+
+ملاحظة مهمة: رغم تساوي القوتين في المقدار، فإن التسارع الناتج عن كل منهما مختلف (a = F/m)، فالقمر أقل كتلة من الأرض بكثير، لذا يكتسب تسارعًا أكبر بكثير من التسارع الذي تكتسبه الأرض نتيجة نفس القوة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسمان كتلتاهما m₁ و m₂ يفصل بينهما مسافة r وتؤثر بينهما قوة جذب F. إذا أصبحت كتلة الجسم الأول 3m₁ (أي تضاعفت ثلاث مرات) وتضاعفت المسافة بينهما لتصبح 2r مع بقاء m₂ ثابتة، فإن القوة الجديدة تساوي: (اختر الإجابة الصحيحة)
+(أ) 0.75 F
+(ب) 1.5 F
+(ج) 3 F
+(د) 12 F</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">القوة الأصلية: F = G m₁ m₂ / r²
+
+القوة الجديدة: F' = G (3m₁) m₂ / (2r)² = 3 G m₁ m₂ / (4r²) = (3/4) × [G m₁ m₂ / r²] = 0.75 F
+
+إذن القوة الجديدة تساوي 0.75 من القوة الأصلية (أي تقل رغم زيادة إحدى الكتلتين، بسبب التأثير الأقوى لتربيع المسافة في المقام).
+
+الإجابة الصحيحة: (أ).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

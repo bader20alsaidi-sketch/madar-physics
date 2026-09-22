@@ -490,9 +490,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (14)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (8)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -551,6 +551,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>يوضّح الشكل 1-13 العلاقة البيانية بين الجهد الكهربائي (V) لكرة مشحونة كهربائيًا وبعدها (r) عن مركزها. احسب طاقة الوضع الكهربائية لبروتون وُضع على مسافة (3r) من سطح الكرة، حيث (r) تمثل نصف قطر الكرة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q8')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>9</td>
+          <td>تعريف الجهد الكهربائي عند نقطة وحسابه لكرة موصلة مشحونة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>10</td>
+          <td>حساب طاقة الوضع الكهربائية لشحنتين وتحديد مقدار تغيرها عند تقريبهما<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>11</td>
+          <td>حساب الشغل المبذول لتحريك شحنة اختبار داخل مجال شحنة ثابتة وتفسير إشارته<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>12</td>
+          <td>استخدام العلاقة الخطية بين الجهد ومقلوب المسافة لإيجاد شحنة جسم مشحون وشدة المجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>13</td>
+          <td>وصف تغير الجهد وطاقة الوضع لشحنة اختبار تتحرك داخل مجال منتظم بين لوحين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>14</td>
+          <td>تحديد نسبة طاقة الوضع الجديدة عند مضاعفة المسافة بين شحنتين متشابهتين ثلاث مرات (اختياري)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -773,6 +809,165 @@ Ep = 7.9×10⁻¹⁸ J</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 5-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف الجهد الكهربائي عند نقطة في مجال كهربائي. ثم احسب الجهد الكهربائي عند نقطة تبعد 0.15 m عن مركز كرة موصلة مشحونة بشحنة مقدارها +8.0×10⁻⁹ C.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الجهد الكهربائي عند نقطة في مجال كهربائي يُعرَّف بأنه الشغل المبذول لنقل وحدة الشحنات الموجبة من اللانهاية (حيث الجهد يساوي صفرًا) إلى تلك النقطة، دون تغيير في طاقتها الحركية.
+
+ويُحسب الجهد الناشئ عن شحنة نقطية أو كروية Q عند مسافة r عن مركزها بالعلاقة:
+V = Q/(4πε₀r) = kQ/r، حيث k = 1/(4πε₀) ≈ 8.99×10⁹ N·m²/C²
+
+بالتعويض بالمعطيات Q = 8.0×10⁻⁹ C وr = 0.15 m:
+
+V = (8.99×10⁹ × 8.0×10⁻⁹) / 0.15
+
+البسط: 8.99×10⁹ × 8.0×10⁻⁹ = 71.92
+
+V = 71.92 / 0.15 ≈ 479.5 V
+
+إذن الجهد الكهربائي عند تلك النقطة V ≈ 4.8×10² V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 5-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شحنتان نقطيتان Q₁ = +2.0×10⁻⁶ C وQ₂ = −3.0×10⁻⁶ C تفصل بينهما مسافة 0.50 m. احسب طاقة الوضع الكهربائية لهذا النظام من الشحنتين، ثم احسب طاقة الوضع الجديدة إذا قُرِّبت الشحنتان حتى أصبحت المسافة بينهما 0.25 m، وبيّن كيف تغيرت طاقة الوضع بين الحالتين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">طاقة الوضع الكهربائية لشحنتين نقطيتين تُعطى بالعلاقة: Ep = Q₁Q₂/(4πε₀r) = kQ₁Q₂/r، حيث k ≈ 8.99×10⁹ N·m²/C².
+
+عند r₁ = 0.50 m:
+Ep₁ = (8.99×10⁹) × (2.0×10⁻⁶) × (−3.0×10⁻⁶) / 0.50
+
+حاصل ضرب الشحنتين: (2.0×10⁻⁶)×(−3.0×10⁻⁶) = −6.0×10⁻¹²
+
+Ep₁ = (8.99×10⁹ × −6.0×10⁻¹²) / 0.50 = (−5.394×10⁻²) / 0.50 ≈ −0.108 J
+
+عند r₂ = 0.25 m (نصف المسافة الأصلية):
+Ep₂ = (8.99×10⁹ × −6.0×10⁻¹²) / 0.25 = (−5.394×10⁻²) / 0.25 ≈ −0.216 J
+
+بما أن Ep تتناسب عكسيًا مع r (لشحنتين ثابتتين)، فإن تنصيف المسافة يضاعف القيمة المطلقة لطاقة الوضع. وبما أن الشحنتين مختلفتان في النوع فإن طاقة الوضع سالبة (نظام متجاذب ومستقر)، وقد ازدادت سلبيتها (أصبحت أكثر سالبية) من −0.108 J إلى −0.216 J تقريبًا، أي انخفضت طاقة الوضع (أصبحت أكثر سالبية بمقدار الضعف)، وهذا متوقع لأن تقريب شحنتين متجاذبتين يحرر طاقة إضافية من النظام.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 5-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شحنة نقطية ثابتة Q = +5.0×10⁻⁶ C موضوعة في الفراغ. تتحرك شحنة اختبار q = +2.0×10⁻⁹ C من نقطة تبعد 0.60 m عن Q إلى نقطة أخرى تبعد 0.20 m عن Q (أي تقترب منها). احسب الشغل المبذول لتحريك الشحنة q بين هاتين النقطتين، وفسّر إشارة هذا الشغل.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">نحسب أولًا الجهد الكهربائي الناشئ عن Q عند كل من النقطتين، باستخدام V = kQ/r وk ≈ 8.99×10⁹ N·m²/C².
+
+عند r₁ = 0.60 m: V₁ = (8.99×10⁹ × 5.0×10⁻⁶) / 0.60 = (4.495×10⁴) / 0.60 ≈ 7.49×10⁴ V
+
+عند r₂ = 0.20 m: V₂ = (8.99×10⁹ × 5.0×10⁻⁶) / 0.20 = (4.495×10⁴) / 0.20 ≈ 2.25×10⁵ V
+
+فرق الجهد بين النقطتين: ΔV = V₂ − V₁ ≈ (2.25×10⁵) − (7.49×10⁴) ≈ 1.50×10⁵ V
+
+الشغل المبذول (من قوة خارجية) لتحريك الشحنة q من النقطة الأولى إلى الثانية:
+W = qΔV = (2.0×10⁻⁹) × (1.50×10⁵) ≈ 3.0×10⁻⁴ J
+
+إشارة الشغل موجبة، وهذا متوقع فيزيائيًا: الشحنتان Q وq كلتاهما موجبتان، فتتنافران، وتقريب q من Q يتطلب بذل شغل موجب من قوة خارجية للتغلب على قوة التنافر (وهذا الشغل يساوي الزيادة في طاقة الوضع الكهربائية للنظام ΔEp). أما الشغل المبذول من القوة الكهربائية نفسها على q فيكون بنفس المقدار لكن بإشارة سالبة (−3.0×10⁻⁴ J)، لأن القوة الكهربائية (التنافرية) تعاكس اتجاه الحركة نحو الداخل.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 5-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم مشحون كروي الشكل، قيست قيمة الجهد الكهربائي الناتج عنه عند نقاط مختلفة تبعد عن مركزه بالمسافة r، فوُجد أن الجهد يتناسب عكسيًا مع المسافة (V ∝ 1/r)، بما يتوافق مع V = kQ/r. عند نقطة تبعد r = 0.10 m عن مركز الجسم، وُجد أن V = 900 V. استخدم هذه المعلومة لتحديد: (a) مقدار شحنة الجسم Q. (b) شدة المجال الكهربائي عند النقطة نفسها (r = 0.10 m).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) من العلاقة V = kQ/r، يمكن إيجاد Q:
+Q = Vr/k = (900 × 0.10) / (8.99×10⁹) = 90 / (8.99×10⁹) ≈ 1.0×10⁻⁸ C
+
+(b) لإيجاد شدة المجال عند النقطة نفسها، نلاحظ أن E = kQ/r² = (kQ/r)/r = V/r (وهذه علاقة خاصة تصح عند حساب V وE عند المسافة نفسها r من شحنة نقطية أو كروية، وتختلف عن العلاقة E = V/d الخاصة بالمجال المنتظم بين لوحين متوازيين):
+
+E = V/r = 900 / 0.10 = 9000 V/m
+
+إذن مقدار شحنة الجسم Q ≈ 1.0×10⁻⁸ C، وشدة المجال الكهربائي عند تلك النقطة E = 9.0×10³ V/m (أو N/C).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 5-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">توضع شحنة اختبار موجبة صغيرة بالقرب من اللوح الموجب لمكثف ذي لوحين متوازيين، ثم تُترك حرة فتتحرك بتأثير القوة الكهربائية نحو اللوح السالب. صف كيف يتغير كل من: (a) الجهد الكهربائي عند موضع الشحنة. (b) طاقة الوضع الكهربائية للشحنة، أثناء حركتها من اللوح الموجب نحو اللوح السالب.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(a) الجهد الكهربائي بين لوحين متوازيين يتناقص خطيًا وبانتظام كلما ابتعدنا عن اللوح الموجب واقتربنا من اللوح السالب (لأن المجال منتظم، والجهد أعلى ما يمكن عند اللوح الموجب وأدنى ما يمكن — وقد يكون سالبًا نسبيًا — عند اللوح السالب). لذلك فإن الجهد الكهربائي عند موضع الشحنة الاختبارية يتناقص باستمرار أثناء حركتها من اللوح الموجب نحو السالب.
+
+(b) طاقة الوضع الكهربائية للشحنة الموجبة تُعطى بالعلاقة Ep = qV؛ وبما أن q ثابتة (موجبة) وV يتناقص أثناء الحركة، فإن طاقة الوضع الكهربائية للشحنة تتناقص هي الأخرى باستمرار أثناء انتقالها من اللوح الموجب نحو اللوح السالب.
+
+ويقابل هذا الانخفاض في طاقة الوضع زيادة مكافئة في الطاقة الحركية للشحنة (حسب مبدأ حفظ الطاقة)، إذ تقوم القوة الكهربائية بتسريع الشحنة الموجبة في اتجاه حركتها نحو اللوح السالب.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 5-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شحنتان نقطيتان متماثلتان في الإشارة (كلاهما سالبتان) تفصل بينهما مسافة r، ولهما طاقة وضع كهربائية Ep. إذا أُبعدت إحدى الشحنتين عن الأخرى حتى أصبحت المسافة بينهما 3r، فإن طاقة الوضع الكهربائية الجديدة للنظام تساوي: (اختر الإجابة الصحيحة)
+(أ) تتضاعف 3 مرات فتصبح 3Ep.
+(ب) تصبح ثلث قيمتها الأصلية Ep/3.
+(ج) تصبح تُسع قيمتها الأصلية Ep/9.
+(د) تبقى دون تغيير.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">طاقة الوضع الكهربائية بين شحنتين نقطيتين: Ep = Q₁Q₂/(4πε₀r)، وهي تتناسب عكسيًا طرديًا مع المسافة r فقط (وليس مع مربعها) لأن r تظهر بالقوة الأولى فقط في المقام.
+
+عند مضاعفة المسافة إلى 3r:
+Ep' = Q₁Q₂/(4πε₀ × 3r) = (1/3) × [Q₁Q₂/(4πε₀r)] = Ep/3
+
+إذن طاقة الوضع الجديدة تساوي ثلث القيمة الأصلية، والإجابة الصحيحة هي (ب). (ملاحظة: بما أن الشحنتين متشابهتان في الإشارة، فإن حاصل ضربهما موجب وEp موجبة أصلًا، وتبقى موجبة بعد الإبعاد لكنها تقل إلى الثلث).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

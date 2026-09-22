@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -531,6 +531,36 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>أربعة أسلاك نيكروم مختلفة في الطول (L أو 2L) ونصف القطر (2r أو 4r) — تحديد السلك الأكبر مقاومة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>تفسير المقاومة النوعية كخاصية للمادة لا تعتمد على الأبعاد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>حساب مقاومة سلك نحاسي من طوله وقطره ومقاومته النوعية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>إثبات مقاومة سلك نيكروم باستخدام R = ρL/A<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>مقارنة مقاومتي سلكين مختلفي الطول والمساحة من نفس المادة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>سؤال اختياري: أثر شدّ سلك على مقاومته عند ثبات الحجم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -656,6 +686,128 @@ R₂/R₁ = (2L/L) × (r²/(r/2)²) = 2 × 4 = 8
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر معنى المقاومة النوعية (ρ) لمادة موصل، موضحاً لماذا تُعدّ خاصية للمادة نفسها ولا تعتمد على طول الموصل أو مساحة مقطعه العرضي، على عكس المقاومة (R) التي تعتمد على هذه الأبعاد.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">المقاومة النوعية ρ هي خاصية فيزيائية للمادة نفسها تعتمد على تركيب المادة الداخلي (مثل كثافة حاملات الشحنة الحرة فيها ودرجة الحرارة) ولا تتغير بتغيّر أبعاد العينة المصنوعة من هذه المادة (لا الطول L ولا مساحة المقطع A).
+
+بالمقابل، فإن المقاومة R لموصل معين تعتمد على أبعاده وفق العلاقة R = ρL/A: فزيادة طول الموصل L تزيد مقاومته (لأن الإلكترونات تصطدم بعدد أكبر من الأيونات على طول مسار أطول)، بينما زيادة مساحة المقطع A تقلل مقاومته (لأن مساحة أكبر تتيح مساراً أعرض لتدفق الشحنة).
+
+لذلك فإن سلكين من المادة نفسها (نفس ρ) قد تكون مقاومتاهما مختلفتين تماماً إذا اختلف طولاهما أو مساحتا مقطعيهما، بينما يبقى ρ نفسه دائماً ثابتاً طالما بقيت المادة ودرجة الحرارة كما هما.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك نحاسي طوله 2.5 m وقطره 0.44 mm. إذا كانت المقاومة النوعية للنحاس ρ = 1.7 × 10⁻⁸ Ω m، احسب مقاومة هذا السلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">نصف قطر السلك: r = القطر / 2 = 0.44 mm / 2 = 0.22 mm = 2.2 × 10⁻⁴ m
+
+مساحة المقطع العرضي: A = πr² = π × (2.2 × 10⁻⁴)² = π × 4.84 × 10⁻⁸ = 1.52 × 10⁻⁷ m²
+
+من العلاقة R = ρL/A:
+R = (1.7 × 10⁻⁸ × 2.5) / (1.52 × 10⁻⁷)
+
+البسط: 1.7 × 10⁻⁸ × 2.5 = 4.25 × 10⁻⁸
+
+R = 4.25 × 10⁻⁸ / 1.52 × 10⁻⁷ = 0.28 Ω</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك من سبيكة النيكروم (Nichrome) مقاومته النوعية ρ = 1.10 × 10⁻⁶ Ω m، ومساحة مقطعه العرضي 0.20 mm². بيّن أن مقاومة سلك طوله 4.5 m من هذه السبيكة تساوي تقريباً 25 Ω.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">نحوّل مساحة المقطع إلى المتر المربع: A = 0.20 mm² = 0.20 × 10⁻⁶ m² = 2.0 × 10⁻⁷ m²
+
+من العلاقة R = ρL/A:
+R = (1.10 × 10⁻⁶ × 4.5) / (2.0 × 10⁻⁷)
+
+البسط: 1.10 × 10⁻⁶ × 4.5 = 4.95 × 10⁻⁶
+
+R = 4.95 × 10⁻⁶ / 2.0 × 10⁻⁷ = 24.75 Ω ≈ 25 Ω
+
+وهذا يؤكد صحة القيمة المعطاة (تقريباً 25 Ω).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلكان (A) و(B) مصنوعان من المادة نفسها (نفس المقاومة النوعية ρ). طول السلك (A) يساوي L ومساحة مقطعه A₀، بينما طول السلك (B) يساوي 3L ومساحة مقطعه 2A₀. قارن بين مقاومتي السلكين بإيجاد النسبة R_A : R_B.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">مقاومة السلك A: R_A = ρL / A₀
+
+مقاومة السلك B: R_B = ρ(3L) / (2A₀) = (3/2) × (ρL/A₀) = 1.5 R_A
+
+إذن النسبة: R_A : R_B = 1 : 1.5 = 2 : 3
+
+أي أن مقاومة السلك B أكبر من مقاومة السلك A بمقدار 1.5 مرة، رغم أن مساحة مقطعه أكبر، وذلك لأن طوله (3 أضعاف) أثّر في المقاومة بشكل أكبر من تأثير زيادة مساحة المقطع (ضعفين) في تقليلها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك معدني مقاومته R، تم سحبه (شدّه) بانتظام حتى تضاعف طوله، مع بقاء حجمه ثابتاً (أي لا تغيّر في كمية المادة). إذا بقيت المقاومة النوعية ρ ثابتة، فما مقدار المقاومة الجديدة للسلك بدلالة R؟ (اختر الإجابة الصحيحة)
+(أ) R/4
+(ب) R/2
+(ج) 2R
+(د) 4R</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن الحجم ثابت: الحجم = L × A = ثابت. عندما يتضاعف الطول (L' = 2L)، يجب أن تنخفض مساحة المقطع إلى النصف حتى يبقى الحجم كما هو: A' = A/2.
+
+المقاومة الجديدة: R' = ρL'/A' = ρ(2L)/(A/2) = 4 × (ρL/A) = 4R
+
+إذن الإجابة الصحيحة: (د) 4R</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

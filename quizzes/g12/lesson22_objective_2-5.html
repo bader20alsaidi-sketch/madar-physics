@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (2)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -513,6 +513,36 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>سلك أفقي ثابت يمرّ مركزيًا بين قطبي مغناطيس دائم موضوع على كفّة ميزان إلكتروني. عند مرور تيار كهربائي في السلك تقل قراءة الميزان. تحديد اتجاه القوة المؤثرة على السلك واتجاه التيار الكهربائي فيه.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>تحديد اتجاه القوة المغناطيسية على سلك (تيار يمينًا، مجال للداخل)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>تفسير انعدام القوة عند التوازي وتعظّمها عند التعامد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>حساب القوة المغناطيسية باستخدام F = BIL عند التعامد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>أثر عكس اتجاه التيار على مقدار واتجاه القوة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>تحديد اتجاه القوة (تيار للأسفل، مجال لليمين داخل الصفحة)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -562,6 +592,118 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك مستقيم أفقي يحمل تيارًا كهربائيًا يسري نحو اليمين، وهو موضوع داخل مجال مغناطيسي منتظم يتجه إلى داخل الصفحة (بعيدًا عن الناظر، ⊗)، والسلك عمودي على اتجاه المجال. باستخدام قاعدة اليد اليمنى، حدد اتجاه القوة المغناطيسية المؤثرة على السلك. (اختر الإجابة الصحيحة)
+(أ) إلى الأعلى، داخل مستوى الصفحة
+(ب) إلى الأسفل، داخل مستوى الصفحة
+(ج) إلى داخل الصفحة (بنفس اتجاه المجال)
+(د) إلى خارج الصفحة (نحو الناظر)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">التيار يسري نحو اليمين، والمجال المغناطيسي يتجه إلى داخل الصفحة، والسلك عمودي على المجال، لذا تُوجَد قوة مغناطيسية مؤثرة على السلك اتجاهها عمودي على كل من اتجاه التيار واتجاه المجال معًا.
+
+بتطبيق قاعدة اليد اليمنى (بحيث تمثّل الأصابع اتجاه المجال المغناطيسي، ويمثّل الإبهام اتجاه التيار، فيشير دفع راحة الكف إلى اتجاه القوة)، نجد أن اتجاه القوة الناتجة يكون إلى الأعلى داخل مستوى الصفحة.
+
+الإجابة الصحيحة: (أ) إلى الأعلى، داخل مستوى الصفحة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر، بالاعتماد على قاعدة اليد اليمنى ومفهوم تعامد الاتجاهات: (1) لماذا تنعدم القوة المغناطيسية المؤثرة على سلك مستقيم يحمل تيارًا كهربائيًا عندما يكون هذا السلك موازيًا تمامًا لاتجاه المجال المغناطيسي المحيط به، (2) لماذا تكون هذه القوة في أقصى مقدار لها عندما يكون السلك عموديًا (بزاوية قائمة) على اتجاه المجال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">(1) عندما يكون السلك موازيًا تمامًا لخطوط المجال المغناطيسي، فإن اتجاه سريان التيار واتجاه المجال المغناطيسي يصبحان على استقامة واحدة (زاوية بينهما = صفر). قاعدة اليد اليمنى تعتمد أساسًا على وجود مكوّن للتيار عمودي على المجال لإنتاج قوة محدَّدة الاتجاه؛ فإذا لم يوجد أي مكوّن عمودي (لأن التيار كله موازٍ للمجال)، فلا تنشأ أي قوة مغناطيسية محصّلة على السلك، أي تنعدم القوة تمامًا.
+
+(2) عندما يكون السلك عموديًا (بزاوية قائمة) على المجال المغناطيسي، فإن التيار بأكمله يمثّل مكوّنًا عموديًا كاملًا على اتجاه المجال، وهذا هو الوضع الذي يُنتج فيه تفاعل التيار مع المجال أكبر قوة ممكنة على السلك، ولذلك تكون القوة المغناطيسية في هذه الحالة في قيمتها العظمى.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يحمل سلك مستقيم طوله 0.30 m تيارًا كهربائيًا شدته 2.0 A، وهو موضوع بزاوية قائمة (عموديًا) على مجال مغناطيسي منتظم كثافة فيضه 0.50 T. احسب مقدار القوة المغناطيسية المؤثرة على هذا السلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن السلك عمودي على المجال المغناطيسي (θ = 90°)، تُستخدم العلاقة: F = B I L
+
+F = 0.50 × 2.0 × 0.30
+
+F = 0.30 N
+
+إذن مقدار القوة المغناطيسية المؤثرة على السلك يساوي 0.30 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بالنسبة للسلك الموصوف في السؤال السابق (L = 0.30 m، I = 2.0 A، B = 0.50 T، عمودي على المجال)، إذا عُكس اتجاه سريان التيار في السلك مع بقاء المجال المغناطيسي ثابتًا في مقداره واتجاهه، صف كيف يتغيّر: (1) مقدار القوة المغناطيسية المؤثرة على السلك، (2) اتجاه هذه القوة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(1) المقدار: لا يتغيّر مقدار القوة، لأن العلاقة F = BIL تعتمد على مقادير B وI وL فقط، وهذه المقادير لم تتغيّر (لم تتغيّر إلا وجهة سريان التيار، وليس شدته). لذلك يبقى مقدار القوة كما هو: F = 0.30 N.
+
+(2) الاتجاه: يعكس اتجاه القوة المغناطيسية تمامًا (ينقلب 180°) ليصبح في الاتجاه المضاد تمامًا لاتجاهه الأصلي. والسبب أن قاعدة اليد اليمنى تربط اتجاه القوة باتجاه التيار مباشرة؛ فعكس اتجاه التيار (مع بقاء المجال كما هو) يعكس اتجاه القوة الناتجة، دون أن يغيّر من مقدارها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك مستقيم رأسي يحمل تيارًا كهربائيًا يسري إلى الأسفل، وهو موضوع داخل مجال مغناطيسي منتظم يتجه أفقيًا نحو اليمين (داخل مستوى الصفحة نفسه)، والسلك عمودي على اتجاه المجال. باستخدام قاعدة اليد اليمنى، حدد اتجاه القوة المغناطيسية المؤثرة على السلك. (اختر الإجابة الصحيحة)
+(أ) إلى خارج الصفحة (نحو الناظر)
+(ب) إلى داخل الصفحة (بعيدًا عن الناظر)
+(ج) إلى الأعلى، داخل مستوى الصفحة
+(د) إلى الأسفل، داخل مستوى الصفحة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">اتجاه التيار إلى الأسفل، واتجاه المجال المغناطيسي أفقي نحو اليمين، والسلك عمودي على المجال، لذا تنشأ قوة مغناطيسية عمودية على كليهما معًا (أي عمودية على مستوى الصفحة نفسه).
+
+بتطبيق قاعدة اليد اليمنى (الأصابع باتجاه المجال نحو اليمين، والإبهام باتجاه التيار إلى الأسفل)، يكون دفع راحة الكف — أي اتجاه القوة — إلى خارج الصفحة، نحو الناظر.
+
+الإجابة الصحيحة: (أ) إلى خارج الصفحة (نحو الناظر).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

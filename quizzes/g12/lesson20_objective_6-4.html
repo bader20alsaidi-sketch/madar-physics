@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -537,6 +537,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>مكثف (2mF) يُشحن بقوة دافعة (12V) ثم يُفرَّغ عبر مقاومة R فتنخفض قراءة الفولتميتر إلى (12e⁻³ V) خلال 24s؛ احسب R<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>المعنى الفيزيائي الصحيح لثابت الزمن τ = RC<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>حساب ثابت الزمن τ = RC لدائرة تفريغ<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>حساب زمن التفريغ حتى بلوغ فرق جهد معيّن باستخدام العلاقة الأسّية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>تحديد قيمة المقاومة من زمن تناقص الشحنة إلى نصفها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>تفسير أثر مضاعفة المقاومة على معدل التفريغ وزمنه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>12</td>
+          <td>تحديد عدد أضعاف ثابت الزمن اللازم لبلوغ الشحنة أقل من 10%<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -754,6 +790,171 @@ R = 4×10³ Ω</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ثابت الزمن τ لدائرة تفريغ مكثّف عبر مقاومة (τ = RC) يمثّل: (اختر الإجابة الصحيحة)
+(أ) الزمن اللازم لتفريغ المكثّف بالكامل تمامًا (حتى تصبح شحنته صفرًا)
+(ب) الزمن اللازم لتناقص الشحنة (أو فرق الجهد) على المكثّف إلى نحو 37% (أي 1/e) من قيمتها الابتدائية
+(ج) الزمن اللازم لمضاعفة الشحنة على المكثّف
+(د) مقلوب معدل تناقص الشحنة عند بداية التفريغ مباشرة فقط</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">من العلاقة الأسّية للتفريغ: Q = Q0 e^(−t/RC). عندما يكون الزمن المنقضي t مساويًا لثابت الزمن τ = RC بالضبط، فإن:
+
+Q/Q0 = e^(−τ/τ) = e^(−1) ≈ 0.368 ≈ 37%.
+
+أي أن τ هو الزمن اللازم لتناقص الشحنة (وكذلك فرق الجهد، لأن V يتناسب طرديًا مع Q عند سعة ثابتة) إلى نحو 37% من قيمتها الابتدائية، وليس إلى الصفر تمامًا (نظريًا لا تصل الدالة الأسّية للصفر في زمن منتهٍ)، وليس هو زمن مضاعفة الشحنة (فالشحنة تتناقص لا تتضاعف أثناء التفريغ).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يُفرَّغ مكثّف سعته 470 μF عبر مقاومة قدرها 2.2 kΩ. احسب ثابت الزمن τ لدائرة التفريغ هذه.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">ثابت الزمن يُعطى بالعلاقة: τ = RC.
+
+بالتعويض: R = 2.2×10³ Ω، C = 470×10⁻⁶ F.
+
+τ = 2.2×10³ × 470×10⁻⁶ = 2200 × 0.00047.
+
+2200 × 0.00047 = 1.034 s.
+
+إذن ثابت الزمن τ ≈ 1.03 s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شُحن مكثّف حتى بلغ فرق الجهد بين لوحيه 9.0 V، ثم بدأ يتفرّغ عبر مقاومة بحيث كان ثابت الزمن لدائرة التفريغ τ = 4.0 s. احسب الزمن اللازم حتى يتناقص فرق الجهد بين لوحي المكثّف إلى 3.0 V.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">تُستخدم العلاقة الأسّية للتفريغ: V = V0 e^(−t/τ).
+
+بالتعويض: V0 = 9.0 V، V = 3.0 V.
+
+3.0 = 9.0 × e^(−t/4.0).
+
+e^(−t/4.0) = 3.0/9.0 = 1/3.
+
+بأخذ اللوغاريتم الطبيعي للطرفين:
+−t/4.0 = ln(1/3) = −ln(3) = −1.0986.
+
+t = 4.0 × 1.0986 = 4.394 s.
+
+إذن الزمن اللازم ≈ 4.4 s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثّف سعته 100 μF يُفرَّغ عبر مقاومة R. وُجد أن الشحنة عليه تناقصت إلى نصف قيمتها الابتدائية بعد مرور 3.5 s من بدء التفريغ. حدد قيمة المقاومة R.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">تُستخدم العلاقة الأسّية للتفريغ: Q = Q0 e^(−t/RC).
+
+عند t = 3.5 s تكون Q = Q0/2، أي Q/Q0 = 0.5.
+
+0.5 = e^(−3.5/RC).
+
+بأخذ اللوغاريتم الطبيعي للطرفين:
+ln(0.5) = −3.5/RC → −0.6931 = −3.5/RC.
+
+RC = 3.5/0.6931 = 5.05 s.
+
+R = (RC)/C = 5.05/(100×10⁻⁶) = 5.05×10⁴ Ω.
+
+إذن مقاومة المقاومة R ≈ 5.05×10⁴ Ω = 50.5 kΩ.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر، باستخدام العلاقة τ = RC والمنحنى الأسّي لتناقص الشحنة مع الزمن أثناء تفريغ مكثّف، أثر مضاعفة قيمة المقاومة R (مع بقاء سعة المكثّف C ثابتة) على معدل تفريغ المكثّف والزمن اللازم لتفريغه إلى نسبة معينة من شحنته الابتدائية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">ثابت الزمن يُعطى بالعلاقة τ = RC. فإذا تضاعفت قيمة المقاومة R مع بقاء C ثابتة، فإن ثابت الزمن الجديد τ' = (2R)C = 2τ، أي يتضاعف هو الآخر.
+
+فيزيائيًا، زيادة المقاومة R تحدّ من مقدار التيار اللحظي الذي يمكن أن يتدفق من المكثّف عند أي فرق جهد لحظي معيّن (I = V/R)، وبما أن التيار هو معدل تدفق الشحنة (I = −dQ/dt)، فإن تيارًا أصغر عند كل لحظة يعني أن الشحنة تتناقص بمعدل أبطأ.
+
+على المنحنى الأسّي لـ Q مقابل الزمن t، يظهر هذا كمنحنى أكثر تسطّحًا (أقل انحدارًا في بدايته) يستغرق زمنًا أطول ليصل إلى نفس النسبة من الشحنة الابتدائية (مثلًا 37% عند τ، أو 50% عند نحو 0.693τ). فبما أن τ تضاعف، فإن الزمن اللازم لبلوغ أي نسبة معيّنة من Q0 يتضاعف أيضًا (لأن t = τ × ln(Q0/Q) لأي نسبة ثابتة).
+
+باختصار: مضاعفة R تُبطئ عملية التفريغ وتُضاعف الزمن اللازم للوصول إلى أي نسبة معيّنة من الشحنة الابتدائية، دون أن تُغيّر شكل المنحنى الأسّي من حيث طبيعته (يبقى أسّيًا تناقصيًا)، بل تُمدّده أفقيًا على محور الزمن.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثّف يتفرّغ عبر مقاومة بثابت زمن τ. أقل عدد صحيح من أضعاف ثابت الزمن τ يلزم مروره حتى تصبح الشحنة المتبقية على المكثّف أقل من 10% من شحنته الابتدائية هو: (اختر الإجابة الصحيحة)
+(أ) 1
+(ب) 2
+(ج) 3
+(د) 5</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">النسبة المتبقية من الشحنة بعد مرور n من أضعاف ثابت الزمن (t = nτ) تُعطى بالعلاقة: Q/Q0 = e^(−n).
+
+عند n = 2: Q/Q0 = e^(−2) = 0.135 = 13.5%، وهذه القيمة أكبر من 10%، أي لم تصل النسبة المطلوبة بعد.
+
+عند n = 3: Q/Q0 = e^(−3) = 0.0498 ≈ 5.0%، وهذه القيمة أقل من 10%.
+
+إذن أقل عدد صحيح من أضعاف τ تصبح عنده النسبة المتبقية أقل من 10% هو 3 (لأنها كانت لا تزال أكبر من 10% عند n = 2، وأصبحت أقل من 10% عند n = 3).
+
+الإجابة الصحيحة: (ج) 3.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

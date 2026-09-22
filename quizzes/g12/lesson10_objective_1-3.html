@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (14)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -556,6 +556,36 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>سلك نحاسي نصف قطره (0.40×10⁻³ m) يمر به تيار (6.0A) بكثافة إلكترونات (8.0×10²⁸ m⁻³) — حساب متوسط السرعة الانجرافية.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q9')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>10</td>
+          <td>تعريف شدة التيار الكهربائي والعلاقة I = ΔQ/Δt<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>11</td>
+          <td>حساب شدة التيار في سلك نحاسي باستخدام I = nAvq<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>12</td>
+          <td>حساب السرعة الانجرافية للإلكترونات في سلك نحاسي من شدة التيار<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>13</td>
+          <td>إثبات تغيّر السرعة الانجرافية بين جزأين مختلفي مساحة المقطع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>14</td>
+          <td>سؤال اختياري: الوحدة المكافئة للأمبير<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -771,6 +801,140 @@ v = 9.3×10⁻⁴ m s⁻¹</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف شدة التيار الكهربائي في موصل، واكتب العلاقة الرياضية التي تربط شدة التيار بالشحنة الكهربائية والزمن مع تحديد وحدة كل كمية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">شدة التيار الكهربائي (I) تُعرَّف بأنها معدل تدفق الشحنة الكهربائية عبر مقطع عرضي لموصل (أو عبر أي نقطة في الدائرة الكهربائية) بالنسبة للزمن.
+
+العلاقة الرياضية: I = ΔQ/Δt
+
+حيث Q هي الشحنة الكهربائية المنقولة ووحدتها الكولوم (C)، وt هو الزمن ووحدته الثانية (s).
+
+وحدة شدة التيار هي الأمبير (A)، وتُعرَّف بأن 1 A = 1 C s⁻¹.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمر تيار كهربائي في سلك نحاسي مساحة مقطعه العرضي 1.5 × 10⁻⁶ m². إذا كانت الكثافة العددية لإلكترونات التوصيل الحرة في النحاس n = 8.5 × 10²⁸ m⁻³، والسرعة الانجرافية المتجهة للإلكترونات v = 2.0 × 10⁻⁴ m s⁻¹، احسب شدة التيار المار في السلك. (شحنة الإلكترون q = 1.6 × 10⁻¹⁹ C)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">نستخدم العلاقة: I = nAvq
+
+بالتعويض: I = (8.5 × 10²⁸) × (1.5 × 10⁻⁶) × (2.0 × 10⁻⁴) × (1.6 × 10⁻¹⁹)
+
+نحسب على خطوات:
+8.5 × 10²⁸ × 1.5 × 10⁻⁶ = 1.275 × 10²³
+
+1.275 × 10²³ × 2.0 × 10⁻⁴ = 2.55 × 10¹⁹
+
+2.55 × 10¹⁹ × 1.6 × 10⁻¹⁹ = 4.08
+
+إذن شدة التيار I ≈ 4.1 A</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمر تيار شدته 3.0 A في سلك نحاسي قطره 0.60 mm. إذا كانت الكثافة العددية لإلكترونات التوصيل الحرة في النحاس n = 8.5 × 10²⁸ m⁻³، احسب السرعة الانجرافية المتجهة للإلكترونات في هذا السلك. (شحنة الإلكترون q = 1.6 × 10⁻¹⁹ C)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">نجد نصف قطر السلك: r = القطر / 2 = 0.60 mm / 2 = 0.30 mm = 3.0 × 10⁻⁴ m
+
+مساحة المقطع العرضي: A = πr² = π × (3.0 × 10⁻⁴)² = π × 9.0 × 10⁻⁸ = 2.83 × 10⁻⁷ m²
+
+من العلاقة I = nAvq، نجد السرعة الانجرافية:
+v = I / (nAq)
+
+بالتعويض: v = 3.0 / [(8.5 × 10²⁸) × (2.83 × 10⁻⁷) × (1.6 × 10⁻¹⁹)]
+
+نحسب المقام خطوة بخطوة:
+8.5 × 10²⁸ × 2.83 × 10⁻⁷ = 2.41 × 10²²
+
+2.41 × 10²² × 1.6 × 10⁻¹⁹ = 3.85 × 10³
+
+إذن: v = 3.0 / (3.85 × 10³) = 7.8 × 10⁻⁴ m s⁻¹</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك معدني واحد يتكوّن من جزأين متصلين على التوالي من المادة نفسها: الجزء (X) مساحة مقطعه العرضي 2.4 × 10⁻⁶ m²، والجزء (Y) مساحة مقطعه العرضي 0.8 × 10⁻⁶ m². يمر التيار نفسه I في الجزأين. إذا كانت السرعة الانجرافية المتجهة للإلكترونات في الجزء (X) تساوي 1.2 × 10⁻⁴ m s⁻¹، بيّن أن السرعة الانجرافية المتجهة في الجزء (Y) تساوي 3.6 × 10⁻⁴ m s⁻¹.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن الجزأين من المادة نفسها، فإن الكثافة العددية لحاملات الشحنة n واحدة في الجزأين (خاصية للمادة لا تتغير بتغيّر أبعاد السلك). كما أن شدة التيار I واحدة في الجزأين لأنهما متصلان على التوالي.
+
+من العلاقة I = nAvq، وبما أن n وq وI ثابتة، فإن الجداء A×v يجب أن يبقى ثابتاً على طول السلك:
+Aₓvₓ = Aᵧvᵧ
+
+إذن: vᵧ = vₓ × (Aₓ/Aᵧ)
+
+بالتعويض: vᵧ = 1.2 × 10⁻⁴ × (2.4 × 10⁻⁶ / 0.8 × 10⁻⁶) = 1.2 × 10⁻⁴ × 3 = 3.6 × 10⁻⁴ m s⁻¹
+
+وهو المطلوب إثباته. فعندما تقل مساحة المقطع العرضي (من X إلى Y)، يجب أن تزداد السرعة الانجرافية لكي يبقى التيار نفسه مستمراً.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي من الوحدات التالية تكافئ وحدة الأمبير (A)؟ (اختر الإجابة الصحيحة)
+(أ) C s⁻¹
+(ب) J s⁻¹
+(ج) J C⁻¹
+(د) C V⁻¹</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن I = Q/t، فإن وحدة شدة التيار هي: كولوم لكل ثانية، أي C s⁻¹.
+
+نفحص بقية الخيارات: J s⁻¹ هي وحدة القدرة (الواط)، وJ C⁻¹ هي وحدة فرق الجهد (الفولت)، وC V⁻¹ هي وحدة السعة الكهربائية (الفاراد). وكلها وحدات لكميات فيزيائية مختلفة عن التيار.
+
+إذن الإجابة الصحيحة: (أ) C s⁻¹</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

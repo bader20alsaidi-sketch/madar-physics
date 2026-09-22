@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -526,6 +526,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>سلك معدني صلب يمر مركزيًا بين قطبي مغناطيس حذاء الفرس، موضوع على ميزان ذي كفة علوية. حساب كثافة الفيض المغناطيسي بين القطبين من طول السلك (6.4cm) وشدة التيار (5.6A) وفرق قراءة الميزان (2.4g) (جزء ب، محور هذا الدرس)؛ (جزء أ — نص قانون لنز — يخص درسًا آخر).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>اختبار تجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>مقارنة القوة عند θ=90° وθ=60° لنفس السلك والمجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>بيان أن القوة تنعدم عندما يكون السلك موازيًا للمجال<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب القوة على الضلع الفعّال لملف مستطيل في محرك بسيط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>تحديد B من قراءة ميزان عملي (تجربة سلك على ميزان)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>سؤال اختياري: سلوك القوة عند تدوير السلك من التوازي إلى التعامد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>10</td>
+          <td>تحديد شدة التيار اللازمة لإنتاج قوة معينة عند زاوية 40°<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -637,6 +673,181 @@ B = F/(I L) = (2.4×10⁻³ × 9.81)/(5.6 × 6.4×10⁻²) = 6.6×10⁻² T
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سلك مستقيم طوله 0.20 m يحمل تيارًا كهربائيًا شدته 4.0 A، موضوع داخل مجال مغناطيسي منتظم كثافة فيضه 0.60 T. احسب مقدار القوة المغناطيسية المؤثرة على السلك: (1) عندما يكون السلك عموديًا على المجال (θ = 90°)، (2) عندما تصنع محور السلك زاوية 60° مع اتجاه المجال. ثم قارن بين القيمتين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">(1) عند θ = 90°: F₉₀ = B I L sinθ = 0.60 × 4.0 × 0.20 × sin90°
+
+F₉₀ = 0.60 × 4.0 × 0.20 × 1 = 0.48 N
+
+(2) عند θ = 60°: F₆₀ = B I L sinθ = 0.60 × 4.0 × 0.20 × sin60°
+
+F₆₀ = 0.48 × 0.866 ≈ 0.42 N
+
+المقارنة: القوة عند θ = 60° (تساوي تقريبًا 0.42 N) أصغر من القوة عند θ = 90° (تساوي 0.48 N)، لأن sin60° (≈ 0.87) أصغر من sin90° (=1)؛ أي أن القوة تبلغ عند θ = 60° نحو 87% فقط من قيمتها القصوى عند θ = 90°، رغم أن B وI وL لم تتغيّر.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بيّن أن القوة المغناطيسية المؤثرة على سلك مستقيم يحمل تيارًا كهربائيًا تنعدم تمامًا (F = 0) عندما يكون السلك موازيًا تمامًا لاتجاه المجال المغناطيسي (θ = 0°)، مهما كانت قيم B وI وL، مستخدمًا العلاقة F = BIL sinθ.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">من العلاقة العامة: F = B I L sinθ
+
+عندما يكون السلك موازيًا تمامًا لاتجاه المجال المغناطيسي، تكون الزاوية بين السلك والمجال θ = 0°.
+
+sin0° = 0
+
+إذن: F = B × I × L × 0 = 0 N
+
+وهذا يثبت أن القوة تنعدم تمامًا عند θ = 0°، بصرف النظر عن قيم B وI وL (طالما أنها منتهية)، لأن العامل sinθ هو الذي يحدد ما إذا كان هناك مكوّن فعّال من التيار عمودي على المجال، وعند التوازي التام لا يوجد أي مكوّن عمودي، فلا تنشأ قوة محصّلة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ملف مستطيل مكوَّن من 50 لفة، يحتوي على ضلعين فعّالين (متعامدين على المجال) طول كل منهما 4.0 cm، ويحمل تيارًا كهربائيًا شدته 0.60 A. وُضع الملف بحيث يكون هذان الضلعان عموديين تمامًا (θ = 90°) على مجال مغناطيسي منتظم كثافة فيضه 0.25 T، كما في محرك كهربائي بسيط. احسب مقدار القوة المغناطيسية الكلية المؤثرة على كل ضلع من الضلعين الفعّالين (مع الأخذ بعين الاعتبار جميع اللفات الخمسين).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">القوة على السلك الواحد (لفة واحدة) عند θ = 90°: F₁ = B I L
+
+L = 4.0 cm = 0.040 m
+
+F₁ = 0.25 × 0.60 × 0.040
+
+F₁ = 0.0060 N (لكل لفة واحدة)
+
+بما أن الملف يتكوّن من 50 لفة، وكل لفة تسهم بنفس القوة على ذلك الضلع (لأن التيار نفسه يمر في جميع اللفات المتراصة عند نفس موضع الضلع)، فإن القوة الكلية على الضلع الواحد:
+
+F_الكلية = N × F₁ = 50 × 0.0060
+
+F_الكلية = 0.30 N
+
+إذن مقدار القوة المغناطيسية الكلية المؤثرة على كل ضلع فعّال من ضلعي الملف يساوي 0.30 N (وتكون القوتان على الضلعين المتقابلين متساويتين في المقدار ومتعاكستين في الاتجاه، مما يُنتج عزم دوران على الملف).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة معملية لقياس كثافة الفيض المغناطيسي، يمر سلك مستقيم طوله 0.080 m عموديًا خلال مجال مغناطيسي منتظم بين قطبي مغناطيس موضوع فوق ميزان إلكتروني (بحيث يكون السلك عموديًا تمامًا على المجال). عند تمرير تيار كهربائي شدته 2.5 A في السلك، لوحظ أن قراءة الميزان تزداد بمقدار 4.2 g (بسبب قوة رد الفعل المؤثرة على المغناطيس وفق قانون نيوتن الثالث). حدد كثافة الفيض المغناطيسي B بين قطبي المغناطيس. (خذ g = 9.81 m s⁻²)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">زيادة قراءة الميزان تعني أن هناك قوة إضافية مقدارها F = Δm × g مؤثرة على المغناطيس (وبالتساوي وبالاتجاه المعاكس على السلك، وفق قانون نيوتن الثالث)، وهذه القوة هي نفسها القوة المغناطيسية المؤثرة على السلك.
+
+Δm = 4.2 g = 4.2×10⁻³ kg
+
+F = Δm × g = 4.2×10⁻³ × 9.81
+
+F ≈ 0.0412 N
+
+بما أن السلك عمودي على المجال (θ = 90°): F = B I L
+
+B = F / (I L) = 0.0412 / (2.5 × 0.080)
+
+B = 0.0412 / 0.20
+
+B ≈ 0.21 T
+
+إذن كثافة الفيض المغناطيسي بين قطبي المغناطيس تساوي تقريبًا 0.21 T.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يحمل قضيب موصل مستقيم تيارًا كهربائيًا ثابت الشدة، وهو موضوع داخل مجال مغناطيسي منتظم ثابت المقدار. إذا تم تدوير القضيب تدريجيًا من وضع موازٍ تمامًا لخطوط المجال (θ = 0°) إلى وضع عمودي تمامًا عليها (θ = 90°)، فكيف يتغيّر مقدار القوة المغناطيسية المؤثرة عليه خلال هذا التدوير؟ (اختر الإجابة الصحيحة)
+(أ) يبقى ثابتًا طوال عملية التدوير
+(ب) يزداد تدريجيًا من الصفر عند θ=0° إلى قيمته العظمى عند θ=90°
+(ج) يبدأ من قيمته العظمى ثم يقل تدريجيًا حتى ينعدم
+(د) يبقى صفرًا طوال عملية التدوير</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن F = BIL sinθ، وB وI وL ثابتة أثناء التدوير، فإن التغيّر في القوة يعتمد فقط على قيمة sinθ.
+
+عند θ = 0°: sinθ = 0، إذن F = 0 (لا توجد قوة).
+
+كلما زادت الزاوية θ من 0° إلى 90°، تزداد قيمة sinθ تدريجيًا وباستمرار من 0 إلى 1، وبالتالي تزداد القوة F تدريجيًا معها.
+
+عند θ = 90°: sinθ = 1، إذن تبلغ القوة قيمتها العظمى Fmax = BIL.
+
+الإجابة الصحيحة: (ب) يزداد تدريجيًا من الصفر عند θ=0° إلى قيمته العظمى عند θ=90°.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 4-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يوضع سلك مستقيم طوله 0.15 m داخل مجال مغناطيسي منتظم كثافة فيضه 0.45 T، بحيث تصنع محور السلك زاوية 40° مع اتجاه المجال. إذا كان مقدار القوة المغناطيسية المؤثرة على السلك يساوي 0.15 N، حدد شدة التيار الكهربائي المار في السلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">من العلاقة: F = B I L sinθ
+
+نعيد ترتيبها لإيجاد I:
+
+I = F / (B L sinθ)
+
+sin40° ≈ 0.643
+
+B L sinθ = 0.45 × 0.15 × 0.643 ≈ 0.0434
+
+I = 0.15 / 0.0434
+
+I ≈ 3.5 A
+
+إذن شدة التيار الكهربائي المار في السلك تساوي تقريبًا 3.5 A.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

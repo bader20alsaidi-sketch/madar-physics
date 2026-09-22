@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (2)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -514,6 +514,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>لوحان متوازيان المسافة بينهما (d) وفرق الجهد بينهما (V)، شدة المجال الكهربائي بينهما (100 N C⁻¹). أ) فسّر معنى هذه القيمة. ب) اشتق رياضيًا شدة المجال الجديدة إذا أصبح فرق الجهد (4V) والمسافة (2d).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>تعريف شدة المجال الكهربائي عند نقطة مع ذكر معادلتها ووحدتها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>حساب شدة المجال الكهربائي المنتظم بين لوحين متوازيين باستخدام E = V/d<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>حساب شدة المجال بين لوحين ثم القوة على شحنة نقطية موضوعة بينهما<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>تحديد اتجاه القوة الكهربائية المؤثرة على إلكترون داخل مجال منتظم بين لوحين (اختياري)<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>تحديد مقدار شحنة من القوة وشدة المجال ثم حساب فرق الجهد بين لوحين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>8</td>
+          <td>وصف مسار حركة إلكترون داخل مجال منتظم بين لوحين ومقارنته بحركة المقذوفات<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -579,6 +615,146 @@ E₂ / E₁ = (4V₁ / 2d₁) ÷ (V₁ / d₁) = 4/2 = 2
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف شدة المجال الكهربائي (E) عند نقطة في الفضاء، مبيّنًا العلاقة الرياضية التي تحدد هذا التعريف، ووحدتها في النظام الدولي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">شدة المجال الكهربائي عند نقطة معينة تُعرَّف بأنها القوة الكهربائية المؤثرة على وحدة الشحنات الموجبة الموضوعة عند تلك النقطة.
+
+رياضيًا: E = F/Q، حيث F هي القوة الكهربائية المؤثرة على شحنة اختبار موجبة صغيرة مقدارها Q موضوعة عند النقطة المطلوبة.
+
+ووحدة شدة المجال الكهربائي في النظام الدولي هي نيوتن لكل كولوم (N C⁻¹)، وهي تكافئ فولت لكل متر (V m⁻¹).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يفصل بين لوحين متوازيين في مكثف مستوٍ مسافة d = 5.0 cm، ويُطبَّق بينهما فرق جهد كهربائي V = 250 V. احسب شدة المجال الكهربائي المنتظم بين اللوحين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">المعطيات: V = 250 V، d = 5.0 cm = 5.0×10⁻² m.
+
+باستخدام العلاقة الخاصة بالمجال المنتظم بين لوحين متوازيين:
+E = V/d = 250 / (5.0×10⁻²) = 5000 V/m
+
+إذن شدة المجال الكهربائي المنتظم بين اللوحين تساوي E = 5.0×10³ V m⁻¹ (أو 5.0×10³ N C⁻¹).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكثف ذو لوحين متوازيين يفصل بينهما 8.0 mm، ويُطبَّق بينهما فرق جهد كهربائي مقداره 400 V.
+(a) احسب شدة المجال الكهربائي المنتظم بين اللوحين.
+(b) احسب مقدار القوة الكهربائية المؤثرة على شحنة نقطية مقدارها 3.2×10⁻¹⁹ C موضوعة بين اللوحين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(a) المعطيات: V = 400 V، d = 8.0 mm = 8.0×10⁻³ m.
+E = V/d = 400 / (8.0×10⁻³) = 5.0×10⁴ V/m
+
+(b) باستخدام العلاقة F = EQ لحساب القوة على الشحنة Q = 3.2×10⁻¹⁹ C:
+F = EQ = (5.0×10⁴) × (3.2×10⁻¹⁹) = 1.6×10⁻¹⁴ N
+
+إذن شدة المجال E = 5.0×10⁴ V m⁻¹، والقوة المؤثرة على الشحنة F = 1.6×10⁻¹⁴ N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك إلكترون داخل مجال كهربائي منتظم بين لوحين متوازيين أفقيين، حيث يكون اللوح العلوي موجب الشحنة واللوح السفلي سالب الشحنة (أي أن اتجاه المجال الكهربائي بين اللوحين هو من الأعلى إلى الأسفل). في أي اتجاه تؤثر القوة الكهربائية على الإلكترون؟ (اختر الإجابة الصحيحة)
+(أ) إلى الأسفل، في نفس اتجاه المجال الكهربائي.
+(ب) إلى الأعلى، في عكس اتجاه المجال الكهربائي.
+(ج) أفقيًا، موازية لسطحي اللوحين.
+(د) القوة معدومة لأن الإلكترون شحنته صغيرة جدًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">القوة الكهربائية على شحنة نقطية تُعطى بالعلاقة F = EQ، وهي علاقة اتجاهية: إذا كانت الشحنة موجبة فإن اتجاه القوة عليها يكون في نفس اتجاه المجال E، أما إذا كانت الشحنة سالبة (كما في حالة الإلكترون) فإن اتجاه القوة عليها يكون معاكسًا تمامًا لاتجاه المجال E.
+
+بما أن المجال E موجّه من الأعلى إلى الأسفل (من اللوح الموجب إلى اللوح السالب)، وشحنة الإلكترون سالبة، فإن القوة الكهربائية المؤثرة عليه تكون في الاتجاه المعاكس، أي إلى الأعلى.
+
+إذن الإجابة الصحيحة هي (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مجال كهربائي منتظم بين لوحين متوازيين شدته E = 1.2×10⁴ V/m، تؤثر بقوة مقدارها 4.8×10⁻¹⁵ N على شحنة نقطية موضوعة بينهما.
+(a) حدد مقدار هذه الشحنة.
+(b) احسب فرق الجهد الكهربائي بين اللوحين إذا كانت المسافة الفاصلة بينهما 1.5 cm.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(a) من العلاقة F = EQ نحصل على:
+Q = F/E = (4.8×10⁻¹⁵) / (1.2×10⁴) = 4.0×10⁻¹⁹ C
+
+(b) باستخدام العلاقة E = V/d، حيث d = 1.5 cm = 1.5×10⁻² m:
+V = E × d = (1.2×10⁴) × (1.5×10⁻²) = 180 V
+
+إذن مقدار الشحنة Q = 4.0×10⁻¹⁹ C (وهي تساوي تقريبًا 2.5 e، أي مقدار شحنة مضاعف تقريبًا لشحنة الإلكترون الأساسية)، وفرق الجهد بين اللوحين V = 180 V.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يدخل إلكترون منطقة المجال الكهربائي المنتظم بين لوحين متوازيين رأسيين بسرعة أفقية ثابتة عند نقطة منتصف المسافة بين اللوحين. صف مسار حركة هذا الإلكترون من لحظة دخوله بين اللوحين حتى خروجه منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">أثناء وجود الإلكترون بين اللوحين، تؤثر عليه قوة كهربائية ثابتة المقدار والاتجاه (لأن المجال بينهما منتظم)، وهذه القوة عمودية على اتجاه سرعته الأفقية الأولية (أي أنها موجهة نحو أحد اللوحين).
+
+بما أن السرعة الأفقية للإلكترون لا تتأثر بهذه القوة العمودية عليها، فإنها تبقى ثابتة طوال الحركة بين اللوحين، بينما تكسبه القوة الكهربائية تسارعًا ثابتًا في الاتجاه العمودي (نحو اللوح الموجب، لأن شحنته سالبة)، فتزداد سرعته العمودية بانتظام مع الزمن.
+
+ونتيجة لذلك يتحرك الإلكترون في مسار منحنٍ على شكل قطع مكافئ (parabola)، تمامًا كحركة مقذوف أفقي تحت تأثير الجاذبية الأرضية الثابتة؛ حيث يقابل التسارع الثابت نحو أحد اللوحين هنا دور تسارع الجاذبية g في حركة المقذوفات. وينحرف الإلكترون تدريجيًا نحو اللوح الموجب حتى يخرج من بين اللوحين (أو يصطدم بأحدهما إذا كانت المسافة أو زمن العبور كافيين).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

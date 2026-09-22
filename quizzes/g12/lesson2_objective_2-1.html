@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -538,6 +538,42 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>احسب نصف قطر القمر إذا علمت أن كتلته تساوي (7.3×10²² kg) وشدة مجال الجاذبية على سطحه تساوي (1.6 N/kg).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>تعريف شدة مجال الجاذبية (g) والعلاقة بينها وبين القوة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>حساب شدة مجال الجاذبية عند سطح المريخ من كتلته ونصف قطره<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>حساب وزن رائد فضاء على سطح المريخ باستخدام W = mg<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>تحديد نصف قطر قمر من كتلته وشدة مجاله السطحية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>سؤال اختياري: شدة المجال لكوكب بنفس كتلة الأرض ونصف قطر أصغر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p6')">
+          <td>12</td>
+          <td>حساب شدة مجال الجاذبية على ارتفاع فوق سطح الأرض<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p6')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -676,6 +712,157 @@ r = 1.7×10⁶ m</div>
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف شدة مجال الجاذبية (g) عند نقطة في الفضاء، واكتب العلاقة بينها وبين القوة المؤثرة على جسم صغير الكتلة موضوع في تلك النقطة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">شدة مجال الجاذبية (g) عند نقطة تُعرَّف بأنها مقدار قوة الجاذبية المؤثرة لكل وحدة كتلة على جسم صغير (كتلة اختبار) يوضع عند تلك النقطة، دون أن يؤثر هذا الجسم بدوره تأثيرًا محسوسًا على المجال الأصلي.
+
+رياضيًا: g = F / m
+
+حيث F مقدار القوة المؤثرة على الجسم (بالنيوتن)، و m كتلة الجسم الاختباري (بالكيلوجرام)، ووحدة g هي N kg⁻¹ (وهي مكافئة لوحدة التسارع m s⁻²).
+
+g كمية متجهة، واتجاهها هو اتجاه القوة، أي نحو مركز الجسم المسبب للمجال دائمًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">كوكب المريخ كتلته 6.42×10²³ kg ونصف قطره 3.39×10⁶ m. احسب شدة مجال الجاذبية عند سطح المريخ.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">g = G M / R²
+
+GM = 6.67×10⁻¹¹ × 6.42×10²³ = 4.282×10¹³
+
+R² = (3.39×10⁶)² = 1.149×10¹³ m²
+
+g = 4.282×10¹³ / 1.149×10¹³ = 3.73 m s⁻²
+
+إذن شدة مجال الجاذبية عند سطح المريخ تساوي تقريبًا 3.73 N kg⁻¹ (أو m s⁻²)، وهي أقل من قيمتها عند سطح الأرض (9.81 m s⁻²) بسبب صغر كتلة المريخ مقارنة بالأرض.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">رائد فضاء كتلته 75 kg هبط على سطح المريخ حيث شدة مجال الجاذبية هناك تساوي 3.7 N kg⁻¹. احسب وزن رائد الفضاء على سطح المريخ.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">الوزن يُحسب من العلاقة: W = m g
+
+W = 75 × 3.7 = 277.5 N
+
+إذن وزن رائد الفضاء على سطح المريخ يساوي تقريبًا 2.8×10² N (280 N)، وهو أقل بكثير من وزنه على سطح الأرض (الذي يساوي تقريبًا 75×9.81 ≈ 736 N) رغم أن كتلته لم تتغير، لأن الكتلة كمية ثابتة بينما الوزن يعتمد على شدة مجال الجاذبية في الموقع.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قمر تابع لأحد الكواكب كتلته 7.35×10²² kg، وشدة مجال الجاذبية عند سطحه 1.6 N kg⁻¹. حدد نصف قطر هذا القمر.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">من العلاقة g = GM/R²، يمكن إعادة ترتيبها لإيجاد R²: R² = GM / g
+
+GM = 6.67×10⁻¹¹ × 7.35×10²² = 4.902×10¹²
+
+R² = 4.902×10¹² / 1.6 = 3.064×10¹²
+
+R = √(3.064×10¹²) = 1.75×10⁶ m
+
+إذن نصف قطر هذا القمر يساوي تقريبًا 1.75×10⁶ m (1750 km).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">كوكب X له نفس كتلة الأرض تمامًا، لكن نصف قطره يساوي نصف نصف قطر الأرض فقط. إذا كانت شدة مجال الجاذبية عند سطح الأرض تساوي 9.81 N kg⁻¹، فإن شدة مجال الجاذبية عند سطح الكوكب X تساوي: (اختر الإجابة الصحيحة)
+(أ) 2.45 N kg⁻¹
+(ب) 4.91 N kg⁻¹
+(ج) 19.6 N kg⁻¹
+(د) 39.2 N kg⁻¹</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">g = GM/R²، وبما أن الكتلة M ثابتة (نفس كتلة الأرض) بينما R_X = R_الأرض/2:
+
+g_X = GM/(R_الأرض/2)² = GM/(R_الأرض²/4) = 4 × (GM/R_الأرض²) = 4 g_الأرض
+
+g_X = 4 × 9.81 = 39.24 N kg⁻¹ ≈ 39.2 N kg⁻¹
+
+إذن شدة المجال عند سطح الكوكب X أكبر أربع مرات منها عند سطح الأرض، بسبب صغر نصف القطر (زيادة القرب من مركز الكتلة) رغم تساوي الكتلتين.
+
+الإجابة الصحيحة: (د).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p6">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 6</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">احسب شدة مجال الجاذبية على ارتفاع 3200 km فوق سطح الأرض. (كتلة الأرض M = 5.97×10²⁴ kg، نصف قطر الأرض R = 6400 km)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p6-ans">
+        <div class="sol-body">يجب أولًا حساب المسافة الكلية r من مركز الأرض: r = R + h = 6400 + 3200 = 9600 km = 9.6×10⁶ m
+
+g = GM/r²
+
+GM = 6.67×10⁻¹¹ × 5.97×10²⁴ = 3.982×10¹⁴
+
+r² = (9.6×10⁶)² = 9.216×10¹³ m²
+
+g = 3.982×10¹⁴ / 9.216×10¹³ = 4.32 m s⁻²
+
+إذن شدة مجال الجاذبية على هذا الارتفاع تساوي تقريبًا 4.32 N kg⁻¹، وهي أقل من قيمتها عند سطح الأرض (9.81 N kg⁻¹) لأن r زادت (ابتعدنا عن مركز الأرض) وg تتناسب عكسيًا مع مربع r.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

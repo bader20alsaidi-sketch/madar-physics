@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -531,6 +531,36 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>دائرة تحتوي ثلاث بطاريات وثلاث مقاومات — حساب قيمة المقاومة المجهولة (R) باستخدام قانوني كيرشوف.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>التجريبي 2023/2024 - الفصل الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>نص قانون كيرشوف الأول ومبدأ حفظ الشحنة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>نص قانون كيرشوف الثاني ومبدأ حفظ الطاقة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>إيجاد تيار مجهول عند نقطة تفرع باستخدام قانون كيرشوف الأول<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب التيار وفروق الجهد في دائرة توالي بسيطة باستخدام قانون كيرشوف الثاني<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>تطبيق قانوني كيرشوف معاً لحساب ثلاث تيارات في دائرة ببطاريتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -691,6 +721,150 @@ R = 7 Ω
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">انصّ على قانون كيرشوف الأول، ووضّح المبدأ الفيزيائي الذي يُعبّر عنه هذا القانون.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">قانون كيرشوف الأول: مجموع شدات التيارات الداخلة إلى أي نقطة تفرع (وصلة) في دائرة كهربائية يساوي مجموع شدات التيارات الخارجة من تلك النقطة.
+
+رياضياً: Σ I_داخل = Σ I_خارج
+
+هذا القانون هو تعبير مباشر عن مبدأ حفظ الشحنة الكهربائية: الشحنة لا تتولّد ولا تختفي عند نقطة التفرع، فكل الشحنة التي تدخل نقطة معينة خلال زمن معين لا بد أن تخرج منها بالكامل خلال الزمن نفسه (لا تتراكم شحنة عند النقطة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">انصّ على قانون كيرشوف الثاني، ووضّح المبدأ الفيزيائي الذي يُعبّر عنه هذا القانون.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">قانون كيرشوف الثاني: في أي مسار مغلق (حلقة) داخل دائرة كهربائية، يكون مجموع القوى الدافعة الكهربائية (E) في ذلك المسار مساوياً لمجموع فروق الجهد الكهربائية (IR) عبر جميع عناصر المسار نفسه.
+
+رياضياً: Σ E = Σ IR
+
+هذا القانون تعبير عن مبدأ حفظ الطاقة: الطاقة الكهربائية الممنوحة لكل وحدة شحنة من مصادر القوة الدافعة الكهربائية في المسار المغلق تُستهلك بالكامل (تتحوّل إلى صور أخرى من الطاقة) في عناصر الدائرة الأخرى على طول المسار نفسه، فلا يوجد فقد أو زيادة صافية في الطاقة بعد إتمام دورة كاملة حول المسار.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند نقطة تفرّع في دائرة كهربائية تلتقي أربعة أسلاك: يدخل النقطة تياران شدتاهما I₁ = 2.0 A وI₂ = 1.5 A، ويخرج منها تياران شدتاهما I₃ = 0.8 A وI₄ (مجهول). باستخدام قانون كيرشوف الأول، احسب قيمة I₄.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بحسب قانون كيرشوف الأول: مجموع التيارات الداخلة = مجموع التيارات الخارجة
+
+I₁ + I₂ = I₃ + I₄
+
+2.0 + 1.5 = 0.8 + I₄
+
+3.5 = 0.8 + I₄
+
+I₄ = 3.5 − 0.8 = 2.7 A</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">خلية قوتها الدافعة الكهربائية E = 12 V ومقاومتها الداخلية مهملة، متصلة على التوالي بمقاومتين R₁ = 4.0 Ω وR₂ = 8.0 Ω. باستخدام قانون كيرشوف الثاني، احسب شدة التيار في الدائرة وفرق الجهد بين طرفي كل مقاومة، وتحقق من أن مجموع فروق الجهد يساوي القوة الدافعة الكهربائية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بتطبيق قانون كيرشوف الثاني على الحلقة الوحيدة في الدائرة:
+E = I R₁ + I R₂ = I(R₁ + R₂)
+
+12 = I (4.0 + 8.0) = 12 I
+
+I = 12 / 12 = 1.0 A
+
+فرق الجهد بين طرفي R₁: V₁ = I R₁ = 1.0 × 4.0 = 4.0 V
+
+فرق الجهد بين طرفي R₂: V₂ = I R₂ = 1.0 × 8.0 = 8.0 V
+
+التحقق: V₁ + V₂ = 4.0 + 8.0 = 12.0 V = E ✓ (متطابق مع القوة الدافعة الكهربائية كما ينص قانون كيرشوف الثاني)</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">دائرة كهربائية تحتوي على بطاريتين متصلتين بالتوازي بين نقطتين A وB، مع مقاومة ثالثة مشتركة: تنطلق البطارية الأولى (قوتها الدافعة الكهربائية E₁ = 7.0 V، مقاومتها الداخلية مهملة) من A عبر مقاومة R₁ = 2.0 Ω إلى B، وتنطلق البطارية الثانية (قوتها الدافعة الكهربائية E₂ = 6.0 V، مقاومتها الداخلية مهملة) من A أيضاً عبر مقاومة R₂ = 3.0 Ω إلى B. ثم تتصل B بـ A عبر مقاومة ثالثة R₃ = 1.0 Ω. بافتراض أن التيارين I₁ (في فرع البطارية الأولى) وI₂ (في فرع البطارية الثانية) يتجهان من A إلى B، وأن التيار I₃ يتجه من B إلى A عبر R₃، استخدم قانوني كيرشوف لحساب قيم I₁ وI₂ وI₃.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">من قانون كيرشوف الأول عند النقطة B (التيارات الداخلة = التيارات الخارجة):
+I₁ + I₂ = I₃ ... (1)
+
+من قانون كيرشوف الثاني على الحلقة التي تحتوي البطارية الأولى (E₁, R₁) والمقاومة R₃:
+E₁ = I₁R₁ + I₃R₃
+7.0 = 2.0 I₁ + 1.0 I₃ ... (2)
+
+من قانون كيرشوف الثاني على الحلقة التي تحتوي البطارية الثانية (E₂, R₂) والمقاومة R₃:
+E₂ = I₂R₂ + I₃R₃
+6.0 = 3.0 I₂ + 1.0 I₃ ... (3)
+
+نعوّض المعادلة (1) في المعادلتين (2) و(3):
+
+من (2): 7.0 = 2.0 I₁ + (I₁ + I₂) = 3.0 I₁ + I₂ ... (2')
+من (3): 6.0 = 3.0 I₂ + (I₁ + I₂) = I₁ + 4.0 I₂ ... (3')
+
+من (2'): I₂ = 7.0 − 3.0 I₁
+
+نعوّض في (3'):
+6.0 = I₁ + 4.0(7.0 − 3.0 I₁) = I₁ + 28.0 − 12.0 I₁ = 28.0 − 11.0 I₁
+
+11.0 I₁ = 28.0 − 6.0 = 22.0
+
+I₁ = 22.0 / 11.0 = 2.0 A
+
+من (2'): I₂ = 7.0 − 3.0(2.0) = 7.0 − 6.0 = 1.0 A
+
+من (1): I₃ = I₁ + I₂ = 2.0 + 1.0 = 3.0 A
+
+للتحقق في المعادلة (3): 3.0(1.0) + 1.0(3.0) = 3.0 + 3.0 = 6.0 = E₂ ✓
+
+إذن: I₁ = 2.0 A، I₂ = 1.0 A، I₃ = 3.0 A</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

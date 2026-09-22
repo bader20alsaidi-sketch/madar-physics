@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (1)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -507,6 +507,36 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>دائرة على التوالي (بطارية 6V، R1=10Ω، R2=15Ω) — حساب الطاقة المنقولة في R1 لكل شحنة 1C، وأثر إضافة مقاومة داخلية غير مهملة للبطارية على هذه الطاقة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الرسمي 2024/2025 - الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>2</td>
+          <td>تعريف فرق الجهد الكهربائي والعلاقة V = W/Q<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>3</td>
+          <td>حساب فرق الجهد والشحنة والطاقة في مقاومة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>4</td>
+          <td>أثر المقاومة الداخلية للبطارية على الجهد الطرفي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>5</td>
+          <td>سؤال اختياري: التعريف الصحيح لوحدة الفولت<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>6</td>
+          <td>إيجاد فرق الجهد والقوة الدافعة الكهربائية من طاقتين في دائرة توالي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
         </tr>
       </tbody>
     </table>
@@ -543,6 +573,123 @@ W = V₁ × Q = 2.4 × 1 = 2.4 J
 
 
   </section>
+
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف فرق الجهد الكهربائي (V) بين نقطتين في دائرة كهربائية، واكتب العلاقة الرياضية التي تُستخدم لحسابه.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">فرق الجهد الكهربائي بين نقطتين في دائرة كهربائية هو الطاقة الكهربائية المحوَّلة (من صورة إلى أخرى) لكل وحدة شحنة تمر بين هاتين النقطتين.
+
+العلاقة الرياضية: V = W/Q
+
+حيث W هي الطاقة المحوَّلة (بالجول J)، وQ هي الشحنة المارة (بالكولوم C)، وV بوحدة الفولت (V)، حيث 1 V = 1 J C⁻¹.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمر تيار شدته 2.5 A في مقاومة قدرها 8.0 Ω لمدة 3.0 دقائق. احسب: (i) فرق الجهد بين طرفي المقاومة، (ii) مقدار الشحنة الكهربائية التي تمر خلال هذه المدة، (iii) الطاقة الكهربائية المحوَّلة في المقاومة خلال هذه المدة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">(i) فرق الجهد: V = I R = 2.5 × 8.0 = 20 V
+
+(ii) الزمن بالثواني: t = 3.0 × 60 = 180 s
+الشحنة: Q = I t = 2.5 × 180 = 450 C
+
+(iii) الطاقة المحوَّلة: W = V Q = 20 × 450 = 9000 J = 9.0 × 10³ J
+
+(يمكن التحقق بطريقة أخرى: W = I²Rt = (2.5)² × 8.0 × 180 = 6.25 × 8.0 × 180 = 9000 J، وهو نفس الناتج)</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بطارية قوتها الدافعة الكهربائية E = 9.0 V ومقاومتها الداخلية r = 1.5 Ω متصلة بمقاومة خارجية R = 7.5 Ω. احسب فرق الجهد بين طرفي المقاومة الخارجية R، وفسّر لماذا يكون هذا الفرق أقل من القوة الدافعة الكهربائية للبطارية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">شدة التيار في الدائرة: I = E / (R + r) = 9.0 / (7.5 + 1.5) = 9.0 / 9.0 = 1.0 A
+
+فرق الجهد بين طرفي المقاومة الخارجية (وهو نفسه الجهد الطرفي للبطارية):
+V = I R = 1.0 × 7.5 = 7.5 V
+
+(يمكن التحقق: V = E − I r = 9.0 − (1.0 × 1.5) = 9.0 − 1.5 = 7.5 V، وهو نفس الناتج)
+
+التفسير: جزء من الطاقة الكهربائية التي تولدها البطارية يُهدَر كحرارة داخل البطارية نفسها بسبب مقاومتها الداخلية r (فرق الجهد المفقود = I r = 1.5 V). لذلك فإن الجهد الطرفي المتاح للدائرة الخارجية (7.5 V) يكون أقل من القوة الدافعة الكهربائية الكلية (9.0 V) بمقدار الجهد المفقود داخل البطارية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي من العبارات التالية تمثل التعريف الصحيح لوحدة الفولت (V)؟ (اختر الإجابة الصحيحة)
+(أ) 1 V = 1 J C⁻¹
+(ب) 1 V = 1 C J⁻¹
+(ج) 1 V = 1 A s
+(د) 1 V = 1 J A⁻¹</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن V = W/Q، فإن وحدة الفولت تُعرَّف بأنها جول لكل كولوم: 1 V = 1 J C⁻¹.
+
+العبارة (ب) مقلوبة وتمثل كولوم لكل جول (وهي غير صحيحة كتعريف للفولت). العبارة (ج) تكافئ C s⁻¹ × s = C، وهي وحدة الشحنة لا الجهد. العبارة (د) لا تساوي الفولت أبعادياً.
+
+إذن الإجابة الصحيحة: (أ) 1 V = 1 J C⁻¹</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تمر شحنة كهربائية مقدارها 240 C خلال مقاومتين متصلتين على التوالي في دائرة كهربائية خلال 2.0 دقيقة. إذا كانت الطاقة المحوَّلة في المقاومة الأولى 960 J، والطاقة المحوَّلة في المقاومة الثانية 1440 J، حدد فرق الجهد بين طرفي كل مقاومة، ثم حدد القوة الدافعة الكهربائية الكلية للمصدر (بافتراض أن مقاومته الداخلية مهملة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">فرق الجهد بين طرفي المقاومة الأولى: V₁ = W₁ / Q = 960 / 240 = 4.0 V
+
+فرق الجهد بين طرفي المقاومة الثانية: V₂ = W₂ / Q = 1440 / 240 = 6.0 V
+
+بما أن المقاومتين متصلتان على التوالي، فإن مجموع فرقي الجهد عبرهما يساوي القوة الدافعة الكهربائية الكلية للمصدر (بافتراض عدم وجود مقاومة داخلية):
+E = V₁ + V₂ = 4.0 + 6.0 = 10.0 V</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>
