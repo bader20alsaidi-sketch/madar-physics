@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.11</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>78-84</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>12</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -542,7 +542,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q7')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>8</td>
+          <td>حساب زمن الطيران الكلي لقذيفة على مستوى واحد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>9</td>
+          <td>تفسير كون 45 درجة زاوية المدى الأفقي الأقصى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>10</td>
+          <td>حساب زمن الطيران وأقصى ارتفاع ومدى قذيفة كاملة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>11</td>
+          <td>حل مسألة قذيفة تُطلق من أعلى منحدر وتهبط لمستوى أدنى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>12</td>
+          <td>إيجاد سرعة الإطلاق من المدى الأفقي وزاوية القذف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -775,7 +805,157 @@ S = 59.7 m</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُطلقت قذيفة من سطح أفقي بسرعة ابتدائية مقدارها 30 m/s، بزاوية 53° فوق الأفقي، وسقطت على نفس المستوى الأفقي الذي انطلقت منه. (خذ sin53° ≈ 0.8، cos53° ≈ 0.6، g = 10 m/s²) ما أقرب قيمة لزمن الطيران الكلي للقذيفة؟ (اختر الإجابة الصحيحة)
+(أ) 2.4 s
+(ب) 3.0 s
+(ج) 4.8 s
+(د) 6.0 s</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">أولًا نحلل السرعة الابتدائية إلى مركبتيها: المركبة الرأسية Vy = u × sin θ = 30 × 0.8 = 24 m/s.
+
+بما أن القذيفة تنطلق وتسقط عند نفس المستوى الأفقي، فإن زمن الطيران الكلي يساوي ضعف الزمن اللازم للوصول إلى أقصى ارتفاع (لأن حركة الصعود والهبوط متماثلتان زمنيًا).
+
+زمن الصعود إلى أقصى ارتفاع: من المعادلة 0 = Vy − g×t↑
+t↑ = Vy / g = 24 / 10 = 2.4 s
+
+زمن الطيران الكلي = 2 × t↑ = 2 × 2.4 = 4.8 s
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح لماذا يكون المدى الأفقي لقذيفة أعظميًا عندما تكون زاوية إطلاقها 45° فوق الأفقي، بافتراض انطلاقها وسقوطها عند نفس المستوى الأفقي وبإهمال مقاومة الهواء.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">المدى الأفقي R لقذيفة تنطلق بسرعة u بزاوية θ وتسقط عند نفس مستوى الإطلاق يُعطى بالعلاقة: R = u² sin(2θ) / g
+
+هذه العلاقة تُشتق من ضرب المركبة الأفقية الثابتة للسرعة (Vx = u cos θ) في زمن الطيران الكلي (t = 2u sin θ / g)، مع استخدام متطابقة الزاوية المضاعفة: 2 sin θ cos θ = sin(2θ).
+
+بما أن u وg ثابتان لقذيفة معينة، فإن قيمة R تعتمد فقط على قيمة sin(2θ). وتكون دالة الجيب sin(2θ) في أقصى قيمة ممكنة لها (تساوي 1) عندما تكون الزاوية 2θ = 90°، أي عندما θ = 45°.
+
+إذن: يكون المدى الأفقي R أعظميًا عند θ = 45°، لأن هذه الزاوية تجعل قيمة sin(2θ) مساوية لأقصى قيمة ممكنة لها وهي الواحد الصحيح.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">رُكلت كرة بسرعة ابتدائية مقدارها 25 m/s بزاوية 40° فوق الأفقي من مستوى أرض أفقي مستوٍ. (خذ sin40° ≈ 0.643، cos40° ≈ 0.766، g = 10 m/s²) احسب:
+(أ) زمن الطيران الكلي للكرة.
+(ب) أقصى ارتفاع تصل إليه الكرة.
+(ج) المدى الأفقي الذي تقطعه الكرة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">أولًا نحلل السرعة الابتدائية إلى مركبتيها:
+Vx = u cos θ = 25 × 0.766 = 19.15 m/s
+Vy = u sin θ = 25 × 0.643 = 16.08 m/s
+
+(أ) زمن الطيران الكلي (على نفس المستوى الأفقي): t = 2Vy / g = 2×16.08 / 10 = 3.22 s
+
+(ب) أقصى ارتفاع: باستخدام V² = Vy² − 2gh عند V = 0:
+h = Vy² / (2g) = 16.08² / (2×10) = 258.6 / 20 ≈ 12.93 m
+
+(ج) المدى الأفقي: بما أن السرعة الأفقية ثابتة طوال الحركة:
+R = Vx × t = 19.15 × 3.22 ≈ 61.7 m
+
+إذن: زمن الطيران الكلي يساوي 3.22 s تقريبًا، وأقصى ارتفاع تصل إليه الكرة حوالي 12.93 m، والمدى الأفقي حوالي 61.7 m.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يُطلق مدفع قذيفة بسرعة ابتدائية مقدارها 50 m/s، بزاوية 30° فوق الأفقي، من قمة منحدر ارتفاعه 20 m فوق أرض مستوية أسفله. (خذ sin30° = 0.5، cos30° ≈ 0.87، g = 10 m/s²) احسب:
+(أ) الزمن الذي تستغرقه القذيفة للوصول إلى الأرض المستوية أسفل المنحدر.
+(ب) المدى الأفقي الذي تقطعه القذيفة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نحلل السرعة الابتدائية إلى مركبتيها:
+Vx = 50 × cos30° = 50 × 0.87 = 43.5 m/s
+Vy = 50 × sin30° = 50 × 0.5 = 25 m/s (إلى أعلى)
+
+(أ) نأخذ الاتجاه إلى أعلى موجبًا. القذيفة تهبط في النهاية 20 m أسفل نقطة الإطلاق، أي أن الإزاحة الرأسية الكلية s = −20 m، والتسارع a = −g = −10 m/s².
+
+باستخدام المعادلة s = Vy t + ½at²:
+−20 = 25t − 5t²
+5t² − 25t − 20 = 0
+بقسمة الطرفين على 5: t² − 5t − 4 = 0
+
+بتطبيق القانون العام: t = [5 ± √(25 + 16)] / 2 = [5 ± √41] / 2 = [5 ± 6.40] / 2
+
+الجذر الموجب المقبول: t = (5 + 6.40) / 2 = 5.70 s (نرفض الجذر السالب لأن الزمن لا يكون سالبًا)
+
+(ب) المدى الأفقي: بما أن السرعة الأفقية ثابتة طوال الحركة:
+R = Vx × t = 43.5 × 5.70 ≈ 247.9 m
+
+إذن: تصل القذيفة إلى الأرض أسفل المنحدر بعد زمن مقداره حوالي 5.70 s، بعد أن تقطع مدى أفقيًا مقداره حوالي 248 m.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُطلقت قذيفة بزاوية 60° فوق الأفقي من مستوى الأرض، فوصلت إلى مدى أفقي مقداره 90 m عند سقوطها على نفس المستوى الأفقي. (خذ sin120° ≈ 0.87، g = 10 m/s²) احسب مقدار السرعة الابتدائية لهذه القذيفة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">نستخدم معادلة المدى الأفقي لقذيفة تنطلق وتسقط عند نفس المستوى: R = u² sin(2θ) / g
+
+حيث θ = 60°، وبالتالي 2θ = 120°، وsin(2θ) = sin120° ≈ 0.87.
+
+بالتعويض:
+90 = u² × 0.87 / 10
+90 × 10 = 0.87 × u²
+900 = 0.87 u²
+u² = 900 / 0.87 ≈ 1034.5
+u = √1034.5 ≈ 32.2 m/s
+
+إذن: مقدار السرعة الابتدائية لهذه القذيفة يساوي حوالي 32.2 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

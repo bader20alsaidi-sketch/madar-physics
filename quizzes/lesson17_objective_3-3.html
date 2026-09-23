@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.3</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>62-63</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -536,7 +536,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>المساحة تحت رسم السرعة-الزمن تمثل الإزاحة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>تفسير سبب حساب الإزاحة من مساحة الرسم البياني<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>حساب إزاحة سيارة متسارعة بانتظام من السكون<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>حساب إزاحة قطار عبر ثلاث مراحل حركة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>حساب الإزاحة والمسافة الكليتين عند عكس اتجاه الحركة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -720,7 +750,139 @@ S_A = ½ × 40 × 20 = 400 m</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في رسم بياني لعلاقة السرعة بالزمن لحركة جسم على خط مستقيم، ماذا تمثل المساحة المحصورة بين الخط البياني ومحور الزمن؟ (اختر الإجابة الصحيحة)
+(أ) السرعة المتوسطة
+(ب) الإزاحة
+(ج) التسارع
+(د) معدل تغيّر التسارع</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">بما أن السرعة = الإزاحة / الزمن، فإن حاصل ضرب السرعة في الزمن يساوي الإزاحة (v × t = x عند السرعة الثابتة).
+
+هندسيًا، حاصل الضرب هذا هو تحديدًا مساحة المستطيل المحصور بين خط السرعة الثابتة ومحور الزمن، ويمكن تعميم الفكرة على أي حركة (متغيرة السرعة) بتقسيم المساحة الكلية تحت المنحنى إلى أشكال بسيطة (مستطيلات، مثلثات، أشباه منحرفات) وجمعها.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح، اعتمادًا على العلاقة بين السرعة والإزاحة والزمن، لماذا تُستخدم المساحة تحت الرسم البياني لعلاقة السرعة بالزمن لإيجاد إزاحة الجسم، حتى عندما تكون السرعة غير ثابتة (متغيرة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">في حالة السرعة الثابتة، الإزاحة = السرعة × الزمن، وهذا يساوي بالضبط مساحة المستطيل المحصور بين خط السرعة الأفقي ومحور الزمن (ارتفاعه = السرعة، وقاعدته = الزمن).
+
+عندما تكون السرعة متغيرة، يمكن تخيّل الفترة الزمنية الكلية مقسَّمة إلى فترات زمنية صغيرة جدًا متتالية، تكون السرعة خلال كل فترة صغيرة منها شبه ثابتة تقريبًا، فتكون الإزاحة الجزئية خلال كل فترة صغيرة مساوية تقريبًا لمساحة الشريط الرفيع الموافق لها تحت المنحنى.
+
+بجمع كل هذه المساحات الصغيرة على امتداد الفترة الزمنية الكلية، نحصل على المساحة الكلية تحت المنحنى، والتي تساوي مجموع كل الإزاحات الجزئية، أي الإزاحة الكلية للجسم خلال تلك الفترة، بصرف النظر عن شكل المنحنى (خط مستقيم أم منحنٍ).
+
+لذلك تصلح طريقة حساب المساحة تحت المنحنى لإيجاد الإزاحة في جميع الحالات، سواء كانت السرعة ثابتة أم متغيرة بانتظام أم غير منتظم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">انطلقت سيارة من السكون وتسارعت بانتظام حتى وصلت سرعتها إلى 24 م/ث خلال 12 ثانية. احسب إزاحة السيارة خلال هذه الفترة باستخدام المساحة تحت الرسم البياني للسرعة-الزمن.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">يمثَّل الرسم البياني للسرعة-الزمن لهذه الحركة بخط مستقيم يبدأ من نقطة الأصل (0 , 0) وينتهي عند النقطة (12 ث , 24 م/ث)، وبذلك تكون المساحة تحت هذا الخط مثلثًا قاعدته على محور الزمن.
+
+قاعدة المثلث = الزمن الكلي = 12 ث، وارتفاع المثلث = السرعة النهائية = 24 م/ث.
+
+مساحة المثلث (الإزاحة) = ½ × القاعدة × الارتفاع = ½ × 12 × 24 = 144 م.
+
+إزاحة السيارة خلال فترة التسارع = 144 مترًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك قطار في خط مستقيم وفق المراحل التالية: يتسارع بانتظام من السكون إلى سرعة 15 م/ث خلال أول 5 ثوانٍ، ثم يتحرك بسرعة ثابتة 15 م/ث لمدة 20 ثانية إضافية، ثم يتباطأ بانتظام حتى يتوقف تمامًا خلال 5 ثوانٍ أخرى. احسب الإزاحة الكلية للقطار خلال الحركة بأكملها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نقسّم المساحة تحت الرسم البياني للسرعة-الزمن إلى ثلاثة أشكال هندسية توافق المراحل الثلاث للحركة.
+
+المرحلة الأولى (تسارع من 0 إلى 15 م/ث خلال 5 ث): مثلث مساحته = ½ × 5 × 15 = 37.5 م.
+
+المرحلة الثانية (سرعة ثابتة 15 م/ث لمدة 20 ث): مستطيل مساحته = 15 × 20 = 300 م.
+
+المرحلة الثالثة (تباطؤ من 15 م/ث إلى الصفر خلال 5 ث): مثلث مساحته = ½ × 5 × 15 = 37.5 م.
+
+الإزاحة الكلية = مجموع المساحات الثلاث = 37.5 + 300 + 37.5 = 375 م.
+
+إزاحة القطار الكلية خلال الحركة بأكملها = 375 مترًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك جسم على خط مستقيم (يُعتبر اتجاهه الأصلي هو الاتجاه الموجب) وفق المراحل التالية: يتحرك بسرعة ثابتة مقدارها 10 م/ث لمدة 4 ثوانٍ، ثم تبدأ سرعته بالتناقص بانتظام (تباطؤ منتظم) بحيث تصل إلى الصفر عند اللحظة t = 8 ث، ثم يستمر تناقص السرعة بالمعدل المنتظم نفسه (أي يستمر خط الرسم البياني بالميل الثابت نفسه) حتى تصل السرعة إلى -5 م/ث عند اللحظة t = 10 ث (أي يتحرك الجسم الآن بعكس اتجاهه الأصلي).
+أ) احسب الإزاحة الكلية للجسم عند اللحظة t = 10 ث.
+ب) احسب المسافة الكلية التي قطعها الجسم خلال هذه الفترة.
+ج) فسّر سبب الاختلاف بين ناتجَي (أ) و(ب) إن وُجد.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">نقسم الحركة إلى ثلاث مراحل بحسب الرسم البياني للسرعة-الزمن الموصوف.
+
+المرحلة الأولى (من t = 0 إلى t = 4 ث): سرعة ثابتة 10 م/ث، والمساحة (مستطيل) = 10 × 4 = 40 م (إزاحة موجبة، أي في الاتجاه الأصلي).
+
+المرحلة الثانية (من t = 4 إلى t = 8 ث): السرعة تتناقص بانتظام من 10 م/ث إلى الصفر، والمساحة (مثلث فوق محور الزمن) = ½ × 4 × 10 = 20 م (إزاحة موجبة أيضًا، لأن السرعة لا تزال موجبة طوال هذه المرحلة حتى تصل إلى الصفر عند نهايتها).
+
+المرحلة الثالثة (من t = 8 إلى t = 10 ث): السرعة تستمر بالتناقص بالمعدل نفسه فتصبح سالبة، من الصفر إلى -5 م/ث، والمساحة (مثلث يقع تحت محور الزمن) = ½ × 2 × 5 = 5 م، لكنها تمثل إزاحة سالبة (أي بعكس الاتجاه الأصلي) لأن السرعة سالبة خلال هذه المرحلة، فتكون مساهمتها في الإزاحة الكلية = -5 م.
+
+أ) الإزاحة الكلية = 40 + 20 + (-5) = 55 م (في الاتجاه الموجب الأصلي).
+
+ب) المسافة الكلية المقطوعة = مجموع القيم المطلقة لكل المساحات = 40 + 20 + 5 = 65 م.
+
+ج) الاختلاف بين الناتجين يعود إلى أن الجسم عكس اتجاه حركته خلال المرحلة الثالثة (تحرك بعكس اتجاهه الأصلي لمسافة 5 أمتار)، فهذه المسافة تُضاف عند حساب المسافة الكلية (التي لا تهتم بالاتجاه)، بينما تُطرح عند حساب الإزاحة الكلية (التي تهتم بالاتجاه، فتُؤخذ المساحة الواقعة تحت محور الزمن بالسالب).
+
+الإزاحة الكلية = 55 م، والمسافة الكلية المقطوعة = 65 م.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

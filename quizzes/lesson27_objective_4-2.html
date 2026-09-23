@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.2</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>96</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>12</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -543,7 +543,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q7')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>8</td>
+          <td>تحديد القوتين المؤثرتين على جسم معلق ساكن بخيط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>9</td>
+          <td>تعريف القوة العمودية ومتى يكون اتجاهها كذلك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>10</td>
+          <td>حساب قوة الطفو المؤثرة على مكعب طافٍ ساكن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>11</td>
+          <td>إيجاد القوة الدافعة لسباح يتحرك بسرعة أفقية ثابتة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>12</td>
+          <td>تحديد قوى الاحتكاك والعمودية لصندوق يُسحب بسرعة ثابتة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -747,7 +777,134 @@ D ○        C ○        B ○        A ○</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم معلق بخيط من السقف وهو في حالة سكون تام. ما القوتان الوحيدتان المؤثرتان عليه؟ (اختر الإجابة الصحيحة)
+(أ) الوزن وقوة الاحتكاك
+(ب) الوزن وقوة الشد (التوتر) في الخيط
+(ج) القوة العمودية ووزن الجسم
+(د) قوة الشد ومقاومة الهواء فقط</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الجسم المعلق بخيط ساكن لا يلامس أي سطح صلب، لذا لا توجد قوة عمودية (رد فعل سطح) ولا قوة احتكاك مؤثرتان عليه، كما أنه ساكن فلا توجد مقاومة هواء ذات تأثير يُذكر.
+
+القوتان اللتان تؤثران عليه فعليًا هما: وزنه (قوة الجاذبية) المتجهة رأسيًا لأسفل نحو مركز الأرض، وقوة الشد (التوتر) في الخيط المتجهة رأسيًا لأعلى نحو نقطة التعليق.
+
+وبما أن الجسم ساكن (في حالة اتزان)، فإن هاتين القوتين متساويتان في المقدار ومتعاكستان في الاتجاه.
+
+الإجابة الصحيحة: (ب) الوزن وقوة الشد (التوتر) في الخيط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف "القوة العمودية" (Normal contact force) واذكر متى يكون اتجاهها عموديًا تمامًا على السطح الذي يستند إليه الجسم، مع ذكر مثال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">القوة العمودية هي قوة التلامس التي يؤثر بها سطح صلب على جسم يستقر عليه أو يلامسه، وتكون دائمًا متجهة عموديًا (بزاوية 90°) على مستوى ذلك السطح، بصرف النظر عن اتجاه أي قوى أخرى مؤثرة على الجسم.
+
+هذا يعني أن اتجاه القوة العمودية يتحدد بشكل كامل من خلال هندسة السطح نفسه؛ فإذا كان السطح أفقيًا تكون القوة العمودية رأسية (لأعلى)، وإذا كان السطح مائلًا فإن القوة العمودية تكون عمودية على ذلك السطح المائل نفسه، وليست بالضرورة رأسية.
+
+مثال: كتاب موضوع على طاولة أفقية؛ تؤثر الطاولة على الكتاب بقوة عمودية متجهة رأسيًا إلى الأعلى، تساوي في مقدارها وزن الكتاب عندما يكون الكتاب ساكنًا وليس عليه أي قوة رأسية أخرى.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مكعب خشبي كتلته 1.2 كجم يطفو ساكنًا تمامًا على سطح الماء في حوض. اذكر القوتين الرأسيتين المؤثرتين عليه، واشرح العلاقة بينهما في حالة الاتزان هذه، ثم احسب مقدار قوة الطفو (Upthrust) المؤثرة عليه. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">القوتان الرأسيتان المؤثرتان على المكعب الطافي هما: وزنه W متجهًا لأسفل (بسبب الجاذبية)، وقوة الطفو (الدفع الهيدروستاتيكي) U متجهة لأعلى، وهي القوة التي يؤثر بها الماء المزاح على الجسم الغاطس فيه جزئيًا أو كليًا.
+
+بما أن المكعب في حالة سكون تام (اتزان)، فإن القوة المحصلة عليه تساوي صفرًا، أي أن قوة الطفو تساوي الوزن تمامًا في المقدار وتعاكسه في الاتجاه: U = W.
+
+بحساب الوزن: W = m × g = 1.2 × 10 = 12 N
+
+وبما أن U = W في حالة الاتزان، فإن:
+
+U = 12 N
+
+الإجابة النهائية: قوة الطفو المؤثرة على المكعب = 12 N، وهي تساوي وزنه بالضبط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سباح يتحرك بسرعة أفقية ثابتة (منتظمة) داخل حوض سباحة. إذا كانت مقاومة الماء (السحب المائي) المؤثرة عليه في الاتجاه المعاكس لحركته 65 N، فما مقدار القوة الدافعة الأفقية التي يبذلها السباح؟ ولماذا؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن السباح يتحرك بسرعة ثابتة (لا يتسارع ولا يتباطأ)، فإن قانون نيوتن الأول ينطبق عليه: القوة المحصلة الأفقية المؤثرة عليه تساوي صفرًا، أي أن جميع القوى الأفقية متزنة تمامًا.
+
+القوتان الأفقيتان المؤثرتان على السباح هما القوة الدافعة التي يبذلها بحركة ذراعيه وساقيه إلى الأمام، ومقاومة الماء (السحب) المعاكسة لحركته.
+
+لتحقيق الاتزان، يجب أن تساوي القوة الدافعة مقاومة الماء تمامًا في المقدار وتعاكسها في الاتجاه:
+
+القوة الدافعة = مقاومة الماء = 65 N
+
+الإجابة النهائية: القوة الدافعة الأفقية التي يبذلها السباح = 65 N، وذلك لأن السرعة ثابتة فلا بد أن تتساوى القوتان المتعاكستان.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صندوق كتلته 25 كجم يستقر على سطح أفقي، ويُسحب بقوة أفقية مقدارها 40 N فيتحرك بسرعة ثابتة (منتظمة). (a) عدّد جميع القوى المؤثرة على الصندوق مبينًا اتجاه كل منها. (b) احسب مقدار قوة الاحتكاك المؤثرة على الصندوق. (c) احسب مقدار القوة العمودية المؤثرة من السطح على الصندوق. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(a) تؤثر على الصندوق أربع قوى: الوزن W متجهًا رأسيًا لأسفل، والقوة العمودية N من السطح متجهة رأسيًا لأعلى، والقوة المُسحوبة F متجهة أفقيًا في اتجاه الحركة، وقوة الاحتكاك f متجهة أفقيًا في الاتجاه المعاكس لحركة الصندوق (لأن الاحتكاك يعاكس دائمًا اتجاه الحركة أو ميل الحركة).
+
+(b) بما أن الصندوق يتحرك بسرعة ثابتة، فهو في حالة اتزان أفقي (القوة المحصلة الأفقية = صفر)، لذا تساوي قوة الاحتكاك القوة المسحوبة تمامًا:
+
+f = F = 40 N
+
+(c) رأسيًا، لا يوجد تسارع رأسي (الصندوق يتحرك أفقيًا فقط)، لذا تتوازن القوة العمودية مع الوزن:
+
+N = W = m × g = 25 × 10 = 250 N
+
+الإجابة النهائية: قوة الاحتكاك = 40 N (معاكسة للحركة)، والقوة العمودية = 250 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

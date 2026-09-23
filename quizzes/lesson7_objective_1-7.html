@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1.7</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>25-29</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -527,7 +527,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>قاعدة جمع عدم اليقين المطلق عند الطرح بين كميتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>القواعد العامة لجمع قيم عدم اليقين في العمليات المختلفة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب عدم اليقين في الكثافة من الكتلة والحجم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>حساب عدم اليقين في الطاقة الحركية باستخدام قاعدة الأس<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>حساب عدم اليقين في محيط ومساحة مستطيل معًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -631,7 +661,146 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">إذا كانت الكمية Z = X − Y، حيث X = (12.0 ± 0.2) وحدة، وY = (5.0 ± 0.3) وحدة، فإن عدم اليقين المطلق في Z يساوي: (اختر الإجابة الصحيحة)
+(أ) 0.1
+(ب) 0.2
+(ج) 0.3
+(د) 0.5</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند جمع أو طرح كميتين، تُجمع قيم عدم اليقين المطلق لكل منهما معًا دائمًا (حتى في حالة الطرح)، لأن عدم اليقين في كل كمية يمكن أن يزيد أو يُنقص من الفرق النهائي، فيتراكم أسوأ احتمال ممكن في كلا الاتجاهين.
+
+عدم اليقين المطلق في Z = عدم اليقين في X + عدم اليقين في Y = 0.2 + 0.3 = 0.5
+
+الإجابة الصحيحة: (د).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر القواعد العامة الثلاث المستخدمة لحساب عدم اليقين الناتج عند إجراء عمليات حسابية على كميات لها عدم يقين، موضحًا متى تُستخدم كل قاعدة: عملية الجمع أو الطرح، عملية الضرب أو القسمة، وحالة رفع كمية إلى أُس (قوة) n.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">القاعدة الأولى (الجمع أو الطرح): إذا كانت الكمية الناتجة عبارة عن مجموع أو فرق كميتين أو أكثر، فإن عدم اليقين المطلق في الناتج يساوي مجموع قيم عدم اليقين المطلق لكل كمية على حدة، بصرف النظر عن كون العملية جمعًا أو طرحًا.
+
+القاعدة الثانية (الضرب أو القسمة): إذا كانت الكمية الناتجة عبارة عن حاصل ضرب أو حاصل قسمة كميتين أو أكثر، فإن النسبة المئوية لعدم اليقين في الناتج تساوي مجموع النسب المئوية لعدم اليقين في كل كمية على حدة.
+
+القاعدة الثالثة (الأُس n): إذا كانت الكمية الناتجة تحتوي على متغيّر مرفوع لأُس n (مثل x²، أو √x التي تعادل x^0.5)، فإن النسبة المئوية لعدم اليقين في الناتج تساوي |n| مضروبة في النسبة المئوية لعدم اليقين في ذلك المتغير.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قِيست كتلة جسم فكانت m = (50.0 ± 0.5) غم، وقِيس حجمه فكان V = (20.0 ± 0.4) سم³.
+احسب كثافة الجسم ρ = m ÷ V، ثم احسب عدم اليقين المطلق في قيمة الكثافة، واكتب النتيجة النهائية كاملة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">الكثافة ρ = m ÷ V = 50.0 ÷ 20.0 = 2.50 غم/سم³
+
+النسبة المئوية لعدم اليقين في m = (0.5 ÷ 50.0) × 100 = 1.0%
+النسبة المئوية لعدم اليقين في V = (0.4 ÷ 20.0) × 100 = 2.0%
+
+بما أن الكثافة ناتجة عن قسمة، فإن النسبة المئوية لعدم اليقين فيها = مجموع النسبتين
+= 1.0% + 2.0% = 3.0%
+
+عدم اليقين المطلق في ρ = (3.0 ÷ 100) × 2.50 = 0.075 ≈ 0.08 غم/سم³
+
+إذن النتيجة النهائية: ρ = (2.50 ± 0.08) غم/سم³.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم كتلته m = (2.00 ± 0.02) كغم يتحرك بسرعة v = (8.0 ± 0.2) م/ث.
+احسب طاقته الحركية KE = ½mv²، ثم احسب النسبة المئوية لعدم اليقين وعدم اليقين المطلق في قيمة KE، واكتب النتيجة النهائية كاملة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">الطاقة الحركية KE = ½ × m × v² = ½ × 2.00 × (8.0)² = ½ × 2.00 × 64.0 = 64.0 جول
+
+النسبة المئوية لعدم اليقين في m = (0.02 ÷ 2.00) × 100 = 1.0%
+
+النسبة المئوية لعدم اليقين في v = (0.2 ÷ 8.0) × 100 = 2.5%
+بما أن v مرفوعة للأُس 2 في المعادلة، فإن النسبة المئوية لعدم اليقين في v² = 2 × 2.5% = 5.0%
+
+بما أن KE ناتج ضرب m في v² (والعامل ½ ثابت لا يؤثر على النسبة المئوية لعدم اليقين)، فإن النسبة المئوية لعدم اليقين في KE = مجموع النسبتين = 1.0% + 5.0% = 6.0%
+
+عدم اليقين المطلق في KE = (6.0 ÷ 100) × 64.0 = 3.84 ≈ 4 جول
+
+إذن النتيجة النهائية: KE = (64 ± 4) جول.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لوح معدني مستطيل الشكل طوله l = (15.0 ± 0.2) سم، وعرضه w = (8.0 ± 0.1) سم.
+(أ) احسب عدم اليقين المطلق في محيط اللوح، حيث P = 2(l + w).
+(ب) احسب النسبة المئوية لعدم اليقين وعدم اليقين المطلق في مساحة اللوح، حيث A = l × w.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(أ) عدم اليقين المطلق في (l + w) = عدم يقين l + عدم يقين w = 0.2 + 0.1 = 0.3 سم (قاعدة الجمع)
+
+بما أن P = 2 × (l + w)، وهذا ضرب في ثابت (عدد بلا عدم يقين)، فإن عدم اليقين المطلق يُضرب أيضًا في هذا الثابت: عدم اليقين المطلق في P = 2 × 0.3 = 0.6 سم
+
+قيمة l + w = 15.0 + 8.0 = 23.0 سم، إذن P = 2 × 23.0 = 46.0 سم
+
+إذن: P = (46.0 ± 0.6) سم
+
+(ب) النسبة المئوية لعدم اليقين في l = (0.2 ÷ 15.0) × 100 ≈ 1.33%
+النسبة المئوية لعدم اليقين في w = (0.1 ÷ 8.0) × 100 = 1.25%
+
+بما أن A = l × w (ضرب)، فإن النسبة المئوية لعدم اليقين في A = مجموع النسبتين
+= 1.33% + 1.25% = 2.58% ≈ 2.6%
+
+قيمة A = 15.0 × 8.0 = 120 سم²
+عدم اليقين المطلق في A = (2.6 ÷ 100) × 120 ≈ 3.1 ≈ 3 سم²
+
+إذن: A = (120 ± 3) سم².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

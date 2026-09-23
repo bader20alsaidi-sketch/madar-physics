@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الحادية عشرة: احتياطات السلامة — التعامُل الآمن</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-11</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>12</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -506,7 +511,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q7')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>8</td>
+          <td>الأسلوب الآمن الصحيح لمسك المصدر المشع ونقله<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>9</td>
+          <td>المبادئ الثلاثة الأساسية للسلامة الإشعاعية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>10</td>
+          <td>أنواع الإشعاع الأكثر حاجة لحاجب تدريع سميك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>11</td>
+          <td>أهمية توجيه المصدر بعيدًا عن الجسم وتخزينه في حاويات الرصاص<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>12</td>
+          <td>تحديد أخطاء التعامل غير الآمن مع مصدر مشع في سيناريو مختبري<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -605,7 +640,128 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند التعامل مع مصدر مشع في المختبر المدرسي، أي الإجراءات التالية يُعدّ الأسلوب الآمن الصحيح لمسكه ونقله؟ (اختر الإجابة الصحيحة)
+(أ) مسكه مباشرة باليد المجردة لفترة قصيرة لأن ذلك لا يسبب ضررًا
+(ب) استخدام ملقط طويل (Tongs) لزيادة المسافة بين المصدر والجسم، مع توجيه المصدر بعيدًا عن الجسم
+(ج) وضعه في جيب المعطف لحمايته من السقوط أثناء النقل
+(د) تسخينه أولًا لتقليل نشاطه الإشعاعي قبل التعامل معه</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">من أهم مبادئ السلامة الإشعاعية زيادة المسافة بين الشخص والمصدر المشع قدر الإمكان، لأن الجرعة الإشعاعية التي يتلقاها الشخص تقل بشكل كبير كلما زادت المسافة عن المصدر.
+
+استخدام ملقط طويل (Tongs) يحقق هذا الهدف مباشرة، إذ يُبقي يد المتعامل بعيدة عن المصدر، كما يجب توجيه المصدر بعيدًا عن الجسم (وخاصة عن العينين) أثناء التعامل معه لتقليل التعرض المباشر.
+
+أما مسك المصدر باليد المجردة فيعرّض الأنسجة لجرعة إشعاعية مباشرة وعالية نسبيًا حتى لو كانت المدة قصيرة، ووضعه في الجيب يعني ملامسته للجسم لفترة طويلة دون أي حجب، وهما ممارستان خطيرتان يجب تجنبهما تمامًا.
+
+أما تسخين المصدر فلا يقلل نشاطه الإشعاعي إطلاقًا، لأن الاضمحلال الإشعاعي عملية نووية تلقائية لا تتأثر بالعوامل الخارجية كدرجة الحرارة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر ثلاثة مبادئ أساسية يعتمد عليها التعامل الآمن مع المصادر المشعة في المختبر، مبينًا كيف يقلل كل منها من الجرعة الإشعاعية التي يتلقاها الشخص.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">المبدأ الأول: تقليل زمن التعرض للمصدر المشع قدر الإمكان؛ فكلما قلّت المدة الزمنية التي يقضيها الشخص بالقرب من المصدر، قلّت كمية الإشعاع الكلية التي يمتصها جسمه، إذ إن الجرعة الممتصة تتراكم مع الزمن.
+
+المبدأ الثاني: زيادة المسافة بين الشخص والمصدر المشع، مثل استخدام ملقط طويل بدلًا من الاقتراب المباشر؛ فكلما زادت المسافة عن المصدر قلّت شدة الإشعاع الواصل إلى الجسم بشكل كبير.
+
+المبدأ الثالث: استخدام الحجب (التدريع) المناسب، مثل حاويات الرصاص أو الحواجز السميكة، لامتصاص جزء كبير من الإشعاع الصادر عن المصدر قبل أن يصل إلى الشخص.
+
+تطبيق هذه المبادئ الثلاثة معًا (تقليل الزمن، وزيادة المسافة، واستخدام الحجب) يقلل الجرعة الإشعاعية التي يتلقاها الشخص إلى أدنى حد ممكن.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي أنواع الإشعاع الثلاثة (ألفا وبيتا وجاما) يحتاج إلى أكثر حاجز تدريع سُمكًا (كطبقة سميكة من الرصاص أو الخرسانة) لتقليل شدته بشكل كبير؟ (اختر الإجابة الصحيحة)
+(أ) إشعاع ألفا، لأنه الأكثر تأينًا
+(ب) إشعاع بيتا فقط
+(ج) إشعاع جاما، لأنه الأكثر قدرة على النفاذ (اختراق المواد)
+(د) الأنواع الثلاثة تحتاج نفس سُمك الحاجز تمامًا</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">تختلف الأنواع الثلاثة للإشعاع اختلافًا كبيرًا في قدرتها على اختراق المواد.
+
+إشعاع ألفا هو الأقل نفاذًا، إذ توقفه ورقة رفيعة أو بضعة سنتيمترات من الهواء فقط، وإشعاع بيتا أكثر نفاذًا من ألفا لكنه يُوقف بطبقة رقيقة من الألومنيوم (بضعة ملليمترات).
+
+أما إشعاع جاما فهو موجة كهرومغناطيسية عالية الطاقة، وله أعلى قدرة على النفاذ بين الأنواع الثلاثة، ولا يمكن إيقافه تمامًا حتى بطبقة سميكة من الرصاص أو الخرسانة؛ بل يمكن فقط تقليل شدته بشكل كبير بزيادة سُمك الحاجز، ولهذا يحتاج إلى أثقل وأسمك أنواع الحجب.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لماذا يجب توجيه المصدر المشع بعيدًا عن الجسم وخصوصًا عن العينين أثناء التعامل معه؟ ولماذا يُحفظ عادة في حاويات من الرصاص عند التخزين؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">يُوجَّه المصدر المشع بعيدًا عن الجسم، وخاصة عن العينين، لتقليل احتمال تعرض الأنسجة الحساسة كالعدسة داخل العين لجرعة إشعاعية مباشرة، حيث إن هذه الأنسجة قد تتأثر بشدة بالإشعاع المؤين حتى بجرعات صغيرة نسبيًا، فتوجيه المصدر بعيدًا يقلل من كمية الإشعاع الواصلة إليها.
+
+أما تخزين المصدر في حاوية من الرصاص فسببه أن الرصاص مادة كثيفة وفعالة جدًا في امتصاص الإشعاع، خصوصًا إشعاع جاما عالي النفاذ؛ فوجود المصدر داخل حاوية رصاصية يحجب معظم الإشعاع الصادر عنه، مما يحمي الأشخاص المتواجدين في المختبر من التعرض المستمر له طوال وقت التخزين حين لا يكون المصدر قيد الاستخدام الفعلي.
+
+بذلك يجمع الإجراءان (التوجيه بعيدًا عن الجسم أثناء الاستخدام، والتخزين في حاوية رصاصية بعد الانتهاء) بين تقليل زمن التعرض المباشر واستخدام الحجب المناسب، وهما من أهم مبادئ السلامة الإشعاعية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-11</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لاحظ معلم أن أحد الطلاب استخدم إصبعه لدفع مصدر مشع صغير داخل درج التخزين بدلًا من استخدام الملقط، وترك الدرج مفتوحًا لعدة دقائق أثناء تدوين ملاحظاته في دفتره. اذكر خطأين ارتكبهما الطالب في هذا الموقف، واقترح التصحيح الصحيح لكل منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الخطأ الأول: استخدام الإصبع مباشرة لدفع المصدر المشع بدلًا من الملقط الطويل؛ فهذا يعني تقريب اليد إلى مسافة قصيرة جدًا من المصدر، مما يزيد بشدة من الجرعة الإشعاعية الممتصة في تلك اليد مقارنة باستخدام أداة تزيد المسافة.
+التصحيح: يجب دائمًا استخدام ملقط طويل (Tongs) عند مسك أو تحريك أي مصدر مشع، لضمان أكبر مسافة ممكنة بين اليد والمصدر.
+
+الخطأ الثاني: ترك درج التخزين مفتوحًا لعدة دقائق أثناء تدوين الملاحظات؛ فحاوية التخزين (مثل الدرج المُبطن بالرصاص) مصممة لحجب الإشعاع الصادر عن المصدر عن بقية المختبر، وبقاؤها مفتوحة يعني تعطيل هذا الحجب وزيادة زمن تعرض الطالب وبقية الطلاب في الغرفة للإشعاع دون داعٍ.
+التصحيح: يجب إغلاق غطاء حاوية التخزين فورًا بعد الانتهاء من استخدام المصدر مباشرة، وعدم تركها مفتوحة إلا للمدة الضرورية فقط لإخراج المصدر أو إعادته.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -624,6 +780,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

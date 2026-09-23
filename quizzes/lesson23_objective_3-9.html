@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.9</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>79</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (2)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -512,7 +512,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>إيجاد المركبة الأفقية لمتجه سرعة مائل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>تفسير استخدام دالتي الجيب وجيب التمام في مركبتي المتجه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>تحليل قوة مائلة إلى مركبتيها الأفقية والرأسية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>إيجاد محصلة متجه وزاويته من مركبتيه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>تحليل متجه إزاحة مائل إلى أسفل الأفقي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -580,7 +610,132 @@ Tan θ = المقابل ÷ المجاور  →  θ = 38.7°
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">متجه سرعة مقداره 20 m/s يصنع زاوية 30° مع الاتجاه الأفقي. ما مقدار المركبة الأفقية لهذا المتجه؟ (خذ cos30° ≈ 0.87، sin30° = 0.5) (اختر الإجابة الصحيحة)
+(أ) 10 m/s
+(ب) 17.4 m/s
+(ج) 20 m/s
+(د) 23 m/s</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">لتحليل متجه إلى مركبتين متعامدتين أفقية ورأسية، حيث θ هي الزاوية التي يصنعها المتجه مع الاتجاه الأفقي، تُستخدم العلاقتان:
+المركبة الأفقية = المقدار × cos θ
+المركبة الرأسية = المقدار × sin θ
+
+بالتعويض لإيجاد المركبة الأفقية:
+المركبة الأفقية = 20 × cos30° = 20 × 0.87 = 17.4 m/s
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح لماذا تُستخدم دالة الجيب (sin θ) لإيجاد المركبة الرأسية لمتجه يصنع زاوية θ مع الاتجاه الأفقي، بينما تُستخدم دالة جيب التمام (cos θ) لإيجاد مركبته الأفقية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">عند تحليل متجه إلى مركبتين متعامدتين، نتخيل مثلثًا قائم الزاوية يكون فيه المتجه نفسه هو الوتر، والزاوية θ محصورة بين المتجه والاتجاه الأفقي.
+
+في هذا المثلث، الضلع المقابل للزاوية θ يمثل المركبة الرأسية للمتجه، والضلع المجاور للزاوية θ (على الاتجاه الأفقي) يمثل المركبة الأفقية.
+
+وحسب تعريف الدوال المثلثية في المثلث القائم: sin θ = (الضلع المقابل) / (الوتر)، وcos θ = (الضلع المجاور) / (الوتر). وبما أن الوتر هنا هو مقدار المتجه نفسه، فإن:
+المركبة الرأسية = المقدار × sin θ (لأنها الضلع المقابل)
+المركبة الأفقية = المقدار × cos θ (لأنها الضلع المجاور)
+
+ولهذا السبب تحديدًا تُستخدم sin θ للمركبة الرأسية وcos θ للمركبة الأفقية، طالما أن الزاوية θ مقاسة من الاتجاه الأفقي.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تؤثر قوة مقدارها 50 N على جسم، وتصنع زاوية 60° مع الاتجاه الأفقي. احسب مركبتي هذه القوة: الأفقية والرأسية. (خذ cos60° = 0.5، sin60° ≈ 0.87)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المقدار = 50 N، الزاوية مع الأفقي θ = 60°.
+
+المركبة الأفقية Fx = F × cos θ = 50 × 0.5 = 25 N
+
+المركبة الرأسية Fy = F × sin θ = 50 × 0.87 = 43.5 N
+
+إذن: المركبة الأفقية للقوة تساوي 25 N، والمركبة الرأسية تساوي 43.5 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لمتجه سرعة، تساوي مركبته الأفقية 12 m/s ومركبته الرأسية 5 m/s. احسب:
+(أ) مقدار متجه السرعة المحصل.
+(ب) الزاوية التي يصنعها هذا المتجه مع الاتجاه الأفقي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن المركبتين متعامدتان (أفقية ورأسية)، فإن مقدار المتجه المحصل يُحسب باستخدام نظرية فيثاغورس:
+
+(أ) المقدار = √(Vx² + Vy²) = √(12² + 5²) = √(144 + 25) = √169 = 13 m/s
+
+(ب) الزاوية θ مع الاتجاه الأفقي تُحسب باستخدام: tan θ = (المركبة الرأسية) / (المركبة الأفقية) = 5/12
+θ = tan⁻¹(5/12) ≈ 22.6°
+
+إذن: مقدار متجه السرعة المحصل يساوي 13 m/s، ويصنع زاوية مقدارها حوالي 22.6° مع الاتجاه الأفقي.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحرك جسم في خط مستقيم مسافة 40 m، في اتجاه يصنع زاوية 25° أسفل الاتجاه الأفقي (أي أن الجسم يهبط تدريجيًا أثناء تحركه). احسب المركبة الأفقية والمركبة الرأسية (الهابطة) لهذا الإزاحة. (خذ cos25° ≈ 0.906، sin25° ≈ 0.423)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">المقدار = 40 m، والزاوية مع الأفقي θ = 25° (أسفل الأفقي).
+
+المركبة الأفقية = 40 × cos25° = 40 × 0.906 = 36.24 m
+
+المركبة الرأسية (الهابطة) = 40 × sin25° = 40 × 0.423 = 16.92 m
+
+إذن: تبلغ المركبة الأفقية للإزاحة حوالي 36.2 m، وتبلغ مركبتها الرأسية نحو الأسفل حوالي 16.9 m.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

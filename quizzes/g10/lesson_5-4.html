@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الرابعة: تأثيرات القوى — قانون هوك</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>5-4</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -473,7 +478,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>الصيغة الصحيحة لقانون هوك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>تعريف ثابت الزنبرك ووحدته ودلالة زيادته<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>حساب ثابت الزنبرك من القوة والاستطالة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>حساب القوة اللازمة لاستطالة معينة باستخدام ثابت الزنبرك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>مقارنة استطالة زنبركين مختلفين في الصلابة بنفس الثقل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -506,7 +541,134 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي الصيغ التالية تمثل نص قانون هوك بشكل صحيح ضمن حد التناسب للزنبرك، حيث F هي القوة المؤثرة، وk هو ثابت الزنبرك، وx هو مقدار الاستطالة؟ (اختر الإجابة الصحيحة)
+(أ) F = k ÷ x
+(ب) F = k × x
+(ج) x = k × F²
+(د) k = F + x</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">ينص قانون هوك على أنه ضمن حد التناسب (حد المرونة)، تتناسب القوة المؤثرة على الزنبرك F طرديًا مع مقدار الاستطالة الناتجة x، ويُعبَّر عن ذلك بالعلاقة:
+F = k × x
+
+حيث k هو ثابت التناسب المعروف بثابت الزنبرك، وهو مقدار ثابت لزنبرك معين طالما بقي الحمل ضمن حد التناسب.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف ثابت الزنبرك (k) في قانون هوك، واذكر وحدة قياسه في النظام الدولي، وما الذي تدل عليه زيادة قيمة k لزنبرك ما مقارنة بزنبرك آخر؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">ثابت الزنبرك k هو مقدار القوة اللازمة لإحداث استطالة مقدارها وحدة واحدة (متر واحد) في الزنبرك، ويُحسب من العلاقة k = F ÷ x، أي أنه النسبة بين القوة المؤثرة ومقدار الاستطالة الناتجة عنها ضمن حد التناسب.
+
+وحدة قياس ثابت الزنبرك في النظام الدولي هي نيوتن لكل متر (N/m).
+
+كلما كانت قيمة k لزنبرك ما أكبر، دلّ ذلك على أن هذا الزنبرك أكثر صلابة (أشد مقاومة للاستطالة)، إذ يحتاج إلى قوة أكبر لإحداث الاستطالة نفسها التي يحدثها زنبرك آخر أقل صلابة (أصغر في قيمة k).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند تعليق ثقل مقداره 8 نيوتن على زنبرك (ضمن حد التناسب الخاص به)، استطال الزنبرك مقدار 0.04 متر (4 سم). احسب ثابت هذا الزنبرك k.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">من قانون هوك، تُعطى العلاقة بين القوة وثابت الزنبرك والاستطالة بالصيغة:
+F = k × x
+
+ومنها يمكن إيجاد ثابت الزنبرك بالعلاقة:
+k = F ÷ x
+
+بالتعويض عن F = 8 نيوتن، وx = 0.04 متر:
+k = 8 ÷ 0.04
+k = 200 نيوتن/متر
+
+إذن، ثابت هذا الزنبرك يساوي 200 نيوتن/متر.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">زنبرك ثابته k = 150 نيوتن/متر. احسب مقدار القوة اللازمة لاستطالة هذا الزنبرك مسافة 0.06 متر (6 سم)، علمًا بأن هذه الاستطالة ما تزال ضمن حد التناسب الخاص بالزنبرك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">من قانون هوك:
+F = k × x
+
+بالتعويض عن k = 150 نيوتن/متر، وx = 0.06 متر:
+F = 150 × 0.06
+F = 9 نيوتن
+
+إذن، القوة اللازمة لإحداث هذه الاستطالة في الزنبرك تساوي 9 نيوتن.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 5-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يوجد زنبركان A وB: ثابت الزنبرك A يساوي 250 نيوتن/متر، وثابت الزنبرك B يساوي 100 نيوتن/متر. إذا عُلّق على كل منهما الثقل نفسه ومقداره 20 نيوتن، وكان كلا الزنبركين ما يزالان ضمن حد التناسب الخاص بكل منهما، احسب استطالة كل من الزنبركين، ثم بيّن أيهما يستطيل أكثر ولماذا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">من قانون هوك: x = F ÷ k
+
+استطالة الزنبرك A:
+xA = 20 ÷ 250
+xA = 0.08 متر (أي 8 سم)
+
+استطالة الزنبرك B:
+xB = 20 ÷ 100
+xB = 0.2 متر (أي 20 سم)
+
+بمقارنة القيمتين، نجد أن xB أكبر من xA بوضوح.
+
+إذن، الزنبرك B يستطيل أكثر من الزنبرك A عند تعليق الثقل نفسه عليهما، وذلك لأن ثابته k أصغر (100 نيوتن/متر مقارنة بـ 250 نيوتن/متر)، مما يعني أن الزنبرك B أقل صلابة (أكثر ليونة) من الزنبرك A، فيحتاج إلى قوة أصغر لإحداث الاستطالة نفسها، أو يستطيل أكثر عند تعرضه للقوة نفسها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 </main>
 <footer>
   <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
@@ -522,6 +684,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

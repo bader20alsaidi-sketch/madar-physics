@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة السادسة: الشغل والقدرة — حساب الشغل المبذول</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-6</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -473,7 +478,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>حساب الشغل المبذول لرفع كيس إسمنت رأسيًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>حساب الشغل المبذول للتغلب على الاحتكاك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>مقارنة الشغل في الرفع الرأسي والسحب على سطح أملس<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>حساب الشغل الكلي لرفع عدة صناديق متطابقة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>أثر خشونة السطح على الشغل المبذول ضد الاحتكاك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -505,7 +540,140 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عامل بناء يرفع كيس إسمنت كتلته 40 كجم رأسيًا من الأرض إلى سقالة ارتفاعها 5 أمتار باستخدام رافعة بسيطة، بسرعة ثابتة تقريبًا. احسب الشغل المبذول لرفع الكيس إلى هذا الارتفاع ضد الجاذبية. (خذ g = 10 م/ث²)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند رفع جسم رأسيًا بسرعة ثابتة، فإن القوة المبذولة لرفعه تساوي وزنه:
+F = m × g
+F = 40 × 10 = 400 نيوتن
+
+الشغل المبذول لرفع الكيس يُحسب من العلاقة:
+W = F × d
+
+بالتعويض عن F = 400 نيوتن، وd = 5 أمتار (الارتفاع الرأسي):
+W = 400 × 5
+W = 2000 جول
+
+إذن، الشغل المبذول لرفع كيس الإسمنت إلى ارتفاع 5 أمتار يساوي 2000 جول.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يدفع عامل صندوقًا كتلته 20 كجم مسافة 12 مترًا على أرضية أفقية خشنة، حيث تؤثر عليه قوة احتكاك مقدارها 30 نيوتن تعاكس اتجاه حركته، ويتحرك الصندوق بسرعة ثابتة تقريبًا طوال هذه المسافة. احسب الشغل المبذول من العامل للتغلب على قوة الاحتكاك خلال هذه الحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">بما أن الصندوق يتحرك بسرعة ثابتة تقريبًا، فإن القوة الأفقية التي يبذلها العامل لدفع الصندوق تساوي في مقدارها قوة الاحتكاك المعاكسة لها (حتى يبقى محصلة القوى صفرًا وتستمر السرعة ثابتة):
+F = 30 نيوتن
+
+يُحسب الشغل المبذول من العلاقة:
+W = F × d
+
+بالتعويض عن F = 30 نيوتن، وd = 12 مترًا:
+W = 30 × 12
+W = 360 جول
+
+إذن، الشغل المبذول للتغلب على قوة الاحتكاك خلال هذه الحركة يساوي 360 جول.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شخصان: الأول يرفع كتلة مقدارها 10 كجم رأسيًا إلى أعلى مسافة 2 م، والثاني يسحب الكتلة نفسها (10 كجم) مسافة 2 م أفقيًا على أرض أملس عديمة الاحتكاك تقريبًا بقوة أفقية صغيرة جدًا تكفي لتحريكها بسرعة شبه ثابتة. بافتراض إهمال مقاومة الهواء في الحالتين، أي مما يلي صحيح بخصوص الشغل المبذول في الحالتين؟ (اختر الإجابة الصحيحة)
+(أ) الشغل المبذول في الحالتين متساوٍ تمامًا لأن الكتلة والمسافة متساويتان في الحالتين
+(ب) الشغل في الحالة الأولى (الرفع الرأسي) أكبر بكثير، لأن القوة اللازمة لمقاومة وزن الكتلة (mg) أكبر بكثير من القوة الأفقية الصغيرة اللازمة على السطح الأملس عديم الاحتكاك
+(ج) الشغل في الحالة الثانية (السحب الأفقي) أكبر لمجرد أن الحركة أفقية وليست رأسية
+(د) لا يمكن حساب الشغل في أي من الحالتين دون معرفة الزمن اللازم لكل حركة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في الحالة الأولى، القوة اللازمة لرفع الكتلة رأسيًا بسرعة ثابتة تساوي وزنها: F₁ = m × g = 10 × 10 = 100 نيوتن، والشغل المبذول W₁ = F₁ × d = 100 × 2 = 200 جول.
+
+في الحالة الثانية، بما أن السطح أملس وعديم الاحتكاك تقريبًا، فإن القوة الأفقية اللازمة للحفاظ على سرعة شبه ثابتة تكون صغيرة جدًا (تقترب من الصفر)، ومن ثم فإن الشغل المبذول في هذه الحالة يكون صغيرًا جدًا مقارنة بالحالة الأولى، رغم تساوي الكتلة والمسافة في الحالتين.
+
+هذا يوضح أن الشغل لا يعتمد فقط على الكتلة والمسافة، بل يعتمد أساسًا على مقدار القوة الفعلية المؤثرة واتجاهها بالنسبة للإزاحة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تنقل رافعة 8 صناديق متطابقة، كتلة الصندوق الواحد منها 25 كجم، من سطح الأرض إلى سطح مبنى ارتفاعه 6 أمتار، وذلك بسرعة ثابتة تقريبًا في كل مرة. احسب الشغل الكلي المبذول لرفع الصناديق الثمانية جميعًا إلى هذا الارتفاع. (خذ g = 10 م/ث²)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">الشغل المبذول لرفع صندوق واحد كتلته m = 25 كجم إلى ارتفاع h = 6 أمتار يُحسب من العلاقة:
+W = m × g × h
+W = 25 × 10 × 6
+W = 1500 جول (لكل صندوق واحد)
+
+بما أن هناك 8 صناديق متطابقة تُرفع كل منها إلى الارتفاع نفسه، فإن الشغل الكلي المبذول هو:
+W_الكلي = 8 × 1500
+W_الكلي = 12000 جول
+
+إذن، الشغل الكلي المبذول لرفع الصناديق الثمانية جميعًا إلى ارتفاع 6 أمتار يساوي 12000 جول.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لماذا يكون الشغل المبذول للتغلب على قوة الاحتكاك عند سحب جسم مسافة معينة على أرض خشنة أكبر من الشغل المبذول لسحب الجسم نفسه المسافة نفسها على أرض ملساء؟ وضّح إجابتك مستعينًا بالعلاقة W = F × d.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">قوة الاحتكاك تنشأ نتيجة تلامس سطحي الجسم والأرض، وتزداد كلما ازدادت خشونة السطحين المتلامسين.
+
+على الأرض الخشنة، تكون قوة الاحتكاك المعاكسة للحركة كبيرة نسبيًا، فيحتاج الشخص إلى بذل قوة سحب أكبر للتغلب عليها والحفاظ على حركة الجسم.
+
+على الأرض الملساء، تكون قوة الاحتكاك أصغر بكثير، فتكفي قوة سحب أصغر لتحقيق الحركة نفسها.
+
+بما أن الشغل يُحسب من العلاقة W = F × d، وبما أن المسافة d واحدة في الحالتين، فإن زيادة القوة F اللازمة على السطح الخشن تؤدي مباشرة إلى زيادة الشغل المبذول W مقارنة بالسطح الأملس.
+
+لذلك يكون الشغل المبذول ضد الاحتكاك على الأرض الخشنة أكبر منه على الأرض الملساء لنفس المسافة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 </main>
 <footer>
   <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
@@ -521,6 +689,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

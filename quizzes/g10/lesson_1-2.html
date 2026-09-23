@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الثانية: مخطّطات الدوائر الكهربائيّة — مكونات الدائرة الكهربائية</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-2</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>1</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>6</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -468,7 +473,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>2</td>
+          <td>طريقة توصيل الأميتر الصحيحة لقياس التيار المار في مصباح<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>3</td>
+          <td>الفرق بين توصيل الأميتر وتوصيل الفولتميتر في الدائرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>4</td>
+          <td>أثر احتراق أحد مصباحين موصولين على التوالي على الآخر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>5</td>
+          <td>أثر احتراق أحد مصباحين موصولين على التوازي على الآخر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>6</td>
+          <td>حساب فرق الجهد الكلي لثلاث خلايا موصولة على التوالي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -483,7 +518,119 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لقياس شدة التيار الكهربائي المار في مصباح ضمن دائرة كهربائية، كيف يجب توصيل الأميتر (مقياس التيار)؟ (اختر الإجابة الصحيحة)
+(أ) على التوازي مع المصباح
+(ب) على التوالي مع المصباح، بحيث يمر التيار نفسه المار في المصباح خلاله
+(ج) على التوالي مع مصدر الجهد فقط، بعيدًا عن المصباح
+(د) لا يهم كيفية التوصيل ما دام موجودًا في الدائرة نفسها</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الأميتر جهاز يُستخدم لقياس شدة التيار الكهربائي المار في فرع معين من الدائرة، ولكي يقيس التيار المار فعليًا في المصباح، يجب أن يمر التيار نفسه الذي يمر في المصباح خلال الأميتر أيضًا.
+
+هذا لا يتحقق إلا بتوصيل الأميتر على التوالي مع المصباح، أي في نفس المسار (الفرع) الذي يمر فيه المصباح، بحيث يكون التيار المار في المصباح والأميتر واحدًا تمامًا.
+
+لذلك يُصنَّع الأميتر بمقاومة داخلية صغيرة جدًا (تقارب الصفر) حتى لا يُنقص من شدة التيار المار في الدائرة عند توصيله على التوالي.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما الفرق بين طريقة توصيل الأميتر وطريقة توصيل الفولتميتر (مقياس فرق الجهد) في الدائرة الكهربائية، ولماذا يُصمَّم كل منهما بمقاومة داخلية مختلفة عن الآخر؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">يُوصَّل الأميتر على التوالي مع المكوّن المراد قياس التيار المار فيه، بينما يُوصَّل الفولتميتر على التوازي مع طرفي المكوّن المراد قياس فرق الجهد بينهما.
+
+يجب أن تكون مقاومة الأميتر الداخلية صغيرة جدًا (قريبة من الصفر) حتى لا يسبب توصيله على التوالي أي نقص ملحوظ في شدة التيار الأصلي المار في الدائرة.
+
+أما الفولتميتر فيجب أن تكون مقاومته الداخلية كبيرة جدًا (قريبة من اللانهاية)، حتى لا يسحب تيارًا يُذكر عند توصيله على التوازي مع المكوّن، فلا يغيّر من توزيع التيار الأصلي في الدائرة ويقيس فرق الجهد الحقيقي بدقة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">دائرة كهربائية تحتوي على مصباحين موصَّلين على التوالي مع بطارية ومفتاح. إذا احترق أحد المصباحين (انقطعت دائرته الداخلية)، فماذا يحدث للمصباح الآخر؟ علّل إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في التوصيل على التوالي، يوجد مسار واحد فقط يمر فيه التيار عبر جميع مكونات الدائرة بالتتابع، أي يمر التيار نفسه في المصباح الأول ثم المصباح الثاني ثم يعود إلى البطارية.
+
+عندما يحترق أحد المصباحين، فإن السلك الداخلي فيه (الفتيلة) ينقطع، وهذا يعني انقطاع المسار الوحيد الذي يمر فيه التيار في الدائرة بأكملها.
+
+بما أن الدائرة أصبحت مفتوحة (غير مغلقة) عند نقطة الانقطاع، فلن يمر أي تيار في أي جزء من الدائرة، وبالتالي سينطفئ المصباح الثاني أيضًا رغم أنه سليم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في دائرة أخرى، وُصل المصباحان على التوازي بدلًا من التوالي مع البطارية نفسها. إذا احترق أحد المصباحين هذه المرة، فماذا يحدث للمصباح الآخر؟ فسّر إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">في التوصيل على التوازي، يكون لكل مصباح مسار (فرع) مستقل خاص به يصل بين طرفي البطارية، ويمر التيار في كل فرع بشكل منفصل عن الفرع الآخر.
+
+عندما يحترق أحد المصباحين وتنقطع دائرته الداخلية، ينقطع التيار في فرعه هو فقط، دون أن يؤثر ذلك في الفرع الآخر الذي يحتوي على المصباح السليم.
+
+لذلك يستمر فرق الجهد نفسه مطبقًا على طرفي المصباح السليم، ويستمر مروره التيار فيه بشكل طبيعي، أي يبقى المصباح السليم مضيئًا كالمعتاد.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">دائرة كهربائية بها ثلاث خلايا (بطاريات) متطابقة، فرق الجهد لكل خلية منها 1.5 فولت، موصولة على التوالي مع مصباح ومفتاح وأميتر. احسب فرق الجهد الكلي الذي تزوّد به الخلايا الثلاث الدائرة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">عند توصيل عدة خلايا على التوالي بحيث يكون القطب الموجب لكل خلية متصلًا بالقطب السالب للخلية التالية، فإن فروق الجهد لهذه الخلايا تُجمع مع بعضها لتعطي فرق الجهد الكلي للتجمّع.
+
+فرق الجهد الكلي = فرق جهد الخلية الأولى + فرق جهد الخلية الثانية + فرق جهد الخلية الثالثة
+V الكلي = 1.5 فولت + 1.5 فولت + 1.5 فولت = 4.5 فولت
+
+إذن فرق الجهد الكلي الذي تزوّد به الخلايا الثلاث الدائرة يساوي 4.5 فولت.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز</h2>
     <table>
@@ -507,6 +654,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

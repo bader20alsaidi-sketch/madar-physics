@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الرابعة: تأثيرات القوى — استطالة الزنبرك</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4-4</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -494,7 +499,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>حساب استطالة زنبرك من طوله الأصلي وطوله بعد التحميل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>مفهوم حد المرونة وسلوك الزنبرك بعد إزالة الحمل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>حساب استطالة زنبرك مباشرة من الطولين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>استخدام التناسب الطردي بين الاستطالة والحمل لإيجاد استطالة جديدة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>تفسير انحناء منحنى الاستطالة-الحمل بعد نقطة معينة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -564,7 +599,133 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">زنبرك طوله الأصلي (بدون تعليق أي ثقل عليه) يساوي 12 سم، وعندما عُلّق عليه ثقل معين أصبح طوله الكلي 15.5 سم. ما مقدار استطالة الزنبرك الناتجة عن تعليق هذا الثقل؟ (اختر الإجابة الصحيحة)
+(أ) 15.5 سم
+(ب) 12 سم
+(ج) 3.5 سم
+(د) 27.5 سم</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">استطالة الزنبرك تُحسب من العلاقة:
+الاستطالة = الطول الجديد − الطول الأصلي
+
+بالتعويض عن الطول الجديد = 15.5 سم، والطول الأصلي = 12 سم:
+الاستطالة = 15.5 − 12
+الاستطالة = 3.5 سم
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف مفهوم 'حد المرونة' (الحد المرن) للزنبرك، ووضّح ماذا يحدث لطول الزنبرك إذا أُزيل الحمل المعلّق عليه في الحالتين التاليتين: (1) عندما يكون الحمل ضمن حد المرونة، و(2) عندما يتجاوز الحمل حد المرونة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">حد المرونة (الحد المرن) للزنبرك هو أقصى قيمة للحمل (أو للاستطالة) يمكن أن يتعرض لها الزنبرك بحيث يستطيع بعدها العودة إلى طوله الأصلي تمامًا فور إزالة الحمل عنه.
+
+الحالة الأولى: إذا كان الحمل المعلّق ضمن حد المرونة، فإن الزنبرك يكون قد تشوّه بشكل مرن فقط، وعند إزالة الحمل عنه يعود طوله إلى طوله الأصلي (قبل التحميل) بالضبط.
+
+الحالة الثانية: إذا تجاوز الحمل المعلّق حد المرونة، فإن الزنبرك يتعرض لتشوّه دائم (لدن)، وعند إزالة الحمل عنه لا يعود إلى طوله الأصلي، بل يبقى أطول مما كان عليه قبل التحميل.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">زنبرك طوله الأصلي 20 سم. عند تعليق ثقل معين عليه أصبح طوله الكلي 26.4 سم. احسب مقدار استطالة الزنبرك الناتجة عن هذا الثقل.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">تُحسب استطالة الزنبرك من العلاقة:
+الاستطالة = الطول الجديد − الطول الأصلي
+
+بالتعويض عن الطول الجديد = 26.4 سم، والطول الأصلي = 20 سم:
+الاستطالة = 26.4 − 20
+الاستطالة = 6.4 سم
+
+إذن، استطالة الزنبرك الناتجة عن تعليق هذا الثقل تساوي 6.4 سم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">زنبرك ضمن حدود مرونته، وتنطبق عليه خاصية أن استطالته تتناسب طرديًا مع مقدار الثقل المعلّق عليه. إذا كانت استطالة هذا الزنبرك 4 سم عندما عُلّق عليه ثقل مقداره 2 نيوتن، فاحسب استطالته المتوقعة عندما يُعلّق عليه ثقل مقداره 5 نيوتن (بافتراض أن هذا الثقل ما يزال ضمن حد المرونة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن استطالة الزنبرك تتناسب طرديًا مع الثقل المعلّق ضمن حد المرونة، فإن النسبة بين الاستطالة والثقل تبقى ثابتة:
+الاستطالة ÷ الثقل = مقدار ثابت
+
+من المعطيات الأولى: 4 سم ÷ 2 نيوتن = 2 سم لكل نيوتن
+
+باستخدام هذا الثابت لإيجاد الاستطالة الجديدة عند ثقل مقداره 5 نيوتن:
+الاستطالة الجديدة = 2 × 5
+الاستطالة الجديدة = 10 سم
+
+إذن، الاستطالة المتوقعة للزنبرك عند تعليق ثقل مقداره 5 نيوتن عليه تساوي 10 سم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند رسم علاقة الاستطالة بالحمل المعلّق لزنبرك حقيقي، بدءًا من حمل صفري حتى حمل كبير نسبيًا، يُلاحظ أن الرسم البياني يكون خطًا مستقيمًا يمر بنقطة الأصل حتى نقطة معينة، ثم يبدأ بالانحناء بعد هذه النقطة. ما التفسير الصحيح لهذا الانحناء في الجزء الأخير من الرسم البياني؟ (اختر الإجابة الصحيحة)
+(أ) الزنبرك توقف عن الاستطالة تمامًا بعد هذه النقطة مهما زاد الحمل
+(ب) تم تجاوز حد المرونة (حد التناسب) للزنبرك عند هذه النقطة، فلم تعد الاستطالة تتناسب طرديًا مع الحمل، وقد يحدث تشوه دائم في الزنبرك
+(ج) الرسم البياني خاطئ، ويجب أن يبقى خطًا مستقيمًا مهما زاد الحمل
+(د) كتلة الزنبرك نفسه بدأت تؤثر على قراءات الاستطالة بعد هذه النقطة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">يمثّل الجزء المستقيم من الرسم البياني (المار بنقطة الأصل) المنطقة التي تكون فيها استطالة الزنبرك متناسبة طرديًا مع الحمل المعلّق عليه، وهي المنطقة الواقعة ضمن حد المرونة (حد التناسب) للزنبرك.
+
+عند النقطة التي يبدأ عندها المنحنى بالانحناء وعدم الاستقامة، يكون الحمل قد تجاوز حد المرونة لهذا الزنبرك، فتتوقف الاستطالة عن التناسب الطردي مع الحمل.
+
+تجاوز حد المرونة قد يؤدي أيضًا إلى حدوث تشوه دائم (لدن) في الزنبرك، بحيث لا يعود إلى طوله الأصلي حتى لو أُزيل عنه الحمل بالكامل.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -583,6 +744,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

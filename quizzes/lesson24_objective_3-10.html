@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.10</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>79</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -530,7 +530,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>حساب المركبة الرأسية لسرعة قذيفة عند الإطلاق<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>سبب تحليل سرعة القذيفة قبل تطبيق معادلات الحركة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>تحليل سرعة إطلاق قذيفة إلى مركبتيها الأفقية والرأسية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب زمن الوصول لأقصى ارتفاع من المركبة الرأسية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>إيجاد السرعة الابتدائية وزاوية الإطلاق من مركبتيها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -679,7 +709,134 @@ S = 59.7 m</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُطلقت قذيفة بسرعة ابتدائية مقدارها 40 m/s، بزاوية 37° فوق الاتجاه الأفقي. (خذ sin37° ≈ 0.6، cos37° ≈ 0.8) ما مقدار المركبة الرأسية لسرعتها الابتدائية؟ (اختر الإجابة الصحيحة)
+(أ) 16 m/s
+(ب) 24 m/s
+(ج) 32 m/s
+(د) 40 m/s</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند إطلاق قذيفة بسرعة ابتدائية u بزاوية θ فوق الاتجاه الأفقي، تُحلَّل السرعة الابتدائية إلى مركبتين:
+المركبة الأفقية Vx = u × cos θ
+المركبة الرأسية Vy = u × sin θ
+
+بالتعويض لإيجاد المركبة الرأسية:
+Vy = 40 × sin37° = 40 × 0.6 = 24 m/s
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وضّح لماذا يجب تحليل السرعة الابتدائية لقذيفة أُطلقت بزاوية إلى مركبتين أفقية ورأسية، قبل تطبيق معادلات الحركة (SUVAT) على حركتها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">معادلات الحركة (SUVAT) تُطبَّق على حركة في خط مستقيم واحد بتسارع منتظم في ذلك الاتجاه.
+
+في حركة القذيفة المائلة، تتحرك القذيفة أفقيًا ورأسيًا في آن واحد، وتختلف طبيعة الحركة في كل اتجاه: أفقيًا يكون التسارع معدومًا (a = 0) فتبقى السرعة الأفقية ثابتة، بينما رأسيًا يكون التسارع ثابتًا ويساوي g نحو أسفل.
+
+لأن التسارع مختلف تمامًا في الاتجاهين (صفر أفقيًا، وg رأسيًا)، لا يمكن تطبيق معادلة حركة واحدة على السرعة الابتدائية المائلة كما هي، بل يجب أولًا تحليلها إلى مركبتيها الأفقية Vx = u cos θ والرأسية Vy = u sin θ، ثم تُطبَّق معادلات الحركة المناسبة على كل اتجاه بشكل مستقل باستخدام قيمة المركبة الخاصة به.
+
+وبذلك يصبح بالإمكان حل حركة القذيفة كحركتين منفصلتين ومستقلتين رياضيًا، رغم أنهما تحدثان في نفس الوقت.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُطلقت قذيفة بسرعة ابتدائية مقدارها 50 m/s بزاوية 30° فوق الأفقي. (خذ sin30° = 0.5، cos30° ≈ 0.87) احسب المركبة الأفقية والمركبة الرأسية لسرعتها الابتدائية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">u = 50 m/s، θ = 30°.
+
+المركبة الأفقية: Vx = u × cos θ = 50 × 0.87 = 43.5 m/s
+
+المركبة الرأسية: Vy = u × sin θ = 50 × 0.5 = 25 m/s
+
+إذن: المركبة الأفقية لسرعة الإطلاق تساوي 43.5 m/s، والمركبة الرأسية تساوي 25 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُطلقت كرة بسرعة ابتدائية مقدارها 20 m/s بزاوية 45° فوق الأفقي. (خذ sin45° ≈ 0.71، g = 10 m/s²) احسب:
+(أ) المركبة الرأسية لسرعتها الابتدائية.
+(ب) الزمن اللازم لوصول الكرة إلى أقصى ارتفاع لها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(أ) المركبة الرأسية للسرعة الابتدائية:
+Vy = u × sin θ = 20 × sin45° = 20 × 0.71 = 14.2 m/s
+
+(ب) عند أقصى ارتفاع، تكون المركبة الرأسية للسرعة معدومة (V = 0)، والتسارع الرأسي a = −g = −10 m/s² (يعاكس اتجاه الصعود).
+باستخدام المعادلة V = Vy − gt:
+0 = 14.2 − 10t
+t = 14.2 / 10 = 1.42 s
+
+إذن: المركبة الرأسية لسرعة الإطلاق تساوي 14.2 m/s تقريبًا، ويصل الجسم إلى أقصى ارتفاعه بعد زمن مقداره حوالي 1.42 s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُطلقت كرة بمركبة أفقية للسرعة مقدارها Vx = 18 m/s، ومركبة رأسية مقدارها Vy = 24 m/s. احسب:
+(أ) مقدار السرعة الابتدائية للكرة.
+(ب) زاوية الإطلاق التي تصنعها مع الاتجاه الأفقي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(أ) باستخدام نظرية فيثاغورس، بما أن المركبتين متعامدتان:
+u = √(Vx² + Vy²) = √(18² + 24²) = √(324 + 576) = √900 = 30 m/s
+
+(ب) زاوية الإطلاق θ فوق الأفقي:
+tan θ = Vy / Vx = 24 / 18 = 1.33
+θ = tan⁻¹(1.33) ≈ 53.1°
+
+إذن: مقدار السرعة الابتدائية يساوي 30 m/s، وتصنع زاوية إطلاق مقدارها حوالي 53.1° فوق الاتجاه الأفقي.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.6</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>23-24, 47-48</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -518,7 +518,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>ما الذي يمثله ميل خط الإزاحة-الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>العلاقة بين شدة الميل وإشارته والسرعة المتجهة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>حساب السرعة المتجهة من إحداثيات نقطتين على الخط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>حساب السرعة المتجهة من جدول بيانات إزاحة-زمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>حساب السرعة المتجهة لمرحلتين مختلفتي الميل والمتوسط الكلي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -605,7 +635,132 @@ t = 18.67 s</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تمثيل بياني للإزاحة مقابل الزمن، ماذا يمثّل ميل (gradient) الخط المرسوم عند أي نقطة على المنحنى؟ (اختر الإجابة الصحيحة)
+(أ) التسارع اللحظي للجسم عند تلك النقطة
+(ب) السرعة المتجهة اللحظية للجسم عند تلك النقطة
+(ج) المسافة الكلية المقطوعة حتى تلك اللحظة
+(د) الزمن الكلي المستغرق منذ بداية الحركة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الميل (gradient) لأي منحنى يُعرَّف رياضيًا بأنه معدل تغيّر الكمّية الممثَّلة على المحور الرأسي بالنسبة للكمّية الممثَّلة على المحور الأفقي.
+
+في تمثيل الإزاحة-الزمن، يكون المحور الرأسي هو الإزاحة والمحور الأفقي هو الزمن، لذا فإن الميل = التغيّر في الإزاحة ÷ التغيّر في الزمن.
+
+وهذا التعريف بالضبط هو التعريف الرياضي للسرعة المتجهة، أي أن ميل خط الإزاحة-الزمن عند أي نقطة يمثّل قيمة السرعة المتجهة اللحظية للجسم عند تلك اللحظة (أو السرعة المتجهة المنتظمة إذا كان الخط مستقيمًا).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وضّح العلاقة بين درجة انحدار (شدة ميل) خط الإزاحة-الزمن ومقدار السرعة المتجهة، ثم وضّح ماذا تدل عليه إشارة الميل (موجب أو سالب) بخصوص اتجاه الحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">كلما كان خط الإزاحة-الزمن أكثر انحدارًا (أي أكثر قربًا من الوضع الرأسي)، كان الميل أكبر، وبالتالي كانت السرعة المتجهة أكبر مقدارًا، لأن الجسم يقطع تغيّرًا أكبر في الإزاحة خلال نفس الفترة الزمنية.
+
+وعلى العكس، كلما كان الخط أقرب إلى الأفقي، كان الميل أصغر، وبالتالي كانت السرعة المتجهة أصغر مقدارًا، حتى تصل إلى الصفر عندما يكون الخط أفقيًا تمامًا (أي عندما يكون الجسم ساكنًا).
+
+أما إشارة الميل فتدل على اتجاه الحركة بالنسبة للاتجاه الموجب المفروض عند رسم التمثيل البياني: فالميل الموجب يعني أن الجسم يتحرك مبتعدًا في الاتجاه الموجب (الإزاحة تزداد مع الزمن)، بينما الميل السالب يعني أن الجسم يتحرك في الاتجاه المعاكس (الإزاحة تقل مع الزمن، أي يقترب الجسم من نقطة الأصل أو يتحرك في الاتجاه السالب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمثّل خط مستقيم على تمثيل بياني للإزاحة-الزمن حركة جسم، حيث يبدأ الخط من النقطة (الزمن = 0 s، الإزاحة = 0 m) وينتهي عند النقطة (الزمن = 10 s، الإزاحة = 50 m). احسب ميل هذا الخط، وما الذي يمثّله هذا الميل فيزيائيًا؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">يُحسب ميل الخط المستقيم بين نقطتين باستخدام العلاقة: الميل = (التغيّر في الإزاحة) ÷ (التغيّر في الزمن) = (y₂ − y₁) ÷ (x₂ − x₁).
+
+بالتعويض بإحداثيات النقطتين (0 s، 0 m) و(10 s، 50 m):
+الميل = (50 − 0) ÷ (10 − 0) = 50 ÷ 10 = 5 m/s.
+
+بما أن ميل خط الإزاحة-الزمن يمثّل السرعة المتجهة للجسم، وبما أن الخط مستقيم (أي أن الميل ثابت طوال الفترة)، فإن هذا يعني أن الجسم كان يتحرك بسرعة متجهة منتظمة (ثابتة) مقدارها 5 m/s طوال الـ 10 ثوانٍ.
+
+إذن سرعة الجسم المتجهة = 5 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سجّل طالب في تجربة قيم إزاحة جسم عند لحظات زمنية مختلفة كما في الجدول التالي:
+الزمن (s): 0 , 2 , 4 , 6 , 8
+الإزاحة (m): 0 , 6 , 12 , 18 , 24
+أثبت من خلال البيانات أن الجسم كان يتحرك بسرعة متجهة منتظمة، ثم احسب قيمة هذه السرعة المتجهة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">لإثبات أن السرعة المتجهة منتظمة، نحسب التغيّر في الإزاحة لكل فترة زمنية متساوية مقدارها 2 s، ونتحقق من أنه ثابت:
+من 0 إلى 2 s: التغيّر = 6 − 0 = 6 m. من 2 إلى 4 s: التغيّر = 12 − 6 = 6 m. من 4 إلى 6 s: التغيّر = 18 − 12 = 6 m. من 6 إلى 8 s: التغيّر = 24 − 18 = 6 m.
+
+بما أن الإزاحة تزداد بمقدار ثابت (6 m) خلال فترات زمنية متساوية (2 s)، فإن ميل الخط الذي يمثّل هذه البيانات يكون ثابتًا، مما يثبت أن حركة الجسم كانت بسرعة متجهة منتظمة (خط مستقيم في تمثيل الإزاحة-الزمن).
+
+نحسب قيمة هذه السرعة المتجهة (الميل) باستخدام أول وآخر نقطة في الجدول:
+السرعة المتجهة = (24 − 0) ÷ (8 − 0) = 24 ÷ 8 = 3 m/s.
+
+إذن كان الجسم يتحرك بسرعة متجهة منتظمة مقدارها 3 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتكوّن تمثيل بياني للإزاحة-الزمن لحركة جسم من جزأين: الجزء الأول خط مستقيم يبدأ من النقطة (0 s، 0 m) وينتهي عند النقطة (5 s، 20 m)، والجزء الثاني خط أفقي مستقيم يمتد من النقطة (5 s، 20 m) إلى النقطة (15 s، 20 m).
+احسب: (a) السرعة المتجهة خلال الجزء الأول. (b) السرعة المتجهة خلال الجزء الثاني. (c) السرعة المتجهة المتوسطة للجسم خلال كامل الفترة من 0 s إلى 15 s.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(a) السرعة المتجهة في الجزء الأول = ميل الخط = (20 − 0) ÷ (5 − 0) = 20 ÷ 5 = 4 m/s.
+
+(b) في الجزء الثاني، الخط أفقي (الإزاحة ثابتة عند 20 m من t = 5 s إلى t = 15 s)، لذا فإن الميل = (20 − 20) ÷ (15 − 5) = 0 ÷ 10 = 0 m/s، أي أن الجسم في حالة سكون خلال هذه الفترة.
+
+(c) السرعة المتجهة المتوسطة للحركة الكلية تُحسب من إجمالي التغيّر في الإزاحة مقسومًا على إجمالي الزمن (وليس بأخذ المتوسط الحسابي للسرعتين المحليتين):
+السرعة المتجهة المتوسطة = (20 − 0) ÷ (15 − 0) = 20 ÷ 15 ≈ 1.33 m/s.
+
+إذن كانت سرعة الجسم المتجهة 4 m/s في الجزء الأول، وصفرًا في الجزء الثاني، بينما كانت سرعته المتجهة المتوسطة لكامل الرحلة تساوي تقريبًا 1.33 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

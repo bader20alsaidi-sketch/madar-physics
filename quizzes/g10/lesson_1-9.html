@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة التاسعة: النشاط الإشعاعي — النشاط الإشعاعي في كلّ مكان</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-9</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -485,7 +490,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>تمييز مصدر طبيعي عن مصدر صناعي للإشعاع الخلفي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>تعريف الإشعاع الخلفي وذكر مصادره الطبيعية والصناعية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>تفسير تسجيل عداد جايجر-مولر لنبضات دون وجود مصدر ظاهر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>أهمية قياس الإشعاع الخلفي قبل قياس نشاط مصدر مشع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>حساب معدل العدّ الحقيقي للمصدر بعد طرح الإشعاع الخلفي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -540,7 +575,129 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي المصادر التالية يُعدّ مصدرًا طبيعيًا (غير صناعي) للإشعاع الخلفي المحيط بنا؟ (اختر الإجابة الصحيحة)
+(أ) غاز الرادون المتسرب من الصخور والتربة
+(ب) الأشعة السينية المستخدمة في الفحوصات الطبية
+(ج) النفايات الناتجة عن محطات الطاقة النووية
+(د) أجهزة تعقيم الأغذية بالإشعاع</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الإشعاع الخلفي يأتي من مصدرين رئيسيين: مصادر طبيعية موجودة في البيئة أصلًا، ومصادر صناعية ناتجة عن أنشطة الإنسان.
+
+غاز الرادون هو غاز مشع يتصاعد بشكل طبيعي من بعض أنواع الصخور والتربة (نتيجة سلسلة اضمحلال اليورانيوم الموجود فيها)، ويُعدّ في كثير من المناطق أكبر مساهم منفرد في الإشعاع الخلفي الطبيعي الذي يتعرض له الإنسان، دون أي تدخل بشري.
+
+أما الأشعة السينية الطبية، ونفايات محطات الطاقة النووية، وأجهزة تعقيم الأغذية بالإشعاع، فجميعها مصادر صناعية ناتجة عن تقنيات واستخدامات ابتكرها الإنسان.
+
+الإجابة الصحيحة: (أ).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما المقصود بـ«الإشعاع الخلفي» (Background Radiation)؟ اذكر مصدرين طبيعيين له ومصدرًا صناعيًا واحدًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الإشعاع الخلفي هو الإشعاع المؤين الموجود دائمًا وبمستوى منخفض في البيئة من حولنا، ويصل إلينا باستمرار من مصادر طبيعية وصناعية مختلفة، بصرف النظر عن وجود أي مصدر مشع محدد قريب منا.
+
+من أمثلة المصادر الطبيعية: غاز الرادون المتصاعد من الصخور والتربة، والأشعة الكونية القادمة من الفضاء الخارجي والشمس، إضافة إلى النظائر المشعة الطبيعية الموجودة في بعض الصخور ومواد البناء وحتى في الطعام وجسم الإنسان نفسه.
+
+ومن أمثلة المصادر الصناعية: الفحوصات الطبية بالأشعة السينية أو النظائر المشعة، والنفايات الناتجة عن المفاعلات النووية والصناعات المرتبطة بها.
+
+إذن الإشعاع الخلفي مزيج مستمر من مصادر طبيعية (كالرادون والأشعة الكونية) ومصادر صناعية (كالفحوصات الطبية الإشعاعية).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">استخدم طالب عدّاد جايجر-مولر في المختبر، فوجد أنه يسجّل نبضات حتى في غياب أي مصدر مشع معروف بالقرب منه. ما التفسير الأقرب لذلك؟ (اختر الإجابة الصحيحة)
+(أ) العداد معطوب ولا يمكن الاعتماد عليه
+(ب) هناك دائمًا إشعاع خلفي طبيعي وصناعي يصل إلى العداد من مصادر متعددة
+(ج) الأشعة الكونية لا تصل إلى سطح الأرض إطلاقًا، فلا بد أن مصدرًا مشعًا مختبئ في الغرفة
+(د) عداد جايجر-مولر يصدر نبضات عشوائية داخليًا لا علاقة لها بالإشعاع الخارجي</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">عدّاد جايجر-مولر جهاز حساس يسجّل أي جسيمات أو أشعة مؤينة تصل إليه، بصرف النظر عن مصدرها.
+
+وبما أن الإشعاع الخلفي (من مصادر طبيعية كالرادون والأشعة الكونية، ومصادر صناعية) موجود باستمرار في كل مكان تقريبًا على سطح الأرض، فإن العداد سيسجّل دائمًا عددًا من النبضات حتى في غياب أي مصدر مشع مقصود قريب منه.
+
+هذا لا يعني وجود عطل في الجهاز، بل هو سلوك طبيعي ومتوقع لأي كاشف إشعاع حساس يعمل في بيئة حقيقية.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند قياس معدل نشاط مصدر مشع باستخدام عداد جايجر-مولر، لماذا يجب على الطالب أولًا قياس معدل العدّ في غياب المصدر (الإشعاع الخلفي)؟ وكيف يُستخدم هذا القياس لاحقًا؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">لأن عداد جايجر-مولر لا يميّز بين الإشعاع القادم من المصدر المراد دراسته والإشعاع الخلفي المحيط الذي يصل إليه من مصادر أخرى طبيعية وصناعية باستمرار.
+
+فإذا اكتفى الطالب بقياس معدل العدّ مع وجود المصدر فقط، فإن القراءة التي يحصل عليها ستكون مجموع الإشعاع الناتج عن المصدر نفسه بالإضافة إلى الإشعاع الخلفي، وليست ناتجة عن المصدر وحده.
+
+لذلك يقيس الطالب أولًا معدل العدّ في غياب المصدر ليحصل على قيمة الإشعاع الخلفي، ثم يقيس معدل العدّ الكلي بوجود المصدر، وبعدها يطرح قيمة الإشعاع الخلفي من القيمة الكلية للحصول على معدل العدّ الحقيقي الناتج عن المصدر وحده فقط.
+
+بذلك تُصبح القراءة النهائية معبّرة بدقة أكبر عن النشاط الإشعاعي الفعلي للمصدر قيد الدراسة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سجّل عداد جايجر-مولر معدل عدّ قدره 15 نبضة/ثانية عندما لا يوجد أي مصدر مشع قريب منه (أي الإشعاع الخلفي فقط). وعند تقريب مصدر مشع مجهول منه، ارتفع معدل العدّ إلى 63 نبضة/ثانية. احسب معدل العدّ الحقيقي الناتج عن المصدر المشع نفسه بعد استبعاد أثر الإشعاع الخلفي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">معدل العدّ الكلي المُسجَّل بوجود المصدر يمثّل مجموع إشعاع المصدر والإشعاع الخلفي معًا، لذلك يجب طرح قيمة الإشعاع الخلفي منه للحصول على القيمة الناتجة عن المصدر وحده.
+
+معدل العدّ الحقيقي للمصدر = معدل العدّ الكلي (بوجود المصدر) − معدل العدّ الخلفي (بغياب المصدر)
+معدل العدّ الحقيقي = 63 − 15 = 48 نبضة/ثانية.
+
+إذن، معدل العدّ الحقيقي الناتج عن المصدر المشع نفسه يساوي 48 نبضة/ثانية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -559,6 +716,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

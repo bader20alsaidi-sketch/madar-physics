@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1.5</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>27-29</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -525,7 +525,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>تقدير عدم اليقين المطلق لقراءة مفردة بالمسطرة المترية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>القاعدة العامة لتقدير عدم اليقين في قراءة واحدة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>عدم اليقين الحقيقي لقراءة ساعة إيقاف رقمية بسبب زمن رد الفعل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>قراءة درجة حرارة بالاستكمال بين تدريجين على الترمومتر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>مقارنة عدم اليقين في قياس نفس الفجوة بالمسطرة والورنية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -627,7 +657,122 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند استخدام مسطرة مترية أصغر تدريج فيها 1 مم لقياس طول قطعة معدنية مرة واحدة فقط (بدون تكرار)، فإن أفضل تقدير لعدم اليقين المطلق في تلك القراءة المفردة هو: (اختر الإجابة الصحيحة)
+(أ) ± 1 سم
+(ب) ± 0.5 مم
+(ج) ± 0.1 مم
+(د) ± 5 مم</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند أخذ قراءة مفردة (غير مكررة) بأداة قياس تناظرية يتطلب استخدامها استكمالًا بصريًا بين خطي التدريج (كالمسطرة المترية)، فإن القاعدة العامة المتبعة هي اعتبار عدم اليقين المطلق مساويًا لنصف أصغر تدريج على الأداة، وذلك لأن أقصى ما يمكن للعين تمييزه بثقة هو موقع القراءة إلى داخل نصف المسافة بين خطين متتاليين.
+
+بما أن أصغر تدريج على المسطرة هو 1 مم، فإن عدم اليقين المطلق = 1 مم ÷ 2 = 0.5 مم.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وضّح القاعدة العامة المستخدمة لتقدير عدم اليقين المطلق في قراءة مفردة (غير مكررة)، مميزًا بين حالة الأداة التناظرية التي تتطلب استكمالًا بصريًا بين خطي تدريج، وحالة الأداة الرقمية أو التي تعطي قراءة مباشرة دون الحاجة للاستكمال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">بالنسبة للأدوات التناظرية التي تتطلب من المستخدم استكمال موقع القراءة بصريًا بين خطين متتاليين من التدريج (كالمسطرة المترية أو الترمومتر الزئبقي)، تُقدَّر عدم اليقين المطلق للقراءة المفردة عادة بمقدار نصف أصغر تدريج على الأداة، لأن هذا يمثل أقصى دقة يمكن للعين البشرية تمييزها بثقة معقولة بين خطين متجاورين.
+
+أما بالنسبة للأدوات الرقمية، أو الأدوات التي تعطي قراءة مباشرة دون حاجة لاستكمال بصري (مثل الورنية التي تعتمد على تطابق خطين، أو الميزان الرقمي، أو ساعة الإيقاف الرقمية)، فإن عدم اليقين المطلق يُؤخذ عادة مساويًا لقيمة أصغر تدريج (أو آخر رقم مُظهَر) في الأداة نفسها، لأن القراءة تُقرأ مباشرة دون تقدير بصري إضافي.
+
+في كلتا الحالتين، تعتمد الدقة النهائية للقياس على الدقة القرائية للأداة نفسها وعلى طريقة أخذ القراءة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ساعة إيقاف رقمية تعرض القراءة حتى 0.01 ثانية (أي أن دقتها القرائية 0.01 ث). استخدمها طالب لقياس زمن سقوط جسم يدويًا بالضغط على الزر عند بداية ونهاية الحركة، فسجّل قراءة 3.45 ث.
+(أ) اذكر عدم اليقين المطلق الناتج عن الدقة القرائية للأداة وحدها.
+(ب) اشرح لماذا يكون هذا التقدير غير واقعي في هذه الحالة تحديدًا، واقترح تقديرًا أكثر واقعية لعدم اليقين المطلق، موضحًا سببه.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(أ) بما أن الساعة رقمية وتعرض القراءة مباشرة حتى 0.01 ث، فإن عدم اليقين الناتج عن دقتها القرائية وحدها هو ± 0.01 ث.
+
+(ب) هذا التقدير يعكس فقط دقة عرض الساعة الرقمية نفسها، لكنه يتجاهل مصدرًا أهم بكثير لعدم اليقين في هذه التجربة، وهو زمن رد فعل الطالب عند الضغط يدويًا على زر البدء وزر الإيقاف؛ فزمن رد الفعل البشري يتراوح عادة بين 0.1 و0.3 ثانية تقريبًا في كل ضغطة، وهو أكبر بكثير من دقة الساعة نفسها (0.01 ث).
+
+لذلك فإن الاعتماد على دقة الأداة فقط (± 0.01 ث) يُقلل بشدة من التقدير الحقيقي لعدم اليقين. تقدير أكثر واقعية هو أخذ عدم اليقين المطلق في حدود ± 0.2 ث تقريبًا، ليعكس أثر تغيّر زمن رد الفعل عند بداية القياس ونهايته معًا، وهو المصدر المهيمن الفعلي على دقة هذا القياس، وليس دقة عرض الساعة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يحتوي ترمومتر زئبقي على تدريج يظهر كل درجة مئوية واحدة (أي أصغر تدريج = 1°C). قرأ طالب درجة الحرارة باستكمال موقع سطح الزئبق بصريًا بين تدريجي 36°C و37°C، فقدّرها بـ 36.5°C.
+اكتب هذه القراءة كاملة موضحًا عدم اليقين المطلق المناسب لها، مع بيان القاعدة المستخدمة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن الترمومتر أداة تناظرية تتطلب استكمالًا بصريًا لموقع سطح الزئبق بين تدريجين متتاليين، فإن عدم اليقين المطلق للقراءة المفردة يُقدَّر بنصف أصغر تدريج على الأداة.
+
+أصغر تدريج = 1°C، إذن عدم اليقين المطلق = 1°C ÷ 2 = 0.5°C.
+
+إذن النتيجة النهائية: درجة الحرارة = (36.5 ± 0.5) °C.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قِيست نفس الفجوة (التي طولها الحقيقي نحو 15 مم) مرة باستخدام مسطرة مترية أصغر تدريج فيها 1 مم بقراءة مفردة، ومرة أخرى باستخدام ورنية (فرنية) دقتها القرائية 0.1 مم.
+اذكر عدم اليقين المطلق للقراءة المفردة في كل من الحالتين، ثم بيّن كم مرة تكون قراءة الورنية أكثر دقة من قراءة المسطرة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">عند استخدام المسطرة المترية (أداة تناظرية تتطلب استكمالًا بصريًا)، عدم اليقين المطلق = نصف أصغر تدريج = 1 مم ÷ 2 = 0.5 مم.
+
+عند استخدام الورنية (أداة تعتمد على تطابق مباشر بين خطين دون استكمال بصري)، عدم اليقين المطلق = الدقة القرائية نفسها = 0.1 مم.
+
+نسبة الدقة بين الأداتين = عدم يقين المسطرة ÷ عدم يقين الورنية = 0.5 ÷ 0.1 = 5
+
+إذن النتيجة النهائية: عدم اليقين المطلق للورنية (± 0.1 مم) أصغر بخمس مرات من عدم اليقين المطلق للمسطرة (± 0.5 مم)، أي أن قراءة الورنية أكثر دقة بخمس مرات من قراءة المسطرة لنفس الفجوة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

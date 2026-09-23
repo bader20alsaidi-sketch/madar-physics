@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.5</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>94</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -519,7 +519,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>استنتاج القوة المحصلة على سيارة تتحرك بسرعة ثابتة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>تعريف القصور الذاتي وعلاقته بكتلة الجسم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>حساب قوة ثالثة مجهولة لتحقيق اتزان جسم ساكن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>مقارنة تسارع جسمين مختلفي الكتلة تحت نفس القوة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>حساب شد كابل مصعد يتحرك بسرعة رأسية ثابتة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -608,7 +638,134 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سيارة تتحرك بسرعة ثابتة (مقدارًا واتجاهًا) على طريق مستقيم أفقي. ماذا يمكن أن نستنتج عن القوة المحصلة المؤثرة عليها وفقًا لقانون نيوتن الأول؟ (اختر الإجابة الصحيحة)
+(أ) القوة المحصلة كبيرة ومتجهة مع اتجاه الحركة
+(ب) القوة المحصلة تساوي صفرًا لأن السرعة ثابتة مقدارًا واتجاهًا
+(ج) القوة المحصلة تتناسب طرديًا مع مقدار السرعة
+(د) لا يمكن تحديد القوة المحصلة دون معرفة كتلة السيارة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">ينص قانون نيوتن الأول على أن أي جسم يبقى في حالة سكون أو حركة بسرعة ثابتة (منتظمة) في خط مستقيم، ما لم تؤثر عليه قوة محصلة غير معدومة تغيّر من حالته الحركية.
+
+بما أن السيارة تتحرك بسرعة ثابتة، أي أن متجه سرعتها لا يتغير لا في المقدار ولا في الاتجاه (بمعنى أن تسارعها يساوي صفرًا)، فإن هذا يعني مباشرة، وفق قانون نيوتن الأول (وأيضًا الثاني، إذ F = ma وa = 0)، أن جميع القوى المؤثرة على السيارة متزنة تمامًا، وأن محصلتها تساوي صفرًا تمامًا.
+
+هذا لا يعني عدم وجود قوى مؤثرة على السيارة إطلاقًا (فمثلًا توجد قوة الدفع من المحرك ومقاومة الهواء والاحتكاك)، بل يعني أن مجموع هذه القوى (متجهيًا) يساوي صفرًا.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف مفهوم "القصور الذاتي" (Inertia) واشرح العلاقة بينه وبين كتلة الجسم، مستعينًا بمثال عملي (مثل الركاب داخل حافلة تتوقف فجأة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">القصور الذاتي هو ميل أي جسم مادي إلى مقاومة أي تغيير في حالته الحركية، سواء كان ساكنًا ويميل للبقاء ساكنًا، أو متحركًا بسرعة ثابتة ويميل للاستمرار بنفس السرعة والاتجاه، ما لم تؤثر عليه قوة محصلة خارجية.
+
+يرتبط مقدار القصور الذاتي بكتلة الجسم ارتباطًا طرديًا مباشرًا: فكلما زادت كتلة الجسم، زاد قصوره الذاتي، أي زادت مقاومته لأي تغيير في سرعته (سواء بدء الحركة، أو إيقافها، أو تغيير اتجاهها)؛ ولهذا السبب تُستخدم الكتلة أحيانًا كمقياس كمّي للقصور الذاتي.
+
+مثال توضيحي: عندما تتوقف حافلة متحركة فجأة (تباطؤ مفاجئ)، يستمر جسم الراكب في التحرك للأمام بنفس سرعته السابقة قبل التوقف، وذلك بسبب قصوره الذاتي الذي يقاوم التغير المفاجئ في حركته، فيندفع للأمام ما لم يكن مثبتًا بحزام أمان يوفر له القوة اللازمة لتغيير حركته مع الحافلة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم ساكن تؤثر عليه ثلاث قوى أفقية: 20 N نحو اليمين، و35 N نحو اليسار، وقوة ثالثة مجهولة F. إذا كان الجسم في حالة اتزان تام (ساكن تمامًا)، احسب مقدار القوة الثالثة F واتجاهها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن الجسم ساكن تمامًا (في حالة اتزان)، فإن مجموع جميع القوى الأفقية المؤثرة عليه (بأخذ الإشارة في الحسبان حسب الاتجاه) يجب أن يساوي صفرًا، وفقًا لقانون نيوتن الأول.
+
+لنعتبر اتجاه اليمين موجبًا واتجاه اليسار سالبًا. مجموع القوتين المعلومتين:
+
+20 + (−35) = −15 N
+
+أي أن محصلة القوتين المعلومتين تساوي 15 N متجهة نحو اليسار.
+
+لتحقيق الاتزان التام، يجب أن تلغي القوة الثالثة F هذه المحصلة تمامًا، أي يجب أن تساويها في المقدار وتعاكسها في الاتجاه:
+
+F = 15 N، متجهة نحو اليمين.
+
+الإجابة النهائية: F = 15 N باتجاه اليمين.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تؤثر قوة أفقية مقدارها 10 N على جسمين منفصلين موضوعين على سطح أملس (عديم الاحتكاك): جسم A كتلته 2 كجم، وجسم B كتلته 8 كجم. احسب تسارع كل منهما، وفسّر أيهما "يقاوم" التغير في حالته الحركية بدرجة أكبر، مستعينًا بمفهوم القصور الذاتي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بتطبيق قانون نيوتن الثاني (a = F/m) على كل جسم على حدة:
+
+للجسم A: a_A = F / m_A = 10 / 2 = 5 m/s²
+
+للجسم B: a_B = F / m_B = 10 / 8 = 1.25 m/s²
+
+نلاحظ أن الجسم B، رغم تعرضه لنفس مقدار القوة (10 N)، اكتسب تسارعًا أقل بكثير من الجسم A. والسبب أن الجسم B أكبر كتلة، وبالتالي له قصور ذاتي أكبر، أي مقاومة أكبر للتغير في حالته الحركية، مما يجعله "أصعب" في تسريعه بنفس مقدار القوة مقارنة بالجسم A الأخف كتلة.
+
+الإجابة النهائية: a_A = 5 m/s²، وa_B = 1.25 m/s²، والجسم B هو الذي يقاوم التغيّر في حركته بدرجة أكبر لأن كتلته (وبالتالي قصوره الذاتي) أكبر.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">مصعد كتلته الكلية (بما فيه محتوياته) 500 كجم يتحرك إلى الأعلى بسرعة رأسية ثابتة (منتظمة). احسب مقدار الشد في الكابل الرافع للمصعد. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">يؤثر على المصعد قوتان رأسيتان فقط: وزنه الكلي mg متجهًا لأسفل، وشد الكابل T متجهًا لأعلى.
+
+بما أن المصعد يتحرك بسرعة ثابتة (لا يتسارع)، فإن قانون نيوتن الأول يقتضي أن تكون القوة المحصلة عليه صفرًا، أي أن شد الكابل يساوي وزن المصعد بالضبط:
+
+T = m × g
+
+بالتعويض: T = 500 × 10 = 5000 N
+
+الإجابة النهائية: شد الكابل T = 5000 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

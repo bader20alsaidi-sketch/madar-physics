@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.1</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>25-26, 43</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>12</b></div>
     </div>
   </div>
 </header>
@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -544,7 +544,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q7')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>8</td>
+          <td>تعريف السرعة المتوسطة الصحيح<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>9</td>
+          <td>الفرق بين السرعة المتوسطة وقراءة عداد السرعة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>10</td>
+          <td>حساب السرعة المتوسطة لدراج بالمتر في الثانية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>11</td>
+          <td>السرعة المتوسطة لرحلة قطار متعددة المراحل مع توقف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>12</td>
+          <td>السرعة المتوسطة لعدّاء بمرحلتين مختلفتي السرعة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -709,7 +739,134 @@ t = 14.5 − 7 = 7.5 s</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما التعريف الصحيح للسرعة المتوسطة لجسم متحرك خلال رحلة معيّنة؟ (اختر الإجابة الصحيحة)
+(أ) التغيّر في السرعة مقسومًا على الزمن الكلي المستغرق
+(ب) إجمالي المسافة المقطوعة مقسومة على الزمن الكلي المستغرق
+(ج) الإزاحة الكلية مقسومة على الزمن الكلي المستغرق
+(د) أقصى قراءة لعداد السرعة خلال الرحلة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">السرعة المتوسطة (average speed) كمّية عددية تصف مدى سرعة قطع الجسم للمسافة الكلية خلال رحلته، بصرف النظر عن اتجاه حركته أو عن أي تغيّر في اتجاهه أثناء الرحلة.
+
+وتُعرَّف رياضيًا بأنها: السرعة المتوسطة = المسافة الكلية المقطوعة ÷ الزمن الكلي المستغرق.
+
+يجب التفريق بينها وبين السرعة المتجهة المتوسطة (average velocity)، التي تُحسب من الإزاحة الكلية (وهي كمّية متجهة) مقسومة على الزمن الكلي، وقد تختلف قيمتها عن السرعة المتوسطة إذا غيّر الجسم اتجاه حركته.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثناء رحلة بالسيارة، تختلف قراءة عداد السرعة (speedometer) من لحظة إلى أخرى، بينما تُحسب السرعة المتوسطة للرحلة كاملة بقيمة واحدة فقط. اشرح بإيجاز سبب هذا الاختلاف، مبيّنًا ماذا تمثّل كل من القراءتين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">قراءة عداد السرعة في أي لحظة تمثّل السرعة اللحظية (instantaneous speed)، أي سرعة السيارة عند تلك اللحظة بالذات، وهي تتغيّر باستمرار بسبب تغيّر حركة السائق (التسارع، الفرملة، التوقف عند الإشارات، الازدحام المروري... إلخ).
+
+أما السرعة المتوسطة فهي قيمة واحدة تمثّل متوسط الأداء خلال الرحلة كاملة، وتُحسب بقسمة إجمالي المسافة المقطوعة على إجمالي الزمن المستغرق، ولا تُظهر التفاصيل اللحظية للحركة (مثل فترات التوقف أو فترات السرعة العالية).
+
+لذلك قد تكون السرعة المتوسطة للرحلة أقل بكثير من أعلى قراءة وصل إليها عداد السرعة، لأنها تأخذ في الحسبان كل فترات التباطؤ والتوقف ضمن الزمن الكلي.
+
+الخلاصة: عداد السرعة يقيس السرعة اللحظية عند كل نقطة زمنية، بينما السرعة المتوسطة تلخّص الأداء الكلي للرحلة في قيمة واحدة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قطع دراج مسافة 18 كم خلال 45 دقيقة بسرعة شبه منتظمة. احسب سرعته المتوسطة بوحدة m/s.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">نحوّل أولًا الوحدات إلى النظام الدولي: المسافة = 18 كم = 18 × 1000 = 18000 m، والزمن = 45 دقيقة = 45 × 60 = 2700 s.
+
+نطبّق قانون السرعة المتوسطة: السرعة المتوسطة = المسافة الكلية ÷ الزمن الكلي = 18000 ÷ 2700.
+
+بإجراء القسمة: السرعة المتوسطة ≈ 6.67 m/s.
+
+إذن سرعة الدراج المتوسطة تساوي تقريبًا 6.67 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحرّك قطار من محطة A إلى محطة B، وهي مسافة 120 كم، خلال ساعتين، ثم توقف عند محطة B مدة 30 دقيقة لتحميل الركاب، ثم تابع مسيره إلى محطة C، وهي مسافة 80 كم، خلال ساعة واحدة. احسب السرعة المتوسطة للقطار للرحلة الكاملة من A إلى C بوحدة km/h.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">لحساب السرعة المتوسطة يجب اعتبار كل من المسافة الكلية والزمن الكلي، بما في ذلك فترة التوقف، لأن السرعة المتوسطة تُحسب على أساس الزمن الكلي المستغرق للرحلة كاملة وليس فقط زمن الحركة الفعلية.
+
+المسافة الكلية = 120 + 80 = 200 km.
+
+الزمن الكلي = 2 h (من A إلى B) + 0.5 h (فترة التوقف) + 1 h (من B إلى C) = 3.5 h.
+
+السرعة المتوسطة = المسافة الكلية ÷ الزمن الكلي = 200 ÷ 3.5 ≈ 57.1 km/h.
+
+إذن السرعة المتوسطة للقطار خلال الرحلة الكاملة من A إلى C تساوي تقريبًا 57.1 km/h.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يجري عدّاء مسافة 400 m الأولى بسرعة منتظمة مقدارها 8 m/s، ثم يجري مسافة 600 m التالية بسرعة منتظمة مقدارها 5 m/s. احسب سرعته المتوسطة خلال كامل المسافة التي قطعها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">نحسب زمن كل مرحلة على حدة باستخدام العلاقة: الزمن = المسافة ÷ السرعة.
+
+زمن المرحلة الأولى = 400 ÷ 8 = 50 s.
+
+زمن المرحلة الثانية = 600 ÷ 5 = 120 s.
+
+المسافة الكلية = 400 + 600 = 1000 m، والزمن الكلي = 50 + 120 = 170 s.
+
+السرعة المتوسطة = المسافة الكلية ÷ الزمن الكلي = 1000 ÷ 170 ≈ 5.88 m/s.
+
+ملاحظة مهمة: السرعة المتوسطة (5.88 m/s) ليست المتوسط الحسابي البسيط للسرعتين (8 و5)، لأن العدّاء قضى وقتًا أطول عند السرعة الأقل، مما يجعل السرعة المتوسطة أقرب إلى 5 m/s.
+
+إذن سرعة العدّاء المتوسطة تساوي تقريبًا 5.88 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

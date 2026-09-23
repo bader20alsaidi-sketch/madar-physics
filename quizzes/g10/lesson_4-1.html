@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الأولى: الشحنة الكهربائيّة — الموصّلات الكهربائية والعوازل</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4-1</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>12</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -505,7 +510,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q7')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>8</td>
+          <td>تحديد المادة الموصلة الجيدة للكهرباء من بين مواد مختلفة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>9</td>
+          <td>سبب كون الفلزات موصلات جيدة وبعض المواد الأخرى عوازل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>10</td>
+          <td>أمثلة على استخدامات المواد العازلة وأهمية كل استخدام<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>11</td>
+          <td>سبب ضعف توصيل الماء المقطر مقارنة بماء الصنبور العادي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>12</td>
+          <td>موقع أشباه الموصلات بين الموصلات الجيدة والعوازل الجيدة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -600,7 +635,126 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي المواد التالية تُعد من الموصلات الكهربائية الجيدة؟ (اختر الإجابة الصحيحة)
+(أ) الخشب الجاف
+(ب) الزجاج
+(ج) النحاس
+(د) البلاستيك</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الموصل الكهربائي الجيد هو مادة تحتوي على عدد كبير من الإلكترونات الحرة القادرة على الحركة بسهولة داخلها، مما يسمح بمرور التيار الكهربائي خلالها بسهولة عند تطبيق فرق جهد.
+
+النحاس فلز، والفلزات بطبيعتها تحتوي على إلكترونات حرة كثيرة في مداراتها الخارجية غير مرتبطة بذرة معينة، مما يجعلها من أفضل الموصلات الكهربائية المعروفة، ولذلك يُستخدم النحاس على نطاق واسع في صناعة أسلاك التوصيل الكهربائي.
+
+أما الخشب الجاف، والزجاج، والبلاستيك، فجميعها مواد عازلة لا تحتوي على إلكترونات حرة تُذكر، ولذلك لا تسمح بمرور تيار كهربائي محسوس خلالها في الظروف العادية.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر، من حيث تركيب الذرات والإلكترونات، لماذا تُعد الفلزات (مثل النحاس والألومنيوم) موصلات جيدة للكهرباء، بينما تُعد مواد مثل الخشب والزجاج عوازل كهربائية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">في الفلزات، ترتبط ذرات المعدن مع بعضها في تركيب بلوري منتظم، بحيث تكون إلكترونات المدار الخارجي (إلكترونات التكافؤ) لكل ذرة مرتبطة ارتباطًا ضعيفًا جدًا بذرتها الأصلية، بل تتحرك بحرية عبر التركيب البلوري بأكمله، وتُسمى هذه الإلكترونات بالإلكترونات الحرة (أو ما يُشبّه ببحر من الإلكترونات المتحركة بين الأيونات الموجبة الثابتة).
+
+عند تطبيق فرق جهد على طرفي قطعة من الفلز، تنجرف هذه الإلكترونات الحرة بسهولة في اتجاه معين مكوّنة تيارًا كهربائيًا، ولهذا تكون الفلزات موصلات جيدة للكهرباء.
+
+أما في مواد مثل الخشب والزجاج، فتكون جميع إلكترونات الذرات مرتبطة ارتباطًا قويًا بذراتها أو بالروابط الكيميائية بين الذرات، ولا تكاد توجد إلكترونات حرة قادرة على الحركة خلال المادة في الظروف العادية.
+
+ونتيجة لغياب الإلكترونات الحرة، لا تستطيع هذه المواد حمل تيار كهربائي محسوس عند تطبيق فرق جهد عليها، ولذلك تُصنَّف على أنها مواد عازلة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر مثالين على استخدامات المواد العازلة في حياتنا اليومية، ووضّح أهمية استخدام كل منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المثال الأول: يُغطّى السلك المعدني الموصل داخل أسلاك التوصيل الكهربائي المنزلية بطبقة من مادة عازلة (مثل البلاستيك أو المطاط). وأهمية ذلك أنها تمنع أي تلامس مباشر بين الجزء المعدني الحامل للتيار وبين يد الشخص أو أي جسم موصل آخر، فتقي المستخدم من خطر الصعق الكهربائي عند التعامل مع السلك أو لمسه.
+
+المثال الثاني: تُصنع مقابض بعض أدوات الكهربائيين (مثل مفك البراغي والزرادية) من البلاستيك أو المطاط العازل. وأهمية ذلك أنها تعزل يد الكهربائي عن أي تيار كهربائي قد يمر في الجزء المعدني من الأداة أثناء العمل بالقرب من أسلاك أو دوائر مكهربة، مما يحميه من الصعق الكهربائي أثناء أداء عمله.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي مما يلي تفسير صحيح لكون الماء المقطر (النقي) موصلًا ضعيفًا جدًا للكهرباء، بينما يكون ماء الصنبور العادي موصلًا أفضل نسبيًا؟ (اختر الإجابة الصحيحة)
+(أ) الماء المقطر لا يحتوي على أي جزيئات على الإطلاق
+(ب) ماء الصنبور يحتوي على أملاح وشوائب ذائبة تتحلل إلى أيونات موجبة وسالبة قادرة على حمل التيار، بعكس الماء المقطر الخالي منها
+(ج) الماء المقطر أكثر كثافة بكثير من ماء الصنبور
+(د) درجة حرارة ماء الصنبور تكون دائمًا أعلى من درجة حرارة الماء المقطر</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">توصيل التيار الكهربائي في المحاليل يعتمد أساسًا على وجود جسيمات مشحونة حرة الحركة (أيونات موجبة وسالبة) قادرة على الانتقال داخل السائل عند تطبيق فرق جهد.
+
+الماء المقطر (النقي) خالٍ تقريبًا من الأملاح والشوائب الذائبة، ولذلك يحتوي على عدد قليل جدًا من الأيونات الحرة، مما يجعله موصلًا ضعيفًا جدًا للكهرباء في الظروف العادية.
+
+أما ماء الصنبور العادي فيحتوي عادة على كميات من الأملاح المعدنية الذائبة (مثل أملاح الكالسيوم والمغنيسيوم وغيرها)، وهذه الأملاح تتحلل في الماء إلى أيونات موجبة وأيونات سالبة حرة الحركة، وهذه الأيونات هي التي تحمل التيار الكهربائي خلال الماء، مما يجعله موصلًا أفضل نسبيًا من الماء المقطر.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يصنّف العلماء بعض المواد (مثل السليكون) بأنها (أشباه موصلات)، أي إنها لا تُعد موصلات جيدة ولا عوازل جيدة. صف موقع أشباه الموصلات من حيث القدرة على توصيل الكهرباء مقارنة بالموصلات الجيدة (كالفلزات) والعوازل الجيدة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الموصلات الجيدة (مثل الفلزات) تحتوي على عدد كبير جدًا من الإلكترونات الحرة، مما يجعل قدرتها على توصيل التيار الكهربائي عالية جدًا وشبه ثابتة في الظروف العادية.
+
+العوازل الجيدة (مثل الزجاج والبلاستيك) لا تكاد تحتوي على إلكترونات حرة، فتكون قدرتها على توصيل التيار منخفضة جدًا تقريبًا في كل الظروف العادية.
+
+أما أشباه الموصلات فتحتل موقعًا وسطًا بين النوعين: ففي الظروف العادية يكون عدد الإلكترونات الحرة فيها قليلًا نسبيًا، فتكون قدرتها على التوصيل أضعف بكثير من الفلزات، لكنها في الوقت نفسه أكبر بكثير من العوازل الجيدة.
+
+ومن أهم خصائص أشباه الموصلات أن قدرتها على التوصيل يمكن أن تتغير بشكل كبير وملحوظ بتأثير عوامل خارجية مثل ارتفاع درجة الحرارة أو إضافة شوائب معينة (التطعيم) أو سقوط الضوء عليها، بعكس الموصلات الجيدة والعوازل الجيدة اللتين تبقى قدرتهما على التوصيل شبه ثابتة تقريبًا رغم تغيّر هذه الظروف.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -619,6 +773,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

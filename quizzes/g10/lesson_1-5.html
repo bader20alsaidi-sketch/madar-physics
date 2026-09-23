@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الخامسة: عزم القوّة ومركز الكتلة — عزم القوّة</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-5</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -479,7 +484,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>تعريف عزم القوة حول نقطة ارتكاز<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>وحدة عزم القوة وطريقة زيادته بمفتاح ربط أطول<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>تفسير اتزان الأرجوحة بين طفلين مختلفي الوزن باستخدام العزم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>أثر موضع اليد بالنسبة للمفصلات على عزم فتح الباب<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>حساب عزم قوة أثرت عموديًا على ذراع مفتاح ربط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -519,7 +554,129 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عزم القوة (Moment of a Force) حول نقطة أو محور معيّن يُعرَّف بأنه: (اختر الإجابة الصحيحة)
+(أ) حاصل ضرب القوة المؤثرة في الزمن الذي تؤثر خلاله
+(ب) حاصل ضرب القوة المؤثرة في أقصر مسافة (العمودية) بينها وبين نقطة الارتكاز
+(ج) حاصل جمع القوة المؤثرة مع المسافة التي تتحرك خلالها نقطة تأثيرها
+(د) حاصل ضرب كتلة الجسم في تسارعه الزاوي حول نقطة الارتكاز</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عزم القوة حول نقطة (أو محور) معيّن هو مقياس للأثر الدوّار (التدويري) لتلك القوة حول هذه النقطة.
+
+يُحسب عزم القوة من العلاقة: عزم القوة = القوة المؤثرة × المسافة العمودية (أقصر مسافة) بين خط تأثير القوة ونقطة الارتكاز.
+
+من المهم أن تكون المسافة المستخدمة في الحساب هي المسافة العمودية تحديدًا، لأنها هي التي تحدد الذراع الفعّال للقوة في إحداث الدوران، وليس أي مسافة أخرى بين القوة ونقطة الارتكاز.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند استخدام مفتاح ربط (مفك صواميل) لفك صامولة محكمة الشد، اذكر وحدة قياس عزم القوة في النظام الدولي للوحدات، ووضّح كيف يمكن زيادة العزم المؤثر على الصامولة دون تغيير مقدار القوة المؤثرة باليد.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">وحدة قياس عزم القوة في النظام الدولي للوحدات هي نيوتن·متر (N·m)، لأنها ناتجة عن ضرب وحدة القوة (نيوتن) في وحدة المسافة (متر).
+
+بما أن عزم القوة = القوة × المسافة العمودية عن نقطة الارتكاز، فإنه يمكن زيادة العزم دون زيادة مقدار القوة المؤثرة باليد وذلك بزيادة المسافة العمودية بين نقطة تأثير القوة ونقطة الارتكاز (الصامولة).
+
+عمليًا، يتحقق ذلك باستخدام مفتاح ربط بذراع أطول، أو بالإمساك بالمفتاح من طرفه البعيد عن الصامولة بدلاً من الإمساك به من منتصفه، فكلما زادت المسافة العمودية زاد العزم الناتج عن نفس القوة.
+
+لذلك، زيادة طول ذراع المفتاح هي الطريقة المناسبة لزيادة عزم فك الصامولة دون بذل قوة أكبر باليد.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في أرجوحة الميزان (Seesaw) يجلس طفلان على طرفيها المتقابلين. فسّر، باستخدام مفهوم عزم القوة، لماذا يمكن لطفل أخف وزنًا أن يوازن طفلًا أثقل منه إذا جلس بعيدًا بما يكفي عن نقطة ارتكاز الأرجوحة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">عزم القوة (هنا وزن كل طفل) حول نقطة ارتكاز الأرجوحة يساوي حاصل ضرب وزن الطفل في بُعد مقعده عن نقطة الارتكاز.
+
+الطفل الأثقل يولّد عزمًا كبيرًا حتى لو كان قريبًا نسبيًا من نقطة الارتكاز، لأن وزنه (القوة) كبير. أما الطفل الأخف فينتج عنه وزن أصغر، لكن إذا جلس على بعد أكبر عن نقطة الارتكاز، فإن المسافة الكبيرة تعوّض صغر الوزن، وقد يتساوى حاصل الضرب (العزم) بين الطرفين.
+
+تتزن الأرجوحة أفقيًا (توضع في حالة اتزان دوراني) عندما يتساوى العزم المسبِّب للدوران باتجاه عقارب الساعة (الناتج عن أحد الطفلين) مع العزم المسبِّب للدوران عكس اتجاه عقارب الساعة (الناتج عن الطفل الآخر) حول نقطة الارتكاز.
+
+لذلك فإن الطفل الأخف وزنًا يمكن أن يوازن الطفل الأثقل منه إذا جلس على مسافة أكبر من نقطة الارتكاز، بحيث يتساوى حاصل ضرب (الوزن × المسافة) لدى كل منهما.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند دفع باب مفتوح بيدك بالقرب من مفصلاته (Hinges) بدلاً من دفعه بالقرب من المقبض البعيد عن المفصلات، بنفس مقدار القوة، فإن تأثير القوة في فتح/غلق الباب (عزمها) سيكون: (اختر الإجابة الصحيحة)
+(أ) أكبر، لأن المسافة العمودية عن محور الدوران (المفصلات) أكبر
+(ب) أصغر، لأن المسافة العمودية عن محور الدوران (المفصلات) أصغر
+(ج) نفسه تمامًا، لأن مقدار القوة لم يتغيّر
+(د) صفر، لأنّ الباب لن يتحرك إطلاقًا مهما بلغت القوة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">يدور الباب حول محور مفصلاته، وعزم القوة المؤثرة عليه يساوي القوة مضروبة في المسافة العمودية بين نقطة تأثير القوة ومحور المفصلات.
+
+عند الدفع بالقرب من المفصلات، تكون المسافة العمودية بين يدك ومحور الدوران صغيرة جدًا، بينما عند الدفع بالقرب من المقبض البعيد عن المفصلات تكون هذه المسافة أكبر بكثير.
+
+بما أن العزم يتناسب طرديًا مع المسافة العمودية عند ثبات مقدار القوة، فإن الدفع بالقرب من المفصلات ينتج عزمًا أصغر من الدفع بالقرب من المقبض، مما يجعل فتح الباب أصعب رغم استخدام نفس مقدار القوة تمامًا.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثّرت قوة مقدارها 15 نيوتن عموديًا على ذراع مفتاح ربط عند نقطة تبعد 0.2 متر عن مركز الصامولة (نقطة الارتكاز). احسب مقدار عزم هذه القوة حول نقطة الارتكاز.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">عزم القوة = القوة × المسافة العمودية عن نقطة الارتكاز.
+
+بالتعويض عن القوة F = 15 نيوتن، والمسافة العمودية d = 0.2 متر:
+عزم القوة = 15 نيوتن × 0.2 متر = 3 نيوتن·متر.
+
+إذن مقدار عزم هذه القوة حول نقطة ارتكاز الصامولة يساوي 3 نيوتن·متر (N·m).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -538,6 +695,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

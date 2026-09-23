@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الخامسة: عزم القوّة ومركز الكتلة — حساب عزم القوّة</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-5</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -489,7 +494,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>شرط الاتزان الدوراني لقضيب تحت تأثير عدة قوى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>حساب بُعد طفل عن نقطة ارتكاز الأرجوحة لتحقيق الاتزان<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب بُعد تعليق قوة لموازنة قضيب حول نقطة ارتكاز<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>حساب قوة واحدة توازن عزمي قوتين على الجانب الآخر من قضيب<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>إيجاد أقل قوة لتدوير صمام بمعلومية العزم المطلوب وطول الذراع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -549,7 +584,128 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">متى يكون قضيب أو ذراع رافعة (كتلته مهملة) في حالة اتزان دوراني (لا يدور) تحت تأثير عدة قوى تؤثر عليه في نفس المستوى؟ (اختر الإجابة الصحيحة)
+(أ) عندما يكون مجموع القوى المؤثرة عليه يساوي صفرًا فقط
+(ب) عندما يتساوى مجموع العزوم الدوّارة باتجاه عقارب الساعة مع مجموع العزوم الدوّارة عكس اتجاه عقارب الساعة حول أي نقطة ارتكاز
+(ج) عندما تكون جميع القوى المؤثرة متساوية في المقدار
+(د) عندما تنعدم المسافة بين نقاط تأثير جميع القوى ونقطة الارتكاز</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">مبدأ العزوم ينص على أن الجسم يكون في حالة اتزان دوراني حول نقطة ارتكاز معينة إذا تساوى مجموع العزوم المسبِّبة للدوران باتجاه عقارب الساعة حول تلك النقطة مع مجموع العزوم المسبِّبة للدوران عكس اتجاه عقارب الساعة حول النقطة نفسها.
+
+مجرد تساوي مجموع القوى (الاتزان الانتقالي) لا يضمن وحده عدم دوران الجسم، لأن القوى المتساوية في المجموع قد تُحدث عزومًا غير متساوية إذا اختلفت أبعادها العمودية عن نقطة الارتكاز.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يجلس طفل كتلته 30 كجم على أحد طرفي أرجوحة ميزان (Seesaw) خفيفة الوزن (نُهمل وزنها)، على بعد 1.5 متر من نقطة الارتكاز. على أي مسافة من نقطة الارتكاز يجب أن يجلس طفل آخر كتلته 45 كجم على الطرف المقابل حتى تتزن الأرجوحة أفقيًا؟ (خذ عجلة الجاذبية الأرضية g = 10 م/ث²)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">أولًا نحسب وزن كل طفل: وزن الطفل الأول = m × g = 30 × 10 = 300 نيوتن، ووزن الطفل الثاني = 45 × 10 = 450 نيوتن.
+
+عزم الطفل الأول حول نقطة الارتكاز = القوة × المسافة العمودية = 300 نيوتن × 1.5 متر = 450 نيوتن·متر.
+
+لتحقيق الاتزان الدوراني للأرجوحة، يجب أن يساوي عزم الطفل الثاني عزم الطفل الأول: 450 نيوتن × d = 450 نيوتن·متر.
+
+بحل المعادلة: d = 450 ÷ 450 = 1 متر.
+
+إذن يجب أن يجلس الطفل الثاني (كتلته 45 كجم) على بعد 1 متر من نقطة الارتكاز حتى تتزن الأرجوحة أفقيًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قضيب أفقي طويل، منتظم وخفيف الوزن (يُهمل وزنه)، يرتكز على نقطة ارتكاز ثابتة. عُلّقت عنده كتلة وزنها 40 نيوتن عند نقطة تبعد 2 م عن نقطة الارتكاز على أحد الجانبين. إذا أردنا موازنة القضيب باستخدام قوة مقدارها 25 نيوتن تُعلَّق على الجانب الآخر من نقطة الارتكاز، فعلى أي بُعد من نقطة الارتكاز يجب تعليق هذه القوة حتى يتزن القضيب أفقيًا؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">عزم القوة المعروفة (40 نيوتن) حول نقطة الارتكاز = القوة × المسافة العمودية = 40 نيوتن × 2 متر = 80 نيوتن·متر.
+
+لتحقيق الاتزان الدوراني للقضيب، يجب أن يساوي عزم القوة الثانية (25 نيوتن) عزم القوة الأولى، لأن القوتين تؤثران على جانبين متقابلين من نقطة الارتكاز: 25 نيوتن × d = 80 نيوتن·متر.
+
+بحل المعادلة: d = 80 ÷ 25 = 3.2 متر.
+
+إذن يجب تعليق القوة (25 نيوتن) على بُعد 3.2 متر من نقطة الارتكاز حتى يتزن القضيب أفقيًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قضيب أفقي خفيف الوزن يرتكز على نقطة ارتكاز. عُلّقت عليه قوتان على الجانب الأيسر من نقطة الارتكاز: الأولى مقدارها 10 نيوتن على بعد 0.5 م، والثانية مقدارها 20 نيوتن على بعد 1 م. احسب مقدار القوة الواحدة التي يجب تعليقها على الجانب الأيمن على بعد 2 م من نقطة الارتكاز لتحقيق الاتزان الدوراني للقضيب.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نحسب أولًا مجموع عزوم القوتين على الجانب الأيسر حول نقطة الارتكاز:
+عزم القوة الأولى = 10 نيوتن × 0.5 متر = 5 نيوتن·متر.
+عزم القوة الثانية = 20 نيوتن × 1 متر = 20 نيوتن·متر.
+مجموع العزوم على الجانب الأيسر = 5 + 20 = 25 نيوتن·متر.
+
+لتحقيق الاتزان الدوراني، يجب أن يساوي عزم القوة المطلوبة على الجانب الأيمن مجموع عزوم الجانب الأيسر: F × 2 = 25 نيوتن·متر.
+
+بحل المعادلة: F = 25 ÷ 2 = 12.5 نيوتن.
+
+إذن يجب تعليق قوة مقدارها 12.5 نيوتن على بعد 2 متر من نقطة الارتكاز على الجانب الأيمن لتحقيق اتزان القضيب.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يريد فني فتح صمام (محبس) يحتاج إلى عزم مقداره 18 نيوتن·متر لتدويره. إذا استخدم مفتاحًا طول ذراعه (المسافة العمودية من محور الصمام إلى نقطة تأثير يده) 0.3 متر، فما أقل قوة يجب أن يؤثر بها عموديًا على نهاية المفتاح لتوليد هذا العزم؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">العلاقة بين عزم القوة والقوة والمسافة العمودية هي: عزم القوة = القوة × المسافة العمودية، ومن ثم يمكن إعادة ترتيبها لإيجاد القوة: القوة = عزم القوة ÷ المسافة العمودية.
+
+بالتعويض عن عزم القوة = 18 نيوتن·متر، والمسافة العمودية d = 0.3 متر:
+القوة = 18 ÷ 0.3 = 60 نيوتن.
+
+إذن أقل قوة يجب أن يؤثر بها الفني عموديًا على نهاية المفتاح لتوليد العزم المطلوب (18 نيوتن·متر) تساوي 60 نيوتن.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -568,6 +724,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

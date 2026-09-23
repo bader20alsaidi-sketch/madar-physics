@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.6</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>74</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -531,7 +531,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>خاصية تسارع السقوط الحر أثناء الحركة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>تفسير تساوي سرعة جسمين مختلفي الكتلة عند السقوط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>حساب زمن وسرعة سقوط كرة من ارتفاع معلوم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب أقصى ارتفاع وزمن الصعود لجسم يُقذف رأسيًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>حساب زمن سقوط جسم قُذف رأسيًا للأسفل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -707,7 +737,143 @@ S = −0.2 m  (أُقبِل بالإشارة الموجبة: المسافة ال
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يُترك جسم ليسقط سقوطًا حرًا من السكون بالقرب من سطح الأرض، بإهمال مقاومة الهواء. أي العبارات التالية صحيحة بخصوص تسارعه أثناء السقوط؟ (اختر الإجابة الصحيحة)
+(أ) يتناقص مقدار التسارع كلما زادت سرعة الجسم
+(ب) يبقى مقدار التسارع ثابتًا طوال فترة السقوط ويساوي g
+(ج) يزداد مقدار التسارع كلما اقترب الجسم من الأرض
+(د) يكون التسارع معدومًا عند منتصف المسافة المقطوعة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">في حالة السقوط الحر بإهمال مقاومة الهواء، القوة الوحيدة المؤثرة على الجسم هي وزنه (قوة الجاذبية)، وهذه القوة تنتج تسارعًا ثابتًا يُعرف بتسارع السقوط الحر g، ويقارب 9.8 m/s² (أو 10 m/s² كتقريب) بالقرب من سطح الأرض.
+
+بما أن الكتلة ثابتة والقوة المؤثرة (الوزن) ثابتة أثناء السقوط، فإن التسارع a = F/m يبقى ثابتًا في المقدار والاتجاه (نحو أسفل) طوال فترة السقوط، بصرف النظر عن سرعة الجسم أو موقعه.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أُسقط جسمان مختلفان في الكتلة من نفس الارتفاع وفي نفس اللحظة، بإهمال مقاومة الهواء. فسّر لماذا تكون سرعتاهما متساويتين عند لحظة وصولهما إلى الأرض، رغم اختلاف كتلتيهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">تسارع السقوط الحر g ناتج عن قوة الجاذبية المؤثرة على الجسم، وتُعطى بالعلاقة F = mg، حيث تتناسب هذه القوة طرديًا مع كتلة الجسم m.
+
+وباستخدام قانون نيوتن الثاني a = F/m = mg/m = g، نلاحظ أن كتلة الجسم m تُحذف من طرفي العلاقة، وبذلك يكون تسارع السقوط g مستقلًا عن كتلة الجسم، أي أن جميع الأجسام (بإهمال مقاومة الهواء) تسقط بنفس التسارع بصرف النظر عن كتلتها.
+
+وبما أن الجسمين ينطلقان من السكون (نفس u = 0)، ويسقطان من نفس الارتفاع h بنفس التسارع g، فإن المعادلة v² = 2gh تعطي نفس القيمة لسرعتيهما النهائيتين عند الوصول إلى الأرض.
+
+إذن: تتساوى سرعتا الجسمين عند الوصول إلى الأرض لأن تسارع السقوط الحر g لا يعتمد على كتلة الجسم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سقطت كرة من السكون من ارتفاع 45 m فوق سطح الأرض. بإهمال مقاومة الهواء وباعتبار g = 10 m/s²، احسب:
+(أ) الزمن اللازم لوصول الكرة إلى الأرض.
+(ب) سرعتها لحظة وصولها إلى الأرض.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المعطيات: u = 0 (تبدأ من السكون)، s = 45 m، a = g = 10 m/s².
+
+(أ) باستخدام المعادلة s = ut + ½gt²:
+45 = 0 + ½×10×t²
+45 = 5t²
+t² = 9
+t = 3 s
+
+(ب) باستخدام المعادلة v = u + gt:
+v = 0 + 10×3 = 30 m/s
+
+إذن: تصل الكرة إلى الأرض بعد 3 s، بسرعة مقدارها 30 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قُذف جسم رأسيًا إلى أعلى بسرعة ابتدائية مقدارها 25 m/s. بإهمال مقاومة الهواء وباعتبار g = 10 m/s²، احسب:
+(أ) أقصى ارتفاع يصل إليه الجسم فوق نقطة القذف.
+(ب) الزمن اللازم للوصول إلى أقصى ارتفاع.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">المعطيات: u = 25 m/s (إلى أعلى)، وعند أقصى ارتفاع تكون v = 0، والتسارع a = −g = −10 m/s² (لأنه يعاكس اتجاه الحركة).
+
+(أ) باستخدام المعادلة v² = u² − 2gh:
+0² = 25² − 2×10×h
+0 = 625 − 20h
+h = 625 / 20 = 31.25 m
+
+(ب) باستخدام المعادلة v = u − gt:
+0 = 25 − 10t
+t = 25 / 10 = 2.5 s
+
+إذن: يصل الجسم إلى أقصى ارتفاع مقداره 31.25 m، بعد زمن مقداره 2.5 s من لحظة القذف.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قُذف جسم رأسيًا إلى أسفل من سطح مبنى ارتفاعه 60 m، بسرعة ابتدائية مقدارها 5 m/s. باعتبار g = 10 m/s²، احسب الزمن اللازم لوصول الجسم إلى الأرض.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">المعطيات: u = 5 m/s (إلى أسفل)، s = 60 m، a = g = 10 m/s²، وجميعها في اتجاه واحد (إلى أسفل) فنأخذها بإشارة موجبة.
+
+باستخدام المعادلة s = ut + ½gt²:
+60 = 5t + ½×10×t²
+60 = 5t + 5t²
+5t² + 5t − 60 = 0
+بقسمة الطرفين على 5: t² + t − 12 = 0
+
+بتحليل المعادلة التربيعية: (t + 4)(t − 3) = 0
+ومنها: t = −4 s (مرفوضة لأن الزمن لا يكون سالبًا) أو t = 3 s
+
+إذن: يصل الجسم إلى الأرض بعد زمن مقداره 3 s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

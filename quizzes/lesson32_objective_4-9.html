@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.9</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>108</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -537,7 +537,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>الخاصية الهندسية لمثلث ثلاث قوى متزامنة متزنة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>تفسير تمثيل اتزان ثلاث قوى بمثلث مغلق باستخدام قانون نيوتن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>إيجاد شدّي خيطين لمصباح معلق باستخدام مثلث قوى قائم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>حساب شدّي حبلين متساويين باستخدام قاعدة الجيب في مثلث قوى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>إيجاد القوة الثالثة اللازمة لموازنة قوتين متعامدتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -726,7 +756,152 @@ C = 6.7×10⁵ N
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">إذا كانت ثلاث قوى متزامنة (تؤثر عند نقطة واحدة) في حالة اتزان تام، فما الخاصية الهندسية التي يجب أن تتحقق عند تمثيل هذه القوى الثلاث بمتجهات متتالية (رأس إلى ذيل)؟ (اختر الإجابة الصحيحة)
+(أ) يجب أن تُشكّل المتجهات الثلاثة خطًا مستقيمًا واحدًا
+(ب) يجب أن تُشكّل المتجهات الثلاثة مثلثًا مغلقًا، بحيث تلتقي نهاية آخر متجه مع بداية أول متجه
+(ج) يجب أن تكون جميع المتجهات متوازية تمامًا
+(د) يجب أن يتساوى طول كل متجه مع طول المتجهين الآخرين</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عندما تكون ثلاث قوى متزامنة (تؤثر عند نفس النقطة) في حالة اتزان تام، فإن مجموعها المتجهي (الاتجاهي) يجب أن يساوي صفرًا تمامًا، وفقًا لقانون نيوتن الأول.
+
+عند تمثيل هذه القوى الثلاث كمتجهات مرسومة بالتوالي (رأس المتجه الأول يتصل بذيل المتجه الثاني، ورأس الثاني يتصل بذيل الثالث)، فإن كون مجموعها يساوي صفرًا يعني هندسيًا أن نقطة نهاية المتجه الأخير (الثالث) يجب أن تعود لتلتقي تمامًا مع نقطة بداية المتجه الأول.
+
+هذا الالتقاء بين نقطة البداية ونقطة النهاية يُشكّل شكلًا مغلقًا، وبما أن لدينا ثلاثة متجهات (أي ثلاثة أضلاع)، فإن هذا الشكل المغلق هو مثلث؛ ويسمى هذا التمثيل بـ"مثلث القوى" (Triangle of forces)، وهو أداة رسومية وحسابية لحل مسائل اتزان ثلاث قوى غير متوازية.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح لماذا يُمثَّل اتزان ثلاث قوى غير متوازية بمثلث قوى مغلق، مستعينًا بقانون نيوتن الأول للحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">ينص قانون نيوتن الأول على أن الجسم الساكن (أو المتحرك بسرعة ثابتة) يجب أن تكون محصلة جميع القوى المؤثرة عليه صفرًا. وعندما تؤثر على جسم ثلاث قوى غير متوازية فقط وهو في حالة اتزان، فإن مجموعها المتجهي (الاتجاهي) يجب أن يساوي صفرًا تمامًا: F1 + F2 + F3 = 0.
+
+عند رسم هذه القوى الثلاث كمتجهات متتالية (بحيث يبدأ كل متجه من النقطة التي انتهى عندها المتجه السابق له، مع الحفاظ على مقدار واتجاه كل قوة كما هي)، فإن كون مجموعها صفرًا يعني أن المسار الذي رُسم بهذه المتجهات الثلاثة يجب أن يعود بالضبط إلى نقطة انطلاقه الأولى، أي أن نهاية المتجه الثالث تلتقي مع بداية المتجه الأول.
+
+هذا الشكل المغلق المكوَّن من ثلاثة أضلاع (متجهات) هو مثلث بالتعريف، ولهذا يسمى هذا الأسلوب "مثلث القوى"؛ فإذا لم يكن الشكل الناتج من رسم القوى الثلاث مثلثًا مغلقًا (أي بقي هناك "فجوة" بين نهاية آخر متجه وبداية أول متجه)، فهذا يدل على أن الجسم ليس في حالة اتزان تام، بل توجد قوة محصلة متبقية تساوي طول تلك الفجوة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتدلى مصباح ساكن بواسطة خيطين: خيط أفقي T₁ متصل بحائط جانبي، وخيط مائل T₂ متصل بالسقف بزاوية 60° فوق الأفقي، بالإضافة إلى وزن المصباح W = 20 N المتجه رأسيًا لأسفل. عند تمثيل القوى الثلاث (W، T₁، T₂) متتالية (رأس إلى ذيل) للحصول على مثلث القوى الخاص بها، ينتج مثلث قائم الزاوية. باستخدام الدوال المثلثية، احسب T₁ وT₂.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في مثلث القوى القائم الناتج، تكون القوة W (الرأسية) هي الضلع المقابل، والقوة T₁ (الأفقية) هي الضلع المجاور، والقوة T₂ (المائلة بزاوية 60° عن الأفقي) هي الوتر، حيث تمثل الزاوية بين T₂ والضلع الأفقي (T₁) الزاوية 60° نفسها التي يميل بها الخيط المائل عن الأفقي.
+
+لإيجاد T₂، نستخدم دالة الجيب (sin) لأن W هو الضلع المقابل للزاوية 60° وT₂ هو الوتر:
+
+sin 60° = W / T₂
+
+T₂ = W / sin 60° = 20 / 0.866 ≈ 23.1 N
+
+لإيجاد T₁، نستخدم دالة الظل (tan) أو دالة جيب التمام مباشرة، حيث T₁ هو الضلع المجاور للزاوية 60°:
+
+tan 60° = W / T₁
+
+T₁ = W / tan 60° = 20 / 1.732 ≈ 11.5 N
+
+الإجابة النهائية: T₁ ≈ 11.5 N، وT₂ ≈ 23.1 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم معلّق في حالة اتزان تام تحت تأثير ثلاث قوى متزامنة: الوزن W = 50 N رأسيًا لأسفل، وقوتا شد T₁ وT₂ في حبلين. عند رسم مثلث القوى (بالتوالي، رأس إلى ذيل)، تبيّن أن الزاوية المقابلة لضلع القوة W تساوي 100°، والزاوية المقابلة لضلع T₁ تساوي 40°، والزاوية المقابلة لضلع T₂ تساوي 40° أيضًا (أي أن المثلث متساوي الساقين). باستخدام قاعدة الجيب (sine rule)، احسب مقدار كل من T₁ وT₂.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">تنص قاعدة الجيب في مثلث القوى على أن نسبة كل ضلع (قوة) إلى جيب الزاوية المقابلة له ثابتة لجميع أضلاع المثلث:
+
+W / sin(100°) = T₁ / sin(40°) = T₂ / sin(40°)
+
+بما أن الزاويتين المقابلتين لـ T₁ وT₂ متساويتان (40° لكل منهما)، فإن T₁ = T₂ مباشرة (المثلث متساوي الساقين فعلًا كما ذُكر في السؤال).
+
+نحسب قيمة T₁ باستخدام النسبة مع W:
+
+T₁ = W × sin(40°) / sin(100°)
+
+بالتعويض بالقيم التقريبية sin(40°) ≈ 0.643 وsin(100°) ≈ 0.985:
+
+T₁ = 50 × 0.643 / 0.985 ≈ 32.6 N
+
+وبما أن T₁ = T₂:
+
+T₂ ≈ 32.6 N
+
+الإجابة النهائية: T₁ ≈ 32.6 N، وT₂ ≈ 32.6 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.9</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تؤثر على نقطة ساكنة قوتان: F1 = 8 N نحو الشرق، وF2 = 6 N نحو الشمال (متعامدتان تمامًا)، بالإضافة إلى قوة ثالثة F3 مجهولة المقدار والاتجاه تجعل النقطة في حالة اتزان تام. باستخدام مفهوم مثلث القوى المغلق، احسب مقدار القوة F3 واتجاهها (الزاوية التي تصنعها مع اتجاه F1).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن النقطة في حالة اتزان تام تحت تأثير القوى الثلاث، فإن F3 يجب أن تكون معاكسة تمامًا لمحصلة القوتين F1 وF2 مجتمعتين، أي أن F3 تُغلق مثلث القوى وتُلغي محصلة F1 وF2 تمامًا.
+
+أولًا نوجد محصلة F1 وF2 (وهما متعامدتان، فنستخدم نظرية فيثاغورس مباشرة):
+
+R = √(F1² + F2²) = √(8² + 6²) = √(64 + 36) = √100 = 10 N
+
+اتجاه هذه المحصلة R (بالنسبة لاتجاه F1، أي الشرق) يُحسب بدالة الظل:
+
+tan θ = F2 / F1 = 6 / 8 = 0.75
+
+θ = tan⁻¹(0.75) ≈ 36.9° شمال الشرق
+
+بما أن F3 يجب أن توازن R تمامًا (لإغلاق مثلث القوى وتحقيق الاتزان)، فيجب أن تساويها في المقدار وتعاكسها تمامًا في الاتجاه:
+
+الإجابة النهائية: F3 = 10 N، وتتجه بزاوية 36.9° عن الاتجاه المعاكس لـ F1 (أي جنوب الغرب تقريبًا)، بحيث تصنع زاوية 180° − 36.9° = 143.1° مع اتجاه F1 الأصلي (الشرق).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الأولى: الشحنة الكهربائيّة — الاحتكاك والشحن الكهربائي</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-1</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -484,7 +489,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>تفسير اكتساب قضيب زجاجي شحنة موجبة بعد دلكه بالحرير<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>ثبات شحنة النواة الموجبة وتغير الشحنة السطحية أثناء الشحن بالاحتكاك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>اتجاه انتقال الإلكترونات وشحنة الفرو والحرير بعد الدلك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>العبارة الصحيحة حول حفظ الشحنة الكلية أثناء الشحن بالاحتكاك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>حساب مقدار الشحنة الكلية الناتجة عن انتقال عدد من الإلكترونات<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -533,7 +568,131 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند دلك قضيب زجاجي بقطعة من الحرير، ينتقل بعض الإلكترونات من الزجاج إلى الحرير فيكتسب الزجاج شحنة موجبة. ما تفسير ذلك؟ (اختر الإجابة الصحيحة)
+(أ) الزجاج فقد بعض إلكتروناته فأصبح عدد البروتونات فيه أكبر من عدد الإلكترونات المتبقية
+(ب) الزجاج اكتسب بروتونات إضافية من الحرير
+(ج) الزجاج فقد بعضًا من بروتوناته إلى الحرير
+(د) عدد الإلكترونات في الزجاج ازداد بعد الدلك</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">في عملية الشحن بالاحتكاك، تنتقل الإلكترونات (وحدها) بين المادتين المتلامستين، بينما تبقى البروتونات ثابتة داخل أنوية الذرات في كل مادة ولا تنتقل بينهما.
+
+بما أن القضيب الزجاجي فقد بعض إلكتروناته لصالح الحرير، فإن عدد البروتونات الموجبة في ذراته يبقى كما هو، بينما يقل عدد الإلكترونات السالبة المتبقية فيه.
+
+وبذلك يصبح عدد الشحنات الموجبة (البروتونات) في الزجاج أكبر من عدد الشحنات السالبة (الإلكترونات) المتبقية فيه، فتظهر عليه شحنة موجبة صافية.
+
+الإجابة الصحيحة: (أ).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وضّح، على المستوى الذري (الإلكترونات والبروتونات)، لماذا لا تتغير الشحنة الموجبة الكلية لنواة الذرة أثناء عملية الشحن بالاحتكاك، بينما تتغير الشحنة السالبة الظاهرة على سطح الجسم.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">تقع البروتونات (حاملة الشحنة الموجبة) داخل نواة الذرة، وهي مرتبطة بقوى نووية شديدة تجعلها ثابتة تمامًا في مكانها، ولا تتأثر بعمليات ميكانيكية سطحية بسيطة مثل الاحتكاك أو الدلك.
+
+أما الإلكترونات، وخاصة تلك الموجودة في المدار الخارجي للذرة (إلكترونات التكافؤ)، فتكون أضعف ارتباطًا بالنواة نسبيًا، ويمكن أن تنتقل من ذرات سطح مادة إلى ذرات سطح مادة أخرى ملامسة لها أثناء الاحتكاك.
+
+ولذلك فإن عملية الدلك تغيّر فقط عدد الإلكترونات على سطح كل جسم من الجسمين (بالزيادة أو النقصان)، بينما يبقى عدد البروتونات في نواة كل ذرة من ذرات الجسمين ثابتًا تمامًا دون أي تغيير.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قضيبان: الأول من الإيبونيت دُلك بالفرو، والثاني من الزجاج دُلك بالحرير. من المعروف تجريبيًا أن قضيب الإيبونيت يكتسب شحنة سالبة، وأن قضيب الزجاج يكتسب شحنة موجبة. صف اتجاه انتقال الإلكترونات في كل حالة، وحدد نوع الشحنة التي تكتسبها كل من قطعتي الفرو والحرير بعد الدلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في حالة الإيبونيت والفرو: بما أن قضيب الإيبونيت اكتسب شحنة سالبة (أي زاد عدد إلكتروناته)، فإن الإلكترونات قد انتقلت من قطعة الفرو إلى قضيب الإيبونيت أثناء الدلك.
+
+ونتيجة لذلك تكون قطعة الفرو قد فقدت بعض إلكتروناتها، فأصبح عدد بروتوناتها أكبر من عدد إلكتروناتها المتبقية، أي أصبحت مشحونة بشحنة موجبة.
+
+في حالة الزجاج والحرير: بما أن قضيب الزجاج اكتسب شحنة موجبة (أي فقد بعض إلكتروناته)، فإن الإلكترونات قد انتقلت من قضيب الزجاج إلى قطعة الحرير أثناء الدلك.
+
+ونتيجة لذلك تكون قطعة الحرير قد اكتسبت إلكترونات إضافية، فأصبح عدد إلكتروناتها أكبر من عدد بروتوناتها، أي أصبحت مشحونة بشحنة سالبة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي العبارات التالية صحيحة بخصوص عملية الشحن بالاحتكاك؟ (اختر الإجابة الصحيحة)
+(أ) تُنشئ عملية الدلك شحنات جديدة من العدم لم تكن موجودة أصلًا
+(ب) تنتقل الإلكترونات فقط من جسم إلى آخر، وتبقى الشحنة الكلية لمجموع الجسمين معًا ثابتة كما كانت قبل الدلك (صفرًا)
+(ج) تزداد الشحنة الكلية لمجموع الجسمين بعد الدلك عن قيمتها قبل الدلك
+(د) تنتقل البروتونات بحرية بين الجسمين أثناء الدلك تمامًا كما تنتقل الإلكترونات</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">الشحن بالاحتكاك لا يُنشئ أي شحنة جديدة ولا يُفني أي شحنة موجودة، بل هو ببساطة عملية إعادة توزيع للإلكترونات الموجودة أصلًا بين الجسمين المتلامسين.
+
+قبل الدلك، يكون كل من الجسمين متعادلًا كهربائيًا (شحنته الكلية صفر)، وبالتالي فإن مجموع شحنتيهما معًا يساوي صفرًا أيضًا.
+
+بعد الدلك، ينتقل عدد معيّن من الإلكترونات من جسم إلى آخر، فيكتسب أحدهما شحنة سالبة معينة بمقدارها بالضبط شحنة موجبة تظهر على الجسم الآخر، بحيث يبقى مجموع الشحنتين معًا يساوي صفرًا كما كان قبل الدلك تمامًا. وهذا ما يُعرف بمبدأ حفظ الشحنة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">انتقل أثناء عملية دلك 5 × 10⁹ إلكترون من قطعة صوف إلى قضيب بلاستيكي. علمًا بأن شحنة الإلكترون الواحد تساوي 1.6 × 10⁻¹⁹ كولوم، احسب مقدار الشحنة السالبة الكلية المكتسبة على القضيب البلاستيكي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الشحنة الكلية المكتسبة على جسم ما بسبب انتقال عدد من الإلكترونات إليه تُحسب من العلاقة:
+الشحنة الكلية (Q) = عدد الإلكترونات (n) × شحنة الإلكترون الواحد (e)
+
+بالتعويض بالقيم المعطاة:
+Q = (5 × 10⁹) × (1.6 × 10⁻¹⁹ كولوم)
+Q = 8 × 10⁻¹⁰ كولوم
+
+وبما أن القضيب اكتسب إلكترونات زائدة (لم يفقدها)، فإن هذه الشحنة تكون سالبة.
+
+إذن مقدار الشحنة السالبة الكلية المكتسبة على القضيب البلاستيكي يساوي 8 × 10⁻¹⁰ كولوم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -552,6 +711,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة العاشرة: الاضمحلال الإشعاعيّ وعمر النصف — معادلات الاضمحلال الإشعاعي</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-10</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -473,7 +478,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>أثر انبعاث جسيم ألفا على العدد الذري والعدد الكتلي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>تفسير ما يحدث داخل النواة أثناء اضمحلال بيتا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>كتابة معادلة اضمحلال ألفا لنواة الراديوم إلى الرادون<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>كتابة معادلة اضمحلال بيتا لنواة الكربون-14 إلى النيتروجين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>تحديد نوع الجسيم المنبعث من التغير في العددين الذري والكتلي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -506,7 +541,135 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند اضمحلال نواة بإصدار جسيم ألفا واحد، ماذا يحدث للعدد الذري (Z) والعدد الكتلي (A) للنواة الناتجة مقارنة بالنواة الأصلية؟ (اختر الإجابة الصحيحة)
+(أ) يقل العدد الذري بمقدار 2 ويقل العدد الكتلي بمقدار 4
+(ب) يزيد العدد الذري بمقدار 1 ويبقى العدد الكتلي كما هو
+(ج) يقل العدد الذري بمقدار 1 ويقل العدد الكتلي بمقدار 2
+(د) يبقى العدد الذري والعدد الكتلي كلاهما دون تغيير</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">جسيم ألفا هو في حقيقته نواة ذرة هيليوم، ويحتوي على بروتونين ونيوترونين، أي أن عدده الذري 2 وعدده الكتلي 4.
+
+عندما تبعث نواة جسيم ألفا، فإنها تفقد بروتونين ونيوترونين من نواتها الأصلية، أي أن عددها الذري (Z) يقل بمقدار 2 (لأنها فقدت بروتونين)، وعددها الكتلي (A) يقل بمقدار 4 (لأنها فقدت 4 نيوكليونات إجمالًا).
+
+وبذلك تتحول النواة الأصلية إلى نواة عنصر جديد (يقل ترتيبه في الجدول الدوري بمقدار 2)، مع الحفاظ على مجموع العدد الذري ومجموع العدد الكتلي متساويين على جانبي معادلة الاضمحلال.
+
+الإجابة الصحيحة: (أ).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر ما الذي يحدث داخل النواة عند اضمحلال بيتا، ولماذا يزداد العدد الذري (Z) بمقدار واحد بينما يبقى العدد الكتلي (A) دون تغيير؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">في اضمحلال بيتا، يتحول أحد النيوترونات الموجودة داخل النواة غير المستقرة إلى بروتون، وينتج عن هذا التحول انبعاث إلكترون سريع من النواة، وهو ما يُعرف بجسيم بيتا.
+
+بما أن عددًا من النيوترونات قد تحوّل إلى بروتون، فإن عدد البروتونات في النواة يزداد بمقدار واحد، أي أن العدد الذري (Z) يزداد بمقدار 1، مما يعني تكوّن عنصر جديد يلي العنصر الأصلي مباشرة في الجدول الدوري.
+
+أما العدد الكتلي (A)، وهو مجموع عدد البروتونات وعدد النيوترونات معًا، فلا يتغير؛ لأن العدد الكلي للنيوكليونات (البروتونات + النيوترونات) في النواة يبقى كما هو تمامًا، فقط نوع أحد النيوكليونات هو الذي تغيّر من نيوترون إلى بروتون، دون أن يُفقد أو يُضاف أي نيوكليون جديد إلى النواة.
+
+لذلك في معادلة اضمحلال بيتا، يبقى العدد الكتلي ثابتًا بينما يزداد العدد الذري بمقدار 1 فقط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تضمحل نواة الراديوم Ra (عددها الذري Z = 88، وعددها الكتلي A = 226) مصدرة جسيم ألفا واحدًا لتتكون نواة الرادون Rn. أوجد العدد الذري والعدد الكتلي لنواة الرادون الناتجة، واكتب معادلة الاضمحلال كاملة ومتزنة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">عند اضمحلال ألفا، يقل العدد الذري بمقدار 2 ويقل العدد الكتلي بمقدار 4 عن النواة الأصلية.
+
+العدد الذري لنواة الرادون: Z = 88 − 2 = 86.
+العدد الكتلي لنواة الرادون: A = 226 − 4 = 222.
+
+وبكتابة معادلة الاضمحلال كاملة مع مراعاة اتزان مجموع الأعداد الذرية ومجموع الأعداد الكتلية على الطرفين:
+Ra-226 (Z=88)  ←  Rn-222 (Z=86)  +  جسيم ألفا He-4 (Z=2)
+بالتحقق: العدد الكتلي: 222 + 4 = 226 ✓، والعدد الذري: 86 + 2 = 88 ✓.
+
+إذن النواة الناتجة هي نواة الرادون-222 (Z = 86، A = 222)، والمعادلة متزنة تمامًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">نواة الكربون-14 (Z = 6) غير مستقرة وتضمحل مُصدرة جسيم بيتا واحدًا لتتحول إلى نواة نيتروجين. اكتب معادلة الاضمحلال كاملة ومتزنة، محددًا العدد الذري والعدد الكتلي لنواة النيتروجين الناتجة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">في اضمحلال بيتا يبقى العدد الكتلي (A) دون تغيير، بينما يزداد العدد الذري (Z) بمقدار واحد.
+
+العدد الكتلي لنواة النيتروجين الناتجة: A = 14 (دون تغيير).
+العدد الذري لنواة النيتروجين الناتجة: Z = 6 + 1 = 7.
+
+وتُكتب معادلة الاضمحلال كاملة مع مراعاة اتزان الأعداد على الطرفين، مع ملاحظة أن جسيم بيتا (الإلكترون) عدده الكتلي صفر وشحنته (−1):
+C-14 (Z=6)  ←  N-14 (Z=7)  +  جسيم بيتا (شحنة −1، كتلة ≈ 0)
+بالتحقق: العدد الكتلي: 14 + 0 = 14 ✓، والعدد الذري: 7 + (−1) = 6 ✓.
+
+إذن النواة الناتجة هي نواة النيتروجين-14 (Z = 7، A = 14).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند اضمحلال نواة اليورانيوم-238 (Z = 92) تتكوّن نواة الثوريوم-234 (Z = 90) بالإضافة إلى جسيم واحد ينبعث من النواة. حدد نوع هذا الجسيم المنبعث (ألفا أم بيتا)، موضحًا خطوات الاستدلال باستخدام التغير في العددين الذري والكتلي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">أولًا نحسب التغير في العدد الكتلي بين النواة الأصلية والنواة الناتجة:
+التغير في العدد الكتلي = 238 − 234 = 4.
+
+ثم نحسب التغير في العدد الذري:
+التغير في العدد الذري = 92 − 90 = 2.
+
+هذا النمط (نقصان العدد الكتلي بمقدار 4، ونقصان العدد الذري بمقدار 2) يطابق تمامًا خصائص انبعاث جسيم ألفا (نواة هيليوم He-4، Z = 2)، وليس جسيم بيتا؛ لأن انبعاث بيتا لا يغيّر العدد الكتلي إطلاقًا، بل يزيد العدد الذري بمقدار 1 فقط، وهو ما لا يتفق مع المعطيات هنا.
+
+إذن الجسيم المنبعث هو جسيم ألفا، ومعادلة الاضمحلال الكاملة هي:
+U-238 (Z=92)  ←  Th-234 (Z=90)  +  جسيم ألفا He-4 (Z=2).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 </main>
 <footer>
   <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
@@ -522,6 +685,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

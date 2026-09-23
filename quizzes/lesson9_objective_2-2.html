@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.2</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>23, 43, 54</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -519,7 +519,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>تصنيف زوج من الكميات إلى عددية ومتجهة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>تعريف الكمية المتجهة وأمثلة عليها من الحركة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>هل تتغير السرعة المتجهة لجسم يدور بسرعة عددية ثابتة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>مقارنة المسافة الكلية بالإزاحة عند حركة ذهاب وعودة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>الفرق بين الكتلة العددية والوزن المتجه بالحساب<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -586,7 +616,129 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي الأزواج التالية يُصنَّف فيه العنصر الأول على أنه كمّية عددية (قياسية)، والعنصر الثاني على أنه كمّية متجهة؟ (اختر الإجابة الصحيحة)
+(أ) السرعة المتجهة - القوة
+(ب) الكتلة - الإزاحة
+(ج) الإزاحة - السرعة المتجهة
+(د) التسارع - القوة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الكمّية العددية (scalar) هي التي تُوصف بمقدار (عدد ووحدة) فقط دون الحاجة إلى تحديد اتجاه، مثل الكتلة والزمن والمسافة والسرعة العددية.
+
+الكمّية المتجهة (vector) هي التي يلزم لوصفها تحديد كل من المقدار والاتجاه معًا، مثل الإزاحة والسرعة المتجهة والتسارع والقوة.
+
+بمراجعة الخيارات: الكتلة كمّية عددية (ليس لها اتجاه)، والإزاحة كمّية متجهة (لها مقدار واتجاه)، فيكون هذا الزوج هو المطابق للمطلوب. أما بقية الخيارات فتحتوي إما على كمّيتين متجهتين معًا (أ) و(د)، أو على كمّية متجهة يليها كمّية متجهة أخرى (ج).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف الكمّية المتجهة، واذكر مثالين عليها من موضوع وصف الحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الكمّية المتجهة (vector quantity) هي كمّية فيزيائية لا يكتمل وصفها إلا بتحديد أمرين معًا: مقدارها (العدد مع وحدة القياس) واتجاهها في الفراغ.
+
+بخلاف الكمّية العددية التي يكفي لوصفها ذكر مقدارها فقط، فإن الكمّية المتجهة تتغيّر قيمتها الفعلية إذا تغيّر اتجاهها حتى لو بقي مقدارها ثابتًا.
+
+من الأمثلة عليها في موضوع وصف الحركة: الإزاحة (displacement)، والسرعة المتجهة (velocity)، والتسارع (acceleration)، بالإضافة إلى القوة (force) في مواضيع لاحقة.
+
+فمثلًا، وصف حركة سيارة بأنها 'تتحرك بسرعة متجهة 20 m/s نحو الشمال' وصف كامل، لأنه يحدد كلًا من المقدار (20 m/s) والاتجاه (نحو الشمال) معًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تتحرك سيارة على مضمار دائري بسرعة عددية (speed) ثابتة لا تتغيّر مقدارها طوال الوقت. هل يمكن اعتبار سرعتها المتجهة (velocity) ثابتة أيضًا خلال هذه الحركة؟ فسّر إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">لا، لا يمكن اعتبار السرعة المتجهة ثابتة في هذه الحالة، رغم أن السرعة العددية (المقدار فقط) ثابتة.
+
+السبب أن السرعة المتجهة كمّية متجهة، فهي تتحدد بمقدارها واتجاهها معًا، وحتى تكون ثابتة يجب أن يبقى كل من المقدار والاتجاه ثابتين دون أي تغيّر.
+
+وبما أن السيارة تتحرك على مسار دائري، فإن اتجاه حركتها يتغيّر باستمرار من لحظة إلى أخرى (فهي تتجه شمالًا في لحظة، ثم شرقًا في لحظة أخرى، وهكذا)، حتى لو بقي مقدار السرعة (السرعة العددية) ثابتًا طوال الحركة.
+
+إذن تعتبر السيارة في هذه الحالة متسارعة (accelerating)، لأن التسارع يحدث كلما تغيّرت السرعة المتجهة، سواء كان ذلك بتغيّر المقدار أو الاتجاه أو كليهما معًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمشي شخص مسافة 50 m متجهًا نحو الشمال، ثم يعود فيمشي مسافة 50 m أخرى متجهًا نحو الجنوب حتى يصل إلى نقطة بدايته تمامًا. احسب: (a) المسافة الكلية التي قطعها الشخص (كمّية عددية). (b) مقدار إزاحته الكلية (كمّية متجهة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) المسافة الكلية هي مجموع أطوال المسار المقطوع بغض النظر عن اتجاه الحركة، وهي كمّية عددية تُجمع جبريًا (بالجمع البسيط):
+المسافة الكلية = 50 + 50 = 100 m.
+
+(b) الإزاحة الكلية هي كمّية متجهة تمثّل المسافة المستقيمة بين نقطة البداية ونقطة النهاية مع تحديد الاتجاه، ولا تُجمع جبريًا كالمسافة، بل يجب مراعاة الاتجاه في الجمع.
+
+بما أن الشخص مشى 50 m شمالًا ثم 50 m جنوبًا (وهو اتجاه معاكس تمامًا)، فإن المتجهين يُلغيان بعضهما بعضًا عند جمعهما متجهيًا، فيعود الشخص إلى نقطة بدايته بالضبط.
+
+إذن مقدار الإزاحة الكلية = 0 m، بينما المسافة الكلية = 100 m. وهذا مثال واضح على الفرق الجوهري بين الجمع العددي البسيط (يُستخدم مع المسافة) والجمع المتجه الذي يراعي الاتجاه (يُستخدم مع الإزاحة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم كتلته 5 kg موضوع على سطح الأرض، حيث شدة مجال الجاذبية الأرضية g = 9.8 N/kg. (a) وضّح لماذا تُعد كتلة الجسم كمّية عددية. (b) احسب وزن الجسم، مبيّنًا لماذا يُعد الوزن كمّية متجهة، ومحددًا اتجاهه.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(a) كتلة الجسم (mass) هي مقدار كمّية المادة التي يتكوّن منها الجسم، وتبقى قيمتها 5 kg ثابتة في أي مكان في الكون دون الحاجة إلى تحديد أي اتجاه لوصفها؛ لذلك فهي كمّية عددية.
+
+(b) الوزن (weight) هو القوة التي يؤثر بها مجال الجاذبية على كتلة الجسم، ويُحسب من العلاقة: الوزن = الكتلة × شدة مجال الجاذبية = m × g.
+
+بالتعويض: الوزن = 5 × 9.8 = 49 N.
+
+بما أن الوزن قوة، والقوة كمّية متجهة، فإن وصف الوزن الكامل يتطلب ذكر اتجاهه أيضًا، وهو دائمًا متجه رأسيًا نحو الأسفل (نحو مركز الأرض)، أي في اتجاه مجال الجاذبية.
+
+إذن وزن الجسم = 49 N، متجهًا رأسيًا نحو الأسفل، في حين تبقى كتلته 5 kg كمّية عددية لا اتجاه لها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

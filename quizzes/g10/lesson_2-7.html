@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة السابعة: الضغط — حساب الضغط</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-7</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -473,7 +478,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>حساب ضغط رِجل طاولة على الأرض<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>حساب ضغط عمود من الماء عند عمق معين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>سبب ازدياد ضغط الماء مع ازدياد عمق الغواص<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>إيجاد أقل قوة يتحملها إطار سيارة عند ضغط معين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>تفسير زيادة سُمك قاعدة السد بالاستناد إلى ضغط السوائل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -506,7 +541,132 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ترتكز رِجل طاولة معدنية على الأرض بمساحة مقطع مقدارها 25 سم² (أي 0.0025 م²)، ويؤثر عليها من وزن الطاولة والأحمال الموضوعة فوقها قوة رأسية مقدارها 150 نيوتن. احسب الضغط الذي تؤثر به رِجل الطاولة على الأرض.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">يُحسب الضغط من العلاقة:
+P = F ÷ A
+
+بالتعويض عن F = 150 نيوتن، وA = 0.0025 م²:
+P = 150 ÷ 0.0025
+P = 60000 باسكال (أي 6 × 10⁴ Pa)
+
+إذن، الضغط الذي تؤثر به رِجل الطاولة على الأرض يساوي 60000 باسكال.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">احسب الضغط الناتج عن عمود من الماء ارتفاعه 3 أمتار عند قاع خزان، علمًا بأن كثافة الماء تساوي 1000 كجم/م³. (خذ تسارع الجاذبية الأرضية g = 10 م/ث²)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">يُحسب ضغط عمود سائل عند عمق h من العلاقة:
+P = ρ × g × h
+
+بالتعويض عن ρ = 1000 كجم/م³، وg = 10 م/ث²، وh = 3 م:
+P = 1000 × 10 × 3
+P = 30000 باسكال (أي 3 × 10⁴ Pa)
+
+إذن، الضغط الناتج عن عمود الماء عند قاع الخزان (على عمق 3 أمتار) يساوي 30000 باسكال.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">غواص يهبط في البحر، فيلاحظ أن الضغط الذي يشعر به يزداد كلما ازداد عمقه تحت سطح الماء. ما السبب الصحيح لهذه الزيادة وفق العلاقة P = ρ × g × h؟ (اختر الإجابة الصحيحة)
+(أ) كثافة الماء (ρ) تتناقص بشكل كبير مع ازدياد العمق، فيزداد الضغط
+(ب) وزن عمود الماء الواقع فوق الغواص (المرتبط بالارتفاع h) يزداد كلما زاد عمقه، فيزداد الضغط الواقع عليه
+(ج) تسارع الجاذبية الأرضية (g) يزداد بشكل كبير كلما ازداد العمق تحت الماء
+(د) الضغط لا علاقة له بعمق الغواص إطلاقًا، بل يعتمد فقط على مساحة جسمه</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في العلاقة P = ρ × g × h، تبقى كثافة الماء ρ وتسارع الجاذبية g شبه ثابتين تقريبًا عند الأعماق المتفاوتة التي يصل إليها الغواص، وهو ما يجعل الخيارين (أ) و(ج) خاطئين.
+
+أما الارتفاع h في هذه العلاقة فيمثل عمق النقطة المقاسة تحت سطح الماء، أي ارتفاع عمود الماء الواقع فوق الغواص، وكلما هبط الغواص إلى عمق أكبر، ازداد ارتفاع (ووزن) عمود الماء الذي يعلوه.
+
+وبما أن الضغط يتناسب طرديًا مع h في هذه العلاقة، فإن ازدياد عمق الغواص يؤدي مباشرة إلى ازدياد الضغط المؤثر عليه.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">إطار سيارة يلامس الأرض بمساحة 150 سم² (أي 0.015 م²)، وتنصح الشركة المصنّعة بألا يقل ضغط نفخ الإطار عن 200000 باسكال حتى يتحمل الإطار وزن السيارة بشكل سليم. احسب أقل قوة (حمل رأسي) يمكن أن يتحملها هذا الإطار عند هذا الضغط.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">من العلاقة الأساسية للضغط:
+P = F ÷ A
+
+يمكن إيجاد القوة F بضرب الضغط في المساحة:
+F = P × A
+
+بالتعويض عن P = 200000 باسكال، وA = 0.015 م²:
+F = 200000 × 0.015
+F = 3000 نيوتن
+
+إذن، أقل قوة (حمل) يمكن أن يتحملها هذا الإطار عند ضغط قدره 200000 باسكال تساوي 3000 نيوتن.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر لماذا تُصمَّم قواعد السدود (الحواجز المائية) بحيث تكون أكثر سُمكًا وصلابة عند القاع منها عند القمة، مستعينًا بمفهوم ضغط السائل P = ρ × g × h.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">وفق العلاقة P = ρ × g × h، يتناسب ضغط السائل عند أي نقطة طرديًا مع عمقها h تحت سطح السائل، مع بقاء كثافة الماء ρ وتسارع الجاذبية g شبه ثابتين.
+
+عند قمة السد (قرب سطح الماء)، يكون العمق h صغيرًا، ومن ثم يكون الضغط المؤثر على جدار السد عند هذه النقطة صغيرًا نسبيًا، فلا يحتاج الجدار في هذا الجزء إلى سُمك كبير لمقاومته.
+
+أما عند قاع السد، فيكون العمق h كبيرًا (يمثل ارتفاع عمود الماء بالكامل تقريبًا)، ومن ثم يكون الضغط المؤثر على الجدار عند هذه النقطة كبيرًا جدًا مقارنة بالقمة.
+
+ولأن قاعدة السد تتعرض لأكبر ضغط ماء، تُصمَّم بسُمك أكبر وموادّ أكثر صلابة حتى تتحمل القوة الكبيرة الناتجة عن هذا الضغط دون أن تنكسر أو تنهار.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 </main>
 <footer>
   <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
@@ -522,6 +682,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة العاشرة: الاضمحلال الإشعاعيّ وعمر النصف — تناقُص النشاط الإشعاعي مع مرور الزمن</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-10</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -479,7 +484,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>الطبيعة العشوائية التلقائية لاضمحلال النواة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>التمييز بين سلوك النواة الفردية وسلوك عدد كبير من الأنوية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>تفسير تناقص معدل العدّ لمصدر مشع مع مرور الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>الشكل العام لمنحنى تناقص معدل العدّ مع الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>تفسير نمط تناقص النشاط بنسبة ثابتة لا بمقدار ثابت<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -519,7 +554,128 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي العبارات التالية تصف بدقة طبيعة عملية الاضمحلال (التحلل) الإشعاعي لنواة غير مستقرة؟ (اختر الإجابة الصحيحة)
+(أ) عملية منتظمة يمكن التنبؤ بدقة باللحظة التي ستتحلل فيها نواة معينة
+(ب) عملية عشوائية وتلقائية، لا يمكن التنبؤ بلحظة تحلل نواة معينة بعينها
+(ج) عملية تحدث فقط عند تسخين المادة المشعة إلى درجة حرارة عالية جدًا
+(د) عملية تتوقف تمامًا إذا وُضعت المادة المشعة في وعاء محكم الغلق</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الاضمحلال الإشعاعي عملية عشوائية (Random) وتلقائية (Spontaneous) تحدث داخل النواة غير المستقرة.
+
+«عشوائية» تعني أنه لا توجد طريقة لمعرفة أو التنبؤ بالضبط متى ستضمحل نواة معينة بعينها؛ فقد تضمحل الآن، أو بعد ثانية، أو بعد آلاف السنين، دون أي إشارة مسبقة.
+
+و«تلقائية» تعني أن العملية لا تتأثر بالعوامل الخارجية مثل درجة الحرارة أو الضغط أو الحالة الكيميائية التي توجد فيها المادة أو غلق الوعاء الذي توضع فيه؛ فهي خاصية نووية داخلية بحتة لا يمكن التحكم فيها أو إيقافها من الخارج.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر لماذا لا يمكن التنبؤ باللحظة التي ستتحلل فيها نواة مشعة واحدة بعينها، رغم إمكانية التنبؤ بسلوك عدد كبير جدًا من الأنوية المتماثلة (كمعدل تناقص النشاط الكلي) بدقة عالية نسبيًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">اضمحلال أي نواة مفردة حدث عشوائي بحت يحكمه الاحتمال، ولا يعتمد على عمر النواة أو تاريخها أو الظروف المحيطة بها، ولذلك لا توجد أي وسيلة فيزيائية لمعرفة الزمن الدقيق الذي ستضمحل فيه نواة معينة بالذات.
+
+لكن عندما يحتوي المصدر المشع على عدد هائل جدًا من الأنوية غير المستقرة (قد يصل إلى مليارات المليارات من الأنوية)، فإن قوانين الاحتمال والإحصاء تجعل السلوك الكلي للمجموعة قابلًا للتنبؤ بدقة عالية جدًا، حتى وإن كان سلوك كل نواة على حدة عشوائيًا تمامًا.
+
+فكما أنه من المستحيل التنبؤ بنتيجة رمية نرد واحدة، لكن يمكن التنبؤ بمعدل ظهور كل رقم بدقة عالية عند رمي النرد ملايين المرات؛ كذلك يمكن التنبؤ بأن نسبة ثابتة من العدد الكلي للأنوية غير المستقرة ستضمحل خلال فترة زمنية معينة، وهذا ما يجعل معدل تناقص النشاط الإشعاعي الكلي للعينة يتبع نمطًا منتظمًا وقابلًا للتنبؤ، رغم أن كل حدث اضمحلال منفرد عشوائي بطبيعته.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يحتوي مصدر مشع في لحظة البدء على عدد كبير من الأنوية غير المستقرة. وضّح لماذا يتناقص معدل نشاطه الإشعاعي (معدل العدّ) باستمرار مع مرور الوقت، ولماذا لا يمكن أن يزداد هذا المعدل من تلقاء نفسه.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">معدل نشاط المصدر (معدل العدّ) يتناسب طرديًا مع عدد الأنوية غير المستقرة المتبقية فيه في أي لحظة؛ فكلما زاد عدد هذه الأنوية، زاد عدد حالات الاضمحلال المسجَّلة في وحدة الزمن.
+
+ومع مرور الوقت، تستمر الأنوية غير المستقرة في الاضمحلال وتتحول إلى أنوية أخرى (غالبًا مستقرة أو أقل نشاطًا)، وهذا التحول عملية أحادية الاتجاه لا رجعة فيها؛ فالنواة التي اضمحلت لا تعود نواة أصلية غير مستقرة مرة أخرى.
+
+ونتيجة لذلك، يستمر العدد الكلي للأنوية غير المستقرة المتبقية في العينة بالتناقص باستمرار، وبما أن معدل النشاط يتناسب مع هذا العدد، فإن معدل العدّ يتناقص هو الآخر باستمرار مع الزمن.
+
+ولا يمكن أن يزداد معدل النشاط من تلقاء نفسه لأنه لا توجد آلية طبيعية تُنتج أنوية غير مستقرة جديدة داخل العينة لتعويض ما اضمحل؛ فالعدد الكلي للأنوية غير المستقرة لا يمكن إلا أن يبقى ثابتًا أو يتناقص، وهو في الواقع يتناقص دائمًا ما دام هناك اضمحلال مستمر.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">رُسم منحنى يمثّل العلاقة بين معدل العدّ (النشاط) لمصدر مشع والزمن، باستخدام عدّاد جايجر-مولر بعد استبعاد الإشعاع الخلفي. أي وصف يمثّل الشكل العام الصحيح لهذا المنحنى؟ (اختر الإجابة الصحيحة)
+(أ) خط مستقيم يتناقص بمعدل ثابت حتى يصل إلى الصفر تمامًا في زمن محدد
+(ب) منحنى يتناقص بسرعة في البداية، ثم يتباطأ تناقصه تدريجيًا ويقترب من الصفر دون أن يصل إليه فعليًا خلال زمن قصير
+(ج) منحنى يزداد باستمرار مع الزمن دون حدّ أقصى
+(د) خط أفقي ثابت القيمة طوال الزمن لأن النشاط الإشعاعي لا يتغير</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن معدل النشاط يتناسب مع عدد الأنوية غير المستقرة المتبقية، وأن هذا العدد يتناقص بنسبة ثابتة (وليس بمقدار ثابت) خلال كل فترة زمنية متساوية، فإن التناقص يكون سريعًا في البداية عندما يكون عدد الأنوية غير المستقرة كبيرًا، ثم يتباطأ تدريجيًا كلما قلّ العدد المتبقي.
+
+هذا يعطي منحنى ينخفض بشكل حاد في البداية ثم يصبح أكثر استواءً مع الزمن، ويقترب باستمرار من الصفر نظريًا دون أن يصل إليه فعليًا خلال أي زمن محدود قصير، لأن كسرًا معينًا من الأنوية يبقى دائمًا غير متحلل مهما طالت المدة (نظريًا).
+
+أما الخط المستقيم المنتظم التناقص، أو الخط الثابت، أو المنحنى المتزايد، فلا يتفق أي منها مع طبيعة الاضمحلال الإشعاعي العشوائي التراكمي.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لاحظ طالب أن معدل عدّ مصدر مشع كان 800 نبضة/دقيقة، ثم أصبح 400 نبضة/دقيقة بعد مرور فترة زمنية معينة، ثم أصبح 200 نبضة/دقيقة بعد مرور فترة زمنية أخرى مساوية للأولى تمامًا. فسّر ماذا يخبرنا هذا النمط عن طريقة تناقص النشاط الإشعاعي مع الزمن: هل يتناقص بمقدار ثابت أم بنسبة ثابتة في كل فترة زمنية متساوية؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">في الفترة الزمنية الأولى، انخفض معدل العدّ من 800 إلى 400 نبضة/دقيقة، أي بمقدار مطلق قدره 400 نبضة/دقيقة.
+
+أما في الفترة الزمنية الثانية (المساوية للأولى في الطول)، فقد انخفض معدل العدّ من 400 إلى 200 نبضة/دقيقة، أي بمقدار مطلق قدره 200 نبضة/دقيقة فقط، وهو مقدار مختلف عن مقدار الانخفاض في الفترة الأولى.
+
+إذن النشاط الإشعاعي لا يتناقص بمقدار ثابت في كل فترة زمنية متساوية، بل بنسبة ثابتة؛ فكل مرة، أصبح معدل العدّ يساوي نصف قيمته في بداية تلك الفترة بالضبط (800 إلى 400 هو نصف، و400 إلى 200 هو نصف أيضًا).
+
+هذا يعني أن هناك زمنًا ثابتًا ومحددًا يلزم مرور مثله في كل مرة لكي يصبح معدل النشاط نصف قيمته السابقة، وهذا الزمن الثابت هو ما يُعرف بـ«عمر النصف» للمادة المشعة، والذي سيُدرس بتفصيل أكبر لاحقًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -538,6 +694,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

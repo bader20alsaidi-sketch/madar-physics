@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.5</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>69-71</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -524,7 +524,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>اختيار المعادلة المناسبة لإيجاد التسارع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>توضيح الحالة المناسبة لاستخدام معادلة السرعة والمسافة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب تباطؤ وزمن توقف قطار<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>حساب المسافة والسرعة النهائية لجسم متسارع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>إيجاد تسارع دراجة باستخدام معادلة بدون زمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -646,7 +676,143 @@ S = 10 m</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سيارة تتحرك بتسارع منتظم غير معلوم a، وتنطلق من سرعة ابتدائية u معلومة، وتقطع مسافة s معلومة خلال زمن t معلوم، دون أن تُعطى سرعتها النهائية v. أي معادلات الحركة التالية هي الأنسب لإيجاد التسارع a مباشرة دون الحاجة لحساب v أولاً؟ (اختر الإجابة الصحيحة)
+(أ) v = u + at
+(ب) s = ut + ½at²
+(ج) v² = u² + 2as
+(د) s = (u + v)t / 2</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند اختيار معادلة حركة مناسبة لحل مسألة ما، يجب تحديد الكميات المعلومة والكمية المطلوبة، ثم اختيار المعادلة التي لا تحتوي على أي كمية غير معلومة عدا المطلوبة.
+
+في هذه المسألة، الكميات المعلومة هي: السرعة الابتدائية u، والمسافة s، والزمن t، والمطلوب هو التسارع a. أما السرعة النهائية v فهي غير معلومة وغير مطلوبة.
+
+المعادلتان (أ) و(د) تحتويان على v، وكذلك المعادلة (ج)، وبالتالي لا يمكن استخدام أي منها مباشرة دون حساب v أولاً.
+
+أما المعادلة (ب): s = ut + ½at² فهي تربط بين s وu وt وa فقط، وجميعها معلومة ما عدا a، لذا يمكن استخدامها مباشرة لإيجاد التسارع بالتعويض وحل معادلة من الدرجة الأولى في a.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح متى تكون معادلة الحركة v² = u² + 2as هي الخيار الأنسب لحل مسألة حركة بتسارع منتظم، مقارنة بالمعادلات الأخرى.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">تُستخدم معادلة v² = u² + 2as عندما تكون الكميات المعلومة في المسألة هي السرعة الابتدائية u والتسارع a والمسافة المقطوعة s، ويكون المطلوب هو السرعة النهائية v، دون أن يُذكر الزمن t في المسألة أو يُطلب حسابه.
+
+بما أن هذه المعادلة هي المعادلة الوحيدة من بين معادلات الحركة الأربع التي لا تحتوي على الزمن t، فإنها تكون الأنسب في المسائل التي لا يُعطى فيها الزمن ولا يكون مطلوبًا، لأنها توفر حل المسألة مباشرة بخطوة واحدة دون الحاجة لحساب t كخطوة وسيطة.
+
+إذن: تُستخدم v² = u² + 2as كلما كان الزمن غير معلوم وغير مطلوب في المسألة، وكانت بقية الكميات الثلاث (u أو v، وa، وs) معلومة أو مطلوبة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك قطار بسرعة منتظمة قدرها 30 m/s، ثم يبدأ السائق بالكبح فيتباطأ القطار بمعدل منتظم حتى يتوقف تمامًا بعد قطع مسافة 300 m. احسب:
+(أ) مقدار تباطؤ القطار.
+(ب) الزمن اللازم لتوقف القطار.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المعطيات: السرعة الابتدائية u = 30 m/s، السرعة النهائية v = 0 (لأن القطار يتوقف)، المسافة s = 300 m.
+
+(أ) لإيجاد التباطؤ a، نستخدم المعادلة التي لا تحتوي على الزمن: v² = u² + 2as.
+بالتعويض: 0² = 30² + 2×a×300
+0 = 900 + 600a
+a = −900 / 600 = −1.5 m/s²
+
+إشارة السالب تدل على أن التسارع في اتجاه معاكس لاتجاه الحركة، أي أنه تباطؤ مقداره 1.5 m/s².
+
+(ب) لإيجاد الزمن، نستخدم المعادلة v = u + at:
+0 = 30 + (−1.5)×t
+t = 30 / 1.5 = 20 s
+
+إذن: تباطؤ القطار يساوي 1.5 m/s²، والزمن اللازم لتوقفه هو 20 s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك جسم بتسارع منتظم مقداره 4 m/s²، وكانت سرعته الابتدائية 5 m/s. احسب:
+(أ) المسافة التي يقطعها الجسم خلال أول 6 s من حركته.
+(ب) سرعته النهائية عند نهاية هذه الفترة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">المعطيات: u = 5 m/s، a = 4 m/s²، t = 6 s.
+
+(أ) باستخدام المعادلة s = ut + ½at²:
+s = (5×6) + (½×4×6²)
+s = 30 + (½×4×36)
+s = 30 + 72 = 102 m
+
+(ب) باستخدام المعادلة v = u + at:
+v = 5 + (4×6) = 5 + 24 = 29 m/s
+
+إذن: يقطع الجسم مسافة مقدارها 102 m، وتصبح سرعته النهائية 29 m/s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ينطلق دراج بسرعة 2 m/s ثم يزيد من سرعته بمعدل منتظم حتى تصل سرعته إلى 8 m/s بعد قطع مسافة 25 m. احسب مقدار تسارع الدراج خلال هذه الفترة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">المعطيات: u = 2 m/s، v = 8 m/s، s = 25 m، والمطلوب a دون معرفة الزمن t.
+
+نستخدم المعادلة v² = u² + 2as لأنها لا تحتوي على الزمن:
+8² = 2² + 2×a×25
+64 = 4 + 50a
+50a = 60
+a = 60 / 50 = 1.2 m/s²
+
+إذن: تسارع الدراج يساوي 1.2 m/s².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

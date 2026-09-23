@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة السادسة: الشغل والقدرة — القدرة</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3-6</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -488,7 +493,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>مقارنة قدرة المصعد والسلم عند إنجاز الشغل نفسه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>تعريف القدرة وعلاقتها الرياضية ووحدتها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>حساب قدرة رافعة كهربائية من الشغل والزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب الطاقة المستهلكة من قدرة غلاية كهربائية وزمن تشغيلها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>مقارنة قدرتين لمضختين تنجزان الشغل نفسه بزمنين مختلفين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -551,7 +586,136 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمكن لمصعد كهربائي وسلّم عادي (يصعده شخص مشيًا) أن ينقلا الشخص نفسه إلى الارتفاع الرأسي نفسه، لكن المصعد ينجز ذلك في وقت أقل بكثير من الوقت الذي يستغرقه صعود السلم مشيًا. إذا كان الشغل المبذول لرفع الشخص إلى الارتفاع نفسه متساويًا تقريبًا في الحالتين، فأي العبارات التالية صحيحة بخصوص القدرة؟ (اختر الإجابة الصحيحة)
+(أ) قدرة المصعد أقل من قدرة الشخص لأنه ينجز الشغل في زمن أقل
+(ب) قدرة المصعد أكبر، لأنه ينجز مقدار الشغل نفسه تقريبًا خلال زمن أقصر بكثير
+(ج) القدرة في الحالتين متساوية تمامًا لأن مقدار الشغل المبذول متساوٍ في الحالتين
+(د) لا يمكن مقارنة القدرة بين المصعد والشخص إلا إذا تساوى الزمن المستغرق في الحالتين</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">القدرة تُعرَّف بأنها معدل إنجاز الشغل (أو نقل الطاقة) خلال وحدة الزمن، وتُعطى بالعلاقة P = W ÷ t.
+
+بما أن الشغل المبذول W متساوٍ تقريبًا في الحالتين (نفس الشخص إلى نفس الارتفاع)، فإن القدرة تعتمد فقط على الزمن t المستغرق: فكلما قلّ الزمن اللازم لإنجاز الشغل نفسه، ازدادت القدرة.
+
+بما أن المصعد ينقل الشخص إلى الارتفاع نفسه خلال زمن أقصر بكثير من زمن صعود السلم مشيًا، فإن قدرة المصعد تكون أكبر من قدرة الشخص الصاعد على السلم.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف القدرة في الفيزياء، واكتب علاقتها الرياضية بدلالة الشغل المبذول (أو الطاقة المنقولة) والزمن اللازم لإنجاز هذا الشغل، مع ذكر وحدة قياس القدرة في النظام الدولي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">القدرة هي معدل إنجاز الشغل، أو بشكل أعم معدل نقل الطاقة أو تحويلها، خلال وحدة الزمن.
+
+تُعطى العلاقة الرياضية للقدرة بالصيغة:
+P = W ÷ t
+وتكافئها أيضًا الصيغة P = E ÷ t عند استخدام الطاقة المنقولة E بدلًا من الشغل W.
+حيث P هي القدرة، وW (أو E) هو الشغل المبذول (أو الطاقة المنقولة)، وt هو الزمن اللازم لذلك.
+
+وحدة قياس القدرة في النظام الدولي هي الواط (Watt، ويُرمز له بـ W)، ويكافئ الواط الواحد جول واحد لكل ثانية واحدة (J/s).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بُذل شغل مقداره 6000 جول خلال 25 ثانية لرفع أحمال باستخدام رافعة كهربائية صغيرة. احسب قدرة هذه الرافعة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">تُحسب القدرة من العلاقة:
+P = W ÷ t
+
+بالتعويض عن W = 6000 جول، وt = 25 ثانية:
+P = 6000 ÷ 25
+P = 240 واط
+
+إذن، قدرة هذه الرافعة الكهربائية تساوي 240 واط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">غلاية كهربائية (سخان ماء) مكتوب على ملصقها أن قدرتها المقنّنة تساوي 2000 واط. إذا شُغّلت هذه الغلاية بشكل متصل لمدة 3 دقائق، فاحسب مقدار الطاقة الكهربائية التي تحوّلت خلال هذه المدة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">أولًا يجب تحويل الزمن من دقائق إلى ثوانٍ:
+t = 3 × 60 = 180 ثانية
+
+بما أن القدرة تُعطى بالعلاقة P = E ÷ t، فإن الطاقة E تُحسب من العلاقة:
+E = P × t
+
+بالتعويض عن P = 2000 واط، وt = 180 ثانية:
+E = 2000 × 180
+E = 360000 جول (أي 3.6 × 10⁵ جول، أو ما يعادل 360 كيلوجول)
+
+إذن، الطاقة الكهربائية التي تحوّلت في الغلاية خلال 3 دقائق تساوي 360000 جول.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحتاج مضخة مائية إلى إنجاز شغل مقداره 4500 جول لرفع كمية معينة من الماء إلى خزان مرتفع. إذا أنجزت المضخة الأولى هذا الشغل خلال 15 ثانية، بينما أنجزت مضخة ثانية أضعف الشغل نفسه خلال 30 ثانية، احسب قدرة كل من المضختين، ثم بيّن أيهما ذات قدرة أكبر.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">تُحسب قدرة المضخة الأولى من العلاقة P = W ÷ t:
+P₁ = 4500 ÷ 15
+P₁ = 300 واط
+
+وتُحسب قدرة المضخة الثانية بالطريقة نفسها:
+P₂ = 4500 ÷ 30
+P₂ = 150 واط
+
+بمقارنة القيمتين، نجد أن P₁ = 300 واط أكبر من P₂ = 150 واط.
+
+إذن، المضخة الأولى هي الأكبر قدرةً، لأنها أنجزت مقدار الشغل نفسه في زمن أقل من زمن المضخة الثانية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 </main>
 <footer>
   <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
@@ -567,6 +731,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

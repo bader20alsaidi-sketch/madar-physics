@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الرابعة: تأثيرات القوى — القوى المؤثّرة على قطار الملاهي</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-4</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -478,7 +483,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>تصنيف القوى المؤثرة على عربة قطار الملاهي إلى تلامسية وعن بُعد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>تعريف قوة رد الفعل العمودي واتجاهها على مسار أفقي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>القوتان المحددتان لتغير سرعة العربة أثناء الانحدار الحر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>اتجاه الوزن ورد الفعل عند أعلى نقطة في حلقة رأسية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>التمييز بين زوج قوى نيوتن الثالث وزوج القوى المتزن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -521,7 +556,132 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثناء صعود عربة قطار الملاهي على مسار مستقيم بواسطة سلسلة تسحبها إلى الأعلى، تؤثر عليها عدة قوى. أي من القوى التالية المؤثرة على العربة تُصنَّف على أنها قوة تؤثر عن بُعد (لا تحتاج إلى تلامس مباشر)؟ (اختر الإجابة الصحيحة)
+(أ) قوة الشد التي تؤثر بها السلسلة على العربة
+(ب) قوة الاحتكاك بين عجلات العربة والمسار
+(ج) وزن العربة الناتج عن جذب الأرض لها
+(د) قوة رد الفعل العمودي من المسار على العربة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">تُقسَّم القوى إلى نوعين رئيسيين: قوى تلامسية تحتاج إلى ملامسة مباشرة بين الجسمين المتفاعلين (مثل قوة الشد، والاحتكاك، ورد الفعل العمودي)، وقوى تؤثر عن بُعد لا تحتاج إلى أي تلامس بين الجسمين.
+
+قوة الشد في السلسلة تنتج عن تلامس السلسلة بالعربة، وقوة الاحتكاك تنتج عن تلامس العجلات بالمسار، وقوة رد الفعل العمودي تنتج أيضًا عن تلامس العربة بالمسار، لذا فهذه الثلاث كلها قوى تلامسية.
+
+أما وزن العربة فينتج عن قوة الجاذبية بين كتلة الأرض وكتلة العربة، وهذه القوة تؤثر حتى لو لم تكن العربة ملامسة للأرض أو للمسار مباشرة، أي أنها تؤثر عن بُعد عبر مجال الجاذبية.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عندما تتحرك عربة قطار الملاهي على جزء أفقي مستقيم من المسار، تؤثر الأرض (المسار) على العربة بقوة تُسمى قوة رد الفعل العمودية (Normal Reaction Force). عرّف هذه القوة، وبيّن اتجاهها بالنسبة لسطح المسار في هذه الحالة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">قوة رد الفعل العمودية هي القوة التلامسية التي يؤثر بها أي سطح صلب على جسم يستقر أو يتحرك فوقه، وتكون دائمًا عمودية (منتصبة) على سطح التلامس، وتتجه من السطح نحو الجسم (أي بعيدًا عن السطح).
+
+في حالة المسار الأفقي المستقيم، يكون سطح التلامس بين عجلات العربة والمسار أفقيًا، لذا فإن قوة رد الفعل العمودية تتجه رأسيًا إلى الأعلى، أي في الاتجاه المعاكس تمامًا لوزن العربة الذي يتجه رأسيًا إلى الأسفل.
+
+بما أن العربة لا تتسارع في الاتجاه الرأسي (تبقى على المسار ولا تخترقه ولا ترتفع عنه)، فإن مقدار قوة رد الفعل العمودية يساوي مقدار وزن العربة في هذه الحالة تحديدًا.
+
+إذن: قوة رد الفعل العمودية قوة تلامسية تؤثر بها المسار على العربة، عموديةٌ على سطح المسار، وتتجه هنا رأسيًا إلى الأعلى بمقدار يساوي وزن العربة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تنحدر عربة قطار الملاهي على جزء مستقيم مائل من المسار دون أن تدفعها أي سلسلة أو محرك. حدِّد نوعي القوتين اللتين تحدّدان معًا ما إذا كانت سرعة العربة ستزداد أم تقل أثناء الانحدار، ووضّح تأثير كل منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">عندما تنحدر العربة على مسار مائل بلا قوة دفع خارجية، فإن الحركة على طول المسار يحكمها بشكل أساسي مركّبة وزن العربة الموازية للمسار، وقوة الاحتكاك بين العجلات والمسار.
+
+مركّبة الوزن الموازية لسطح المسار تتجه دائمًا إلى أسفل المنحدر (في اتجاه الحركة)، وهي التي تعمل على زيادة سرعة العربة أثناء نزولها.
+
+أما قوة الاحتكاك فتؤثر دائمًا في الاتجاه المعاكس لاتجاه حركة العربة، أي إلى أعلى المنحدر، وبذلك تعمل على مقاومة الحركة وتقليل مقدار الزيادة في السرعة.
+
+فإذا كانت مركّبة الوزن الموازية للمسار أكبر من قوة الاحتكاك، تكون هناك قوة محصّلة في اتجاه الحركة فتزداد سرعة العربة أثناء الانحدار، وهذا هو المعتاد في مسارات قطار الملاهي المصمَّمة لتحقيق التسارع.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند مرور عربة قطار الملاهي بأعلى نقطة في حلقة (Loop) رأسية دائرية، تؤثر عليها كل من وزنها وقوة رد الفعل من المسار. أي مما يلي يصف الاتجاه الصحيح لهاتين القوتين عند تلك النقطة؟ (اختر الإجابة الصحيحة)
+(أ) كلتا القوتين تتجهان إلى الأعلى (بعيدًا عن مركز الحلقة)
+(ب) الوزن يتجه إلى الأسفل، ورد الفعل من المسار يتجه إلى الأسفل أيضًا (نحو مركز الحلقة)
+(ج) الوزن يتجه إلى الأسفل، ورد الفعل من المسار يتجه إلى الأعلى (بعيدًا عن مركز الحلقة)
+(د) كلتا القوتين تتجهان أفقيًا في اتجاهين متعاكسين</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">لكي تتحرك العربة في مسار دائري، يجب أن توجد قوة محصّلة تتجه دائمًا نحو مركز الدائرة (القوة المركزية)، بصرف النظر عن موضع العربة على الحلقة.
+
+عند أعلى نقطة في الحلقة، يقع مركز الحلقة أسفل العربة، لذا فإن القوة المحصّلة المطلوبة يجب أن تتجه إلى الأسفل عند هذه النقطة بالذات.
+
+وزن العربة يتجه دائمًا إلى الأسفل بسبب الجاذبية. وبما أن العربة تتحرك على السطح الداخلي لأنبوب الحلقة عند القمة، فإن المسار يدفعها أيضًا نحو مركز الحلقة، أي إلى الأسفل هو الآخر.
+
+وبذلك يجتمع كل من الوزن ورد الفعل من المسار، وكلاهما يتجه إلى الأسفل (نحو مركز الحلقة)، ليكوّنا معًا القوة المحصّلة اللازمة لإبقاء العربة تتحرك على المسار الدائري عند تلك النقطة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وفقًا للقانون الثالث لنيوتن، لكل قوة تؤثر بها عربة قطار الملاهي على المسار (عبر عجلاتها) قوة مقابلة لها. صف هذه القوة المقابلة من حيث المقدار والاتجاه ومكان تأثيرها، ووضّح لماذا لا تُعتبر هذه القوة وقوة رد الفعل العمودي المؤثرة على العربة زوج قوى متزنًا (متوازنًا) رغم تساويهما أحيانًا في المقدار.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">ينص القانون الثالث لنيوتن على أنه إذا أثّر جسم A بقوة على جسم B، فإن الجسم B يؤثر بدوره على الجسم A بقوة تساويها في المقدار وتعاكسها في الاتجاه.
+
+وبتطبيق ذلك: إذا أثّرت عجلات العربة على المسار بقوة إلى الأسفل (نتيجة وزن العربة المنقول عبر العجلات)، فإن المسار يؤثر بالمقابل على عجلات العربة بقوة مساوية لها في المقدار ومعاكسة لها في الاتجاه، أي إلى الأعلى، وهذه القوة تؤثر على العربة (على جسم مختلف عن الجسم الذي أثّرت عليه القوة الأولى).
+
+أما زوج القوى المتزن (المتوازن) فيجب أن يؤثر كلا طرفيه على الجسم نفسه، بحيث تلغي إحداهما أثر الأخرى فيكون محصّلهما صفرًا على ذلك الجسم.
+
+قوة رد الفعل من المسار على العربة، ووزن العربة، كلتاهما تؤثران على نفس الجسم (العربة)، فهما قد تكونان زوجًا متزنًا إذا تساويا في المقدار وتعاكسا في الاتجاه. أما قوة رد فعل نيوتن الثالث فهي تؤثر على المسار وليس على العربة، لذا فهي لا يمكن أبدًا أن تكوّن مع قوة أخرى مؤثرة على العربة زوجًا متزنًا، رغم أنها قد تتساوى معها أحيانًا في المقدار لأسباب أخرى.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 </main>
 <footer>
   <div>فيزياء — الصف العاشر، الفصل الدراسي الأول.</div>
@@ -537,6 +697,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

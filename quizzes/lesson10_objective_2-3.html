@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.3</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>43, 48</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -519,7 +519,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>العبارة الصحيحة للفرق بين المسافة والإزاحة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>متى تتساوى المسافة مع مقدار الإزاحة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>حساب المسافة والإزاحة لمسار على شكل زاوية قائمة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>حساب المسافة والإزاحة لحركة ذهاب وعودة جزئية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>المسافة والإزاحة لمسار على شكل مثلث 3-4-5<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -596,7 +626,132 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي العبارات التالية تصف بشكل صحيح الفرق بين المسافة (distance) والإزاحة (displacement)؟ (اختر الإجابة الصحيحة)
+(أ) المسافة كمّية متجهة تعتمد على المسار، بينما الإزاحة كمّية عددية لا تعتمد على المسار
+(ب) المسافة والإزاحة كلاهما كمّيتان متجهتان، ولهما دائمًا نفس القيمة
+(ج) المسافة كمّية عددية تساوي طول المسار الكلي المقطوع، بينما الإزاحة كمّية متجهة تساوي المسافة المستقيمة بين نقطتي البداية والنهاية مع تحديد الاتجاه
+(د) المسافة تُقاس بالمتر فقط، بينما الإزاحة تُقاس بالمتر في الثانية</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">المسافة (distance) كمّية عددية تمثّل الطول الكلي للمسار الفعلي الذي يقطعه الجسم، بصرف النظر عن اتجاه حركته أو عن أي انحناءات أو تغيّرات في اتجاهه أثناء الحركة.
+
+أما الإزاحة (displacement) فهي كمّية متجهة تمثّل التغيّر في الموضع، أي المسافة المستقيمة الفاصلة بين نقطة البداية ونقطة النهاية فقط، مع تحديد اتجاهها، بصرف النظر عن شكل المسار الذي سلكه الجسم فعليًا.
+
+لذلك فإن مقدار الإزاحة يكون دائمًا أقل من أو يساوي المسافة الكلية المقطوعة، ولا يزيد عنها أبدًا.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف كلًا من المسافة والإزاحة، ثم اذكر الشرط الذي يجب أن يتحقق حتى يتساوى مقدار الإزاحة مع المسافة الكلية المقطوعة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">المسافة هي طول المسار الكلي الذي يقطعه جسم متحرك، وهي كمّية عددية تُجمع بشكل جبري بسيط بصرف النظر عن اتجاه الحركة.
+
+الإزاحة هي التغيّر في موضع الجسم، أي متجه يصل بين نقطة البداية ونقطة النهاية مباشرة (بخط مستقيم)، وتُحدَّد بمقدار واتجاه معًا.
+
+يتساوى مقدار الإزاحة مع المسافة الكلية فقط عندما يتحرك الجسم في خط مستقيم واحد دون أن يغيّر اتجاه حركته إطلاقًا طوال الرحلة، أي عندما يكون المسار المتبع مطابقًا تمامًا للمسافة المستقيمة الفاصلة بين نقطتي البداية والنهاية.
+
+أما إذا غيّر الجسم اتجاهه ولو مرة واحدة خلال حركته (كأن يتحرك في مسار منحنٍ، أو يعود أدراجه، أو يغيّر مساره بزاوية)، فإن مقدار الإزاحة يصبح أصغر من المسافة الكلية المقطوعة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سار شخص مسافة 80 m متجهًا نحو الشرق، ثم غيّر اتجاهه وسار مسافة 60 m متجهًا نحو الشمال. احسب: (a) المسافة الكلية التي قطعها. (b) مقدار إزاحته الكلية واتجاهها بالنسبة إلى اتجاه الشرق.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(a) المسافة الكلية = مجموع طولي المسارين = 80 + 60 = 140 m.
+
+(b) لحساب مقدار الإزاحة، نلاحظ أن المسارين (شرقًا ثم شمالًا) متعامدان، فيشكّلان مع الإزاحة المحصّلة مثلثًا قائم الزاوية، ويمكن إيجاد مقدار الإزاحة باستخدام نظرية فيثاغورس:
+مقدار الإزاحة = √(80² + 60²) = √(6400 + 3600) = √10000 = 100 m.
+
+لإيجاد اتجاه الإزاحة بالنسبة إلى اتجاه الشرق، نستخدم دالة الظل:
+الزاوية θ = tan⁻¹(60 ÷ 80) = tan⁻¹(0.75) ≈ 36.9°.
+
+إذن الإزاحة الكلية مقدارها 100 m، وتتجه بزاوية 36.9° شمال الشرق. ونلاحظ أن مقدار الإزاحة (100 m) أقل من المسافة الكلية المقطوعة (140 m)، لأن الشخص غيّر اتجاه حركته أثناء المسار.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحرّكت دراجة مسافة 200 m باتجاه الشرق، ثم عادت فتحركت مسافة 150 m باتجاه الغرب. احسب: (a) المسافة الكلية التي قطعتها الدراجة. (b) مقدار إزاحتها النهائية واتجاهها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) المسافة كمّية عددية تُجمع دون اعتبار للاتجاه:
+المسافة الكلية = 200 + 150 = 350 m.
+
+(b) الإزاحة كمّية متجهة، ولحسابها نعتبر اتجاه الشرق موجبًا واتجاه الغرب سالبًا (لأنهما على خط حركة واحد متعاكس):
+الإزاحة الكلية = (+200) + (−150) = +50 m.
+
+الإشارة الموجبة تعني أن الإزاحة المحصّلة في اتجاه الشرق (اتجاه الحركة الأولى الأكبر).
+
+إذن مقدار الإزاحة الكلية = 50 m باتجاه الشرق، في حين أن المسافة الكلية المقطوعة = 350 m، وهو فرق كبير بينهما ناتج عن عودة الدراجة جزئيًا في الاتجاه المعاكس.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سارت مجموعة كشفية مسافة 3 km متجهة نحو الشمال، ثم غيّرت اتجاهها وسارت مسافة 4 km متجهة نحو الشرق. احسب المسافة الكلية التي قطعتها المجموعة، ومقدار إزاحتها الكلية واتجاهها بالنسبة إلى الشمال.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">المسافة الكلية المقطوعة = مجموع طولي القطعتين = 3 + 4 = 7 km.
+
+بما أن المسارين (شمالًا ثم شرقًا) متعامدان، فإن الإزاحة المحصّلة هي الوتر في مثلث قائم الزاوية ضلعاه 3 km و4 km، ويمكن حسابها بنظرية فيثاغورس:
+مقدار الإزاحة = √(3² + 4²) = √(9 + 16) = √25 = 5 km.
+
+لإيجاد اتجاه الإزاحة بالنسبة إلى اتجاه الشمال، نستخدم دالة الظل بين ضلع الشرق (المقابل) وضلع الشمال (المجاور):
+الزاوية θ = tan⁻¹(4 ÷ 3) ≈ 53.1°.
+
+إذن مقدار الإزاحة الكلية = 5 km، بزاوية 53.1° شرق الشمال، وهي أقل بكثير من المسافة الكلية المقطوعة (7 km)، بسبب تغيّر اتجاه المسار في منتصف الرحلة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

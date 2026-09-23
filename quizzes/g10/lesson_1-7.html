@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة السابعة: الضغط — الضغط على سطح</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-7</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -490,7 +495,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>تفسير سهولة قطع السكين الحاد فيزيائيًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>تعريف الضغط والعلاقة الرياضية ووحدته<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب ضغط شخص واقف على الأرض من وزنه ومساحة قدميه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>إيجاد أقل مساحة قاعدة لتحقيق حد أقصى للضغط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>سبب استخدام أحذية عريضة على الثلوج الطرية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -554,7 +589,139 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يستطيع السكين الحاد قطع الطماطم بسهولة أكبر بكثير من السكين الأصم (غير الحاد) عند الضغط عليها بنفس القوة تقريبًا. ما التفسير الفيزيائي الصحيح لذلك؟ (اختر الإجابة الصحيحة)
+(أ) السكين الحاد أخف وزنًا من السكين الأصم
+(ب) مساحة حافة السكين الحاد أكبر من مساحة حافة السكين الأصم، فيزداد الضغط الناتج عن القوة نفسها
+(ج) مساحة حافة السكين الحاد أصغر بكثير من مساحة حافة السكين الأصم، فينتج عن القوة نفسها ضغط أكبر بكثير مركّز على مساحة صغيرة جدًا
+(د) السكين الحاد يبذل شغلًا أكبر من السكين الأصم على الطماطم</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الضغط يُعرَّف بأنه القوة العمودية المؤثرة على وحدة المساحات، ويُعطى بالعلاقة P = F ÷ A.
+
+من هذه العلاقة، عند تثبيت مقدار القوة F، فإن الضغط P يتناسب عكسيًا مع مساحة التلامس A؛ فكلما صغرت المساحة التي تؤثر عليها القوة نفسها، ازداد الضغط الناتج بشكل كبير.
+
+حافة السكين الحاد مطروقة ومصقولة بحيث تكون مساحتها صغيرة جدًا مقارنة بحافة السكين الأصم الأكثر سمكًا واستدارة، فعند الضغط بنفس القوة تقريبًا، ينتج عن السكين الحاد ضغط أكبر بكثير مركّز على مساحة صغيرة، مما يجعله قادرًا على قطع الطماطم (أو غيرها) بسهولة أكبر.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف الضغط المؤثر على سطح، واكتب العلاقة الرياضية بين الضغط والقوة العمودية المؤثرة على السطح ومساحة هذا السطح، مع ذكر وحدة قياس الضغط في النظام الدولي وما تكافئه من وحدات أساسية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الضغط هو مقدار القوة العمودية المؤثرة على وحدة المساحات من سطح ما.
+
+تُعطى العلاقة الرياضية للضغط بالصيغة:
+P = F ÷ A
+حيث P هو الضغط، وF هي القوة العمودية المؤثرة على السطح، وA هي مساحة السطح الذي تؤثر عليه القوة.
+
+وحدة قياس الضغط في النظام الدولي هي الباسكال (Pascal، ويُرمز له بـ Pa)، ويكافئ الباسكال الواحد نيوتن لكل متر مربع واحد (N/m²).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يقف شخص كتلته 60 كجم بشكل مستقيم على الأرض، وتبلغ المساحة الكلية لباطن قدميه الملامسة للأرض 300 سم² (أي 0.03 م²). احسب الضغط الذي يؤثر به هذا الشخص على الأرض. (خذ تسارع الجاذبية الأرضية g = 10 م/ث²)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">القوة العمودية المؤثرة على الأرض هي وزن الشخص، ويُحسب من العلاقة:
+F = m × g
+F = 60 × 10 = 600 نيوتن
+
+يُحسب الضغط من العلاقة:
+P = F ÷ A
+
+بالتعويض عن F = 600 نيوتن، وA = 0.03 م²:
+P = 600 ÷ 0.03
+P = 20000 باسكال (أي 2 × 10⁴ Pa)
+
+إذن، الضغط الذي يؤثر به الشخص على الأرض يساوي 20000 باسكال.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صندوق وزنه 900 نيوتن موضوع على أرض رملية طرية، ويراد ألا يتجاوز الضغط الذي يؤثر به على الأرض 4500 باسكال حتى لا تنغرس قوائمه في التربة. احسب أقل مساحة تلامس مع الأرض يجب أن تكون عليها قاعدة الصندوق لتحقيق ذلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">من العلاقة الأساسية للضغط:
+P = F ÷ A
+
+يمكن إيجاد المساحة A بقسمة القوة على الضغط:
+A = F ÷ P
+
+بالتعويض عن F = 900 نيوتن، وP = 4500 باسكال (وهو الحد الأقصى المسموح به للضغط):
+A = 900 ÷ 4500
+A = 0.2 م²
+
+إذن، يجب ألا تقل مساحة قاعدة الصندوق الملامسة للأرض عن 0.2 م² حتى لا يتجاوز الضغط الناتج القيمة المسموح بها 4500 باسكال.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يستخدم بعض الأشخاص أحذية عريضة خاصة عند المشي على الثلوج الطرية بدلاً من الأحذية العادية، رغم أن وزن الشخص لا يتغير بتغيير نوع الحذاء. ما السبب الفيزيائي الصحيح لذلك؟ (اختر الإجابة الصحيحة)
+(أ) الأحذية العريضة تقلل من وزن الشخص المؤثر على الثلج
+(ب) الأحذية العريضة تزيد من مساحة التلامس مع الثلج، فيقل الضغط المؤثر على الثلج لنفس القوة (الوزن)، فلا يغوص الشخص فيه
+(ج) الأحذية العريضة تزيد الضغط على الثلج بحيث ينصهر بسرعة أكبر تحت القدم
+(د) الأحذية العريضة تجعل القوة المؤثرة من الشخص على الثلج تساوي صفرًا</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">من العلاقة P = F ÷ A، فإن الضغط يتناسب عكسيًا مع مساحة التلامس عند ثبات القوة المؤثرة.
+
+وزن الشخص (القوة F) لا يتغير سواء ارتدى حذاءً عاديًا أم حذاءً عريضًا، لكن الحذاء العريض يوزّع هذا الوزن على مساحة تلامس أكبر بكثير مع سطح الثلج.
+
+زيادة المساحة A مع ثبات القوة F تؤدي إلى تقليل قيمة الضغط P الناتج على الثلج، وبذلك يقل احتمال غوص قدمي الشخص في الثلج الطري.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -573,6 +740,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

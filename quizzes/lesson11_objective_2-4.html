@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.4</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>24, 44, 45</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -520,7 +520,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>التعريف الصحيح للسرعة المتجهة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>تفسير كون السرعة المتوسطة موجبة والسرعة المتجهة المتوسطة صفرًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>حساب السرعة المتجهة من الإزاحة والزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>مقارنة السرعة المتوسطة بالسرعة المتجهة المتوسطة لرحلة ذهاب وإياب<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>حساب السرعة المتجهة بتحويل الوحدات من km/h إلى m/s<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -596,7 +626,129 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي العبارات التالية تُعرّف السرعة المتجهة (velocity) بشكل صحيح؟ (اختر الإجابة الصحيحة)
+(أ) معدل تغيّر المسافة المقطوعة بالنسبة للزمن، وهي كمّية عددية
+(ب) معدل تغيّر الإزاحة بالنسبة للزمن، وهي كمّية متجهة لها مقدار واتجاه
+(ج) المسافة الكلية مقسومة على الزمن الكلي، وهي كمّية عددية دائمًا
+(د) التغيّر في السرعة العددية خلال وحدة الزمن</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">السرعة المتجهة (velocity) هي معدل التغيّر في الإزاحة بالنسبة للزمن، أي: السرعة المتجهة = الإزاحة ÷ الزمن.
+
+وبما أن الإزاحة كمّية متجهة، فإن السرعة المتجهة الناتجة عن قسمتها على الزمن (وهو كمّية عددية) تبقى كمّية متجهة أيضًا، لها مقدار واتجاه معًا.
+
+أما السرعة (speed) فهي معدل تغيّر المسافة المقطوعة بالنسبة للزمن، وهي كمّية عددية لا تتضمن اتجاهًا؛ لذلك يجب عدم الخلط بين المصطلحين رغم تشابه الوحدات (m/s لكليهما).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يسبح شخص من طرف حوض سباحة إلى الطرف الآخر ثم يعود إلى نقطة انطلاقه الأصلية. فسّر لماذا تكون سرعته المتوسطة (average speed) لهذه الرحلة أكبر من صفر، بينما تكون سرعته المتجهة المتوسطة (average velocity) مساوية للصفر تمامًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">السرعة المتوسطة تُحسب من المسافة الكلية المقطوعة مقسومة على الزمن الكلي، والمسافة كمّية عددية تُجمع دون اعتبار للاتجاه، فهي تشمل مسافة الذهاب ومسافة الإياب معًا؛ وبما أن السباح قطع مسافة فعلية أكبر من صفر خلال زمن معيّن، فإن سرعته المتوسطة أكبر من صفر.
+
+أما السرعة المتجهة المتوسطة فتُحسب من الإزاحة الكلية مقسومة على الزمن الكلي، والإزاحة كمّية متجهة تعتمد فقط على الموضع النهائي بالنسبة للموضع الابتدائي.
+
+بما أن السباح عاد إلى نقطة انطلاقه الأصلية تمامًا، فإن التغيّر الصافي في موضعه يساوي صفرًا، أي أن الإزاحة الكلية = 0.
+
+وبالتالي فإن السرعة المتجهة المتوسطة = الإزاحة الكلية ÷ الزمن الكلي = 0 ÷ الزمن = صفر، بصرف النظر عن طول الزمن المستغرق أو عن المسافة الفعلية المقطوعة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحرّك جسم إزاحة مقدارها 150 m متجهًا نحو الشرق خلال 25 s بخط مستقيم دون تغيير اتجاهه. احسب مقدار سرعته المتجهة، وحدد اتجاهها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن الجسم يتحرك في خط مستقيم واحد دون تغيير اتجاهه، يمكن استخدام العلاقة المباشرة: السرعة المتجهة = الإزاحة ÷ الزمن.
+
+بالتعويض: السرعة المتجهة = 150 ÷ 25 = 6 m/s.
+
+وبما أن الإزاحة كانت باتجاه الشرق، فإن السرعة المتجهة الناتجة تكون في الاتجاه نفسه.
+
+إذن السرعة المتجهة للجسم = 6 m/s باتجاه الشرق.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمشي طالب من منزله إلى محل قريب مسافة 100 m في 20 s، ثم يعود إلى منزله بنفس المسار مقطوعًا مسافة 100 m أخرى في 25 s. احسب: (a) سرعته المتوسطة للرحلة كاملة. (b) سرعته المتجهة المتوسطة للرحلة كاملة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) السرعة المتوسطة = المسافة الكلية ÷ الزمن الكلي.
+المسافة الكلية = 100 + 100 = 200 m، والزمن الكلي = 20 + 25 = 45 s.
+السرعة المتوسطة = 200 ÷ 45 ≈ 4.44 m/s.
+
+(b) السرعة المتجهة المتوسطة = الإزاحة الكلية ÷ الزمن الكلي.
+بما أن الطالب عاد إلى نقطة بدايته (منزله) بالضبط، فإن الإزاحة الكلية = 0 m.
+السرعة المتجهة المتوسطة = 0 ÷ 45 = 0 m/s.
+
+هذا المثال يوضّح بجلاء أن السرعة المتوسطة (4.44 m/s) والسرعة المتجهة المتوسطة (0 m/s) يمكن أن تكونا مختلفتين تمامًا لنفس الرحلة، بسبب الفرق بين المسافة (عددية) والإزاحة (متجهة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تسير سيارة بخط مستقيم مسافة 90 km باتجاه الشرق خلال 1.5 h. احسب سرعتها المتجهة بوحدة m/s.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن السيارة تتحرك في خط مستقيم واحد دون تغيير اتجاهها، فإن مقدار إزاحتها يساوي المسافة المقطوعة، وهي 90 km باتجاه الشرق.
+
+نحسب السرعة المتجهة أولًا بوحدة km/h: السرعة المتجهة = الإزاحة ÷ الزمن = 90 ÷ 1.5 = 60 km/h.
+
+لتحويل الناتج إلى m/s، نحوّل الكيلومتر إلى متر (× 1000) والساعة إلى ثانية (÷ 3600):
+السرعة المتجهة = 60 × (1000 ÷ 3600) ≈ 16.7 m/s.
+
+إذن سرعة السيارة المتجهة تساوي تقريبًا 16.7 m/s باتجاه الشرق.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

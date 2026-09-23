@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1.8</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>34</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>1</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (1)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -507,7 +507,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>2</td>
+          <td>تحديد الكمية التي ليست من الكميات الأساسية في النظام الدولي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>3</td>
+          <td>الكميات الأساسية السبع للنظام الدولي ووحداتها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>4</td>
+          <td>اشتقاق الوحدات الأساسية لكل من القوة والضغط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>5</td>
+          <td>اشتقاق الوحدات الأساسية للطاقة الحركية والتحقق من تطابقها مع الجول<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>6</td>
+          <td>التحقق من تجانس الأبعاد لمعادلة الحركة v² = u² + 2as<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -538,7 +568,140 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي مما يلي لا يُعد من الكميات الأساسية (base quantities) في النظام الدولي للوحدات (SI)؟ (اختر الإجابة الصحيحة)
+(أ) الكتلة (mass)
+(ب) الزمن (time)
+(ج) القوة (force)
+(د) شدة التيار الكهربائي (electric current)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الكميات الأساسية في النظام الدولي هي مجموعة محددة من الكميات الفيزيائية التي تُعرَّف وحداتها بشكل مستقل، وتُشتق منها جميع الكميات الأخرى (الكميات المشتقة) عن طريق العلاقات الفيزيائية بينها.
+
+الكتلة والزمن وشدة التيار الكهربائي جميعها من الكميات الأساسية السبع في النظام الدولي، أما القوة فهي كمية مشتقة، إذ تُعرَّف من قانون نيوتن الثاني F = ma، أي أنها ناتجة عن ضرب كمية أساسية (الكتلة) في كمية مشتقة أخرى (التسارع، وهي بدورها مشتقة من الطول والزمن).
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر الكميات الأساسية السبع (base quantities) في النظام الدولي للوحدات (SI)، مع كتابة اسم الوحدة الأساسية ورمزها لكل منها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الكميات الأساسية السبع ووحداتها في النظام الدولي هي:
+
+1) الكتلة (mass) — وحدتها الكيلوغرام، رمزها kg
+2) الطول (length) — وحدتها المتر، رمزها m
+3) الزمن (time) — وحدتها الثانية، رمزها s
+4) شدة التيار الكهربائي (electric current) — وحدتها الأمبير، رمزها A
+5) درجة الحرارة الديناميكية الحرارية (thermodynamic temperature) — وحدتها الكلفن، رمزها K
+6) كمية المادة (amount of substance) — وحدتها المول، رمزها mol
+7) شدة الإضاءة الضوئية (luminous intensity) — وحدتها الشمعة (الكانديلا)، رمزها cd
+
+وتُشتق وحدات جميع الكميات الفيزيائية الأخرى (كالقوة والطاقة والضغط والسرعة وغيرها) من هذه الوحدات الأساسية السبع عن طريق العلاقات الفيزيائية بينها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">باستخدام قانون نيوتن الثاني F = ma، اشتق وحدة القوة بدلالة الوحدات الأساسية للنظام الدولي، ثم استخدم تعريف الضغط P = F ÷ A لاشتقاق وحدة الضغط بدلالة الوحدات الأساسية أيضًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">من قانون نيوتن الثاني: F = m × a
+وحدة الكتلة m هي kg، ووحدة التسارع a هي m·s⁻² (لأن التسارع = التغيّر في السرعة ÷ الزمن، وحدة السرعة m·s⁻¹ مقسومة على الزمن s تعطي m·s⁻²).
+
+إذن وحدة القوة = kg × m·s⁻² = kg·m·s⁻² (وهذه الوحدة المشتقة تُعرف باسم النيوتن، N).
+
+من تعريف الضغط: P = F ÷ A
+وحدة القوة F هي kg·m·s⁻² (كما تم اشتقاقها أعلاه)، ووحدة المساحة A هي m² (لأنها طول × طول).
+
+إذن وحدة الضغط = (kg·m·s⁻²) ÷ m² = kg·m⁻¹·s⁻² (وهذه الوحدة المشتقة تُعرف باسم الباسكال، Pa).
+
+إذن النتيجة النهائية: وحدة القوة الأساسية هي kg·m·s⁻²، ووحدة الضغط الأساسية هي kg·m⁻¹·s⁻².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">باستخدام معادلة الطاقة الحركية KE = ½mv²، اشتق وحدة الطاقة الحركية بدلالة الوحدات الأساسية للنظام الدولي، وبيّن أن الناتج يطابق الوحدة المعروفة للطاقة (الجول، J = kg·m²·s⁻²).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">وحدة السرعة v هي m·s⁻¹، وبما أن الطاقة الحركية تحتوي على v²، فإن وحدة v² = (m·s⁻¹)² = m²·s⁻².
+
+الثابت ½ هو عدد بلا وحدة، فلا يؤثر على تحليل الوحدات.
+
+إذن وحدة الطاقة الحركية = وحدة الكتلة × وحدة v² = kg × m²·s⁻² = kg·m²·s⁻²
+
+وهذه الوحدة المشتقة (kg·m²·s⁻²) تطابق تمامًا الوحدة المعروفة للطاقة وهي الجول (J)، أي أن
+J = kg·m²·s⁻²
+
+إذن النتيجة النهائية: وحدة الطاقة الحركية بدلالة الوحدات الأساسية هي kg·m²·s⁻²، وهي مطابقة لوحدة الجول كما هو متوقع.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحقق باستخدام تحليل الوحدات الأساسية مما إذا كانت معادلة الحركة التالية متجانسة الأبعاد (homogeneous):
+v² = u² + 2as
+حيث v وu سرعتان (وحدتهما m/s)، وa تسارع (وحدته m/s²)، وs إزاحة (وحدتها m).
+وضّح خطوات التحقق كاملة، وبيّن ما إذا كانت المعادلة صحيحة من الناحية البعدية (أي أن طرفيها لهما نفس الوحدات).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">وحدة الطرف الأيسر (v²) = (m·s⁻¹)² = m²·s⁻²
+
+وحدة الحد الأول في الطرف الأيمن (u²) = (m·s⁻¹)² = m²·s⁻² (نفس وحدة v² تمامًا).
+
+وحدة الحد الثاني في الطرف الأيمن (2as): العدد 2 ثابت بلا وحدة فلا يؤثر على التحليل، ووحدة a هي m·s⁻²، ووحدة s هي m، فوحدة الحاصل a × s = (m·s⁻²) × m = m²·s⁻².
+
+بما أن الحدين u² و2as في الطرف الأيمن لهما نفس الوحدة (m²·s⁻²)، يمكن جمعهما معًا، وناتج جمعهما له أيضًا وحدة m²·s⁻²، وهي نفس وحدة الطرف الأيسر v² تمامًا.
+
+إذن النتيجة النهائية: المعادلة v² = u² + 2as متجانسة الأبعاد (homogeneous)، لأن وحدات جميع حدودها متطابقة (m²·s⁻²) في الطرفين؛ علمًا بأن تحقق التجانس البعدي يثبت اتساق المعادلة من حيث الوحدات فقط، ولا يثبت بالضرورة صحتها العددية أو الفيزيائية الكاملة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

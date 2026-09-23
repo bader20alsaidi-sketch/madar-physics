@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.7</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>24, 43-44, 49-51</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>9</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>14</b></div>
     </div>
   </div>
 </header>
@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (14)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -557,7 +557,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q9')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>10</td>
+          <td>محصلة متجهين متساويين ومتعاكسين تمامًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>11</td>
+          <td>طريقتا إيجاد محصلة متجهين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>12</td>
+          <td>محصلة متجهين متعامدين باستخدام فيثاغورس<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>13</td>
+          <td>محصلة قوتين بزاوية غير قائمة باستخدام طريقة المركبات<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>14</td>
+          <td>إيجاد متجه التغير في السرعة عند دوران بزاوية قائمة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -834,7 +864,135 @@ C = 6.4 m
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">متجهان لهما نفس المقدار تمامًا، لكنهما يعملان في اتجاهين متعاكسين تمامًا (بزاوية 180° بينهما). ماذا يساوي مقدار المتجه المحصّل الناتج عن جمعهما؟ (اختر الإجابة الصحيحة)
+(أ) ضعف مقدار أحد المتجهين
+(ب) صفرًا
+(ج) مقدار أحد المتجهين نفسه
+(د) لا يمكن تحديده دون معرفة الاتجاه بدقة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند جمع متجهين متجهيًا، يجب مراعاة كل من المقدار والاتجاه معًا، وليس فقط جمع المقدارين جبريًا كما هو الحال مع الكمّيات العددية.
+
+عندما يكون الاتجاهان متعاكسين تمامًا (بفارق 180°)، فإن أحد المتجهين يُلغي تأثير الآخر جزئيًا أو كليًا، حسب المقدارين. وبما أن المتجهين في هذا السؤال متساويان في المقدار، فإن كلًا منهما يُلغي الآخر تمامًا عند جمعهما.
+
+يمكن التحقق من ذلك جبريًا: إذا اعتبرنا اتجاه أحد المتجهين موجبًا ومقداره V، فإن المتجه الآخر يكون مقداره −V (لأنه في الاتجاه المعاكس)، ومجموعهما = V + (−V) = 0.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر طريقتين يمكن استخدامهما لإيجاد محصّلة متجهين، ووضّح باختصار الفكرة الأساسية لكل طريقة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الطريقة الأولى هي طريقة الرسم بمقياس رسم (scale diagram)، وتُعرف أيضًا بطريقة متوازي الأضلاع أو المضلع: تُرسم المتجهات كأسهم بمقياس رسم مناسب، بحيث يمثّل طول السهم مقدار المتجه واتجاهه يمثّل اتجاهه الفعلي، ثم يُرسم متجه ثالث (القطر أو الضلع الخارجي للشكل الناتج) يمثّل المحصّلة، ويُقاس طوله واتجاهه مباشرة من الرسم.
+
+الطريقة الثانية هي طريقة تحليل المركبات (component method): يُحلَّل كل متجه إلى مركبتين متعامدتين، إحداهما أفقية (على محور x) والأخرى رأسية (على محور y)، باستخدام دالتي الجيب وجيب التمام، ثم تُجمع كل المركبات الأفقية معًا وكل المركبات الرأسية معًا، ثم تُحسب المحصّلة النهائية من هاتين المركبتين المجمّعتين باستخدام نظرية فيثاغورس ودالة الظل لإيجاد الاتجاه.
+
+تُفضَّل طريقة الرسم بمقياس رسم عندما يكفي إيجاد المحصّلة بدقة تقريبية بصريًا، بينما تُفضَّل طريقة المركبات عندما تكون المطلوبة دقة رياضية عالية، أو عند التعامل مع أكثر من متجهين في آنٍ واحد.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تؤثر على جسم قوتان في اللحظة نفسها: قوة مقدارها 30 N باتجاه الشرق، وقوة أخرى مقدارها 40 N باتجاه الشمال. احسب مقدار القوة المحصّلة المؤثرة على الجسم واتجاهها بالنسبة لاتجاه الشرق.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن القوتين متعامدتان (إحداهما شرقًا والأخرى شمالًا، أي بزاوية 90° بينهما)، يمكن إيجاد مقدار القوة المحصّلة مباشرة باستخدام نظرية فيثاغورس، حيث تمثّل القوتان ضلعي مثلث قائم الزاوية وتمثّل المحصّلة الوتر:
+مقدار المحصّلة = √(30² + 40²) = √(900 + 1600) = √2500 = 50 N.
+
+لإيجاد اتجاه المحصّلة بالنسبة لاتجاه الشرق (القوة الأفقية)، نستخدم دالة الظل بين الضلع المقابل (القوة الشمالية) والضلع المجاور (القوة الشرقية):
+الزاوية θ = tan⁻¹(40 ÷ 30) ≈ 53.1°.
+
+إذن مقدار القوة المحصّلة = 50 N، وتتجه بزاوية 53.1° شمال الشرق.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تؤثر على جسم قوتان في نقطة واحدة: القوة الأولى مقدارها 40 N باتجاه أفقي (اعتبره اتجاه الصفر درجة)، والقوة الثانية مقدارها 30 N وتصنع زاوية 60° مع اتجاه القوة الأولى. باستخدام طريقة تحليل المركبات، احسب مقدار القوة المحصّلة واتجاهها بالنسبة لاتجاه القوة الأولى.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نحلّل كل قوة إلى مركبتين: أفقية (x) ورأسية (y).
+
+القوة الأولى (40 N عند 0°): المركبة الأفقية = 40 × cos0° = 40 N. المركبة الرأسية = 40 × sin0° = 0 N.
+
+القوة الثانية (30 N عند 60°): المركبة الأفقية = 30 × cos60° = 30 × 0.5 = 15 N. المركبة الرأسية = 30 × sin60° = 30 × 0.866 ≈ 26.0 N.
+
+نجمع المركبات الأفقية معًا، والمركبات الرأسية معًا:
+مجموع المركبات الأفقية Rx = 40 + 15 = 55 N. مجموع المركبات الرأسية Ry = 0 + 26.0 = 26.0 N.
+
+نحسب مقدار المحصّلة باستخدام نظرية فيثاغورس: R = √(Rx² + Ry²) = √(55² + 26²) = √(3025 + 676) = √3701 ≈ 60.8 N.
+
+نحسب اتجاه المحصّلة بالنسبة لاتجاه القوة الأولى: θ = tan⁻¹(Ry ÷ Rx) = tan⁻¹(26.0 ÷ 55) ≈ 25.3°.
+
+إذن مقدار القوة المحصّلة ≈ 60.8 N، وتصنع زاوية تقريبها 25.3° مع اتجاه القوة الأولى.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تتحرك سيارة بسرعة متجهة منتظمة مقدارها 20 m/s باتجاه الشرق، ثم تنعطف فجأة عند تقاطع طرق لتتحرك بسرعة متجهة منتظمة مقدارها 20 m/s باتجاه الشمال (أي أن مقدار السرعة لم يتغيّر، لكن اتجاهها تغيّر بزاوية 90°). باستخدام طرح المتجهات، احسب مقدار متجه التغيّر في السرعة المتجهة (Δv = السرعة النهائية − السرعة الابتدائية) للسيارة، وحدد اتجاهه تقريبيًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">طرح متجهين يُنفَّذ بجمع المتجه الأول مع سالب المتجه الثاني: Δv = v_نهائية − v_ابتدائية = v_نهائية + (−v_ابتدائية).
+
+نمثّل السرعة الابتدائية بمركباتها: v_ابتدائية = (20, 0) أي 20 m/s شرقًا و0 m/s شمالًا. ونمثّل السرعة النهائية: v_نهائية = (0, 20) أي 0 m/s شرقًا و20 m/s شمالًا.
+
+مركبات متجه التغيّر: Δvx = 0 − 20 = −20 m/s (أي 20 m/s باتجاه الغرب). Δvy = 20 − 0 = +20 m/s (أي 20 m/s باتجاه الشمال).
+
+نحسب مقدار Δv باستخدام نظرية فيثاغورس: |Δv| = √((−20)² + 20²) = √(400 + 400) = √800 ≈ 28.3 m/s.
+
+نحسب الاتجاه: بما أن المركبتين متساويتان في المقدار (20 m/s غربًا و20 m/s شمالًا)، فإن الزاوية بينهما وبين اتجاه الشمال = tan⁻¹(20 ÷ 20) = 45°، أي أن Δv يتجه بزاوية 45° بين الشمال والغرب (اتجاه شمالي غربي تمامًا).
+
+إذن مقدار التغيّر في السرعة المتجهة ≈ 28.3 m/s، ويتجه نحو الشمال الغربي بزاوية 45° من كلا الاتجاهين، رغم أن مقدار السرعة العددية للسيارة لم يتغيّر إطلاقًا (بقي 20 m/s طوال الحركة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

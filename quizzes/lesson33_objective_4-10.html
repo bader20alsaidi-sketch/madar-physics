@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.10</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>110</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -531,7 +531,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>حساب المركبة الأفقية لقوة مائلة بزاوية 30 درجة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>سبب تحليل القوة المائلة إلى مركبتين متعامدتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>تحليل وزن جسم على سطح مائل أملس إلى مركبتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب تسارع صندوق يُسحب بحبل مائل مع وجود احتكاك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>حساب قوة الاحتكاك والقوة العمودية لجسم متزن على سطح مائل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -692,7 +722,154 @@ F = (50 × 9.81) ÷ (2 × 0.766) = 320.15 N</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قوة مقدارها 100 N تؤثر بزاوية 30° فوق الأفقي. ما مقدار المركبة الأفقية لهذه القوة؟ (خذ cos30° ≈ 0.866، sin30° = 0.5) (اختر الإجابة الصحيحة)
+(أ) 50 N
+(ب) 86.6 N
+(ج) 100 N
+(د) 57.7 N</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند تحليل قوة مائلة F بزاوية θ عن الأفقي إلى مركبتيها المتعامدتين، تُحسب المركبة الأفقية (على طول اتجاه الأفقي) بضرب القوة في جيب تمام الزاوية:
+
+المركبة الأفقية = F × cos θ
+
+بالتعويض: المركبة الأفقية = 100 × cos 30° = 100 × 0.866 = 86.6 N
+
+(أما المركبة الرأسية فتُحسب بضرب القوة في جيب الزاوية: F × sin 30° = 100 × 0.5 = 50 N، وهي ليست المطلوبة هنا).
+
+الإجابة الصحيحة: (ب) 86.6 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح لماذا نحلل القوة المائلة إلى مركبتين متعامدتين (أفقية ورأسية) عند دراسة حركة أو اتزان جسم، وما الشرط الذي يجب أن تحققه هاتان المركبتان معًا لتكافئا القوة الأصلية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">تحليل القوة المائلة إلى مركبتين متعامدتين (عادة أفقية ورأسية، أو موازية وعمودية على سطح مائل) يُسهّل كثيرًا دراسة حركة الجسم أو اتزانه، لأن الحركة أو الاتزان على أحد المحورين (مثلًا الأفقي) لا يتأثر إطلاقًا بالقوى المؤثرة على المحور الآخر العمودي عليه (الرأسي)؛ أي أن المحورين مستقلان تمامًا عن بعضهما في التحليل.
+
+بهذا يمكننا تطبيق قانون نيوتن الثاني (أو شرط الاتزان) على كل محور على حدة بشكل منفصل وأبسط بكثير، بدلًا من التعامل مع القوة المائلة ككل معقد يصعب التعامل معه مباشرة في معادلات الحركة.
+
+الشرط الذي يجب أن تحققه المركبتان: يجب أن يكون مجموعهما المتجهي (الاتجاهي، باستخدام جمع المتجهات الهندسي أو نظرية فيثاغورس بما أنهما متعامدتان) مساويًا تمامًا للقوة الأصلية في المقدار والاتجاه، أي:
+
+F = √(Fx² + Fy²)، وأن تكون زاوية ميل القوة الأصلية محسوبة بالضبط من tan θ = Fy / Fx، بحيث تكون المركبتان معًا مكافئتين تمامًا (لا أكثر ولا أقل) للقوة المائلة الأصلية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم كتلته 4 كجم موضوع على سطح مائل أملس (عديم الاحتكاك) بزاوية ميل 25° عن الأفقي. حلّل وزن الجسم إلى مركبتين: مركبة موازية لسطح الميل (وهي التي تُسبب انزلاقه نحو الأسفل)، ومركبة عمودية على سطح الميل. احسب مقدار كل مركبة. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">أولًا نحسب وزن الجسم الكلي:
+
+W = m × g = 4 × 10 = 40 N
+
+عند تحليل الوزن (الذي يتجه دائمًا رأسيًا لأسفل) إلى مركبتين بالنسبة لسطح مائل بزاوية θ عن الأفقي، تكون المركبة الموازية لسطح الميل تساوي W sin θ، والمركبة العمودية على سطح الميل تساوي W cos θ.
+
+المركبة الموازية لسطح الميل (وهي المسؤولة عن ميل الجسم للانزلاق نحو أسفل السطح):
+
+W_parallel = W × sin 25° = 40 × 0.4226 ≈ 16.9 N
+
+المركبة العمودية على سطح الميل:
+
+W_perpendicular = W × cos 25° = 40 × 0.9063 ≈ 36.3 N
+
+الإجابة النهائية: المركبة الموازية لسطح الميل ≈ 16.9 N، والمركبة العمودية على سطح الميل ≈ 36.3 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يُسحب صندوق كتلته 15 كجم على سطح أفقي بواسطة حبل يميل بزاوية 40° فوق الأفقي وبقوة شد مقدارها 60 N. إذا كانت قوة الاحتكاك المعاكسة لحركته تساوي 25 N، احسب: (a) المركبة الأفقية لقوة الشد. (b) القوة المحصلة الأفقية المؤثرة على الصندوق. (c) تسارع الصندوق الأفقي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) المركبة الأفقية لقوة الشد T تُحسب بضرب القوة في جيب تمام زاوية الميل:
+
+T_horizontal = T × cos 40° = 60 × 0.766 ≈ 46 N
+
+(b) القوة المحصلة الأفقية تساوي الفرق بين المركبة الأفقية لقوة الشد (في اتجاه الحركة) وقوة الاحتكاك (المعاكسة لها):
+
+F_net = T_horizontal − f = 46 − 25 = 21 N
+
+(c) بتطبيق قانون نيوتن الثاني لحساب التسارع الأفقي:
+
+a = F_net / m = 21 / 15 = 1.4 m/s²
+
+الإجابة النهائية: المركبة الأفقية لقوة الشد ≈ 46 N، والقوة المحصلة الأفقية = 21 N، والتسارع الأفقي = 1.4 m/s².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم كتلته 5 كجم موضوع على سطح مائل خشن بزاوية ميل 30° عن الأفقي، وهو في حالة اتزان تام (ساكن) بفعل قوة احتكاك سكوني تمنعه من الانزلاق نحو الأسفل. حلّل وزن الجسم إلى مركبتيه (موازية وعمودية على سطح الميل)، ثم احسب: (a) مقدار قوة الاحتكاك اللازمة لتحقيق الاتزان. (b) مقدار القوة العمودية (الناظمة) المؤثرة من السطح على الجسم. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">أولًا نحسب وزن الجسم:
+
+W = m × g = 5 × 10 = 50 N
+
+نحلل الوزن إلى مركبتين بالنسبة لسطح الميل: مركبة موازية لسطح الميل تساوي W sin 30°، ومركبة عمودية عليه تساوي W cos 30°.
+
+W_parallel = W × sin 30° = 50 × 0.5 = 25 N
+
+W_perpendicular = W × cos 30° = 50 × 0.866 ≈ 43.3 N
+
+(a) بما أن الجسم ساكن تمامًا (في اتزان) على طول سطح الميل، فإن قوة الاحتكاك الساكن يجب أن توازن تمامًا المركبة الموازية للوزن (التي تسحبه نحو أسفل السطح)، متجهة نحو أعلى السطح:
+
+f = W_parallel = 25 N
+
+(b) بما أنه لا يوجد تسارع عموديًا على سطح الميل (الجسم لا يخترق السطح ولا يبتعد عنه)، فإن القوة العمودية N توازن تمامًا المركبة العمودية للوزن:
+
+N = W_perpendicular ≈ 43.3 N
+
+الإجابة النهائية: قوة الاحتكاك اللازمة للاتزان = 25 N، والقوة العمودية ≈ 43.3 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

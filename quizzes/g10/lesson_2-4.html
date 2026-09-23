@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الرابعة: تأثيرات القوى — القوى المؤثّرة على المركبة الفضائية</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-4</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>1</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>6</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -468,7 +473,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول (مسائي) 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>2</td>
+          <td>استنتاج اتجاه تسارع المركبة عندما يفوق الدفع الوزن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>3</td>
+          <td>وصف حركة المركبة في الفضاء بعد توقف الدفع باستخدام قانون نيوتن الأول<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>4</td>
+          <td>تحديد اتجاهات القوى الثلاث المؤثرة على المركبة أثناء صعودها في الغلاف الجوي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>5</td>
+          <td>حساب القوة المحصلة على المركبة من طرح قوة الدفع والوزن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>6</td>
+          <td>توضيح ثبات السرعة عند تساوي قوة الدفع مع الوزن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -482,7 +517,128 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <div class="sol-answer" id="q1-ans"><div class="sol-body">أ) القوة الأولى: قوة الدفع (Thrust) — وهي القوة التي تعمل صعوداً من سطح معين (محركات الصاروخ) لدعم ورفع المركبة.<br>الاحتكاك: قوة تنشأ بين أي سطحي جسمين صلبين متلامسين لمقاومة الحركة.<br>ب) قوتان من: قوى الضغط، قوى الشد، قوى اللي، قوى الثني (يُقبل ذكر أي اثنتين منها).</div></div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثناء الثواني الأولى لإطلاق مركبة فضائية من سطح الأرض رأسيًا إلى الأعلى، تكون قوة الدفع (Thrust) الناتجة عن المحركات أكبر من وزن المركبة. ماذا يمكن أن نستنتج عن حركة المركبة في هذه اللحظة بالاستناد إلى قانون نيوتن الثاني؟ (اختر الإجابة الصحيحة)
+(أ) تتحرك المركبة بسرعة ثابتة لأن القوتين متعاكستان
+(ب) تتسارع المركبة إلى الأعلى لأن القوة المحصّلة تؤثر إلى الأعلى
+(ج) تبقى المركبة ساكنة حتى تتساوى قوة الدفع مع الوزن تمامًا
+(د) تتسارع المركبة إلى الأسفل لأن الوزن يعاكس اتجاه الحركة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">تؤثر على المركبة أثناء الإطلاق قوتان رئيسيتان في اتجاهين متعاكسين على نفس الخط الرأسي: قوة الدفع إلى الأعلى، ووزن المركبة إلى الأسفل.
+
+القوة المحصّلة المؤثرة على المركبة تساوي الفرق بين القوتين، وتتجه في اتجاه القوة الأكبر. بما أن قوة الدفع أكبر من الوزن في هذه اللحظة، فإن القوة المحصّلة تتجه إلى الأعلى.
+
+وفقًا لقانون نيوتن الثاني، فإن أي قوة محصّلة غير معدومة تؤثر على جسم تُكسبه تسارعًا في اتجاهها نفسه. وبما أن المركبة كانت ساكنة عند لحظة الإطلاق، فإن هذه القوة المحصّلة الموجهة إلى الأعلى تجعل المركبة تبدأ بالتسارع إلى الأعلى، أي تزداد سرعتها تدريجيًا في اتجاه الحركة الصاعدة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بعد أن تصل المركبة الفضائية إلى الفضاء الخارجي البعيد عن أي كوكب أو نجم، ويتوقف عمل محركاتها تمامًا (لا توجد قوة دفع)، صف حركة المركبة في هذه الحالة مستعينًا بقانون نيوتن الأول، مع العلم أن تأثير الجاذبية والاحتكاك بالهواء يكاد يكون معدومًا في هذا الموقع.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">ينص قانون نيوتن الأول على أن الجسم يبقى في حالته من السكون أو الحركة بسرعة ثابتة في خط مستقيم، ما لم تؤثر عليه قوة محصّلة غير معدومة تغيّر من حالته.
+
+في هذا الموقف، لا توجد قوة دفع من المحركات (لأنها متوقفة)، ولا يوجد وزن ذو قيمة تُذكر (بعيدًا عن أي كوكب أو نجم)، ولا توجد مقاومة هواء (لا يوجد غلاف جوي في الفضاء الخارجي).
+
+بما أن مجموع القوى المؤثرة على المركبة (القوة المحصّلة) يساوي صفرًا تقريبًا، فإنه وفقًا لقانون نيوتن الأول لا يوجد ما يغيّر حالة حركة المركبة.
+
+إذن، تستمر المركبة في التحرك بسرعة ثابتة (نفس المقدار ونفس الاتجاه) في خط مستقيم إلى أجل غير مسمى، دون الحاجة إلى أي قوة دفع إضافية للحفاظ على هذه الحركة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثناء صعود المركبة الفضائية عبر الغلاف الجوي للأرض، تضاف قوة مقاومة الهواء (السحب الهوائي) إلى القوى المؤثرة عليها. اذكر القوى الثلاث الرئيسية المؤثرة على المركبة في هذه المرحلة، وبيّن اتجاه كل منها بالنسبة لاتجاه حركة المركبة إلى الأعلى.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">تتعرض المركبة الفضائية أثناء صعودها عبر الغلاف الجوي لثلاث قوى رئيسية: قوة الدفع، ووزن المركبة، وقوة مقاومة الهواء.
+
+قوة الدفع (Thrust) الناتجة عن احتراق الوقود في المحركات تتجه في اتجاه حركة المركبة، أي إلى الأعلى، وهي القوة المسؤولة عن دفع المركبة للأمام (للأعلى).
+
+وزن المركبة، الناتج عن جذب الأرض لها، يتجه دائمًا رأسيًا إلى الأسفل، أي معاكسًا لاتجاه حركتها الصاعدة.
+
+قوة مقاومة الهواء (السحب الهوائي) تنتج عن احتكاك المركبة بجزيئات الهواء أثناء تحركها خلاله، وهي تؤثر دائمًا في الاتجاه المعاكس لاتجاه حركة الجسم، أي إلى الأسفل أيضًا في هذه الحالة.
+
+إذن، تتجه قوة الدفع إلى الأعلى (مع اتجاه الحركة)، بينما يتجه كل من الوزن ومقاومة الهواء إلى الأسفل (معاكستين لاتجاه الحركة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لمركبة فضائية أثناء الإطلاق قوة دفع رأسية إلى الأعلى مقدارها 3.2 × 10^7 نيوتن، بينما يبلغ وزنها في تلك اللحظة 2.5 × 10^7 نيوتن ويتجه إلى الأسفل. بإهمال مقاومة الهواء، احسب مقدار القوة المحصّلة المؤثرة على المركبة واتجاهها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن قوة الدفع ووزن المركبة يؤثران على نفس الخط الرأسي لكن في اتجاهين متعاكسين، فإن القوة المحصّلة تساوي الفرق بين مقداريهما، وتكون في اتجاه القوة الأكبر.
+
+القوة المحصّلة = قوة الدفع − الوزن = (3.2 × 10^7 نيوتن) − (2.5 × 10^7 نيوتن) = 0.7 × 10^7 نيوتن = 7 × 10^6 نيوتن.
+
+بما أن قوة الدفع (3.2 × 10^7 نيوتن) أكبر من الوزن (2.5 × 10^7 نيوتن)، فإن اتجاه القوة المحصّلة يكون هو نفس اتجاه قوة الدفع، أي رأسيًا إلى الأعلى.
+
+إذن مقدار القوة المحصّلة المؤثرة على المركبة يساوي 7 × 10^6 نيوتن، وتتجه رأسيًا إلى الأعلى.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">إذا أصبحت قوة الدفع المؤثرة على مركبة فضائية تتحرك رأسيًا إلى الأعلى مساوية تمامًا لوزنها في مقدارها (مع بقاء مقاومة الهواء مهملة)، فما الذي يحدث لسرعة المركبة في تلك اللحظة؟ علّل إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">عندما يتساوى مقدار قوة الدفع مع مقدار وزن المركبة، وهما قوتان متعاكستان في الاتجاه، فإن القوة المحصّلة المؤثرة على المركبة تصبح صفرًا في تلك اللحظة.
+
+وفقًا لقانون نيوتن الأول، فإن الجسم الذي لا تؤثر عليه قوة محصّلة يستمر في حالته الحركية كما هي، دون أن تتغير سرعته زيادة أو نقصانًا، أي أن تسارعه يصبح صفرًا.
+
+بما أن المركبة كانت تتحرك بالفعل رأسيًا إلى الأعلى بسرعة معينة عند تلك اللحظة، فإنها لن تتوقف فجأة، بل ستستمر في التحرك بنفس السرعة التي كانت عليها (بشكل ثابت، لا يزيد ولا ينقص)، طالما بقيت القوة المحصّلة صفرًا.
+
+إذن، عند تساوي قوة الدفع مع الوزن، تتحرك المركبة بسرعة ثابتة (منتظمة) في خط مستقيم إلى الأعلى، ولا تتوقف عن الحركة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز</h2>
     <table>
@@ -506,6 +662,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

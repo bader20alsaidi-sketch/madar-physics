@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1.6</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>25-30</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -538,7 +538,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>القانون الصحيح لحساب النسبة المئوية لعدم اليقين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>فائدة النسبة المئوية لعدم اليقين مقارنة بعدم اليقين المطلق<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>حساب النسبة المئوية لعدم اليقين في طول مقيس بالمسطرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>حساب النسبة المئوية لعدم اليقين في قطر سلك رفيع بالميكرومتر<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>إيجاد عدم اليقين المطلق لكتلة من نسبته المئوية المعطاة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -695,7 +725,120 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما القانون الصحيح لحساب النسبة المئوية لعدم اليقين لكمية مقيسة؟ (اختر الإجابة الصحيحة)
+(أ) النسبة المئوية لعدم اليقين = (القيمة المقيسة ÷ عدم اليقين المطلق) × 100%
+(ب) النسبة المئوية لعدم اليقين = (عدم اليقين المطلق ÷ القيمة المقيسة) × 100%
+(ج) النسبة المئوية لعدم اليقين = عدم اليقين المطلق × القيمة المقيسة × 100%
+(د) النسبة المئوية لعدم اليقين = عدم اليقين المطلق + القيمة المقيسة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">النسبة المئوية لعدم اليقين تعبّر عن حجم عدم اليقين المطلق كنسبة من القيمة المقيسة نفسها، أي أنها تقيس "أهمية" عدم اليقين بالنسبة إلى حجم الكمية المقاسة.
+
+وتُحسب بقسمة عدم اليقين المطلق على القيمة المقيسة، ثم ضرب الناتج في 100 للتعبير عنه كنسبة مئوية: النسبة المئوية لعدم اليقين = (عدم اليقين المطلق ÷ القيمة المقيسة) × 100%.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وضّح لماذا تُعد النسبة المئوية لعدم اليقين أكثر فائدة من عدم اليقين المطلق عند مقارنة جودة قياسين مختلفين لكميتين مختلفتين تمامًا، أو عند مقارنة دقة أداتين مختلفتين.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">عدم اليقين المطلق له نفس وحدة الكمية المقيسة، وبالتالي لا يمكن مقارنته مباشرة بين كميتين مختلفتين الطبيعة (مثل مقارنة عدم يقين في الطول بوحدة مم مع عدم يقين في الكتلة بوحدة غم)، لأن مثل هذه المقارنة لا معنى فيزيائيًا لها.
+
+كما أن عدم اليقين المطلق وحده لا يعكس مدى "أهمية" هذا الخطأ بالنسبة لحجم الكمية المقاسة؛ فعدم يقين مقداره 1 مم يُعد كبيرًا جدًا إذا كانت الكمية المقاسة 5 مم، لكنه صغير جدًا إذا كانت الكمية المقاسة 5 أمتار.
+
+النسبة المئوية لعدم اليقين كمية بلا وحدات (نسبية)، وهذا يجعلها قابلة للمقارنة المباشرة بين أي كميتين مهما اختلفت طبيعتهما أو وحداتهما، كما أنها تعكس بوضوح مدى دقة القياس بالنسبة لحجم الكمية نفسها، مما يجعلها المقياس الأنسب لتقييم جودة القياس أو لمقارنة أداءي أداتين مختلفتين.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قِيس طول قطعة معدنية بمسطرة مترية فكانت النتيجة L = (24.0 ± 0.5) سم.
+احسب النسبة المئوية لعدم اليقين في هذا القياس.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">النسبة المئوية لعدم اليقين = (عدم اليقين المطلق ÷ القيمة المقيسة) × 100
+= (0.5 ÷ 24.0) × 100 ≈ 2.08%
+
+إذن النتيجة النهائية: النسبة المئوية لعدم اليقين في الطول ≈ 2.1%.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قِيس قطر سلك رفيع جدًا بميكرومتر (مبراغ لولبي) فكانت النتيجة d = (0.10 ± 0.01) مم.
+احسب النسبة المئوية لعدم اليقين في هذا القياس، ثم فسّر لماذا تكون هذه النسبة كبيرة نسبيًا رغم أن الميكرومتر أداة عالية الدقة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">النسبة المئوية لعدم اليقين = (عدم اليقين المطلق ÷ القيمة المقيسة) × 100
+= (0.01 ÷ 0.10) × 100 = 10%
+
+على الرغم من أن الميكرومتر أداة عالية الدقة (دقتها القرائية 0.01 مم فقط)، إلا أن النسبة المئوية لعدم اليقين هنا كبيرة نسبيًا (10%) لأن الكمية المقاسة نفسها (0.10 مم) صغيرة جدًا وقريبة من حجم عدم اليقين المطلق نفسه، فيصبح عدم اليقين نسبة كبيرة من القيمة المقاسة رغم صغر قيمته المطلقة. هذا يوضح أن النسبة المئوية لعدم اليقين تتأثر بحجم الكمية المقاسة نفسها وليس فقط بدقة الأداة.
+
+إذن النتيجة النهائية: النسبة المئوية لعدم اليقين في قطر السلك = 10%.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قِيست كتلة جسم فكانت m = 250 غم، وكانت النسبة المئوية لعدم اليقين في هذا القياس تساوي 3%.
+احسب عدم اليقين المطلق في الكتلة، ثم اكتب النتيجة الكاملة للقياس.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">عدم اليقين المطلق = النسبة المئوية لعدم اليقين × القيمة المقيسة ÷ 100
+= (3 ÷ 100) × 250 = 7.5 غم
+
+تُقرَّب قيم عدم اليقين المطلق عادة إلى رقم معنوي واحد، فتصبح ≈ 8 غم.
+
+إذن النتيجة النهائية: الكتلة = (250 ± 8) غم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

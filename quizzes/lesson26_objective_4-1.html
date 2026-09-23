@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.1</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>94</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>16</b></div>
     </div>
   </div>
 </header>
@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (16)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (11)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -568,7 +568,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q11')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>12</td>
+          <td>حساب القوة المحصلة على سيارة من كتلتها وتسارعها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>13</td>
+          <td>أثر مضاعفة القوة أو الكتلة على مقدار التسارع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>14</td>
+          <td>إيجاد المحصلة والتسارع لصندوق تؤثر عليه قوتان متعاكستان<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>15</td>
+          <td>تسارع وتوتر خيط لجسمين متصلين يُسحبان معًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>16</td>
+          <td>قراءة ميزان زنبركي لشخص داخل مصعد متسارع للأعلى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -894,7 +924,146 @@ a = 10 m.s⁻²</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">سيارة كتلتها 900 كجم تنطلق من السكون بتسارع مقداره 2.5 m/s². ما مقدار القوة المحصلة المؤثرة عليها؟ (اختر الإجابة الصحيحة)
+(أ) 360 N
+(ب) 902.5 N
+(ج) 2250 N
+(د) 3600 N</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">وفقًا لقانون نيوتن الثاني للحركة، ترتبط القوة المحصلة المؤثرة على جسم بكتلته وتسارعه بالعلاقة:
+
+F = m × a
+
+بالتعويض عن كتلة السيارة m = 900 kg والتسارع a = 2.5 m/s²:
+
+F = 900 × 2.5 = 2250 N
+
+الإجابة الصحيحة: (ج) 2250 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح ماذا يحدث لتسارع جسم إذا تضاعفت القوة المحصلة المؤثرة عليه بينما بقيت كتلته ثابتة، وماذا يحدث لتسارعه إذا تضاعفت كتلته بينما بقيت القوة المحصلة المؤثرة عليه ثابتة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">ينص قانون نيوتن الثاني على أن العلاقة بين التسارع a والقوة المحصلة F طردية عند ثبات الكتلة m، أي a = F/m، وبما أن m ثابتة فإن a يتناسب طرديًا مع F.
+
+الحالة الأولى: إذا تضاعفت القوة المحصلة (أصبحت 2F) بينما بقيت الكتلة ثابتة، فإن التسارع الجديد يصبح ضعف التسارع الأصلي، أي يتضاعف هو الآخر.
+
+أما العلاقة بين التسارع والكتلة عند ثبات القوة فهي علاقة عكسية، إذ a = F/m.
+
+الحالة الثانية: إذا تضاعفت الكتلة (أصبحت 2m) بينما بقيت القوة المحصلة ثابتة، فإن التسارع الجديد يصبح نصف التسارع الأصلي فقط، أي يقل إلى النصف.
+
+الخلاصة: التسارع يتناسب طرديًا مع القوة المحصلة (عند ثبات الكتلة)، ويتناسب عكسيًا مع الكتلة (عند ثبات القوة المحصلة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صندوق كتلته 12 كجم موضوع على سطح أفقي أملس (عديم الاحتكاك)، تؤثر عليه قوتان أفقيتان متعاكستان في الاتجاه: 45 N نحو اليمين، و15 N نحو اليسار. احسب: (a) مقدار القوة المحصلة المؤثرة على الصندوق واتجاهها. (b) مقدار تسارع الصندوق واتجاهه.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(a) بما أن القوتين متعاكستان في الاتجاه، فإن القوة المحصلة تساوي الفرق بين مقداريهما، وتكون في اتجاه القوة الأكبر:
+
+F_net = 45 − 15 = 30 N، متجهة نحو اليمين (باتجاه القوة الأكبر).
+
+(b) باستخدام قانون نيوتن الثاني: a = F_net / m
+
+a = 30 / 12 = 2.5 m/s²
+
+وبما أن القوة المحصلة تتجه نحو اليمين، فإن تسارع الصندوق يكون أيضًا نحو اليمين (في نفس اتجاه القوة المحصلة دائمًا).
+
+الإجابة النهائية: القوة المحصلة = 30 N نحو اليمين، والتسارع = 2.5 m/s² نحو اليمين.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسمان A (كتلته 4 كجم) و B (كتلته 6 كجم) متصلان بخيط أفقي غير قابل للتمدد وعديم الكتلة، وموضوعان على سطح أفقي أملس (عديم الاحتكاك). تؤثر قوة أفقية مقدارها 30 N على الجسم B فتسحب النظام بالكامل، حيث يتقدم B ويسحب A خلفه عبر الخيط الواصل بينهما. احسب: (a) تسارع النظام بالكامل. (b) مقدار توتر الخيط الذي يربط بين A و B.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) بما أن الجسمين متصلان بخيط غير قابل للتمدد، فإنهما يتحركان معًا بنفس التسارع. يمكن معاملة النظام ككتلة واحدة كلية:
+
+m_total = m_A + m_B = 4 + 6 = 10 kg
+
+بتطبيق قانون نيوتن الثاني على النظام بالكامل:
+
+a = F / m_total = 30 / 10 = 3 m/s²
+
+(b) لإيجاد توتر الخيط T، نطبّق قانون نيوتن الثاني على الجسم A منفردًا؛ فالقوة الوحيدة الأفقية المؤثرة على A هي شد الخيط T الذي يسحبه للأمام (نحو B):
+
+T = m_A × a = 4 × 3 = 12 N
+
+الإجابة النهائية: تسارع النظام = 3 m/s²، وتوتر الخيط = 12 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شخص كتلته 70 كجم يقف على ميزان زنبركي (يقيس القوة العمودية المؤثرة عليه) داخل مصعد. عندما يتسارع المصعد إلى الأعلى بمقدار 2 m/s²، احسب قراءة الميزان، أي مقدار القوة العمودية N التي تؤثر بها أرضية المصعد على الشخص. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">القوتان الرأسيتان المؤثرتان على الشخص هما: وزنه mg متجهًا لأسفل، والقوة العمودية N من أرضية المصعد متجهة لأعلى (وهي نفسها قراءة الميزان).
+
+بما أن الشخص يتسارع إلى الأعلى مع المصعد بمقدار a = 2 m/s²، فإن القوة المحصلة الرأسية يجب أن تتجه لأعلى وتساوي m × a. بتطبيق قانون نيوتن الثاني مع اعتبار اتجاه الأعلى موجبًا:
+
+N − mg = m × a
+
+N = m(g + a)
+
+بالتعويض: N = 70 × (10 + 2) = 70 × 12 = 840 N
+
+لاحظ أن قراءة الميزان (840 N) أكبر من وزن الشخص الحقيقي (mg = 700 N)؛ وهذا متوقع لأن المصعد يتسارع للأعلى، فيشعر الشخص بأنه "أثقل" من وزنه الساكن المعتاد.
+
+الإجابة النهائية: قراءة الميزان = 840 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

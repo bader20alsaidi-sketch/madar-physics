@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.3</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>100</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -537,7 +537,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>اختيار مخطط الجسم الحر الصحيح لكتاب ساكن على طاولة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>وصف مخطط الجسم الحر لصندوق يُسحب بحبل مائل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>قوى صندوق معلّق بحبل رأسي وحساب الشد<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>وصف قوى جسم على سطح مائل أملس ممسوك بحبل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>وصف قوى جسم يسقط عبر الهواء مع مقاومة ملحوظة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -704,7 +734,134 @@ m = 2 ÷ g = 2 ÷ 9.81 = 0.2 kg</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">كتاب موضوع ساكنًا تمامًا على طاولة أفقية. أي مما يلي يصف مخطط الجسم الحر الصحيح لهذا الكتاب؟ (اختر الإجابة الصحيحة)
+(أ) قوة واحدة فقط: الوزن متجهًا لأسفل
+(ب) قوتان فقط: الوزن متجهًا لأسفل، والقوة العمودية من الطاولة متجهة لأعلى، متساويتان في المقدار ومتعاكستان في الاتجاه
+(ج) قوتان: الوزن لأسفل، وقوة احتكاك أفقية
+(د) ثلاث قوى: الوزن، والقوة العمودية، وقوة شد</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الكتاب ساكن على سطح أفقي ولا توجد أي قوى أفقية مؤثرة عليه (لا يوجد ما يدفعه أو يسحبه أفقيًا)، لذا لا حاجة لقوة احتكاك، كما أنه لا يوجد خيط متصل به فلا وجود لقوة شد.
+
+القوتان الوحيدتان المؤثرتان عليه هما: وزنه W (بسبب جاذبية الأرض) متجهًا رأسيًا لأسفل، والقوة العمودية N من سطح الطاولة متجهة رأسيًا لأعلى، وهي رد فعل السطح على وزن الكتاب.
+
+وبما أن الكتاب في حالة سكون تام (اتزان)، فإن هاتين القوتين يجب أن تتساويا في المقدار وتتعاكسا في الاتجاه (N = W)، حتى تكون محصلة القوى عليه صفرًا.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صندوق يُسحب بحبل يميل بزاوية 30° فوق الأفقي عبر أرضية خشنة، ويتحرك بسرعة أفقية ثابتة. صف مخطط الجسم الحر لهذا الصندوق: اذكر كل قوة مؤثرة عليه واتجاهها بالنسبة للصندوق (استخدم عبارات مثل: أعلى، أسفل، يمين، يسار، أو بزاوية فوق الأفقي).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">يؤثر على الصندوق أربع قوى في هذه الحالة:
+
+أولًا، الوزن W: يؤثر عند مركز ثقل الصندوق ويتجه رأسيًا إلى الأسفل دائمًا.
+
+ثانيًا، القوة العمودية N من الأرضية: تؤثر عند سطح تلامس الصندوق مع الأرض وتتجه رأسيًا إلى الأعلى، عموديًا على سطح الأرضية الأفقي.
+
+ثالثًا، شد الحبل T: يؤثر عند نقطة اتصال الحبل بالصندوق، ويتجه بزاوية 30° فوق الأفقي في اتجاه الحركة (له مركبة أفقية للأمام ومركبة رأسية للأعلى).
+
+رابعًا، قوة الاحتكاك f: تؤثر عند سطح التلامس مع الأرضية، وتتجه أفقيًا في الاتجاه المعاكس تمامًا لاتجاه حركة الصندوق (إلى الخلف)، لأن الاحتكاك يعارض دائمًا الحركة النسبية أو ميلها.
+
+لاحظ أنه بسبب ميل الحبل، تكون القوة العمودية N أقل من الوزن W بمقدار المركبة الرأسية لشد الحبل، لأن هذه المركبة تساعد في "رفع" جزء من وزن الصندوق.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صندوق كتلته 8 كجم معلّق ساكنًا بواسطة حبل رأسي واحد من السقف. صف جميع القوى المؤثرة على الصندوق (نوع القوة، مصدرها، واتجاهها) ثم احسب مقدار قوة الشد في الحبل. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">يؤثر على الصندوق المعلّق قوتان فقط: وزنه W، وهو ناتج عن جذب الأرض له، ويتجه رأسيًا لأسفل؛ وقوة شد الحبل T، وهي ناتجة عن الحبل المتصل بالسقف، وتتجه رأسيًا لأعلى.
+
+بما أن الصندوق ساكن تمامًا (في حالة اتزان)، فإن القوة المحصلة عليه تساوي صفرًا، وبما أن القوتين رأسيتان ومتعاكستان فقط، يجب أن تتساويا في المقدار:
+
+T = W = m × g
+
+بالتعويض: T = 8 × 10 = 80 N
+
+الإجابة النهائية: القوتان المؤثرتان هما الوزن (لأسفل) وشد الحبل (لأعلى)، ومقدار الشد T = 80 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم موضوع على سطح مائل أملس (عديم الاحتكاك) بزاوية ميل 20° عن الأفقي، وهو يميل للانزلاق نحو أسفل السطح المائل، لكنه ممسوك في مكانه بواسطة حبل موازٍ لسطح الميل يمنعه من الانزلاق. صف مخطط الجسم الحر لهذا الجسم، مع ذكر كل قوة واتجاهها بالنسبة للسطح المائل.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">تؤثر على هذا الجسم ثلاث قوى فقط، بما أن السطح أملس ولا يوجد احتكاك:
+
+أولًا، الوزن W: يؤثر دائمًا رأسيًا إلى الأسفل نحو مركز الأرض، بصرف النظر عن ميل السطح.
+
+ثانيًا، القوة العمودية N من السطح المائل: تتجه عموديًا (بزاوية 90°) على سطح الميل نفسه، أي مائلة بعيدًا عن السطح، وليست رأسية.
+
+ثالثًا، شد الحبل T: يتجه موازيًا لسطح الميل تمامًا، لكن نحو أعلى السطح المائل (في الاتجاه المعاكس لميل الجسم للانزلاق نحو الأسفل)، لأن الحبل هو ما يمنع الجسم من الانزلاق.
+
+وبما أن الجسم في حالة سكون (اتزان)، فإن محصلة هذه القوى الثلاث الموزعة على اتجاهين متعامدين (موازٍ للسطح وعمودي عليه) تساوي صفرًا في كل اتجاه على حدة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم يسقط عبر الهواء وتوجد مقاومة هواء ملحوظة أثناء هبوطه (سرعته لم تصل بعد إلى السرعة النهائية). صف القوتين المؤثرتين عليه ومخطط الجسم الحر المناظر له، موضحًا اتجاه كل قوة ومقدارها النسبي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">يؤثر على الجسم الساقط قوتان فقط في هذه الحالة:
+
+الأولى، وزنه W، ويتجه دائمًا رأسيًا إلى الأسفل، ومقداره ثابت طوال السقوط (لا يتغير مع السرعة) لأنه يعتمد فقط على كتلة الجسم وشدة الجاذبية.
+
+الثانية، مقاومة الهواء (قوة السحب) D، وتتجه دائمًا رأسيًا إلى الأعلى، أي معاكسة لاتجاه حركة الجسم (الهبوط)، ويزداد مقدارها كلما زادت سرعة الجسم.
+
+بما أن السرعة لم تصل بعد إلى السرعة النهائية، فإن مقدار مقاومة الهواء D لا يزال أقل من مقدار الوزن W (D &lt; W)، ولذلك تبقى هناك قوة محصلة صافية متجهة لأسفل (W − D)، مما يجعل الجسم لا يزال يتسارع نحو الأسفل، وإن كان بتسارع أقل تدريجيًا من g كلما اقترب من سرعته النهائية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

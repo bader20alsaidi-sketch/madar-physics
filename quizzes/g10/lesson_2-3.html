@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الثالثة: مخاطر الكهرباء — المنصهرات</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-3</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>12</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -506,7 +511,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q7')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>8</td>
+          <td>وظيفة المنصهر الأساسية في حماية الدائرة الكهربائية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>9</td>
+          <td>آلية عمل المنصهر وسبب انصهار سلكه عند زيادة التيار<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>10</td>
+          <td>اختيار تصنيف المنصهر المناسب لجهاز تياره العادي 3 أمبير<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>11</td>
+          <td>الفرق بين المنصهر وقاطع الدائرة من حيث إعادة الاستخدام<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>12</td>
+          <td>سبب توصيل المنصهر على التوالي وليس على التوازي مع الدائرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -605,7 +640,130 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما وظيفة المنصهر (الفيوز) في الدائرة الكهربائية؟ (اختر الإجابة الصحيحة)
+(أ) زيادة شدة التيار المار في الدائرة عند الحاجة إليه
+(ب) قطع الدائرة تلقائيًا بانصهار سلكه الرفيع الداخلي عندما تتجاوز شدة التيار قيمة معينة، لحماية الأسلاك والأجهزة
+(ج) تخزين الطاقة الكهربائية داخله لاستخدامها لاحقًا عند الحاجة
+(د) تحويل التيار المتردد إلى تيار مستمر داخل الدائرة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">المنصهر جهاز حماية بسيط يُوصَّل ضمن الدائرة الكهربائية، ويتكون من سلك رفيع مصنوع من معدن ذي درجة انصهار منخفضة نسبيًا.
+
+عندما تتجاوز شدة التيار المار في الدائرة القيمة المحددة الآمنة (تصنيف المنصهر)، ترتفع درجة حرارة هذا السلك الرفيع بشكل كبير بسبب زيادة التسخين الناتج عن التيار، حتى ينصهر السلك وينقطع.
+
+بانقطاع سلك المنصهر، تنفتح الدائرة الكهربائية تلقائيًا ويتوقف مرور التيار فيها بالكامل، مما يحمي بقية أجزاء الدائرة والأجهزة المتصلة بها من التلف الناتج عن تيار زائد.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح آلية عمل المنصهر: من أي نوع من المواد يُصنع سلكه الداخلي عادة، ولماذا تنصهر هذه المادة وتقطع الدائرة عندما يزيد التيار عن الحد الآمن؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">يُصنع السلك الداخلي للمنصهر عادة من معدن أو سبيكة معدنية ذات درجة انصهار منخفضة نسبيًا مقارنة بأسلاك التوصيل العادية، ويكون هذا السلك رفيعًا جدًا مقارنة بباقي أسلاك الدائرة.
+
+عند مرور تيار كهربائي في أي سلك، تتولد فيه حرارة بسبب مقاومته الكهربائية (يزداد مقدار هذه الحرارة كلما زادت شدة التيار المار فيه).
+
+في الظروف الطبيعية، يكون التيار المار كافيًا لتسخين سلك المنصهر الرفيع دون أن يصل إلى درجة انصهاره. أما عند حدوث خلل يرفع شدة التيار عن الحد الآمن (كتحميل زائد أو دائرة قصر)، فإن معدل توليد الحرارة في السلك الرفيع يزداد بشدة حتى تتجاوز درجة حرارته درجة انصهار المعدن المصنوع منه.
+
+عندئذٍ ينصهر السلك فعليًا وينقطع، مما يفتح الدائرة ويوقف مرور التيار قبل أن تتسبب زيادته في تلف باقي الأسلاك أو الأجهزة أو نشوب حريق.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جهاز كهربائي منزلي تبلغ شدة التيار العادي المار فيه أثناء التشغيل الطبيعي 3 أمبير. تتوافر منصهرات بتصنيفات: 1 أمبير، و3 أمبير، و5 أمبير، و13 أمبير. أي هذه المنصهرات هو الأنسب لحماية هذا الجهاز؟ علّل اختيارك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">يجب اختيار تصنيف المنصهر بحيث يكون أعلى بقليل من شدة التيار العادي للجهاز، بحيث يسمح بمرور التيار الطبيعي دون انقطاع، لكنه ينصهر ويقطع الدائرة إذا ارتفع التيار بشكل غير طبيعي (نتيجة عطل).
+
+منصهر 1 أمبير غير مناسب، لأنه أقل من التيار العادي للجهاز (3 أمبير)، فسينصهر فورًا حتى أثناء التشغيل الطبيعي السليم.
+
+منصهر 3 أمبير غير مناسب أيضًا، لأنه يساوي بالضبط التيار العادي للجهاز، فأي زيادة بسيطة وطبيعية في التيار (كما يحدث أحيانًا عند بدء تشغيل بعض الأجهزة) قد تتسبب في انصهاره دون داعٍ.
+
+منصهر 13 أمبير غير مناسب، لأنه أعلى بكثير من التيار العادي للجهاز (3 أمبير)، مما يعني أنه سيسمح بمرور تيار خطير مرتفع جدًا عبر أسلاك الجهاز في حال حدوث عطل، دون أن ينصهر في الوقت المناسب لحماية الجهاز.
+
+منصهر 5 أمبير هو الأنسب، لأنه أعلى بقدر معقول من التيار العادي (3 أمبير) بما يكفي للسماح بالتشغيل الطبيعي دون انقطاع غير ضروري، بينما يظل منخفضًا بما يكفي لينصهر بسرعة ويحمي الجهاز إذا حدث ارتفاع خطير وغير طبيعي في التيار.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما الفرق الرئيسي بين المنصهر (الفيوز) وقاطع الدائرة الكهربائية (القاطع الآلي) من حيث إمكانية إعادة الاستخدام بعد قطع الدائرة؟ (اختر الإجابة الصحيحة)
+(أ) كلاهما يمكن إعادة ضبطه (reset) واستخدامه من جديد بعد انقطاع التيار الزائد
+(ب) يجب استبدال المنصهر بسلك جديد بعد انصهار سلكه، بينما يمكن إعادة ضبط القاطع الآلي وإعادة استخدامه مباشرة دون استبدال أي جزء منه
+(ج) يُستبدل القاطع الآلي دائمًا بعد كل استخدام، بينما يُعاد ضبط المنصهر فقط
+(د) لا يوجد أي فرق عملي بينهما إطلاقًا</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">المنصهر يعمل بانصهار سلكه الداخلي فعليًا وانقطاعه عند زيادة التيار، وهذا الانصهار تغيّر فيزيائي دائم في المادة، فلا يمكن للسلك أن يعود إلى حالته الأصلية أو يعمل مرة أخرى، لذا يجب استبدال المنصهر بالكامل بمنصهر جديد بعد كل مرة ينصهر فيها.
+
+أما القاطع الآلي (قاطع الدائرة) فيعتمد عادة على آلية كهرومغناطيسية أو حرارية تفصل ملامسًا كهربائيًا ميكانيكيًا عند زيادة التيار عن الحد الآمن، دون أن يحدث أي تلف دائم في مكوناته.
+
+لذلك بعد أن يقطع القاطع الآلي الدائرة، وبعد إصلاح سبب العطل، يمكن ببساطة إعادة ضبطه (بالضغط على زر أو تحريك مفتاحه) ليعاود العمل من جديد دون الحاجة إلى استبدال أي جزء منه.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لماذا يجب توصيل المنصهر دائمًا على التوالي مع الدائرة التي يحميها، وليس على التوازي معها؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">لكي يعمل المنصهر بفاعلية، يجب أن يكون التيار الذي يمر فيه هو نفس التيار الكلي الذي يمر في الدائرة التي يحميها، حتى يكون قادرًا على الاستشعار الفعلي لأي زيادة غير طبيعية في هذا التيار وقطع الدائرة عندها.
+
+هذا لا يتحقق إلا بتوصيل المنصهر على التوالي، أي في المسار الرئيسي نفسه الذي يمر فيه كامل تيار الدائرة، بحيث تنقطع الدائرة بأكملها فور انصهار سلكه.
+
+أما إذا وُصّل المنصهر على التوازي، فإنه سيشكّل مسارًا فرعيًا إضافيًا بجانب الدائرة الأصلية، ولن يمر فيه سوى جزء بسيط من التيار الكلي فقط، بينما يستمر معظم التيار في المرور عبر المسار الأصلي للدائرة حتى لو انصهر سلك المنصهر، أي إن الدائرة الأصلية تبقى مغلقة وتستمر معرَّضة للخطر دون أن يوفر المنصهر أي حماية فعلية لها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -624,6 +782,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

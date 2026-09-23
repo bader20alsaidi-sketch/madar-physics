@@ -452,7 +452,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الرابعة: تأثيرات القوى — القوّة والكتلة والتسارع</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3-4</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>1</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>6</b></div>
     </div>
   </div>
 </header>
@@ -460,6 +460,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -468,7 +473,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>2</td>
+          <td>العلاقة العكسية بين الكتلة والتسارع عند ثبات القوة المحصلة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>3</td>
+          <td>حساب تسارع جسم ساكن على سطح أملس تحت تأثير قوة محصلة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>4</td>
+          <td>حساب كتلة عربة من معلومية القوة المحصلة والتسارع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>5</td>
+          <td>حساب تسارع صندوق تحت تأثير قوة سحب واحتكاك متعاكسين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>6</td>
+          <td>تفسير حاجة الشاحنة الثقيلة إلى قوة كبح أكبر لتحقيق نفس التباطؤ<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
   <section class="card">
@@ -483,7 +518,120 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وفقًا لقانون نيوتن الثاني للحركة (القوة = الكتلة × التسارع)، إذا أثّرت قوة محصّلة ثابتة على جسمين مختلفين في الكتلة، فإن الجسم ذا الكتلة الأكبر سيكتسب: (اختر الإجابة الصحيحة)
+(أ) تسارعًا أكبر من الجسم ذي الكتلة الأصغر
+(ب) نفس التسارع الذي يكتسبه الجسم ذو الكتلة الأصغر
+(ج) تسارعًا أصغر من الجسم ذي الكتلة الأصغر
+(د) سرعة ثابتة فورًا بصرف النظر عن كتلته</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">ينص قانون نيوتن الثاني على أن القوة المحصّلة المؤثرة على جسم تساوي حاصل ضرب كتلته في تسارعه: القوة المحصّلة = الكتلة × التسارع، ومنها: التسارع = القوة المحصّلة ÷ الكتلة.
+
+يتضح من هذه العلاقة أن التسارع يتناسب عكسيًا مع الكتلة عند ثبات مقدار القوة المحصّلة: فكلما زادت كتلة الجسم، قلّ التسارع الناتج عن نفس القوة، والعكس صحيح.
+
+لذلك فإن الجسم ذا الكتلة الأكبر سيكتسب تسارعًا أصغر من الجسم ذي الكتلة الأصغر عند تأثير نفس القوة المحصّلة على كليهما.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أثّرت قوة محصّلة مقدارها 60 نيوتن على جسم كتلته 12 كجم كان ساكنًا على سطح أفقي أملس. احسب مقدار تسارع الجسم الناتج عن هذه القوة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">وفقًا لقانون نيوتن الثاني: القوة المحصّلة = الكتلة × التسارع، ومنها: التسارع = القوة المحصّلة ÷ الكتلة.
+
+بالتعويض: التسارع = 60 نيوتن ÷ 12 كجم = 5 م/ث².
+
+إذن مقدار تسارع الجسم الناتج عن هذه القوة المحصّلة يساوي 5 م/ث²، ويكون اتجاهه هو نفس اتجاه القوة المحصّلة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحرّكت عربة بتسارع مقداره 2.5 م/ث² تحت تأثير قوة محصّلة مقدارها 175 نيوتن. احسب كتلة العربة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">وفقًا لقانون نيوتن الثاني: القوة المحصّلة = الكتلة × التسارع، ومنها: الكتلة = القوة المحصّلة ÷ التسارع.
+
+بالتعويض: الكتلة = 175 نيوتن ÷ 2.5 م/ث² = 70 كجم.
+
+إذن كتلة العربة تساوي 70 كجم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يجرّ عاملان صندوقًا كتلته 25 كجم على أرض أفقية: يجذبه أحدهما بقوة مقدارها 90 نيوتن في اتجاه معيّن، بينما تقاوم حركته قوة احتكاك مقدارها 40 نيوتن في الاتجاه المعاكس. احسب مقدار تسارع الصندوق الناتج.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بما أن قوة الجرّ وقوة الاحتكاك تؤثران على نفس خط الحركة لكن في اتجاهين متعاكسين، فإن القوة المحصّلة تساوي الفرق بينهما: القوة المحصّلة = 90 نيوتن − 40 نيوتن = 50 نيوتن، وتتجه في اتجاه قوة الجرّ (لأنها الأكبر).
+
+بتطبيق قانون نيوتن الثاني: التسارع = القوة المحصّلة ÷ الكتلة = 50 نيوتن ÷ 25 كجم = 2 م/ث².
+
+إذن يتسارع الصندوق بمقدار 2 م/ث² في اتجاه قوة الجرّ.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">توضّح شركة مصنّعة للسيارات أن سيارة الشحن الثقيلة تحتاج إلى قوة كبح (فرملة) أكبر بكثير من السيارة الصغيرة لتتوقف بنفس معدل التباطؤ (التسارع السالب). فسّر هذه الحقيقة باستخدام العلاقة بين القوة والكتلة والتسارع.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">وفقًا لقانون نيوتن الثاني: القوة المحصّلة = الكتلة × التسارع. وهذا يعني أن مقدار القوة اللازمة لإحداث تسارع (أو تباطؤ) معيّن يتناسب طرديًا مع كتلة الجسم.
+
+إذا أردنا أن تتباطأ سيارتان مختلفتان في الكتلة بنفس المعدل بالضبط (نفس مقدار التسارع السالب)، فإن القوة المطلوبة على كل منهما تعتمد على كتلتها: كلما زادت الكتلة، وجب أن تزداد القوة المحصّلة (قوة الكبح) بنفس النسبة لتحقيق ذلك التباطؤ نفسه.
+
+بما أن كتلة سيارة الشحن الثقيلة أكبر بكثير من كتلة السيارة الصغيرة، فإنها تحتاج إلى قوة كبح أكبر بكثير من السيارة الصغيرة لتحقيق نفس معدل التباطؤ والتوقف خلال نفس الوقت أو نفس المسافة تقريبًا.
+
+إذن، الفرق في قوة الكبح المطلوبة بين السيارتين يعود مباشرة إلى الفرق الكبير في كتلتيهما، طبقًا للعلاقة F = m × a.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز</h2>
     <table>
@@ -507,6 +655,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

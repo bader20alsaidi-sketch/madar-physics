@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة السادسة: الشغل والقدرة — الشغل المبذول</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-6</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>2</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -480,7 +485,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>3</td>
+          <td>متى يكون الشغل صفرًا رغم وجود قوة مؤثرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>4</td>
+          <td>تعريف الشغل المبذول وشرطا بذله<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>5</td>
+          <td>حساب الشغل من قوة سحب أفقية ومسافة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>6</td>
+          <td>إيجاد المسافة من الشغل والقوة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>7</td>
+          <td>الشغل عند ثبات جسم رغم استمرار القوة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -515,7 +550,135 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عامل يدفع عربة تسوق أفقيًا فتتحرك مسافة معينة في اتجاه الدفع، بينما عامل آخر يحمل صندوقًا ثقيلًا ويسير به مسافة أفقية دون أن يرفعه أو يخفضه. في أي من الحالتين التاليتين يكون الشغل المبذول من القوة المؤثرة على الجسم يساوي صفرًا؟ (اختر الإجابة الصحيحة)
+(أ) حالة دفع العربة، لأن القوة واتجاه الحركة في نفس الاتجاه
+(ب) حالة حمل الصندوق، لأن القوة (قوة سند العامل للصندوق) عمودية على اتجاه الحركة الأفقية
+(ج) كلتا الحالتين معًا، لأن الشغل لا يُبذل إلا عند رفع الأجسام رأسيًا إلى أعلى
+(د) لا شغل يُبذل في أي من الحالتين لأن القوة المؤثرة ثابتة المقدار في كلتيهما</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">يُبذل شغل ميكانيكي على جسم عندما تؤثر عليه قوة ويتحرك الجسم إزاحة في اتجاه له مركّبة على خط عمل هذه القوة، أي أن الشغل يعتمد على مركّبة القوة الموازية للإزاحة وليس على مجرد وجود القوة.
+
+في حالة دفع العربة: القوة المؤثرة أفقية، والإزاحة أفقية في نفس الاتجاه، فتكون هناك مركّبة كاملة للقوة على طول الإزاحة، ومن ثم يُبذل شغل موجب على العربة.
+
+في حالة حمل الصندوق: القوة التي يبذلها العامل على الصندوق هي قوة رأسية إلى أعلى (لموازنة وزنه)، بينما إزاحة الصندوق أفقية بالكامل أثناء السير. بما أن القوة عمودية تمامًا على اتجاه الإزاحة، فإن مركّبة هذه القوة في اتجاه الحركة تساوي صفرًا، وبالتالي فإن الشغل المبذول من هذه القوة على الصندوق يساوي صفرًا، رغم أن العامل يبذل جهدًا عضليًا محسوسًا.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف الشغل المبذول من قوة ثابتة على جسم، واذكر الشرطين الأساسيين اللازمين لبذل شغل ميكانيكي على هذا الجسم، مع ذكر وحدة قياس الشغل في النظام الدولي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الشغل المبذول من قوة ثابتة على جسم هو حاصل ضرب مقدار القوة المؤثرة في مقدار الإزاحة التي يتحركها الجسم في اتجاه هذه القوة (أو في مركّبة القوة الموازية للإزاحة)، ويُعبَّر عنه بالعلاقة W = F × d.
+
+الشرط الأول: يجب أن تؤثر قوة فعلية على الجسم.
+
+الشرط الثاني: يجب أن يتحرك الجسم إزاحة فعلية لها مركّبة في اتجاه هذه القوة؛ فإذا لم يتحرك الجسم إطلاقًا، أو تحركت إزاحته بشكل عمودي تمامًا على اتجاه القوة، فإن الشغل المبذول من تلك القوة يساوي صفرًا.
+
+وحدة قياس الشغل في النظام الدولي هي الجول (Joule)، ويكافئ الجول الواحد نيوتن × متر (N·m).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يسحب عامل صندوقًا على أرضية أفقية بقوة أفقية مقدارها 45 نيوتن، فيتحرك الصندوق مسافة 8 أمتار في اتجاه القوة. احسب الشغل المبذول من هذه القوة على الصندوق.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">الشغل المبذول من قوة ثابتة تُعطى بالعلاقة:
+W = F × d
+
+بالتعويض عن القوة F = 45 نيوتن، والمسافة (الإزاحة) d = 8 أمتار في اتجاه القوة نفسه:
+W = 45 × 8
+W = 360 جول
+
+إذن، الشغل المبذول من العامل على الصندوق يساوي 360 جول.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بُذل شغل مقداره 750 جول لدفع طاولة على أرضية أفقية باستخدام قوة أفقية ثابتة مقدارها 125 نيوتن. احسب المسافة التي تحركتها الطاولة في اتجاه القوة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">من العلاقة الأساسية للشغل:
+W = F × d
+
+يمكن إيجاد المسافة d بقسمة الشغل على القوة:
+d = W ÷ F
+
+بالتعويض عن W = 750 جول، وF = 125 نيوتن:
+d = 750 ÷ 125
+d = 6 أمتار
+
+إذن، تحركت الطاولة مسافة 6 أمتار في اتجاه القوة المؤثرة عليها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">رياضي يرفع ثقلاً (بار) إلى أعلى رأسه ثم يظل واقفًا ممسكًا به في هذا الوضع تمامًا دون أن يتحرك الثقل لمدة 20 ثانية. أي العبارات التالية صحيحة بخصوص الشغل المبذول من الرياضي على الثقل خلال فترة الثبات هذه؟ (اختر الإجابة الصحيحة)
+(أ) الشغل المبذول كبير لأن الرياضي يبذل قوة عضلية مستمرة طوال هذه المدة
+(ب) الشغل المبذول يساوي وزن الثقل مضروبًا في 20 ثانية
+(ج) الشغل المبذول يساوي صفرًا، لأن إزاحة الثقل تساوي صفرًا رغم استمرار تأثير القوة عليه
+(د) الشغل المبذول يساوي صفرًا لأن القوة التي يبذلها الرياضي على الثقل تساوي صفرًا</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الشغل يُحسب من العلاقة W = F × d، حيث d هي مقدار الإزاحة الفعلية التي يتحركها الجسم في اتجاه القوة.
+
+أثناء وقوف الرياضي ثابتًا وهو ممسك بالثقل فوق رأسه، يستمر في بذل قوة رأسية إلى أعلى تعادل وزن الثقل لموازنته (وإلا لسقط الثقل)، أي أن القوة المؤثرة ليست صفرًا، وهذا ما يجعل الخيار (د) خاطئًا.
+
+لكن بما أن الثقل لا يتحرك إطلاقًا خلال هذه المدة، أي أن إزاحته d = صفر، فإن حاصل ضرب القوة في الإزاحة يساوي صفرًا، ومن ثم فإن الشغل المبذول على الثقل خلال فترة الثبات يساوي صفرًا رغم استمرار تأثير القوة واستمرار بذل الرياضي لجهد عضلي محسوس.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز</h2>
@@ -543,6 +706,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

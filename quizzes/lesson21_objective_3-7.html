@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.7</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>73</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -519,7 +519,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>الغرض من استخدام بوابتين ضوئيتين في تجربة قياس g<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>مصادر خطأ في تجربة قياس g وطرق تقليلها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>حساب g من زمن سقوط كرة بين بوابتين ضوئيتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>حساب زمن رد الفعل بطريقة إسقاط المسطرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>إيجاد g من ميل خط بياني بين المسافة ومربع الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -611,7 +641,139 @@ g = 2L / t²</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة لتحديد تسارع السقوط الحر g، تُسقط كرة معدنية عبر بوابتي ضوء (light gates) متصلتين بجهاز توقيت إلكتروني، بدلاً من استخدام ساعة إيقاف تُشغَّل وتوقَف يدويًا. ما السبب الرئيسي لاستخدام بوابتي الضوء؟ (اختر الإجابة الصحيحة)
+(أ) لتقليل تأثير زمن رد الفعل البشري على دقة قياس الزمن
+(ب) لزيادة المسافة الرأسية التي تسقط خلالها الكرة
+(ج) لقياس كتلة الكرة بدقة أكبر
+(د) لإلغاء تأثير الجاذبية على الكرة أثناء سقوطها</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عند استخدام ساعة إيقاف يدوية، يعتمد بدء وإيقاف القياس على رد فعل الشخص الذي يشغّل الساعة، وزمن رد الفعل البشري (عادة حوالي 0.2 s إلى 0.3 s) يُعد كبيرًا نسبيًا مقارنة بأزمنة السقوط القصيرة في هذه التجربة، مما يُدخل خطأ كبيرًا وغير منتظم في القياس.
+
+أما بوابتا الضوء فتعملان إلكترونيًا: يبدأ جهاز التوقيت عند قطع الكرة لحزمة الضوء في البوابة الأولى، ويتوقف عند قطعها لحزمة الضوء في البوابة الثانية، دون أي تدخل بشري في لحظة البدء أو الإيقاف.
+
+وبذلك تُقاس الأزمنة بدقة أكبر بكثير، مما يقلل من الخطأ العشوائي الناتج عن رد الفعل البشري ويجعل القيمة المحسوبة لـ g أقرب إلى قيمتها الحقيقية.
+
+الإجابة الصحيحة: (أ).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر مصدرين محتملين للخطأ في تجربة تحديد تسارع السقوط الحر g باستخدام كرة تسقط عبر بوابتي ضوء، واقترح طريقة عملية لتقليل كل منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">المصدر الأول: مقاومة الهواء المؤثرة على الكرة أثناء سقوطها، والتي تجعل تسارعها الفعلي أقل قليلًا من g الحقيقية. يمكن تقليل تأثيرها باستخدام كرة معدنية صغيرة كثيفة وملساء (مثل كرة فولاذية)، لأن مقاومة الهواء عليها تكون ضئيلة جدًا مقارنة بوزنها.
+
+المصدر الثاني: عدم دقة قياس المسافة الرأسية بين بوابتي الضوء (أو بين نقطة الإفلات والبوابة)، والذي يؤدي إلى خطأ مباشر في حساب g لأنها تعتمد على مربع الزمن والمسافة معًا. يمكن تقليل هذا الخطأ باستخدام أداة قياس دقيقة (مثل شريط قياس معايَر أو مسطرة مترية جيدة) والتأكد من قياس المسافة بين مركزي البوابتين بدقة، وتكرار القياس أكثر من مرة.
+
+كما يمكن أيضًا تقليل الخطأ العشوائي بشكل عام بتكرار التجربة عدة مرات عند نفس الارتفاع وأخذ متوسط الأزمنة المقاسة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة لقياس g، أُسقطت كرة من السكون وسقطت مسافة رأسية مقدارها 1.25 m بين بوابتي ضوء، فسجّل جهاز التوقيت زمن سقوط مقداره 0.500 s. احسب:
+(أ) القيمة التجريبية لتسارع السقوط الحر g من هذه القياسات.
+(ب) النسبة المئوية للفرق بين هذه القيمة والقيمة المقبولة g = 9.81 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المعطيات: u = 0، s = 1.25 m، t = 0.500 s.
+
+(أ) باستخدام المعادلة s = ut + ½gt²، وبما أن u = 0:
+1.25 = ½×g×(0.500)²
+1.25 = ½×g×0.25
+1.25 = 0.125×g
+g = 1.25 / 0.125 = 10.0 m/s²
+
+(ب) النسبة المئوية للفرق = |القيمة التجريبية − القيمة المقبولة| / القيمة المقبولة × 100%
+= |10.0 − 9.81| / 9.81 × 100%
+= 0.19 / 9.81 × 100%
+≈ 1.9%
+
+إذن: القيمة التجريبية لـ g تساوي 10.0 m/s²، وهي أكبر من القيمة المقبولة بنسبة تقارب 1.9%.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة ملاصقة تُستخدم لتقدير زمن رد الفعل باستخدام مسطرة تسقط سقوطًا حرًا، أفلت أحد الطلاب المسطرة من السكون، فأمسك بها زميله بعد أن سقطت مسافة 0.180 m. باعتبار g = 9.81 m/s²، احسب زمن رد فعل الزميل الذي أمسك بالمسطرة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">في هذه الطريقة، تسقط المسطرة سقوطًا حرًا من السكون، والمسافة التي تسقطها قبل أن يُمسك بها الزميل تساوي المسافة التي قطعتها خلال زمن رد فعله، وبذلك يمكن حساب زمن رد الفعل من معادلة السقوط الحر.
+
+المعطيات: u = 0، s = 0.180 m، a = g = 9.81 m/s².
+
+باستخدام المعادلة s = ut + ½gt²:
+0.180 = 0 + ½×9.81×t²
+0.180 = 4.905×t²
+t² = 0.180 / 4.905 = 0.0367
+t = √0.0367 ≈ 0.192 s
+
+إذن: زمن رد فعل الزميل يُقدَّر بحوالي 0.192 s.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.7</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة لتحديد g، أُسقطت كرة عدة مرات من ارتفاعات رأسية مختلفة s، وقيس زمن السقوط t لكل ارتفاع، ثم رُسمت علاقة بيانية بين s (على المحور الرأسي) وt² (على المحور الأفقي)، فكان الناتج خطًا مستقيمًا يمر بنقطة الأصل تقريبًا. وضّح كيف يمكن استخدام ميل (انحدار) هذا الخط المستقيم لحساب قيمة g، مع كتابة العلاقة الرياضية بين الميل وg.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">معادلة الحركة للجسم الساقط من السكون هي: s = ut + ½gt²، وبما أن u = 0 فإن المعادلة تصبح: s = ½g t².
+
+يمكن كتابة هذه المعادلة على صورة خط مستقيم يمر بنقطة الأصل: s = (g/2) × t²، وهي بذلك تشابه معادلة الخط المستقيم y = m×x، حيث تمثل الكمية s المتغير y، وتمثل الكمية t² المتغير x، ويمثل الميل m الكمية g/2.
+
+وبما أن رسم s مقابل t² أعطى خطًا مستقيمًا يمر بالأصل تقريبًا، فإن ميل هذا الخط (الذي يُحسب من ∆s/∆t² باستخدام نقطتين بعيدتين على الخط) يساوي g/2.
+
+وبالتالي يمكن حساب g من العلاقة: g = 2 × الميل.
+
+هذه الطريقة (استخدام الرسم البياني وحساب الميل من عدة قياسات) أدق من الاعتماد على قياس واحد فقط، لأنها تقلل من أثر الأخطاء العشوائية في القياسات الفردية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

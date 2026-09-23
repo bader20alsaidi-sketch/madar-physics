@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الأولى: الشحنة الكهربائيّة — الكهرباء الساكنة</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-1</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>8</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>13</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (13)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (8)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -510,7 +515,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q8')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>9</td>
+          <td>سبب اكتساب قضيب بلاستيكي شحنة سالبة عند دلكه بالصوف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>10</td>
+          <td>تعريف الشحنة الساكنة وشرط اكتساب الجسم شحنة موجبة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>11</td>
+          <td>تفاعل بالونين مشحونين بنفس نوع القطعة عند تقريبهما<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>12</td>
+          <td>تفسير انجذاب قصاصات ورق غير مشحونة نحو مسطرة مشحونة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>13</td>
+          <td>سبب سهولة شحن قضيب بلاستيكي بالدلك وصعوبة شحن قضيب نحاسي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -615,7 +650,124 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند دلك قضيب من البلاستيك بقطعة من الصوف، تنتقل الإلكترونات بين الجسمين فيكتسب القضيب شحنة سالبة. ما سبب اكتساب القضيب هذه الشحنة السالبة؟ (اختر الإجابة الصحيحة)
+(أ) انتقال بروتونات من الصوف إلى القضيب
+(ب) انتقال إلكترونات من الصوف إلى القضيب
+(ج) انتقال إلكترونات من القضيب إلى الصوف
+(د) فقدان القضيب لبعض البروتونات الموجبة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الشحنة الكهربائية الساكنة تنشأ نتيجة انتقال الإلكترونات فقط بين الجسمين عند الاحتكاك، إذ إن الإلكترونات الموجودة في المدارات الخارجية للذرات تكون مرتبطة ارتباطًا ضعيفًا نسبيًا ويمكن أن تنتقل من مادة إلى أخرى أثناء الدلك، بينما تبقى البروتونات ثابتة داخل الأنوية ولا تنتقل أبدًا في هذه العملية.
+
+بما أن القضيب البلاستيكي اكتسب شحنة سالبة، فهذا يعني أن عدد الإلكترونات فيه أصبح أكبر من عدد البروتونات، أي أنه اكتسب إلكترونات إضافية قادمة من قطعة الصوف.
+
+وبذلك تكون قطعة الصوف قد فقدت بعض إلكتروناتها لصالح القضيب، فأصبحت هي نفسها مشحونة بشحنة موجبة مساوية في المقدار للشحنة السالبة التي اكتسبها القضيب (حفظ الشحنة).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف الشحنة الكهربائية الساكنة، واذكر الشرط الذي يجعل جسمًا معينًا مشحونًا بشحنة موجبة بعد عملية الدلك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الشحنة الكهربائية الساكنة هي شحنة كهربائية تتجمع وتستقر على سطح جسم عازل (لا تتدفق كتيار مستمر)، وتنشأ غالبًا نتيجة احتكاك جسمين مختلفين مع بعضهما، مما يؤدي إلى انتقال بعض الإلكترونات من سطح أحدهما إلى سطح الآخر.
+
+يصبح الجسم مشحونًا بشحنة موجبة عندما يفقد بعض إلكتروناته أثناء الاحتكاك، بحيث يصبح عدد البروتونات الموجبة في ذراته أكبر من عدد الإلكترونات السالبة المتبقية فيه، فينتج عن ذلك شحنة موجبة كلية صافية على سطح الجسم.
+
+أما إذا اكتسب الجسم إلكترونات زائدة عن العدد الطبيعي فإنه يصبح مشحونًا بشحنة سالبة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">شُحن بالونان (كرتان مطاطيتان) بدلك كل منهما بنفس القطعة من الصوف. عند تقريب أحد البالونين من الآخر، ماذا يحدث بينهما؟ ولماذا؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن البالونين دُلكا بنفس المادة (الصوف) وبنفس الطريقة، فإنهما يكتسبان نوع الشحنة نفسه (سالبة مثلًا)، أي أن شحنتيهما متماثلتان في النوع.
+
+من القاعدة الأساسية في الكهرباء الساكنة: الشحنات المتماثلة (المتشابهة في النوع) تتنافر، بينما الشحنات المختلفة تتجاذب.
+
+لذلك فإن البالونين، لاحتوائهما على شحنتين متماثلتين، سيتنافران عند تقريبهما من بعضهما، أي يبتعد كل منهما عن الآخر بدلًا من أن ينجذبا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند تقريب مسطرة بلاستيكية مشحونة بشحنة سالبة من قصاصات ورق صغيرة غير مشحونة (متعادلة)، تنجذب القصاصات نحو المسطرة. أي التفسيرات التالية هو الأصح؟ (اختر الإجابة الصحيحة)
+(أ) قصاصات الورق مشحونة بشحنة موجبة أصلًا قبل الاقتراب
+(ب) المسطرة تفقد شحنتها بالكامل بمجرد اقترابها من الورق
+(ج) الشحنة السالبة في المسطرة تنفّر إلكترونات سطح الورق القريب منها، فيصبح ذلك السطح موجبًا نسبيًا فينجذب نحو المسطرة
+(د) الجاذبية الأرضية العادية هي السبب الوحيد في هذا الانجذاب</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">قصاصات الورق مادة متعادلة كهربائيًا في الأصل، أي أن عدد الشحنات الموجبة فيها يساوي عدد الشحنات السالبة.
+
+عند اقتراب المسطرة المشحونة سالبًا من الورق، فإن مجالها الكهربائي يؤثر في إلكترونات سطح الورق القريب منها فيبعدها (ينفّرها) نحو الجانب البعيد من قصاصة الورق، تاركًا السطح القريب من المسطرة أقل كثافة في الإلكترونات، أي يظهر عليه شحنة موجبة نسبية مؤقتة (هذا ما يسمى الاستقطاب أو الحث الكهربائي).
+
+وبما أن الشحنة الموجبة النسبية على السطح القريب من المسطرة أقرب إلى المسطرة من الشحنة السالبة على السطح البعيد، فإن قوة التجاذب (بين السالب في المسطرة والموجب القريب في الورق) تكون أقوى من قوة التنافر (بين السالب في المسطرة والسالب البعيد في الورق)، فتنجذب القصاصة كليًا نحو المسطرة.
+
+الإجابة الصحيحة: (ج).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">لماذا يمكن شحن قضيب من البلاستيك بسهولة عن طريق دلكه، بينما يصعب شحن قضيب من النحاس بالطريقة نفسها إذا كان الشخص ممسكًا به بيده مباشرة أثناء الدلك؟</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">البلاستيك مادة عازلة، أي أن إلكتروناتها مرتبطة بذراتها ولا تستطيع الحركة بحرية خلال المادة. لذلك عندما تنتقل الإلكترونات إلى سطح القضيب البلاستيكي (أو منه) أثناء الدلك، تبقى هذه الشحنة الزائدة متمركزة في المكان الذي حدث فيه الدلك ولا تنتشر أو تتسرب، فيظل القضيب مشحونًا بوضوح.
+
+أما النحاس فهو موصل جيد للكهرباء، يحتوي على عدد كبير من الإلكترونات الحرة القادرة على الحركة بسهولة خلال المعدن. فإذا تولدت شحنة على سطح القضيب النحاسي أثناء الدلك، فإنها تتوزع فورًا عبر المعدن، ثم تنتقل عبر يد الشخص الماسك به (وهي أيضًا موصلة) إلى جسمه ثم إلى الأرض، فتتسرب الشحنة بسرعة كبيرة ولا يبقى القضيب مشحونًا بشكل ملحوظ.
+
+لذلك فإن الشحن بالدلك ينجح بوضوح مع العوازل مثل البلاستيك، بينما يصعب ملاحظته مع الموصلات الممسوكة باليد مثل النحاس.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -634,6 +786,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

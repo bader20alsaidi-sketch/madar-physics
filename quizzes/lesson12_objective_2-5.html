@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2.5</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>47-48</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -525,7 +525,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>دلالة الخط الأفقي في تمثيل الإزاحة-الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>دلالة الميل السالب في تمثيل الإزاحة-الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب السرعة المتجهة لمرحلة من رحلة موصوفة كلاميًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>وصف حركة ذهاب وعودة من تمثيل بياني وحساب سرعتيها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>دلالة الميل المتزايد على حركة متسارعة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -640,7 +670,129 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تمثيل بياني للإزاحة مقابل الزمن (displacement-time graph)، يظهر جزء من المنحنى على شكل خط أفقي مستقيم (موازٍ لمحور الزمن) لمدة معيّنة. ماذا يمثّل هذا الجزء من حركة الجسم؟ (اختر الإجابة الصحيحة)
+(أ) الجسم يتحرك بسرعة متجهة منتظمة وكبيرة
+(ب) الجسم في حالة سكون تام (لا يتغيّر موضعه) خلال تلك الفترة
+(ج) الجسم يتسارع بمعدل ثابت خلال تلك الفترة
+(د) الجسم يعود إلى نقطة بدايته بسرعة منتظمة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">في تمثيل الإزاحة-الزمن، يمثّل ميل المنحنى (gradient) عند أي نقطة قيمة السرعة المتجهة للجسم في تلك اللحظة.
+
+الخط الأفقي المستقيم (الموازي لمحور الزمن) له ميل يساوي صفرًا، لأن الإزاحة لا تتغيّر مطلقًا مع مرور الزمن خلال تلك الفترة.
+
+وبما أن الميل = صفر يعني أن السرعة المتجهة = صفر، فإن هذا الجزء من المنحنى يدل على أن الجسم توقف تمامًا عن الحركة، أي أنه في حالة سكون، وبقي عند نفس الموضع طوال تلك الفترة الزمنية.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تمثيل بياني للإزاحة مقابل الزمن، تنخفض قيمة الإزاحة بشكل منتظم مع الزمن (أي يكون ميل الخط المستقيم سالبًا)، حتى تعود قيمة الإزاحة إلى الصفر. فسّر ماذا يحدث لحركة الجسم خلال هذه الفترة، موضحًا اتجاه حركته بالنسبة لاتجاهه الأصلي.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">ميل الخط البياني للإزاحة-الزمن يمثّل قيمة السرعة المتجهة، وإشارة هذا الميل تحدد اتجاه الحركة.
+
+عندما يكون الميل سالبًا ومنتظمًا (ثابتًا)، فإن ذلك يعني أن السرعة المتجهة للجسم سالبة وثابتة المقدار، أي أن الجسم يتحرك بسرعة منتظمة، لكن في الاتجاه المعاكس لاتجاهه الأصلي (الاتجاه الذي اعتُبر موجبًا عند رسم التمثيل البياني).
+
+وبما أن الإزاحة تنخفض تدريجيًا حتى تصل إلى الصفر، فإن هذا يعني أن الجسم يقترب باستمرار من نقطة بدايته (نقطة الأصل) بسرعة منتظمة، إلى أن يعود إليها تمامًا عند اللحظة التي تصبح فيها الإزاحة صفرًا.
+
+الخلاصة: هذا الجزء من التمثيل البياني يصف حركة رجوع منتظمة (بسرعة متجهة ثابتة المقدار ومعاكسة الاتجاه) نحو نقطة البداية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يبدأ جسم حركته من السكون عند نقطة الأصل في تمثيل الإزاحة-الزمن، ثم يتحرك في خط مستقيم بحيث تزداد إزاحته بانتظام لتصل إلى 40 m خلال 8 s، ثم يبقى عند هذه الإزاحة ثابتًا (دون حركة) لمدة 4 s إضافية.
+(a) صف نوع الحركة في كل من المرحلتين. (b) احسب مقدار السرعة المتجهة للجسم خلال مرحلة الحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">(a) في المرحلة الأولى (من 0 إلى 8 s)، تزداد الإزاحة بشكل منتظم مع الزمن، أي أن ميل التمثيل البياني ثابت وموجب، مما يدل على أن الجسم يتحرك بسرعة متجهة منتظمة (ثابتة المقدار والاتجاه).
+في المرحلة الثانية (من 8 s إلى 12 s)، تبقى الإزاحة ثابتة عند 40 m دون تغيّر، أي أن الميل يساوي صفرًا، مما يدل على أن الجسم توقف تمامًا وأصبح في حالة سكون خلال هذه الفترة.
+
+(b) نحسب السرعة المتجهة خلال مرحلة الحركة باستخدام ميل الخط المستقيم (السرعة المتجهة = التغيّر في الإزاحة ÷ التغيّر في الزمن):
+السرعة المتجهة = (40 − 0) ÷ (8 − 0) = 40 ÷ 8 = 5 m/s.
+
+إذن كانت سرعة الجسم المتجهة خلال مرحلة الحركة تساوي 5 m/s، ثم أصبحت صفرًا خلال مرحلة السكون.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يصف تمثيل بياني للإزاحة-الزمن حركة جسم كما يلي: تزداد الإزاحة بانتظام من الصفر إلى 30 m خلال أول 6 s من الحركة (خط مستقيم صاعد)، ثم تنخفض الإزاحة بانتظام من 30 m عائدة إلى الصفر خلال الـ 6 s التالية (خط مستقيم هابط حتى يعود إلى محور الزمن).
+(a) صف حركة الجسم في كل من المرحلتين. (b) احسب السرعة المتجهة في كل مرحلة، موضحًا دلالة الإشارة في كل حالة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(a) في المرحلة الأولى (0 إلى 6 s)، يتحرك الجسم مبتعدًا عن نقطة الأصل بسرعة متجهة منتظمة في اتجاه ثابت (الاتجاه الموجب المفترض).
+في المرحلة الثانية (6 s إلى 12 s)، يتحرك الجسم عائدًا نحو نقطة الأصل بسرعة متجهة منتظمة، لكن في الاتجاه المعاكس تمامًا لاتجاه حركته في المرحلة الأولى، حتى يصل مرة أخرى إلى موضعه الابتدائي عند t = 12 s.
+
+(b) السرعة المتجهة في المرحلة الأولى = ميل الخط = (30 − 0) ÷ (6 − 0) = 30 ÷ 6 = +5 m/s (الإشارة الموجبة تعني الحركة في الاتجاه الأصلي المفترض).
+
+السرعة المتجهة في المرحلة الثانية = ميل الخط = (0 − 30) ÷ (12 − 6) = −30 ÷ 6 = −5 m/s (الإشارة السالبة تعني الحركة في الاتجاه المعاكس، أي الرجوع).
+
+إذن السرعة المتجهة في المرحلتين متساوية في المقدار (5 m/s) لكنها متعاكسة في الاتجاه، مما يوضّح أن الجسم تحرّك بنفس معدل السرعة ذهابًا وإيابًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2.5</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يصف تمثيل بياني للإزاحة-الزمن حركة جسم بخط منحنٍ (غير مستقيم)، بحيث يصبح الخط أكثر انحدارًا (أكثر ميلًا) تدريجيًا كلما تقدّم الزمن، أي أن شدة الميل تزداد باستمرار طوال فترة الحركة. صف نوع حركة الجسم خلال هذه الفترة، موضحًا سبب اختيارك بالاعتماد على مفهوم الميل.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن ميل تمثيل الإزاحة-الزمن يمثّل قيمة السرعة المتجهة للجسم في كل لحظة، فإن أي تغيّر في شدة الميل من لحظة إلى أخرى يعني أن السرعة المتجهة نفسها تتغيّر مع الزمن.
+
+بما أن الميل في هذه الحالة يزداد تدريجيًا (يصبح الخط أكثر انحدارًا مع مرور الوقت)، فإن ذلك يدل على أن مقدار السرعة المتجهة يزداد باستمرار.
+
+وبما أن اتجاه الخط لم يتغيّر (لا يزال منحنيًا للأعلى في نفس الاتجاه دون أن يعكس اتجاهه)، فإن الجسم يتحرك في اتجاه ثابت مع ازدياد مستمر في سرعته، أي أن حركته غير منتظمة (متسارعة).
+
+الخلاصة: هذا الشكل من التمثيل البياني (خط منحنٍ يزداد انحداره تدريجيًا) يصف جسمًا يتسارع، أي يزداد مقدار سرعته المتجهة باستمرار مع الزمن، بخلاف الخط المستقيم الذي يمثّل سرعة متجهة منتظمة (ثابتة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

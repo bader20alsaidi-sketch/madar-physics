@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1.3</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>22</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -488,9 +488,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -538,7 +538,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>التمييز بين نتائج مضبوطة وغير دقيقة والعكس<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>الربط بين الدقة والضبط وبين الخطأ المنتظم والعشوائي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>مقارنة دقة وضبط قياسين لعجلة الجاذبية الأرضية g<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>ميزان إلكتروني دقيق القراءة لكنه غير دقيق بسبب خطأ صفري<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>تشبيه إصابة السهام لتوضيح مفهومي الدقة والضبط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -673,7 +703,140 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">إذا كرر طالب قياس نفس الكمية الفيزيائية عدة مرات وحصل على نتائج متقاربة جدًا من بعضها البعض (أي أن التشتت بينها صغير جدًا)، لكنها جميعًا بعيدة عن القيمة الحقيقية المقبولة لتلك الكمية، فإن هذه النتائج تكون: (اختر الإجابة الصحيحة)
+(أ) دقيقة (accurate) ومضبوطة (precise) معًا
+(ب) مضبوطة (precise) لكنها غير دقيقة (not accurate)
+(ج) دقيقة (accurate) لكنها غير مضبوطة (not precise)
+(د) غير دقيقة وغير مضبوطة معًا</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الضبط (precision) يصف مدى تقارب القراءات المتكررة من بعضها البعض، بصرف النظر عن قربها من القيمة الحقيقية؛ فكلما كان التشتت بين القراءات صغيرًا (أي كان الخطأ العشوائي صغيرًا)، كانت القراءات أكثر ضبطًا.
+
+أما الدقة (accuracy) فتصف مدى قرب القراءات (أو متوسطها) من القيمة الحقيقية المقبولة للكمية المقيسة، وترتبط بوجود أو غياب خطأ منتظم.
+
+في هذه الحالة، القراءات متقاربة جدًا من بعضها (تشتت صغير) فهي مضبوطة، لكنها بعيدة عن القيمة الحقيقية، وهذا يدل على وجود خطأ منتظم يجعلها غير دقيقة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اربط بين مفهومي الدقة (accuracy) والضبط (precision) من جهة، وبين الخطأ المنتظم (systematic error) والخطأ العشوائي (random error) من جهة أخرى، موضحًا هل يمكن لمجموعة قراءات أن تكون مضبوطة دون أن تكون دقيقة، أو العكس.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الدقة العالية (accuracy) تعني أن متوسط القراءات قريب جدًا من القيمة الحقيقية، وهذا يرتبط بصغر الخطأ المنتظم في القياس؛ فكلما قلّ الخطأ المنتظم، اقترب متوسط القراءات من القيمة الحقيقية وزادت الدقة.
+
+الضبط العالي (precision) يعني أن القراءات المتكررة متقاربة جدًا من بعضها البعض (تشتت صغير)، وهذا يرتبط بصغر الخطأ العشوائي؛ فكلما قلّ الخطأ العشوائي، تقاربت القراءات من بعضها وزاد الضبط.
+
+نعم، يمكن أن تكون مجموعة قراءات مضبوطة (متقاربة من بعضها) دون أن تكون دقيقة، إذا كان هناك خطأ منتظم كبير يزيح جميع القراءات بنفس المقدار عن القيمة الحقيقية رغم تقاربها الشديد من بعضها.
+
+كذلك يمكن أن تكون مجموعة قراءات دقيقة في المتوسط (متوسطها قريب من القيمة الحقيقية) دون أن تكون مضبوطة، إذا كان التشتت العشوائي بينها كبيرًا، لكن الموجب والسالب من هذا التشتت تلاشيا بالصدفة عند حساب المتوسط.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قاس طالبان تسارع السقوط الحر g بنفس الطريقة، خمس مرات لكل منهما، فكانت النتائج كالتالي (بوحدة m/s²):
+الطالب A: 9.78، 9.81، 9.79، 9.80، 9.82
+الطالب B: 9.65، 9.95، 9.70، 9.90، 9.60
+علمًا بأن القيمة المقبولة لـ g تساوي تقريبًا 9.81 m/s².
+احسب متوسط قراءات كل طالب، وقارن بين مدى تشتت قراءات كل منهما، ثم صنّف نتائج كل طالب من حيث الدقة والضبط.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">متوسط قراءات الطالب A = (9.78 + 9.81 + 9.79 + 9.80 + 9.82) ÷ 5 = 49.00 ÷ 5 = 9.80 m/s²
+
+متوسط قراءات الطالب B = (9.65 + 9.95 + 9.70 + 9.90 + 9.60) ÷ 5 = 48.80 ÷ 5 = 9.76 m/s²
+
+مدى تشتت قراءات A بين 9.78 و9.82 (مدى صغير مقداره 0.04 m/s² فقط)، بينما مدى تشتت قراءات B بين 9.60 و9.95 (مدى كبير مقداره 0.35 m/s²).
+
+قراءات الطالب A متقاربة جدًا من بعضها (ضبط عالٍ) ومتوسطها قريب جدًا من القيمة المقبولة 9.81 (دقة عالية)؛ إذن نتائجه دقيقة ومضبوطة معًا.
+
+قراءات الطالب B متباعدة كثيرًا عن بعضها (ضبط منخفض بسبب خطأ عشوائي كبير)، ورغم أن متوسطها (9.76) لا يبعد كثيرًا عن القيمة المقبولة، إلا أن هذا التقارب في المتوسط جاء نتيجة تعويض قراءات مرتفعة وأخرى منخفضة بالصدفة، وليس دليلًا موثوقًا على جودة القياس بسبب كبر التشتت.
+
+إذن النتيجة النهائية: نتائج الطالب A دقيقة ومضبوطة معًا، بينما نتائج الطالب B أقل ضبطًا بكثير بسبب اتساع تشتتها، رغم تقارب متوسطها الظاهري من القيمة المقبولة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يستخدم طالب ميزانًا إلكترونيًا حساسيته 0.001 غم لقياس كتلة قطعة معايرة كتلتها الحقيقية المعروفة هي 15.185 غم، فيكرر الوزن خمس مرات ويحصل على القيم التالية (بالغرام): 15.234، 15.235، 15.234، 15.236، 15.235.
+(أ) احسب متوسط القراءات، ثم قارنه بالقيمة الحقيقية لتحديد مقدار الفرق بينهما.
+(ب) بالاستناد إلى تقارب القراءات الخمس من بعضها من جهة، وبُعدها الثابت عن القيمة الحقيقية من جهة أخرى، صنّف أداء هذا الميزان من حيث الدقة والضبط، مع التعليل.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">(أ) متوسط القراءات = (15.234 + 15.235 + 15.234 + 15.236 + 15.235) ÷ 5 = 76.174 ÷ 5 = 15.235 غم (تقريبًا)
+
+الفرق عن القيمة الحقيقية = 15.235 − 15.185 = 0.050 غم، أي أن قراءات الميزان أكبر من القيمة الحقيقية بمقدار ثابت تقريبًا (نحو 0.05 غم).
+
+(ب) القراءات الخمس متقاربة جدًا من بعضها البعض (أقصى فرق بينها لا يتجاوز 0.002 غم)، وهذا يدل على ضبط عالٍ جدًا (خطأ عشوائي صغير جدًا بفضل حساسية الميزان الإلكتروني العالية).
+
+لكن جميع القراءات تنحرف بنفس المقدار تقريبًا (نحو 0.05 غم) في نفس الاتجاه عن القيمة الحقيقية، وهذا يدل على وجود خطأ منتظم (على الأرجح خطأ صفري أو خطأ معايرة في الميزان)، مما يجعل القراءات غير دقيقة رغم ضبطها العالي.
+
+إذن النتيجة النهائية: هذا الميزان مضبوط جدًا (precise) لكنه غير دقيق (not accurate)، بسبب خطأ منتظم ثابت في معايرته يجب تصحيحه.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1.3</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يستخدم مدرّس الفيزياء تشبيه إصابة السهام على لوحة هدف لتوضيح مفهومي الدقة والضبط. إذا أصابت جميع السهام الخمسة نقطة قريبة جدًا من بعضها البعض، لكن بعيدة عن مركز الهدف، فإن هذا يمثل تشبيهًا لقياس: (اختر الإجابة الصحيحة)
+(أ) دقيق (accurate) وغير مضبوط (not precise)
+(ب) غير دقيق (not accurate) لكنه مضبوط (precise)
+(ج) دقيق ومضبوط معًا
+(د) غير دقيق وغير مضبوط معًا</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">تجمّع السهام الخمسة في منطقة صغيرة قريبة من بعضها البعض يعني أن التشتت بينها صغير جدًا، وهذا هو بالضبط تعريف الضبط العالي (precision)، إذ يقيس الضبط مدى تقارب النتائج المتكررة من بعضها البعض بصرف النظر عن موقعها الفعلي.
+
+لكن كون هذا التجمّع بعيدًا عن مركز الهدف (القيمة الحقيقية المطلوب إصابتها) يعني وجود خطأ منتظم يزيح جميع السهام في نفس الاتجاه، وهذا يجعل الإصابة غير دقيقة (not accurate)، لأن الدقة تقيس القرب من الهدف (القيمة الحقيقية) وليس التقارب فيما بين النتائج نفسها.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

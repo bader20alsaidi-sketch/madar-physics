@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الأولى: الشحنة الكهربائيّة — المجالات الكهربائية والشحنة الكهربائية</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3-1</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>9</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>14</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (14)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -517,7 +522,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q9')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>10</td>
+          <td>اتجاه خطوط المجال الكهربائي حول شحنة نقطية موجبة معزولة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>11</td>
+          <td>تعريف المجال الكهربائي عند نقطة وما يحدد اتجاهه<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>12</td>
+          <td>وصف شكل واتجاه خطوط المجال بين شحنتين نقطيتين متضادتين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>13</td>
+          <td>أثر مضاعفة مقدار الشحنة النقطية على شدة المجال الكهربائي عند نقطة ثابتة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>14</td>
+          <td>دلالة تقارب وتباعد خطوط المجال على تغير شدته مع المسافة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -641,7 +676,122 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما اتجاه خطوط المجال الكهربائي حول شحنة نقطية موجبة معزولة في الفراغ؟ (اختر الإجابة الصحيحة)
+(أ) خطوط تتجه نحو الشحنة من كل الاتجاهات المحيطة بها
+(ب) خطوط تنطلق شعاعيًا من الشحنة إلى الخارج في جميع الاتجاهات
+(ج) خطوط دائرية مغلقة تحيط بالشحنة دون أن تلامسها
+(د) خطوط مستقيمة متوازية جميعها في اتجاه واحد ثابت بصرف النظر عن موقع الشحنة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">اتجاه خط المجال الكهربائي عند أي نقطة يُمثَّل باتجاه القوة التي تؤثر بها الشحنة على شحنة اختبار صغيرة موجبة موضوعة في تلك النقطة.
+
+بما أن الشحنتين المتماثلتين (الموجبتين) تتنافران، فإن شحنة الاختبار الموجبة الموضوعة عند أي نقطة حول الشحنة النقطية الموجبة تتنافر معها، أي تُدفع بعيدًا عنها في اتجاه مبتعد عن الشحنة مباشرة.
+
+إذن يجب أن تكون خطوط المجال خطوطًا مستقيمة شعاعية تنطلق من الشحنة نفسها إلى الخارج في جميع الاتجاهات، وتكون أكثر تقاربًا (أقوى) قرب الشحنة وتتباعد (تضعف) كلما ابتعدنا عنها.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عرّف المجال الكهربائي عند نقطة معينة في الفراغ، واذكر ما الذي يحدد اتجاه المجال الكهربائي عند تلك النقطة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">المجال الكهربائي هو المنطقة المحيطة بشحنة كهربائية (أو مجموعة شحنات) والتي تؤثر فيها هذه الشحنة بقوة كهربائية على أي شحنة أخرى توضع داخل هذه المنطقة.
+
+يُعرَّف المجال الكهربائي عند نقطة معينة بأنه القوة الكهربائية المؤثرة على وحدة الشحنات الموجبة لشحنة اختبار صغيرة موجبة توضع في تلك النقطة.
+
+أما اتجاه المجال الكهربائي عند تلك النقطة فيتحدد باتجاه القوة الكهربائية التي تؤثر بها الشحنة (أو الشحنات) المسببة للمجال على شحنة اختبار موجبة صغيرة موضوعة في تلك النقطة بالتحديد.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تُوضع شحنتان نقطيتان متساويتان في المقدار: الأولى موجبة والثانية سالبة، على مسافة معينة من بعضهما. صف، بالكلمات، شكل خطوط المجال الكهربائي في المنطقة بينهما، وحدد اتجاهها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">تبدأ خطوط المجال الكهربائي دائمًا من الشحنة الموجبة وتنتهي عند الشحنة السالبة، إذ تمثَّل خطوط المجال المنطلقة من الموجبة والمتجهة نحو السالبة.
+
+بين الشحنتين، تنحني الخطوط وتنتقل من الشحنة الموجبة، مقتربة تدريجيًا، حتى تصل إلى الشحنة السالبة وتنتهي عندها، أي أن اتجاه كل خط عند أي نقطة بين الشحنتين يكون من جهة الشحنة الموجبة نحو جهة الشحنة السالبة.
+
+وتكون هذه الخطوط أكثر تقاربًا (أكثر كثافة) في المنطقة الواقعة مباشرة بين الشحنتين، وهذا يدل على أن المجال الكهربائي في هذه المنطقة يكون أقوى ما يمكن مقارنة بالمناطق البعيدة عن الشحنتين.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند مضاعفة مقدار شحنة نقطية معينة (جعلها ضعف قيمتها الأصلية) دون تغيير المسافة عن نقطة معينة، ماذا يحدث لشدة المجال الكهربائي الناتج عند تلك النقطة؟ (اختر الإجابة الصحيحة)
+(أ) تبقى شدة المجال كما هي دون أي تغيير
+(ب) تتضاعف شدة المجال (تصبح ضعف قيمتها الأصلية)
+(ج) تقل شدة المجال إلى النصف
+(د) تصبح شدة المجال أربعة أضعاف قيمتها الأصلية</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">شدة المجال الكهربائي الناتج عن شحنة نقطية عند نقطة معينة تتناسب طرديًا مع مقدار تلك الشحنة، طالما بقيت المسافة عن الشحنة ثابتة دون تغيير.
+
+بما أن المسافة عن الشحنة لم تتغير في هذه الحالة، وتضاعفت الشحنة نفسها فقط (أصبحت ضعف قيمتها الأصلية)، فإن شدة المجال الناتج عند تلك النقطة تتضاعف بنفس النسبة أيضًا، لتصبح ضعف شدتها الأصلية.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في رسم لخطوط المجال الكهربائي حول شحنة نقطية، لوحظ أن الخطوط تكون متقاربة جدًا قرب الشحنة، وتتباعد تدريجيًا كلما ابتعدنا عنها. ماذا يدل ذلك على كيفية تغيّر شدة المجال الكهربائي مع المسافة عن الشحنة؟ فسّر إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">من القواعد الأساسية في رسم خطوط المجال الكهربائي، أن مدى تقارب خطوط المجال من بعضها (كثافتها) يمثّل مقدار شدة المجال الكهربائي في تلك المنطقة؛ فكلما تقاربت الخطوط دلّ ذلك على مجال أقوى، وكلما تباعدت دلّ ذلك على مجال أضعف.
+
+بما أن الخطوط في هذا الرسم متقاربة جدًا بالقرب من الشحنة، فهذا يدل على أن شدة المجال الكهربائي تكون كبيرة جدًا في المنطقة القريبة من الشحنة.
+
+وبما أن الخطوط تتباعد تدريجيًا كلما ابتعدنا عن الشحنة، فهذا يدل على أن شدة المجال الكهربائي تقل تدريجيًا كلما زادت المسافة عن الشحنة، أي أن شدة المجال الكهربائي الناتج عن شحنة نقطية تتناقص كلما ابتعدنا عنها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -660,6 +810,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

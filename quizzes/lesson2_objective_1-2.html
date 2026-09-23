@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1.2</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>24</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -489,9 +489,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (1)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (6)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -539,7 +539,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>7</td>
+          <td>التمييز بين تعريف الخطأ المنتظم والخطأ العشوائي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>8</td>
+          <td>أمثلة على مصادر الخطأ المنتظم والعشوائي في تجربة البندول<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>9</td>
+          <td>تصحيح متوسط القراءات من أثر خطأ منتظم في المسطرة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>10</td>
+          <td>حساب عدم اليقين من تشتت قراءات زمن السقوط بطريقة نصف المدى<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>11</td>
+          <td>تصنيف حالات قياس مختلفة كخطأ منتظم أو عشوائي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -671,7 +701,128 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 1.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي العبارات التالية تصف الخطأ المنتظم (systematic error) بشكل صحيح، بخلاف الخطأ العشوائي (random error)؟ (اختر الإجابة الصحيحة)
+(أ) خطأ ينتج عن تقلبات غير منتظمة في الجهاز أو الملاحظ من قراءة إلى أخرى، ويمكن تقليل أثره بأخذ عدة قراءات وحساب متوسطها
+(ب) خطأ ثابت المقدار والاتجاه في جميع القراءات (كخطأ صفري في الجهاز مثلاً)، ولا يمكن تقليله أو التخلص منه بتكرار القراءة أو حساب المتوسط، بل يحتاج إلى معايرة الجهاز أو تعديل الطريقة
+(ج) خطأ يظهر فقط عند استخدام أجهزة القياس الرقمية دون التناظرية
+(د) خطأ ينتج فقط عن سوء قراءة الزاوية البصرية (parallax) عند النظر إلى المؤشر</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الخطأ المنتظم هو انحراف ثابت المقدار والاتجاه يتكرر في كل قراءة بنفس الطريقة، وينتج غالبًا عن خطأ في معايرة الجهاز (كخطأ صفري) أو عن عيب في طريقة القياس نفسها.
+
+بما أن هذا الانحراف ثابت في كل مرة، فإن تكرار القياس وحساب المتوسط لا يُلغيه ولا يقلل من أثره، لأن جميع القراءات تنحرف بنفس المقدار وفي نفس الاتجاه؛ ولذلك يُعالَج فقط بمعايرة الجهاز أو تصحيح طريقة القياس أو تغيير الأداة.
+
+أما الخطأ العشوائي فينتج عن تقلبات غير منتظمة (مثل تغير رد فعل الملاحظ أو اهتزازات بيئية)، ويمكن تقليل أثره بأخذ عدة قراءات وحساب متوسطها.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 1.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في تجربة لقياس الزمن الدوري لبندول بسيط باستخدام ساعة إيقاف يدوية، اذكر مثالًا واحدًا على مصدر خطأ منتظم ومثالًا واحدًا على مصدر خطأ عشوائي يمكن أن يحدثا في هذه التجربة، ثم وضّح كيف يمكن تقليل أثر كل نوع منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">مثال على الخطأ المنتظم: إذا كانت ساعة الإيقاف نفسها معايرة بشكل خاطئ فتُقدّم أو تؤخر زمنًا ثابتًا عن الزمن الحقيقي في كل استخدام (مثلاً تعرض دائمًا زمنًا أقل بمقدار ثابت)، فإن هذا خطأ منتظم لأنه يؤثر بنفس المقدار والاتجاه في كل قراءة. يمكن تقليل أثره بمعايرة الساعة مقابل ساعة موثوقة قبل التجربة، أو باستخدام أداة توقيت إلكترونية بوابية (light gate) بدلاً من التوقيت اليدوي.
+
+مثال على الخطأ العشوائي: يختلف زمن رد فعل الطالب عند الضغط على زر البدء والإيقاف من محاولة إلى أخرى بشكل غير منتظم (أحيانًا يضغط مبكرًا قليلًا وأحيانًا متأخرًا قليلًا)، وهذا يُنتج تشتتًا عشوائيًا في القراءات حول القيمة الحقيقية. يمكن تقليل أثره بتكرار القياس عدة مرات وأخذ المتوسط، أو بقياس زمن عدد كبير من التذبذبات معًا (مثلًا 20 تذبذبًا) ثم قسمة الزمن الكلي على العدد، مما يقلل من الأثر النسبي لخطأ رد الفعل الواحد على قيمة الزمن الدوري.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 1.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قاس طالب طول قطعة خشبية خمس مرات متتالية باستخدام مسطرة مترية طرفها مكسور قليلًا، فحصل على القيم التالية (بالمليمتر): 24.6، 24.5، 24.7، 24.5، 24.6.
+أظهر فحص لاحق للمسطرة أن كسر الطرف يجعل كل قراءة أكبر من قيمتها الحقيقية بمقدار ثابت مقداره 0.3 مم.
+احسب متوسط القراءات الخام، ثم احسب الطول المصحح بعد إزالة أثر هذا الخطأ.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">متوسط القراءات الخام = (24.6 + 24.5 + 24.7 + 24.5 + 24.6) ÷ 5 = 122.9 ÷ 5 = 24.58 مم
+
+التشتت الملاحظ بين القراءات الخمس (اختلافها الطفيف عن بعضها البعض) ناتج عن خطأ عشوائي، إذ لا يوجد سبب ثابت يجعل كل قراءة تنحرف بنفس المقدار والاتجاه عن الأخرى.
+
+أما كون كل قراءة زائدة عن القيمة الحقيقية بمقدار ثابت (0.3 مم) بسبب كسر طرف المسطرة، فهذا خطأ منتظم، لأنه يؤثر بنفس المقدار والاتجاه في كل قراءة على حدة، ولا يمكن التخلص منه بأخذ المتوسط فقط، بل يجب طرحه صراحة من النتيجة.
+
+الطول المصحح = متوسط القراءات الخام − الخطأ المنتظم = 24.58 − 0.3 = 24.28 مم
+
+إذن النتيجة النهائية: الطول الحقيقي المصحح للقطعة الخشبية ≈ 24.3 مم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 1.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">قِيس زمن سقوط كرة من ارتفاع ثابت خمس مرات متتالية بنفس الطريقة، فكانت القيم كالتالي (بالثانية): 1.02، 0.98، 1.05، 0.99، 1.01.
+بافتراض عدم وجود خطأ منتظم في هذه التجربة، احسب متوسط القراءات، ثم احسب عدم اليقين المطلق الناتج عن التشتت العشوائي باستخدام طريقة نصف المدى (نصف الفرق بين أكبر قراءة وأصغر قراءة).</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">متوسط القراءات = (1.02 + 0.98 + 1.05 + 0.99 + 1.01) ÷ 5 = 5.05 ÷ 5 = 1.01 ث
+
+نصف المدى = (أكبر قراءة − أصغر قراءة) ÷ 2 = (1.05 − 0.98) ÷ 2 = 0.07 ÷ 2 = 0.035 ث ≈ 0.04 ث
+
+هذا التشتت بين القراءات الخمس ناتج عن خطأ عشوائي (كاختلاف رد فعل المُجرِّب عند تشغيل وإيقاف الساعة)، وقد أمكن تقدير مقداره كميًا من خلال تكرار القياس وحساب المدى بين القراءات؛ وهذا يوضح عمليًا كيف أن تكرار القياس لا يُلغي الخطأ العشوائي في القراءة الواحدة، لكنه يتيح لنا تقدير حجم أثره والتعبير عنه بعدم يقين واضح حول المتوسط.
+
+إذن النتيجة النهائية: الزمن = (1.01 ± 0.04) ث.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 1.2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صنّف كل حالة من الحالات التالية بأنها ناتجة عن خطأ منتظم (systematic) أو خطأ عشوائي (random)، مع تبرير مختصر لكل حالة:
+(1) اختلاف زاوية نظر الطالب عند قراءة مستوى سائل في ماسورة مدرجة من قراءة لأخرى.
+(2) استخدام ميزان إلكتروني له انحراف ثابت مقداره 2 غم قبل الصفر في كل عملية وزن.
+(3) تذبذب مؤشر أميتر تناظري بسبب اهتزازات طفيفة وغير منتظمة في المنضدة أثناء القراءة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">الحالة (1): خطأ عشوائي. لأن زاوية النظر (خطأ المنظور/parallax) تختلف قليلًا وبشكل غير منتظم من قراءة إلى أخرى، فتارة تجعل القراءة أكبر قليلًا وتارة أصغر قليلًا، دون اتجاه أو مقدار ثابت.
+
+الحالة (2): خطأ منتظم. لأن انحراف الصفر بمقدار 2 غم ثابت المقدار والاتجاه، ويتكرر بنفس القيمة في كل عملية وزن، ولا يزول بتكرار القياس، بل يجب تصحيحه بطرح 2 غم من كل قراءة أو بمعايرة الميزان على الصفر قبل الاستخدام.
+
+الحالة (3): خطأ عشوائي. لأن الاهتزازات غير المنتظمة في المنضدة تسبب تذبذبًا في مؤشر الأميتر يختلف مقداره واتجاهه من لحظة لأخرى بشكل غير متوقع، وليس له مقدار أو اتجاه ثابت يتكرر في كل قراءة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

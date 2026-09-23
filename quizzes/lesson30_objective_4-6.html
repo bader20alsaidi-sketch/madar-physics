@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.6</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>111</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>13</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (13)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (8)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -549,7 +549,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q8')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>9</td>
+          <td>سلوك مقاومة الهواء والتسارع عند السرعة النهائية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>10</td>
+          <td>ذكر عاملين يؤثران في مقدار قوة الاحتكاك بين سطحين<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>11</td>
+          <td>وصف تغير السرعة والتسارع أثناء السقوط حتى السرعة النهائية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>12</td>
+          <td>حساب قوة مقاومة السائل على كرة عند سرعتها النهائية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>13</td>
+          <td>تحليل حركة صندوق تحت قوى أفقية متزايدة وسط احتكاك<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -801,7 +831,138 @@ V = u + a t = 0 + 10×3 = 30 m/s
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">جسم يسقط سقوطًا عبر الهواء من ارتفاع كبير. ماذا يحدث لمقدار مقاومة الهواء المؤثرة عليه مع ازدياد سرعته، وماذا يحدث لتسارعه عند وصوله إلى السرعة النهائية (Terminal velocity)؟ (اختر الإجابة الصحيحة)
+(أ) تزداد مقاومة الهواء باستمرار، ويبقى التسارع ثابتًا عند g حتى عند السرعة النهائية
+(ب) تزداد مقاومة الهواء حتى تساوي الوزن، وعندها يصبح التسارع صفرًا وتصبح الحركة بسرعة ثابتة
+(ج) تقل مقاومة الهواء تدريجيًا حتى تنعدم عند السرعة النهائية
+(د) تبقى مقاومة الهواء ثابتة طوال السقوط بصرف النظر عن السرعة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">مع ازدياد سرعة الجسم الساقط عبر الهواء، تزداد مقاومة الهواء (قوة السحب) المؤثرة عليه تدريجيًا، لأنها تعتمد على سرعة الجسم بالنسبة للهواء.
+
+في بداية السقوط تكون السرعة صغيرة، لذا تكون مقاومة الهواء صغيرة جدًا مقارنة بالوزن، فتكون القوة المحصلة كبيرة تقريبًا بمقدار الوزن، والتسارع قريبًا من g.
+
+مع استمرار السقوط وزيادة السرعة، تكبر مقاومة الهواء تدريجيًا، فتقل القوة المحصلة (الوزن ناقص مقاومة الهواء)، وبالتالي يقل التسارع تدريجيًا (لكنه يبقى موجبًا، والسرعة تستمر في الازدياد).
+
+عندما تصبح مقاومة الهواء مساوية تمامًا للوزن، تصبح القوة المحصلة صفرًا، وبالتالي يصبح التسارع صفرًا، ويتحرك الجسم بعدها بسرعة ثابتة تسمى السرعة النهائية (الحدية).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اذكر عاملين (2) يؤثران في مقدار قوة الاحتكاك بين سطحين متلامسين، مع توضيح تأثير كل عامل باختصار.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">العامل الأول: طبيعة (خشونة) السطحين المتلامسين. فكلما كانت السطوح أكثر خشونة، زاد مقدار قوة الاحتكاك بينهما؛ بينما السطوح الملساء (كالسطوح المصقولة أو المزلّقة) تنتج قوة احتكاك أصغر بكثير.
+
+العامل الثاني: مقدار القوة العمودية (الناظمة) بين السطحين. فكلما زادت القوة العمودية التي يضغط بها أحد السطحين على الآخر (وهي غالبًا مرتبطة بوزن الجسم في الحالات الأفقية البسيطة)، زاد مقدار قوة الاحتكاك المتاحة بينهما.
+
+ملاحظة: هذان العاملان هما الأكثر أهمية عند دراسة الاحتكاك في هذا المستوى؛ ولا تعتمد قوة الاحتكاك (في النموذج المبسط) بشكل مباشر على مساحة التلامس الظاهرية بين السطحين.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صف بالكلمات (دون رسم) كيف تتغير سرعة جسم يسقط من السكون عبر الهواء بمرور الزمن حتى يصل إلى سرعته النهائية، موضحًا سلوك التسارع في بداية السقوط ونهايته.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في بداية السقوط (عند اللحظة صفر)، تكون سرعة الجسم صفرًا، وتكون مقاومة الهواء عليه صفرًا أيضًا تقريبًا (لأنها تعتمد على السرعة)، لذا يكون التسارع في أقصى قيمة له وقريبًا من تسارع الجسم الساقط سقوطًا حرًا g.
+
+مع مرور الزمن، تزداد سرعة الجسم باستمرار، ونتيجة لذلك تزداد مقاومة الهواء المعاكسة لحركته تدريجيًا، مما يجعل القوة المحصلة عليه (الوزن ناقص مقاومة الهواء) تقل تدريجيًا، وبالتالي يقل معدل ازدياد السرعة (أي يقل التسارع) شيئًا فشيئًا، رغم أن السرعة نفسها لا تزال في ازدياد مستمر.
+
+في النهاية، عندما تصبح مقاومة الهواء مساوية تمامًا لوزن الجسم، تصبح القوة المحصلة صفرًا، فيصبح التسارع صفرًا أيضًا، وتستقر السرعة عند قيمة ثابتة تسمى السرعة النهائية (الحدية)، ويستمر الجسم بالسقوط بهذه السرعة الثابتة دون أي تغيير إضافي فيها.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">كرة معدنية صغيرة كتلتها 0.05 كجم تسقط داخل أنبوب مملوء بسائل لزج، ووصلت إلى سرعتها النهائية (الحدية). إذا كانت قوة الطفو (Upthrust) المؤثرة عليها عند هذه السرعة تساوي 0.15 N، احسب مقدار قوة مقاومة السائل (السحب اللزج) المؤثرة عليها عند السرعة النهائية. خذ g = 10 m/s².</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">تؤثر على الكرة عند سرعتها النهائية ثلاث قوى رأسية: وزنها W متجهًا لأسفل، وقوة الطفو U متجهة لأعلى، وقوة مقاومة السائل (السحب اللزج) D متجهة لأعلى أيضًا (لأنها تعاكس حركة الكرة الهابطة).
+
+أولًا نحسب وزن الكرة:
+
+W = m × g = 0.05 × 10 = 0.5 N
+
+بما أن الكرة تتحرك بسرعتها النهائية (الحدية)، فهي في حالة اتزان تام، أي أن التسارع صفر والقوة المحصلة صفر، وبالتالي فإن مجموع القوتين المتجهتين لأعلى (الطفو ومقاومة السائل) يساوي الوزن المتجه لأسفل:
+
+W = U + D
+
+D = W − U = 0.5 − 0.15 = 0.35 N
+
+الإجابة النهائية: قوة مقاومة السائل D = 0.35 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.6</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">صندوق كتلته 6 كجم ساكن على سطح أفقي خشن، وأقصى قوة احتكاك ساكن ممكنة بينه وبين السطح تساوي 42 N (وهذه القيمة تقريبًا نفسها لقوة الاحتكاك الحركي بعد بدء الحركة). يُسحب الصندوق بقوة أفقية F. لكل من الحالات التالية، احسب مقدار قوة الاحتكاك الفعلية والتسارع الناتج (إن وجد): (a) F = 30 N. (b) F = 42 N بالضبط. (c) F = 50 N.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">(a) عندما F = 30 N: بما أن هذه القوة أقل من أقصى قوة احتكاك ساكن ممكنة (42 N)، فإن الصندوق يبقى ساكنًا تمامًا، وتتكيف قوة الاحتكاك الساكن تلقائيًا لتساوي القوة المؤثرة بالضبط حتى يبقى الاتزان:
+
+قوة الاحتكاك = 30 N (تعاكس F تمامًا)، والتسارع = صفر (الصندوق لا يتحرك).
+
+(b) عندما F = 42 N بالضبط: هذه هي القيمة القصوى لقوة الاحتكاك الساكن، أي أن الصندوق يكون على وشك الانزلاق (الحد الفاصل بين السكون والحركة):
+
+قوة الاحتكاك = 42 N، والتسارع ≈ صفر (لا يزال على وشك الحركة، في حالة اتزان حرجة).
+
+(c) عندما F = 50 N: هذه القوة تتجاوز أقصى احتكاك ساكن ممكن، لذا يبدأ الصندوق بالانزلاق، وتصبح قوة الاحتكاك المؤثرة هي الاحتكاك الحركي (≈ 42 N، كما ذكر في نص السؤال)، وتكون القوة المحصلة:
+
+F_net = F − f = 50 − 42 = 8 N
+
+a = F_net / m = 8 / 6 ≈ 1.33 m/s²
+
+الإجابة النهائية: (a) سكون، احتكاك = 30 N. (b) على وشك الحركة، احتكاك = 42 N. (c) يتحرك بتسارع ≈ 1.33 m/s²، احتكاك حركي = 42 N.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

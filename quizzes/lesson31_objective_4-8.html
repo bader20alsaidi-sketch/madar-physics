@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>4.8</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>106</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -518,7 +518,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>تحديد الوحدات الأساسية السبع للنظام الدولي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>شرح المقصود بتجانس المعادلة من الناحية البعدية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>اشتقاق وحدة الطاقة الحركية بدلالة الوحدات الأساسية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>التحقق من تجانس معادلة الحركة v² = u² + 2as<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>اشتقاق وحدة معامل اللزوجة من معادلة قانون ستوكس<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -610,7 +640,152 @@ PE = kg . m.s⁻² . m = kg.m².s⁻²</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 4.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي المجموعات التالية تمثل الوحدات الأساسية (SI base units) في النظام الدولي للوحدات؟ (اختر الإجابة الصحيحة)
+(أ) المتر، النيوتن، الثانية، الأمبير
+(ب) الكيلوجرام، المتر، الثانية، الأمبير، الكلفن، المول، الشمعة (الكانديلا)
+(ج) الجول، الواط، الباسكال، الهرتز
+(د) الكيلوجرام والنيوتن فقط</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">الوحدات الأساسية في النظام الدولي (SI) هي مجموعة من سبع وحدات مستقلة لا تُشتق من غيرها، وتُشتق منها جميع الوحدات الأخرى (المسماة بالوحدات المشتقة).
+
+هذه الوحدات السبع هي: الكيلوجرام (kg) لوحدة الكتلة، والمتر (m) لوحدة الطول، والثانية (s) لوحدة الزمن، والأمبير (A) لوحدة شدة التيار الكهربائي، والكلفن (K) لوحدة درجة الحرارة، والمول (mol) لوحدة كمية المادة، والشمعة أو الكانديلا (cd) لوحدة شدة الإضاءة.
+
+أما وحدات مثل النيوتن والجول والواط والباسكال والهرتز فهي جميعها وحدات مشتقة، أي أنها تُعبَّر رياضيًا بدلالة الوحدات الأساسية السبع (فمثلًا النيوتن = kg m s⁻²).
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 4.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">اشرح المقصود بـ "تجانس المعادلة" (Homogeneity of an equation) من الناحية البعدية (الوحدات)، ولماذا تُعد هذه الخاصية شرطًا ضروريًا، لكنه غير كافٍ، لصحة أي معادلة فيزيائية.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">تكون المعادلة الفيزيائية متجانسة (Homogeneous) من الناحية البعدية إذا كان الطرف الأيمن منها والطرف الأيسر يحملان نفس الوحدة الأساسية (أو نفس تركيبة الوحدات الأساسية) عند التعبير عنهما بدلالة الوحدات الأساسية للنظام الدولي، وكذلك يجب أن تحمل كل الحدود التي تُجمع أو تُطرح من بعضها (في حال وجود أكثر من حد في أحد الطرفين) نفس الوحدة أيضًا.
+
+هذه الخاصية شرط ضروري لصحة أي معادلة فيزيائية، لأنه لا يمكن منطقيًا جمع أو مساواة كميات فيزيائية ذات طبيعة أو أبعاد مختلفة (مثل مساواة طول بزمن)؛ فإذا لم تتجانس المعادلة من ناحية الوحدات، فهي بالتأكيد معادلة خاطئة.
+
+لكنها ليست شرطًا كافيًا لصحة المعادلة، لأن فحص الوحدات لا يكشف عن الأخطاء في الثوابت أو الأعداد الصرفة (بلا وحدات) الموجودة في المعادلة، مثل الخطأ في استخدام العامل ½ أو 2π أو غيرها من الأعداد التي لا تحمل وحدات؛ فقد تكون المعادلة متجانسة من ناحية الوحدات تمامًا لكنها خاطئة عدديًا بسبب ثابت غير صحيح.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 4.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تُعطى الطاقة الحركية لجسم بالعلاقة: Ek = ½mv²، حيث m الكتلة وv السرعة. اشتق الوحدة الأساسية (SI) لوحدة الطاقة (الجول) معبّرًا عنها بدلالة الوحدات الأساسية kg وm وs.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن العدد ½ هو عدد صرف بلا وحدة، فإنه لا يؤثر على تحليل الوحدات، ويكفي تحليل وحدة الجزء mv².
+
+وحدة الكتلة m هي kg، ووحدة السرعة v هي m/s (أي m·s⁻¹).
+
+إذن وحدة v² = (m·s⁻¹)² = m²·s⁻²
+
+بضرب وحدة الكتلة في وحدة مربع السرعة:
+
+وحدة Ek = kg × m² × s⁻²
+
+إذن وحدة الطاقة (الجول J) تُكتب بدلالة الوحدات الأساسية كما يلي:
+
+J = kg·m²·s⁻²
+
+الإجابة النهائية: وحدة الطاقة (الجول) = kg m² s⁻².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 4.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحقق مما إذا كانت المعادلة التالية متجانسة من حيث الوحدات: v² = u² + 2as، حيث v وu بوحدة m/s، وa بوحدة m/s²، وs بوحدة m. بيّن خطوات التحقق بوضوح.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">للتحقق من تجانس المعادلة، نحلل وحدة كل حد فيها على حدة، بدءًا بالطرف الأيسر.
+
+وحدة الطرف الأيسر (v²): بما أن وحدة v هي m·s⁻¹، فإن وحدة v² = (m·s⁻¹)² = m²·s⁻²
+
+الآن نحلل الطرف الأيمن، الذي يتكون من حدين يُجمعان معًا، ويجب أن تكون وحدة كل منهما مطابقة للأخرى وللطرف الأيسر.
+
+وحدة الحد الأول (u²): بنفس طريقة v²، وحدة u² = m²·s⁻²
+
+وحدة الحد الثاني (2as): العدد 2 عدد صرف بلا وحدة، ووحدة a هي m·s⁻²، ووحدة s هي m، لذا:
+
+وحدة (2as) = (m·s⁻²) × (m) = m²·s⁻²
+
+نلاحظ أن وحدة كل من v² وu² و(2as) هي نفسها تمامًا (m²·s⁻²)، وبالتالي فإن حدود المعادلة متجانسة جميعها.
+
+الإجابة النهائية: نعم، المعادلة v² = u² + 2as متجانسة من حيث الوحدات، لأن كل حد فيها يحمل وحدة m²·s⁻².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 4.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تنص معادلة تجريبية لقوة السحب اللزج المؤثرة على كرة صغيرة تتحرك ببطء داخل سائل لزج على أن: F = 6πηrv، حيث F القوة (N)، وr نصف قطر الكرة (m)، وv سرعتها (m/s)، وη ثابت يسمى معامل اللزوجة. بما أن العدد 6π كمية بلا وحدة (عدد صرف)، استنتج الوحدة الأساسية لـ η بدلالة الوحدات الأساسية kg وm وs.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">أولًا نُعيد ترتيب المعادلة لعزل η:
+
+η = F / (6π × r × v)
+
+بما أن 6π عدد صرف بلا وحدة، فإنه لا يدخل في تحليل الوحدات، وتصبح المعادلة من ناحية الوحدات:
+
+وحدة η = وحدة F ÷ (وحدة r × وحدة v)
+
+وحدة القوة F هي النيوتن، وبدلالة الوحدات الأساسية: N = kg·m·s⁻²
+
+وحدة r هي m، ووحدة v هي m·s⁻¹، لذا وحدة حاصل ضربهما (r × v):
+
+وحدة (r × v) = m × m·s⁻¹ = m²·s⁻¹
+
+الآن نقسم وحدة F على وحدة (r × v):
+
+وحدة η = (kg·m·s⁻²) ÷ (m²·s⁻¹) = kg·m^(1−2)·s^(−2+1) = kg·m⁻¹·s⁻¹
+
+الإجابة النهائية: وحدة معامل اللزوجة η = kg m⁻¹ s⁻¹.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.1</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>60</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -531,7 +531,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>تعريف التسارع كمعدل تغيّر السرعة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>تفسير معنى التسارع السالب واصطلاح الإشارة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>حساب تسارع سيارة من سرعتها الابتدائية والنهائية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب تباطؤ دراجة نارية أثناء الفرملة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>حساب تسارع كرة عند عكس اتجاه حركتها<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -674,7 +704,130 @@ v = 15 m·s⁻¹</div>
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">أي العبارات التالية تصف تعريف التسارع (العجلة) بشكل صحيح؟ (اختر الإجابة الصحيحة)
+(أ) التسارع هو معدل تغيّر الإزاحة بالنسبة للزمن
+(ب) التسارع هو معدل تغيّر السرعة بالنسبة للزمن
+(ج) التسارع هو السرعة مقسومة على المسافة الكلية
+(د) التسارع هو الزمن اللازم للوصول إلى أقصى سرعة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">التسارع (العجلة) في الفيزياء له تعريف محدد لا يجوز الخلط بينه وبين مفاهيم أخرى مثل السرعة أو الإزاحة.
+
+معدل تغيّر الإزاحة بالنسبة للزمن هو تعريف السرعة، وليس التسارع، لذلك العبارة (أ) غير صحيحة.
+
+أما التسارع فيُعرَّف رياضيًا بالعلاقة: a = Δv/Δt، أي أنه معدل تغيّر متجه السرعة بالنسبة للزمن، ويقاس بوحدة م/ث².
+
+العبارتان (ج) و(د) لا تمثلان تعريف التسارع فيزيائيًا، فهما لا تربطان بين تغيّر السرعة والزمن اللازم لهذا التغيّر بالشكل الصحيح.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تُظهر إحدى السيارات قيمة تسارع سالبة أثناء حركتها في خط مستقيم. فسّر ماذا يعني ذلك فيزيائيًا، مع مراعاة اصطلاح الإشارة المستخدم في وصف الحركة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">في دراسة الحركة على خط مستقيم، يُتفق ابتداءً على اتجاه موجب معيّن (غالبًا اتجاه الحركة الأصلي للجسم)، وتقاس كل من السرعة والتسارع بالنسبة لهذا الاتجاه المرجعي.
+
+عندما تكون قيمة التسارع سالبة بينما السرعة موجبة، فهذا يعني أن السرعة تتناقص مع الزمن، أي أن الجسم يتباطأ (تقل سرعته تدريجيًا) وإن كان لا يزال يتحرك في الاتجاه الموجب نفسه.
+
+يجب الانتباه إلى أن التسارع السالب لا يعني بالضرورة أن الجسم يتباطأ في كل الحالات؛ فإذا كانت السرعة نفسها سالبة (أي الجسم يتحرك في الاتجاه المعاكس)، فإن التسارع السالب في هذه الحالة يعني أن سرعة الجسم (في الاتجاه السالب) تتزايد، أي أن الجسم يتسارع في الاتجاه السالب لا يتباطأ.
+
+إذن: الإشارة السالبة للتسارع تدل فقط على اتجاه التغيّر في السرعة، وتفسيرها (تسارع أم تباطؤ) يعتمد على مقارنتها بإشارة السرعة نفسها في تلك اللحظة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تنطلق سيارة بسرعة ابتدائية مقدارها 5 م/ث، وتتسارع بانتظام حتى تصل سرعتها إلى 25 م/ث خلال 8 ثوانٍ. احسب مقدار تسارع السيارة خلال هذه الفترة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">المعطيات: السرعة الابتدائية u = 5 م/ث، السرعة النهائية v = 25 م/ث، الزمن t = 8 ث.
+
+نستخدم العلاقة: a = Δv/Δt = (v - u)/t
+
+بالتعويض: a = (25 - 5)/8 = 20/8 = 2.5 م/ث²
+
+أي أن سرعة السيارة تزداد بمقدار 2.5 م/ث في كل ثانية من حركتها.
+
+تسارع السيارة = 2.5 م/ث².</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بدأت دراجة نارية حركتها بسرعة 30 م/ث، ثم ضغط السائق على الفرامل فتوقفت تمامًا (السرعة = صفر) خلال 6 ثوانٍ فقط، بافتراض أن التباطؤ كان منتظمًا. احسب تسارع الدراجة، ووضّح مدلول إشارة الناتج.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">المعطيات: السرعة الابتدائية u = 30 م/ث (في اتجاه الحركة، ويُعتبر موجبًا)، السرعة النهائية v = 0 (توقف تام)، الزمن t = 6 ث.
+
+a = (v - u)/t = (0 - 30)/6 = -30/6 = -5 م/ث²
+
+الإشارة السالبة للناتج لا تعني اتجاهًا معاكسًا للحركة، بل تعني أن السرعة تتناقص مع الزمن بمعدل 5 م/ث في كل ثانية، أي أن الدراجة تتباطأ (تقل سرعتها) بمقدار 5 م/ث² حتى تتوقف.
+
+تسارع الدراجة = -5 م/ث² (أي تباطؤ مقداره 5 م/ث²).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.1</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تتحرك كرة رأسيًا بحيث تكون سرعتها 12 م/ث لأعلى عند لحظة معينة (يُعتبر اتجاه لأعلى هو الاتجاه الموجب)، ثم بعد 3 ثوانٍ من تلك اللحظة تصبح سرعتها 9 م/ث لأسفل، مع بقاء التسارع منتظمًا طوال هذه الفترة. احسب مقدار واتجاه تسارع الكرة خلال هذه الفترة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">بما أن الاتجاه لأعلى يُعتبر الاتجاه الموجب، فإن: السرعة الابتدائية u = +12 م/ث (لأعلى)، والسرعة النهائية بعد 3 ثوانٍ v = -9 م/ث (لأسفل، ولذلك تؤخذ بالسالب).
+
+a = (v - u)/t = (-9 - 12)/3 = -21/3 = -7 م/ث²
+
+الإشارة السالبة هنا تدل على أن التسارع في اتجاه لأسفل (عكس الاتجاه الموجب المُفترض)، وهذا متوقع فيزيائيًا لأن الكرة تتحرك تحت تأثير الجاذبية الأرضية وحدها بعد إفلاتها، فتسارعها يكون دائمًا لأسفل بصرف النظر عن اتجاه حركتها اللحظي (سواء كانت صاعدة أم هابطة).
+
+تسارع الكرة = 7 م/ث² متجهًا لأسفل (أي -7 م/ث² بالنسبة للاتجاه الموجب المفترض لأعلى).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

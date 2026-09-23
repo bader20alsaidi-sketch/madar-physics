@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة العاشرة: الاضمحلال الإشعاعيّ وعمر النصف — عُمر النصف للمادّة المشعّة</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3-10</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>4</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -490,7 +495,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>5</td>
+          <td>التعريف الصحيح لعمر النصف لمادة مشعة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>6</td>
+          <td>قراءة عمر النصف من بيانات تناقص النشاط<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>7</td>
+          <td>حساب الكسر المتبقي بعد ثلاثة أعمار نصف متتالية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>8</td>
+          <td>حساب الزمن اللازم لانخفاض النشاط إلى قيمة معينة باستخدام عمر النصف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>9</td>
+          <td>حساب الكتلة المتبقية من عينة مشعة بعد عدد من أعمار النصف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -555,7 +590,134 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">ما التعريف الصحيح لـ«عمر النصف» لعنصر مشع؟ (اختر الإجابة الصحيحة)
+(أ) الزمن اللازم لاضمحلال جميع الأنوية غير المستقرة في العينة بالكامل
+(ب) الزمن اللازم لكي يتناقص عدد الأنوية غير المستقرة المتبقية في العينة (أو معدل نشاطها) إلى نصف قيمته الأصلية
+(ج) نصف الزمن الكلي الذي تبقى فيه المادة مشعة قبل أن تصبح آمنة تمامًا
+(د) الزمن اللازم لكي يتضاعف عدد الأنوية غير المستقرة في العينة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">عمر النصف لمادة مشعة هو مقياس ثابت ومميز لكل نظير مشع، يُعرَّف بأنه الزمن اللازم لكي يتناقص عدد الأنوية غير المستقرة المتبقية في العينة إلى نصف عددها الأصلي، وهو ما يكافئ أيضًا الزمن اللازم لكي يتناقص معدل النشاط الإشعاعي (معدل العدّ) للعينة إلى نصف قيمته.
+
+لا يمثّل عمر النصف الزمن اللازم لاضمحلال المادة بالكامل، لأن عدد الأنوية غير المتحللة يستمر نظريًا في التناقص إلى ما لا نهاية دون أن يصل إلى الصفر تمامًا خلال زمن محدود، ولا يعني أيضًا مضاعفة عدد الأنوية غير المستقرة، إذ إن هذا العدد لا يزداد أبدًا في الاضمحلال الإشعاعي بل يتناقص فقط.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بدأ معدل نشاط عينة مشعة عند الزمن صفر بقيمة 240 نبضة/دقيقة، ثم انخفض هذا المعدل إلى 120 نبضة/دقيقة عند الزمن t = 6 دقائق. ما عمر النصف لهذه المادة المشعة بناءً على هذه القراءة؟ (اختر الإجابة الصحيحة)
+(أ) 3 دقائق
+(ب) 6 دقائق
+(ج) 12 دقيقة
+(د) 24 دقيقة</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">عمر النصف هو الزمن اللازم لكي يصبح معدل النشاط نصف قيمته الأصلية بالضبط.
+
+القيمة الأصلية لمعدل النشاط عند t = 0 هي 240 نبضة/دقيقة، ونصف هذه القيمة يساوي 240 ÷ 2 = 120 نبضة/دقيقة.
+
+بما أن معدل النشاط وصل إلى هذه القيمة بالضبط (120 نبضة/دقيقة) عند الزمن t = 6 دقائق، فإن هذا يعني أن الزمن الذي استغرقته العينة لتصل إلى نصف نشاطها الأصلي هو 6 دقائق بالضبط، وهذا هو تعريف عمر النصف.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تحتوي عينة من مادة مشعة في البداية على عدد N من الأنوية غير المستقرة. احسب الكسر المتبقي من هذا العدد (بالنسبة إلى العدد الأصلي) بعد مرور 3 أعمار نصف كاملة متتالية، موضحًا خطوات الحل.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">في كل مرة يمرّ فيها زمن مقداره عمر نصف واحد، يتناقص عدد الأنوية غير المتحللة إلى نصف قيمته السابقة مباشرة قبل تلك الفترة.
+
+بعد مرور عمر النصف الأول: العدد المتبقي = N × (1/2) = N/2.
+بعد مرور عمر النصف الثاني: العدد المتبقي = (N/2) × (1/2) = N/4.
+بعد مرور عمر النصف الثالث: العدد المتبقي = (N/4) × (1/2) = N/8.
+
+بصورة عامة، بعد مرور n من أعمار النصف، يكون الكسر المتبقي من العدد الأصلي يساوي (1/2) مرفوعة للأس n، وهنا n = 3، فيكون الكسر المتبقي = (1/2)^3 = 1/8.
+
+إذن، يتبقى بعد 3 أعمار نصف كاملة متتالية 1/8 فقط من العدد الأصلي للأنوية غير المستقرة (أي 12.5% من العدد الأصلي).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عمر النصف لنظير مشع معين يساوي 10 أيام. إذا كان معدل نشاط عينة منه 800 نبضة/دقيقة في بداية التجربة، فبعد كم يومًا يُتوقع أن ينخفض معدل النشاط إلى 100 نبضة/دقيقة؟ (بافتراض أن معدل النشاط يتناسب طرديًا مع عدد الأنوية غير المستقرة المتبقية)</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">نتتبع تناقص معدل النشاط عبر أعمار نصف متتالية، حيث يقل المعدل إلى نصف قيمته السابقة في كل عمر نصف (10 أيام):
+
+بعد عمر النصف الأول (10 أيام): 800 ÷ 2 = 400 نبضة/دقيقة.
+بعد عمر النصف الثاني (20 يومًا إجمالًا): 400 ÷ 2 = 200 نبضة/دقيقة.
+بعد عمر النصف الثالث (30 يومًا إجمالًا): 200 ÷ 2 = 100 نبضة/دقيقة.
+
+بما أن معدل النشاط وصل إلى القيمة المطلوبة (100 نبضة/دقيقة) بالضبط بعد 3 أعمار نصف، والزمن الكلي = عدد أعمار النصف × عمر النصف الواحد = 3 × 10 أيام = 30 يومًا.
+
+إذن يُتوقع أن ينخفض معدل النشاط إلى 100 نبضة/دقيقة بعد مرور 30 يومًا من بداية التجربة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3-10</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عمر النصف لنظير اليود-131 المشع يساوي 8 أيام تقريبًا. إذا بدأت عينة طبية بكتلة قدرها 32 مجم من هذا النظير، فاحسب الكتلة المتبقية غير المتحللة منه بعد مرور 32 يومًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">أولًا نحسب عدد أعمار النصف التي مرت خلال 32 يومًا:
+عدد أعمار النصف = الزمن الكلي ÷ عمر النصف = 32 ÷ 8 = 4 أعمار نصف.
+
+الكسر المتبقي من الكتلة الأصلية بعد n من أعمار النصف يساوي (1/2)^n، وهنا n = 4:
+الكسر المتبقي = (1/2)^4 = 1/16.
+
+الكتلة المتبقية = الكتلة الأصلية × الكسر المتبقي = 32 مجم × (1/16) = 2 مجم.
+
+إذن، تتبقى كتلة قدرها 2 مجم من نظير اليود-131 غير متحللة بعد مرور 32 يومًا.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -574,6 +736,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

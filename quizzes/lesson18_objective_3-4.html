@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.4</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>61</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>5</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -486,9 +486,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -530,7 +530,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>6</td>
+          <td>ميل رسم السرعة-الزمن يمثل التسارع<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>7</td>
+          <td>تفسير معنى الميل السالب لرسم السرعة-الزمن<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>8</td>
+          <td>حساب تسارع دراجة من ميل خط بياني مستقيم<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>9</td>
+          <td>حساب التسارع وتحديد لحظة انعدام السرعة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>10</td>
+          <td>مقارنة مقدار التسارع بين مرحلتين مختلفتي الميل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -674,7 +704,137 @@ a = الميل = Δv ÷ Δt = 4 ÷ 0.4 = 10 m.s⁻¹ (وحدة التسارع ا
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمثل ميل الرسم البياني لعلاقة السرعة بالزمن عند أي لحظة الكمية الفيزيائية: (اختر الإجابة الصحيحة)
+(أ) الإزاحة اللحظية
+(ب) التسارع اللحظي
+(ج) المسافة الكلية المقطوعة
+(د) متوسط السرعة خلال الحركة كلها</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">يُعرَّف التسارع بأنه معدل تغيّر السرعة بالنسبة للزمن: a = Δv/Δt.
+
+في الرسم البياني لعلاقة السرعة (على المحور الرأسي) بالزمن (على المحور الأفقي)، فإن الميل عند أي نقطة (أو ميل الخط المستقيم في حالة الخط الثابت الميل) يُحسب بالضبط بالعلاقة: الميل = (التغيّر في السرعة)/(التغيّر في الزمن) = Δv/Δt، وهذه هي الصيغة الرياضية نفسها لتعريف التسارع.
+
+إذن فإن ميل رسم السرعة-الزمن عند أي لحظة يساوي مباشرة التسارع اللحظي للجسم في تلك اللحظة.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وضّح ماذا يعني أن يكون ميل الرسم البياني لعلاقة السرعة بالزمن سالبًا، مع ذكر مثال واحد يوضح إجابتك.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">الميل السالب لرسم السرعة-الزمن يعني أن قيمة السرعة تتناقص مع مرور الزمن (التسارع نفسه سالب القيمة)، أي أن معدل تغيّر السرعة يكون في الاتجاه السالب.
+
+إذا كان الجسم يتحرك أصلًا في الاتجاه الموجب (سرعته موجبة)، فإن الميل السالب يعني أن الجسم يتباطأ، أي تقلّ سرعته تدريجيًا في نفس اتجاه حركته (مثال: سيارة تسير للأمام ويضغط سائقها الفرامل تدريجيًا حتى تتوقف).
+
+أما إذا استمر الميل السالب بعد أن تصل السرعة إلى الصفر، فإن السرعة تصبح سالبة (يتحرك الجسم الآن بعكس اتجاهه الأصلي)، وفي هذه الحالة فإن الميل السالب لا يعني تباطؤًا بل يعني أن الجسم يتسارع (تزداد سرعته) في الاتجاه المعاكس (مثال: كرة تُقذف رأسيًا لأعلى ثم تسقط لأسفل تحت تأثير الجاذبية، فتسارعها لأسفل ثابت طوال الرحلة صعودًا وهبوطًا).
+
+إذن: الميل السالب يدل دائمًا على أن التسارع يكون في الاتجاه السالب، وتفسيره (تباطؤ أم تسارع في الاتجاه المعاكس) يعتمد على إشارة السرعة نفسها في تلك اللحظة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمثَّل الرسم البياني لعلاقة السرعة بالزمن لحركة دراجة هوائية بخط مستقيم يبدأ من نقطة الأصل (t = 0 ث , v = 0 م/ث) وينتهي عند النقطة (t = 8 ث , v = 32 م/ث). احسب تسارع الدراجة باستخدام ميل هذا الخط البياني.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">بما أن الخط البياني مستقيم، فإن ميله ثابت طوال الفترة الزمنية، ويُحسب من إحداثيات نقطتين عليه.
+
+الميل (التسارع) = Δv/Δt = (v₂ - v₁)/(t₂ - t₁) = (32 - 0)/(8 - 0) = 32/8 = 4 م/ث²
+
+تسارع الدراجة الهوائية = 4 م/ث² (تسارع منتظم وموجب طوال الفترة).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يمثَّل الرسم البياني لعلاقة السرعة بالزمن لحركة جسم على خط مستقيم بخط مستقيم واحد ثابت الميل طوال الحركة: تبلغ سرعة الجسم 20 م/ث عند اللحظة t = 0، وتستمر السرعة بالتناقص بمعدل منتظم حتى تصبح -10 م/ث عند اللحظة t = 6 ث.
+أ) احسب تسارع الجسم.
+ب) أوجد اللحظة التي تصبح عندها سرعة الجسم صفرًا.
+ج) صف حركة الجسم قبل هذه اللحظة وبعدها.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">أ) بما أن الخط مستقيم واحد الميل ثابت طوال الفترة، فإن التسارع يُحسب مرة واحدة من طرفي الخط:
+
+a = Δv/Δt = (v - u)/t = (-10 - 20)/6 = -30/6 = -5 م/ث²
+
+ب) لإيجاد اللحظة التي تصبح عندها السرعة صفرًا، نستخدم معادلة الحركة v = u + at بوضع v = 0:
+
+0 = 20 + (-5) × t' ⇒ 5t' = 20 ⇒ t' = 4 ث
+
+ج) قبل اللحظة t = 4 ث (من t = 0 إلى t = 4 ث)، تكون سرعة الجسم موجبة ومتناقصة (من 20 م/ث إلى صفر)، أي أن الجسم يتحرك في اتجاهه الأصلي (الموجب) وهو يتباطأ.
+
+بعد اللحظة t = 4 ث (من t = 4 ث إلى t = 6 ث)، تصبح السرعة سالبة ومتزايدة في المقدار (من صفر إلى -10 م/ث)، أي أن الجسم يتحرك الآن بعكس اتجاهه الأصلي وسرعته (في ذلك الاتجاه الجديد) تتزايد.
+
+وبما أن الميل (التسارع) لم يتغيّر طوال الحركة (ظل ثابتًا عند -5 م/ث²)، فإن الجسم كان في الحالتين يخضع للتسارع السالب نفسه، لكن تأثيره اختلف بين تباطؤ (قبل عكس الاتجاه) وتسارع في الاتجاه الجديد (بعد عكس الاتجاه).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.4</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">يتحرك جسم على خط مستقيم وفق مرحلتين متتاليتين ممثَّلتين في رسم بياني للسرعة-الزمن: في المرحلة الأولى، تزداد سرعة الجسم بانتظام من الصفر إلى 16 م/ث خلال أول 4 ثوانٍ. في المرحلة الثانية (من t = 4 ث إلى t = 10 ث)، تتناقص سرعته بانتظام من 16 م/ث إلى 4 م/ث.
+أ) احسب تسارع الجسم في كل مرحلة من المرحلتين.
+ب) أيّ المرحلتين شهدت تغيّرًا أسرع في السرعة (أي أكبر مقدارًا للتسارع)؟ برّر إجابتك بالاستناد إلى ميل كل جزء من الرسم البياني.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">المرحلة الأولى (من t = 0 إلى t = 4 ث): a₁ = Δv/Δt = (16 - 0)/(4 - 0) = 16/4 = 4 م/ث²
+
+المرحلة الثانية (من t = 4 ث إلى t = 10 ث): a₂ = Δv/Δt = (4 - 16)/(10 - 4) = -12/6 = -2 م/ث²
+
+مقدار التسارع في المرحلة الأولى (4 م/ث²) أكبر من مقدار التسارع في المرحلة الثانية (2 م/ث²)، رغم أن إشارتيهما مختلفتان (موجب ثم سالب).
+
+هذا يعني أن جزء الرسم البياني الخاص بالمرحلة الأولى أكثر انحدارًا (أكبر ميلًا بالمقدار) من جزء المرحلة الثانية، أي أن سرعة الجسم تغيّرت بمعدل أسرع خلال المرحلة الأولى (تسارع) مقارنة بمعدل تغيّرها خلال المرحلة الثانية (تباطؤ أبطأ نسبيًا).
+
+المرحلة الأولى شهدت التغيّر الأسرع في السرعة، بمقدار تسارع 4 م/ث²، مقارنة بـ 2 م/ث² فقط في المرحلة الثانية.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>

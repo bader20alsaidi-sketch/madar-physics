@@ -456,7 +456,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="sub">الوحدة الثانية: مخطّطات الدوائر الكهربائيّة — توصيل المقاومات</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>2-2</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>9</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>14</b></div>
     </div>
   </div>
 </header>
@@ -465,6 +465,11 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
   <section class="card">
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (14)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
+    </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
@@ -516,7 +521,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q9')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>10</td>
+          <td>قانون المقاومة الكلية لمقاومتين موصولتين على التوالي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>11</td>
+          <td>حساب المقاومة الكلية وشدة التيار لمقاومتين على التوالي مع بطارية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>12</td>
+          <td>حساب المقاومة المكافئة لمقاومتين موصولتين على التوازي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>13</td>
+          <td>تفسير كون المقاومة الكلية للتوازي أقل من أصغر مقاومة فردية<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>14</td>
+          <td>حساب المقاومة الكلية لدائرة تجمع بين توصيل توالي وتوازي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -634,7 +669,133 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
     </table>
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند توصيل مقاومتين على التوالي في دائرة كهربائية، فإن المقاومة الكلية للتجمّع تساوي: (اختر الإجابة الصحيحة)
+(أ) أقل من قيمة أصغر مقاومة في التوصيلة
+(ب) مجموع قيمتي المقاومتين
+(ج) نصف مجموع قيمتي المقاومتين
+(د) مقلوب مجموع مقلوبي المقاومتين</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">في التوصيل على التوالي، تُرتَّب المقاومات في مسار واحد متتابع بحيث يمر التيار نفسه خلال كل مقاومة منها بالتتابع.
+
+بما أن كل مقاومة تعيق مرور التيار بمقدارها الخاص، وبما أن التيار يجب أن يمر عبر جميع المقاومات بالتتابع، فإن مقاومات هذه المقاومات تتراكم فوق بعضها، أي تُجمع قيمها مباشرة لتعطي المقاومة الكلية المكافئة للتوصيلة: R الكلية = R₁ + R₂.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وُصّلت مقاومتان قيمتاهما 4 أوم و6 أوم على التوالي مع بطارية فرق جهدها 20 فولت. احسب:
+(1) المقاومة الكلية للدائرة.
+(2) شدة التيار الكلي المار في الدائرة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">أولًا: حساب المقاومة الكلية.
+بما أن المقاومتين موصولتان على التوالي، فإن المقاومة الكلية تساوي مجموعهما:
+R الكلية = R₁ + R₂ = 4 أوم + 6 أوم = 10 أوم
+
+ثانيًا: حساب شدة التيار الكلي باستخدام قانون أوم (V = I × R):
+I = V ÷ R الكلية = 20 فولت ÷ 10 أوم = 2 أمبير
+
+إذن المقاومة الكلية للدائرة تساوي 10 أوم، وشدة التيار الكلي المار في الدائرة تساوي 2 أمبير.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">وُصّلت مقاومتان قيمتاهما 6 أوم و3 أوم على التوازي مع بعضهما. احسب المقاومة الكلية المكافئة لهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">عند توصيل مقاومتين على التوازي، فإن مقلوب المقاومة الكلية يساوي مجموع مقلوبي المقاومتين:
+1 ÷ R الكلية = 1 ÷ R₁ + 1 ÷ R₂
+
+بالتعويض:
+1 ÷ R الكلية = 1 ÷ 6 + 1 ÷ 3 = 1 ÷ 6 + 2 ÷ 6 = 3 ÷ 6 = 1 ÷ 2
+
+وبأخذ مقلوب الطرفين:
+R الكلية = 2 أوم
+
+إذن المقاومة الكلية المكافئة لهاتين المقاومتين الموصولتين على التوازي تساوي 2 أوم.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">فسّر لماذا تكون المقاومة الكلية لمجموعة من المقاومات الموصولة على التوازي دائمًا أقل من قيمة أصغر مقاومة فردية ضمن تلك المجموعة.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">في التوصيل على التوازي، يوفّر كل فرع من فروع المقاومات مسارًا مستقلًا إضافيًا يمكن للتيار أن يمر خلاله، بدلًا من أن يُجبر على المرور عبر مسار واحد فقط كما في التوالي.
+
+كلما أضفنا مقاومة جديدة على التوازي، فإننا نضيف مسارًا إضافيًا جديدًا يسهّل مرور مزيد من التيار الكلي خلال المجموعة عند فرق جهد معين، وهذا يعادل زيادة المساحة الكلية المتاحة لمرور التيار.
+
+وبما أن إضافة أي مسار جديد (مهما كانت قيمة مقاومته) لا يمكن أن يزيد من إعاقة مرور التيار بل يسهّله دائمًا، فإن المقاومة الكلية المكافئة للمجموعة تكون دائمًا أقل من مقاومة أي فرع منفرد فيها، بما في ذلك أصغر مقاومة موجودة في المجموعة.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 2-2</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">دائرة تحتوي على مقاومة قيمتها 10 أوم موصولة على التوالي مع مجموعة مكوَّنة من مقاومتين متماثلتين قيمة كل منهما 20 أوم موصولتين على التوازي مع بعضهما. ما المقاومة الكلية لهذه الدائرة؟ (اختر الإجابة الصحيحة)
+(أ) 20 أوم
+(ب) 30 أوم
+(ج) 15 أوم
+(د) 10 أوم</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">أولًا: نحسب المقاومة المكافئة للمقاومتين المتماثلتين (20 أوم و20 أوم) الموصولتين على التوازي:
+1 ÷ R التوازي = 1 ÷ 20 + 1 ÷ 20 = 2 ÷ 20 = 1 ÷ 10
+R التوازي = 10 أوم
+
+ثانيًا: بما أن هذا التجمّع (10 أوم) موصول على التوالي مع المقاومة الثالثة (10 أوم)، فإن المقاومة الكلية للدائرة بأكملها تساوي مجموعهما:
+R الكلية = 10 أوم + 10 أوم = 20 أوم
+
+الإجابة الصحيحة: (أ).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
 </main>
 
@@ -653,6 +814,18 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     var el = document.getElementById(id);
     if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.add('highlight'); setTimeout(function(){el.classList.remove('highlight');}, 1400); }
   }
+  function filterRows(type, btn){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('tr.qrow').forEach(function(row){
+      if(type === 'all' || row.getAttribute('data-type') === type){
+        row.classList.remove('hide');
+      } else {
+        row.classList.add('hide');
+      }
+    });
+  }
+
 </script>
 </body>
 </html>

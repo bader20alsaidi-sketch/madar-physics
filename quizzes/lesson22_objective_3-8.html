@@ -464,7 +464,7 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3.8</b></div>
       <div class="meta-chip">رقم الصفحة (كتاب الطالب): <b>73</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>3</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة: <b>8</b></div>
     </div>
   </div>
 </header>
@@ -487,9 +487,9 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
       <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
-      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (0)</button>
+      <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead>
@@ -519,7 +519,37 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-      </tbody>
+              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+          <td>4</td>
+          <td>خصائص المركبتين الأفقية والرأسية لحركة قذيفة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+          <td>5</td>
+          <td>تفسير تساوي زمن سقوط جسمين بسرعات أفقية مختلفة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+          <td>6</td>
+          <td>حساب زمن سقوط ومدى قذيفة أفقية عن منضدة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+          <td>7</td>
+          <td>مقارنة زمن سقوط كرة تُسقط رأسيًا وأخرى تُقذف أفقيًا<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+          <td>8</td>
+          <td>وصف منحنيي السرعة-الزمن لمركبتي حركة المقذوف<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
+          <td>سؤال تدريبي (بأسلوب كامبردج)</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p5')">الانتقال ↓</a></td>
+        </tr>
+</tbody>
     </table>
   </section>
 
@@ -600,7 +630,136 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
     </div>
 
 
-  </section>
+      <div class="sol-section" id="p1">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 1</h3>
+        <span class="badge">الهدف 3.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تنطلق قذيفة أفقيًا من حافة منضدة وتسقط تحت تأثير الجاذبية فقط (بإهمال مقاومة الهواء). أي العبارات التالية صحيحة بشأن حركتها أثناء سقوطها؟ (اختر الإجابة الصحيحة)
+(أ) تزداد سرعتها الأفقية باستمرار أثناء سقوطها
+(ب) تبقى سرعتها الأفقية ثابتة بينما تزداد سرعتها الرأسية باستمرار
+(ج) يقل الزمن اللازم لوصولها إلى الأرض كلما زادت سرعتها الأفقية الابتدائية
+(د) تتوقف حركتها الرأسية تمامًا عندما تصل سرعتها الأفقية إلى أقصى قيمة لها</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p1-ans">
+        <div class="sol-body">في حركة المقذوفات (بإهمال مقاومة الهواء)، لا توجد أي قوة أفقية مؤثرة على القذيفة بعد انطلاقها، لذا فإن تسارعها الأفقي يساوي صفرًا، وتبقى مركبة سرعتها الأفقية ثابتة طوال زمن الحركة.
+
+أما رأسيًا، فتؤثر قوة الجاذبية على القذيفة مسببة تسارعًا ثابتًا مقداره g نحو أسفل، مما يجعل مركبة سرعتها الرأسية تزداد باستمرار من الصفر (عند الانطلاق الأفقي) حتى لحظة وصولها إلى الأرض.
+
+العبارتان (أ) و(د) غير صحيحتين لأن السرعة الأفقية لا تتغير أصلًا. والعبارة (ج) غير صحيحة لأن الزمن اللازم للوصول إلى الأرض يعتمد فقط على الحركة الرأسية (الارتفاع وg)، ولا علاقة له بمقدار السرعة الأفقية الابتدائية.
+
+الإجابة الصحيحة: (ب).</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p2">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 2</h3>
+        <span class="badge">الهدف 3.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">عند إهمال مقاومة الهواء، عُلِّل: جسمان قُذفا أفقيًا من نفس الارتفاع في نفس اللحظة، لكن بسرعتين أفقيتين ابتدائيتين مختلفتين، يصلان إلى سطح الأرض في نفس اللحظة تمامًا.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p2-ans">
+        <div class="sol-body">في حركة المقذوفات، تكون الحركة الأفقية والحركة الرأسية مستقلتين تمامًا عن بعضهما، أي أن كلًا منهما لا تؤثر في الأخرى.
+
+الزمن اللازم لوصول أي قذيفة إلى الأرض يعتمد فقط على الحركة الرأسية، أي على الارتفاع الذي قُذفت منه h وعلى تسارع السقوط الحر g، وذلك حسب المعادلة h = ½gt² (بافتراض أن مركبة السرعة الرأسية الابتدائية تساوي صفرًا في حالة القذف الأفقي).
+
+بما أن الجسمين ينطلقان من نفس الارتفاع h وفي نفس اللحظة، وتؤثر عليهما نفس قيمة g، فإن الزمن t المحسوب من هذه المعادلة يكون متساويًا لكليهما، بصرف النظر عن اختلاف سرعتيهما الأفقيتين، لأن السرعة الأفقية لا تدخل في معادلة الحركة الرأسية.
+
+إذن: يصل الجسمان إلى الأرض في نفس اللحظة لأن زمن السقوط يتحدد بالحركة الرأسية فقط، وهي متطابقة لكليهما.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p3">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 3</h3>
+        <span class="badge">الهدف 3.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">تدحرجت كرة عن حافة منضدة ارتفاعها 1.25 m فوق الأرض بسرعة أفقية ثابتة مقدارها 3 m/s. بإهمال مقاومة الهواء وباعتبار g = 10 m/s²، احسب:
+(أ) الزمن اللازم لوصول الكرة إلى الأرض.
+(ب) المسافة الأفقية التي تقطعها الكرة قبل ملامستها الأرض.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p3-ans">
+        <div class="sol-body">الحركة الرأسية والحركة الأفقية مستقلتان، لذا نتعامل معهما بشكل منفصل.
+
+(أ) رأسيًا: السرعة الرأسية الابتدائية تساوي صفرًا (لأن الكرة تتحرك أفقيًا فقط عند مغادرتها المنضدة)، والارتفاع h = 1.25 m، والتسارع a = g = 10 m/s².
+باستخدام h = ½gt²:
+1.25 = ½×10×t²
+1.25 = 5t²
+t² = 0.25
+t = 0.5 s
+
+(ب) أفقيًا: السرعة الأفقية ثابتة (لا يوجد تسارع أفقي) وتساوي 3 m/s.
+المسافة الأفقية = السرعة الأفقية × الزمن = 3 × 0.5 = 1.5 m
+
+إذن: تصل الكرة إلى الأرض بعد 0.5 s، بعد أن تقطع مسافة أفقية مقدارها 1.5 m.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p4">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 4</h3>
+        <span class="badge">الهدف 3.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">في نفس اللحظة، أُسقطت كرة A رأسيًا من السكون من ارتفاع 2 m، وقُذفت كرة B أفقيًا بسرعة 6 m/s من نفس الارتفاع 2 m. بإهمال مقاومة الهواء وباعتبار g = 10 m/s²، أيّ الكرتين تصل إلى الأرض أولًا؟ احسب الزمن اللازم لوصول كل منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p4-ans">
+        <div class="sol-body">بالنسبة للكرة A (تسقط رأسيًا من السكون): u = 0، h = 2 m.
+باستخدام h = ½gt²:
+2 = ½×10×t² → t² = 0.4 → t = √0.4 ≈ 0.632 s
+
+بالنسبة للكرة B (تُقذف أفقيًا): مركبة سرعتها الرأسية الابتدائية تساوي صفرًا أيضًا (لأن سرعتها الابتدائية بالكامل أفقية)، وارتفاعها h = 2 m، ونفس التسارع الرأسي g = 10 m/s².
+باستخدام نفس المعادلة h = ½gt²:
+2 = ½×10×t² → t² = 0.4 → t ≈ 0.632 s
+
+نلاحظ أن الزمنين متساويان تمامًا، رغم أن الكرة B تتحرك أفقيًا بسرعة 6 m/s والكرة A لا تتحرك أفقيًا إطلاقًا، وذلك لأن السرعة الأفقية لا تؤثر على الحركة الرأسية، والزمن يتحدد بالارتفاع وg فقط.
+
+إذن: تصل الكرتان إلى الأرض في نفس اللحظة تمامًا، بعد زمن مقداره حوالي 0.632 s لكل منهما.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+    <div class="sol-section" id="p5">
+      <div class="sol-head">
+        <h3>سؤال تدريبي 5</h3>
+        <span class="badge">الهدف 3.8</span><span class="badge practice">تدريبي</span>
+      </div>
+      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International AS Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
+      <div class="q-text-block">
+        <div class="q-text-body">بالنسبة لقذيفة تتحرك تحت تأثير الجاذبية فقط بعد انطلاقها (بإهمال مقاومة الهواء)، صف شكل العلاقة البيانية بين المركبة الأفقية لسرعتها والزمن، وشكل العلاقة البيانية بين المركبة الرأسية لسرعتها والزمن، مع تفسير كل منهما.</div>
+      </div>
+      <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="p5-ans">
+        <div class="sol-body">منحنى المركبة الأفقية للسرعة مقابل الزمن: يكون خطًا مستقيمًا أفقيًا (موازيًا لمحور الزمن) عند ارتفاع يساوي قيمة السرعة الأفقية الابتدائية. وذلك لأن التسارع الأفقي يساوي صفرًا (لا توجد قوة أفقية مؤثرة بعد الانطلاق)، فتبقى السرعة الأفقية ثابتة طوال زمن الحركة، ولا يتغير مقدارها مع الزمن.
+
+منحنى المركبة الرأسية للسرعة مقابل الزمن: يكون خطًا مستقيمًا ذا ميل ثابت، حيث يمثل الميل قيمة التسارع الرأسي g. تبدأ السرعة الرأسية من قيمتها الابتدائية (وقد تساوي صفرًا في حالة القذف الأفقي) وتزداد خطيًا (في الاتجاه نحو الأسفل) بمرور الزمن، لأن الجسم يتسارع باستمرار تحت تأثير الجاذبية.
+
+وبذلك يعكس شكل كل منحنى الفرق الجوهري بين الحركتين: حركة أفقية بتسارع معدوم وسرعة ثابتة، وحركة رأسية بتسارع منتظم وسرعة متزايدة خطيًا مع الزمن.</div>
+        <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
+</section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز المستخدمة في هذه الصفحة</h2>
