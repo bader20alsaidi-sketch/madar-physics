@@ -243,6 +243,12 @@
     cursor:pointer; transition: transform .1s ease, border-color .15s ease;
   }
   .card:active{ transform: scale(0.98); }
+  .game-card{ text-decoration:none; color:inherit; align-items:center;
+    border:1.5px dashed var(--accent-warm);
+    background:linear-gradient(135deg, color-mix(in srgb, var(--accent-warm) 14%, var(--surface)), var(--surface) 70%); }
+  .game-card:hover{ border-color:var(--accent-warm); }
+  .game-icon{ background:var(--accent-warm); color:#1a1206; font-size:10px; }
+  .game-play{ flex-shrink:0; align-self:center; font-weight:700; font-size:13px; color:var(--accent-warm); }
   .card:hover{ border-color: rgba(91,141,239,0.4); }
   .card-icon{
     width:42px; height:42px; border-radius:12px;
@@ -534,7 +540,9 @@ const catDefs = [
    إلى أن تُرسل فهارسها لاحقاً بنفس الطريقة. */
 const unitsData = {
   '10': [
-    { id:'u1', title:'الوحدة الأولى: الشحنة الكهربائيّة', lessons:[
+    { id:'u1', title:'الوحدة الأولى: الشحنة الكهربائيّة',
+      game:{title:'مغامرة الشحنات', sub:'لعبة مراجعة الوحدة الأولى · 4 محطات من أسئلة الاختبارات النهائية', url:'games/g10/unit1-charges.html'},
+      lessons:[
       {id:'1-1', title:'الكهرباء الساكنة', page:15},
       {id:'2-1', title:'الاحتكاك والشحن الكهربائي', page:18},
       {id:'3-1', title:'المجالات الكهربائية والشحنة الكهربائية', page:19},
@@ -1551,8 +1559,20 @@ function renderUnits(c, grade){
           <div class="card-title">${u.title}</div>
           <div class="card-snippet">${u.lessons.length} درس</div>
         </div>
-      </div>`).join('')}
+      </div>${u.game ? gameCardHTML(u.game) : ''}`).join('')}
   `;
+}
+
+/* ===== GAME card shown after its unit ===== */
+function gameCardHTML(g){
+  return `<a class="card game-card" href="${g.url}">
+    <div class="card-icon game-icon">GAME</div>
+    <div class="card-body">
+      <div class="card-title">🎮 ${g.title}</div>
+      <div class="card-snippet">${g.sub}</div>
+    </div>
+    <div class="game-play">العب ←</div>
+  </a>`;
 }
 
 /* ===== LESSONS within a unit ===== */

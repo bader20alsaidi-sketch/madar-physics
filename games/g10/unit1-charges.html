@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مغامرة الشحنات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0F1A2E; --bg2:#132241; --surface:#1A2C52; --line:#2B4270;
+  --ink:#EAF0FF; --muted:#9FB0D3;
+  --spark:#FFC53D; --spark-ink:#2A1C00;
+  --neg:#5BB0FF; --pos:#FF6B6E;
+  --ok:#3DDC97; --bad:#FF7A7A;
+  --display:"Lalezar","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;
+  background:radial-gradient(1200px 500px at 80% -10%,#1C3566 0%,transparent 60%),var(--bg);min-height:100%}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.brand b{color:var(--ink)}
+.hud{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--spark)}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,8vw,3.6rem)}
+h1 .bolt{color:var(--spark)}
+h2{font-size:1.8rem}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{padding-block:24px 8px;display:grid;gap:4px}
+.namebox{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.namebox label{color:var(--muted);font-size:.9rem}
+.namebox input{font-family:inherit;font-size:1rem;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:260px}
+
+.map{position:relative;margin-top:26px;display:grid;gap:14px}
+.map::before{content:"";position:absolute;inset-block:30px;inset-inline-start:31px;width:3px;
+  background:repeating-linear-gradient(to bottom,var(--spark) 0 10px,transparent 10px 18px);opacity:.45}
+.node{position:relative;display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;text-align:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;color:var(--ink);transition:transform .15s,border-color .15s}
+.node:hover{transform:translateX(-4px);border-color:var(--spark)}
+.node .num{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:1.9rem;
+  background:var(--bg);border:3px solid var(--line);color:var(--muted)}
+.node.done .num{border-color:var(--spark);color:var(--spark)}
+.node.boss .num{border-color:var(--pos);color:var(--pos)}
+.node h3{margin:0;font-size:1.1rem}
+.node p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
+.stars{font-size:1.2rem;letter-spacing:2px;color:var(--line);white-space:nowrap}
+.stars .on{color:var(--spark)}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:10px 14px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--bg2);border-radius:99px;overflow:hidden;margin-bottom:16px}
+.progress i{display:block;height:100%;background:var(--spark);transition:width .4s}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:16px}
+.src{justify-self:start;font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.src.official{color:var(--spark);border-color:color-mix(in srgb,var(--spark) 45%,var(--line))}
+.q{font-size:1.15rem;font-weight:700;margin:0;text-wrap:balance}
+.hint{color:var(--muted);font-size:.9rem;margin:0}
+.opts{display:grid;gap:10px}
+.opt{background:var(--bg2);color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:12px 14px;text-align:start;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--spark)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--bg2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--bg2))}
+.feedback{border-radius:14px;padding:12px 14px;background:var(--bg2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.feedback .res{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px;font-weight:700}
+.feedback .res .n{color:var(--neg)} .feedback .res .p{color:var(--pos)}
+.next{justify-self:start;background:var(--spark);color:var(--spark-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+
+/* stage 1 */
+.rub{display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;gap:8px;min-height:150px}
+.obj{display:grid;justify-items:center;gap:8px;text-align:center}
+.shape{display:grid;place-items:center;background:var(--c,#8899bb);min-height:64px}
+.shape.rod{width:100%;max-width:170px;height:34px;min-height:0;border-radius:18px}
+.shape.cloth{width:110px;height:84px;border-radius:30% 14% 34% 12%}
+.signs{display:flex;gap:4px;justify-content:center;min-height:26px;flex-wrap:wrap}
+.sg{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:700;line-height:1;animation:pop .35s both}
+.sg.n{background:var(--neg);color:#06203d}
+.sg.p{background:var(--pos);color:#3a0507}
+.sg.u{background:var(--bg2);color:var(--muted);border:1px dashed var(--line);animation:none}
+.track{position:relative;height:40px;overflow:hidden}
+.track .e{position:absolute;top:13px;width:14px;height:14px;border-radius:50%;background:var(--neg);box-shadow:0 0 10px var(--neg);opacity:0}
+.track.go-l .e{animation:toL 1s ease-in-out forwards}
+.track.go-r .e{animation:toR 1s ease-in-out forwards}
+.track .e:nth-child(2){animation-delay:.2s!important}
+.track .e:nth-child(3){animation-delay:.4s!important}
+@keyframes toL{0%{right:0;opacity:1}100%{right:calc(100% - 14px);opacity:1}}
+@keyframes toR{0%{right:calc(100% - 14px);opacity:1}100%{right:0;opacity:1}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* stage 2 */
+.item{justify-self:center;font-family:var(--display);font-size:2rem;padding:10px 26px;border-radius:14px;background:var(--bg2);border:1px dashed var(--line)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* stage 3 */
+.scene{width:100%;max-width:400px;justify-self:center;height:auto}
+.scene .sw{transform-box:view-box;transition:transform .9s cubic-bezier(.3,1.5,.5,1)}
+
+/* boss */
+.boss-top{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.monster{width:84px;height:84px}
+.monster.hit{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px) rotate(-4deg)}75%{transform:translateX(6px) rotate(4deg)}}
+.hp{height:14px;border-radius:99px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.hp i{display:block;height:100%;background:linear-gradient(90deg,var(--pos),#FF9A5B);transition:width .5s}
+.hearts{color:var(--pos);letter-spacing:3px;font-size:1.2rem}
+.hearts .off{color:var(--line)}
+
+.summary{text-align:center;justify-items:center;margin-top:20px}
+.big-stars{font-size:2.6rem;letter-spacing:6px;color:var(--line)}
+.big-stars .on{color:var(--spark)}
+.cert{border:2px dashed var(--spark);border-radius:18px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.foot{margin-top:28px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.rub{grid-template-columns:1fr 54px 1fr}.row2{grid-template-columns:1fr}.shape.rod{height:28px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="brand">
+    <span><a href="../../" style="color:var(--spark);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · الصف العاشر · الوحدة الأولى</span>
+    <span class="hud"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="st">0</strong>/12</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const KEY='madar-g10u1-v2';
+const S={name:'',points:0,stars:{s1:0,s2:0,s3:0,s4:0}};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved)Object.assign(S,saved)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function hud(){$('#pts').textContent=S.points;$('#st').textContent=Object.values(S.stars).reduce((a,b)=>a+b,0)}
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3 نجوم">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* sources: 'y1' = 2023/2024 الدور الأول ... ; 'tr' = تدريبي */
+const SRC={
+  a1:'اختبار نهائي 2023/2024 · الدور الأول', a2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  b1:'اختبار نهائي 2022/2023 · الدور الأول', b2:'اختبار نهائي 2022/2023 · الدور الثاني',
+  tr:'سؤال تدريبي من بنك مدار'
+};
+const srcHTML=k=>k?`<span class="src ${k==='tr'?'':'official'}">${SRC[k]}</span>`:'';
+
+/* ---------- STAGE 1: الشحن بالدلك ---------- */
+const OBJ={
+ 'ساق الأبونايت':{s:'rod',c:'#6B7385'},'قطعة القماش':{s:'cloth',c:'#B9C4E6'},
+ 'القضيب البلاستيكي':{s:'rod',c:'#8FD0C4'},'قطعة الصوف':{s:'cloth',c:'#E8D3A9'},
+ 'القضيب الزجاجي':{s:'rod',c:'#BFE3F2'},'قطعة الحرير':{s:'cloth',c:'#F2C6DE'},
+ 'قضيب الإيبونيت':{s:'rod',c:'#6B7385'},'قطعة الفرو':{s:'cloth',c:'#A98463'},
+ 'قماش النايلون':{s:'cloth',c:'#C7B6F0'}
+};
+const STAGE1=[
+ {t:'rub',a:'ساق الأبونايت',b:'قطعة القماش',neg:'a',given:'a',src:'a1'},
+ {t:'mc',src:'tr',q:'عند دلك قضيب بلاستيكي بقطعة صوف اكتسب القضيب شحنة سالبة. ما سبب ذلك؟',o:['انتقال إلكترونات من الصوف إلى القضيب','انتقال بروتونات من الصوف إلى القضيب','انتقال إلكترونات من القضيب إلى الصوف','فقدان القضيب بعض البروتونات'],a:0,why:'تنتقل الإلكترونات فقط عند الدلك، أما البروتونات فتبقى ثابتة داخل الأنوية. اكتسب القضيب إلكترونات من الصوف فأصبح سالباً، وأصبح الصوف موجباً.'},
+ {t:'rub',a:'القضيب الزجاجي',b:'قطعة الحرير',neg:'b',given:'a',src:'tr'},
+ {t:'mc',src:'a2',q:'ما المصطلح العلمي: الكهرباء الناتجة عن تراكم الشحنات الكهربائية على أسطح المواد؟',o:['الكهرباء الساكنة','التيار الكهربائي','المجال الكهربائي'],a:0,why:'الكهرباء الساكنة: شحنات تتراكم وتستقر على سطح الجسم ولا تتدفق.'},
+ {t:'rub',a:'قضيب الإيبونيت',b:'قطعة الفرو',neg:'a',given:'a',src:'tr'},
+ {t:'mc',src:'tr',q:'أصبح القضيب الزجاجي موجباً بعد دلكه بالحرير. ما التفسير؟',o:['فقد الزجاج إلكترونات فأصبح عدد البروتونات فيه أكبر من عدد الإلكترونات','اكتسب الزجاج بروتونات من الحرير','فقد الزجاج بعض بروتوناته','ازداد عدد الإلكترونات في الزجاج'],a:0,why:'الجسم الموجب فقد إلكترونات، فأصبحت بروتوناته (الثابتة) أكثر من إلكتروناته.'},
+ {t:'rub',a:'القضيب البلاستيكي',b:'قماش النايلون',neg:'a',given:'a',src:'a2'},
+ {t:'mc',src:'a2',q:'ما المصطلح العلمي: الجسم الذي يحتوي على عدد متساوٍ من الشحنات الموجبة والسالبة؟',o:['جسم متعادل كهربائياً','جسم موجب الشحنة','جسم موصل'],a:0,why:'الجسم المتعادل يتساوى فيه عدد البروتونات وعدد الإلكترونات.'},
+ {t:'mc',src:'tr',q:'أي العبارات الآتية صحيحة بخصوص الشحن بالاحتكاك؟',o:['تنتقل الإلكترونات فقط، وتبقى الشحنة الكلية للجسمين معاً صفراً كما كانت','يُنشئ الدلك شحنات جديدة لم تكن موجودة','تزداد الشحنة الكلية للجسمين بعد الدلك','تنتقل البروتونات بين الجسمين كما تنتقل الإلكترونات'],a:0,why:'الدلك لا يُنشئ شحنة ولا يُفنيها، بل يعيد توزيع الإلكترونات. ما فقده أحد الجسمين اكتسبه الآخر.'},
+ {t:'rub',a:'القضيب البلاستيكي',b:'قطعة الصوف',neg:'a',given:'b',src:'tr'}
+];
+
+/* ---------- STAGE 2: الموصلات والعوازل ---------- */
+const STAGE2=[
+ {t:'sort',n:'النحاس',a:'موصل',src:'b1',why:'النحاس فلز فيه إلكترونات حرة، فيسمح بمرور التيار الكهربائي بسهولة.'},
+ {t:'sort',n:'الزجاج',a:'عازل',src:'b1',why:'الزجاج عازل: إلكتروناته مرتبطة بذراتها فلا يسمح بمرور التيار.'},
+ {t:'mc',src:'a1',q:'ما المقصود بالموصل الكهربائي؟',o:['مادة تسمح بمرور التيار الكهربائي بسهولة','مادة تمنع مرور التيار الكهربائي','مادة تحتفظ بالشحنة في مكان الدلك'],a:0,why:'الموصل يسمح بتدفق الشحنات خلاله بسهولة، مثل الفلزات.'},
+ {t:'sort',n:'الخشب',a:'عازل',src:'b2',why:'الخشب مادة عازلة، بعكس النحاس والحديد والفولاذ.'},
+ {t:'sort',n:'الحديد',a:'موصل',src:'b2',why:'الحديد فلز موصل للتيار الكهربائي.'},
+ {t:'mc',src:'b1',q:'ما فائدة القاعدة العازلة أسفل الكرة الفلزية المشحونة؟',o:['الحفاظ على شحنة الكرة ومنع تسربها إلى الأرض','زيادة شحنة الكرة','تحويل الكرة إلى جسم متعادل'],a:0,why:'العازل لا يسمح بتدفق الشحنات، فتبقى الشحنة على الكرة.'},
+ {t:'sort',n:'البلاستيك',a:'عازل',src:'b1',why:'البلاستيك عازل، ولذلك يُغلَّف به السلك النحاسي في الأسلاك المنزلية.'},
+ {t:'mc',src:'a2',q:'دُلك قضيب بلاستيك بالنايلون فجذب قصاصات الورق، ودُلك قضيب نحاس ممسوك باليد بالصوف فلم يجذبها. ما التفسير؟',o:['البلاستيك عازل تبقى عليه الشحنة، والنحاس موصل تتسرب شحنته عبر اليد إلى الأرض','النحاس لا يحتوي على إلكترونات','الصوف لا يستطيع شحن أي جسم','البلاستيك موصل والنحاس عازل'],a:0,why:'في العازل تبقى الشحنة مكان الدلك. في الموصل تتوزع الشحنة وتتسرب عبر جسم الإنسان (وهو موصل) إلى الأرض.'},
+ {t:'sort',n:'الفولاذ',a:'موصل',src:'b2',why:'الفولاذ سبيكة فلزية موصلة.'},
+ {t:'mc',src:'a1',q:'وُصلت نقطة على كرة فلزية مشحونة بشحنة سالبة بسلك معدني متصل بالأرض. ما نوع الشحنة التي تمر عبر السلك؟',o:['سالبة (إلكترونات) تنتقل من الكرة إلى الأرض','موجبة تنتقل من الأرض إلى الكرة','لا تمر أي شحنة لأن الأرض متعادلة'],a:0,why:'الكرة تحمل إلكترونات زائدة والأرض متعادلة، فتنتقل الإلكترونات (الشحنة السالبة) عبر السلك إلى الأرض.'},
+ {t:'mc',src:'b1',q:'ماذا يحدث عند ملامسة كرة فلزية مشحونة بسلك نحاس متصل بالأرض؟',o:['تفقد الكرة شحنتها','تتضاعف شحنة الكرة','تنعكس شحنة الكرة'],a:0,why:'النحاس موصل، فتنتقل الشحنة عبره إلى الأرض وتصبح الكرة متعادلة.'},
+ {t:'mc',src:'tr',q:'اختر مثالاً على استخدام المواد العازلة في حياتنا اليومية:',o:['تغليف أسلاك الكهرباء المنزلية بالبلاستيك أو المطاط','صنع أسلاك التوصيل من النحاس','صنع مانعة الصواعق من الفلز'],a:0,why:'الغلاف العازل يمنع لمس السلك الموصل مباشرة ويحمي من الصعق الكهربائي.'}
+];
+
+/* ---------- STAGE 3: لغز الكرات المشحونة ---------- */
+/* hang: two objects; k = ball | balloon | rod; s = + | - | ? ; res = attract | repel */
+const STAGE3=[
+ {t:'hang',src:'a1',A:{k:'ball',lab:'X',s:'-'},B:{k:'ball',lab:'Y',s:'-'},res:'repel',
+  q:'كرتان فلزيتان (X) و(Y) مشحونتان بشحنة سالبة ومحمولتان على عازل. ماذا يحدث عند تقريبهما؟',o:['تتنافران','تتجاذبان','لا يحدث شيء'],a:0,why:'الشحنات المتشابهة (سالبة وسالبة) تتنافر.'},
+ {t:'hang',src:'a1',A:{k:'rod',lab:'قضيب',s:'-'},B:{k:'ball',lab:'كرة',s:'+'},res:'attract',
+  q:'لماذا تنجذب كرة فلزية موجبة الشحنة نحو قضيب مشحون بشحنة سالبة؟',o:['بسبب قوة التجاذب بين الشحنات المختلفة','لأن الشحنات المتشابهة تتجاذب','بسبب الجاذبية الأرضية'],a:0,why:'الشحنة الموجبة على الكرة والسالبة على القضيب مختلفتان، والشحنات المختلفة تتجاذب.'},
+ {t:'hang',src:'b1',A:{k:'balloon',lab:'Q',s:'+'},B:{k:'balloon',lab:'R',s:'?'},reveal:'-',res:'attract',
+  q:'بالونان (Q) و(R) معلقان ومشحونان، وينجذب أحدهما نحو الآخر. إذا كانت شحنة (Q) موجبة، فما شحنة (R)؟',o:['سالبة','موجبة','لا يمكن أن يكون مشحوناً'],a:0,why:'حدث تجاذب، والتجاذب يعني أن الشحنتين مختلفتان: Q موجب إذن R سالب.'},
+ {t:'hang',src:'a2',A:{k:'rod',lab:'ساق',s:'-'},B:{k:'ball',lab:'كرة بلاستيكية',s:'?'},reveal:'-',res:'repel',
+  q:'كرة بلاستيكية مشحونة معلقة قرب ساق سالبة، فابتعدت الكرة عن الساق. ما نوع شحنة الكرة؟',o:['سالبة','موجبة','متعادلة'],a:0,why:'حدث تنافر، والتنافر لا يحدث إلا بين شحنتين متشابهتين، إذن الكرة سالبة.'},
+ {t:'hang',src:'tr',A:{k:'balloon',lab:'بالون 1',s:'?'},B:{k:'balloon',lab:'بالون 2',s:'?'},reveal:'-',revealA:'-',res:'repel',
+  q:'شُحن بالونان بدلك كل منهما بالقطعة نفسها من الصوف. ماذا يحدث عند تقريبهما؟',o:['يتنافران','يتجاذبان','يلتصقان ثم يفقدان شحنتهما'],a:0,why:'دُلكا بالمادة نفسها فاكتسبا نوع الشحنة نفسه، والشحنات المتشابهة تتنافر.'},
+ {t:'ind',src:'a2',rod:'+',n:1,ask:'X',
+  q:'تُقرَّب ساق موجبة من كرة فلزية معزولة غير مشحونة. ما نوع الشحنة على الجانب (X) القريب من الساق؟',o:['سالبة','موجبة','لا تظهر شحنة'],a:0,why:'الساق الموجبة تجذب إلكترونات الكرة نحو الجانب القريب (X) فيصبح سالباً، ويبقى الجانب البعيد (Y) موجباً. هذا هو الشحن بالحث.'},
+ {t:'ind',src:'a2',rod:'+',n:1,ask:'Y',
+  q:'في الحالة نفسها، ما نوع الشحنة على الجانب (Y) البعيد عن الساق؟',o:['موجبة','سالبة','لا تظهر شحنة'],a:0,why:'انتقلت الإلكترونات إلى الجانب القريب، فبقي الجانب البعيد (Y) بشحنة موجبة.'},
+ {t:'ind',src:'b2',rod:'-',n:2,ask:'X',
+  q:'كرتان معدنيتان متلامستان غير مشحونتين على قاعدتين عازلتين. قُرّب قضيب سالب من الكرة (Y). ما نوع شحنة الكرة البعيدة (X)؟',o:['سالبة، مثل شحنة القضيب','موجبة، عكس شحنة القضيب','متعادلة'],a:0,why:'القضيب السالب يدفع الإلكترونات بعيداً نحو (X) فتصبح سالبة، وتبقى (Y) القريبة موجبة.'},
+ {t:'mc',src:'tr',q:'تُقرَّب مسطرة سالبة من قصاصات ورق متعادلة فتنجذب إليها. ما التفسير الأصح؟',o:['المسطرة تدفع إلكترونات سطح الورق القريب فيصبح موجباً نسبياً وينجذب','قصاصات الورق موجبة الشحنة أصلاً','المسطرة تفقد شحنتها عند اقترابها','الجاذبية الأرضية هي السبب'],a:0,why:'الشحنة الموجبة المستحثة على السطح القريب أقرب إلى المسطرة من الشحنة السالبة البعيدة، فيغلب التجاذب.'},
+ {t:'mc',src:'a2',q:'طفلة تنزلق على زحليقة بلاستيكية فيقف شعر رأسها. ما نوع القوة بين خصلات شعرها؟',o:['قوة تنافر، لأن الخصلات تحمل نوع الشحنة نفسه','قوة تجاذب، لأن الخصلات تحمل شحنات مختلفة','لا توجد قوة كهربائية'],a:0,why:'الاحتكاك مع الزحليقة شحن كل الخصلات بالنوع نفسه، فتتنافر وتقف.'}
+];
+
+/* ---------- STAGE 4: boss ---------- */
+const STAGE4=[
+ {src:'a1',q:'ما اسم المنطقة المحيطة بالشحنة الكهربائية التي تتأثر فيها الشحنات الأخرى بقوة؟',o:['المجال الكهربائي','الجهد الكهربائي','التيار الكهربائي'],a:0},
+ {src:'a2',q:'كرة فلزية مشحونة، والنقاط A وB وC وD على مسافات 2 cm و4 cm و6 cm و8 cm منها. عند أي نقطة تكون شدة المجال الكهربائي أكبر؟',o:['A','B','C','D'],a:0,fixed:1},
+ {src:'tr',q:'ما اتجاه خطوط المجال الكهربائي حول شحنة نقطية موجبة معزولة؟',o:['تنطلق شعاعياً من الشحنة إلى الخارج','تتجه نحو الشحنة من كل الاتجاهات','دوائر مغلقة حول الشحنة','خطوط متوازية في اتجاه واحد'],a:0},
+ {src:'tr',q:'شحنتان متساويتان في المقدار، إحداهما موجبة والأخرى سالبة. كيف تكون خطوط المجال بينهما؟',o:['تبدأ من الشحنة الموجبة وتنتهي عند السالبة','تبدأ من السالبة وتنتهي عند الموجبة','تبتعد عن الشحنتين معاً','لا توجد خطوط بينهما'],a:0},
+ {src:'tr',q:'ما الذي يحدد اتجاه المجال الكهربائي عند نقطة؟',o:['اتجاه القوة المؤثرة على شحنة اختبار موجبة صغيرة عند تلك النقطة','اتجاه حركة الإلكترونات دائماً','اتجاه الجاذبية الأرضية'],a:0},
+ {src:'tr',q:'في رسم خطوط المجال حول شحنة، تتقارب الخطوط قرب الشحنة وتتباعد بعيداً عنها. علامَ يدل ذلك؟',o:['شدة المجال أكبر قرب الشحنة وتقل بالابتعاد عنها','شدة المجال ثابتة في كل مكان','شدة المجال أكبر بعيداً عن الشحنة'],a:0},
+ {src:'b2',q:'كرة فلزية معلقة بخيط عازل انجذبت نحو قضيب مشحون. ماذا يحدث لو استُبدل الخيط العازل بخيط موصل؟',o:['تفقد الكرة شحنتها لأنها تتسرب عبر الخيط إلى الأرض','تزداد قوة التجاذب','تنعكس شحنة الكرة'],a:0},
+ {src:'a2',q:'لماذا يجب حمل الكرة الفلزية بواسطة عازل عند تقريب ساق مشحونة منها؟',o:['للحفاظ على شحنة الكرة ومنع تسربها إلى الأرض','لأن العازل يزيد شحنة الكرة','لأن الموصل يمنع حدوث الحث'],a:0},
+ {src:'a2',q:'طفل ينزلق على زحليقة بلاستيكية فيصبح شعره مشحوناً. ما السبب؟',o:['انتقال الإلكترونات بين الطفل والزحليقة بسبب الاحتكاك','انتقال البروتونات من الزحليقة إلى الشعر','الحرارة الناتجة عن الانزلاق'],a:0}
+];
+
+const STAGES=[
+ {k:'s1',n:'١',title:'من يشحن من؟',sub:'الكهرباء الساكنة والشحن بالاحتكاك',items:STAGE1},
+ {k:'s2',n:'٢',title:'موصل أم عازل؟',sub:'الموصلات والعوازل والتأريض',items:STAGE2},
+ {k:'s3',n:'٣',title:'لغز الكرات المشحونة',sub:'التجاذب والتنافر والشحن بالحث',items:STAGE3},
+ {k:'s4',n:'٤',title:'معركة وحش الشرارة',sub:'المجال الكهربائي ومراجعة الوحدة',items:STAGE4,boss:1}
+];
+
+/* ---------- home ---------- */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <h1>مغامرة <span class="bolt">الشحنات</span></h1>
+    <p class="lead">أربع محطات تراجع بها الوحدة الأولى، وأغلب أسئلتها من الاختبارات النهائية. أجب صحيحاً من المحاولة الأولى لتجمع النقاط والنجوم، ثم واجه وحش الشرارة.</p>
+    <div class="namebox"><label for="nm">اسم البطل</label><input id="nm" maxlength="30" placeholder="اكتب اسمك" value="${esc(S.name)}"></div>
+  </section>
+  <nav class="map" aria-label="محطات المغامرة">
+   ${STAGES.map((s,i)=>`<button class="node ${S.stars[s.k]?'done':''} ${s.boss?'boss':''}" data-i="${i}">
+      <span class="num">${s.n}</span>
+      <span><h3>${s.title}</h3><p>${s.sub} · ${s.items.length} ${s.boss?'ضربات':'أسئلة'}</p></span>
+      ${starsHTML(S.stars[s.k])}
+   </button>`).join('')}
+  </nav>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save()});
+  app.querySelectorAll('.node').forEach(b=>b.onclick=()=>play(+b.dataset.i));
+}
+
+/* ---------- stage runner ---------- */
+function play(i){
+  const st=STAGES[i];
+  const R={idx:0,correct:0,hp:st.items.length,hearts:3,items:st.boss?shuffle(st.items):st.items};
+  const next=()=>{
+    if(st.boss&&R.hearts<=0) return bossLose(i);
+    if(R.idx>=R.items.length) return finish(i,R);
+    render();
+  };
+  function render(){
+    const it=R.items[R.idx];
+    app.innerHTML=`
+      <div class="bar"><button class="back" id="bk">→ الخريطة</button><h2>${st.title}</h2><span class="chip">${R.idx+1} / ${R.items.length}</span></div>
+      <div class="progress"><i style="width:${R.idx/R.items.length*100}%"></i></div>
+      <div class="card" id="card"></div>`;
+    $('#bk').onclick=home;
+    const card=$('#card');
+    const done=(ok,why,extra)=>{
+      if(ok){R.correct++;S.points+=10;save();hud()}
+      if(st.boss){ if(ok){R.hp--;hitBoss()} else {R.hearts--;drawHearts()} }
+      const f=document.createElement('div');
+      f.className='feedback'+(ok?'':' no');
+      f.innerHTML=`<b>${ok?'إجابة صحيحة! +10':'ليست الإجابة الصحيحة'}</b>${why||''}${extra||''}`;
+      card.appendChild(f);
+      const n=document.createElement('button');n.className='next';
+      n.textContent=st.boss&&R.hearts<=0?'انتهت القلوب':(R.idx+1>=R.items.length?'إنهاء المحطة':'التالي ←');
+      n.onclick=()=>{R.idx++;next()};card.appendChild(n);n.focus({preventScroll:true});
+    };
+    if(st.boss){ bossHead(card,R,st.items.length); card.insertAdjacentHTML('beforeend',srcHTML(it.src)); mcQ(card,it.q,it.o,it.a,done,'',it.fixed); return; }
+    card.innerHTML=srcHTML(it.src);
+    if(it.t==='rub') rubQ(card,it,done);
+    else if(it.t==='sort') sortQ(card,it,done);
+    else if(it.t==='hang') hangQ(card,it,done);
+    else if(it.t==='ind') indQ(card,it,done);
+    else mcQ(card,it.q,it.o,it.a,done,it.why);
+  }
+  function hitBoss(){const m=$('.monster');const hp=$('.hp i');if(hp)hp.style.width=(R.hp/st.items.length*100)+'%';if(m){m.classList.remove('hit');void m.getBoundingClientRect();m.classList.add('hit')}}
+  function drawHearts(){const h=$('.hearts');if(h)h.innerHTML=heartHTML(R.hearts)}
+  render();
+}
+function finish(i,R){
+  const st=STAGES[i];const pct=R.correct/R.items.length;
+  const stars=st.boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+  S.stars[st.k]=Math.max(S.stars[st.k],stars);save();hud();
+  const all=Object.values(S.stars).every(v=>v>0);
+  app.innerHTML=`<div class="card summary">
+     <h2>${st.boss?'هُزم وحش الشرارة!':'أنهيت المحطة'}</h2>
+     ${starsHTML(stars,'big-stars')}
+     <p class="hint">أجبت ${R.correct} من ${R.items.length} إجابة صحيحة.</p>
+     ${all?`<div class="cert"><span class="hint">شهادة إتمام المغامرة</span><h2>${esc(S.name||'بطل الشحنات')}</h2><span>أتم مراجعة الوحدة الأولى: الشحنة الكهربائية بـ ${S.points} نقطة</span><span class="hint">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+     <div class="btns"><button class="next" id="h">العودة للخريطة</button><button class="back" id="again">إعادة المحطة</button></div></div>`;
+  $('#h').onclick=home;$('#again').onclick=()=>play(i);
+}
+function bossLose(i){
+  app.innerHTML=`<div class="card summary"><h2>انتهت القلوب!</h2><p class="hint">وحش الشرارة ما زال واقفاً. راجع الإجابات وحاول مرة أخرى.</p>
+  <div class="btns"><button class="next" id="again">حاول مرة أخرى</button><button class="back" id="h">الخريطة</button></div></div>`;
+  $('#h').onclick=home;$('#again').onclick=()=>play(i);
+}
+
+/* ---------- question types ---------- */
+function mcQ(card,q,o,a,done,why,fixed){
+  const order=fixed?o.map((t,i)=>i):shuffle(o.map((t,i)=>i));
+  const wrap=document.createElement('div');wrap.style.display='grid';wrap.style.gap='12px';
+  wrap.innerHTML=`${q?`<p class="q">${q}</p>`:''}<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${o[i]}</button>`).join('')}</div>`;
+  card.appendChild(wrap);
+  wrap.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const pick=+b.dataset.i;
+    wrap.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===a)x.classList.add('right')});
+    if(pick!==a)b.classList.add('wrong');
+    done(pick===a,why);
+  });
+}
+
+/* stage 1: the question states one object's charge; the student finds the other's */
+const word=s=>s==='-'?'سالبة':'موجبة';
+const signs=(s,n=3)=>(s==='-'?'<span class="sg n">−</span>':'<span class="sg p">+</span>').repeat(n);
+function objHTML(name,id){const o=OBJ[name];return `<div class="obj"><div class="signs" id="${id}s"></div><div class="shape ${o.s}" style="--c:${o.c}"></div><b>${name}</b></div>`}
+function rubQ(card,it,done){
+  const nm={a:it.a,b:it.b};
+  const sign={a:it.neg==='a'?'-':'+',b:it.neg==='b'?'-':'+'};
+  const g=it.given, other=g==='a'?'b':'a';
+  card.insertAdjacentHTML('beforeend',`<p class="q">دُلك ${it.a} ب${it.b}، فأصبحت شحنة ${nm[g]} ${word(sign[g])}. ما نوع شحنة ${nm[other]}؟</p>
+   <div class="rub">${objHTML(it.a,'A')}<div class="track" id="tr"><i class="e"></i><i class="e"></i><i class="e"></i></div>${objHTML(it.b,'B')}</div>`);
+  const id={a:'A',b:'B'};
+  $('#'+id[g]+'s').innerHTML=signs(sign[g]);
+  $('#'+id[other]+'s').innerHTML='<span class="sg u">؟</span>';
+  const opts=['موجبة','سالبة','متعادلة (لا يُشحن)'];
+  const ans=sign[other]==='-'?1:0;
+  const negN=nm[it.neg], posN=nm[it.neg==='a'?'b':'a'];
+  const why=`تنتقل الإلكترونات من ${posN} إلى ${negN}. الجسمان يكتسبان دائماً شحنتين متساويتين في المقدار ومختلفتين في النوع.`;
+  const res=`<div class="res"><span class="n">${negN}: سالبة (اكتسبت إلكترونات)</span><span class="p">${posN}: موجبة (فقدت إلكترونات)</span></div>`;
+  mcQ(card,'',opts,ans,(ok)=>{
+    $('#tr').classList.add(it.neg==='b'?'go-l':'go-r');
+    setTimeout(()=>{$('#'+id[other]+'s').innerHTML=signs(sign[other])},RM?0:1300);
+    done(ok,why,res);
+  },'',1);
+}
+function sortQ(card,it,done){
+  card.insertAdjacentHTML('beforeend',`<p class="q">هل هذه المادة موصلة أم عازلة؟</p><div class="item">${it.n}</div>
+   <div class="row2"><button class="opt" data-k="موصل">موصلة</button><button class="opt" data-k="عازل">عازلة</button></div>`);
+  card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const ok=b.dataset.k===it.a;
+    card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(x.dataset.k===it.a)x.classList.add('right')});
+    if(!ok)b.classList.add('wrong');done(ok,it.why);
+  });
+}
+
+/* stage 3 drawings */
+const col=s=>s==='+'?'var(--pos)':s==='-'?'var(--neg)':'var(--bg2)';
+const txt=s=>s==='+'?'#3a0507':s==='-'?'#06203d':'var(--muted)';
+const glyph=s=>s==='+'?'+':s==='-'?'−':'؟';
+function hangObj(o,px,id){
+  if(o.k==='rod') return `<g><rect x="${px-9}" y="40" width="18" height="150" rx="9" fill="${col(o.s)}"/>
+     ${[0,1,2,3].map(i=>`<text x="${px}" y="${70+i*34}" text-anchor="middle" font-size="18" font-weight="700" fill="${txt(o.s)}">${glyph(o.s)}</text>`).join('')}
+     <text x="${px}" y="212" text-anchor="middle" font-size="13" fill="var(--muted)">${o.lab}</text></g>`;
+  const body=o.k==='balloon'
+    ?`<ellipse cx="${px}" cy="150" rx="24" ry="30" fill="${col(o.s)}" stroke="var(--line)"/><path d="M${px-5} 181 L${px+5} 181 L${px} 175 Z" fill="${col(o.s)}"/>`
+    :`<circle cx="${px}" cy="150" r="26" fill="${col(o.s)}" stroke="var(--line)"/>`;
+  return `<g class="sw" id="${id}" style="transform-origin:${px}px 16px">
+     <line x1="${px}" y1="16" x2="${px}" y2="${o.k==='balloon'?181:124}" stroke="var(--muted)" stroke-width="1.5"/>${body}
+     <text class="gl" x="${px}" y="158" text-anchor="middle" font-size="24" font-weight="700" fill="${txt(o.s)}">${glyph(o.s)}</text>
+     <text x="${px}" y="${o.k==='balloon'?200:194}" text-anchor="middle" font-size="13" fill="var(--muted)">${o.lab}</text></g>`;
+}
+function hangQ(card,it,done){
+  card.insertAdjacentHTML('beforeend',`<svg class="scene" viewBox="0 0 320 220" role="img" aria-label="جسمان مشحونان">
+     <rect x="50" y="10" width="220" height="6" rx="3" fill="var(--line)"/>
+     ${hangObj(it.A,125,'hA')}${hangObj(it.B,195,'hB')}</svg>`);
+  mcQ(card,it.q,it.o,it.a,(ok)=>{
+    /* SVG rotate: positive = clockwise; left object leans right with a negative angle */
+    const ang=it.res==='attract'?10:-16;
+    const aRod=it.A.k==='rod', bRod=it.B.k==='rod';
+    const m=aRod||bRod?1.8:1;
+    const hA=$('#hA'),hB=$('#hB');
+    if(hA)hA.style.transform=`rotate(${-ang*m}deg)`;
+    if(hB)hB.style.transform=`rotate(${ang*m}deg)`;
+    const fix=(el,s)=>{if(!el||!s)return;el.querySelector('circle,ellipse').setAttribute('fill',col(s));el.querySelectorAll('path').forEach(p=>p.setAttribute('fill',col(s)));const g=el.querySelector('.gl');g.textContent=glyph(s);g.setAttribute('fill',txt(s))};
+    fix(hB,it.reveal);fix(hA,it.revealA);
+    done(ok,it.why);
+  });
+}
+function indSVG(it,show){
+  const r=it.rod, opp=r==='+'?'-':'+';
+  const rod=`<rect x="8" y="92" width="96" height="20" rx="10" fill="${col(r)}"/>${[0,1,2].map(i=>`<text x="${26+i*30}" y="108" text-anchor="middle" font-size="17" font-weight="700" fill="${txt(r)}">${glyph(r)}</text>`).join('')}
+     <text x="56" y="132" text-anchor="middle" font-size="12" fill="var(--muted)">ساق</text>`;
+  const sp=(cx,rad,lab,near,far)=>`<rect x="${cx-4}" y="${102+rad}" width="8" height="${190-(102+rad)}" fill="var(--line)"/><rect x="${cx-22}" y="188" width="44" height="8" rx="3" fill="var(--line)"/>
+     <circle cx="${cx}" cy="102" r="${rad}" fill="#C9D3E8" stroke="var(--line)"/>
+     ${show&&near?[0,1,2].map(i=>`<text x="${cx-rad+14}" y="${86+i*16}" text-anchor="middle" font-size="16" font-weight="700" fill="${col(near)}">${glyph(near)}</text>`).join(''):''}
+     ${show&&far?[0,1,2].map(i=>`<text x="${cx+rad-14}" y="${86+i*16}" text-anchor="middle" font-size="16" font-weight="700" fill="${col(far)}">${glyph(far)}</text>`).join(''):''}
+     ${lab}`;
+  let body;
+  if(it.n===1){
+    body=sp(200,50,`<text x="146" y="60" font-size="14" font-weight="700" fill="var(--spark)">X</text><text x="246" y="60" font-size="14" font-weight="700" fill="var(--spark)">Y</text>`,opp,r);
+  }else{
+    /* rod near Y (left sphere), X far (right sphere) */
+    body=sp(160,36,`<text x="160" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="var(--spark)">Y</text>`,opp,null)
+        +sp(232,36,`<text x="232" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="var(--spark)">X</text>`,null,r);
+  }
+  return `<svg class="scene" viewBox="0 0 320 210" role="img" aria-label="الشحن بالحث">${rod}${body}</svg>`;
+}
+function indQ(card,it,done){
+  card.insertAdjacentHTML('beforeend',`<div id="ind">${indSVG(it,false)}</div>`);
+  mcQ(card,it.q,it.o,it.a,(ok)=>{$('#ind').innerHTML=indSVG(it,true);done(ok,it.why)});
+}
+
+/* boss */
+function heartHTML(n){return [1,2,3].map(i=>`<span class="${i<=n?'':'off'}">♥</span>`).join('')}
+function bossHead(card,R,total){
+  card.innerHTML=`<div class="boss-top">
+    <svg class="monster" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M50 6 L62 30 L88 22 L74 46 L96 58 L70 64 L78 92 L52 74 L28 94 L32 66 L4 60 L28 46 L12 22 L40 30 Z" fill="var(--spark)"/>
+      <circle cx="40" cy="48" r="6" fill="#0F1A2E"/><circle cx="60" cy="48" r="6" fill="#0F1A2E"/>
+      <path d="M38 64 L44 60 L50 66 L56 60 L62 64" stroke="#0F1A2E" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div style="display:grid;gap:6px"><b>وحش الشرارة</b><div class="hp"><i style="width:${R.hp/total*100}%"></i></div>
+    <span class="hearts" aria-label="القلوب المتبقية">${heartHTML(R.hearts)}</span></div></div>`;
+}
+home();
+})();
+</script>
+
+</html>
