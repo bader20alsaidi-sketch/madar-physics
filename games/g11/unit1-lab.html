@@ -549,7 +549,7 @@ function renderQ(card,Q,done){
     card.insertAdjacentHTML('beforeend',h+`</div><div class="ans"><button class="check" id="ck">تحقّق</button></div>`);
     const ins=[...card.querySelectorAll('.d')];
     const rowVal=ri=>{const row=Q.rows[ri],box=ins.filter(x=>+x.dataset.r===ri);let k=0,any=false,str='';
-      for(const ch of row.pat){if(ch==='.')str+='.';else if(ch==='_')str+='0';else{const v=box[k++].value;if(v)any=true;str+=v||'0'}}
+      [...row.pat].forEach((ch,ci)=>{if(ci===2||ch==='.')str+='.';else if(ch==='_')str+='0';else{const v=box[k++].value;if(v)any=true;str+=v||'0'}});
       return any?parseFloat(str):NaN};
     ins.forEach((inp,k)=>{
       inp.addEventListener('input',()=>{inp.value=inp.value.replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/\D/g,'').slice(-1);if(inp.value&&ins[k+1])ins[k+1].focus()});
