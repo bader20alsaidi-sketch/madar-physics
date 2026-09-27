@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مهمة مدار الفضائية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0A19; --surface:#14142A; --surface2:#1B1B36; --line:#2D2D52;
+  --ink:#EEF0FF; --muted:#9EA3C8;
+  --sun:#FFB547; --sun-ink:#2A1A00; --orbit:#6FD3FF; --planet:#FF7A59;
+  --ok:#5EDB9C; --bad:#FF7B7B;
+  --display:"Changa","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;min-height:100%;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 72% 8%,#fff8 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 62%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 88% 44%,#fff9 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 84%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 30%,#fff8 50%,transparent 51%),
+    radial-gradient(1px 1px at 94% 90%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 5% 50%,#fff6 50%,transparent 51%),
+    radial-gradient(900px 500px at 85% -10%,#2A1E5C 0%,transparent 60%);
+  background-size:340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,100% 100%;
+  background-attachment:fixed}
+.wrap{max-width:840px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.top b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--sun);font-family:var(--mono)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.25;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.1rem)}
+h1 span{color:var(--sun)}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px 4px}
+.orbit-art{width:170px;height:170px}
+.orbit-art .sat{transform-origin:85px 85px;animation:spin 14s linear infinite}
+.orbit-art .sat2{transform-origin:85px 85px;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.orbit-art{display:none}}
+.id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.id-row label{color:var(--muted);font-size:.9rem}
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+.id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
+.rank{border:1px solid var(--orbit);color:var(--orbit);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
+
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px}
+.st{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:12px;align-content:start}
+.st-head{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.planet{width:54px;height:54px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 30%,#fff5 0 8%,transparent 30%),var(--pc);box-shadow:inset -8px -8px 14px #0006}
+.planet.ring::after{content:"";position:absolute;inset:18px -9px;border:2px solid #fff8;border-radius:50%;transform:rotate(-18deg)}
+.st-head p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lv{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;color:var(--ink);display:grid;gap:2px;justify-items:center;transition:border-color .15s,transform .15s}
+.lv:hover{border-color:var(--sun);transform:translateY(-2px)}
+.lv .n{font-family:var(--display);font-weight:700}
+.lv .dsc{font-size:.75rem;color:var(--muted)}
+.stars{color:var(--line);letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+.stars .on{color:var(--sun)}
+.boss{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:start;color:var(--ink);
+  background:linear-gradient(135deg,#3A1F10,var(--surface) 60%);border:1.5px solid var(--sun);border-radius:18px;padding:14px}
+.boss p{margin:0;color:var(--muted);font-size:.88rem}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:8px 12px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--surface);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orbit),var(--sun));transition:width .4s}
+.card{min-width:0;overflow-wrap:anywhere;background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tag.ex{color:var(--sun);border-color:color-mix(in srgb,var(--sun) 45%,var(--line))}
+.q{font-size:1.08rem;font-weight:700;margin:0;text-wrap:pretty}
+.given{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--line);color:var(--muted);font-size:.9rem}
+.eq{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{background:var(--surface2);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--sun)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--surface2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface2))}
+.ans{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sci{display:flex;align-items:center;gap:6px;direction:ltr;font-family:var(--mono);font-size:1.15rem}
+.sci input{font-family:var(--mono);font-size:1.15rem;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 8px;text-align:center}
+.sci .man{width:5.2em}
+.sci .exp{width:3.4em;border-color:var(--sun);font-size:.95rem;align-self:flex-start;margin-top:-6px}
+.sci .x{color:var(--muted)}
+.sci .ten{color:var(--ink)}
+.sci input.ok{border-color:var(--ok)} .sci input.no{border-color:var(--bad)}
+.num input{font-family:var(--mono);font-size:1.15rem;width:8em;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 10px;text-align:center}
+.num input.ok{border-color:var(--ok)} .num input.no{border-color:var(--bad)}
+.unit{font-family:var(--mono);color:var(--muted)}
+.hint2{margin:0;color:var(--muted);font-size:.8rem}
+.check{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:8px 18px;font-weight:700}
+.check:disabled{opacity:.5;cursor:default}
+.feedback{border-radius:12px;padding:12px 14px;background:var(--surface2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{justify-self:start;background:var(--sun);color:var(--sun-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+.diagram{width:100%;max-width:420px;justify-self:center;height:auto;direction:ltr}
+.diagram text{font-family:var(--mono);font-size:12px}
+/* boss */
+.launch{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch}
+.sky{position:relative;border-radius:14px;background:linear-gradient(180deg,#05050F,#1B1440 70%,#243B6B);border:1px solid var(--line);min-height:210px;overflow:hidden}
+.sky .earth{position:absolute;bottom:-40px;left:50%;width:120px;height:70px;transform:translateX(-50%);border-radius:50% 50% 0 0;background:radial-gradient(circle at 50% 100%,#3E9BFF,#1E5AA8)}
+.sky .rocket{position:absolute;left:50%;transform:translateX(-50%);transition:bottom .8s cubic-bezier(.3,1.3,.5,1);font-size:0}
+.sky .orbitline{position:absolute;top:18px;left:6px;right:6px;border-top:2px dashed var(--orbit);opacity:.7}
+.timer{height:8px;border-radius:99px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.timer i{display:block;height:100%;background:var(--sun);transition:width 1s linear}
+.timer.low i{background:var(--bad)}
+.hearts{color:var(--bad);letter-spacing:3px}
+.hearts .off{color:var(--line)}
+.summary{text-align:center;justify-items:center;margin-top:18px}
+.big{font-size:2.4rem;letter-spacing:6px;color:var(--line)} .big .on{color:var(--sun)}
+.cert{border:2px solid var(--sun);border-radius:16px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center;background:linear-gradient(180deg,#2A1A0A,var(--surface))}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.lb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.lb-count,.lb-note{color:var(--muted);font-size:.85rem;margin:0}
+.lb-note.small{font-size:.75rem}
+.lb-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lb-list li{display:grid;grid-template-columns:2em 1fr auto 3.5em;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--bg);font-variant-numeric:tabular-nums}
+.lb-list li:nth-child(-n+3) .rk{color:var(--sun);font-weight:700}
+.lb-list li.me{outline:2px solid var(--sun)}
+.lb-list .rk{text-align:center;color:var(--muted)}
+.lb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sr{color:var(--sun)}
+.lb-list .pt{text-align:end;color:var(--muted);font-size:.9rem}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.boss{grid-template-columns:1fr}.launch{grid-template-columns:54px 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span id="brand"><a href="../../" style="color:var(--sun);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · <b>مدار الفيزياء</b> · الصف الثاني عشر · الوحدة الأولى: مجالات الجاذبية</span>
+    <span class="chips"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="sts">0</strong>/39</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=s=>`<span class="eq">${s}</span>`;
+const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+/* x -> "6.67×10⁻¹¹" */
+function sci(x,sf=3){if(x===0)return'0';const e=Math.floor(Math.log10(Math.abs(x)));let m=x/Math.pow(10,e);let ms=m.toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){return sci(x,sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+const r2=(x,sf=2)=>+x.toPrecision(sf);
+function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
+const G=6.67e-11, ME=6.0e24, RE=6.4e6, PI2=4*Math.PI*Math.PI;
+
+/* ---------- state ---------- */
+const KEY='madar-g12u1';
+const S={name:'',points:0,stars:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v)Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
+function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
+const rankOf=n=>n>=28?'قائد المهمة':n>=12?'مهندس مدارات':'متدرّب فضاء';
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+const LB={game:'g12u1',api:'/api/scores'};
+
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
+/* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
+function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
+  if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
+let lbPending=Promise.resolve(), lbDeb=null;
+function lbSubmit(){ if(!S.name||!(S.points>0)) return lbPending;
+  lbPending=fetch(LB.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({game:LB.game,pid:playerId(),name:S.name,stars:totalStars(),points:S.points})}).catch(()=>{});
+  return lbPending }
+function lbNameChanged(){clearTimeout(lbDeb);lbDeb=setTimeout(()=>{lbSubmit().then(lbRender)},1200)}
+async function lbRender(){
+  const box=document.getElementById('lb'); if(!box) return;
+  try{
+    await lbPending;
+    const r=await fetch(`${LB.api}?game=${LB.game}&pid=${encodeURIComponent(playerId())}`,{cache:'no-store'});
+    const d=await r.json(); if(!d.ok) throw 0;
+    const rows=d.rows||[];
+    box.innerHTML=`<div class="lb-head"><h2>لوحة المتصدرين</h2><span class="lb-count">${d.total} لاعب</span></div>
+      ${rows.length?`<ol class="lb-list">${rows.map((x,i)=>`<li class="${x.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(x.name)}${x.me?' (أنت)':''}</span><span class="sr">★ ${x.stars}</span><span class="pt">${x.points}</span></li>`).join('')}</ol>`:'<p class="lb-note">لا يوجد لاعبون بعد. كن الأول!</p>'}
+      ${d.mine&&!rows.some(x=>x.me)?`<p class="lb-note">ترتيبك: <b>${d.mine.rank}</b> من ${d.total} · ★ ${d.mine.stars} · ${d.mine.points} نقطة</p>`:''}
+      <p class="lb-note small">الترتيب حسب النجوم ثم النقاط.</p>`;
+    box.hidden=false;
+  }catch(e){ box.hidden=true }
+}
+
+const SRC={a1:'اختبار نهائي 2024/2025 · الدور الأول',a2:'اختبار نهائي 2024/2025 · الدور الثاني',b1:'اختبار نهائي 2023/2024 · الدور الأول',b2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  t:'الاختبار التجريبي 2023/2024',c1:'اختبار نهائي 2025/2026 · الدور الأول',x:'بنمط أسئلة الاختبارات النهائية'};
+const GIVEN=`${E('G = 6.67×10⁻¹¹ N m² kg⁻²')}`;
+const EARTH=`كتلة الأرض ${E('6.0×10²⁴ kg')} · نصف قطرها ${E('6.4×10⁶ m')}`;
+
+/* ================= DIAGRAMS ================= */
+function fieldSVG(){let s='';for(let i=0;i<12;i++){const a=i*Math.PI/6,x1=150+95*Math.cos(a),y1=100+80*Math.sin(a),x2=150+42*Math.cos(a),y2=100+36*Math.sin(a);
+  s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="var(--orbit)" stroke-width="1.6" marker-end="url(#ar)"/>`}
+  return `<svg class="diagram" viewBox="0 0 300 200" aria-hidden="true"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--orbit)"/></marker></defs>
+  ${s}<circle cx="150" cy="100" r="30" fill="var(--planet)"/></svg>`}
+function twoBodySVG(labA,labB,mid){return `<svg class="diagram" viewBox="0 0 320 120" aria-hidden="true">
+  <circle cx="50" cy="60" r="34" fill="var(--planet)"/><circle cx="270" cy="60" r="14" fill="#C9CDE8"/>
+  <line x1="84" y1="60" x2="256" y2="60" stroke="var(--line)" stroke-dasharray="4 4"/>
+  <text x="50" y="112" text-anchor="middle" fill="var(--muted)">${labA}</text><text x="270" y="112" text-anchor="middle" fill="var(--muted)">${labB}</text>
+  ${mid?`<circle cx="${mid}" cy="60" r="4" fill="var(--sun)"/><text x="${mid}" y="46" text-anchor="middle" fill="var(--sun)">P</text>`:''}</svg>`}
+function orbitsSVG(){return `<svg class="diagram" viewBox="0 0 300 220" aria-hidden="true">
+  ${[['A',46],['B',72],['C',98]].map(([l,r])=>`<circle cx="150" cy="110" r="${r}" fill="none" stroke="var(--orbit)" stroke-opacity=".6" stroke-dasharray="3 5"/><circle cx="${150+r}" cy="110" r="5" fill="var(--sun)"/><text x="${150+r}" y="98" text-anchor="middle" fill="var(--sun)">${l}</text>`).join('')}
+  <circle cx="150" cy="110" r="24" fill="#3E9BFF"/></svg>`}
+
+/* ================= STATION 1: تمثيل المجال وقانون نيوتن ================= */
+const S1B={
+ lines:{kind:'mc',tag:'b1',q:'أي وصف صحيح لخطوط مجال الجاذبية حول كوكب كروي؟',svg:fieldSVG(),o:['خطوط مستقيمة شعاعية تتجه نحو مركز الكوكب','خطوط تنطلق من مركز الكوكب إلى الخارج','خطوط دائرية تحيط بالكوكب','خطوط متوازية في اتجاه واحد'],a:0,sol:'الجاذبية قوة تجاذب دائماً، فالخطوط تتجه نحو المركز، وتتقارب قرب السطح.'},
+ term:{kind:'mc',tag:'t',q:'ما المصطلح العلمي: المنطقة من الفضاء التي تتأثر فيها كتلة ما بقوة جاذبية؟',o:['مجال الجاذبية','جهد الجاذبية','شدة مجال الجاذبية','الوزن'],a:0,sol:'هذا تعريف مجال الجاذبية.'},
+ third:{kind:'mc',tag:'b2',q:'ما العلاقة بين قوة جذب الأرض لقمر صناعي وقوة جذب القمر الصناعي للأرض؟',o:['متساويتان في المقدار ومتعاكستان في الاتجاه','قوة الأرض أكبر لأن كتلتها أكبر','قوة القمر الصناعي أكبر لأنه أقرب','لا يجذب القمر الصناعي الأرض'],a:0,sol:'زوج فعل ورد فعل (قانون نيوتن الثالث): متساويتان مقداراً ومتعاكستان اتجاهاً، وكل منهما تؤثر في جسم مختلف.'},
+ com:{kind:'mc',tag:'c1',q:'لماذا نعامل الأرض ككتلة نقطية عند حساب جاذبيتها لجسم خارجها؟',o:['لأن مجالها خارجها كأن كتلتها كلها مركّزة في مركزها','لأن كتلة الأرض صغيرة','لأن الجاذبية لا تعتمد على المسافة','لأن الأرض لا تدور'],a:0,sol:'مركز الكتلة: النقطة التي يمكن اعتبار كتلة الجسم كلها مركّزة فيها.'},
+ area:{kind:'mc',tag:'a1',q:'مساحة صغيرة P على بعد r من مركز كوكب، ومساحة مماثلة Q على بعد 2r. كم تصبح كثافة خطوط المجال عند Q مقارنة بـ P؟',o:['ربع قيمتها عند P','نصف قيمتها عند P','ضعف قيمتها عند P','لا تتغير'],a:0,sol:`المجال يتناسب عكسياً مع مربع المسافة: ${E('1 / 2² = 1/4')}`}
+};
+const FR=(n,d)=>{const g=(a,b)=>b?g(b,a%b):a;const k=g(n,d);n/=k;d/=k;return d===1?`${n}F`:`${n}/${d} F`};
+const gFratio=()=>{const k=pick([1,2,3,4]),d=pick([2,3]);const o=[FR(k,d*d),FR(k,d),FR(k*d*d,1),FR(d*d,k)];
+  return{kind:'mc',tag:'x',q:`كتلتان تتجاذبان بقوة ${E('F')}. إذا أصبحت إحدى الكتلتين ${k===1?'كما هي':k+' أضعاف'} وأصبحت المسافة ${d}r، فكم تصبح القوة؟`,
+  o:[...new Set(o)].slice(0,4),a:0,ltr:1,sol:`${E(`F' = G (${k}m₁) m₂ / (${d}r)² = ${k}/${d*d} F`)}`}};
+const gDist=()=>{const n=pick([2,3,4,5]);return{kind:'mc',tag:'a2',q:`قوة الجذب على جسم عند المسافة r من مركز كوكب تساوي ${E('F')}. على أي مسافة من المركز تصبح القوة ${E(`F/${n*n}`)}؟`,
+  o:[`${n}r`,`${n*n}r`,`r/${n}`,`${n*n*n}r`],a:0,ltr:1,sol:`${E('F ∝ 1/r²')}، والقوة قلّت ${n*n} مرة = ${E(`${n}²`)}، إذن المسافة ${E(`${n}r`)}`}};
+const gGratio=()=>{const k=pick([2,3,4,5]);return{kind:'mc',tag:'x',q:`نقطة A على بعد r من مركز كوكب، ونقطة B على بعد ${k}r. ما النسبة ${E('gA : gB')}؟`,
+  o:[`${k*k} : 1`,`${k} : 1`,`1 : ${k*k}`,`1 : ${k}`],a:0,ltr:1,sol:`${E(`gA/gB = (${k}r)² / r² = ${k*k}`)}`}};
+const gNull=()=>{const k=pick([3,4,5,7,9]);return{kind:'mc',tag:'a2',svg:twoBodySVG('P (الكوكب)','Z (القمر)',50+220*k/(k+1)),
+  q:`كتلة الكوكب P تساوي ${k*k} ضعف كتلة قمره Z، والمسافة بين مركزيهما d. على أي بعد x من مركز الكوكب تنعدم شدة المجال المحصّلة؟`,
+  o:[`${k}d/${k+1}`,`d/${k+1}`,`${k*k}d/${k*k+1}`,`d/2`],a:0,ltr:1,sol:`${E(`GM_P/x² = GM_Z/(d−x)²`)} ⇒ ${E(`x/(d−x) = √${k*k} = ${k}`)} ⇒ ${E(`x = ${k}d/${k+1}`)}`}};
+const gNewton=()=>{const m1=pick([10,50,200,500]),m2=pick([10,80,300,800]),r=pick([0.5,1.0,2.0,4.0]);const F=G*m1*m2/(r*r);
+  return{kind:'sci',tag:'a1',q:`كرتان كتلتاهما ${E(m1+' kg')} و${E(m2+' kg')}، والمسافة بين مركزيهما ${E(r.toFixed(1)+' m')}. احسب قوة التجاذب بينهما.`,given:GIVEN,ans:F,unit:'N',
+  sol:`${E(`F = G m₁ m₂ / r² = 6.67×10⁻¹¹ × ${m1} × ${m2} / ${r.toFixed(1)}² = ${sci(F)} N`)}`}};
+const gSatF=()=>{const m=pick([800,1000,1200,1500]),h=pick([400,800,1200,2000]);const r=RE+h*1e3,F=G*ME*m/(r*r);
+  return{kind:'sci',tag:'x',q:`قمر صناعي كتلته ${E(m+' kg')} يدور على ارتفاع ${E(h+' km')} فوق سطح الأرض. احسب قوة جذب الأرض له.`,given:GIVEN+' · '+EARTH,ans:F,unit:'N',
+  sol:`${E(`r = R + h = ${sci(r)} m`)}<br>${E(`F = GMm/r² = ${sci(F)} N`)}`}};
+
+/* ================= STATION 2: شدة المجال g ================= */
+const S2B={
+ def:{kind:'mc',tag:'a2',q:'ما تعريف شدة مجال الجاذبية عند نقطة؟',o:['قوة الجاذبية المؤثرة لكل وحدة كتلة موضوعة في تلك النقطة','الشغل المبذول لكل وحدة كتلة لنقلها من اللانهاية','القوة بين كتلتين نقطيتين','طاقة الوضع لكل وحدة مسافة'],a:0,sol:`${E('g = F / m')}، ووحدتها ${E('N kg⁻¹')}`},
+ unit:{kind:'mc',tag:'x',q:`وحدة شدة مجال الجاذبية ${E('N kg⁻¹')} تكافئ:`,o:['m s⁻²','m s⁻¹','kg m s⁻²','J kg⁻¹'],a:0,ltr:1,sol:`${E('N kg⁻¹ = (kg m s⁻²)/kg = m s⁻²')}`},
+ derive:{kind:'mc',tag:'c1',q:`عند اشتقاق ${E('g = GM/r²')} من ${E('g = F/m')}، ما الخطوة الأساسية؟`,o:[`التعويض عن ${E('F = GMm/r²')} ثم اختصار m`,`التعويض عن ${E('F = mv²/r')}`,`ضرب الطرفين في r`,`التعويض عن ${E('φ = −GM/r')}`],a:0,sol:`${E('g = (GMm/r²)/m = GM/r²')}`},
+ least:{kind:'mc',tag:'c1',q:'أي كوكب تكون شدة المجال عند سطحه هي الأقل؟',o:['كتلته M ونصف قطره 2R','كتلته 2M ونصف قطره R','كتلته M ونصف قطره R','كتلته 2M ونصف قطره 2R'],a:0,sol:`${E('g = GM/R²')}: ${E('M/(2R)² = M/4R²')} هي الأصغر.`}
+};
+const gMoonW=()=>{const W=pick([600,700,750,800,900]);const m=W/9.81,Wm=m*1.6;return{kind:'num',tag:'b1',
+  q:`وزن رائد فضاء على سطح الأرض ${E(W+' N')}. ما وزنه على سطح القمر حيث ${E('g = 1.60 N kg⁻¹')}؟ (${E('g_الأرض = 9.81 N kg⁻¹')})`,ans:Wm,rel:.02,unit:'N',
+  sol:`الكتلة ثابتة: ${E(`m = ${W}/9.81 = ${m.toFixed(1)} kg`)}<br>${E(`W = ${m.toFixed(1)} × 1.60 = ${Wm.toFixed(0)} N`)}`}};
+const gCraftG=()=>{const m=pick([200,300,500,800]),g2=pick([3.7,1.6,8.9]);const W1=Math.round(m*9.81),W2=Math.round(m*g2);return{kind:'num',tag:'b2',
+  q:`وزن مركبة على الأرض ${E(W1+' N')}، ووزنها على سطح كوكب آخر ${E(W2+' N')}. احسب شدة مجال الجاذبية على سطح ذلك الكوكب. (${E('g_الأرض = 9.81 N kg⁻¹')})`,ans:W2/(W1/9.81),rel:.02,unit:'N kg⁻¹',
+  sol:`${E(`m = ${W1}/9.81 = ${m} kg`)}<br>${E(`g = ${W2}/${m} = ${(W2/m).toFixed(2)} N kg⁻¹`)}`}};
+const BODIES=[['المريخ',6.42e23,3.39e6],['القمر',7.35e22,1.74e6],['عطارد',3.30e23,2.44e6],['الزهرة',4.87e24,6.05e6]];
+const gSurfG=()=>{const [n,M,R]=pick(BODIES);const g=G*M/(R*R);return{kind:'num',tag:'x',q:`كتلة ${n} ${E(sci(M)+' kg')} ونصف قطره ${E(sci(R)+' m')}. احسب شدة مجال الجاذبية عند سطحه.`,given:GIVEN,ans:g,rel:.03,unit:'N kg⁻¹',
+  sol:`${E(`g = GM/R² = 6.67×10⁻¹¹ × ${sci(M)} / (${sci(R)})² = ${g.toFixed(2)} N kg⁻¹`)}`}};
+const gRadius=()=>{const [n,M,R]=pick(BODIES.slice(0,3));const g=r2(G*M/(R*R),2),Rr=Math.sqrt(G*M/g);return{kind:'sci',tag:'t',
+  q:`كتلة ${n} ${E(sci(M,2)+' kg')} وشدة المجال عند سطحه ${E(g+' N kg⁻¹')}. احسب نصف قطره.`,given:GIVEN,ans:Rr,unit:'m',
+  sol:`${E(`r² = GM/g = ${sci(G*M/g)}`)} ⇒ ${E(`r = ${sci(Rr)} m`)}`}};
+const gAlt=()=>{const h=pick([800,1600,3200,6400]);const r=RE+h*1e3,g=G*ME/(r*r);return{kind:'num',tag:'x',q:`احسب شدة مجال الجاذبية على ارتفاع ${E(h+' km')} فوق سطح الأرض.`,given:GIVEN+' · '+EARTH,ans:g,rel:.03,unit:'N kg⁻¹',
+  sol:`${E(`r = R + h = ${sci(r)} m`)}<br>${E(`g = GM/r² = ${g.toFixed(2)} N kg⁻¹`)}`}};
+const gHalfR=()=>{const k=pick([2,3]);const g=9.81*k*k;return{kind:'num',tag:'x',q:`كوكب له كتلة الأرض نفسها لكن نصف قطره ${E(`1/${k}`)} نصف قطر الأرض. ما شدة المجال عند سطحه؟ (${E('g_الأرض = 9.81 N kg⁻¹')})`,ans:g,rel:.01,unit:'N kg⁻¹',
+  sol:`${E(`g = GM/(R/${k})² = ${k*k} × 9.81 = ${g.toFixed(1)} N kg⁻¹`)}`}};
+const gMid=()=>{const n=pick([2,3,4]);return{kind:'mc',tag:'b2',svg:twoBodySVG('A','B',160),q:`كتلة الجسم A تساوي ${n} أضعاف كتلة الجسم B، والنقطة P في منتصف المسافة بينهما (على بعد r من كل منهما). ما شدة المجال المحصّلة عند P؟`,
+  o:[`${n-1===1?'':n-1}GM_B/r²`,`${n+1}GM_B/r²`,`${n}GM_B/r²`,`0`],a:0,ltr:1,sol:`المجالان متعاكسان: ${E(`g = ${n}GM_B/r² − GM_B/r² = ${n-1===1?'':n-1}GM_B/r²`)}`}};
+
+/* ================= STATION 3: الجهد وطاقة الوضع ================= */
+const S3B={
+ def:{kind:'mc',tag:'a1',q:'ما تعريف جهد الجاذبية عند نقطة؟',o:['الشغل المبذول لكل وحدة كتلة لنقل كتلة نقطية من اللانهاية إلى تلك النقطة','القوة المؤثرة لكل وحدة كتلة عند النقطة','الشغل المبذول لنقل الكتلة من النقطة إلى سطح الأرض','طاقة الحركة لكل وحدة كتلة'],a:0,sol:`${E('φ = −GM/r')}، ووحدته ${E('J kg⁻¹')}`},
+ sign:{kind:'mc',tag:'x',q:'لماذا يكون جهد الجاذبية سالباً دائماً (عدا اللانهاية)؟',o:['لأن الصفر عند اللانهاية وقوة الجاذبية تجاذب، فتقل الطاقة كلما اقتربنا','لأن الكتلة سالبة','لأن المسافة r سالبة','لأن G سالب'],a:0,sol:'نبذل شغلاً سالباً عند التقريب من اللانهاية، فتصبح الطاقة أقل من الصفر.'},
+ graph:{kind:'mc',tag:'x',q:'كيف يتغير جهد الجاذبية φ مع زيادة المسافة r من مركز كوكب؟',o:['سالب ويقترب تدريجياً من الصفر','سالب وتزداد سالبيته','موجب ويتناقص','لا يعتمد على r'],a:0,sol:`${E('φ = −GM/r')}: بزيادة r يقل المقدار ويقترب من الصفر دون أن يصبح موجباً.`},
+ moon:{kind:'mc',tag:'b1',svg:orbitsSVG(),q:'ثلاثة أقمار متساوية الكتلة تدور حول كوكب في المدارات A وB وC. أيها طاقة وضع الجاذبية له هي الأكبر؟',o:['C (الأبعد)','A (الأقرب)','B','متساوية'],a:0,sol:`${E('Ep = −GMm/r')}: كلما زادت r اقتربت Ep من الصفر، أي أصبحت أكبر جبرياً.`},
+ up:{kind:'mc',tag:'a2',q:'رُفع جسم من سطح الأرض إلى ارتفاع أعلى. ماذا يحدث لطاقة وضع الجاذبية له؟',o:['تزداد (تصبح أقل سالبية)','تقل (تصبح أكثر سالبية)','لا تتغير','تصبح موجبة'],a:0,sol:'نبذل شغلاً عكس الجاذبية، فتزداد طاقة الوضع وتقترب من الصفر.'}
+};
+const gPhi=()=>{const [n,M,R]=pick([['الأرض',ME,RE],...BODIES]);const p=-G*M/R;return{kind:'sci',tag:'a2',q:`احسب جهد الجاذبية عند سطح ${n}. (الكتلة ${E(sci(M,3)+' kg')}، نصف القطر ${E(sci(R,3)+' m')})`,given:GIVEN,ans:p,unit:'J kg⁻¹',
+  sol:`${E(`φ = −GM/r = ${sci(p)} J kg⁻¹`)} (الإشارة سالبة)`}};
+const gEp=()=>{const m=pick([10,150,400,800]),k=pick([1,2,3]);const r=k*RE,Ep=-G*ME*m/r;return{kind:'sci',tag:'a2',q:`جسم كتلته ${E(m+' kg')} على بعد ${E(k===1?'Rₑ':k+'Rₑ')} من مركز الأرض. احسب طاقة وضع الجاذبية له.`,given:GIVEN+' · '+EARTH,ans:Ep,unit:'J',
+  sol:`${E(`Ep = −GMm/r = −6.67×10⁻¹¹ × 6.0×10²⁴ × ${m} / ${sci(r,2)} = ${sci(Ep)} J`)}`}};
+const gDphi=()=>{const k=pick([2,3,4]);const d=G*ME/RE*(1-1/k);return{kind:'sci',tag:'a1',q:`احسب فرق جهد الجاذبية بين سطح الأرض ونقطة على بعد ${E(k+'Rₑ')} من مركزها.`,given:GIVEN+' · '+EARTH,ans:d,unit:'J kg⁻¹',
+  sol:`${E(`Δφ = GM(1/Rₑ − 1/${k}Rₑ) = ${sci(d)} J kg⁻¹`)}`}};
+const gMphi=()=>{const M=pick([4.6e23,6.4e23,7.3e22,1.2e24]),R=pick([1.7e6,3.2e6,3.4e6,2.4e6]);const p=r2(-G*M/R,2),Mm=-p*R/G;return{kind:'sci',tag:'b2',
+  q:`جهد الجاذبية عند سطح كوكب ${E(sci(p,2)+' J kg⁻¹')} ونصف قطره ${E(sci(R,2)+' m')}. احسب كتلة الكوكب.`,given:GIVEN,ans:Mm,unit:'kg',
+  sol:`${E(`M = −φr/G = ${sci(-p,2)} × ${sci(R,2)} / 6.67×10⁻¹¹ = ${sci(Mm)} kg`)}`}};
+const gDEp=()=>{const m=pick([200,500,800]),r1=pick([7.0e6,8.0e6]),r2v=pick([1.2e7,1.6e7,2.0e7]);const d=G*ME*m*(1/r1-1/r2v);return{kind:'sci',tag:'x',
+  q:`ينتقل جسم كتلته ${E(m+' kg')} من بعد ${E(sci(r1,2)+' m')} إلى بعد ${E(sci(r2v,2)+' m')} عن مركز الأرض. احسب التغيّر في طاقة وضع الجاذبية.`,given:GIVEN+' · '+EARTH,ans:d,unit:'J',
+  sol:`${E(`ΔEp = GMm(1/r₁ − 1/r₂) = +${sci(d)} J`)} (موجب لأنه ابتعد)`}};
+const gRock=()=>{const [n,M,R]=pick(BODIES.slice(0,3));const m=pick([150,400,1000]);const d=-G*M*m/R;return{kind:'sci',tag:'c1',
+  q:`صخرة كتلتها ${E(m+' kg')} تسقط من مسافة بعيدة جداً (اللانهاية) إلى سطح ${n} (كتلته ${E(sci(M,3)+' kg')} ونصف قطره ${E(sci(R,3)+' m')}). احسب التغيّر في طاقة وضع الجاذبية.`,given:GIVEN,ans:d,unit:'J',
+  sol:`${E('Ep₁ = 0')}، ${E(`Ep₂ = −GMm/R = ${sci(d)} J`)}<br>${E(`ΔEp = ${sci(d)} J`)} (سالب لأنها اقتربت)`}};
+
+/* ================= STATION 4: الأقمار الصناعية ================= */
+const S4B={
+ mass:{kind:'mc',tag:'b2',q:'لماذا تتحرك أقمار صناعية مختلفة الكتل بالسرعة نفسها في المدار نفسه؟',o:[`لأن ${E('v = √(GM/r)')} لا تعتمد على كتلة القمر الصناعي`,'لأن الأقمار الأثقل تُطلق بسرعة أقل','لأن مقاومة الهواء تتساوى','لأن كتلة الأرض تتغير'],a:0,sol:'كتلة القمر الصناعي تُختصر عند مساواة قوة الجاذبية بالقوة المركزية.'},
+ fastest:{kind:'mc',tag:'a1',svg:orbitsSVG(),q:'في أي مدار تكون السرعة المدارية للقمر الصناعي هي الأكبر؟',o:['A (الأقرب)','B','C (الأبعد)','متساوية'],a:0,sol:`${E('v = √(GM/r)')}: أصغر r تعطي أكبر سرعة.`},
+ geo:{kind:'mc',tag:'c1',q:'ما شروط مدار القمر الصناعي الثابت بالنسبة إلى الأرض (المتزامن)؟',o:['زمنه الدوري 24 ساعة، في مستوى خط الاستواء، وفي اتجاه دوران الأرض','أي مدار زمنه الدوري 12 ساعة','مدار يمر فوق القطبين','أقرب مدار ممكن من سطح الأرض'],a:0,sol:'يدور بسرعة زاوية تساوي سرعة دوران الأرض فيبقى فوق النقطة نفسها من خط الاستواء.'},
+ derive:{kind:'mc',tag:'x',q:`لاشتقاق ${E('v = √(GM/r)')} نساوي بين:`,o:[`قوة الجاذبية ${E('GMm/r²')} والقوة المركزية ${E('mv²/r')}`,`طاقة الوضع وطاقة الحركة`,`الوزن والكتلة`,`شدة المجال والجهد`],a:0,sol:`${E('GMm/r² = mv²/r ⇒ v² = GM/r')}`},
+ kepler:{kind:'mc',tag:'t',q:'ماذا يقول قانون كبلر الثالث للمدارات الدائرية؟',o:[`${E('T² ∝ r³')}`,`${E('T ∝ r')}`,`${E('T² ∝ r')}`,`${E('T ∝ r³')}`],a:0,sol:`${E('T² = (4π²/GM) r³')}`}
+};
+const gVh=()=>{const h=pick([800,2000,3600,20000]);const r=RE+h*1e3,v=Math.sqrt(G*ME/r);return{kind:'sci',tag:'b2',q:`قمر صناعي يدور على ارتفاع ${E(h+' km')} فوق سطح الأرض. احسب سرعته المدارية.`,given:GIVEN+' · '+EARTH,ans:v,unit:'m s⁻¹',
+  sol:`${E(`r = ${sci(r)} m`)}<br>${E(`v = √(GM/r) = ${sci(v)} m s⁻¹`)}`}};
+const gHfromV=()=>{const v=pick([3.0e3,4.0e3,5.0e3,6.0e3]);const r=G*ME/(v*v),h=r-RE;return{kind:'sci',tag:'a1',q:`قمر صناعي يدور حول الأرض بسرعة ${E(sci(v,2)+' m s⁻¹')}. احسب ارتفاعه عن سطح الأرض.`,given:GIVEN+' · '+EARTH,ans:h,unit:'m',
+  sol:`${E(`r = GM/v² = ${sci(r)} m`)}<br>${E(`h = r − Rₑ = ${sci(h)} m`)}`}};
+const gMfromT=()=>{const r=pick([8.0e6,1.2e7,2.0e7]),T=r2(pick([5.4e3,2.0e4,1.0e4]),2);const M=PI2*r**3/(G*T*T);return{kind:'sci',tag:'a2',
+  q:`قمر صناعي يدور حول كوكب في مدار نصف قطره ${E(sci(r,2)+' m')} بزمن دوري ${E(sci(T,2)+' s')}. احسب كتلة الكوكب.`,given:GIVEN,ans:M,unit:'kg',
+  sol:`${E(`M = 4π²r³ / (GT²) = ${sci(M)} kg`)}`}};
+const gGeo=()=>{const ch=pick([{n:'الأرض',M:ME,T:24,dy:'24 ساعة'},{n:'كوكب كتلته 1.48×10²³ kg',M:1.48e23,T:7.14*24,dy:'7.14 يوم'}]);const Ts=ch.T*3600,r=Math.cbrt(G*ch.M*Ts*Ts/PI2);return{kind:'sci',tag:'b1',
+  q:`احسب نصف قطر مدار القمر الصناعي الثابت حول ${ch.n}، علماً بأن زمن دورانه حول محوره ${E(ch.dy)}.`,given:GIVEN+(ch.n==='الأرض'?' · كتلة الأرض '+E('6.0×10²⁴ kg'):''),ans:r,unit:'m',
+  sol:`${E(`T = ${sci(Ts)} s`)}<br>${E(`r³ = GMT²/4π²`)} ⇒ ${E(`r = ${sci(r)} m`)}`}};
+const gKepler=()=>{const n=pick([4,9,16,30]);const T=Math.pow(n,1.5);return{kind:'num',tag:'t',
+  q:`كوكب يبعد عن الشمس ${n} ضعف بعد الأرض عنها. كم سنة أرضية يستغرق ليدور حول الشمس دورة كاملة؟`,ans:T,rel:.02,unit:'سنة',
+  sol:`${E(`(T/1)² = (${n})³`)} ⇒ ${E(`T = ${n}^1.5 = ${T.toFixed(1)}`)} سنة`}};
+const gTfromR=()=>{const h=pick([400,1600,2000]);const r=RE+h*1e3,T=2*Math.PI*Math.sqrt(r**3/(G*ME));return{kind:'sci',tag:'x',
+  q:`احسب الزمن الدوري لقمر صناعي يدور على ارتفاع ${E(h+' km')} فوق سطح الأرض.`,given:GIVEN+' · '+EARTH,ans:T,unit:'s',
+  sol:`${E(`T = 2π√(r³/GM) = ${sci(T)} s`)}`}};
+
+/* ================= STATIONS ================= */
+const LV=['مبتدئ','متمكّن','خبير'];
+const STATIONS=[
+ {k:'s1',title:'خريطة المجال',sub:'خطوط المجال وقانون نيوتن للجذب العام',lessons:'الدرس 1-1',pc:'#FF7A59',
+  levels:[()=>[S1B.lines,S1B.term,S1B.third,S1B.com,S1B.area],
+          ()=>[gFratio(),gNewton(),gDist(),gGratio(),gNewton()],
+          ()=>[gSatF(),gNull(),gFratio(),gSatF(),gNull()]]},
+ {k:'s2',title:'محطة شدة المجال',sub:'شدة مجال الجاذبية g والوزن',lessons:'الدرس 2-1',pc:'#C58BFF',ring:1,
+  levels:[()=>[S2B.def,S2B.unit,gMoonW(),S2B.derive,S2B.least],
+          ()=>[gSurfG(),gCraftG(),gMoonW(),gSurfG(),gRadius()],
+          ()=>[gAlt(),gHalfR(),gMid(),gRadius(),gAlt()]]},
+ {k:'s3',title:'بئر الجهد',sub:'جهد الجاذبية وطاقة الوضع',lessons:'الدرس 3-1',pc:'#4FA3FF',
+  levels:[()=>[S3B.def,S3B.sign,S3B.graph,S3B.moon,S3B.up],
+          ()=>[gPhi(),gEp(),gDphi(),gPhi(),gEp()],
+          ()=>[gMphi(),gDEp(),gRock(),gDphi(),gMphi()]]},
+ {k:'s4',title:'مدار الأقمار',sub:'السرعة المدارية والزمن الدوري والقمر الثابت',lessons:'الدرس 4-1',pc:'#5EDB9C',ring:1,
+  levels:[()=>[S4B.mass,S4B.fastest,S4B.derive,S4B.geo,S4B.kepler],
+          ()=>[gVh(),gHfromV(),gKepler(),gVh(),gTfromR()],
+          ()=>[gMfromT(),gGeo(),gHfromV(),gMfromT(),gGeo()]]}
+];
+const bossSet=()=>shuffle([gNewton(),gSatF(),gNull(),gSurfG(),gAlt(),gRadius(),gPhi(),gDphi(),gRock(),gVh(),gHfromV(),gMfromT(),gKepler(),gGeo()]).slice(0,10);
+
+/* ================= HOME ================= */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <div>
+      <h1>مهمة <span>مدار</span> الفضائية</h1>
+      <p class="lead">أنت في غرفة التحكم بمهمة فضائية. أنهِ مهام المحطات الأربع على ثلاثة مستويات، ثم أطلق الصاروخ في الإطلاق الكبير. أرقام المسائل تتجدد في كل مرة تلعب.</p>
+      <div class="id-row"><label for="nm">اسم رائد الفضاء</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank">${rankOf(totalStars())}</span><p class="nm-err" id="nmErr" hidden>اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ المهمة.</p></div>
+    </div>
+    <svg class="orbit-art" viewBox="0 0 170 170" aria-hidden="true">
+      <circle cx="85" cy="85" r="70" fill="none" stroke="var(--orbit)" stroke-opacity=".35" stroke-dasharray="3 6"/>
+      <circle cx="85" cy="85" r="46" fill="none" stroke="var(--sun)" stroke-opacity=".35" stroke-dasharray="3 6"/>
+      <circle cx="85" cy="85" r="24" fill="#3E9BFF"/><path d="M70 78q8-8 16 0t14 4" stroke="#5EDB9C" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <g class="sat"><rect x="150" y="81" width="10" height="8" rx="1" fill="var(--ink)"/><rect x="143" y="83" width="6" height="4" fill="var(--orbit)"/><rect x="161" y="83" width="6" height="4" fill="var(--orbit)"/></g>
+      <g class="sat2"><circle cx="131" cy="85" r="5" fill="var(--sun)"/></g>
+    </svg>
+  </section>
+  <div class="stations">
+   ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
+      <div class="st-head"><div class="planet ${st.ring?'ring':''}" style="--pc:${st.pc}"></div><div><h3>${st.title}</h3><p>${st.lessons} · ${st.sub}</p></div></div>
+      <div class="levels">${LV.map((l,j)=>`<button class="lv" data-s="${i}" data-l="${j}"><span class="n">المستوى ${j+1}</span><span class="dsc">${l} · ${(j+1)*10} نقاط</span>${starsHTML(S.stars[st.k+j]||0)}</button>`).join('')}</div>
+   </section>`).join('')}
+   <button class="boss" id="boss">
+     <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M24 4c7 6 9 16 7 26h-14C15 20 17 10 24 4z" fill="var(--ink)"/><circle cx="24" cy="18" r="4" fill="var(--orbit)"/><path d="M17 30l-6 8h8zM31 30l6 8h-8z" fill="var(--planet)"/><path d="M20 32h8l-4 10z" fill="var(--sun)"/></svg>
+     <span><h3>الإطلاق الكبير</h3><p>10 مسائل مختلطة · 90 ثانية لكل مسألة · كل إجابة صحيحة ترفع الصاروخ نحو المدار · 3 محاولات خاطئة فقط</p></span>
+     ${starsHTML(S.stars.boss||0)}
+   </button>
+  </div>
+  <section id="lb" class="lb" hidden></section>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
+  lbRender();
+}
+
+/* ================= RUNNER ================= */
+let timerId=null;
+function rocketSVG(){return `<svg width="34" height="52" viewBox="0 0 34 52" aria-hidden="true"><path d="M17 2c7 7 9 18 6 30H11C8 20 10 9 17 2z" fill="#EEF0FF"/><circle cx="17" cy="17" r="4" fill="#6FD3FF"/><path d="M11 30l-7 9h8zM23 30l7 9h-8z" fill="#FF7A59"/><path d="M13 34h8l-4 14z" fill="#FFB547"/></svg>`}
+function play(si,li){
+  const boss=si<0, st=boss?null:STATIONS[si];
+  const items=boss?bossSet():st.levels[li]();
+  const pts=boss?30:(li+1)*10;
+  const R={i:0,correct:0,hearts:3};
+  const title=boss?'الإطلاق الكبير':`${st.title} · المستوى ${li+1}`;
+  function render(){
+    clearInterval(timerId);
+    const Q=items[R.i];
+    const alt=Math.round(R.correct/items.length*100);
+    app.innerHTML=`<div class="bar"><button class="back" id="bk">→ غرفة التحكم</button><h2>${title}</h2><span class="chip">${R.i+1} / ${items.length}</span></div>
+      <div class="progress"><i style="width:${R.i/items.length*100}%"></i></div>
+      ${boss?`<div class="bar" style="margin-top:-4px"><span class="hearts" aria-label="المحاولات المتبقية">${[1,2,3].map(i=>`<span class="${i<=R.hearts?'':'off'}">♥</span>`).join('')}</span><span class="chip">الارتفاع <strong>${alt}%</strong></span><span class="chip" id="tl">90</span></div><div class="timer" id="tm"><i style="width:100%"></i></div>
+        <div class="launch" style="margin-top:12px"><div class="sky"><div class="orbitline"></div><div class="earth"></div><div class="rocket" id="rk" style="bottom:calc(4% + ${R.correct/items.length*78}%)">${rocketSVG()}</div></div><div class="card" id="card"></div></div>`
+      :`<div class="card" id="card"></div>`}`;
+    $('#bk').onclick=()=>{clearInterval(timerId);home()};
+    const card=$('#card');
+    let finished=false;
+    const done=(ok)=>{
+      if(finished)return;finished=true;clearInterval(timerId);
+      if(ok){R.correct++;S.points+=pts;save();hud();const rk=$('#rk');if(rk)rk.style.bottom=`calc(4% + ${R.correct/items.length*78}%)`} else if(boss){R.hearts--}
+      const fb=document.createElement('div');fb.className='feedback'+(ok?'':' no');
+      fb.innerHTML=`<b>${ok?`إجابة صحيحة! +${pts}`:'ليست الإجابة الصحيحة'}</b><div>${Q.sol||''}</div>`;
+      card.appendChild(fb);
+      const nx=document.createElement('button');nx.className='next';
+      const over=boss&&R.hearts<=0, last=R.i+1>=items.length;
+      nx.textContent=over?'فشل الإطلاق':last?'إنهاء':'التالي ←';
+      nx.onclick=()=>{ if(over) return lose(); R.i++; if(R.i>=items.length) return finish(); render(); };
+      card.appendChild(nx);nx.focus({preventScroll:true});
+    };
+    renderQ(card,Q,done);
+    if(boss){let t=90;timerId=setInterval(()=>{t--;const tl=$('#tl'),tm=$('#tm');if(!tl){clearInterval(timerId);return}
+      tl.textContent=t;tm.querySelector('i').style.width=(t/90*100)+'%';tm.classList.toggle('low',t<=20);
+      if(t<=0){card.querySelectorAll('button,input').forEach(x=>x.disabled=true);done(false)}},1000)}
+  }
+  function finish(){
+    const pct=R.correct/items.length;
+    const stars=boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+    const key=boss?'boss':st.k+li;
+    S.stars[key]=Math.max(S.stars[key]||0,stars);save();hud();lbSubmit();
+    app.innerHTML=`<div class="card summary">
+      <h2>${boss?'وصل الصاروخ إلى المدار!':'أنهيت المهمة'}</h2>${starsHTML(stars,'big')}
+      <p style="margin:0;color:var(--muted)">أجبت ${R.correct} من ${items.length} إجابة صحيحة.</p>
+      ${boss?`<div class="cert"><span style="color:var(--muted);font-size:.85rem">شهادة إتمام المهمة الفضائية</span><h2>${esc(S.name||'رائد الفضاء')}</h2><span>أتم الوحدة الأولى: مجالات الجاذبية · ${S.points} نقطة · الرتبة: ${rankOf(totalStars())}</span><span style="color:var(--muted);font-size:.85rem">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+      <div class="btns"><button class="next" id="h">غرفة التحكم</button><button class="back" id="ag">${boss?'إطلاق جديد':'أعد المستوى بأرقام جديدة'}</button>
+      ${!boss&&li<2?`<button class="back" id="nl">المستوى ${li+2} ←</button>`:''}</div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+    const nl=$('#nl');if(nl)nl.onclick=()=>play(si,li+1);
+  }
+  function lose(){
+    app.innerHTML=`<div class="card summary"><h2>فشل الإطلاق</h2><p style="margin:0;color:var(--muted)">راجع خطوات الحل وحاول مرة أخرى، ستتغير الأرقام.</p>
+    <div class="btns"><button class="next" id="ag">إطلاق جديد</button><button class="back" id="h">غرفة التحكم</button></div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+  }
+  render();
+}
+
+/* ================= RENDERERS ================= */
+function renderQ(card,Q,done){
+  card.innerHTML=`<div class="meta"><span class="tag ${Q.tag&&Q.tag!=='x'?'ex':''}">${SRC[Q.tag]||SRC.x}</span></div><p class="q">${Q.q}</p>`+(Q.svg||'')+(Q.given?`<p class="given">معطيات: ${Q.given}</p>`:'');
+  if(Q.kind==='mc'){
+    const order=shuffle(Q.o.map((_,i)=>i));
+    card.insertAdjacentHTML('beforeend',`<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${Q.ltr?E(Q.o[i]):Q.o[i]}</button>`).join('')}</div>`);
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.a)x.classList.add('right')});if(p!==Q.a)b.classList.add('wrong');done(p===Q.a)});
+  }
+  else if(Q.kind==='sci'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans"><span class="sci"><input class="man" id="man" inputmode="decimal" autocomplete="off" aria-label="الرقم"><span class="x">×</span><span class="ten">10</span><input class="exp" id="exp" inputmode="numeric" autocomplete="off" aria-label="الأُس"><span class="unit">${Q.unit}</span></span><button class="check" id="ck">تحقّق</button></div>
+      <p class="hint2">اكتب الناتج بالصيغة العلمية: الرقم في الخانة الزرقاء والأُس في الخانة الصغيرة. للأُس السالب اكتب إشارة −. استخدم الإشارة السالبة في الرقم إن كان الناتج سالباً.</p>`);
+    const m=$('#man'),e=$('#exp'),ck=$('#ck');
+    const go=()=>{const a=parseNum(m.value);let b=parseNum(e.value);if(isNaN(a)){m.focus();return}if(isNaN(b))b=0;
+      const v=a*Math.pow(10,b),ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.03);
+      [m,e].forEach(x=>{x.classList.add(ok?'ok':'no');x.disabled=true});ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(sci(Q.ans,2)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;[m,e].forEach(x=>x.addEventListener('keydown',ev=>{if(ev.key==='Enter')go()}));m.focus({preventScroll:true});
+  }
+  else if(Q.kind==='num'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans num"><input id="in" inputmode="decimal" dir="ltr" autocomplete="off" aria-label="الإجابة"><span class="unit">${Q.unit}</span><button class="check" id="ck">تحقّق</button></div>`);
+    const inp=$('#in'),ck=$('#ck');
+    const go=()=>{const v=parseNum(inp.value);if(isNaN(v)){inp.focus();return}
+      const ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.02);inp.classList.add(ok?'ok':'no');inp.disabled=ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(Q.ans.toPrecision(3)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus({preventScroll:true});
+  }
+}
+
+home();
+})();
+</script>
+
+</html>
