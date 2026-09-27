@@ -38,6 +38,12 @@ h2{font-size:1.5rem}
 .hero{padding-block:22px 6px;display:grid;gap:6px}
 .id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .id-row label{color:var(--muted);font-size:.9rem}
+
+
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+
 .id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
 .rank{border:1px solid var(--brass);color:var(--brass);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
 
@@ -94,10 +100,10 @@ h2{font-size:1.5rem}
 .drow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
 .drow .dl{font-size:.9rem;color:var(--muted)}
 .dg{display:grid;grid-template-columns:.9em 1.9em 1.9em .6em 1.9em 1.9em 2em;gap:5px;align-items:center;font-size:1.2rem}
-.d{width:100%;height:2.1em;text-align:center;font:700 1em var(--mono);background:var(--surface);color:var(--ink);border:2px solid var(--c);border-radius:8px;padding:0}
-.d.m{--c:var(--main)} .d.v{--c:var(--vern)} .d.t{--c:var(--brass);border-style:dashed}
-.d.ok{background:color-mix(in srgb,var(--ok) 22%,var(--surface));border-color:var(--ok);border-style:solid}
-.d.no{background:color-mix(in srgb,var(--bad) 20%,var(--surface));border-color:var(--bad);border-style:solid}
+input.d{width:100%;height:2.1em;text-align:center;font:700 1em var(--mono);background:var(--surface);color:var(--ink);border:2px solid var(--c);border-radius:8px;padding:0}
+input.d.m{--c:var(--main)} input.d.v{--c:var(--vern)} input.d.t{--c:var(--brass);border-style:dashed}
+input.d.ok{background:color-mix(in srgb,var(--ok) 22%,var(--surface));border-color:var(--ok);border-style:solid}
+input.d.no{background:color-mix(in srgb,var(--bad) 20%,var(--surface));border-color:var(--bad);border-style:solid}
 .fx{font:700 1.1em var(--mono);color:var(--muted);text-align:center}
 .blank{display:block}
 .sg{font:700 1.1em var(--mono);color:var(--vern);text-align:center}
@@ -180,6 +186,13 @@ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
 function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
 const LB={game:'g11u1',api:'/api/scores'};
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
 /* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
 function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
   if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
@@ -437,7 +450,7 @@ function home(){
   <section class="hero">
     <h1>مختبر <span>الدقة</span></h1>
     <p class="lead">أنت فني قياس في مختبر مدار. أنهِ مهام المحطات الأربع على ثلاثة مستويات، ثم اجتز امتحان المعايرة الكبير. المسائل تتجدد أرقامها في كل مرة تلعب.</p>
-    <div class="id-row"><label for="nm">اسم الفني</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank" id="rank">${rankOf(ts)}</span></div>
+    <div class="id-row"><label for="nm">اسم الفني</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank" id="rank">${rankOf(ts)}</span><p class="nm-err" id="nmErr" hidden>اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ اللعب.</p></div>
   </section>
   <div class="stations">
    ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
@@ -451,9 +464,9 @@ function home(){
    </button>
   </div>
   <section id="lb" class="lb" hidden></section>`;
-  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();lbNameChanged()});
-  app.querySelectorAll('.lv').forEach(b=>b.onclick=()=>play(+b.dataset.s,+b.dataset.l));
-  $('#boss').onclick=()=>play(-1,2);
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
   lbRender();
 }
 

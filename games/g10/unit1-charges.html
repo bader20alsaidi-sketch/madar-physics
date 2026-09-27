@@ -35,6 +35,12 @@ h2{font-size:1.8rem}
 .hero{padding-block:24px 8px;display:grid;gap:4px}
 .namebox{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
 .namebox label{color:var(--muted);font-size:.9rem}
+
+
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+
 .namebox input{font-family:inherit;font-size:1rem;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:260px}
 
 .map{position:relative;margin-top:26px;display:grid;gap:14px}
@@ -158,6 +164,13 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
 function hud(){$('#pts').textContent=S.points;$('#st').textContent=totalStars()}
 const LB={game:'g10u1',api:'/api/scores'};
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
 /* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
 function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
   if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
@@ -280,7 +293,7 @@ function home(){
   <section class="hero">
     <h1>مغامرة <span class="bolt">الشحنات</span></h1>
     <p class="lead">أربع محطات تراجع بها الوحدة الأولى، وأغلب أسئلتها من الاختبارات النهائية. أجب صحيحاً من المحاولة الأولى لتجمع النقاط والنجوم، ثم واجه وحش الشرارة.</p>
-    <div class="namebox"><label for="nm">اسم البطل</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"></div>
+    <div class="namebox"><label for="nm">اسم البطل</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><p class="nm-err" id="nmErr" hidden>اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ اللعب.</p></div>
   </section>
   <nav class="map" aria-label="محطات المغامرة">
    ${STAGES.map((s,i)=>`<button class="node ${S.stars[s.k]?'done':''} ${s.boss?'boss':''}" data-i="${i}">
@@ -290,9 +303,9 @@ function home(){
    </button>`).join('')}
   </nav>
   <section id="lb" class="lb" hidden></section>`;
-  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();lbNameChanged()});
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
   lbRender();
-  app.querySelectorAll('.node').forEach(b=>b.onclick=()=>play(+b.dataset.i));
+  app.querySelectorAll('.node').forEach(b=>b.onclick=guard(()=>play(+b.dataset.i)));
 }
 
 /* ---------- stage runner ---------- */
