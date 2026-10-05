@@ -1,0 +1,491 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>مختبر المقاومات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: lab bench. Controls rail beside a graph-paper schematic, results tray under the board */
+:root{
+  --bg:#edf1f4; --surface:#fbfcfd; --raised:#ffffff; --ink:#14223a; --muted:#56677c; --line:#d2dbe4; --grid:#e1e8ef; --chip:#e9eef3;
+  --wire:#1b2c45; --copper:#b9581a; --on-accent:#ffffff; --amp:#0b7880; --volt:#6a3db3;
+  --ok:#1b7a43; --ok-bg:#e1f2e7; --bad:#b8372d; --bad-bg:#f8e3e1;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e151f; --surface:#141e2b; --raised:#1a2636; --ink:#e4ebf3; --muted:#93a3b7; --line:#283a50; --grid:#1a2738; --chip:#1f2d3f;
+  --wire:#c6d4e5; --copper:#f08b3f; --on-accent:#1b0e04; --amp:#3fc4ca; --volt:#ab8df2;
+  --ok:#52c784; --ok-bg:#16301f; --bad:#f06c61; --bad-bg:#3a1a18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e151f; --surface:#141e2b; --raised:#1a2636; --ink:#e4ebf3; --muted:#93a3b7; --line:#283a50; --grid:#1a2738; --chip:#1f2d3f;
+  --wire:#c6d4e5; --copper:#f08b3f; --on-accent:#1b0e04; --amp:#3fc4ca; --volt:#ab8df2;
+  --ok:#52c784; --ok-bg:#16301f; --bad:#f06c61; --bad-bg:#3a1a18; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.app{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:18px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.seg{display:flex;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 14px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
+.seg button:disabled{cursor:not-allowed;opacity:.55}
+.tabs button{padding:9px 20px;font-size:1rem}
+button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:18px}
+.group{display:flex;flex-direction:column;gap:10px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.02em;margin:0}
+.field{display:grid;grid-template-columns:34px minmax(0,1fr) 92px;align-items:center;gap:10px}
+.field label{font-family:var(--f-mono);font-weight:700;direction:ltr;text-align:center}
+.field input[type=range]{width:100%;accent-color:var(--copper);direction:ltr}
+.num{display:flex;align-items:center;gap:4px;direction:ltr}
+.num input{width:100%;min-width:0;font:600 14px var(--f-mono);padding:5px 6px;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink)}
+.num span{font-family:var(--f-mono);color:var(--muted);font-size:13px;width:14px}
+.lock{font-size:.85rem;color:var(--muted);background:var(--chip);border-radius:8px;padding:8px 10px;margin:0}
+.note{font-size:.85rem;color:var(--muted);margin:0}
+
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tool{font:inherit;font-weight:600;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.tool .ic{width:22px;height:22px;border-radius:50%;border:2.5px solid currentColor;display:grid;place-items:center;font:700 12px var(--f-mono)}
+#toolA .ic{color:var(--amp)} #toolV .ic{color:var(--volt)}
+#toolA[aria-pressed="true"]{border-color:var(--amp);background:color-mix(in srgb,var(--amp) 12%,var(--surface))}
+#toolV[aria-pressed="true"]{border-color:var(--volt);background:color-mix(in srgb,var(--volt) 12%,var(--surface))}
+.tool.ghost{border-style:dashed;color:var(--muted)}
+.spacer{flex:1}
+.hint{font-size:.9rem;color:var(--muted);margin:0;min-height:1.5em}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+.board svg{display:block;width:100%;min-width:560px;height:auto}
+
+svg text{font-family:var(--f-mono)}
+.wire{stroke:var(--wire);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.flow{stroke:var(--copper);stroke-width:5.5;stroke-dasharray:0 18;stroke-linecap:round;fill:none}
+.noanim .flow{display:none}
+.res{fill:var(--raised);stroke:var(--wire);stroke-width:2.5}
+.plate{stroke:var(--wire);stroke-width:3;stroke-linecap:round}
+.plate.short{stroke-width:7}
+.junc{fill:var(--wire)}
+.t-name{fill:var(--ink);font-weight:700;font-size:15px}
+.t-val{fill:var(--ink);font-size:12px;font-weight:500}
+.t-mut{fill:var(--muted);font-size:13px;font-weight:500}
+.t-pol{fill:var(--wire);font-size:17px;font-weight:700}
+.mtr{cursor:pointer}
+.mtr circle{fill:var(--raised);stroke-width:3}
+.mA circle{stroke:var(--amp)} .mA .sym{fill:var(--amp)}
+.mV circle{stroke:var(--volt)} .mV .sym{fill:var(--volt)}
+.sym{font-size:15px;font-weight:700}
+.lead{stroke:var(--volt);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.rd rect{fill:var(--raised);stroke-width:1.5}
+.rd text{font-size:13px;font-weight:700}
+.rdA rect{stroke:var(--amp)} .rdA text{fill:var(--amp)}
+.rdV rect{stroke:var(--volt)} .rdV text{fill:var(--volt)}
+.hit{fill:none;stroke:transparent;stroke-width:26;cursor:crosshair;stroke-linecap:round}
+.hit:hover,.hit:focus-visible{stroke:color-mix(in srgb,var(--amp) 22%,transparent);outline:none}
+.hitV{fill:transparent;stroke:none;cursor:crosshair}
+.hitV:hover,.hitV:focus-visible{fill:color-mix(in srgb,var(--volt) 18%,transparent);outline:none}
+
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.chip{background:var(--chip);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.chip .k{font-size:.8rem;color:var(--muted)}
+.chip .v{font:700 1.15rem var(--f-mono);direction:ltr;text-align:right}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:.8rem;color:var(--muted);font-weight:600}
+td{font-family:var(--f-mono);font-size:14px}
+td:first-child{font-family:var(--f-body);font-weight:600;text-align:right}
+tr.tot td{font-weight:700;border-bottom:0}
+.eq{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap;font-size:.95em}
+.ptitle{font-family:var(--f-display);font-weight:700;font-size:1.1rem;margin:0 0 6px}
+.stmt{margin:0 0 14px;line-height:1.95}
+.qs{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:q}
+.q{display:grid;grid-template-columns:minmax(0,1fr) 150px;grid-template-areas:"l a" "s s";gap:4px 12px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--chip);counter-increment:q}
+.q .ql{grid-area:l;min-width:0}
+.q .ql::before{content:counter(q) ") ";font-weight:700;color:var(--muted)}
+.q .qa{grid-area:a;display:flex;gap:6px;align-items:center;direction:ltr}
+.q .qa input{width:100%;min-width:0;font:600 15px var(--f-mono);padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--raised);color:var(--ink)}
+.q .unit{font-family:var(--f-mono);color:var(--muted);width:16px}
+.q .st{grid-area:s;font-size:.88rem;font-weight:600}
+.q.ok{background:var(--ok-bg)} .q.ok .st{color:var(--ok)} .q.ok input{border-color:var(--ok)}
+.q.bad{background:var(--bad-bg)} .q.bad .st{color:var(--bad)} .q.bad input{border-color:var(--bad)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 16px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--copper);border-color:var(--copper);color:var(--on-accent)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:.9rem;color:var(--muted);cursor:pointer}
+.chk input{accent-color:var(--copper)}
+.score{margin:14px 0 0;font-weight:700}
+.steps{margin-top:14px;border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:10px}
+.step p{margin:0;color:var(--muted);font-size:.92rem}
+.step .eq{display:block;text-align:left;font-size:15px;color:var(--ink);white-space:normal;margin-top:2px}
+.reveal-title{margin:18px 0 8px;font-weight:700}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .ctrl{order:2}
+  h1{font-size:1.45rem}
+}
+@media (max-width:480px){
+  .q{grid-template-columns:minmax(0,1fr);grid-template-areas:"l" "a" "s"}
+}
+</style>
+
+<div class="app" dir="rtl" lang="ar">
+  <header>
+    <div>
+      <h1>مختبر المقاومات</h1>
+      <p class="sub">ابنِ الدائرة، ركّب الأميتر والفولتميتر، ثم حُلّ المسألة وتحقّق من جوابك بالقياس.</p>
+    </div>
+    <div class="seg tabs" role="group" aria-label="الوضع">
+      <button id="tabFree" aria-pressed="true">تجربة حرة</button>
+      <button id="tabProb" aria-pressed="false">حل مسألة</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="إعدادات الدائرة"></aside>
+
+    <section class="stage">
+      <div class="toolbar">
+        <button class="tool" id="toolA" aria-pressed="false"><span class="ic">A</span>أميتر</button>
+        <button class="tool" id="toolV" aria-pressed="false"><span class="ic">V</span>فولتميتر</button>
+        <button class="tool ghost" id="clearM">إزالة الأجهزة</button>
+        <span class="spacer"></span>
+        <button class="tool ghost" id="animBtn" aria-pressed="true">حركة التيار: تعمل</button>
+      </div>
+      <p class="hint" id="hint"></p>
+      <div class="board" id="board">
+        <svg id="svg" viewBox="0 0 700 410" dir="ltr" role="img" aria-label="مخطط الدائرة الكهربائية"></svg>
+      </div>
+      <div class="panel" id="out"></div>
+    </section>
+  </div>
+</div>
+
+<script>
+const S={mode:'free',topo:'series',n:3,R:[6,3,2],E:12,r:0,tool:null,meters:[],
+  anim:!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),includeR:false,problem:null};
+const SUB=['₁','₂','₃'];
+const BX=110,BY=202,BY2=218,TOP=70,BOT=350,HW=32,CY=210,RX=640;
+let SOL=null,G=null,flowEls=[];
+const $=id=>document.getElementById(id);
+const svg=$('svg');
+
+const fmt=x=>{if(!isFinite(x))return '∞';const a=Math.abs(x);const d=a>=100?1:a>=1?2:3;return String(+x.toFixed(d));};
+const parseNum=s=>{if(s==null)return null;s=String(s).trim().replace(/[٠-٩]/g,d=>d.charCodeAt(0)-1632).replace(/[٫,]/g,'.');if(s==='')return null;const v=parseFloat(s);return isFinite(v)?v:null;};
+const count=()=>S.topo==='combo'?3:S.n;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const path=pts=>'M'+pts.map(p=>p.join(' ')).join(' L ');
+
+function geom(){
+  const t=S.topo,n=count(),comps=[],segs=[],junc=[];
+  const sg=(id,cur,...pts)=>segs.push({id,cur,pts});
+  sg('L1',['main'],[BX,BY],[BX,TOP]);
+  if(t==='series'){
+    const xs=n===3?[250,390,530]:[300,480];
+    xs.forEach((x,i)=>comps.push({id:'R'+(i+1),i,x,y:TOP,o:'h'}));
+    sg('T0',['main'],[BX,TOP],[xs[0]-HW,TOP]);
+    for(let i=0;i<n-1;i++)sg('T'+(i+1),['main'],[xs[i]+HW,TOP],[xs[i+1]-HW,TOP]);
+    sg('TR',['main'],[xs[n-1]+HW,TOP],[RX,TOP]);
+    sg('RV',['main'],[RX,TOP],[RX,BOT]);
+    sg('BB',['main'],[RX,BOT],[BX,BOT]);
+  }else if(t==='parallel'){
+    const xs=n===3?[330,480,630]:[380,630];
+    const keys=xs.map((_,i)=>'b'+(i+1));
+    xs.forEach((x,i)=>comps.push({id:'R'+(i+1),i,x,y:CY,o:'v'}));
+    sg('T0',['main'],[BX,TOP],[xs[0],TOP]);
+    for(let i=0;i<n-1;i++){sg('T'+(i+1),keys.slice(i+1),[xs[i],TOP],[xs[i+1],TOP]);junc.push([xs[i],TOP],[xs[i],BOT]);}
+    xs.forEach((x,i)=>{sg('U'+(i+1),[keys[i]],[x,TOP],[x,CY-HW]);sg('D'+(i+1),[keys[i]],[x,CY+HW],[x,BOT]);});
+    for(let i=n-1;i>0;i--)sg('B'+i,keys.slice(i),[xs[i],BOT],[xs[i-1],BOT]);
+    sg('BB',['main'],[xs[0],BOT],[BX,BOT]);
+  }else{
+    const x1=250,xs=[460,630];
+    comps.push({id:'R1',i:0,x:x1,y:TOP,o:'h'},{id:'R2',i:1,x:xs[0],y:CY,o:'v'},{id:'R3',i:2,x:xs[1],y:CY,o:'v'});
+    sg('T0',['main'],[BX,TOP],[x1-HW,TOP]);
+    sg('T1',['main'],[x1+HW,TOP],[xs[0],TOP]);
+    sg('T2',['b3'],[xs[0],TOP],[xs[1],TOP]);
+    sg('U2',['b2'],[xs[0],TOP],[xs[0],CY-HW]);sg('D2',['b2'],[xs[0],CY+HW],[xs[0],BOT]);
+    sg('U3',['b3'],[xs[1],TOP],[xs[1],CY-HW]);sg('D3',['b3'],[xs[1],CY+HW],[xs[1],BOT]);
+    sg('B1',['b3'],[xs[1],BOT],[xs[0],BOT]);
+    sg('BB',['main'],[xs[0],BOT],[BX,BOT]);
+    junc.push([xs[0],TOP],[xs[0],BOT]);
+  }
+  sg('L2',['main'],[BX,BOT],[BX,BY2]);
+  return {comps,segs,junc};
+}
+
+function solve(){
+  const n=count(),R=S.R.slice(0,n),E=S.E,r=S.r;let Rext,I,br={},comp,Rp=null;
+  if(S.topo==='series'){Rext=R.reduce((a,b)=>a+b,0);I=E/(Rext+r);br.main=I;comp=R.map(x=>({R:x,I,V:I*x}));}
+  else if(S.topo==='parallel'){Rext=1/R.reduce((a,b)=>a+1/b,0);I=E/(Rext+r);const Vp=I*Rext;br.main=I;
+    comp=R.map((x,k)=>{br['b'+(k+1)]=Vp/x;return{R:x,I:Vp/x,V:Vp};});}
+  else{const[R1,R2,R3]=R;Rp=R2*R3/(R2+R3);Rext=R1+Rp;I=E/(Rext+r);const Vp=I*Rp;
+    br={main:I,b2:Vp/R2,b3:Vp/R3};comp=[{R:R1,I,V:I*R1},{R:R2,I:Vp/R2,V:Vp},{R:R3,I:Vp/R3,V:Vp}];}
+  comp.forEach(c=>c.P=c.I*c.V);
+  return {Rext,I,br,comp,Vt:E-I*r,Rp,R};
+}
+const segI=s=>s.cur.reduce((a,k)=>a+(SOL.br[k]||0),0);
+const visible=()=>S.mode==='free'||(S.problem&&S.problem.revealed);
+
+function mid(pts){
+  const L=[];let tot=0;for(let i=0;i<pts.length-1;i++){const l=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]);L.push(l);tot+=l;}
+  let h=tot/2;for(let i=0;i<L.length;i++){if(h<=L[i]){const t=h/L[i],[x1,y1]=pts[i],[x2,y2]=pts[i+1];return{x:x1+(x2-x1)*t,y:y1+(y2-y1)*t,h:y1===y2};}h-=L[i];}
+}
+function readout(x,y,txt,k){const w=txt.length*8+16;
+  return `<g class="rd rd${k}"><rect x="${x-w/2}" y="${y-12}" width="${w}" height="24" rx="6"/><text x="${x}" y="${y+4.5}" text-anchor="middle">${txt}</text></g>`;}
+
+function resistorSVG(c){
+  const v=fmt(S.R[c.i])+' Ω',nm='R'+SUB[c.i];
+  if(c.o==='h')return `<rect class="res" x="${c.x-HW}" y="${c.y-12}" width="${HW*2}" height="24" rx="3"/>
+    <text class="t-name" x="${c.x}" y="${c.y-22}" text-anchor="middle">${nm}</text>
+    <text class="t-val" x="${c.x}" y="${c.y+4.5}" text-anchor="middle">${v}</text>`;
+  return `<rect class="res" x="${c.x-12}" y="${c.y-HW}" width="24" height="${HW*2}" rx="3"/>
+    <text class="t-name" x="${c.x+20}" y="${c.y-4}">${nm}</text>
+    <text class="t-val" x="${c.x+20}" y="${c.y+15}">${v}</text>`;
+}
+function batterySVG(){
+  return `<line class="plate" x1="${BX-20}" y1="${BY}" x2="${BX+20}" y2="${BY}"/>
+  <line class="plate short" x1="${BX-10}" y1="${BY2}" x2="${BX+10}" y2="${BY2}"/>
+  <text class="t-pol" x="${BX+26}" y="${BY-2}">+</text><text class="t-pol" x="${BX+26}" y="${BY2+16}">−</text>
+  <text class="t-name" x="${BX-28}" y="${BY-2}" text-anchor="end">E = ${fmt(S.E)} V</text>
+  <text class="t-mut" x="${BX-28}" y="${BY2+16}" text-anchor="end">r = ${fmt(S.r)} Ω</text>`;
+}
+function vPos(id){
+  if(id==='BAT')return{mx:180,my:CY,lead:`M${BX} 182 H180 V${CY-17} M${BX} 238 H180 V${CY+17}`,lx:180,ly:CY+52};
+  const c=G.comps.find(c=>c.id===id);if(!c)return null;
+  if(c.o==='h'){const my=TOP+80;return{mx:c.x,my,lead:`M${c.x-HW} ${TOP} V${my} H${c.x-17} M${c.x+HW} ${TOP} V${my} H${c.x+17}`,lx:c.x,ly:my+36};}
+  const mx=c.x-62;return{mx,my:CY,lead:`M${c.x} ${CY-HW} H${mx} V${CY-17} M${c.x} ${CY+HW} H${mx} V${CY+17}`,lx:mx,ly:CY+60};
+}
+function meterSVG(m,idx){
+  const show=visible();
+  if(m.t==='A'){
+    const s=G.segs.find(s=>s.id===m.id);if(!s)return'';
+    const p=mid(s.pts),v=segI(s);
+    const l=p.h?{x:p.x,y:p.y+38}:(p.x>560?{x:p.x-64,y:p.y}:{x:p.x+64,y:p.y});
+    const txt=show?fmt(v)+' A':'? A';
+    return `<g class="mtr mA" data-act="meter" data-idx="${idx}" tabindex="0" role="button" aria-label="أميتر يقرأ ${show?fmt(v)+' أمبير':'قراءة مخفية'}، اضغط للإزالة">
+      <circle cx="${p.x}" cy="${p.y}" r="17"/><text class="sym" x="${p.x}" y="${p.y+5}" text-anchor="middle">A</text>${readout(l.x,l.y,txt,'A')}</g>`;
+  }
+  const q=vPos(m.id);if(!q)return'';
+  const v=m.id==='BAT'?SOL.Vt:SOL.comp[+m.id.slice(1)-1].V;
+  const txt=show?fmt(v)+' V':'? V';
+  return `<g class="mtr mV" data-act="meter" data-idx="${idx}" tabindex="0" role="button" aria-label="فولتميتر يقرأ ${show?fmt(v)+' فولت':'قراءة مخفية'}، اضغط للإزالة">
+    <path class="lead" d="${q.lead}"/><circle cx="${q.mx}" cy="${q.my}" r="17"/><text class="sym" x="${q.mx}" y="${q.my+5}" text-anchor="middle">V</text>${readout(q.lx,q.ly,txt,'V')}</g>`;
+}
+
+function renderCircuit(){
+  G=geom();let h='';
+  G.segs.forEach(s=>h+=`<path class="wire" d="${path(s.pts)}"/>`);
+  h+='<g>'+G.segs.map(s=>`<path class="flow" data-seg="${s.id}" d="${path(s.pts)}"/>`).join('')+'</g>';
+  h+=batterySVG();
+  G.comps.forEach(c=>h+=resistorSVG(c));
+  G.junc.forEach(([x,y])=>h+=`<circle class="junc" cx="${x}" cy="${y}" r="5"/>`);
+  S.meters.forEach((m,i)=>h+=meterSVG(m,i));
+  if(S.tool==='A')G.segs.forEach(s=>h+=`<path class="hit" data-act="seg" data-id="${s.id}" tabindex="0" role="button" aria-label="ركّب أميتر على هذا السلك" d="${path(s.pts)}"/>`);
+  if(S.tool==='V'){
+    G.comps.forEach(c=>{const w=c.o==='h'?80:40,hh=c.o==='h'?40:80;
+      h+=`<rect class="hitV" data-act="comp" data-id="${c.id}" tabindex="0" role="button" aria-label="ركّب فولتميتر على R${SUB[c.i]}" x="${c.x-w/2}" y="${c.y-hh/2}" width="${w}" height="${hh}" rx="8"/>`;});
+    h+=`<rect class="hitV" data-act="comp" data-id="BAT" tabindex="0" role="button" aria-label="ركّب فولتميتر على البطارية" x="${BX-30}" y="${BY-24}" width="60" height="64" rx="8"/>`;
+  }
+  svg.innerHTML=h;
+  const old=Object.fromEntries(flowEls.map(o=>[o.seg.id,o.off]));
+  flowEls=[...svg.querySelectorAll('.flow')].map(el=>({el,seg:G.segs.find(s=>s.id===el.dataset.seg),off:old[el.dataset.seg]||0}));
+  $('board').classList.toggle('noanim',!S.anim);
+}
+
+function act(t){
+  const a=t.dataset.act;
+  if(a==='meter')S.meters.splice(+t.dataset.idx,1);
+  else{const tt=a==='seg'?'A':'V',id=t.dataset.id,i=S.meters.findIndex(m=>m.t===tt&&m.id===id);
+    if(i>=0)S.meters.splice(i,1);else S.meters.push({t:tt,id});}
+  renderCircuit();
+}
+svg.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(t)act(t);});
+svg.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const t=e.target.closest('[data-act]');if(t){e.preventDefault();act(t);}});
+
+/* ---------- controls ---------- */
+function rowHTML(id,label,val,min,max,step,unit,lock){
+  return `<div class="field"><label for="${id}n">${label}</label>
+  <input type="range" id="${id}r" min="${min}" max="${max}" step="${step}" value="${Math.min(max,Math.max(min,val))}" ${lock?'disabled':''} aria-label="${label}">
+  <div class="num"><input type="number" id="${id}n" min="${id==='i'?0:0.1}" step="${step}" value="${val}" inputmode="decimal" ${lock?'disabled':''}><span>${unit}</span></div></div>`;
+}
+function renderControls(){
+  const lock=S.mode==='problem',n=count();
+  const tb=(k,l)=>`<button data-topo="${k}" aria-pressed="${S.topo===k}" ${lock?'disabled':''}>${l}</button>`;
+  const nb=k=>`<button data-n="${k}" aria-pressed="${S.n===k}" ${lock?'disabled':''}>${k===2?'مقاومتان':'ثلاث مقاومات'}</button>`;
+  let h=lock?`<p class="lock">القيم مقفلة أثناء حل المسألة. ارجع إلى «تجربة حرة» لتعديلها.</p>`:'';
+  h+=`<div class="group"><p class="gt">طريقة التوصيل</p><div class="seg">${tb('series','توالي')}${tb('parallel','توازي')}${tb('combo','مركّب')}</div>`;
+  h+=S.topo==='combo'?`<p class="note">R₁ على التوالي مع R₂ و R₃ الموصولتين على التوازي.</p>`:`<div class="seg">${nb(2)}${nb(3)}</div>`;
+  h+=`</div><div class="group"><p class="gt">قيم المقاومات</p>`;
+  for(let i=0;i<n;i++)h+=rowHTML('R'+i,'R'+SUB[i],S.R[i],1,60,1,'Ω',lock);
+  h+=`</div><div class="group"><p class="gt">البطارية</p>${rowHTML('E','E',S.E,1,30,0.5,'V',lock)}${rowHTML('i','r',S.r,0,5,0.5,'Ω',lock)}
+  <p class="note">E القوة الدافعة الكهربائية، r المقاومة الداخلية (اجعلها 0 لإهمالها).</p></div>`;
+  $('ctrl').innerHTML=h;
+}
+$('ctrl').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  if(b.dataset.topo){S.topo=b.dataset.topo;S.meters=[];}
+  else if(b.dataset.n){S.n=+b.dataset.n;S.meters=[];}
+  else return;
+  renderControls();update();
+});
+$('ctrl').addEventListener('input',e=>{
+  const m=e.target.id.match(/^(R\d|E|i)([rn])$/);if(!m)return;
+  const v=parseNum(e.target.value);if(v==null)return;
+  const key=m[1];const min=key==='i'?0:0.1;if(v<min)return;
+  const other=$(key+(m[2]==='r'?'n':'r'));
+  if(m[2]==='r')other.value=v;else other.value=Math.min(+other.max,Math.max(+other.min,v));
+  if(key==='E')S.E=v;else if(key==='i')S.r=v;else S.R[+key[1]]=v;
+  update();
+});
+
+/* ---------- problem ---------- */
+function makeProblem(){
+  SOL=solve();const sol=SOL,n=count(),qs=[];
+  qs.push({id:'req',label:'المقاومة المكافئة للمقاومات الخارجية',sym:'R<sub>eq</sub>',unit:'Ω',val:sol.Rext});
+  qs.push({id:'I',label:'التيار الكلي المار في البطارية',sym:'I',unit:'A',val:sol.I,meter:{t:'A',id:'T0'}});
+  let k;
+  if(S.topo==='series'){k=Math.floor(Math.random()*n);
+    qs.push({id:'v',label:`فرق الجهد بين طرفي R${SUB[k]}`,sym:`V${SUB[k]}`,unit:'V',val:sol.comp[k].V,meter:{t:'V',id:'R'+(k+1)}});}
+  else if(S.topo==='parallel'){k=Math.floor(Math.random()*n);
+    qs.push({id:'ik',label:`التيار المار في R${SUB[k]}`,sym:`I${SUB[k]}`,unit:'A',val:sol.comp[k].I,meter:{t:'A',id:'U'+(k+1)}});}
+  else{k=1+Math.floor(Math.random()*2);
+    qs.push({id:'v1',label:'فرق الجهد بين طرفي R₁',sym:'V₁',unit:'V',val:sol.comp[0].V,meter:{t:'V',id:'R1'}});
+    qs.push({id:'ik',label:`التيار المار في R${SUB[k]}`,sym:`I${SUB[k]}`,unit:'A',val:sol.comp[k].I,meter:{t:'A',id:'U'+(k+1)}});}
+  if(S.r>0)qs.push({id:'vt',label:'فرق الجهد بين طرفي البطارية (الجهد الطرفي)',sym:'V<sub>t</sub>',unit:'V',val:sol.Vt,meter:{t:'V',id:'BAT'}});
+  S.problem={qs,k,answers:{},checked:false,revealed:false,showSteps:false};
+  S.meters=[];
+}
+function randomCircuit(){
+  S.topo=pick(['series','parallel','combo']);S.n=pick([2,3]);
+  const vals=[2,3,4,5,6,8,10,12,15,20,24,30];S.R=[pick(vals),pick(vals),pick(vals)];
+  S.E=pick([3,4.5,6,9,12,18,24]);S.r=S.includeR?pick([0.5,1,1.5,2]):0;
+}
+const eqs=s=>`<span class="eq" dir="ltr">${s}</span>`;
+function statement(){
+  const n=count(),R=S.R.slice(0,n);
+  const list=R.map((x,i)=>eqs(`R${SUB[i]} = ${fmt(x)} Ω`)).join('، ');
+  let s=`بطارية قوتها الدافعة الكهربائية ${eqs(`E = ${fmt(S.E)} V`)} `+(S.r>0?`ومقاومتها الداخلية ${eqs(`r = ${fmt(S.r)} Ω`)}`:'ومقاومتها الداخلية مهملة')+'، ';
+  const w=n===3?'ثلاث مقاومات':'مقاومتان';
+  if(S.topo==='series')s+=`وُصلت معها ${w} على التوالي: ${list}.`;
+  else if(S.topo==='parallel')s+=`وُصلت معها ${w} على التوازي: ${list}.`;
+  else s+=`وُصلت معها المقاومة ${eqs(`R₁ = ${fmt(R[0])} Ω`)} على التوالي مع مقاومتين موصولتين على التوازي: ${eqs(`R₂ = ${fmt(R[1])} Ω`)}، ${eqs(`R₃ = ${fmt(R[2])} Ω`)}.`;
+  return s+' احسب ما يلي:';
+}
+function stepsHTML(){
+  const s=SOL,R=s.R,E=fmt(S.E),r=fmt(S.r),P=S.problem,k=P.k,L=[];
+  const st=(p,e)=>L.push(`<div class="step"><p>${p}</p>${eqs(e)}</div>`);
+  const Req='R<sub>eq</sub>';
+  if(S.topo==='series')st('في التوالي نجمع قيم المقاومات مباشرة:',`${Req} = ${R.map((_,i)=>'R'+SUB[i]).join(' + ')} = ${R.map(fmt).join(' + ')} = ${fmt(s.Rext)} Ω`);
+  else if(S.topo==='parallel')st('في التوازي نجمع مقلوبات المقاومات، ثم نقلب الناتج:',`1/${Req} = ${R.map(x=>'1/'+fmt(x)).join(' + ')} = ${fmt(1/s.Rext)} Ω⁻¹  ⇒  ${Req} = ${fmt(s.Rext)} Ω`);
+  else{st('نبدأ بالمقاومتين R₂ و R₃ لأنهما على التوازي:',`R<sub>∥</sub> = (R₂ × R₃) / (R₂ + R₃) = (${fmt(R[1])} × ${fmt(R[2])}) / (${fmt(R[1])} + ${fmt(R[2])}) = ${fmt(s.Rp)} Ω`);
+    st('ثم نضيف R₁ لأنها على التوالي مع هذه المجموعة:',`${Req} = R₁ + R<sub>∥</sub> = ${fmt(R[0])} + ${fmt(s.Rp)} = ${fmt(s.Rext)} Ω`);}
+  st('التيار الكلي من قانون أوم للدائرة كاملة:',`I = E / (${Req} + r) = ${E} / (${fmt(s.Rext)} + ${r}) = ${fmt(s.I)} A`);
+  if(S.topo==='series')st('التيار نفسه في جميع مقاومات التوالي، لذلك:',`V${SUB[k]} = I × R${SUB[k]} = ${fmt(s.I)} × ${fmt(R[k])} = ${fmt(s.comp[k].V)} V`);
+  else if(S.topo==='parallel'){const Vp=s.comp[0].V;
+    st('فرق الجهد متساوٍ على جميع فروع التوازي:',`V = I × ${Req} = ${fmt(s.I)} × ${fmt(s.Rext)} = ${fmt(Vp)} V`);
+    st('ومنه تيار الفرع المطلوب:',`I${SUB[k]} = V / R${SUB[k]} = ${fmt(Vp)} / ${fmt(R[k])} = ${fmt(s.comp[k].I)} A`);}
+  else{const Vp=s.comp[1].V;
+    st('فرق الجهد على R₁ (يمر فيها التيار الكلي):',`V₁ = I × R₁ = ${fmt(s.I)} × ${fmt(R[0])} = ${fmt(s.comp[0].V)} V`);
+    st('فرق الجهد على مجموعة التوازي:',`V<sub>∥</sub> = I × R<sub>∥</sub> = ${fmt(s.I)} × ${fmt(s.Rp)} = ${fmt(Vp)} V`);
+    st('ومنه تيار الفرع المطلوب:',`I${SUB[k]} = V<sub>∥</sub> / R${SUB[k]} = ${fmt(Vp)} / ${fmt(R[k])} = ${fmt(s.comp[k].I)} A`);}
+  if(S.r>0)st('الجهد الطرفي أقل من E بمقدار الجهد المفقود داخل البطارية:',`V<sub>t</sub> = E − I r = ${E} − ${fmt(s.I)} × ${r} = ${fmt(s.Vt)} V`);
+  L.push(`<div class="step"><p>تحقّق تجريبي: قسمة قراءة الفولتميتر على المقاومات الخارجية على قراءة الأميتر تعطي ${Req}.</p></div>`);
+  return L.join('');
+}
+
+/* ---------- output panel ---------- */
+function tableHTML(){
+  const s=SOL;let rows='';
+  s.comp.forEach((c,i)=>rows+=`<tr><td>R${SUB[i]}</td><td>${fmt(c.R)}</td><td>${fmt(c.I)}</td><td>${fmt(c.V)}</td><td>${fmt(c.P)}</td></tr>`);
+  rows+=`<tr><td>داخل البطارية (r)</td><td>${fmt(S.r)}</td><td>${fmt(s.I)}</td><td>${fmt(s.I*S.r)}</td><td>${fmt(s.I*s.I*S.r)}</td></tr>`;
+  rows+=`<tr class="tot"><td>الدائرة الخارجية</td><td>${fmt(s.Rext)}</td><td>${fmt(s.I)}</td><td>${fmt(s.Vt)}</td><td>${fmt(s.comp.reduce((a,c)=>a+c.P,0))}</td></tr>`;
+  return `<div class="tbl-wrap"><table><thead><tr><th>العنصر</th><th>المقاومة (Ω)</th><th>التيار (A)</th><th>فرق الجهد (V)</th><th>القدرة (W)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function summaryHTML(){
+  const s=SOL;
+  let h=`<div class="sum"><div class="chip"><span class="k">المقاومة المكافئة الخارجية</span><span class="v">R<sub>eq</sub> = ${fmt(s.Rext)} Ω</span></div>
+  <div class="chip"><span class="k">التيار الكلي</span><span class="v">I = ${fmt(s.I)} A</span></div>
+  <div class="chip"><span class="k">الجهد الطرفي</span><span class="v">V<sub>t</sub> = ${fmt(s.Vt)} V</span></div>`;
+  if(S.r>0)h+=`<div class="chip"><span class="k">الجهد المفقود داخل البطارية</span><span class="v">I r = ${fmt(s.I*S.r)} V</span></div>`;
+  return h+'</div>';
+}
+function renderPanel(){
+  const out=$('out');
+  if(S.mode==='free'){out.innerHTML=`<p class="ptitle">القراءات المحسوبة</p>${summaryHTML()}${tableHTML()}`;return;}
+  const P=S.problem;
+  let h=`<p class="ptitle">المسألة</p><p class="stmt">${statement()}</p><ol class="qs">`;
+  P.qs.forEach(q=>{
+    const cls=P.checked?(q.ok?'ok':'bad'):'';
+    const st=P.checked?(q.ok?'✓ إجابة صحيحة':`✗ الإجابة الصحيحة: ${fmt(q.val)} ${q.unit}`):'';
+    h+=`<li class="q ${cls}"><div class="ql">${q.label} <span class="eq">(${q.sym})</span></div>
+      <div class="qa"><input id="ans-${q.id}" inputmode="decimal" autocomplete="off" placeholder="?" value="${P.answers[q.id]??''}" aria-label="${q.label}"><span class="unit">${q.unit}</span></div>
+      <div class="st">${st}</div></li>`;
+  });
+  h+=`</ol><div class="actions"><button class="btn primary" id="checkBtn">تحقّق وأظهر القراءات</button>
+    <button class="btn" id="stepsBtn" ${P.checked?'':'disabled'}>${P.showSteps?'إخفاء خطوات الحل':'عرض خطوات الحل'}</button>
+    <button class="btn" id="newBtn">مسألة عشوائية جديدة</button>
+    <label class="chk"><input type="checkbox" id="incR" ${S.includeR?'checked':''}>مع مقاومة داخلية</label></div>`;
+  if(P.checked){const c=P.qs.filter(q=>q.ok).length;h+=`<p class="score">النتيجة: ${c} من ${P.qs.length}. ظهرت القراءات على أجهزة القياس في الدائرة.</p>`;}
+  if(P.showSteps)h+=`<div class="steps">${stepsHTML()}</div>`;
+  if(P.revealed)h+=`<p class="reveal-title">جميع القراءات</p>${tableHTML()}`;
+  out.innerHTML=h;
+}
+$('out').addEventListener('input',e=>{if(e.target.id.startsWith('ans-')&&S.problem)S.problem.answers[e.target.id.slice(4)]=e.target.value;});
+$('out').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id.startsWith('ans-'))check();});
+$('out').addEventListener('change',e=>{if(e.target.id==='incR')S.includeR=e.target.checked;});
+$('out').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.id==='checkBtn')check();
+  else if(b.id==='stepsBtn'){S.problem.showSteps=!S.problem.showSteps;renderPanel();}
+  else if(b.id==='newBtn'){randomCircuit();makeProblem();renderControls();update();}
+});
+function check(){
+  const P=S.problem;
+  P.qs.forEach(q=>{const a=parseNum(P.answers[q.id]);q.ok=a!=null&&Math.abs(a-q.val)<=Math.max(0.02*Math.abs(q.val),0.011);});
+  P.checked=true;P.revealed=true;
+  P.qs.forEach(q=>{if(q.meter&&!S.meters.some(m=>m.t===q.meter.t&&m.id===q.meter.id))S.meters.push(q.meter);});
+  update();
+}
+
+/* ---------- toolbar & modes ---------- */
+function setHint(){
+  const pm=S.mode==='problem'&&!S.problem.revealed;
+  const t=S.tool==='A'?'الأميتر يوصل على التوالي: اضغط على أي سلك لتركيبه وقياس التيار المار فيه.'
+    :S.tool==='V'?'الفولتميتر يوصل على التوازي: اضغط على مقاومة أو على البطارية لقياس فرق الجهد بين طرفيها.'
+    :'اختر أداة قياس ثم اضغط على الدائرة. اضغط على أي جهاز مركّب لإزالته.';
+  $('hint').textContent=t+(pm?' القراءات تبقى مخفية حتى تتحقّق من حلّك.':'');
+  $('toolA').setAttribute('aria-pressed',S.tool==='A');$('toolV').setAttribute('aria-pressed',S.tool==='V');
+  $('animBtn').setAttribute('aria-pressed',S.anim);$('animBtn').textContent='حركة التيار: '+(S.anim?'تعمل':'متوقفة');
+}
+$('toolA').onclick=()=>{S.tool=S.tool==='A'?null:'A';setHint();renderCircuit();};
+$('toolV').onclick=()=>{S.tool=S.tool==='V'?null:'V';setHint();renderCircuit();};
+$('clearM').onclick=()=>{S.meters=[];renderCircuit();};
+$('animBtn').onclick=()=>{S.anim=!S.anim;setHint();renderCircuit();};
+function setMode(m){
+  S.mode=m;$('tabFree').setAttribute('aria-pressed',m==='free');$('tabProb').setAttribute('aria-pressed',m==='problem');
+  if(m==='problem')makeProblem();else S.problem=null;
+  renderControls();update();
+}
+$('tabFree').onclick=()=>{if(S.mode!=='free')setMode('free');};
+$('tabProb').onclick=()=>{if(S.mode!=='problem')setMode('problem');};
+
+function update(){SOL=solve();renderCircuit();renderPanel();setHint();}
+
+let last=performance.now();
+function tick(t){
+  const dt=Math.min(.05,(t-last)/1000);last=t;
+  if(S.anim&&SOL){const It=SOL.I||1e-9,f=Math.max(.45,Math.min(1.3,.45+It/6));
+    flowEls.forEach(o=>{const sp=130*(segI(o.seg)/It)*f;o.off-=sp*dt;o.el.style.strokeDashoffset=o.off;});}
+  requestAnimationFrame(tick);
+}
+
+S.meters=[{t:'A',id:'T0'},{t:'V',id:'R2'}];
+renderControls();update();requestAnimationFrame(tick);
+</script>
+
+</body></html>

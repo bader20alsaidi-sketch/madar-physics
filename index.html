@@ -1325,7 +1325,7 @@ let items = [
   {id:502, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المجالات الكهربائية والشحنة الكهربائية', lesson:'3-1', source:'PhET — Charges and Fields', url:'https://phet.colorado.edu/en/simulations/charges-and-fields'},
   {id:503, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: الموصّلات الكهربائية والعوازل', lesson:'4-1', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
   {id:504, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: مكونات الدائرة الكهربائية', lesson:'1-2', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
-  {id:505, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: توصيل المقاومات', lesson:'2-2', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
+  {id:505, grade:'10', cat:'simulator', type:'simpage', title:'محاكاة الدرس: توصيل المقاومات', lesson:'2-2', source:'الأستاذ بدر السعيدي', fileUrl:'simulators/g10/resistors_lab.html', free:true},
   {id:506, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المخاطر الكهربائية', lesson:'1-3', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
   {id:507, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المنصهرات', lesson:'2-3', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
   {id:508, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: القوى المؤثّرة على قطار الملاهي', lesson:'1-4', source:'PhET — Forces and Motion: Basics', url:'https://phet.colorado.edu/en/simulations/forces-and-motion-basics'},
@@ -1646,6 +1646,7 @@ function itemCardHTML(item){
   else if(item.type==='shortset') snippet = item.qa.length + ' سؤال قصير — اضغط للمراجعة';
   else if(item.type==='sim') snippet = item.sim==='soon' ? 'محاكاة قريباً' : 'محاكاة تفاعلية — اضغط للتجربة';
   else if(item.type==='simlink') snippet = 'محاكاة تفاعلية خارجية' + (item.source ? (' (' + item.source + ')') : '') + ' — اضغط للفتح';
+  else if(item.type==='simpage') snippet = 'محاكاة تفاعلية من إعداد الموقع — اضغط للتجربة';
   else if(item.type==='image') snippet = 'ملخص مصوّر — اضغط للمعاينة';
   return `<div class="card" onclick="openItem(${item.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); openItem(${item.id});}">
     <div class="card-icon" style="background:${cd.color}22; color:${cd.color};">${locked ? '🔒' : cd.badge}</div>
@@ -1715,6 +1716,14 @@ function openItem(id){
         <p style="color:var(--text-secondary); font-size:13px; margin-bottom:6px; line-height:1.8;">محاكاة تفاعلية من مصدر خارجي موثوق${item.source ? (' — ' + item.source) : ''}. اضغط الزر لفتحها في صفحة جديدة.</p>
         <p style="color:var(--text-secondary); font-size:11.5px; margin-bottom:20px;">قد تظهر بالإنجليزية؛ بعض المحاكاات توفر تبديل اللغة من داخلها.</p>
         <a class="btn btn-primary" style="display:block; text-decoration:none; text-align:center; padding:14px;" href="${item.url}" target="_blank" rel="noopener">فتح المحاكاة</a>
+      </div>
+    `;
+  } else if(item.type==='simpage'){
+    body.innerHTML = `
+      <div style="text-align:center; padding:30px 10px;">
+        <div style="font-family:'JetBrains Mono'; font-size:13px; color:var(--success); border:1px solid var(--border); padding:20px 30px; border-radius:14px; display:inline-block; margin-bottom:16px;">SIM</div>
+        <p style="color:var(--text-secondary); font-size:13px; margin-bottom:20px; line-height:1.8;">محاكاة تفاعلية بالعربية، من إعداد الموقع خصيصًا لهذا الدرس${item.source ? (' — ' + item.source) : ''}. اضغط الزر لفتحها في صفحة جديدة.</p>
+        <a class="btn btn-primary" style="display:block; text-decoration:none; text-align:center; padding:14px;" href="${item.fileUrl}" target="_blank" rel="noopener">فتح المحاكاة</a>
       </div>
     `;
   } else if(item.type==='image'){
