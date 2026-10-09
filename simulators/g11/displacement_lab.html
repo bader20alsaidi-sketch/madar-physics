@@ -1,0 +1,593 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>مختبر الإزاحة والزمن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,500;0,700;1,600;1,700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: lab bench. Settings rail beside a moving-car track and a graph-paper (s–t) plot, results tray beneath */
+:root{
+  --bg:#edf1f4; --surface:#fbfcfd; --raised:#ffffff; --ink:#14223a; --muted:#56677c; --line:#d2dbe4; --chip:#e9eef3;
+  --copper:#b9581a; --on-accent:#ffffff; --plot:#1d3f78; --slope:#c4302a;
+  --gminor:#dfe9f4; --gmajor:#b7cde4; --tape:#f5eed8; --wire:#1b2c45;
+  --ok:#1b7a43; --ok-bg:#e1f2e7; --bad:#b8372d; --bad-bg:#f8e3e1; --zero:#7a5a00; --zero-bg:#f6ecd0;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e151f; --surface:#141e2b; --raised:#1a2636; --ink:#e4ebf3; --muted:#93a3b7; --line:#283a50; --chip:#1f2d3f;
+  --copper:#f08b3f; --on-accent:#1b0e04; --plot:#8fb8ff; --slope:#ff6f62;
+  --gminor:#1a283a; --gmajor:#2a405c; --tape:#2b2a22; --wire:#c6d4e5;
+  --ok:#52c784; --ok-bg:#16301f; --bad:#f06c61; --bad-bg:#3a1a18; --zero:#e9c46a; --zero-bg:#33290f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e151f; --surface:#141e2b; --raised:#1a2636; --ink:#e4ebf3; --muted:#93a3b7; --line:#283a50; --chip:#1f2d3f;
+  --copper:#f08b3f; --on-accent:#1b0e04; --plot:#8fb8ff; --slope:#ff6f62;
+  --gminor:#1a283a; --gmajor:#2a405c; --tape:#2b2a22; --wire:#c6d4e5;
+  --ok:#52c784; --ok-bg:#16301f; --bad:#f06c61; --bad-bg:#3a1a18; --zero:#e9c46a; --zero-bg:#33290f; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.app{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:18px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.seg{display:flex;background:var(--chip);border-radius:10px;padding:3px;gap:3px;flex-wrap:wrap}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 14px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
+.tabs button{padding:9px 18px;font-size:.98rem}
+button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.simgrid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start}
+.two{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:20px;align-items:start}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.ctrl{display:flex;flex-direction:column;gap:18px}
+.group{display:flex;flex-direction:column;gap:10px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.02em;margin:0}
+.ptitle{font-family:var(--f-display);font-weight:700;font-size:1.08rem;margin:0 0 8px}
+.note{font-size:.88rem;color:var(--muted);margin:0}
+.presets{display:flex;flex-direction:column;gap:6px}
+.pre{font:inherit;text-align:right;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:7px 12px;border-radius:9px;cursor:pointer;font-weight:500}
+.pre[aria-pressed="true"]{border-color:var(--copper);background:color-mix(in srgb,var(--copper) 10%,var(--raised));font-weight:700}
+.num{display:flex;align-items:center;gap:4px;direction:ltr}
+.num input,.srow input,.tin input{width:100%;min-width:0;font:600 14px var(--f-mono);padding:5px 6px;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink)}
+.num span{font-family:var(--f-mono);color:var(--muted);font-size:13px}
+.f1{display:grid;grid-template-columns:34px 110px;gap:10px;align-items:center}
+.f1 label{font:700 15px var(--f-mono);text-align:center}
+.srow{display:grid;grid-template-columns:26px minmax(0,1fr) minmax(0,1fr) 30px;gap:8px;align-items:end}
+.srow .lt{font:700 16px var(--f-mono);color:var(--plot);text-align:center;padding-bottom:5px}
+.srow label{display:flex;flex-direction:column;font-size:.75rem;color:var(--muted);gap:2px}
+.srow .acc{grid-column:span 1;font-size:.8rem;color:var(--muted);padding-bottom:6px}
+.x{font:700 16px var(--f-body);border:0;background:var(--chip);color:var(--muted);border-radius:7px;height:32px;cursor:pointer}
+.chk{display:flex;gap:8px;align-items:center;font-size:.92rem;cursor:pointer}
+.chk input{accent-color:var(--copper);width:16px;height:16px}
+
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:7px 16px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--copper);border-color:var(--copper);color:var(--on-accent)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.small{padding:5px 12px;font-size:.9rem;align-self:flex-start}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+.playbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.playbar input[type=range]{flex:1;min-width:140px;accent-color:var(--copper);direction:ltr}
+.spd{flex:0 0 auto}
+.spd button{padding:5px 10px;font-family:var(--f-mono)}
+.reads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.chip{background:var(--chip);border-radius:10px;padding:8px 12px;display:flex;flex-direction:column;gap:0}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.05rem var(--f-mono);direction:ltr;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gwrap{overflow-x:auto}
+.gwrap svg{display:block;width:100%;min-width:500px;height:auto}
+.trackwrap svg{display:block;width:100%;min-width:500px;height:auto}
+.trackwrap{overflow-x:auto}
+
+svg{direction:ltr}
+svg text{font-family:var(--f-mono);direction:ltr}
+.gmin{stroke:var(--gminor);stroke-width:1}
+.gmaj{stroke:var(--gmajor);stroke-width:1.2}
+.axis{stroke:var(--ink);stroke-width:1.8}
+.zero{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:5 4}
+.ticklab{fill:var(--muted);font-size:12px;font-weight:500}
+.atitle{fill:var(--ink);font-size:14px;font-style:italic;font-weight:600}
+.trace{stroke:var(--plot);stroke-width:3;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.ghost{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 5;fill:none;opacity:.75}
+.nowpt{fill:var(--copper)}
+.guide{stroke:var(--copper);stroke-dasharray:3 3;stroke-width:1.3}
+.seglab{fill:var(--ink);font-size:15px;font-weight:700}
+.tri .leg{stroke:var(--slope);stroke-width:2.5}
+.tri .chord{stroke:var(--slope);stroke-width:1.5;stroke-dasharray:5 4}
+.tlab{fill:var(--slope);font-size:14px;font-style:italic;font-weight:700}
+.hdl{fill:var(--raised);stroke:var(--slope);stroke-width:3;cursor:grab;touch-action:none}
+.hdl:active{cursor:grabbing}
+.hlab{fill:var(--slope);font-size:12px;font-weight:700}
+.pt{fill:var(--plot);stroke:var(--raised);stroke-width:1.5}
+.pt.ok{fill:var(--ok)} .pt.bad{fill:var(--bad)}
+.ring{fill:none;stroke:var(--ok);stroke-width:2;stroke-dasharray:3 2}
+.hov line{stroke:var(--copper);stroke-dasharray:3 3;stroke-width:1.2}
+.hov rect{fill:var(--raised);stroke:var(--copper);stroke-width:1.2}
+.hov text{fill:var(--copper);font-size:12px;font-weight:700}
+.hov circle{fill:none;stroke:var(--copper);stroke-width:2}
+.clickzone{fill:transparent;cursor:crosshair}
+.road{stroke:var(--wire);stroke-width:3;stroke-linecap:round}
+.tape{fill:var(--tape);stroke:var(--line)}
+.tick{stroke:var(--muted);stroke-width:1.2}
+.dot{fill:var(--ink)}
+.carbody{fill:var(--copper)}
+.carwin{fill:var(--raised);opacity:.9}
+.wheel{fill:var(--ink)}
+.mk{stroke:var(--copper);stroke-width:2}
+
+.calc{font-family:var(--f-mono);font-size:16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;direction:ltr;margin:6px 0 10px;font-variant-numeric:tabular-nums}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle}
+.frac>span{padding:1px 6px;line-height:1.35;white-space:nowrap}
+.frac>span:first-child{border-bottom:1.5px solid currentColor}
+.calc b{font-weight:700;color:var(--slope)}
+.tag{display:inline-block;font-size:.88rem;font-weight:600;padding:4px 10px;border-radius:999px}
+.tag.p{background:var(--ok-bg);color:var(--ok)} .tag.n{background:var(--bad-bg);color:var(--bad)} .tag.z{background:var(--zero-bg);color:var(--zero)}
+.sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
+.tin{display:flex;gap:10px;direction:ltr}
+.tin label{display:flex;align-items:center;gap:4px;font:600 14px var(--f-mono)}
+.tin input{width:70px}
+
+.dtable{border-collapse:collapse;font-variant-numeric:tabular-nums;margin:0 auto}
+.dtable th,.dtable td{border:1.5px solid var(--line);padding:6px 12px;text-align:center;white-space:nowrap}
+.dtable th{background:color-mix(in srgb,var(--plot) 14%,var(--surface));font-weight:600;font-size:.9rem}
+.dtable td{font:600 14px var(--f-mono)}
+.tblwrap{overflow-x:auto;margin:10px 0 4px}
+.cap{text-align:center;font-size:.88rem;color:var(--muted);margin:4px 0 0}
+.status{font-weight:600;margin:0 0 10px}
+.qs{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:8px}
+.q{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border-radius:10px;background:var(--chip)}
+.q .qa{display:flex;gap:6px;align-items:center;direction:ltr;max-width:200px}
+.q .qa input{width:100%;min-width:0;font:600 15px var(--f-mono);padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--raised);color:var(--ink)}
+.q .unit{font-family:var(--f-mono);color:var(--muted);white-space:nowrap;font-size:13px}
+.q .st{font-size:.88rem;font-weight:600}
+.q.ok{background:var(--ok-bg)} .q.ok .st{color:var(--ok)}
+.q.bad{background:var(--bad-bg)} .q.bad .st{color:var(--bad)}
+.q .seg{direction:ltr;max-width:260px}
+.q .seg button{font-family:var(--f-mono)}
+.sol{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.sol p{margin:0}
+.score{font-weight:700;margin:10px 0 0}
+
+@media (max-width:900px){
+  .simgrid,.two{grid-template-columns:minmax(0,1fr)}
+  .simgrid .ctrl{order:2}
+  h1{font-size:1.45rem}
+}
+@media (max-width:480px){.reads{grid-template-columns:minmax(0,1fr)}}
+</style>
+
+<div class="app" dir="rtl" lang="ar">
+  <header>
+    <div>
+      <h1>مختبر الإزاحة والزمن</h1>
+      <p class="sub">الدرس ٢-٣ · التمثيل البياني (الإزاحة–الزمن) · الفيزياء للصف الحادي عشر</p>
+    </div>
+    <div class="seg tabs" id="tabs" role="group" aria-label="الأقسام">
+      <button data-tab="sim" aria-pressed="true">المحاكي</button>
+      <button data-tab="tbl" aria-pressed="false">من الجدول إلى المنحنى</button>
+      <button data-tab="ch" aria-pressed="false">تحدّي القراءة</button>
+    </div>
+  </header>
+
+  <!-- ===== Simulator ===== -->
+  <section id="tab-sim">
+    <div class="simgrid">
+      <aside class="panel ctrl" id="simCtrl" aria-label="إعدادات الحركة">
+        <div class="group"><p class="gt">أمثلة جاهزة</p><div class="presets" id="presets"></div></div>
+        <div class="group"><p class="gt">الموقع الابتدائي</p>
+          <div class="f1"><label for="s0in">s₀</label><div class="num"><input type="number" id="s0in" step="0.5" inputmode="decimal"><span>m</span></div></div></div>
+        <div class="group"><p class="gt">مراحل الحركة</p><div id="segs" class="group"></div><button class="btn small" id="addSeg">+ أضف مرحلة</button>
+          <p class="note">السرعة السالبة تعني أن الجسم يتحرك إلى الخلف، والصفر يعني أنه ساكن.</p></div>
+        <div class="group"><p class="gt">العرض</p>
+          <label class="chk"><input type="checkbox" id="o-slope" checked>أداة الميل (المثلث)</label>
+          <label class="chk"><input type="checkbox" id="o-labels" checked>أسماء المراحل A، B، C</label>
+          <label class="chk"><input type="checkbox" id="o-ticks" checked>علامات كل 0.5 s على الشريط</label>
+          <label class="chk"><input type="checkbox" id="o-ghost">أظهر المنحنى كاملاً قبل الحركة</label>
+        </div>
+      </aside>
+      <div class="stage">
+        <div class="panel">
+          <div class="trackwrap"><svg id="track" viewBox="0 0 660 136" dir="ltr" role="img" aria-label="السيارة على المسار المستقيم"></svg></div>
+          <div class="playbar">
+            <button class="btn primary" id="playBtn">تشغيل</button>
+            <button class="btn" id="resetBtn">من البداية</button>
+            <div class="seg spd" id="spd"><button data-sp="0.5" aria-pressed="false">½×</button><button data-sp="1" aria-pressed="true">1×</button><button data-sp="2" aria-pressed="false">2×</button></div>
+            <input type="range" id="tSl" min="0" max="5" step="0.01" value="0" aria-label="الزمن">
+          </div>
+          <div class="reads">
+            <div class="chip"><span class="k">الزمن</span><span class="v" id="rt"></span></div>
+            <div class="chip"><span class="k">الإزاحة</span><span class="v" id="rs"></span></div>
+            <div class="chip"><span class="k">السرعة المتجهة</span><span class="v" id="rv"></span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="ptitle">التمثيل البياني (الإزاحة–الزمن)</p>
+          <div class="gwrap"><svg id="graph" viewBox="0 0 640 380" dir="ltr" role="img" aria-label="منحنى الإزاحة مع الزمن">
+            <g id="gStatic"></g><g id="gLab"></g><path id="trace" class="trace"/><g id="gNow"></g><g id="gSlope"></g></svg></div>
+          <p class="note">اسحب النقطتين الحمراوين على المنحنى لتغيير المثلث، أو اكتب t₁ و t₂ في الأسفل.</p>
+        </div>
+        <div class="panel" id="slopeOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Table to graph ===== -->
+  <section id="tab-tbl" hidden>
+    <div class="panel" style="margin-bottom:16px">
+      <div class="seg" id="dsPick"></div>
+      <div class="tblwrap" id="dtab"></div>
+      <p class="cap" id="dcap"></p>
+    </div>
+    <div class="two">
+      <div class="panel"><div class="gwrap"><svg id="tg" viewBox="0 0 640 380" dir="ltr" role="img" aria-label="شبكة رسم النقاط">
+        <g id="tgAx"></g><g id="tgLine"></g><g id="tgTri"></g><g id="tgPts"></g><g id="tgHov"></g></svg></div>
+        <p class="note">حرّك المؤشر فوق الشبكة لترى الإحداثيات، ثم اضغط لتعيين نقطة عند كل زمن في الجدول.</p></div>
+      <div class="panel" id="tbSide"></div>
+    </div>
+  </section>
+
+  <!-- ===== Challenge ===== -->
+  <section id="tab-ch" hidden>
+    <div class="two">
+      <div class="panel"><p class="ptitle">اقرأ المنحنى</p>
+        <div class="gwrap"><svg id="cg" viewBox="0 0 640 380" dir="ltr" role="img" aria-label="منحنى التحدي"></svg></div>
+        <p class="note">يمثّل المنحنى حركة جسم على مسار مستقيم خلال أربع مراحل.</p></div>
+      <div class="panel" id="chSide"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const LT=['A','B','C','D','E','F'];
+const clone=x=>JSON.parse(JSON.stringify(x));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const sg=s=>String(s).replace('-','−');
+function f1(x){let r=Math.round(x*10)/10;if(r===0)r=0;return sg(Math.abs(r)>=100?r.toFixed(0):r.toFixed(1));}
+function fv(x){let r=Math.round(x*100)/100;if(r===0)r=0;if(Math.abs(r)>=100)return sg(r.toFixed(0));return sg(Math.abs(r*10-Math.round(r*10))<1e-6?r.toFixed(1):r.toFixed(2));}
+const pv=x=>x<-1e-9?`(${f1(x)})`:f1(x);
+const tk=x=>sg(String(+x.toFixed(3)));
+const parseNum=s=>{if(s==null)return null;s=String(s).trim().replace(/[٠-٩]/g,d=>d.charCodeAt(0)-1632).replace(/[٫,]/g,'.').replace('−','-');if(s===''||s==='-')return null;const v=parseFloat(s);return isFinite(v)?v:null;};
+function svgPt(svg,e){const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
+const frac=(a,b)=>`<span class="frac"><span>${a}</span><span>${b}</span></span>`;
+
+function niceStep(range,target){const raw=Math.max(range,1e-9)/target,mag=Math.pow(10,Math.floor(Math.log10(raw))),n=raw/mag;return(n<=1?1:n<=2?2:n<=5?5:10)*mag;}
+function minorOf(st){const lead=Math.round(st/Math.pow(10,Math.floor(Math.log10(st))+1e-12));return st/(lead===2?4:5);}
+
+function axes(o){
+  const W=640,H=380,L=62,R=18,T=16,B=50,pw=W-L-R,ph=H-T-B;
+  const ts=niceStep(o.tMax,8),ss=niceStep(o.sMax-o.sMin,o.sTarget||6);
+  const t1=Math.max(ts,Math.ceil(o.tMax/ts-1e-9)*ts),s0=Math.floor(o.sMin/ss+1e-9)*ss,s1=Math.max(s0+ss,Math.ceil(o.sMax/ss-1e-9)*ss);
+  const X=t=>L+t/t1*pw,Y=s=>T+ph-(s-s0)/(s1-s0)*ph;
+  const tm=minorOf(ts),sm=minorOf(ss);let h='';
+  const nt=Math.round(t1/tm),ns=Math.round((s1-s0)/sm);
+  for(let k=0;k<=nt;k++){const t=k*tm,maj=Math.abs(t/ts-Math.round(t/ts))<1e-6;h+=`<line class="${maj?'gmaj':'gmin'}" x1="${X(t)}" y1="${T}" x2="${X(t)}" y2="${T+ph}"/>`;}
+  for(let k=0;k<=ns;k++){const s=s0+k*sm,maj=Math.abs((s-s0)/ss-Math.round((s-s0)/ss))<1e-6;h+=`<line class="${maj?'gmaj':'gmin'}" x1="${L}" y1="${Y(s)}" x2="${L+pw}" y2="${Y(s)}"/>`;}
+  if(s0<0)h+=`<line class="zero" x1="${L}" y1="${Y(0)}" x2="${L+pw}" y2="${Y(0)}"/>`;
+  h+=`<line class="axis" x1="${L}" y1="${T+ph}" x2="${L+pw}" y2="${T+ph}"/><line class="axis" x1="${L}" y1="${T}" x2="${L}" y2="${T+ph}"/>`;
+  for(let k=0;k<=Math.round(t1/ts);k++){const t=k*ts;h+=`<line class="axis" x1="${X(t)}" y1="${T+ph}" x2="${X(t)}" y2="${T+ph+5}"/><text class="ticklab" x="${X(t)}" y="${T+ph+20}" text-anchor="middle">${tk(t)}</text>`;}
+  for(let k=0;k<=Math.round((s1-s0)/ss);k++){const s=s0+k*ss;h+=`<line class="axis" x1="${L-5}" y1="${Y(s)}" x2="${L}" y2="${Y(s)}"/><text class="ticklab" x="${L-9}" y="${Y(s)+4}" text-anchor="end">${tk(s)}</text>`;}
+  h+=`<text class="atitle" x="${L+pw/2}" y="${H-8}" text-anchor="middle">${o.tLab}</text>`;
+  h+=`<text class="atitle" transform="translate(16 ${T+ph/2}) rotate(-90)" text-anchor="middle">${o.sLab}</text>`;
+  return {h,X,Y,t1,s0,s1,ts,ss,sm,L,T,pw,ph,inv:(px,py)=>({t:(px-L)/pw*t1,s:s0+(T+ph-py)/ph*(s1-s0)})};
+}
+
+/* motion model: {s0, segs:[{dur,v,a?}]} */
+const total=m=>m.segs.reduce((a,g)=>a+g.dur,0);
+function at(m,t){let s=m.s0,ts=0;for(let i=0;i<m.segs.length;i++){const g=m.segs[i],a=g.a||0;
+  if(t<=ts+g.dur+1e-9){const u=Math.max(0,t-ts);return{s:s+g.v*u+.5*a*u*u,v:g.v+a*u,i};}
+  s+=g.v*g.dur+.5*a*g.dur*g.dur;ts+=g.dur;}
+  const g=m.segs[m.segs.length-1];return{s,v:g?g.v+(g.a||0)*g.dur:0,i:m.segs.length-1};}
+function samples(m,tEnd){const P=[];let ts=0;for(const g of m.segs){if(ts>tEnd+1e-9)break;const te=Math.min(ts+g.dur,tEnd),n=g.a?30:1;
+  for(let k=0;k<=n;k++){const t=ts+(te-ts)*k/n;P.push([t,at(m,t).s]);}ts+=g.dur;}return P;}
+function bounds(m){let lo=Infinity,hi=-Infinity;samples(m,total(m)).forEach(p=>{lo=Math.min(lo,p[1]);hi=Math.max(hi,p[1]);});return{lo,hi};}
+const pathD=(P,ax)=>P.length?'M'+P.map(p=>`${ax.X(p[0]).toFixed(1)} ${ax.Y(p[1]).toFixed(1)}`).join(' L '):'';
+
+function triSVG(ax,ta,sa,tb,sb){
+  const x1=ax.X(ta),y1=ax.Y(sa),x2=ax.X(tb),y2=ax.Y(sb);
+  let h=`<g class="tri"><line class="chord" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/><line class="leg" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y1}"/>`;
+  if(Math.abs(y2-y1)>1)h+=`<line class="leg" x1="${x2}" y1="${y1}" x2="${x2}" y2="${y2}"/><text class="tlab" x="${x2>560?x2-8:x2+8}" y="${(y1+y2)/2+5}" text-anchor="${x2>560?'end':'start'}">Δs</text>`;
+  h+=`<text class="tlab" x="${(x1+x2)/2}" y="${y1+(y2<=y1?20:-9)}" text-anchor="middle">Δt</text></g>`;
+  return h;
+}
+function calcHTML(ta,sa,tb,sb,u){
+  const v=(sb-sa)/(tb-ta),S=u.s||'s';
+  return `<div class="calc"><span>v</span> = ${frac('Δ'+S,'Δt')} = ${frac(`${S}₂ − ${S}₁`,'t₂ − t₁')} = ${frac(`${f1(sb)} − ${pv(sa)}`,`${f1(tb)} − ${pv(ta)}`)} = ${frac(f1(sb-sa),f1(tb-ta))} = <b>${fv(v)} ${u.v||'m s⁻¹'}</b></div>`;
+}
+function interp(v){
+  if(Math.abs(v)<1e-9)return `<span class="tag z">الميل = 0: الجسم ساكن، والإزاحة لا تتغير</span>`;
+  return v>0?`<span class="tag p">ميل موجب: الجسم يتحرك إلى الأمام</span>`:`<span class="tag n">ميل سالب: الجسم يتحرك إلى الخلف</span>`;
+}
+
+/* ================= SIMULATOR ================= */
+const PRESETS=[
+  {name:'سيارة لعبة (الجدول ٢-٢)',m:{s0:1,segs:[{dur:3,v:2},{dur:2,v:0}]},t1:0,t2:3},
+  {name:'رحلة حافلة (الشكل ٢-٤)',m:{s0:0,segs:[{dur:3,v:3},{dur:2,v:1},{dur:1.5,v:0},{dur:1,v:1.5},{dur:2,v:3}]},t1:0,t2:3},
+  {name:'ذهاب ثم عودة',m:{s0:0,segs:[{dur:3,v:2},{dur:1,v:0},{dur:3,v:-2}]},t1:4,t2:7},
+  {name:'بطيء ثم سريع',m:{s0:0,segs:[{dur:3,v:1},{dur:3,v:3}]},t1:3,t2:6},
+  {name:'جسم ساكن',m:{s0:4,segs:[{dur:5,v:0}]},t1:1,t2:4},
+  {name:'سرعة متغيرة (منحنى مقوّس)',m:{s0:0,segs:[{dur:5,v:0,a:1}]},t1:1,t2:4},
+];
+const SIM={m:clone(PRESETS[0].m),preset:0,t:5,T:5,play:false,speed:1,t1:0,t2:3,dir:1,o:{slope:true,labels:true,ticks:true,ghost:false},ax:null,lastVis:null,lastLab:-1};
+let TX=s=>s;
+
+function renderPresets(){$('presets').innerHTML=PRESETS.map((p,i)=>`<button class="pre" data-p="${i}" aria-pressed="${SIM.preset===i}">${p.name}</button>`).join('');}
+function renderEditor(){
+  $('s0in').value=SIM.m.s0;
+  $('segs').innerHTML=SIM.m.segs.map((g,i)=>`<div class="srow"><span class="lt">${LT[i]}</span>
+    <label>المدة (s)<input type="number" id="d${i}" step="0.5" min="0.5" value="${g.dur}" inputmode="decimal"></label>
+    ${g.a?`<span class="acc">تسارع منتظم ${g.a} m s⁻²</span>`:`<label>السرعة (m s⁻¹)<input type="number" id="v${i}" step="0.5" value="${g.v}" inputmode="decimal"></label>`}
+    <button class="x" data-del="${i}" aria-label="احذف المرحلة ${LT[i]}" ${SIM.m.segs.length<2?'disabled':''}>×</button></div>`).join('');
+  $('addSeg').disabled=SIM.m.segs.length>=6;
+}
+function clampSlope(){const T=total(SIM.m);SIM.t2=clamp(SIM.t2,0.1,T);SIM.t1=clamp(SIM.t1,0,SIM.t2-0.1);}
+
+function simBuild(){
+  const m=SIM.m,T=total(m),b=bounds(m);SIM.T=T;
+  const ax=axes({tMax:T,sMin:Math.min(0,b.lo),sMax:Math.max(b.hi,1),tLab:'t (s)',sLab:'s (m)'});SIM.ax=ax;
+  let h=ax.h;
+  if(SIM.o.ghost)h+=`<path class="ghost" d="${pathD(samples(m,T),ax)}"/>`;
+  $('gStatic').innerHTML=h;
+  /* track */
+  TX=s=>40+(s-ax.s0)/(ax.s1-ax.s0)*560;
+  let k=`<line class="road" x1="28" y1="80" x2="612" y2="80"/><rect class="tape" x="28" y="88" width="584" height="14" rx="3"/>`;
+  for(let i=0;i<=Math.round((ax.s1-ax.s0)/ax.ss);i++){const s=ax.s0+i*ax.ss;k+=`<line class="tick" x1="${TX(s)}" y1="106" x2="${TX(s)}" y2="113"/><text class="ticklab" x="${TX(s)}" y="128" text-anchor="middle">${tk(s)}</text>`;}
+  k+=`<text class="atitle" x="652" y="128" text-anchor="end">s (m)</text><g id="dots"></g>
+  <g id="car"><line class="mk" x1="0" y1="-2" x2="0" y2="22"/><g id="carIn">
+    <path class="carbody" d="M-25 -8 L-25 -17 Q-25 -20 -22 -20 L-13 -20 L-6 -29 L9 -29 L16 -20 L22 -20 Q25 -20 25 -17 L25 -8 Z"/>
+    <path class="carwin" d="M-4 -27 L7 -27 L12 -21 L-9 -21 Z"/>
+    <circle class="wheel" cx="-13" cy="-6" r="6"/><circle class="wheel" cx="14" cy="-6" r="6"/></g></g>`;
+  $('track').innerHTML=k;
+  $('tSl').max=T;SIM.lastVis=null;SIM.lastLab=-1;
+  slopeBuild();simFrame();
+}
+function slopeBuild(){
+  const ax=SIM.ax,m=SIM.m;
+  if(!SIM.o.slope){$('gSlope').innerHTML='';$('slopeOut').hidden=true;return;}
+  const a=at(m,SIM.t1).s,b=at(m,SIM.t2).s;
+  $('gSlope').innerHTML=triSVG(ax,SIM.t1,a,SIM.t2,b)+[[1,SIM.t1,a],[2,SIM.t2,b]].map(([n,t,s])=>
+    `<circle class="hdl" data-h="${n}" cx="${ax.X(t)}" cy="${ax.Y(s)}" r="9" tabindex="0" role="slider" aria-label="النقطة ${n===1?'الأولى t₁':'الثانية t₂'}" aria-valuenow="${t}" aria-valuemin="0" aria-valuemax="${SIM.T}"/>
+     <text class="hlab" x="${ax.X(t)}" y="${ax.Y(s)-15}" text-anchor="middle">${n===1?'1':'2'}</text>`).join('');
+  SIM.lastVis=null;simFrame();
+}
+function slopePanel(vis){
+  const el=$('slopeOut');if(!SIM.o.slope){el.hidden=true;return;}el.hidden=false;
+  const m=SIM.m,a=at(m,SIM.t1).s,b=at(m,SIM.t2).s,v=(b-a)/(SIM.t2-SIM.t1);
+  const i1=at(m,SIM.t1+1e-6).i,i2=at(m,SIM.t2-1e-6).i;
+  const curved=m.segs.slice(i1,i2+1).some(g=>g.a);
+  let h=`<div class="sh"><p class="ptitle">السرعة = ميل منحنى (الإزاحة–الزمن)</p>
+    <div class="tin"><label>t₁<input type="number" id="t1in" step="0.5" min="0" value="${+SIM.t1.toFixed(2)}" inputmode="decimal">s</label><label>t₂<input type="number" id="t2in" step="0.5" min="0" value="${+SIM.t2.toFixed(2)}" inputmode="decimal">s</label></div></div>`;
+  if(!vis)h+=`<p class="note">شغّل الحركة حتى t₂ = ${f1(SIM.t2)} s ليظهر المثلث وحساب الميل. توقّع قبلها: هل سيكون الميل موجباً أم صفراً أم سالباً؟</p>`;
+  else{
+    h+=calcHTML(SIM.t1,a,SIM.t2,b,{})+interp(v);
+    if(curved)h+=`<p class="note" style="margin-top:8px">المنحنى مقوّس هنا، لذلك الناتج هو متوسط السرعة بين النقطتين وليس السرعة عند لحظة معيّنة. ستدرس ذلك في الوحدة الثالثة.</p>`;
+    else if(i1!==i2)h+=`<p class="note" style="margin-top:8px">النقطتان في مرحلتين مختلفتين، لذلك الناتج هو متوسط السرعة بينهما. ضع النقطتين داخل مرحلة واحدة لتحصل على سرعتها.</p>`;
+  }
+  el.innerHTML=h;
+}
+function simFrame(){
+  const m=SIM.m,ax=SIM.ax,st=at(m,SIM.t);
+  if(Math.abs(st.v)>1e-9)SIM.dir=st.v>0?1:-1;
+  const car=$('car');if(car){car.setAttribute('transform',`translate(${TX(st.s).toFixed(1)} 80)`);$('carIn').setAttribute('transform',`scale(${SIM.dir} 1)`);}
+  let d='';if(SIM.o.ticks)for(let k=0;k*0.5<=SIM.t+1e-9;k++)d+=`<circle class="dot" cx="${TX(at(m,k*0.5).s).toFixed(1)}" cy="95" r="2.6"/>`;
+  const dots=$('dots');if(dots)dots.innerHTML=d;
+  $('trace').setAttribute('d',pathD(samples(m,SIM.t),ax));
+  const x=ax.X(SIM.t),y=ax.Y(st.s);
+  $('gNow').innerHTML=`<line class="guide" x1="${x}" y1="${y}" x2="${x}" y2="${ax.T+ax.ph}"/><line class="guide" x1="${ax.L}" y1="${y}" x2="${x}" y2="${y}"/><circle class="nowpt" cx="${x}" cy="${y}" r="6"/>`;
+  let n=0;if(SIM.o.labels&&m.segs.length>1){let ts=0;for(const g of m.segs){if(ts+g.dur/2<=SIM.t+1e-9)n++;ts+=g.dur;}}
+  if(n!==SIM.lastLab){let h='',ts=0;m.segs.slice(0,n).forEach((g,i)=>{const tm=ts+g.dur/2;h+=`<text class="seglab" x="${ax.X(tm)}" y="${ax.Y(at(m,tm).s)-12}" text-anchor="middle">${LT[i]}</text>`;ts+=g.dur;});
+    if(n<m.segs.length){ts=0;}$('gLab').innerHTML=h;SIM.lastLab=n;}
+  $('rt').textContent=`t = ${f1(SIM.t)} s`;$('rs').textContent=`s = ${f1(st.s)} m`;$('rv').textContent=`v = ${fv(SIM.t>=SIM.T-1e-9&&SIM.T>0?at(m,SIM.T-1e-6).v:st.v)} m s⁻¹`;
+  $('tSl').value=SIM.t;
+  const vis=SIM.o.slope&&SIM.t>=SIM.t2-1e-6;
+  $('gSlope').setAttribute('visibility',vis?'visible':'hidden');
+  if(vis!==SIM.lastVis){slopePanel(vis);SIM.lastVis=vis;}
+}
+function setPlayBtn(){$('playBtn').textContent=SIM.play?'إيقاف مؤقت':(SIM.t>=SIM.T-1e-9?'أعد التشغيل':'تشغيل');}
+function edited(){SIM.preset=-1;renderPresets();SIM.play=false;SIM.t=total(SIM.m);clampSlope();simBuild();setPlayBtn();}
+
+$('simCtrl').addEventListener('input',e=>{
+  const id=e.target.id;if(!id)return;
+  if(e.target.type==='checkbox'){SIM.o[id.slice(2)]=e.target.checked;simBuild();return;}
+  const v=parseNum(e.target.value);if(v==null)return;
+  if(id==='s0in')SIM.m.s0=v;
+  else if(/^d\d$/.test(id)){if(v<0.1||v>30)return;SIM.m.segs[+id[1]].dur=v;}
+  else if(/^v\d$/.test(id)){if(Math.abs(v)>100)return;SIM.m.segs[+id[1]].v=v;}
+  else return;
+  edited();
+});
+$('simCtrl').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  if(b.dataset.p!=null){const p=PRESETS[+b.dataset.p];SIM.m=clone(p.m);SIM.preset=+b.dataset.p;SIM.t1=p.t1;SIM.t2=p.t2;SIM.t=0;SIM.dir=1;
+    renderPresets();renderEditor();simBuild();SIM.play=true;setPlayBtn();}
+  else if(b.dataset.del!=null){SIM.m.segs.splice(+b.dataset.del,1);renderEditor();edited();}
+  else if(b.id==='addSeg'){SIM.m.segs.push({dur:2,v:1});renderEditor();edited();}
+});
+$('playBtn').onclick=()=>{if(SIM.play)SIM.play=false;else{if(SIM.t>=SIM.T-1e-9)SIM.t=0;SIM.play=true;}setPlayBtn();};
+$('resetBtn').onclick=()=>{SIM.play=false;SIM.t=0;SIM.dir=1;simFrame();setPlayBtn();};
+$('tSl').addEventListener('input',e=>{SIM.play=false;SIM.t=+e.target.value;simFrame();setPlayBtn();});
+$('spd').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;SIM.speed=+b.dataset.sp;[...$('spd').children].forEach(c=>c.setAttribute('aria-pressed',c===b));});
+$('slopeOut').addEventListener('change',e=>{
+  const v=parseNum(e.target.value);if(v==null)return;
+  if(e.target.id==='t1in')SIM.t1=clamp(v,0,SIM.T);else if(e.target.id==='t2in')SIM.t2=clamp(v,0,SIM.T);else return;
+  if(SIM.t2<=SIM.t1){if(e.target.id==='t1in')SIM.t2=Math.min(SIM.T,SIM.t1+0.5);else SIM.t1=Math.max(0,SIM.t2-0.5);}
+  clampSlope();slopeBuild();
+});
+const gsvg=$('graph');let drag=null;
+function setHandle(h,t){t=clamp(Math.round(t*10)/10,0,SIM.T);if(h===1)SIM.t1=Math.min(t,SIM.t2-0.1);else SIM.t2=Math.max(t,SIM.t1+0.1);clampSlope();slopeBuild();}
+gsvg.addEventListener('pointerdown',e=>{const h=e.target.closest('.hdl');if(!h)return;drag=+h.dataset.h;gsvg.setPointerCapture(e.pointerId);e.preventDefault();});
+gsvg.addEventListener('pointermove',e=>{if(!drag)return;const p=svgPt(gsvg,e);setHandle(drag,SIM.ax.inv(p.x,p.y).t);});
+['pointerup','pointercancel'].forEach(ev=>gsvg.addEventListener(ev,()=>drag=null));
+gsvg.addEventListener('keydown',e=>{const h=e.target.closest('.hdl');if(!h)return;const n=+h.dataset.h,st=e.shiftKey?0.5:0.1;
+  let d=0;if(e.key==='ArrowRight'||e.key==='ArrowUp')d=st;else if(e.key==='ArrowLeft'||e.key==='ArrowDown')d=-st;else return;
+  e.preventDefault();setHandle(n,(n===1?SIM.t1:SIM.t2)+d);const f=gsvg.querySelector(`.hdl[data-h="${n}"]`);if(f)f.focus();});
+
+let last=performance.now();
+function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(SIM.play){SIM.t=Math.min(SIM.T,SIM.t+dt*SIM.speed);if(SIM.t>=SIM.T){SIM.play=false;setPlayBtn();}simFrame();}
+  requestAnimationFrame(loop);}
+
+/* ================= TABLE → GRAPH ================= */
+const DS=[
+  {name:'الجدول ٢-٢',desc:'بيانات الإزاحة والزمن لسيارة لعبة',tU:'s',sU:'m',S:'s',sName:'الإزاحة',dec:1,P:[[0,1],[1,3],[2,5],[3,7],[4,7],[5,7]],
+    q:[{l:'سرعة السيارة خلال أول 3.0 s',u:'m s⁻¹',tri:[0,3]},{l:'سرعة السيارة بين 3.0 s و 5.0 s',u:'m s⁻¹',tri:[3,5]}]},
+  {name:'الجدول ٢-٣',desc:'سيارة سباق في مرحلة تمهيدية لتجربة المضمار',tU:'s',sU:'m',S:'s',sName:'الإزاحة',dec:0,P:[[0,0],[1,85],[2,170],[3,255],[4,340]],
+    q:[{l:'سرعة السيارة',u:'m s⁻¹',tri:[0,4]}]},
+  {name:'الجدول ٢-٤',desc:'سيارة قديمة تتحرك باتجاه الجنوب',tU:'h',sU:'km',S:'d',sName:'المسافة',dec:0,P:[[0,0],[1,23],[2,46],[3,69],[4,84]],
+    q:[{l:'سرعة السيارة خلال الساعات الثلاث الأولى',u:'km h⁻¹',tri:[0,3]},{l:'السرعة المتوسطة خلال الرحلة بأكملها',u:'km h⁻¹',tri:[0,4]}]},
+  {name:'بيانات عشوائية',random:true},
+];
+function genDS(){
+  const v1=pick([2,3,4,5,6]),n1=pick([2,3]),s0=pick([0,1,2]),top=s0+v1*n1;
+  const v2=pick([0,1,top>=8?-2:0,top>=4?-1:0]),P=[];
+  for(let t=0;t<=5;t++)P.push([t,t<=n1?s0+v1*t:top+v2*(t-n1)]);
+  return {name:'بيانات عشوائية',desc:'سيارة على مسار مستقيم',tU:'s',sU:'m',S:'s',sName:'الإزاحة',dec:1,P,
+    q:[{l:`سرعة السيارة خلال أول ${n1}.0 s`,u:'m s⁻¹',tri:[0,n1]},{l:`سرعة السيارة بين ${n1}.0 s و 5.0 s`,u:'m s⁻¹',tri:[n1,5]}]};
+}
+const TB={i:0,ds:null,ax:null,placed:{},pChk:false,ans:{},qChk:false,sol:false};
+const sAt=(ds,t)=>ds.P.find(p=>p[0]===t)[1];
+const qVal=(ds,q)=>(sAt(ds,q.tri[1])-sAt(ds,q.tri[0]))/(q.tri[1]-q.tri[0]);
+function tbLoad(i){TB.i=i;TB.ds=DS[i].random?genDS():DS[i];TB.placed={};TB.pChk=false;TB.ans={};TB.qChk=false;TB.sol=false;
+  TB.ds.q.forEach(q=>q.ok=null);tbRender();}
+function tbRender(){
+  const ds=TB.ds;
+  $('dsPick').innerHTML=DS.map((d,i)=>`<button data-ds="${i}" aria-pressed="${TB.i===i}">${d.name}</button>`).join('');
+  const fd=x=>ds.dec?x.toFixed(1):String(x);
+  $('dtab').innerHTML=`<table class="dtable"><tr><th>${ds.sName} ${ds.S} (${ds.sU})</th>${ds.P.map(p=>`<td>${fd(p[1])}</td>`).join('')}</tr><tr><th>الزمن t (${ds.tU})</th>${ds.P.map(p=>`<td>${fd(p[0])}</td>`).join('')}</tr></table>`;
+  $('dcap').textContent=`${ds.name}: ${ds.desc}`;
+  const maxS=Math.max(...ds.P.map(p=>p[1])),maxT=Math.max(...ds.P.map(p=>p[0]));
+  TB.ax=axes({tMax:maxT,sMin:0,sMax:maxS*1.08,sTarget:7,tLab:`t (${ds.tU})`,sLab:`${ds.S} (${ds.sU})`});
+  $('tgAx').innerHTML=TB.ax.h+`<rect class="clickzone" x="${TB.ax.L}" y="${TB.ax.T}" width="${TB.ax.pw}" height="${TB.ax.ph}"/>`;
+  $('tgHov').innerHTML='';
+  tbGraph();tbSide();
+}
+const tol=()=>TB.ax.sm;
+const ptOk=k=>TB.placed[k]!=null&&Math.abs(TB.placed[k]-TB.ds.P[k][1])<=tol()+1e-9;
+function tbGraph(){
+  const ds=TB.ds,ax=TB.ax;let p='',line='',tri='';
+  const allOk=TB.pChk&&ds.P.every((_,k)=>ptOk(k));
+  if(allOk)line=`<path class="trace" d="${pathD(ds.P,ax)}"/>`;
+  ds.P.forEach((pt,k)=>{const s=TB.placed[k];
+    if(TB.pChk&&!ptOk(k))p+=`<circle class="ring" cx="${ax.X(pt[0])}" cy="${ax.Y(pt[1])}" r="8"/>`;
+    if(s!=null)p+=`<circle class="pt ${TB.pChk?(ptOk(k)?'ok':'bad'):''}" cx="${ax.X(pt[0])}" cy="${ax.Y(s)}" r="6"/>`;});
+  if(TB.sol)ds.q.forEach(q=>{tri+=triSVG(ax,q.tri[0],sAt(ds,q.tri[0]),q.tri[1],sAt(ds,q.tri[1]));});
+  $('tgLine').innerHTML=line;$('tgPts').innerHTML=p;$('tgTri').innerHTML=tri;
+}
+function tbSide(){
+  const ds=TB.ds,n=ds.P.length,np=Object.keys(TB.placed).length;
+  const allOk=TB.pChk&&ds.P.every((_,k)=>ptOk(k)),nOk=ds.P.filter((_,k)=>ptOk(k)).length;
+  let h=`<p class="ptitle">١. عيّن النقاط من الجدول</p>`;
+  h+=`<p class="status">${TB.pChk?(allOk?'✓ جميع النقاط صحيحة. صِلنا النقاط بخط مستقيم.':`${nOk} من ${n} صحيحة. النقاط الحمراء في غير موضعها، والدوائر المتقطعة تبيّن الموضع الصحيح.`):`عيّنت ${np} من ${n} نقاط.`}</p>`;
+  h+=`<div class="actions"><button class="btn primary" id="chkPts" ${np<n?'disabled':''}>تحقّق من النقاط</button><button class="btn" id="clrPts">امسح النقاط</button><button class="btn" id="showPts">أظهر النقاط الصحيحة</button></div>`;
+  h+=`<p class="ptitle" style="margin-top:18px">٢. احسب السرعة من الميل</p><ol class="qs">`;
+  ds.q.forEach((q,i)=>{const cls=q.ok==null?'':(q.ok?'ok':'bad');
+    h+=`<li class="q ${cls}"><div>${q.l}</div><div class="qa"><input id="tq${i}" inputmode="decimal" autocomplete="off" placeholder="?" value="${TB.ans[i]??''}" aria-label="${q.l}"><span class="unit">${q.u}</span></div>
+    <div class="st">${q.ok==null?'':(q.ok?'✓ إجابة صحيحة':'✗ راجع حساب الميل وحاول مرة أخرى')}</div></li>`;});
+  h+=`</ol><div class="actions"><button class="btn primary" id="chkQ">تحقّق من الإجابات</button><button class="btn" id="solQ">${TB.sol?'إخفاء الحل':'اعرض الحل'}</button></div>`;
+  if(TB.qChk){const c=ds.q.filter(q=>q.ok).length;h+=`<p class="score">النتيجة: ${c} من ${ds.q.length}</p>`;}
+  if(TB.sol)h+=`<div class="sol">`+ds.q.map(q=>{const a=sAt(ds,q.tri[0]),b=sAt(ds,q.tri[1]),v=qVal(ds,q);
+    return `<p><b>${q.l}</b></p>${calcHTML(q.tri[0],a,q.tri[1],b,{s:ds.S,v:q.u})}${interp(v)}`;}).join('<div style="height:12px"></div>')+`</div>`;
+  $('tbSide').innerHTML=h;
+}
+function tbSnap(e){
+  const ax=TB.ax,p=svgPt($('tg'),e),c=ax.inv(p.x,p.y);
+  if(p.x<ax.L-10||p.x>ax.L+ax.pw+10||p.y<ax.T-10||p.y>ax.T+ax.ph+10)return null;
+  let k=0,best=Infinity;TB.ds.P.forEach((pt,i)=>{const d=Math.abs(pt[0]-c.t);if(d<best){best=d;k=i;}});
+  if(best>ax.ts*0.5)return null;
+  const res=ax.sm/2,s=clamp(Math.round(c.s/res)*res,ax.s0,ax.s1);
+  return {k,t:TB.ds.P[k][0],s};
+}
+$('tg').addEventListener('pointermove',e=>{
+  const q=tbSnap(e),ax=TB.ax;if(!q){$('tgHov').innerHTML='';return;}
+  const x=ax.X(q.t),y=ax.Y(q.s),txt=`(${tk(q.t)}, ${tk(+q.s.toFixed(2))})`,w=txt.length*7.6+12,lx=x+w+14>ax.L+ax.pw?x-w-10:x+10;
+  $('tgHov').innerHTML=`<g class="hov"><line x1="${x}" y1="${y}" x2="${x}" y2="${ax.T+ax.ph}"/><line x1="${ax.L}" y1="${y}" x2="${x}" y2="${y}"/><circle cx="${x}" cy="${y}" r="7"/>
+    <rect x="${lx}" y="${y-30}" width="${w}" height="22" rx="5"/><text x="${lx+w/2}" y="${y-15}" text-anchor="middle">${txt}</text></g>`;
+});
+$('tg').addEventListener('pointerleave',()=>$('tgHov').innerHTML='');
+$('tg').addEventListener('click',e=>{const q=tbSnap(e);if(!q)return;TB.placed[q.k]=q.s;TB.pChk=false;tbGraph();tbSide();});
+$('dsPick').addEventListener('click',e=>{const b=e.target.closest('button');if(b)tbLoad(+b.dataset.ds);});
+$('tbSide').addEventListener('input',e=>{const m=e.target.id.match(/^tq(\d)$/);if(m)TB.ans[+m[1]]=e.target.value;});
+$('tbSide').addEventListener('keydown',e=>{if(e.key==='Enter'&&/^tq/.test(e.target.id))tbCheckQ();});
+function tbCheckQ(){TB.ds.q.forEach((q,i)=>{const a=parseNum(TB.ans[i]),v=qVal(TB.ds,q);q.ok=a!=null&&Math.abs(a-v)<=Math.max(0.02*Math.abs(v),0.051);});TB.qChk=true;tbSide();}
+$('tbSide').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  if(b.id==='chkPts'){TB.pChk=true;}
+  else if(b.id==='clrPts'){TB.placed={};TB.pChk=false;}
+  else if(b.id==='showPts'){TB.ds.P.forEach((p,k)=>TB.placed[k]=p[1]);TB.pChk=true;}
+  else if(b.id==='chkQ'){tbCheckQ();return;}
+  else if(b.id==='solQ'){TB.sol=!TB.sol;}
+  else return;
+  tbGraph();tbSide();
+});
+
+/* ================= CHALLENGE ================= */
+const CH={};
+function chNew(){
+  const p=shuffle([1,2,3,4]).slice(0,2).sort((a,b)=>a-b),k=pick([1,2]);
+  const vs=shuffle([0,-k,p[0],p[1]]);
+  const segs=vs.map(v=>({dur:pick([1,2,3]),v}));
+  const m={s0:0,segs};const lo=bounds(m).lo;m.s0=-lo+pick([0,1,2]);
+  const L=vs.map((_,i)=>LT[i]);
+  const nz=vs.map((v,i)=>i).filter(i=>vs[i]!==0),X=pick(nz);
+  CH.m=m;CH.L=L;CH.X=X;CH.ans={};CH.checked=false;
+  CH.qs=[
+    {type:'c',l:'في أي مرحلة كان الجسم ساكناً؟',a:L[vs.indexOf(0)],why:'المنحنى أفقي في هذه المرحلة، فالميل صفر والإزاحة لا تتغير.'},
+    {type:'c',l:'في أي مرحلة تحرّك الجسم إلى الخلف؟',a:L[vs.indexOf(-k)],why:'الميل سالب، أي أن الإزاحة تتناقص مع الزمن.'},
+    {type:'c',l:'في أي مرحلة كانت سرعة الجسم إلى الأمام أكبر؟',a:L[vs.indexOf(p[1])],why:'هي المرحلة الأشد انحداراً بين المراحل ذات الميل الموجب.'},
+    {type:'n',l:`احسب السرعة المتجهة للجسم في المرحلة ${L[X]}`,val:vs[X],u:'m s⁻¹'},
+  ];
+  chRender();
+}
+function chRender(){
+  const m=CH.m,T=total(m),b=bounds(m);
+  const ax=axes({tMax:T,sMin:0,sMax:b.hi+0.5,tLab:'t (s)',sLab:'s (m)'});CH.ax=ax;
+  let h=ax.h+`<path class="trace" d="${pathD(samples(m,T),ax)}"/>`;
+  let ts=0;m.segs.forEach((g,i)=>{const tm=ts+g.dur/2;h+=`<text class="seglab" x="${ax.X(tm)}" y="${ax.Y(at(m,tm).s)-12}" text-anchor="middle">${CH.L[i]}</text>`;
+    h+=`<circle class="pt" cx="${ax.X(ts)}" cy="${ax.Y(at(m,ts).s)}" r="3.5"/>`;ts+=g.dur;});
+  h+=`<circle class="pt" cx="${ax.X(T)}" cy="${ax.Y(at(m,T).s)}" r="3.5"/>`;
+  if(CH.checked){const r=segRange(CH.X);h+=triSVG(ax,r[0],at(m,r[0]).s,r[1],at(m,r[1]).s);}
+  $('cg').innerHTML=h;
+  let s=`<p class="ptitle">أجب عن الأسئلة</p><ol class="qs">`;
+  CH.qs.forEach((q,i)=>{
+    const ok=CH.checked?(q.type==='c'?CH.ans[i]===q.a:chNumOk(i)):null;
+    s+=`<li class="q ${ok==null?'':(ok?'ok':'bad')}"><div>${q.l}</div>`;
+    if(q.type==='c')s+=`<div class="seg" data-q="${i}">${CH.L.map(l=>`<button data-c="${l}" aria-pressed="${CH.ans[i]===l}">${l}</button>`).join('')}</div>`;
+    else s+=`<div class="qa"><input id="cq${i}" inputmode="decimal" autocomplete="off" placeholder="?" value="${CH.ans[i]??''}" aria-label="${q.l}"><span class="unit">${q.u}</span></div>`;
+    if(CH.checked)s+=`<div class="st">${ok?'✓ صحيح. ':'✗ الإجابة الصحيحة: '+(q.type==='c'?q.a:fv(q.val)+' '+q.u)+'. '}${q.type==='c'?q.why:''}</div>`;
+    s+=`</li>`;});
+  s+=`</ol><div class="actions"><button class="btn primary" id="chChk">تحقّق</button><button class="btn" id="chNew">منحنى جديد</button>${CH.checked?'<button class="btn" id="chSim">شاهد الحركة في المحاكي</button>':''}</div>`;
+  if(CH.checked){const c=CH.qs.filter((q,i)=>q.type==='c'?CH.ans[i]===q.a:chNumOk(i)).length;
+    const r=segRange(CH.X);
+    s+=`<p class="score">النتيجة: ${c} من ${CH.qs.length}</p><div class="sol"><p><b>حساب السرعة في المرحلة ${CH.L[CH.X]}</b></p>${calcHTML(r[0],at(m,r[0]).s,r[1],at(m,r[1]).s,{})}${interp(CH.qs[3].val)}</div>`;}
+  $('chSide').innerHTML=s;
+}
+function segRange(i){let ts=0;for(let j=0;j<i;j++)ts+=CH.m.segs[j].dur;return[ts,ts+CH.m.segs[i].dur];}
+function chNumOk(i){const a=parseNum(CH.ans[i]),v=CH.qs[i].val;return a!=null&&Math.abs(a-v)<=Math.max(0.02*Math.abs(v),0.051);}
+$('chSide').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const g=b.closest('[data-q]');
+  if(g&&b.dataset.c){CH.ans[+g.dataset.q]=b.dataset.c;[...g.children].forEach(c=>c.setAttribute('aria-pressed',c===b));return;}
+  if(b.id==='chChk'){CH.checked=true;chRender();}
+  else if(b.id==='chNew')chNew();
+  else if(b.id==='chSim'){SIM.m=clone(CH.m);SIM.preset=-1;const r=segRange(CH.X);SIM.t1=r[0];SIM.t2=r[1];SIM.t=0;SIM.dir=1;
+    renderPresets();renderEditor();showTab('sim');simBuild();SIM.play=true;setPlayBtn();}
+});
+$('chSide').addEventListener('input',e=>{const m=e.target.id.match(/^cq(\d)$/);if(m)CH.ans[+m[1]]=e.target.value;});
+
+/* ================= tabs & boot ================= */
+function showTab(t){
+  ['sim','tbl','ch'].forEach(k=>$('tab-'+k).hidden=k!==t);
+  [...$('tabs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.tab===t));
+  if(t==='sim')simBuild();
+}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)showTab(b.dataset.tab);});
+
+renderPresets();renderEditor();simBuild();setPlayBtn();
+tbLoad(0);chNew();
+requestAnimationFrame(loop);
+</script>
+
+</body></html>
