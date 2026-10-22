@@ -14,13 +14,5 @@
       "database_name": "madar-leaderboard",
       "database_id": "323a75d7-71ca-4bc8-aead-dcbced93b5dc"
     }
-  ],
-  // قاعدة بيانات بسيطة لتتبع أجهزة كل كود اشتراك (حد جهازين لكل كود).
-  // أُنشئت وربطت تلقائياً عبر لوحة Cloudflare (CODE_USAGE).
-  "kv_namespaces": [
-    {
-      "binding": "CODE_USAGE",
-      "id": "a5c90364151f482a886f06031594fcbe"
-    }
   ]
 }

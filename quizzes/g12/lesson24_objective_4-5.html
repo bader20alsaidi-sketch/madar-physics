@@ -1,33 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<script>
-(function(){
-  var IS_FREE = false;
-  if(IS_FREE) return;
-  try{
-    if(localStorage.getItem('madar_unlocked') === '1') return;
-  }catch(e){}
-  document.documentElement.setAttribute('data-madar-lock','1');
-})();
-</script>
-<style>
-html[data-madar-lock="1"] body{overflow:hidden;}
-html[data-madar-lock="1"] body > *:not(#madarLockScreen){display:none !important;}
-html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
-#madarLockScreen{position:fixed;inset:0;background:#f5f7f9;display:flex;align-items:center;justify-content:center;padding:20px;z-index:99999;font-family:'Cairo','Tajawal',system-ui,sans-serif;direction:rtl;}
-#madarLockScreen .box{background:#fff;border:1px solid #dfe6ea;border-radius:16px;padding:28px 24px;max-width:380px;width:100%;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08);}
-#madarLockScreen .icon{font-size:40px;margin-bottom:10px;}
-#madarLockScreen h2{font-size:18px;margin:0 0 8px;color:#0f4d2e;}
-#madarLockScreen p{font-size:13.5px;color:#5a6b72;line-height:1.6;margin:0 0 16px;}
-#madarLockScreen input{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #dfe6ea;border-radius:10px;font-size:16px;text-align:center;margin-bottom:10px;}
-#madarLockScreen .btn{display:block;width:100%;box-sizing:border-box;padding:11px;border-radius:10px;border:none;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;text-decoration:none;}
-#madarLockScreen .btn-primary{background:#1a7a4a;color:#fff;}
-#madarLockScreen .btn-ghost{background:transparent;color:#1a7a4a;border:1px solid #1a7a4a;}
-#madarLockScreen .err{color:#c0392b;font-size:12.5px;margin:-4px 0 10px;display:none;}
-#madarLockScreen .back{display:block;margin-top:6px;font-size:12.5px;color:#5a6b72;}
-</style>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الدرس الرابع والعشرون | الهدف 4-5 | فيزياء - الصف الثاني عشر</title>
@@ -377,67 +350,6 @@ html:not([data-madar-lock="1"]) #madarLockScreen{display:none !important;}
 </style>
 </head>
 <body>
-<div id="madarLockScreen">
-  <div class="box">
-    <div class="icon">🔒</div>
-    <h2>هذا الدرس مخصص للمشتركين فقط</h2>
-    <p>اشترك مع الأستاذ بدر السعيدي للحصول على كود يفتح كل محتوى الموقع.</p>
-    <input type="text" id="madarCodeInput" placeholder="أدخل كود الاشتراك هنا">
-    <div class="err" id="madarCodeErr">الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.</div>
-    <button class="btn btn-primary" id="madarCodeBtn">تحقق من الكود</button>
-    <a class="btn btn-ghost" href="https://wa.me/96893669399" target="_blank" rel="noopener">للاشتراك تواصل عبر واتساب</a>
-    <a class="back" href="../../index.html">→ العودة إلى الفهرس الرئيسي</a>
-  </div>
-</div>
-<script>
-(function(){
-  function getDeviceId(){
-    var id = null;
-    try{ id = localStorage.getItem('madar_device_id'); }catch(e){}
-    if(!id){
-      id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('dev-' + Date.now() + '-' + Math.random().toString(36).slice(2));
-      try{ localStorage.setItem('madar_device_id', id); }catch(e){}
-    }
-    return id;
-  }
-  var btn = document.getElementById('madarCodeBtn');
-  var input = document.getElementById('madarCodeInput');
-  var err = document.getElementById('madarCodeErr');
-  if(!btn) return;
-  function attempt(){
-    var v = (input.value || '').trim();
-    if(!v) return;
-    err.style.display = 'none';
-    var prevText = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'جارٍ التحقق...';
-    fetch('/api/redeem', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ code: v, deviceId: getDeviceId() })
-    }).then(function(res){ return res.json(); }).then(function(data){
-      if(data && data.ok){
-        try{ localStorage.setItem('madar_unlocked','1'); }catch(e){}
-        document.documentElement.removeAttribute('data-madar-lock');
-      } else {
-        err.textContent = (data && data.error) || 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.';
-        err.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = prevText;
-      }
-    }).catch(function(){
-      err.textContent = 'تعذّر الاتصال بالخدمة، تأكد من اتصالك بالإنترنت وحاول مرة ثانية.';
-      err.style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = prevText;
-    });
-  }
-  btn.addEventListener('click', attempt);
-  input.addEventListener('keydown', function(e){ if(e.key === 'Enter') attempt(); });
-})();
-</script>
-
-
 <header>
   <div class="wrap">
     <div class="nav-row">

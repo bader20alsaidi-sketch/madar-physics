@@ -186,28 +186,6 @@
   }
   .promo-title{ font-weight:700; font-size:19px; line-height:1.2; color:var(--text-primary); margin-bottom:5px; }
   .promo-text{ font-size:12.5px; color:var(--text-secondary); margin-bottom:14px; line-height:1.7; }
-  .promo-free-vs-paid{
-    background: rgba(0,0,0,0.15); border-radius:12px; padding:10px 12px;
-    display:flex; flex-direction:column; gap:7px; margin-bottom:14px;
-  }
-  .promo-fv-row{ display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--text-secondary); line-height:1.5; }
-  .promo-fv-tag{
-    font-size:10px; font-weight:700; padding:2.5px 8px; border-radius:20px; flex-shrink:0;
-    font-family:'JetBrains Mono';
-  }
-  .promo-fv-tag.free{ background: rgba(94,207,156,0.18); color:var(--success); }
-  .promo-fv-tag.locked{ background: rgba(232,105,127,0.15); color:var(--danger); }
-  .promo-perks{ display:flex; flex-direction:column; gap:8px; margin-bottom:10px; }
-  .promo-perk{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--text-primary); }
-  .promo-perk-check{
-    width:18px; height:18px; border-radius:6px; flex-shrink:0;
-    background: rgba(94,207,156,0.18); color:var(--success);
-    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;
-  }
-  .promo-urgency{
-    font-size:11px; color:var(--accent-warm); text-align:center;
-    margin-bottom:14px; padding:7px; background:rgba(242,166,90,0.08); border-radius:10px;
-  }
   .promo-links{ display:flex; flex-direction:column; gap:8px; }
   .promo-link{
     font-size:13px; text-decoration:none; text-align:center;
@@ -312,16 +290,6 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     height:100%; gap:14px; color:var(--text-secondary); text-align:center; padding:30px;
   }
-
-  /* subscription lock screen */
-  .lock-screen{ padding-top:20px; text-align:center; }
-  .lock-icon{
-    width:56px; height:56px; border-radius:16px; margin:0 auto 16px;
-    background: rgba(242,166,90,0.14); color:var(--accent-warm);
-    display:flex; align-items:center; justify-content:center; font-size:24px;
-  }
-  .lock-title{ font-family:'Space Grotesk'; font-weight:700; font-size:17px; margin-bottom:10px; }
-  .lock-text{ font-size:13px; color:var(--text-secondary); line-height:1.8; margin-bottom:20px; }
 
   .quiz-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px; }
   .quiz-q{ font-weight:700; font-size:15px; margin-bottom:16px; line-height:1.7; }
@@ -686,50 +654,8 @@ const unitsData = {
   ],
 };
 
-/* ===== نظام الاشتراك =====
-   العناصر المُعلّمة free:true فقط مفتوحة للجميع كعيّنة مجانية.
-   باقي المحتوى يتطلب كود اشتراك. التحقق من الكود الآن يتم على الخادم
-   (worker.js) وليس داخل هذه الصفحة — قائمة الأكواد وعدد الأجهزة المسموح
-   بها لكل كود (جهازان) محفوظة في worker.js وقاعدة بيانات CODE_USAGE،
-   ولا تظهر أبداً في كود الصفحة الذي يراه الطالب. */
-
-let unlocked = false;
-try{ unlocked = localStorage.getItem('madar_unlocked') === '1'; } catch(e){ unlocked = false; }
-
-function getMadarDeviceId(){
-  let id = null;
-  try{ id = localStorage.getItem('madar_device_id'); } catch(e){}
-  if(!id){
-    id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('dev-' + Date.now() + '-' + Math.random().toString(36).slice(2));
-    try{ localStorage.setItem('madar_device_id', id); } catch(e){}
-  }
-  return id;
-}
-
-// التحقق من الكود الآن يمر عبر الخادم (worker.js) الذي يتتبع عدد الأجهزة
-// المفعّلة على كل كود (جهازان كحد أقصى) عبر قاعدة بيانات CODE_USAGE.
-async function tryUnlock(code){
-  const clean = (code || '').trim();
-  if(!clean) return { ok:false, error:'الرجاء إدخال الكود.' };
-  try{
-    const res = await fetch('/api/redeem', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ code: clean, deviceId: getMadarDeviceId() })
-    });
-    const data = await res.json();
-    if(data && data.ok){
-      unlocked = true;
-      try{ localStorage.setItem('madar_unlocked','1'); } catch(e){}
-      return { ok:true };
-    }
-    return { ok:false, error: (data && data.error) || 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.' };
-  } catch(e){
-    return { ok:false, error:'تعذّر الاتصال بالخدمة. تأكد من اتصالك بالإنترنت وحاول مرة ثانية.' };
-  }
-}
-
-function isLocked(item){ return !item.free && !unlocked; }
+/* الموقع مجاني بالكامل — لا توجد أكواد أو اشتراك */
+function isLocked(item){ return false; }
 
 let items = [
   {id:900, grade:'12', cat:'exam', type:'quizpage', title:'اختبار الدرس: تمثيل مجال الجاذبية (11 سؤال)', lesson:'1-1', fileUrl:'quizzes/g12/lesson1_objective_1-1.html'},
@@ -769,6 +695,7 @@ let items = [
   {id:953, grade:'12', cat:'simulator', type:'simlink', title:'محاكاة الدرس: الدوران تحت تأثير الجاذبية', lesson:'4-1', source:'PhET — Gravity and Orbits', url:'https://phet.colorado.edu/en/simulations/gravity-and-orbits'},
 
   /* الوحدة الثانية: المجالات الكهربائية وقانون كولوم */
+  {id:1012, grade:'12', cat:'simulator', type:'simpage', title:'مختبر كولوم: القوة والمجال الكهربائي وقراءة الميزان', lesson:'4-2', source:'الأستاذ بدر السعيدي', fileUrl:'simulators/g12/coulomb_lab.html', free:true},
   {id:954, grade:'12', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المجال الكهربائي', lesson:'1-2', source:'PhET — Charges and Fields', url:'https://phet.colorado.edu/en/simulations/charges-and-fields'},
   {id:955, grade:'12', cat:'simulator', type:'simlink', title:'محاكاة الدرس: شدة المجال الكهربائي', lesson:'2-2', source:'GeoGebra — Electric Fields & Equipotentials', url:'https://www.geogebra.org/m/khVy6MZa'},
   {id:956, grade:'12', cat:'simulator', type:'simlink', title:'محاكاة الدرس: القوة المؤثّرة على شحنة كهربائية', lesson:'3-2', source:'GeoGebra — Projectiles in an Electric Field', url:'https://www.geogebra.org/m/pCPnUzUQ'},
@@ -1328,6 +1255,7 @@ let items = [
   {id:505, grade:'10', cat:'simulator', type:'simpage', title:'محاكاة الدرس: توصيل المقاومات', lesson:'2-2', source:'الأستاذ بدر السعيدي', fileUrl:'simulators/g10/resistors_lab.html', free:true},
   {id:506, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المخاطر الكهربائية', lesson:'1-3', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
   {id:507, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: المنصهرات', lesson:'2-3', source:'PhET — Circuit Construction Kit: DC', url:'https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc'},
+  {id:560, grade:'10', cat:'simulator', type:'simpage', title:'مختبر القوى: الاحتكاك ومقاومة الهواء ومحصلة القوى', lesson:'1-4', source:'الأستاذ بدر السعيدي', fileUrl:'simulators/g10/forces_lab.html', free:true},
   {id:508, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: القوى المؤثّرة على قطار الملاهي', lesson:'1-4', source:'PhET — Forces and Motion: Basics', url:'https://phet.colorado.edu/en/simulations/forces-and-motion-basics'},
   {id:509, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: القوى المؤثّرة على المركبة الفضائية', lesson:'2-4', source:'PhET — Forces and Motion: Basics', url:'https://phet.colorado.edu/en/simulations/forces-and-motion-basics'},
   {id:510, grade:'10', cat:'simulator', type:'simlink', title:'محاكاة الدرس: القوّة والكتلة والتسارع', lesson:'3-4', source:'PhET — Forces and Motion: Basics', url:'https://phet.colorado.edu/en/simulations/forces-and-motion-basics'},
@@ -1403,14 +1331,6 @@ let items = [
   {id:1011, grade:'12', cat:'summaries', type:'image', title:'ملخص: العوامل المؤثرة على شدة مجال الجاذبية', lesson:'2-1', fileUrl:'files/g12/lesson2-1_summary.png'},
 ];
 
-/* ===== رموز الاشتراك =====
-   كل طالب يحصل على رمز خاص به من الأستاذ. أضف/احذف رموزاً هنا كما تحتاج.
-   ملاحظة أمانية مهمة: بما أن هذا موقع ثابت بدون خادم، هذه الرموز مكتوبة
-   داخل كود الصفحة ويمكن لأي شخص تقني رؤيتها عبر "عرض المصدر"، كما لا توجد
-   طريقة لمنع طالب من مشاركة رمزه مع غيره أو تتبّع من يستخدم كل رمز.
-   هذا حاجز كافٍ عملياً لصف دراسي عادي، لكنه ليس حماية صارمة حقيقية —
-   تلك تتطلب خادماً وقاعدة بيانات فعلية. */
-const subscriptionCodes = ['PHY-1001','PHY-1002','PHY-1003','PHY-1004','PHY-1005'];
 
 /* ===== Navigation state ===== */
 let stack = [{screen:'home'}];
@@ -1522,28 +1442,9 @@ function renderHome(c){
         </div>
       </div>
 
-      <div class="promo-free-note">🎁 أول درسين من كل صف مفتوحان بالكامل مجاناً (اختبارات، محاكيات، ملخصات) — جرّبهما قبل الاشتراك</div>
-
-      <div class="promo-free-vs-paid">
-        <div class="promo-fv-row">
-          <span class="promo-fv-tag free">مجاناً</span>
-          <span>محتوى أول درسين من كل صف — بدون أي قيود</span>
-        </div>
-        <div class="promo-fv-row">
-          <span class="promo-fv-tag locked">مقفول 🔒</span>
-          <span>بنك الأسئلة الاختبارية ونماذج الحل لباقي دروس الفصل</span>
-        </div>
-      </div>
-
-      <div class="promo-perks">
-        <div class="promo-perk"><span class="promo-perk-check">✓</span> فتح كل أسئلة الاختبارات النهائية بنماذج الحل الرسمية</div>
-        <div class="promo-perk"><span class="promo-perk-check">✓</span> حصة تقوية أسبوعية طوال الفصل الدراسي</div>
-      </div>
-
-      <div class="promo-urgency">⏳ مقاعد حصة التقوية الأسبوعية محدودة لكل مجموعة</div>
+      <div class="promo-free-note">🎁 موقع مدار مجاني بالكامل — كل الاختبارات والمحاكيات والملخصات مفتوحة لجميع الطلاب بلا أي اشتراك أو كود</div>
 
       <div class="promo-links">
-        <a href="https://wa.me/96893669399" target="_blank" rel="noopener" class="promo-link primary">💬 اشترك الآن عبر واتساب</a>
         <a href="https://instagram.com/mr.baderalsaidi" target="_blank" rel="noopener" class="promo-link secondary">📷 mr.baderalsaidi@</a>
       </div>
     </div>
@@ -1636,10 +1537,8 @@ function renderList(c, grade, cat, lesson){
 
 function itemCardHTML(item){
   const cd = catDef(item.cat);
-  const locked = isLocked(item);
   let snippet = '';
-  if(locked) snippet = 'يتطلب الاشتراك مع الأستاذ — اضغط للتفاصيل';
-  else if(item.type==='text') snippet = (item.body||'').slice(0,70)+'…';
+  if(item.type==='text') snippet = (item.body||'').slice(0,70)+'…';
   else if(item.type==='pdf') snippet = 'ملف PDF مرفق — اضغط للمعاينة';
   else if(item.type==='quizpage') snippet = 'اختبار تفاعلي بتصميم خاص — اضغط لفتحه';
   else if(item.type==='quiz') snippet = item.questions.length + ' سؤال — اضغط لبدء الاختبار';
@@ -1649,10 +1548,10 @@ function itemCardHTML(item){
   else if(item.type==='simpage') snippet = 'محاكاة تفاعلية من إعداد الموقع — اضغط للتجربة';
   else if(item.type==='image') snippet = 'ملخص مصوّر — اضغط للمعاينة';
   return `<div class="card" onclick="openItem(${item.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); openItem(${item.id});}">
-    <div class="card-icon" style="background:${cd.color}22; color:${cd.color};">${locked ? '🔒' : cd.badge}</div>
+    <div class="card-icon" style="background:${cd.color}22; color:${cd.color};">${cd.badge}</div>
     <div class="card-body">
       <div class="card-title">${item.title}</div>
-      <div class="card-meta"><span class="tag">${cd.name}</span>${item.free ? '<span class="tag" style="color:var(--success);">مجاني</span>' : ''}</div>
+      <div class="card-meta"><span class="tag">${cd.name}</span></div>
       <div class="card-snippet">${snippet}</div>
     </div>
   </div>`;
@@ -1663,12 +1562,6 @@ function openItem(id){
   const item = items.find(i=>i.id===id);
   document.getElementById('panelTitle').textContent = item.title;
   const body = document.getElementById('panelBody');
-
-  if(isLocked(item)){
-    renderSubscribeScreen(item);
-    document.getElementById('panel').classList.add('open');
-    return;
-  }
 
   if(item.type!=='quiz' && item.type!=='shortset'){
     markItemComplete(item.id);
@@ -1737,38 +1630,6 @@ function openItem(id){
   document.getElementById('panel').classList.add('open');
 }
 function closePanel(){ document.getElementById('panel').classList.remove('open'); }
-
-function renderSubscribeScreen(item){
-  const body = document.getElementById('panelBody');
-  body.innerHTML = `
-    <div class="lock-screen">
-      <div class="lock-icon">🔒</div>
-      <div class="lock-title">هذا المحتوى للمشتركين فقط</div>
-      <p class="lock-text">"${item.title}" جزء من دروس التقوية. اشترك مع الأستاذ بدر السعيدي للحصول على كود يفتح كل المحتوى.</p>
-      <input type="text" id="codeInput" class="search-input" placeholder="أدخل كود الاشتراك هنا" style="text-align:center; margin-bottom:10px;" onkeydown="if(event.key==='Enter'){ event.preventDefault(); submitCode(${item.id}); }">
-      <button class="btn btn-primary" id="codeSubmitBtn" style="width:100%; margin-bottom:10px;" onclick="submitCode(${item.id})">تحقق من الكود</button>
-      <div id="codeError" style="color:var(--danger); font-size:12.5px; text-align:center; margin-bottom:10px; display:none;">الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.</div>
-      <a href="https://wa.me/96893669399" target="_blank" rel="noopener" class="btn btn-ghost" style="display:block; text-decoration:none; text-align:center;">للاشتراك تواصل عبر واتساب</a>
-    </div>
-  `;
-}
-
-async function submitCode(id){
-  const input = document.getElementById('codeInput');
-  const err = document.getElementById('codeError');
-  const btn = document.getElementById('codeSubmitBtn');
-  err.style.display = 'none';
-  const prevLabel = btn ? btn.textContent : '';
-  if(btn){ btn.disabled = true; btn.textContent = 'جارٍ التحقق...'; }
-  const result = await tryUnlock(input.value);
-  if(result.ok){
-    openItem(id);
-  } else {
-    err.textContent = result.error || 'الكود غير صحيح، تأكد منه أو تواصل مع الأستاذ.';
-    err.style.display = 'block';
-    if(btn){ btn.disabled = false; btn.textContent = prevLabel; }
-  }
-}
 
 function downloadText(id){
   const item = items.find(i=>i.id===id);

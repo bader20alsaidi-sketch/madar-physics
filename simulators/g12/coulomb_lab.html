@@ -1,0 +1,357 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر كولوم — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}}
+.steps li,.say,.rule{overflow-x:auto}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر كولوم</h1><p class="sub">الوحدة الأولى: المجالات الكهربائية — قانون كولوم والمجالات الشعاعية</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([+\-\u2212]?[0-9A-Za-z\u00B5\u03BC][0-9A-Za-z\u00B5\u03BC .,+\-\u2212\u00D7=\/%]*[0-9A-Za-z%\u00B5\u03BC]|[0-9A-Za-z\u00B5\u03BC])/g,'\u2066$1\u2069');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine ---------- */
+let tick=null,raf=0,lastT=0,curTab='law';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+const K=9e9;
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci(x,d=2){if(x===0)return'0';const s=x<0?'−':'';x=Math.abs(x);let e=Math.floor(Math.log10(x)+1e-12),m=x/10**e;if(+m.toFixed(d)>=10){m/=10;e++}return `${s}${+m.toFixed(d)}×10${String(e).split('').map(c=>SUP[c]).join('')}`}
+function fm(x,d=3){if(x===0)return'0';const a=Math.abs(x);if(a>=0.01&&a<10000){let t=x.toPrecision(d);if(t.includes('.')&&!t.includes('e'))t=t.replace(/0+$/,'').replace(/\.$/,'');return String(+t)}return sci(x,d-1)}
+const Q=(q)=>q>0?'+'+q:q<0?'−'+Math.abs(q):'0';           // signed label, number only
+const same=(a,b)=>Math.sign(a)===Math.sign(b);
+const TABS=[['law','قانون كولوم'],['ratio','كيف تتغير القوة؟'],['sph','الكرات المشحونة'],['field','المجال حول شحنة'],['null','نقطة التعادل'],['bal','قراءة الميزان'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({law:tabLaw,ratio:tabRatio,sph:tabSph,field:tabField,null:tabNull,bal:tabBal,quiz:tabQuiz})[k]();startLoop()}
+const chargeSvg=(x,y,q,r=22)=>{const p=q>0,z=q===0;return `<circle cx="${x}" cy="${y}" r="${r}" fill="${z?'#c8cfd8':p?'#e0524a':'#3b7ddd'}" stroke="#1a1a1a" stroke-width="2.4"/>`+tx(x,y+7,z?'0':p?'+':'−',{s:r*.9,w:700,f:'#fff'})};
+const flen=(F)=>clamp(28+34*Math.log10(1+F*20),28,200);
+
+/* =====================================================================
+   1) قانون كولوم
+   ===================================================================== */
+function tabLaw(){
+  const W={q1:4,q2:6,r:120};     // µC, µC, cm
+  ctrl.innerHTML=`<div><p class="gt">نوع الشحنة الأولى</p>${seg('s1',[['p','موجبة'],['n','سالبة']],'p')}</div>`+slider('q1','مقدار الشحنة الأولى',1,10,1,4,'µC')+`<div><p class="gt">نوع الشحنة الثانية</p>${seg('s2',[['p','موجبة'],['n','سالبة']],'p')}</div>`+slider('q2','مقدار الشحنة الثانية',1,10,1,6,'µC')+slider('r','المسافة بين المركزين',20,150,5,120,'cm')+`<div class="btns"><button class="btn" id="ex">مثال الدرس: 4 و6 ميكروكولوم والمسافة 1.2 متر</button></div>`;
+  setTalk(['تؤثر أي شحنتين نقطيتين إحداهما في الأخرى بقوة تتناسب طرديًا مع حاصل ضرب الشحنتين وعكسيًا مع مربع المسافة بين مركزيهما.','المتشابهتان تتنافران والمختلفتان تتجاذبان: غيّر نوع إحدى الشحنتين وراقب اتجاه السهمين.','لاحظ أن القوتين متساويتان في المقدار ومتعاكستان في الاتجاه مهما اختلفت الشحنتان (قانون نيوتن الثالث).','حوّل μC إلى C وcm إلى m قبل التعويض، وربّع المسافة: هذه أكثر أخطاء الطلاب.','وحدة k هي N m² C⁻²، ونتحقق منها من F = kQ₁Q₂/r².']);
+  let s1=1,s2=1;
+  const sl={};['q1','q2','r'].forEach(k=>sl[k]=bindSlider(k,{q1:'µC',q2:'µC',r:'cm'}[k],v=>{W[k]=v;render()}));
+  bindSeg('s1',k=>{s1=k==='p'?1:-1;render()});bindSeg('s2',k=>{s2=k==='p'?1:-1;render()});
+  $('ex').onclick=()=>{W.q1=4;W.q2=6;W.r=120;s1=s2=1;sl.q1.set(4);sl.q2.set(6);sl.r.set(120);$('s1').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==='p'));$('s2').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==='p'));render()};
+  function render(){
+    const rm=W.r/100,Fm=K*W.q1*1e-6*W.q2*1e-6/(rm*rm),rep=s1===s2;
+    const d=60+W.r*2.6,x1=350-d/2,x2=350+d/2,y=170,L=flen(Fm);
+    let s=`<line x1="${x1}" y1="${y+60}" x2="${x2}" y2="${y+60}" stroke="${GRAY}" stroke-width="2"/><line x1="${x1}" y1="${y+52}" x2="${x1}" y2="${y+68}" stroke="${GRAY}" stroke-width="2"/><line x1="${x2}" y1="${y+52}" x2="${x2}" y2="${y+68}" stroke="${GRAY}" stroke-width="2"/>`+tx(350,y+92,'r = '+W.r+' cm',{f:GRAY,s:15});
+    s+=chargeSvg(x1,y,s1*W.q1)+chargeSvg(x2,y,s2*W.q2)+tx(x1,y-38,(s1>0?'موجبة ':'سالبة ')+W.q1+' µC',{s:14})+tx(x2,y-38,(s2>0?'موجبة ':'سالبة ')+W.q2+' µC',{s:14});
+    const o=26;
+    if(rep){s+=arr(x1-o,y,x1-o-L,y,GREEN,6)+arr(x2+o,y,x2+o+L,y,GREEN,6)}else{s+=arr(x1+o,y,x1+o+Math.min(L,d/2-o-8),y,GREEN,6)+arr(x2-o,y,x2-o-Math.min(L,d/2-o-8),y,GREEN,6)}
+    s+=tx(350,40,rep?'تنافر':'تجاذب',{s:24,f:rep?RED:BLUE,w:700})+tx(350,70,'القوتان متساويتان في المقدار ومتعاكستان في الاتجاه',{s:13,f:GRAY});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">القوة F</div><div class="v">${fm(Fm)} N</div></div><div class="chip"><div class="k">الشحنة الأولى</div><div class="v">${Q(s1*W.q1)} µC</div></div><div class="chip"><div class="k">الشحنة الثانية</div><div class="v">${Q(s2*W.q2)} µC</div></div><div class="chip"><div class="k">نوع القوة</div><div class="v" style="direction:rtl">${rep?'تنافر':'تجاذب'}</div></div></div>
+    <ul class="steps"><li>نحوّل الوحدات: ${num(W.q1+' µC = '+W.q1+'×10⁻⁶ C')}</li><li>${num(W.q2+' µC = '+W.q2+'×10⁻⁶ C')}</li><li>${num('r = '+W.r+' cm = '+fm(rm)+' m')}</li><li>نعوّض في القانون: ${num('F = 9×10⁹ × ( '+W.q1+'×10⁻⁶ × '+W.q2+'×10⁻⁶ ) / ( '+fm(rm)+' )² = '+fm(Fm)+' N')}</li></ul>
+    <p class="say ${rep?'':'ok'}">${rep?'الشحنتان متشابهتان: <b>تتنافران</b>.':'الشحنتان مختلفتان: <b>تتجاذبان</b>.'} مقدار القوة على كل شحنة ${num(fm(Fm)+' N')}.</p>
+    <p class="rule"><b>اربط بالدرس:</b> F = kQ₁Q₂ / r² ، وk = 1/(4πε₀) = 9×10⁹ N m² C⁻². نربّع المسافة بالمتر، ونحدد التجاذب أو التنافر من نوع الشحنتين (لا نعوّض الإشارة).</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) كيف تتغير القوة؟
+   ===================================================================== */
+function tabRatio(){
+  const W={a:1,b:1,c:1};      // multipliers: Q1, Q2, r
+  ctrl.innerHTML=`<p class="gt">الحالة الأصلية: الشحنتان 2 و3 ميكروكولوم والمسافة 10 سنتيمتر</p><div><p class="gt">معامل تغيّر الشحنة الأولى ×</p>${seg('a',[['0.5','½'],['1','1'],['2','2'],['3','3'],['4','4']],'1')}</div><div><p class="gt">معامل تغيّر الشحنة الثانية ×</p>${seg('b',[['0.5','½'],['1','1'],['2','2'],['3','3'],['4','4']],'1')}</div><div><p class="gt">معامل تغيّر المسافة ×</p>${seg('c',[['0.5','½'],['1','1'],['2','2'],['3','3'],['4','4']],'1')}</div><div><p class="gt">أمثلة سريعة</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['عند مقارنة حالتين لا نحتاج إلى قيمة k ولا إلى القيم الكاملة: نستخدم عوامل التغيّر فقط.','F′/F = (Q₁′/Q₁)(Q₂′/Q₂)(r/r′)² ← جرّب مضاعفة شحنة واحدة (القوة ×2) ثم الشحنتين (×4).','ضاعف المسافة: القوة تصبح الربع، وخفّضها إلى النصف: القوة ×4، وثلاثة أمثال المسافة: القوة /9.','اربط بالرسم البياني: F مع 1/r² خط مستقيم يمر بنقطة الأصل وميله kQ₁Q₂.','قارن مع قانون الجذب العام: كلاهما تربيع عكسي، لكن الجاذبية تجاذب فقط.']);
+  ['a','b','c'].forEach(k=>bindSeg(k,v=>{W[k]=parseFloat(v);render()}));
+  const pre=[['شحنة ×2',{a:2,b:1,c:1}],['الشحنتان ×2',{a:2,b:2,c:1}],['المسافة ×2',{a:1,b:1,c:2}],['المسافة ×½',{a:1,b:1,c:.5}],['المسافة ×3',{a:1,b:1,c:3}],['شحنة ×3 والمسافة ×3',{a:3,b:1,c:3}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  const lab={'0.5':'½'};
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;Object.assign(W,pre[b.dataset.i][1]);['a','b','c'].forEach(k=>$(k).querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',parseFloat(x.dataset.k)===W[k])));render()};
+  function scene(x0,r,qa,qb,F,title,col){const d=Math.min(250,36+r*7),x1=x0-d/2,x2=x0+d/2,y=120,L=flen(F);let s=tx(x0,36,title,{s:17,w:700});s+=chargeSvg(x1,y,1,18)+chargeSvg(x2,y,1,18)+tx(x1,y-30,qa+' µC',{s:13})+tx(x2,y-30,qb+' µC',{s:13});s+=arr(x1-22,y,x1-22-Math.min(L,55),y,col,6)+arr(x2+22,y,x2+22+Math.min(L,55),y,col,6);s+=tx(x0,y+56,'r = '+fm(r)+' cm',{s:14,f:GRAY});return s}
+  function render(){
+    const q1=2,q2=3,r=10,F0=K*q1*q2*1e-12/((r/100)**2),q1n=q1*W.a,q2n=q2*W.b,rn=r*W.c,F1=K*q1n*q2n*1e-12/((rn/100)**2),ratio=W.a*W.b/(W.c*W.c);
+    let s=scene(175,r,q1,q2,F0,'الحالة الأصلية',GREEN)+scene(525,rn/1.0,fm(q1n),fm(q2n),F1,'بعد التغيير',ORANGE);
+    // F vs 1/r² graph strip
+    const gx=70,gy=232,gw=560,gh=82;s+=`<line x1="${gx}" y1="${gy+gh}" x2="${gx+gw}" y2="${gy+gh}" stroke="currentColor" stroke-width="2"/><line x1="${gx}" y1="${gy}" x2="${gx}" y2="${gy+gh}" stroke="currentColor" stroke-width="2"/>`+tx(gx+gw/2,gy+gh+30,'1/r²',{s:12,f:GRAY})+tx(gx-8,gy+8,'F',{s:14,f:GRAY});
+    const maxX=1/(0.5*10)**2*1e0,fx=(rr)=>gx+Math.min(1,(1/(rr*rr))/(1/25))*gw,fy=(F,k)=>gy+gh-Math.min(1,F/(k))*gh;const kk=K*q1n*q2n*1e-12;const top=Math.max(F0,F1,1e-9)*1.15;
+    s+=`<line x1="${gx}" y1="${gy+gh}" x2="${gx+gw}" y2="${gy+gh-(K*q1n*q2n*1e-12*1e4/25)/top*gh}" stroke="${GRAY}" stroke-width="2" stroke-dasharray="5 5"/>`;
+    s+=`<circle cx="${fx(r)}" cy="${gy+gh-F0/top*gh*(1)}" r="7" fill="${GREEN}"/><circle cx="${fx(rn)}" cy="${gy+gh-F1/top*gh}" r="7" fill="${ORANGE}"/>`;
+    svg.innerHTML=s;
+    const ratStr=ratio===1?'1':fm(ratio);
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">F الأصلية</div><div class="v">${fm(F0)} N</div></div><div class="chip"><div class="k">F الجديدة</div><div class="v">${fm(F1)} N</div></div><div class="chip"><div class="k">النسبة F′/F</div><div class="v">${ratStr}</div></div></div>
+    <ul class="steps"><li>${num('F′/F = ('+fm(W.a)+') × ('+fm(W.b)+') × ( 1 / '+fm(W.c)+' )² = '+ratStr)}</li><li>${ratio>1?`القوة صارت ${num(ratStr)} أمثال قيمتها: <b>تزداد</b>.`:ratio<1?`القوة صارت ${num(ratStr)} من قيمتها: <b>تقل</b>.`:'لم تتغير القوة.'}</li></ul>
+    <p class="say">لاحظ أننا لم نحتج إلى k ولا إلى القيم الكاملة: ${num('F′ = F × '+ratStr)}.</p>
+    <p class="rule"><b>اربط بالدرس:</b> قانون كولوم قانون تربيع عكسي: عند مضاعفة المسافة تقل القوة إلى الربع، وعند ثلاثة أمثالها تقل إلى التسع. وقانون الجذب العام تربيع عكسي أيضًا لكنه تجاذب فقط.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) الكرات المشحونة
+   ===================================================================== */
+function tabSph(){
+  const W={X:4,Y:6,Z:10,q1:5,q2:5,wrong:false};
+  ctrl.innerHTML=slider('X','نصف قطر الكرة الأولى (X)',1,8,1,4,'cm')+slider('Y','نصف قطر الكرة الثانية (Y)',1,8,1,6,'cm')+slider('Z','الفجوة بين السطحين (Z)',2,40,1,10,'cm')+slider('q1','شحنة الكرة الأولى',1,10,1,5,'µC')+slider('q2','شحنة الكرة الثانية',1,10,1,5,'µC')+`<label class="chk"><input type="checkbox" id="wr">أظهر الخطأ الشائع (المسافة بين السطحين)</label>`;
+  setTalk(['في قانون كولوم لكرتين مشحونتين: نعتبر شحنة كل كرة شحنة نقطية في مركزها (بالنسبة لأي نقطة خارجها).','المسافة في القانون هي المسافة بين المركزين r = X + Y + Z حيث X وY نصفا القطرين وZ الفجوة بين السطحين.','غيّر نصف القطر وراقب أن r تتغير بينما الفجوة ثابتة، ثم قارن القوة الصحيحة بالقوة الخاطئة عند استعمال Z فقط.','انتبه: القطر يختلف عن نصف القطر، ونصف القطر هو الذي يدخل في الجمع.']);
+  ['X','Y','Z','q1','q2'].forEach(k=>bindSlider(k,k.startsWith('q')?'µC':'cm',v=>{W[k]=v;render()}));$('wr').onchange=e=>{W.wrong=e.target.checked;render()};
+  function render(){
+    const r=W.X+W.Y+W.Z,F=K*W.q1*W.q2*1e-12/((r/100)**2),Fw=K*W.q1*W.q2*1e-12/((W.Z/100)**2),sc=Math.min(9,560/(r+W.X*.2)),cy=170,x1=70+W.X*sc,x2=x1+r*sc;
+    let s=`<circle cx="${x1}" cy="${cy}" r="${W.X*sc}" fill="#f2b3ae" stroke="#1a1a1a" stroke-width="2.5"/><circle cx="${x2}" cy="${cy}" r="${W.Y*sc}" fill="#f2b3ae" stroke="#1a1a1a" stroke-width="2.5"/>`;
+    s+=`<circle cx="${x1}" cy="${cy}" r="5" fill="#1a1a1a"/><circle cx="${x2}" cy="${cy}" r="5" fill="#1a1a1a"/>`+tx(x1,cy-W.X*sc-12,'+'+W.q1+' µC',{s:14})+tx(x2,cy-W.Y*sc-12,'+'+W.q2+' µC',{s:14});
+    s+=`<line x1="${x1}" y1="${cy}" x2="${x2}" y2="${cy}" stroke="${BLUE}" stroke-width="2.4" stroke-dasharray="7 5"/>`;
+    s+=`<line x1="${x1}" y1="${cy}" x2="${x1+W.X*sc}" y2="${cy-0}" stroke="${ORANGE}" stroke-width="6"/><line x1="${x2-W.Y*sc}" y1="${cy}" x2="${x2}" y2="${cy}" stroke="${ORANGE}" stroke-width="6"/>`;
+    s+=tx(x1+W.X*sc/2,cy+22,'X',{s:15,f:ORANGE,w:700})+tx(x2-W.Y*sc/2,cy+22,'Y',{s:15,f:ORANGE,w:700})+tx((x1+W.X*sc+x2-W.Y*sc)/2,cy+22,'Z',{s:15,f:GRAY,w:700});
+    s+=`<line x1="${x1}" y1="${cy+W.X*sc+34}" x2="${x2}" y2="${cy+W.X*sc+34}" stroke="${BLUE}" stroke-width="2.5"/>`+tx((x1+x2)/2,cy+W.X*sc+60,'r = X + Y + Z = '+r+' cm',{s:16,f:BLUE,w:700});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">r (بين المركزين)</div><div class="v">${r} cm</div></div><div class="chip"><div class="k">القوة الصحيحة</div><div class="v">${fm(F)} N</div></div>${W.wrong?`<div class="chip"><div class="k">إذا استعملنا Z فقط (خطأ)</div><div class="v" style="color:var(--bad)">${fm(Fw)} N</div></div>`:''}</div>
+    <ul class="steps"><li>${num('r = '+W.X+' + '+W.Y+' + '+W.Z+' = '+r+' cm = '+fm(r/100)+' m')}</li><li>${num('F = 9×10⁹ × ( '+W.q1+'×10⁻⁶ × '+W.q2+'×10⁻⁶ ) / ( '+fm(r/100)+' )² = '+fm(F)+' N')}</li></ul>
+    <p class="say ${W.wrong?'':'ok'}">${W.wrong?`الخطأ في استعمال الفجوة ${num(W.Z+' cm')} فقط يعطي قوة ${num(fm(Fw))} N أكبر بـ ${num(fm(Fw/F))} مرة من الصحيحة!`:'نعتبر شحنة كل كرة شحنة نقطية في مركزها، فنستعمل المسافة بين المركزين.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> بالنسبة لنقطة خارج موصل كروي يمكن اعتبار الشحنة على الكرة شحنة نقطية في مركزها، والمسافة التي نستخدمها هي بين المركزين: نصف القطر الأول + الفجوة + نصف القطر الثاني.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) المجال حول شحنة نقطية
+   ===================================================================== */
+function tabField(){
+  const W={q:5,sg:1,r:30,R:10};
+  ctrl.innerHTML=`<div><p class="gt">نوع الشحنة</p>${seg('sg',[['p','موجبة'],['n','سالبة']],'p')}</div>`+slider('q','مقدار الشحنة',1,10,1,5,'µC')+slider('R','نصف قطر الكرة (0 = شحنة نقطية)',0,20,1,10,'cm')+slider('r','بعد النقطة عن المركز r',5,80,1,30,'cm')+`<div class="btns"><button class="btn" id="surf">انتقل إلى سطح الكرة</button><button class="btn" id="ex">مثال الدرس: 2 µC</button></div>`;
+  setTalk(['المجال الكهربائي حول شحنة نقطية شعاعي: يخرج من الشحنة الموجبة ويتجه نحو السالبة.','E = kQ/r² = Q/(4πε₀r²) ← شدة المجال تتناسب عكسيًا مع مربع البعد: عند 3r تصبح E/9.','جرّب كرة نصف قطرها 10 cm ثم اطلب شدة المجال عند السطح: r = نصف القطر وليس القطر.','انتبه: داخل الكرة لا تنطبق المعادلة في هذا الدرس، لذلك لا يقل r عن نصف القطر.','مثال الدرس: كرة موصلة قطرها 20 cm وشحنتها +2.0 µC: عند 25 cm تكون E = 2.88×10⁵ N C⁻¹ وعند السطح 1.8×10⁶ N C⁻¹.']);
+  const sl={};['q','R','r'].forEach(k=>sl[k]=bindSlider(k,{q:'µC',R:'cm',r:'cm'}[k],v=>{W[k]=v;if(W.r<W.R)W.r=W.R;$('r').value=W.r;$('r_o').textContent=W.r+' cm';render()}));
+  bindSeg('sg',k=>{W.sg=k==='p'?1:-1;render()});
+  $('surf').onclick=()=>{W.r=Math.max(5,W.R||5);sl.r.set(W.r);render()};
+  $('ex').onclick=()=>{W.q=2;W.sg=1;W.R=10;W.r=25;sl.q.set(2);sl.R.set(10);sl.r.set(25);$('sg').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==='p'));render()};
+  const Ef=(q,rr)=>K*q*1e-6/((rr/100)**2);
+  function render(){
+    const rr=Math.max(W.r,W.R,1),E=Ef(W.q,rr),cx=210,cy=180,pr=W.R?Math.max(12,W.R*3.2):10,px=cx+Math.min(rr,80)*3.4;
+    let s='';
+    for(let k=0;k<12;k++){const a=k*Math.PI/6,r1=pr+6,r2=pr+60;const x1=cx+r1*Math.cos(a),y1=cy+r1*Math.sin(a),x2=cx+r2*Math.cos(a),y2=cy+r2*Math.sin(a);s+=W.sg>0?arr(x1,y1,x2,y2,GRAY,2.2):arr(x2,y2,x1,y1,GRAY,2.2)}
+    s+=`<circle cx="${cx}" cy="${cy}" r="${pr}" fill="${W.sg>0?'#f2b3ae':'#b3cdf2'}" stroke="#1a1a1a" stroke-width="2.4"/>`+tx(cx,cy+8,W.sg>0?'+':'−',{s:W.R?22:14,w:700});
+    s+=`<line x1="${cx}" y1="${cy}" x2="${px}" y2="${cy}" stroke="${BLUE}" stroke-width="2" stroke-dasharray="6 4"/>`+tx((cx+px)/2,cy+pr+34,'r = '+rr+' cm',{s:14,f:BLUE});
+    s+=`<circle cx="${px}" cy="${cy}" r="7" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="2"/>`;
+    const L=clamp(26+40*Math.log10(1+E/3e4),26,120);s+=W.sg>0?arr(px,cy-18,px+L,cy-18,GREEN,6):arr(px,cy-18,px-Math.min(L,px-cx-12),cy-18,GREEN,6);s+=tx(px,cy-32,'E',{s:17,f:GREEN,w:700});
+    // E-r graph
+    const gx=470,gy=60,gw=200,gh=230;s+=`<line x1="${gx}" y1="${gy+gh}" x2="${gx+gw}" y2="${gy+gh}" stroke="currentColor" stroke-width="2"/><line x1="${gx}" y1="${gy}" x2="${gx}" y2="${gy+gh}" stroke="currentColor" stroke-width="2"/>`+tx(gx+gw/2,gy+gh+26,'البعد r',{s:13,f:GRAY})+tx(gx-6,gy-8,'E',{s:14,f:GRAY});
+    const r0=Math.max(W.R,5),Emax=Ef(W.q,r0);let pts='';for(let r=r0;r<=80;r+=1){pts+=`${(gx+(r-5)/75*gw).toFixed(1)},${(gy+gh-Ef(W.q,r)/Emax*gh).toFixed(1)} `}
+    s+=`<polyline points="${pts}" fill="none" stroke="${ORANGE}" stroke-width="3.2"/><circle cx="${gx+(rr-5)/75*gw}" cy="${gy+gh-E/Emax*gh}" r="6" fill="${GREEN}"/>`;
+    svg.innerHTML=s;
+    const E2=Ef(W.q,2*rr),E3=Ef(W.q,3*rr);
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">E عند r</div><div class="v">${fm(E)} N/C</div></div><div class="chip"><div class="k">E عند 2r</div><div class="v">${fm(E2)} N/C</div></div><div class="chip"><div class="k">E عند 3r</div><div class="v">${fm(E3)} N/C</div></div><div class="chip"><div class="k">الاتجاه</div><div class="v" style="direction:rtl">${W.sg>0?'للخارج':'نحو الشحنة'}</div></div></div>
+    <ul class="steps"><li>${num('E = kQ / r² = 9×10⁹ × '+W.q+'×10⁻⁶ / ( '+fm(rr/100)+' )² = '+fm(E)+' N C⁻¹')}</li>${W.R&&rr===W.R?`<li>عند سطح الكرة نستخدم <b>نصف القطر</b> ${num('r = '+W.R+' cm')} (والقطر ${num(2*W.R+' cm')} لا يُستعمل).</li>`:''}<li>عند ثلاثة أمثال البعد: ${num('E′ = E / 9 = '+fm(E/9)+' N C⁻¹')} ✓</li></ul>
+    <p class="say ok">${W.sg>0?'المجال يخرج من الشحنة الموجبة':'المجال يتجه نحو الشحنة السالبة'} شعاعيًا، وشدته تتناسب عكسيًا مع مربع البعد.</p>
+    <p class="rule"><b>اربط بالدرس:</b> E = kQ/r² = Q/(4πε₀r²) ، وE ∝ 1/r²: عند مضاعفة البعد تصبح E الربع، وعند ثلاثة أمثاله التسع.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) نقطة التعادل
+   ===================================================================== */
+function tabNull(){
+  const W={a:9,sa:1,b:49,sb:-1,d:40,p:70};   // µC magnitudes, signs, separation cm, probe position cm from q1 (axis to right)
+  ctrl.innerHTML=`<div><p class="gt">الشحنة الأولى (يسار)</p>${seg('sa',[['p','موجبة'],['n','سالبة']],'p')}</div>`+slider('a','مقدار الشحنة الأولى',1,60,1,9,'µC')+`<div><p class="gt">الشحنة الثانية (يمين)</p>${seg('sb',[['p','موجبة'],['n','سالبة']],'n')}</div>`+slider('b','مقدار الشحنة الثانية',1,60,1,49,'µC')+slider('d','المسافة بينهما',20,80,5,40,'cm')+slider('p','موضع شحنة اختبار (من الأولى)',-60,140,1,70,'cm')+`<div class="btns"><button class="btn primary" id="go">اذهب إلى نقطة التعادل</button><button class="btn" id="ex">مثال الدرس: +9 و−49 µC</button><button class="btn" id="ex2">متشابهتان 4 و16</button></div>`;
+  setTalk(['نقطة التعادل: النقطة التي تنعدم عندها محصلة شدة المجال (E₁ = E₂ في المقدار ومتعاكسان).','الشحنتان المتشابهتان: النقطة بينهما وأقرب إلى الأصغر. المختلفتان: النقطة خارجهما وأقرب إلى الأصغر.','حرّك شحنة الاختبار وراقب السهمين الأخضر والأحمر ثم الناتج: يصبح صفرًا عند نقطة التعادل.','في المثال: k·9/x² = k·49/(x+0.4)² فنأخذ الجذر 3/x = 7/(x+0.4) ← x = 0.30 m من +9 µC.','إذا كانت الشحنتان مختلفتين ومتساويتين في المقدار فلا توجد نقطة تعادل.']);
+  const sl={};['a','b','d','p'].forEach(k=>sl[k]=bindSlider(k,k==='a'||k==='b'?'µC':'cm',v=>{W[k]=v;render()}));
+  bindSeg('sa',k=>{W.sa=k==='p'?1:-1;render()});bindSeg('sb',k=>{W.sb=k==='p'?1:-1;render()});
+  const setSeg=(id,s)=>$(id).querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===(s>0?'p':'n')));
+  function nullPt(){const {a,b,sa,sb,d}=W,sa_=Math.sqrt(a),sb_=Math.sqrt(b);
+    if(sa===sb)return {x:d*sa_/(sa_+sb_),kind:'بين الشحنتين'};
+    if(a===b)return null;
+    if(a<b)return {x:-d*sa_/(sb_-sa_),kind:'خارجهما، أقرب إلى الشحنة الأولى'};
+    return {x:d+d*sb_/(sa_-sb_),kind:'خارجهما، أقرب إلى الشحنة الثانية'}}
+  $('go').onclick=()=>{const n=nullPt();if(n){W.p=Math.round(n.x*10)/10;sl.p.set(clamp(W.p,-60,140));$('p').value=clamp(W.p,-60,140)}render()};
+  $('ex').onclick=()=>{Object.assign(W,{a:9,sa:1,b:49,sb:-1,d:40});sl.a.set(9);sl.b.set(49);sl.d.set(40);setSeg('sa',1);setSeg('sb',-1);render()};
+  $('ex2').onclick=()=>{Object.assign(W,{a:4,sa:1,b:16,sb:1,d:40});sl.a.set(4);sl.b.set(16);sl.d.set(40);setSeg('sa',1);setSeg('sb',1);render()};
+  const Ex=(q,x0,p)=>{const dd=(p-x0)/100;if(Math.abs(dd)<1e-4)return NaN;return K*q*1e-6*Math.sign(dd)/(dd*dd)};
+  function render(){
+    const n=nullPt(),span=Math.max(W.d*1.6+40,100),x0cm=-Math.min(0,Math.min(W.p,n?n.x:0)-15),sc=600/(Math.max(W.d,W.p,n?n.x:0,W.d)+x0cm+30);
+    const X=(cm)=>50+(cm+x0cm)*sc,y=170,q1=W.sa*W.a,q2=W.sb*W.b;
+    let s=`<line x1="30" y1="${y}" x2="680" y2="${y}" stroke="${GRAY}" stroke-width="2"/>`+chargeSvg(X(0),y,q1,20)+chargeSvg(X(W.d),y,q2,20)+tx(X(0),y-34,Q(q1)+' µC',{s:14})+tx(X(W.d),y-34,Q(q2)+' µC',{s:14});
+    if(n)s+=`<line x1="${X(n.x)}" y1="${y-60}" x2="${X(n.x)}" y2="${y+60}" stroke="${GREEN}" stroke-width="2.4" stroke-dasharray="5 4"/>`+tx(X(n.x),y+82,'نقطة التعادل',{s:14,f:GREEN,w:700});
+    const e1=Ex(q1,0,W.p),e2=Ex(q2,W.d,W.p),en=(isNaN(e1)||isNaN(e2))?NaN:e1+e2,px=X(W.p);
+    s+=`<circle cx="${px}" cy="${y}" r="8" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="2"/>`;
+    const al=e=>Math.sign(e)*clamp(14+30*Math.log10(1+Math.abs(e)/5e5),14,110);
+    if(!isNaN(e1))s+=arr(px,y+34,px+al(e1),y+34,GREEN,5);if(!isNaN(e2))s+=arr(px,y+56,px+al(e2),y+56,RED,5);
+    if(!isNaN(en)&&Math.abs(en)>1)s+=arr(px,y-26,px+al(en),y-26,ORANGE,7);
+    s+=tx(350,40,'E₁ أخضر ، E₂ أحمر ، المحصلة برتقالي',{s:14,f:GRAY});
+    svg.innerHTML=s;
+    const isNull=!isNaN(en)&&Math.abs(en)<Math.max(1,0.002*Math.max(Math.abs(e1),Math.abs(e2)));
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">E₁ عند الاختبار</div><div class="v">${isNaN(e1)?'—':fm(e1)} N/C</div></div><div class="chip"><div class="k">E₂ عند الاختبار</div><div class="v">${isNaN(e2)?'—':fm(e2)} N/C</div></div><div class="chip"><div class="k">المحصلة</div><div class="v">${isNaN(en)?'—':fm(en)} N/C</div></div></div>
+    <ul class="steps">${n?`<li>نوع الشحنتين: ${same(q1,q2)?'متشابهتان فالنقطة <b>بينهما وأقرب للأصغر</b>':'مختلفتان فالنقطة <b>خارجهما وأقرب للأصغر</b>'}.</li><li>${num('E₁ = E₂ ⟹ '+W.a+' / x² = '+W.b+' / ( '+(same(q1,q2)?W.d+' − x':'x + '+W.d)+' )²')} ثم نأخذ الجذر التربيعي للطرفين.</li><li>الناتج: النقطة ${n.kind} وتبعد ${num(fm(Math.abs(n.x))+' cm')} ${n.x<0?'عن الشحنة الأولى (يسارها)':n.x>W.d?`عن الشحنة الثانية (يمينها): ${num(fm(n.x-W.d)+' cm')}`:'عن الشحنة الأولى'}.</li>`:'<li>الشحنتان مختلفتان ومتساويتان في المقدار: <b>لا توجد نقطة تعادل</b>.</li>'}</ul>
+    <p class="say ${isNull?'ok':''}">${isNull?'المحصلة تساوي صفرًا: أنت عند نقطة التعادل.':isNaN(en)?'ابتعد قليلًا عن إحدى الشحنتين.':'المحصلة لا تساوي صفرًا في هذا الموضع: E₁ وE₂ لا يتساويان أو لا يتعاكسان.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> عند نقطة التعادل E₁ = E₂ (مع تعاكس الاتجاهين) ثم نأخذ الجذر التربيعي للطرفين. المتشابهتان: بينهما. المختلفتان: خارجهما وأقرب إلى الشحنة الأصغر.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   6) قراءة الميزان
+   ===================================================================== */
+function tabBal(){
+  const W={q1:60,q2:-45,r:5,Wt:0.0482,on:true};
+  ctrl.innerHTML=`<p class="gt">الكرة السفلى: نصف قطرها 0.80 cm ووزنها 0.0482 N</p>`+slider('q1','شحنة الكرة السفلى',-100,100,5,60,'nC')+slider('q2','شحنة الكرة العلوية',-100,100,5,-45,'nC')+slider('r','المسافة بين المركزين',3,15,0.5,5,'cm')+`<label class="chk"><input type="checkbox" id="on" checked>الكرة العلوية موجودة</label><div class="btns"><button class="btn" id="ex">مثال الدرس</button><button class="btn" id="rep">اجعلهما متشابهتين</button></div>`;
+  setTalk(['نضع كرة مشحونة على ميزان: القراءة الأصلية تساوي الوزن (R = mg).','نثبّت فوقها كرة أخرى مشحونة: إذا تجاذبتا تسحب العلوية السفلى إلى الأعلى فتقل القراءة R = mg − F.','وإذا تنافرتا تدفع العلوية السفلى إلى الأسفل فتزداد القراءة R = mg + F.','جرّب مثال الدرس: F = 9.7×10⁻³ N فتصبح القراءة 0.0385 N.','وفي مثال الدرس شدة المجال عند سطح الكرة السفلى E = kQ/r² = 8.4×10⁶ N C⁻¹ (r = 0.80 cm نصف القطر).']);
+  const sl={};['q1','q2','r'].forEach(k=>sl[k]=bindSlider(k,{q1:'nC',q2:'nC',r:'cm'}[k],v=>{W[k]=v;render()}));$('on').onchange=e=>{W.on=e.target.checked;render()};
+  $('ex').onclick=()=>{Object.assign(W,{q1:60,q2:-45,r:5,on:true});sl.q1.set(60);sl.q2.set(-45);sl.r.set(5);$('on').checked=true;render()};
+  $('rep').onclick=()=>{W.q2=Math.abs(W.q2||45)*Math.sign(W.q1||1);sl.q2.set(W.q2);render()};
+  function render(){
+    const F=K*Math.abs(W.q1)*Math.abs(W.q2)*1e-18/((W.r/100)**2),att=W.q1*W.q2<0,Fz=(W.on&&W.q1&&W.q2)?F:0,R=W.on&&W.q1&&W.q2?(att?W.Wt-F:W.Wt+F):W.Wt,Es=K*Math.abs(W.q1)*1e-9/((0.8e-2)**2);
+    const cx=350,by=270,low=190,up=low-W.r*8-30;
+    let s=`<rect x="250" y="${by}" width="200" height="22" rx="6" fill="#aab4c0" stroke="#1a1a1a" stroke-width="2.4"/><rect x="290" y="${by-8}" width="120" height="10" rx="3" fill="#cfd6df" stroke="#1a1a1a" stroke-width="2"/><rect x="305" y="${by+3}" width="90" height="14" rx="3" fill="#fff" stroke="#1a1a1a" stroke-width="1.6"/>`+tx(cx,by+14,fm(R)+' N',{s:13,w:700});
+    s+=chargeSvg(cx,low,W.q1,18)+tx(cx+34,low+5,'Q₁',{s:14,a:'start'});
+    if(W.on){s+=chargeSvg(cx,up,W.q2,18)+tx(cx+34,up+5,'Q₂',{s:14,a:'start'});
+      s+=`<line x1="${cx-48}" y1="${up}" x2="${cx-48}" y2="${low}" stroke="${BLUE}" stroke-width="2"/>`+tx(cx-58,(up+low)/2+4,W.r+' cm',{s:13,f:BLUE,a:'end'});
+      if(Fz){if(att){s+=arr(cx,low-20,cx,low-20-Math.min(60,10+Fz*3000),GREEN,6)+arr(cx,up+20,cx,up+20+Math.min(60,10+Fz*3000),GREEN,6)}else{s+=arr(cx,low+20,cx,low+20+Math.min(50,10+Fz*3000),RED,6)+arr(cx,up-20,cx,up-20-Math.min(50,10+Fz*3000),RED,6)}}}
+    s+=arr(cx+120,low-10,cx+120,low+50,GREEN,5)+tx(cx+130,low+66,'الوزن',{s:13,f:GREEN,a:'start'});
+    svg.innerHTML=s;
+    const dirTxt=!Fz?'لا توجد قوة كهربائية.':att?'الكرتان مختلفتان: <b>تتجاذبان</b>، فتسحب العلوية السفلى إلى الأعلى وتقل القراءة.':'الكرتان متشابهتان: <b>تتنافران</b>، فتدفع العلوية السفلى إلى الأسفل وتزداد القراءة.';
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">الوزن mg</div><div class="v">${fm(W.Wt)} N</div></div><div class="chip"><div class="k">القوة الكهربائية F</div><div class="v">${fm(Fz)} N</div></div><div class="chip"><div class="k">قراءة الميزان R</div><div class="v">${fm(R)} N</div></div><div class="chip"><div class="k">E عند سطح الكرة السفلى</div><div class="v">${W.q1?fm(Es):'0'} N/C</div></div></div>
+    <ul class="steps">${Fz?`<li>${num('F = kQ₁Q₂ / r²')}</li><li>${num('F = 9×10⁹ × ( '+Math.abs(W.q1)+'×10⁻⁹ × '+Math.abs(W.q2)+'×10⁻⁹ ) / ( '+fm(W.r/100)+' )²')}</li><li>${num('F = '+fm(F)+' N')}</li><li>${num(att?'R = mg − F':'R = mg + F')}</li><li>${num('R = '+fm(W.Wt)+(att?' − ':' + ')+fm(F)+' = '+fm(R)+' N')}</li>`:'<li>بلا كرة علوية مشحونة تكون القراءة تساوي الوزن.</li>'}</ul>
+    <p class="say ${att?'ok':''}">${dirTxt}</p>
+    <p class="rule"><b>اربط بالدرس:</b> عند التنافر R = mg + F وعند التجاذب R = mg − F. وشدة المجال عند سطح كرة نصف قطرها 0.80 cm وشحنتها ${Math.abs(W.q1)} nC تساوي kQ/r² = ${num(fm(Es)+' N C⁻¹')}.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   7) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const S={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: قانون كولوم والتناسب، الكرات، شدة المجال، نقطة التعادل، الميزان.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق قبل الضغط على الخيار.','ركّز على التعليل الذي يظهر بعد الإجابة لأنه يربط الجواب بقاعدة الدرس.','كرّر الأسئلة حتى يتقن الطالب التحويلات وتربيع المسافة.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const N=t=>`<span class="num">${t}</span>`;
+  const mk=(q,right,wrongs,why)=>({q,opts:[right,...wrongs],ans:0,why});
+  const GEN=[
+    ()=>{const a=rnd(1,9),b=rnd(1,9),r=rnd(2,9)*10/100,F=K*a*b*1e-12/(r*r);return mk(`شحنتان نقطيتان ${N(a+' µC')} و${N(b+' µC')} تفصل بين مركزيهما ${N(fm(r*100)+' cm')}. ما مقدار القوة بينهما؟`,N(fm(F)+' N'),[N(fm(F*10)+' N'),N(fm(F/10)+' N'),N(fm(K*a*b*1e-12/((r*100)**2))+' N')],`نحوّل μC إلى C وcm إلى m، ثم نطبّق قانون كولوم ونربّع المسافة، فتكون القوة ${N(fm(F)+' N')}.`)},
+    ()=>({q:'ضوعفت المسافة بين شحنتين نقطيتين. ماذا يحدث لقوة التنافر بينهما؟',opts:['تصبح الربع','تصبح النصف','تتضاعف','تصبح 4 أمثالها'],ans:0,why:'القوة تتناسب عكسيًا مع مربع المسافة: (1/2)² = 1/4.'}),
+    ()=>({q:'ضوعفت إحدى الشحنتين فقط. ماذا يحدث للقوة بينهما؟',opts:['تتضاعف','تصبح 4 أمثالها','تصبح النصف','لا تتغير'],ans:0,why:'القوة تتناسب طرديًا مع حاصل ضرب الشحنتين.'}),
+    ()=>({q:'خُفّضت المسافة بين شحنتين إلى النصف. القوة بينهما:',opts:['تصبح 4 أمثالها','تتضاعف','تصبح النصف','تصبح الربع'],ans:0,why:'F ∝ 1/r² ← (2)² = 4 أمثالها.'}),
+    ()=>({q:'أي العلاقات تعطي وحدة k؟',opts:['N m² C⁻²','N C⁻¹','N m C⁻²','C² N⁻¹ m⁻²'],ans:0,why:'من k = Fr²/(Q₁Q₂) نجد N m² / C² = N m² C⁻².'}),
+    ()=>({q:'ما المسافة التي نستخدمها في قانون كولوم لكرتين مشحونتين؟',opts:['بين مركزيهما','بين سطحيهما','قطر الكرة الأولى','نصف قطر إحداهما'],ans:0,why:'نعتبر الشحنة على كل كرة شحنة نقطية في مركزها، فنستخدم r = X + Y + Z (بين المركزين).'}),
+    ()=>{const q=rnd(1,9),r=rnd(2,9)*10,E=K*q*1e-6/((r/100)**2);return mk(`شدة المجال الكهربائي عند نقطة تبعد ${N(r+' cm')} عن شحنة نقطية مقدارها ${N(q+' µC')} تساوي:`,N(fm(E)+' N C⁻¹'),[N(fm(E*100)+' N C⁻¹'),N(fm(E/100)+' N C⁻¹'),N(fm(K*q*1e-6/(r*r))+' N C⁻¹')],`نحوّل cm إلى m أولًا ثم نطبّق معادلة شدة المجال لشحنة نقطية، فتكون الشدة ${N(fm(E)+' N C⁻¹')}.`)},
+    ()=>{const E=rnd(2,9)*1e4;return mk(`شدة المجال لشحنة نقطية معزولة ${N(sci(E,1)+' N C⁻¹')} عند ${N('20 cm')}. شدته عند ${N('60 cm')} تساوي:`,N(sci(E/9,2)+' N C⁻¹'),[N(sci(E/3,2)+' N C⁻¹'),N(sci(E*3,2)+' N C⁻¹'),N(sci(E*9,2)+' N C⁻¹')],'ثلاثة أمثال البعد: E ∝ 1/r² ← E/9.')},
+    ()=>({q:'اتجاه المجال الكهربائي حول شحنة نقطية سالبة:',opts:['شعاعي نحو الشحنة','شعاعي بعيدًا عن الشحنة','دائري حولها','ثابت الاتجاه'],ans:0,why:'المجال يخرج من الشحنة الموجبة ويتجه نحو السالبة.'}),
+    ()=>({q:'شحنتان متشابهتان مختلفتا المقدار. أين تقع نقطة التعادل؟',opts:['بينهما وأقرب إلى الأصغر','بينهما وأقرب إلى الأكبر','خارجهما وأقرب إلى الأصغر','في منتصف المسافة'],ans:0,why:'المتشابهتان: النقطة بينهما وأقرب إلى الشحنة الأصغر.'}),
+    ()=>({q:'شحنتان مختلفتان مختلفتا المقدار. أين تقع نقطة التعادل؟',opts:['خارجهما وأقرب إلى الأصغر','بينهما وأقرب إلى الأصغر','خارجهما وأقرب إلى الأكبر','لا توجد نقطة تعادل'],ans:0,why:'المختلفتان: النقطة خارجهما وأقرب إلى الشحنة الأصغر.'}),
+    ()=>{const W0=rnd(3,6)/100,F=rnd(1,9)/1000;return mk(`كرة مشحونة قراءة الميزان تحتها ${N(fm(W0)+' N')}. ثُبتت فوقها كرة تتجاذب معها بقوة ${N(fm(F)+' N')}. القراءة الجديدة:`,N(fm(W0-F)+' N'),[N(fm(W0+F)+' N'),N(fm(W0)+' N'),N(fm(F)+' N')],'عند التجاذب تسحب الكرة العلوية السفلى إلى الأعلى فتقل القراءة: R = mg − F.')},
+    ()=>({q:'ما الذي يحدد التجاذب أو التنافر عند استعمال قانون كولوم؟',opts:['نوع الشحنتين','إشارة الشحنة في التعويض','قيمة k','حجم الكرتين'],ans:0,why:'لا نعوّض الإشارة في القانون، بل نحدد التجاذب أو التنافر من نوع الشحنتين.'}),
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();const idx=shuf(g.opts.map((_,i)=>i));
+    S.cur={q:g.q,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans),why:g.why};S.done=false;
+    svg.innerHTML=tx(350,170,'السؤال '+(S.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${S.cur.q}</p><div class="opts">${S.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(S.done)return;S.done=true;S.n++;const i=+b.dataset.i,right=i===S.cur.ans;if(right)S.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===S.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${S.cur.why.replace(/(^|\s)(\d[\d.]*×10[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g,'$1<span class="num">$2</span>')}</p>`;
+      $('qn').textContent=S.n;$('qk').textContent=S.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{S.n=0;S.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+openTab('law');
+</script></body></html>
