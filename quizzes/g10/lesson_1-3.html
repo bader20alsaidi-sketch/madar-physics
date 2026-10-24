@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>اختبار: المخاطر الكهربائية | الهدف 1-3 | فيزياء - الصف العاشر</title>
@@ -348,6 +346,73 @@
     a[href]:after{content:"" !important;}
   }
 
+
+/* ===== صياغة الأسئلة بنمط ورقة الامتحان ===== */
+  .sol-section.nq{padding:16px 18px 14px;}
+  .nq-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;}
+  .nq-num{margin:0;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0;}
+  .nb{display:inline-block;padding:2px 12px;border-radius:999px;font-size:12.5px;font-weight:700;border:1px solid;line-height:1.7;}
+  .nb.exam{background:#e7f1f7;border-color:#b9d3e4;color:var(--primary-dark);}
+  .nb.marks{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nb.mcq{background:#e7f7ea;border-color:#b4dfbd;color:#1a7a3d;}
+  .nb.essay{background:#f1ebfa;border-color:#d3c3ee;color:#5b3ea0;}
+  .nb.prac{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nq-where{margin-inline-start:auto;font-size:12px;color:var(--muted);}
+  .nq-stem{font-size:16px;line-height:2.05;margin:4px 0 8px;}
+  .nq-stem bdi,.nq-pt bdi{white-space:nowrap;}
+  .nq-stem sub,.nq-pt sub,.nq-opt sub{font-size:.72em;}
+  .nq-fig{text-align:center;margin:8px 0 12px;}
+  .nq-fig img{max-width:100%;height:auto;display:inline-block;}
+  .nq-hint{font-size:13px;color:var(--muted);margin:6px 0 2px;}
+  .nq-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin:10px 0 6px;}
+  .nq-opts.c1{grid-template-columns:1fr;}
+  .nq-opts.c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .nq-opt{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;min-height:48px;}
+  .nq-opt .lt{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.6px solid #8fa3b0;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--primary-dark);}
+  .nq-opt .ot{flex:1;font-size:16px;text-align:center;direction:ltr;}
+  .nq-opt .ot.ar{direction:rtl;text-align:start;}
+  .nq-opt img{max-width:100%;height:auto;display:block;margin:0 auto;}
+  .nq-opt.fg{flex-direction:column;align-items:stretch;gap:6px;padding:10px;}
+  .nq-opt.fg .lt{align-self:flex-start;}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.25;margin:0 3px;font-style:normal;}
+  .fr i{font-style:normal;padding:0 4px;}
+  .fr i:first-child{border-bottom:1.5px solid currentColor;}
+  .nq-part{display:flex;align-items:flex-start;gap:10px;margin:14px 0 6px;}
+  .nq-pl{flex-shrink:0;min-width:26px;height:26px;border-radius:8px;background:#e7f1f7;color:var(--primary-dark);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:5px;}
+  .nq-pt{flex:1;font-size:16px;line-height:2.05;}
+  .nq-pm{flex-shrink:0;font-size:13px;font-weight:700;color:#a15c00;background:#fdf2e3;border:1px solid #f0d3a3;border-radius:8px;padding:0 8px;margin-top:5px;line-height:1.9;direction:ltr;}
+  .nq-tag{display:inline-block;margin-inline-start:6px;font-size:11.5px;font-weight:700;color:#5b3ea0;background:#f1ebfa;border:1px solid #d3c3ee;border-radius:999px;padding:0 9px;vertical-align:middle;}
+  .nq-solve{position:relative;border:1.6px dashed #b8c7d1;border-radius:12px;padding:6px 14px 4px;margin:8px 0 6px;background:#fbfdff;}
+  .nq-solve .tt{display:block;font-size:11.5px;color:#7a8a94;margin-bottom:0;}
+  .nq-solve .ln{border-bottom:1px solid #d9e2e8;height:31px;}
+  .nq-final{display:flex;align-items:center;gap:12px;background:#fdf6e8;border:1px solid #f0d9a8;border-radius:12px;padding:9px 14px;margin:8px 0 6px;}
+  .nq-final .fl{font-size:12.5px;font-weight:800;color:#a15c00;white-space:nowrap;}
+  .nq-final .fv{flex:1;display:flex;align-items:baseline;gap:8px;direction:ltr;font-size:16px;}
+  .nq-final .fv .bl{flex:1;border-bottom:1.5px solid #8a8a8a;min-width:60px;height:1.3em;}
+  .nq-tbl{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:15px;}
+  .nq-tbl th{background:var(--primary-dark);color:#fff;padding:8px 10px;border:1px solid var(--primary-dark);font-weight:700;}
+  .nq-tbl td{border:1px solid #b9c7d0;padding:9px 12px;vertical-align:middle;height:44px;}
+  .nq-tbl .bl{display:block;border-bottom:1.5px solid #8a8a8a;height:1.4em;margin:0 6px;}
+  .nq-mini{display:flex;gap:26px;margin:6px 0 2px;}
+  .nq-mini .nq-opt{min-height:0;padding:5px 12px;gap:8px;}
+  .nq-mini .nq-opt .ot{text-align:start;direction:rtl;flex:none;}
+  details.nq-key{background:#f3f9f5;border:1px solid #cfe6d6;border-radius:12px;padding:10px 16px;margin:0 0 16px;}
+  details.nq-key summary{cursor:pointer;font-weight:700;color:#1a7a3d;}
+  details.nq-key table{border-collapse:collapse;margin-top:10px;width:100%;max-width:560px;}
+  details.nq-key th,details.nq-key td{border:1px solid #cfe6d6;padding:6px 10px;text-align:center;font-size:14.5px;}
+  details.nq-key th{background:#e4f2e8;}
+  details.nq-key td b{display:inline-flex;width:26px;height:26px;border-radius:50%;border:1.6px solid #1a7a3d;align-items:center;justify-content:center;color:#1a7a3d;}
+  @media (max-width:640px){
+    .nq-opts.c4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-opts{grid-template-columns:1fr;}
+    .nq-opts.f2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-where{margin-inline-start:0;width:100%;}
+    .nq-final{flex-wrap:wrap;}
+  }
+  @media print{
+    .sol-section.nq{break-inside:avoid;}
+    details.nq-key{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -384,37 +449,37 @@
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
-        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+<tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>1</td>
           <td>متى يتعرض الشخص لخطر الصدمة الكهربائية؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-              <tr class="qrow" data-type="practice" onclick="goTo('p1')">
+<tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>2</td>
           <td>أي المواقف يُعد من المخاطر الكهربائية الشائعة في المنزل<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
           <td>سؤال تدريبي (بأسلوب كامبردج)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p1')">الانتقال ↓</a></td>
         </tr>
-        <tr class="qrow" data-type="practice" onclick="goTo('p2')">
+<tr class="qrow" data-type="practice" onclick="goTo('p2')">
           <td>3</td>
           <td>سبب خطورة استخدام الأجهزة الكهربائية في الأماكن الرطبة<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
           <td>سؤال تدريبي (بأسلوب كامبردج)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p2')">الانتقال ↓</a></td>
         </tr>
-        <tr class="qrow" data-type="practice" onclick="goTo('p3')">
+<tr class="qrow" data-type="practice" onclick="goTo('p3')">
           <td>4</td>
           <td>أسباب ارتفاع حرارة أسلاك التوصيل الكهربائي وخطر الحريق<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
           <td>سؤال تدريبي (بأسلوب كامبردج)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p3')">الانتقال ↓</a></td>
         </tr>
-        <tr class="qrow" data-type="practice" onclick="goTo('p4')">
+<tr class="qrow" data-type="practice" onclick="goTo('p4')">
           <td>5</td>
           <td>الخطر الناتج عن تمزق الغلاف العازل لسلك كهربائي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
           <td>سؤال تدريبي (بأسلوب كامبردج)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('p4')">الانتقال ↓</a></td>
         </tr>
-        <tr class="qrow" data-type="practice" onclick="goTo('p5')">
+<tr class="qrow" data-type="practice" onclick="goTo('p5')">
           <td>6</td>
           <td>خطر تجاوز التيار المسحوب للحد الآمن للدائرة والإجراء الوقائي<span class="badge practice" style="margin-inline-start:6px;">تدريبي</span></td>
           <td>سؤال تدريبي (بأسلوب كامبردج)</td>
@@ -426,35 +491,37 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    <div class="sol-section" id="q1">
-      <div class="sol-head">
-        <h3>السؤال 1</h3>
-        <span class="badge">الهدف 1-3</span><span class="badge">صفحة 38</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">امتحان الفيزياء — الصف العاشر — الفصل الأول — الدور الأول — 2023/2024م</div>
-      <div class="q-text-box">متى يتعرض الشخص لخطر الصدمة الكهربائية؟</div>
+    
+
+      
+
+    
+
+    
+
+    
+
+    
+
+
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 4</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<div class="sol-section nq" id="q1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3 · صفحة 38</span></div>
+<div class="nq-stem">متى يتعرض الشخص لخطر الصدمة الكهربائية؟</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q1-ans">
+<div class="sol-answer" id="q1-ans">
         <div class="sol-body">عند لمس السلك الكهربائي المكشوف مباشرة.</div>
       </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-      <div class="sol-section" id="p1">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 1</h3>
-        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">أي مما يلي يُعد من المخاطر الكهربائية الشائعة في المنزل؟ (اختر الإجابة الصحيحة)
-(أ) استخدام أسلاك ذات عزل سليم غير متضرر
-(ب) توصيل عدد كبير من الأجهزة الكهربائية بمقبس واحد في آنٍ واحد (تحميل زائد على الدائرة)
-(ج) فصل الجهاز عن مصدر الكهرباء قبل تنظيفه
-(د) استخدام قفازات عازلة عند التعامل مع الأسلاك المكشوفة</div>
-      </div>
+<div class="sol-section nq" id="p1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-3</span></div>
+<div class="nq-stem">أي مما يلي يُعد من المخاطر الكهربائية الشائعة في المنزل؟</div>
+<div class="nq-hint">اختر الإجابة الصحيحة.</div>
+<div class="nq-opts c1"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">استخدام أسلاك ذات عزل سليم غير متضرر</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">توصيل عدد كبير من الأجهزة الكهربائية بمقبس واحد في آنٍ واحد (تحميل زائد على الدائرة)</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">فصل الجهاز عن مصدر الكهرباء قبل تنظيفه</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">استخدام قفازات عازلة عند التعامل مع الأسلاك المكشوفة</span></div></div>
       <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="p1-ans">
+<div class="sol-answer" id="p1-ans">
         <div class="sol-body">المخاطر الكهربائية هي المواقف أو الممارسات التي تزيد من احتمال حدوث صعق كهربائي أو نشوب حريق نتيجة خلل أو سوء استخدام في الدائرة الكهربائية.
 
 توصيل عدد كبير من الأجهزة بمقبس واحد يؤدي إلى سحب تيار كهربائي كلي أكبر من التيار الذي صُممت الأسلاك لتحمّله بأمان، مما يسبب ارتفاعًا خطيرًا في درجة حرارة الأسلاك وقد يؤدي إلى تلف العزل أو نشوب حريق، وهذا ما يُعرف بالتحميل الزائد على الدائرة.
@@ -464,20 +531,14 @@
 الإجابة الصحيحة: (ب).</div>
         <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
       </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="p2">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 2</h3>
-        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">فسّر لماذا يشكّل استخدام الأجهزة الكهربائية في الأماكن الرطبة (مثل الحمام) خطرًا كبيرًا على الإنسان، رغم أن الماء النقي في حد ذاته موصل ضعيف جدًا للكهرباء.</div>
-      </div>
+<div class="sol-section nq" id="p2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3</span></div>
+<div class="nq-stem">فسّر لماذا يشكّل استخدام الأجهزة الكهربائية في الأماكن الرطبة (مثل الحمام) خطرًا كبيرًا على الإنسان، رغم أن الماء النقي في حد ذاته موصل ضعيف جدًا للكهرباء.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="p2-ans">
+<div class="sol-answer" id="p2-ans">
         <div class="sol-body">الماء النقي (المقطر) فعلًا موصل ضعيف للكهرباء لخلوّه من الأيونات الحرة، إلا أن الماء الموجود عادة في المنازل (كماء الصنبور أو العرق على الجلد) يحتوي على أملاح ومعادن ذائبة تتحلل إلى أيونات موجبة وسالبة، مما يجعله موصلًا جيدًا نسبيًا للتيار الكهربائي.
 
 كما أن الرطوبة على الجلد تقلل من مقاومة جلد الإنسان الكهربائية بشكل كبير (فالجلد الجاف له مقاومة عالية نسبيًا تحد من مرور التيار، أما الجلد المبلل فمقاومته أقل بكثير).
@@ -485,20 +546,14 @@
 ونتيجة لذلك، فإن أي تسرب كهربائي أو ملامسة عرضية لجزء مكهرب من جهاز في مكان رطب يجعل مرور تيار كهربائي خطير عبر جسم الإنسان أسهل بكثير مقارنة بالمكان الجاف، مما يزيد من احتمال حدوث صعق كهربائي شديد قد يكون قاتلًا.</div>
         <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
       </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="p3">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 3</h3>
-        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">اذكر سببين قد يؤديان إلى ارتفاع درجة حرارة سلك التوصيل الكهربائي بشكل خطير، ووضّح كيف يمكن أن يؤدي ذلك إلى نشوب حريق.</div>
-      </div>
+<div class="sol-section nq" id="p3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3</span></div>
+<div class="nq-stem">اذكر سببين قد يؤديان إلى ارتفاع درجة حرارة سلك التوصيل الكهربائي بشكل خطير، ووضّح كيف يمكن أن يؤدي ذلك إلى نشوب حريق.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="p3-ans">
+<div class="sol-answer" id="p3-ans">
         <div class="sol-body">السبب الأول: مرور تيار كهربائي أكبر من التيار الذي صُمم السلك لتحمّله بأمان (كأن يكون السلك رفيعًا جدًا بالنسبة للحمل الكهربائي المطلوب، أو نتيجة تحميل زائد على الدائرة بتوصيل عدة أجهزة معًا)، إذ يزداد تولد الحرارة في السلك كلما زادت شدة التيار المار فيه.
 
 السبب الثاني: تلف العزل الخارجي للسلك أو حدوث دائرة قصر (تلامس مباشر بين سلكين مكشوفين)، مما يسبب تدفق تيار غير طبيعي مرتفع في نقطة التلامس ويولّد حرارة عالية جدًا في زمن قصير.
@@ -506,24 +561,15 @@
 في كلتا الحالتين، إذا استمرت درجة حرارة السلك في الارتفاع، فقد ينصهر العزل البلاستيكي المحيط بالسلك المعدني، وقد تشتعل المواد القابلة للاشتعال المجاورة للسلك (كالستائر أو الأخشاب) نتيجة هذه الحرارة الزائدة، مما يؤدي إلى نشوب حريق.</div>
         <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
       </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="p4">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 4</h3>
-        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يظهر على سلك كهربائي تمزق في الغلاف العازل الخارجي مما يكشف السلك المعدني الداخلي. ما الخطر الرئيسي الناتج عن ذلك؟ (اختر الإجابة الصحيحة)
-(أ) زيادة فرق الجهد في السلك تلقائيًا
-(ب) احتمال حدوث صعق كهربائي عند لمس الجزء المكشوف من السلك، أو حدوث دائرة قصر إذا لامس السلك جسمًا موصلًا آخر
-(ج) انخفاض شدة التيار المار في السلك إلى الصفر تلقائيًا
-(د) تحوّل السلك المعدني إلى عازل كامل</div>
-      </div>
+<div class="sol-section nq" id="p4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-3</span></div>
+<div class="nq-stem">يظهر على سلك كهربائي تمزق في الغلاف العازل الخارجي مما يكشف السلك المعدني الداخلي. ما الخطر الرئيسي الناتج عن ذلك؟</div>
+<div class="nq-hint">اختر الإجابة الصحيحة.</div>
+<div class="nq-opts c1"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">زيادة فرق الجهد في السلك تلقائيًا</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">احتمال حدوث صعق كهربائي عند لمس الجزء المكشوف من السلك، أو حدوث دائرة قصر إذا لامس السلك جسمًا موصلًا آخر</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">انخفاض شدة التيار المار في السلك إلى الصفر تلقائيًا</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">تحوّل السلك المعدني إلى عازل كامل</span></div></div>
       <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="p4-ans">
+<div class="sol-answer" id="p4-ans">
         <div class="sol-body">وظيفة الغلاف العازل حول السلك المعدني هي منع أي تلامس مباشر بين الموصل المعدني (الذي يحمل التيار الكهربائي) وأي جسم آخر، بما في ذلك جسم الإنسان.
 
 عند تمزق هذا العزل، يصبح الجزء المعدني الموصل مكشوفًا ومعرّضًا للمس المباشر، فإذا لمسه شخص وهو على تلامس بالأرض (أو بجسم موصل آخر) فسيمر تيار كهربائي عبر جسمه، مسببًا صعقًا كهربائيًا قد يكون خطيرًا.
@@ -533,20 +579,14 @@
 الإجابة الصحيحة: (ب).</div>
         <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
       </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="p5">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 5</h3>
-        <span class="badge">الهدف 1-3</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge IGCSE Physics (0625) — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">منزل به دائرة كهربائية مصممة لتحمّل تيار أقصاه 13 أمبير بأمان. إذا وُصّلت عدة أجهزة كهربائية في آنٍ واحد بحيث أصبح مجموع التيار المسحوب من هذه الدائرة 18 أمبير، وضّح الخطر المترتب على ذلك، وما الإجراء الوقائي الذي يجب اتخاذه لتجنبه.</div>
-      </div>
+<div class="sol-section nq" id="p5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3</span></div>
+<div class="nq-stem">منزل به دائرة كهربائية مصممة لتحمّل تيار أقصاه <bdi dir="ltr">13</bdi> أمبير بأمان. إذا وُصّلت عدة أجهزة كهربائية في آنٍ واحد بحيث أصبح مجموع التيار المسحوب من هذه الدائرة <bdi dir="ltr">18</bdi> أمبير، وضّح الخطر المترتب على ذلك، وما الإجراء الوقائي الذي يجب اتخاذه لتجنبه.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="p5-ans">
+<div class="sol-answer" id="p5-ans">
         <div class="sol-body">بما أن مجموع التيار المسحوب (18 أمبير) أصبح أكبر من التيار الأقصى الذي صُممت الدائرة وأسلاكها لتحمّله بأمان (13 أمبير)، فإن هذه الحالة تُعد تحميلًا زائدًا على الدائرة.
 
 هذا التحميل الزائد يسبب ارتفاعًا خطيرًا في درجة حرارة الأسلاك، لأن الأسلاك لم تُصمَّم لتصريف الحرارة الناتجة عن تيار بهذا المقدار، مما قد يؤدي إلى تلف طبقة العزل حول الأسلاك، وربما نشوب حريق داخل الجدران أو عند المقابس.
@@ -554,18 +594,17 @@
 الإجراء الوقائي السليم هو تجنّب توصيل عدد كبير من الأجهزة عالية الاستهلاك على نفس الدائرة في وقت واحد، وتوزيع الأحمال على أكثر من دائرة عند الإمكان، إلى جانب الاعتماد على منصهر (فيوز) أو قاطع دائرة ذي تصنيف مناسب (13 أمبير هنا)، بحيث يقطع الدائرة تلقائيًا فور تجاوز التيار الحد الآمن، قبل أن ترتفع حرارة الأسلاك إلى درجة خطيرة.</div>
         <div class="grade-note">ملاحظة: هذا سؤال تدريبي من إعداد المعلم وليس من نموذج إجابة رسمي صادر عن الوزارة — الحل المقترح لأغراض التدريب فقط.</div>
       </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-</section>
+  </section>
 
   <section class="card legend" id="top">
     <h2 style="border:none;padding:0;margin-bottom:6px;">دليل الرموز</h2>
     <table>
-      <tr><td>رقم الهدف</td><td>الرقم المرجعي للهدف التعليمي كما وضعته الوزارة ضمن معايير النجاح للمادة.</td></tr>
+      <tbody><tr><td>رقم الهدف</td><td>الرقم المرجعي للهدف التعليمي كما وضعته الوزارة ضمن معايير النجاح للمادة.</td></tr>
       <tr><td>المصدر</td><td>اسم الاختبار (الدور والعام الدراسي) الذي أُخذ منه السؤال.</td></tr>
       <tr><td><span class="badge official">إجابة رسمية</span></td><td>مأخوذة حرفياً من نموذج الإجابة الرسمي الصادر عن الوزارة لنفس الاختبار.</td></tr>
-    </table>
+    </tbody></table>
   </section>
 
 </main>
@@ -599,5 +638,6 @@
 
 </script>
 <script src="../../madar-frac.js"></script>
-</body>
-</html>
+
+
+</body></html>
