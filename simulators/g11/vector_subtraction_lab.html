@@ -1,0 +1,341 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر طرح المتجهات — الصف الحادي عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}}
+.steps li,.say,.rule{overflow-x:auto}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر طرح المتجهات</h1><p class="sub">الوحدة الثانية: السرعة والسرعة المتجهة — طرح المتجهات</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([+\-\u2212]?[0-9A-Za-z\u00B5\u03BC][0-9A-Za-z\u00B5\u03BC .,+\-\u2212\u00D7=\/%\u00B0\u207B\u00B9\u00B2\u00B3]*[0-9A-Za-z%\u00B0\u00B9\u00B2\u00B3\u00B5\u03BC]|[0-9A-Za-z\u00B5\u03BC])/g,'\u2066$1\u2069');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine ---------- */
+let tick=null,raf=0,lastT=0,curTab='neg';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+const fm=(x,d=3)=>{if(Math.abs(x)<1e-9)return'0';let t=x.toPrecision(d);if(t.includes('.')&&!t.includes('e'))t=t.replace(/0+$/,'').replace(/\.$/,'');return String(+t)};
+const TABS=[['neg','المتجهة السالبة'],['line','الطرح على استقامة واحدة'],['graph','الطرح بيانيًا'],['math','الطرح رياضيًا'],['apps','تطبيقات على السرعات'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({neg:tabNeg,line:tabLine,graph:tabGraph,math:tabMath,apps:tabApps,quiz:tabQuiz})[k]();startLoop()}
+
+/* ---------- vector helpers (x = east, y = north; angles in degrees counter-clockwise from east) ---------- */
+const rad=d=>d*Math.PI/180,deg=r=>r*180/Math.PI;
+const vec=(m,a)=>[m*Math.cos(rad(a)),m*Math.sin(rad(a))];
+const vadd=(p,q)=>[p[0]+q[0],p[1]+q[1]],vsub=(p,q)=>[p[0]-q[0],p[1]-q[1]],vneg=p=>[-p[0],-p[1]],vmag=p=>Math.hypot(p[0],p[1]),dot=(p,q)=>p[0]*q[0]+p[1]*q[1];
+const vang=p=>{const a=deg(Math.atan2(p[1],p[0]));return a<0?a+360:a};
+const nrm=a=>((a%360)+360)%360;
+function dirParts(a){a=nrm(a);const r=Math.round(a*10)/10;if(r===0||r===360)return['','شرقًا'];if(r===90)return['','شمالًا'];if(r===180)return['','غربًا'];if(r===270)return['','جنوبًا'];
+  if(a<90)return[f1(a)+'°','شمال الشرق'];if(a<180)return[f1(180-a)+'°','شمال الغرب'];if(a<270)return[f1(a-180)+'°','جنوب الغرب'];return[f1(360-a)+'°','جنوب الشرق']}
+const dirHtml=a=>{const[n,t]=dirParts(a);return n?`${num(n)} ${t}`:t};
+const dirPlain=a=>{const[n,t]=dirParts(a);return n?`${n} ${t}`:t};
+function brgParts(b){b=nrm(b);const r=Math.round(b*10)/10;if(r===0||r===360)return['','شمالًا'];if(r===90)return['','شرقًا'];if(r===180)return['','جنوبًا'];if(r===270)return['','غربًا'];
+  if(b<90)return[f1(b)+'°','شرق الشمال'];if(b<180)return[f1(180-b)+'°','شرق الجنوب'];if(b<270)return[f1(b-180)+'°','غرب الجنوب'];return[f1(360-b)+'°','غرب الشمال']}
+const brgHtml=b=>{const[n,t]=brgParts(b);return n?`${num(n)} ${t}`:t};
+const compass=(x,y,s=22)=>arr(x,y+s,x,y-s,GRAY,2)+arr(x-s,y,x+s,y,GRAY,2)+tx(x,y-s-8,'N',{s:12,f:GRAY,w:700})+tx(x+s+12,y+5,'E',{s:12,f:GRAY,w:700})+tx(x,y+s+16,'S',{s:12,f:GRAY,w:700})+tx(x-s-12,y+5,'W',{s:12,f:GRAY,w:700});
+// place a label beside the middle of a screen segment (normal pointing up if possible)
+function vlab(x1,y1,x2,y2,t,col,off=18,o={}){const mx=(x1+x2)/2,my=(y1+y2)/2,dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;let nx=-dy/L,ny=dx/L;if(ny>0||(ny===0&&nx<0)){nx=-nx;ny=-ny}return tx(mx+nx*off,my+ny*off+5,t,{s:o.s||14,f:col,w:700})}
+const iso=t=>'⁦'+t+'⁩';
+function vlabA(x1,y1,x2,y2,t,col,cx,cy,off=18,o={}){const mx=(x1+x2)/2,my=(y1+y2)/2,dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;let nx=-dy/L,ny=dx/L;if(nx*(mx-cx)+ny*(my-cy)<0){nx=-nx;ny=-ny}const side=Math.abs(nx)>.6;return tx(mx+nx*(side?10:off),my+ny*(side?10:off)+(side?5:5),t,{s:o.s||14,f:col,w:700,a:side?(nx>0?'start':'end'):'middle'})}
+function tipLab(x,y,ux,uy,t,col){const a=Math.abs(ux)<.35?'m':ux>0?'start':'end';return tx(x+ux*(a==='m'?0:14),y+uy*26+(uy>0?10:uy<0?-4:5),t,{s:14,f:col,w:700,a:a==='m'?'middle':a})}
+function arc(cx,cy,r,a1,a2,col){const d=((a2-a1+540)%360)-180,p1=[cx+r*Math.cos(rad(a1)),cy-r*Math.sin(rad(a1))],p2=[cx+r*Math.cos(rad(a1+d)),cy-r*Math.sin(rad(a1+d))];return `<path d="M${p1[0]} ${p1[1]} A${r} ${r} 0 0 ${d>0?0:1} ${p2[0]} ${p2[1]}" fill="none" stroke="${col}" stroke-width="2.4"/>`}
+// fit a list of points into the board; returns a function p->screen
+function fit(pts,{w=560,h=250,cx=350,cy=190,umax=34,umin=8}={}){const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),mnx=Math.min(...xs),mxx=Math.max(...xs),mny=Math.min(...ys),mxy=Math.max(...ys),W=mxx-mnx||1,H=mxy-mny||1;
+  const u=clamp(Math.min(w/W,h/H),umin,umax),ox=cx-(mnx+mxx)/2*u,oy=cy+(mny+mxy)/2*u;return{u,p:q=>[ox+q[0]*u,oy-q[1]*u]}}
+const UN='m s⁻¹';
+const sg=(v)=>v<0?`( −${fm(-v)} )`:fm(v);
+
+/* =====================================================================
+   1) المتجهة السالبة
+   ===================================================================== */
+function tabNeg(){
+  const W={m:5,a:0};
+  ctrl.innerHTML=slider('m','مقدار المتجهة A',1,12,1,5,UN)+slider('a','اتجاه المتجهة A (من الشرق عكس عقارب الساعة)',0,355,5,0,'°')+`<div><p class="gt">أمثلة من الدرس</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['المتجهة السالبة ( −A ) لها نفس مقدار A وفي الاتجاه المعاكس تمامًا: غيّر المقدار ولاحظ أن السهمين يبقيان متساويين في الطول.','غيّر الاتجاه ودوّر السهم حول الدائرة: السهم الأحمر دائمًا في الجهة المقابلة بزاوية 180°.','على استقامة واحدة نستخدم الإشارة: 5 m s⁻¹ شرقًا نكتبها +5 وسالبها 5 m s⁻¹ غربًا نكتبها −5.','أخذ السالب لا يغيّر المقدار أبدًا، وإنما يعكس الاتجاه فقط.']);
+  const sl={};['m','a'].forEach(k=>sl[k]=bindSlider(k,k==='m'?UN:'°',v=>{W[k]=v;render()}));
+  const pre=[['5 شرقًا',5,0],['12 شمالًا',12,90],['8 غربًا',8,180],['5 بزاوية 30° شمال الشرق',5,30]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i];W.m=p[1];W.a=p[2];sl.m.set(p[1]);sl.a.set(p[2]);render()};
+  function render(){
+    const u=14,ox=350,oy=190,A=vec(W.m,W.a),nA=vneg(A);
+    let s=`<circle cx="${ox}" cy="${oy}" r="${W.m*u}" fill="none" stroke="${GRAY}" stroke-width="1.5" stroke-dasharray="5 6"/>`+compass(640,60);
+    s+=arr(ox,oy,ox+A[0]*u,oy-A[1]*u,GREEN,6)+arr(ox,oy,ox+nA[0]*u,oy-nA[1]*u,RED,6)+`<circle cx="${ox}" cy="${oy}" r="5" fill="currentColor"/>`;
+    {const ux=Math.cos(rad(W.a)),uy=-Math.sin(rad(W.a));s+=tipLab(ox+A[0]*u,oy-A[1]*u,ux,uy,'A = '+W.m+' '+UN,GREEN)+tipLab(ox+nA[0]*u,oy-nA[1]*u,-ux,-uy,'−A = '+W.m+' '+UN,RED)}
+    s+=tx(350,38,'المقدار نفسه والاتجاه معاكس',{s:22,w:700})+tx(350,66,'الزاوية بين A و −A تساوي 180°',{s:13,f:GRAY});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">مقدار A</div><div class="v">${W.m} ${UN}</div></div><div class="chip"><div class="k">مقدار <span class="num">−A</span></div><div class="v">${W.m} ${UN}</div></div><div class="chip"><div class="k">اتجاه A</div><div class="v" style="font-size:.95rem;direction:rtl">${dirHtml(W.a)}</div></div><div class="chip"><div class="k">اتجاه <span class="num">−A</span></div><div class="v" style="font-size:.95rem;direction:rtl">${dirHtml(W.a+180)}</div></div></div>
+    <ul class="steps"><li>المتجهة A: ${num(W.m+' '+UN)} ${dirHtml(W.a)}</li><li>سالبها ( −A ): ${num(W.m+' '+UN)} ${dirHtml(W.a+180)}</li></ul>
+    <p class="say ok">أخذ القيمة السالبة <b>لا يغيّر المقدار</b> ويعكس <b>الاتجاه</b> فقط.</p>
+    <p class="rule"><b>اربط بالدرس:</b> المتجهة السالبة ( −A ) لها مقدار A نفسه وفي الاتجاه المعاكس. أمثلة: ${num('12 '+UN)} شمالًا سالبها ${num('12 '+UN)} جنوبًا، والقوة ${num('8.0 N')} نحو اليمين سالبها ${num('8.0 N')} نحو اليسار.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) الطرح على استقامة واحدة
+   ===================================================================== */
+function tabLine(){
+  const W={A:10,B:4};
+  ctrl.innerHTML=slider('A','A (الموجب شرقًا، السالب غربًا)',-30,30,1,10,UN)+slider('B','B (الموجب شرقًا، السالب غربًا)',-30,30,1,4,UN)+`<div><p class="gt">أمثلة من الدرس</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['نطرح B من A بإضافة سالب B: A − B = A + ( −B ).','الاتجاه نفسه (إشارتان متشابهتان): نطرح المقدارين والناتج في اتجاه الأكبر: 10 − 4 = 6.','اتجاهان متعاكسان: السالب يعكس B فيصبح الطرح جمعًا: 10 − ( −4 ) = 14.','انتبه: عند طرح الأكبر من الأصغر (20 − 30) يكون الناتج سالبًا أي بعكس اتجاههما.','مثال القطار: 15.0 − 2.0 = 13.0 m s⁻¹ في اتجاه القطار.']);
+  const sl={};['A','B'].forEach(k=>sl[k]=bindSlider(k,UN,v=>{W[k]=v;render()}));
+  const pre=[['10 − 4',10,4],['10 − ( −4 )',10,-4],['20 − 30',20,30],['7 شرقًا − 5 غربًا',7,-5],['القطار: 15 − 2',15,2]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i];W.A=p[1];W.B=p[2];sl.A.set(p[1]);sl.B.set(p[2]);render()};
+  function render(){
+    const u=9.4,x0=350,R=W.A-W.B,rows=[['A',W.A,GREEN,84],['B',W.B,BLUE,140],['−B',-W.B,RED,196],['A − B',R,ORANGE,262]];
+    let s=`<line x1="${x0-310}" y1="318" x2="${x0+310}" y2="318" stroke="currentColor" stroke-width="2"/>`;
+    for(let v=-30;v<=30;v+=10){s+=`<line x1="${x0+v*u}" y1="312" x2="${x0+v*u}" y2="324" stroke="currentColor" stroke-width="2"/>`+tx(x0+v*u,342,String(v),{s:11,f:GRAY})}
+    s+=`<line x1="${x0}" y1="60" x2="${x0}" y2="318" stroke="${GRAY}" stroke-width="1.5" stroke-dasharray="4 6"/>`+tx(x0-304,52,'غربًا',{s:13,f:GRAY,a:'end'})+tx(x0+304,52,'شرقًا',{s:13,f:GRAY,a:'start'});
+    rows.forEach(([n,v,c,y])=>{if(Math.abs(v)>0.01)s+=arr(x0,y,x0+v*u,y,c,6);else s+=`<circle cx="${x0}" cy="${y}" r="5" fill="${c}"/>`;s+=tx(x0+(v>=0?-12:12)*1,y-14,n+' = '+(v>0?'+':v<0?'−':'')+fm(Math.abs(v)),{s:14,f:c,w:700,a:v>=0?'end':'start'})});
+    svg.innerHTML=s;
+    const same=W.A*W.B>0,opp=W.A*W.B<0,dir=R>0?'شرقًا':R<0?'غربًا':'';
+    const eq=`A − B = A + ( −B ) = ${fm(W.A)} + ${sg(-W.B)} = ${fm(R)}`;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">A</div><div class="v">${fm(W.A)} ${UN}</div></div><div class="chip"><div class="k">B</div><div class="v">${fm(W.B)} ${UN}</div></div><div class="chip"><div class="k"><span class="num">−B</span></div><div class="v">${fm(-W.B)} ${UN}</div></div><div class="chip"><div class="k"><span class="num">A − B</span></div><div class="v" style="color:var(--accent)">${fm(R)} ${UN}</div></div></div>
+    <ul class="steps"><li>${num(eq+' '+UN)}</li><li>${R===0?'المتجهتان متساويتان في المقدار والاتجاه: <b>الناتج صفر</b>.':`الناتج ${num(fm(Math.abs(R))+' '+UN)} <b>${dir}</b>.`}</li></ul>
+    <p class="say ${R!==0&&Math.abs(R)>=Math.abs(W.A)&&opp?'':'ok'}">${W.B===0?'طرح الصفر لا يغيّر المتجهة.':same?`المتجهتان في <b>الاتجاه نفسه</b>: نطرح المقدارين ${num(fm(Math.abs(W.A))+' − '+fm(Math.abs(W.B)))}${Math.abs(W.A)>=Math.abs(W.B)?'، والناتج في اتجاه الأكبر.':'، وبما أن المطروح أكبر فالناتج بعكس اتجاه المتجهتين.'}`:opp?`المتجهتان <b>متعاكستان</b>: نجمع المقدارين ${num(fm(Math.abs(W.A))+' + '+fm(Math.abs(W.B)))} لأن −B في اتجاه A.`:'A تساوي صفرًا: A − B = −B.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> نطرح المتجهة بإضافة سالبها: A − B = A + ( −B ). في الاتجاه نفسه نطرح المقدارين، وفي اتجاهين متعاكسين نجمع المقدارين. مثال القطار: ${num('15.0 − 2.0 = 13.0 '+UN)}.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) الطرح بيانيًا
+   ===================================================================== */
+function tabGraph(){
+  const W={A:3,aA:0,B:5,aB:270,step:4,showB:true};
+  ctrl.innerHTML=slider('A','مقدار A',1,8,.5,3,'cm')+slider('aA','اتجاه A',0,355,5,0,'°')+slider('B','مقدار B',1,8,.5,5,'cm')+slider('aB','اتجاه B',0,355,5,270,'°')+`<div><p class="gt">خطوات الرسم</p>${seg('step',[['1','1 رسم A'],['2','2 رسم −B'],['3','3 المحصلة'],['4','4 القياس']],'4')}</div><label class="chk"><input type="checkbox" id="sb" checked>أظهر B الأصلية</label><div><p class="gt">أمثلة</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['مقياس رسم 1 cm : 1 cm في هذا المحاكي: كل سنتيمتر على الشاشة يمثل وحدة واحدة.','الخطوة الأولى: نرسم A بطولها واتجاهها. الثانية: من نهايتها نرسم ( −B ) بطول B نفسه وعكس اتجاهه (أظهر B الأصلية لترى أنها معاكسة له).','الثالثة: نصل بداية A بنهاية ( −B ): هذا الخط هو A − B. الرابعة: نقيس طوله بالمسطرة وزاويته بالمنقلة.','غيّر اتجاه B وراقب أن A − B هو دائمًا الخط الواصل بين نهايتي B وA عند رسمهما من النقطة نفسها.','جرّب مثال الدرس: A = 3.0 cm شرقًا وB = 5.0 cm جنوبًا فتكون A − B = 5.8 cm بزاوية 59° شمال الشرق.']);
+  const sl={};['A','aA','B','aB'].forEach(k=>sl[k]=bindSlider(k,k[0]==='a'?'°':'cm',v=>{W[k]=v;render()}));bindSeg('step',v=>{W.step=+v;render()});$('sb').onchange=e=>{W.showB=e.target.checked;render()};
+  const pre=[['مثال الدرس: 3 شرقًا و5 جنوبًا',3,0,5,270],['متعامدتان: 4 و3',4,0,3,90],['زاوية 60° (الشكل 2-13)',5,0,4,60],['اتجاهان متعاكسان',4,0,3,180],['الاتجاه نفسه',5,0,3,0]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i];W.A=p[1];W.aA=p[2];W.B=p[3];W.aB=p[4];sl.A.set(p[1]);sl.aA.set(p[2]);sl.B.set(p[3]);sl.aB.set(p[4]);render()};
+  function render(){
+    const A=vec(W.A,W.aA),B=vec(W.B,W.aB),nB=vneg(B),H=vadd(A,nB),D=H,Rm=vmag(D),Rg=vang(D);
+    const pts=[[0,0],A,H];if(W.showB)pts.push(B);
+    const F=fit(pts,{w:520,h:225,cy:190,umax:46}),P=F.p,O=P([0,0]),PA=P(A),PH=P(H),cn=pts.map(P),cen=[cn.reduce((a,p)=>a+p[0],0)/cn.length,cn.reduce((a,p)=>a+p[1],0)/cn.length];
+    let s=compass(640,56);
+    if(W.showB&&W.step>=2){const pb=P(B);s+=arr(O[0],O[1],pb[0],pb[1],BLUE,3.5)+vlabA(O[0],O[1],pb[0],pb[1],'B',BLUE,cen[0],cen[1],16)}
+    s+=arr(O[0],O[1],PA[0],PA[1],GREEN,6)+vlabA(O[0],O[1],PA[0],PA[1],'A = '+fm(W.A)+' cm',GREEN,cen[0],cen[1],20);
+    if(W.step>=2){s+=arr(PA[0],PA[1],PH[0],PH[1],RED,6)+vlabA(PA[0],PA[1],PH[0],PH[1],'−B = '+fm(W.B)+' cm',RED,cen[0],cen[1],20)}
+    if(W.step>=3&&Rm>0.02){s+=arr(O[0],O[1],PH[0],PH[1],ORANGE,6.5)+vlabA(O[0],O[1],PH[0],PH[1],'A − B'+(W.step>=4?' = '+fm(Rm)+' cm':''),ORANGE,cen[0],cen[1],24)}
+    const dA=((Rg-W.aA+540)%360)-180;if(W.step>=4&&Rm>0.02&&Math.abs(dA)>2){const mid=W.aA+dA/2;s+=arc(O[0],O[1],30,W.aA,Rg,ORANGE)+tx(O[0]+50*Math.cos(rad(mid)),O[1]-50*Math.sin(rad(mid))+4,iso(f1(Math.abs(dA))+'°'),{s:13,f:ORANGE,w:700})}
+    s+=`<circle cx="${O[0]}" cy="${O[1]}" r="5" fill="currentColor"/>`;
+    s+=`<line x1="40" y1="338" x2="${40+F.u}" y2="338" stroke="currentColor" stroke-width="3"/>`+tx(48+F.u,343,'1 cm',{s:12,f:GRAY,a:'start'});
+    s+=tx(350,34,W.step===1?'1) نرسم A':W.step===2?'2) من نهاية A نرسم ( −B )':W.step===3?'3) نصل البداية بالنهاية':'4) نقيس الطول والزاوية',{s:20,w:700});
+    svg.innerHTML=s;
+    const sx=[`نرسم A بطول ${num(fm(W.A)+' cm')} نحو ${dirHtml(W.aA)}`,`من نهاية A نرسم ( −B ): طولها ${num(fm(W.B)+' cm')} ونحو ${dirHtml(W.aB+180)} (عكس B)`,`نصل بداية A بنهاية ( −B ) فيكون الخط الواصل هو A − B`,Rm>0.02?`نقيس بالمسطرة: ${num(fm(Rm)+' cm')} ، وبالمنقلة: ${dirHtml(Rg)}`:'الخط الواصل نقطة واحدة: A − B = صفر'];
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">طول <span class="num">A − B</span></div><div class="v">${fm(Rm)} cm</div></div><div class="chip"><div class="k">اتجاه <span class="num">A − B</span></div><div class="v" style="font-size:.95rem;direction:rtl">${Rm>0.02?dirHtml(Rg):'—'}</div></div><div class="chip"><div class="k">مقياس الرسم</div><div class="v">1 cm : 1 cm</div></div></div>
+    <ul class="steps">${sx.slice(0,W.step).map((t,i)=>`<li>${i+1}) ${t}</li>`).join('')}</ul>
+    <p class="say ${W.step===4?'ok':''}">${W.step<4?'تابع الخطوات بالضغط على الأرقام أعلاه.':Rm>0.02?`النتيجة: ${num('A − B = '+fm(Rm)+' cm')} ${dirHtml(Rg)}.`:'النتيجة صفر.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> لإيجاد A − B بيانيًا: نختار مقياس رسم، نرسم A، ثم من نهايتها نرسم ( −B ) بطول B نفسه وعكس اتجاهه، ونصل بداية A بنهاية ( −B )، ثم نقيس الطول بالمسطرة والزاوية بالمنقلة ونحوّل بحسب مقياس الرسم.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) الطرح رياضيًا
+   ===================================================================== */
+function tabMath(){
+  const W={A:8,B:5,phi:60};
+  ctrl.innerHTML=slider('A','مقدار A',1,10,.5,8,UN)+slider('B','مقدار B',1,10,.5,5,UN)+slider('phi','الزاوية φ بين A وB (من النقطة نفسها)',0,180,1,60,'°')+`<div><p class="gt">أمثلة</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['المتعامدتان (φ = 90°): فيثاغورس للمقدار وtan⁻¹ للاتجاه، ومقدار A − B يساوي مقدار A + B لكن الاتجاه مختلف.','غير المتعامدتين: نرسم المتجهتين من النقطة نفسها فتكون A − B الضلع الثالث للمثلث.','قانون جيب التمام: R² = A² + B² − 2AB cos φ. وقانون الجيب: sin α / B = sin φ / R لإيجاد زاوية R مع A.','جرّب مثال التمرين: A = 8.0 وB = 5.0 وφ = 60° فتكون R = 7.0 و α = 38.2°.','لاحظ أن cos 90° = 0 فيتحول قانون جيب التمام إلى فيثاغورس تلقائيًا.']);
+  const sl={};['A','B','phi'].forEach(k=>sl[k]=bindSlider(k,k==='phi'?'°':UN,v=>{W[k]=v;render()}));
+  const pre=[['متعامدتان 6 و8',6,8,90],['مثال التمرين: 8 و5 و60°',8,5,60],['زاوية 120°',6,4,120],['متعامدتان 12 و5',12,5,90]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i];W.A=Math.min(10,p[1]);W.B=Math.min(10,p[2]);W.phi=p[3];sl.A.set(W.A);sl.B.set(W.B);sl.phi.set(p[3]);render()};
+  function render(){
+    const A=[W.A,0],B=vec(W.B,W.phi),D=vsub(A,B),R2=W.A*W.A+W.B*W.B-2*W.A*W.B*Math.cos(rad(W.phi)),R=Math.sqrt(Math.max(0,R2)),Rs=Math.sqrt(W.A*W.A+W.B*W.B+2*W.A*W.B*Math.cos(rad(W.phi)));
+    const alpha=R>1e-6?deg(Math.acos(clamp(dot(D,A)/(R*W.A),-1,1))):0,Rg=vang(D),perp=W.phi===90;
+    const F=fit([[0,0],A,B],{w:500,h:215,cy:195,umax:46}),P=F.p,O=P([0,0]),PA=P(A),PB=P(B),cen=[(O[0]+PA[0]+PB[0])/3,(O[1]+PA[1]+PB[1])/3];
+    let s=compass(640,56)+arr(O[0],O[1],PA[0],PA[1],GREEN,6)+arr(O[0],O[1],PB[0],PB[1],BLUE,6);
+    if(R>.02)s+=arr(PB[0],PB[1],PA[0],PA[1],ORANGE,6.5)+vlabA(PB[0],PB[1],PA[0],PA[1],'A − B = '+fm(R),ORANGE,cen[0],cen[1],22);
+    s+=vlabA(O[0],O[1],PA[0],PA[1],'A = '+fm(W.A),GREEN,cen[0],cen[1],18)+vlabA(O[0],O[1],PB[0],PB[1],'B = '+fm(W.B),BLUE,cen[0],cen[1],18);
+    if(W.phi>2&&W.phi<178)s+=arc(O[0],O[1],34,0,W.phi,'currentColor')+tx(O[0]+54*Math.cos(rad(W.phi/2)),O[1]-54*Math.sin(rad(W.phi/2))+4,iso('φ = '+W.phi+'°'),{s:13,w:700});
+    if(R>.02&&alpha>2&&alpha<178){const toO=180,toB=vang(vsub(B,A));s+=arc(PA[0],PA[1],30,toO,toB,ORANGE)}
+    s+=`<circle cx="${O[0]}" cy="${O[1]}" r="5" fill="currentColor"/>`+tx(350,34,perp?'متعامدتان: فيثاغورس':'غير متعامدتين: جيب التمام والجيب',{s:20,w:700});
+    svg.innerHTML=s;
+    const steps=R<=.02?[`المتجهتان متساويتان في المقدار والاتجاه: ${num('A − B = 0')}`]:perp?
+      [`المتجهتان A و( −B ) متعامدتان: ${num('R = √( '+fm(W.A)+'² + '+fm(W.B)+'² ) = '+fm(R)+' '+UN)}`,`${num('θ = tan⁻¹ ( '+fm(W.B)+' / '+fm(W.A)+' ) = '+f1(alpha)+'°')}`,`الاتجاه: ${dirHtml(Rg)}`]:
+      [`${num('R² = A² + B² − 2AB cos φ = '+fm(W.A)+'² + '+fm(W.B)+'² − 2 × '+fm(W.A)+' × '+fm(W.B)+' × cos '+W.phi+'° = '+fm(R2))}`,`${num('R = '+fm(R)+' '+UN)}`,`${num('sin α / '+fm(W.B)+' = sin '+W.phi+'° / '+fm(R)+' ⟹ α = '+f1(alpha)+'°')}`,`الزاوية بين A − B واتجاه A تساوي ${num(f1(alpha)+'°')} ، أي ${dirHtml(Rg)}`];
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k"><span class="num">|A − B|</span></div><div class="v">${fm(R)}</div></div><div class="chip"><div class="k">${perp?'θ مع A':'α مع A'}</div><div class="v">${f1(alpha)}°</div></div><div class="chip"><div class="k"><span class="num">|A + B|</span></div><div class="v">${fm(Rs)}</div></div></div>
+    <ul class="steps">${steps.map(t=>`<li>${t}</li>`).join('')}</ul>
+    <p class="say ${perp?'ok':''}">${perp?`المتعامدتان: <b>${num('|A − B| = |A + B| = '+fm(R))}</b> لكن الاتجاه يختلف لأن ( −B ) عكس B.`:W.phi===0||W.phi===180?`المتجهتان على استقامة واحدة: ${W.phi===0?'نطرح المقدارين':'نجمع المقدارين'}.`:'نتحقق دائمًا أن الزاوية φ هي الزاوية بين المتجهتين عند رسمهما من النقطة نفسها.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> للمتعامدتين: R = √( A² + B² ) و θ = tan⁻¹ ( B / A ). ولغير المتعامدتين: R² = A² + B² − 2AB cos φ و sin α / B = sin φ / R.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) تطبيقات على طرح السرعات المتجهة
+   ===================================================================== */
+function tabApps(){
+  const W={R:15,b:60,A:7.5,ad:'N'};
+  ctrl.innerHTML=slider('R','مقدار المحصلة R',5,20,.5,15,UN)+slider('b','اتجاه R (زاوية شرق الشمال)',5,85,.5,60,'°')+slider('A','مقدار السرعة المعروفة A',.5,12,.5,7.5,UN)+`<div><p class="gt">اتجاه A</p>${seg('ad',[['N','شمالًا'],['E','شرقًا']],'N')}</div><div><p class="gt">أمثلة من الدرس</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['المحصلة R = A + B، فإذا عرفنا R وإحدى المتجهتين A فإن الأخرى B = R − A = R + ( −A ).','مثال الطائرة: R = 15 m s⁻¹ بزاوية 60° شرق الشمال، والرياح A = 7.5 m s⁻¹ شمالًا ⟹ سرعة الطائرة 13.0 m s⁻¹ شرقًا.','نحسب B بقانون جيب التمام (الزاوية بين R وA) ثم نتحقق: إن كان B² + A² = R² فالمثلث قائم وB عمودية على A.','مثال القارب: R = 10 m s⁻¹ بزاوية 36.9° شرق الشمال والتيار 6.0 m s⁻¹ شرقًا ⟹ القارب 8.0 m s⁻¹ شمالًا.']);
+  const sl={};['R','b','A'].forEach(k=>sl[k]=bindSlider(k,k==='b'?'°':UN,v=>{W[k]=v;render()}));bindSeg('ad',v=>{W.ad=v;render()});
+  const pre=[['الطائرة والرياح',15,60,7.5,'N'],['القارب والتيار',10,36.9,6,'E']];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i];W.R=p[1];W.b=p[2];W.A=p[3];W.ad=p[4];sl.R.set(p[1]);sl.b.set(p[2]);sl.A.set(p[3]);$('ad').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===p[4]));render()};
+  function render(){
+    const Rv=[W.R*Math.sin(rad(W.b)),W.R*Math.cos(rad(W.b))],Av=W.ad==='N'?[0,W.A]:[W.A,0],Bv=vsub(Rv,Av),Bm=vmag(Bv);
+    const phi=deg(Math.acos(clamp(dot(Rv,Av)/(W.R*W.A),-1,1))),B2=W.R*W.R+W.A*W.A-2*W.R*W.A*Math.cos(rad(phi)),bB=nrm(deg(Math.atan2(Bv[0],Bv[1]))),right=Math.abs(Bm*Bm+W.A*W.A-W.R*W.R)<.01*W.R*W.R;
+    const F=fit([[0,0],Rv,Av],{w:480,h:215,cy:195,umax:40}),P=F.p,O=P([0,0]),PR=P(Rv),PA=P(Av),cen=[(O[0]+PR[0]+PA[0])/3,(O[1]+PR[1]+PA[1])/3];
+    let s=compass(640,56)+arr(O[0],O[1],PR[0],PR[1],BLUE,6)+arr(O[0],O[1],PA[0],PA[1],GREEN,6)+arr(PA[0],PA[1],PR[0],PR[1],ORANGE,6.5);
+    s+=vlabA(O[0],O[1],PR[0],PR[1],'R = '+fm(W.R),BLUE,cen[0],cen[1],20)+vlabA(O[0],O[1],PA[0],PA[1],'A = '+fm(W.A),GREEN,cen[0],cen[1],20)+vlabA(PA[0],PA[1],PR[0],PR[1],'B = '+fm(Bm),ORANGE,cen[0],cen[1],20);
+    if(right&&Bm>.05){const ux=(PR[0]-PA[0])/Math.hypot(PR[0]-PA[0],PR[1]-PA[1]),uy=(PR[1]-PA[1])/Math.hypot(PR[0]-PA[0],PR[1]-PA[1]),vx=(O[0]-PA[0])/Math.hypot(O[0]-PA[0],O[1]-PA[1]),vy=(O[1]-PA[1])/Math.hypot(O[0]-PA[0],O[1]-PA[1]),k=14;
+      s+=`<path d="M${PA[0]+ux*k} ${PA[1]+uy*k} L${PA[0]+ux*k+vx*k} ${PA[1]+uy*k+vy*k} L${PA[0]+vx*k} ${PA[1]+vy*k}" fill="none" stroke="currentColor" stroke-width="2"/>`}
+    s+=`<circle cx="${O[0]}" cy="${O[1]}" r="5" fill="currentColor"/>`+tx(350,34,iso('B = R − A = R + ( −A )'),{s:21,w:700});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">مقدار B</div><div class="v" style="color:var(--accent)">${fm(Bm)} ${UN}</div></div><div class="chip"><div class="k">اتجاه B</div><div class="v" style="font-size:.95rem;direction:rtl">${Bm>.05?brgHtml(bB):'—'}</div></div><div class="chip"><div class="k">الزاوية بين R وA</div><div class="v">${f1(phi)}°</div></div></div>
+    <ul class="steps"><li>${num('R = A + B ⟹ B = R − A = R + ( −A )')}</li><li>${num('B² = R² + A² − 2RA cos φ = '+fm(W.R)+'² + '+fm(W.A)+'² − 2 × '+fm(W.R)+' × '+fm(W.A)+' × cos '+f1(phi)+'° = '+fm(B2))}</li><li>${num('B = '+fm(Bm)+' '+UN)} ${Bm>.05?brgHtml(bB):''}</li>${right?`<li>نتحقق: ${num(fm(Bm)+'² + '+fm(W.A)+'² = '+fm(Bm*Bm+W.A*W.A)+' ≈ '+fm(W.R)+'² = '+fm(W.R*W.R))} ⟹ المثلث قائم الزاوية، فB <b>عمودية على A</b>.</li>`:''}</ul>
+    <p class="say ${right?'ok':''}">${right?`B عمودية على A: سرعة ${W.ad==='N'?'الطائرة (أو القارب)':'القارب'} ${num(fm(Bm)+' '+UN)} ${brgHtml(bB)}.`:`المتجهة المجهولة B تساوي ${num(fm(Bm)+' '+UN)} ${Bm>.05?brgHtml(bB):''}.`}</p>
+    <p class="rule"><b>اربط بالدرس:</b> إذا كانت المحصلة R = A + B وعرفنا R وإحدى المتجهتين A فإن المتجهة الأخرى هي B = R − A. مثال الطائرة: ${num('15 '+UN)} بزاوية 60° شرق الشمال ورياح ${num('7.5 '+UN)} شمالًا ⟹ ${num('13.0 '+UN)} شرقًا.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const S={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: المتجهة السالبة، الطرح على استقامة واحدة، الطرح بيانيًا، الطرح رياضيًا.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق قبل الضغط على الخيار.','ركّز على التعليل الذي يظهر بعد الإجابة لأنه يربط الجواب بقاعدة الدرس.','كرّر الأسئلة حتى يتقن الطالب إضافة سالب المتجهة وتحديد الاتجاه.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const N=t=>`<span class="num">${t}</span>`;
+  const mk=(q,right,wrongs,why)=>({q,opts:[right,...wrongs],ans:0,why});
+  const SC=[[3,4],[5,12],[6,8],[8,15]];
+  const GEN=[
+    ()=>{const m=rnd(2,12),ds=[['شمالًا','جنوبًا'],['شرقًا','غربًا'],['جنوبًا','شمالًا'],['غربًا','شرقًا']][rnd(0,3)];return mk(`ما المتجهة السالبة للسرعة ${N(m+' '+UN)} ${ds[0]}؟`,N(m+' '+UN)+' '+ds[1],[N(m+' '+UN)+' '+ds[0],N((m/2)+' '+UN)+' '+ds[1],N((2*m)+' '+UN)+' '+ds[0]],'المتجهة السالبة لها المقدار نفسه والاتجاه المعاكس.')},
+    ()=>({q:'ماذا يحدث لمقدار المتجهة واتجاهها عند أخذ سالبها؟',opts:['يبقى المقدار ويصبح الاتجاه معاكسًا','يتضاعف المقدار ويبقى الاتجاه','يصبح المقدار صفرًا','يبقى كل منهما كما هو'],ans:0,why:'المتجهة السالبة ( −A ) لها نفس مقدار A وفي الاتجاه المعاكس.'}),
+    ()=>({q:'أي علاقة تعبّر عن A − B؟',opts:['A + ( −B )','( −A ) + B','A + B','( −A ) + ( −B )'],ans:0,why:'نطرح المتجهة بإضافة سالبها: A − B = A + ( −B ).'}),
+    ()=>{const a=rnd(6,12),b=rnd(2,5);return mk(`${N('v₁ = '+a+' '+UN)} شرقًا و${N('v₂ = '+b+' '+UN)} شرقًا. قيمة ${N('v₁ − v₂')} تساوي:`,N((a-b)+' '+UN)+' شرقًا',[N((a+b)+' '+UN)+' شرقًا',N((a-b)+' '+UN)+' غربًا',N((a+b)+' '+UN)+' غربًا'],`الاتجاه نفسه: نطرح المقدارين ${N(a+' − '+b+' = '+(a-b))} والناتج في اتجاه الأكبر (شرقًا).`)},
+    ()=>{const a=rnd(3,9),b=rnd(3,9);return mk(`${N('v₁ = '+a+' '+UN)} شرقًا و${N('v₂ = '+b+' '+UN)} غربًا. قيمة ${N('v₁ − v₂')} تساوي:`,N((a+b)+' '+UN)+' شرقًا',[N(Math.abs(a-b)+' '+UN)+' شرقًا',N((a+b)+' '+UN)+' غربًا',N(Math.abs(a-b)+' '+UN)+' غربًا'],`الاتجاهان متعاكسان: ${N('v₁ − v₂ = '+a+' − ( −'+b+' ) = '+(a+b))} شرقًا، فنجمع المقدارين.`)},
+    ()=>{const a=rnd(10,20),b=a+rnd(5,12);return mk(`ما قيمة ${N(a+' − '+b)} حيث الشرق هو الاتجاه الموجب والمقداران بوحدة ${N(UN)}؟`,N((b-a)+' '+UN)+' غربًا',[N((b-a)+' '+UN)+' شرقًا',N((a+b)+' '+UN)+' غربًا',N((a+b)+' '+UN)+' شرقًا'],`${N(a+' − '+b+' = −'+(b-a))}: الناتج سالب أي بعكس اتجاه المتجهتين (غربًا).`)},
+    ()=>{const [x,y]=SC[rnd(0,3)],h=Math.hypot(x,y),t=deg(Math.atan2(y,x));return mk(`المتجه ${N('A = '+x+' N')} شرقًا والمتجه ${N('B = '+y+' N')} شمالًا. ما مقدار واتجاه ${N('A − B')}؟`,N(fm(h)+' N')+' بزاوية '+N(f1(t)+'°')+' جنوب الشرق',[N(fm(h)+' N')+' بزاوية '+N(f1(t)+'°')+' شمال الشرق',N(fm(h)+' N')+' بزاوية '+N(f1(t)+'°')+' شمال الغرب',N(fm(h)+' N')+' بزاوية '+N(f1(t)+'°')+' جنوب الغرب'],`( −B ) نحو الجنوب وعمودية على A: ${N('R = √( '+x+'² + '+y+'² ) = '+fm(h)+' N')} و${N('θ = tan⁻¹ ( '+y+' / '+x+' ) = '+f1(t)+'°')} جنوب الشرق.`)},
+    ()=>({q:'لإيجاد A − B بيانيًا، ما الذي نرسمه من نهاية المتجهة A؟',opts:['( −B ): بطول B نفسه وعكس اتجاهه','B نفسها بالاتجاه نفسه','متجهة عمودية على A','متجهة طولها نصف طول B'],ans:0,why:'A − B = A + ( −B ): نرسم ( −B ) من نهاية A ثم نصل بداية A بنهاية ( −B ).'}),
+    ()=>{const [x,y]=SC[rnd(0,3)];return mk(`ما العلاقة بين مقداري ${N('A − B')} و${N('A + B')} عندما تكون A وB متعامدتين (${N('A = '+x)} و${N('B = '+y)})؟`,'متساويان في المقدار ومختلفان في الاتجاه',['A − B أصغر دائمًا','A − B أكبر دائمًا','متساويان في المقدار والاتجاه'],`في الحالتين ${N('R = √( A² + B² )')} لكن ( −B ) عكس B فيختلف الاتجاه.`)},
+    ()=>{const a=rnd(5,9),b=rnd(3,7),R2=a*a+b*b-2*a*b*Math.cos(rad(60)),R=Math.sqrt(R2);return mk(`المتجهتان ${N('A = '+a+' '+UN)} و${N('B = '+b+' '+UN)} بينهما زاوية ${N('60°')} عند رسمهما من النقطة نفسها. مقدار ${N('A − B')} يساوي:`,N(fm(R)+' '+UN),[N(fm(Math.sqrt(a*a+b*b+2*a*b*Math.cos(rad(60))))+' '+UN),N((a-b)+' '+UN),N(fm(Math.sqrt(a*a+b*b))+' '+UN)],`نستخدم ${N('R² = A² + B² − 2AB cos φ = '+fm(R2))} فيكون ${N('R = '+fm(R)+' '+UN)}.`)},
+    ()=>({q:'أي قانون نستخدم لمقدار A − B عندما تكون الزاوية بين المتجهتين غير قائمة؟',opts:['R² = A² + B² − 2AB cos φ','R = A − B','R = √( A² + B² )','R = A × B'],ans:0,why:'غير المتعامدتين: قانون جيب التمام، أما فيثاغورس فيصلح للمتعامدتين فقط (cos 90° = 0).'}),
+    ()=>({q:'إذا كانت المحصلة R = A + B فإن المتجهة B تساوي:',opts:['R − A','R + A','A − R','R × A'],ans:0,why:'B = R − A = R + ( −A ): نطرح المتجهة المعروفة من المحصلة.'}),
+    ()=>({q:'هل ( A − B ) و( B − A ) متساويتان؟',opts:['لا: متساويتان في المقدار ومتعاكستان في الاتجاه','نعم: متساويتان تمامًا','لا: مقدارهما مختلف','لا: متعامدتان'],ans:0,why:'B − A = −( A − B ): إحداهما هي المتجهة السالبة للأخرى.'}),
+    ()=>({q:'قطار سرعته '+N('15.0 m s⁻¹')+' بالنسبة للأرض، وركضت نحو مؤخرته بسرعة '+N('2.0 m s⁻¹')+' بالنسبة للقطار. سرعتك بالنسبة للأرض:',opts:[N('13.0 m s⁻¹')+' في اتجاه القطار',N('17.0 m s⁻¹')+' في اتجاه القطار',N('13.0 m s⁻¹')+' عكس اتجاه القطار',N('2.0 m s⁻¹')+' في اتجاه القطار'],ans:0,why:'الاتجاهان متعاكسان على استقامة واحدة: '+N('15.0 − 2.0 = 13.0 m s⁻¹')+' في اتجاه القطار.'}),
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();const idx=shuf(g.opts.map((_,i)=>i));
+    S.cur={q:g.q,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans),why:g.why};S.done=false;
+    svg.innerHTML=tx(350,170,'السؤال '+(S.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${S.cur.q}</p><div class="opts">${S.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(S.done)return;S.done=true;S.n++;const i=+b.dataset.i,right=i===S.cur.ans;if(right)S.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===S.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${S.cur.why}</p>`;
+      $('qn').textContent=S.n;$('qk').textContent=S.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{S.n=0;S.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+openTab('neg');
+</script></body></html>
