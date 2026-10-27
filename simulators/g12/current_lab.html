@@ -1,0 +1,334 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر التيار الكهربائي — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}}
+.steps li,.say,.rule{overflow-x:auto}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر التيار الكهربائي</h1><p class="sub">الوحدة الثالثة: الدوائر الكهربائية — الدرس التاسع</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([+\-\u2212]?[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3][0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3\u00B0 .,+\-\u2212\u00D7=\/%]*[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3%\u00B0]|[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3])/g,'\u2066$1\u2069');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine ---------- */
+let tick=null,raf=0,lastT=0,curTab='dir';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+const E=1.6e-19,YEL='#f2c14e',NAVYC='#1d3b66';
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci(x,d=2){if(x===0)return'0';const s=x<0?'−':'';x=Math.abs(x);let e=Math.floor(Math.log10(x)+1e-12),m=x/10**e;if(+m.toFixed(d)>=10){m/=10;e++}return `${s}${+m.toFixed(d)}×10${String(e).split('').map(c=>SUP[c]).join('')}`}
+function fm(x,d=3){if(x===0||Math.abs(x)<1e-300)return'0';const a=Math.abs(x);if(a>=0.01&&a<10000){let t=x.toPrecision(d);if(t.includes('.')&&!t.includes('e'))t=t.replace(/0+$/,'').replace(/\.$/,'');return String(+t).replace('-','−')}return sci(x,d-1)}
+const setSeg=(id,on)=>$(id).querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===on));
+const TABS=[['dir','حاملات الشحنة واتجاه التيار'],['qn','الشحنة المكمّمة'],['it','شدة التيار Q = I t'],['nav','معادلة I = n A v q'],['fac','العوامل ومقارنة سلكين'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({dir:tabDir,qn:tabQn,it:tabIt,nav:tabNav,fac:tabFac,quiz:tabQuiz})[k]();startLoop()}
+const MAT={cu:['النحاس',8.5e28],ag:['الفضة',5.9e28],au:['الذهب',5.9e28],sc:['شبه موصل (سيليكون)',1e23]};
+const ball=(x,y,col,r=7,lab)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${col}" stroke="#1a1a1a" stroke-width="1.8"/>`+(lab?tx(x,y+r*.36,lab,{s:r*1.15,w:700,f:'#fff'}):'');
+const ln=(x1,y1,x2,y2,col='#5b6678',w=4)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`;
+const speedPx=v=>clamp(30+20*Math.log10(v/1e-4),8,120);   // visual drift speed (log scale)
+
+/* =====================================================================
+   1) حاملات الشحنة واتجاه التيار
+   ===================================================================== */
+function tabDir(){
+  const W={med:'metal',pol:1,sp:1,ph:0};
+  ctrl.innerHTML=`<div><p class="gt">الوسط الذي يمرّ فيه التيار</p>${seg('med',[['metal','سلك فلزي'],['sol','محلول إلكتروليتي'],['beam','حزمة بروتونات']],'metal')}</div><div><p class="gt">قطبية الخلية</p>${seg('pol',[['n','طبيعية'],['r','معكوسة']],'n')}</div>`+slider('sp','سرعة العرض',0.3,3,0.1,1,'×')+`<p class="gt">الأسهم: البرتقالي التيار الاصطلاحي، والأزرق حركة حاملات الشحنة السالبة.</p>`;
+  setTalk(['التيار الكهربائي تدفق لحاملات شحنة كهربائية مكمّمة، وحاملات الشحنة جسيمات مشحونة تسهم في التيار.','في السلك الفلزي الحاملات إلكترونات حرة تتحرك من القطب السالب إلى الموجب، والتيار الاصطلاحي عكس حركتها.','في المحلول الإلكتروليتي تتحرك الأيونات الموجبة والسالبة في اتجاهين متعاكسين وكلاهما يسهم في التيار.','في مسرّع الجسيمات حزمة بروتونات موجبة، فاتجاه التيار هو اتجاه حركة البروتونات نفسه.','اعكس قطبية الخلية ليرى الطالب أن الاتجاهين ينعكسان معًا.']);
+  bindSlider('sp','×',v=>{W.sp=v});bindSeg('med',k=>{W.med=k;render()});bindSeg('pol',k=>{W.pol=k==='n'?1:-1;render()});
+  tick=dt=>{W.ph+=dt*(reduceMotion?.2:1)*W.sp;render(true)};
+  const X0=90,X1=610,Y0=70,Y1=275,PER=2*((X1-X0)+(Y1-Y0));
+  // position along the loop, clockwise from the top-left corner; returns [x,y,side]
+  function loopPos(s){s=((s%PER)+PER)%PER;const w=X1-X0,h=Y1-Y0;if(s<w)return[X0+s,Y0,'t'];s-=w;if(s<h)return[X1,Y0+s,'r'];s-=h;if(s<w)return[X1-s,Y1,'b'];s-=w;return[X0,Y1-s,'l']}
+  function render(){
+    const med=W.med,p=W.pol;let s='',carrier='',moves='',cur='',note='';
+    if(med==='metal'){
+      s+=ln(X0,Y0,325,Y0)+ln(375,Y0,X1,Y0)+ln(X1,Y0,X1,Y1)+ln(X0,Y1,X1,Y1)+ln(X0,Y0,X0,Y1);
+      s+=ln(335,Y0-26,335,Y0+26,p>0?RED:BLUE,5)+ln(365,Y0-14,365,Y0+14,p>0?BLUE:RED,9)+tx(335,Y0-34,p>0?'+':'−',{s:20,w:700,f:p>0?RED:BLUE})+tx(365,Y0-30,p>0?'−':'+',{s:22,w:700,f:p>0?BLUE:RED});
+      s+=ball(350,Y1,YEL,17)+ln(342,Y1-8,358,Y1+8,'#7a5a00',2)+ln(342,Y1+8,358,Y1-8,'#7a5a00',2);
+      const N=18,dir=p>0?1:-1;for(let i=0;i<N;i++){const [x,y]=loopPos(i*PER/N+dir*W.ph*60);if(x>322&&x<378&&y<Y0+3)continue;s+=ball(x,y,BLUE,7,'−')}
+      const A=(x,y,dx,dy)=>arr(x-dx*22,y-dy*22,x+dx*22,y+dy*22,ORANGE,5);
+      // conventional current: leaves the + plate of the cell
+      if(p>0)s+=A(250,Y0,-1,0)+A(X0,170,0,1)+A(250,Y1,1,0)+A(X1,170,0,-1);else s+=A(450,Y0,1,0)+A(X1,170,0,1)+A(450,Y1,-1,0)+A(X0,170,0,-1);
+      carrier='إلكترونات حرة (−e)';moves=p>0?'من القطب السالب إلى الموجب (مع عقارب الساعة)':'من القطب السالب إلى الموجب (عكس عقارب الساعة)';cur='عكس حركة الإلكترونات';
+      note='حاملات الشحنة في الفلز هي الإلكترونات الحرة، والتيار الاصطلاحي يعاكس حركتها.';
+    }else if(med==='sol'){
+      s+=ln(150,70,150,175)+ln(550,70,550,175)+ln(150,70,320,70)+ln(380,70,550,70);
+      s+=ln(335,44,335,96,p>0?RED:BLUE,5)+ln(365,56,365,84,p>0?BLUE:RED,9)+tx(335,36,p>0?'+':'−',{s:20,w:700,f:p>0?RED:BLUE})+tx(365,40,p>0?'−':'+',{s:22,w:700,f:p>0?BLUE:RED});
+      s+=`<rect x="130" y="150" width="440" height="140" rx="10" fill="#cfe6f0" stroke="${GRAY}" stroke-width="3"/><rect x="146" y="120" width="16" height="160" fill="#c8cfd2" stroke="#1a1a1a" stroke-width="2"/><rect x="538" y="120" width="16" height="160" fill="#c8cfd2" stroke="#1a1a1a" stroke-width="2"/>`;
+      s+=tx(154,112,p>0?'+':'−',{s:20,w:700,f:p>0?RED:BLUE})+tx(546,112,p>0?'−':'+',{s:20,w:700,f:p>0?BLUE:RED});
+      const L=372,N=6;for(let i=0;i<N;i++){const f=((i/N+W.ph*.12)%1+1)%1,xp=p>0?172+f*L:172+(1-f)*L,xn=p>0?172+(1-f)*L:172+f*L,yy=172+((i*47)%100);
+        s+=ball(xp,yy,RED,9,'+')+ball(xn,yy+24,BLUE,9,'−')}
+      s+=arr(p>0?210:490,135,p>0?490:210,135,ORANGE,5);
+      carrier='أيونات موجبة وسالبة معًا';moves=p>0?'الموجبة نحو اليمين (القطب السالب) والسالبة نحو اليسار':'الموجبة نحو اليسار (القطب السالب) والسالبة نحو اليمين';cur=p>0?'نحو اليمين (باتجاه الأيونات الموجبة)':'نحو اليسار (باتجاه الأيونات الموجبة)';
+      note='كلا النوعين من الأيونات يسهم في التيار الكهربائي، والاصطلاحي في اتجاه حركة الموجبة.';
+    }else{
+      s+=`<rect x="60" y="140" width="580" height="90" rx="45" fill="#e9f1f5" stroke="${GRAY}" stroke-width="3"/>`;
+      const N=8,d=p>0?1:-1;for(let i=0;i<N;i++){const f=((i/N+d*W.ph*.1)%1+1)%1;s+=ball(95+f*510,185,RED,11,'+')}
+      s+=arr(p>0?250:450,115,p>0?450:250,115,ORANGE,6)+tx(350,255,'حزمة بروتونات في مسرّع الجسيمات',{s:14,f:GRAY});
+      carrier='بروتونات (+e)';moves=p>0?'نحو اليمين':'نحو اليسار';cur=p>0?'نحو اليمين (باتجاه البروتونات)':'نحو اليسار (باتجاه البروتونات)';
+      note='الحاملات موجبة، فاتجاه التيار هو اتجاه حركة البروتونات نفسه.';
+    }
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">حاملات الشحنة</div><div class="v" style="direction:rtl">${carrier}</div></div><div class="chip"><div class="k">حركة الحاملات</div><div class="v" style="direction:rtl;font-size:.9em">${moves}</div></div><div class="chip"><div class="k">التيار الاصطلاحي</div><div class="v" style="direction:rtl;font-size:.9em">${cur}</div></div></div>
+    <p class="say ok">${note}</p>
+    <p class="rule"><b>اربط بالدرس:</b> التيار الكهربائي تدفق لحاملات شحنة كهربائية مكمّمة (إلكترون أو بروتون أو أيون). التيار الاصطلاحي من القطب الموجب إلى السالب، وشرطا مروره دائرة مغلقة وفرق جهد.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) الشحنة المكمّمة
+   ===================================================================== */
+function tabQn(){
+  const W={n:3,qx:2.5};
+  ctrl.innerHTML=slider('n','عدد الشحنات الأولية n',1,12,1,3,'e')+slider('qx','شحنة مختبَرة',0.5,20,0.1,2.5,'×10⁻¹⁹ C')+`<p class="gt">جرّب شحنات الكتاب:</p><div class="btns" id="pre"></div>`;
+  setTalk(['الكمية المكمّمة لها حد أدنى من المقدار وتأتي بمضاعفات صحيحة منه، والشحنة الأولية e = 1.6×10⁻¹⁹ C.','حرّك n لترى Q = n e تكبر بقفزات متساوية، ولا توجد شحنة بين قفزتين.','اختبر الشحنات: نقسم Q على e، فإن كان الناتج عددًا صحيحًا فالشحنة ممكنة.','أمثلة الكتاب: 2.5 غير ممكنة، و6.0 و10.0 غير ممكنتين، و8.0 ممكنة (n = 5).']);
+  const sl={n:bindSlider('n','e',v=>{W.n=v;render()}),qx:bindSlider('qx','×10⁻¹⁹ C',v=>{W.qx=v;render()})};
+  const pre=[2.5,3.2,4.8,6.0,8.0,10.0];
+  $('pre').innerHTML=pre.map(v=>`<button class="btn small" data-v="${v}">${v}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;W.qx=+b.dataset.v;sl.qx.set(W.qx);render()};
+  function render(){
+    const Qn=W.n*1.6,ratio=W.qx/1.6,ok=Math.abs(ratio-Math.round(ratio))<0.005&&Math.round(ratio)>=1;
+    let s='';
+    for(let i=0;i<W.n;i++)s+=ball(70+(i%12)*48,70+Math.floor(i/12)*0,ORANGE,15,'e');
+    s+=tx(350,120,'Q = n e = '+W.n+' × 1.6×10⁻¹⁹ = '+fm(Qn)+'×10⁻¹⁹ C',{s:16,w:700,f:BLUE});
+    // number line with multiples of e
+    const x0=60,sc=26,y=240;s+=ln(x0,y,x0+20*sc,y,'currentColor',2.5);
+    for(let k=0;k<=12;k++){const xx=x0+k*1.6*sc;s+=ln(xx,y-9,xx,y+9,GRAY,2.5)+tx(xx,y+30,k===0?'0':(k*1.6).toFixed(1),{s:11,f:GRAY})}
+    const xq=x0+W.qx*sc;s+=ball(xq,y,ok?GREEN:RED,10)+tx(xq,y-24,W.qx.toFixed(1),{s:13,w:700,f:ok?GREEN:RED})+tx(350,300,'مضاعفات e على محور الشحنة (×10⁻¹⁹ C)',{s:12,f:GRAY});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">Q = n e</div><div class="v">${fm(Qn)}×10⁻¹⁹ C</div></div><div class="chip"><div class="k">الشحنة المختبَرة</div><div class="v">${W.qx.toFixed(1)}×10⁻¹⁹ C</div></div><div class="chip"><div class="k">n = Q / e</div><div class="v">${fm(ratio,3)}</div></div><div class="chip"><div class="k">الحكم</div><div class="v" style="direction:rtl;color:${ok?GREEN:RED}">${ok?'ممكنة':'غير ممكنة'}</div></div></div>
+    <ul class="steps"><li>${num('n = Q / e = '+W.qx.toFixed(1)+'×10⁻¹⁹ / 1.6×10⁻¹⁹ = '+fm(ratio,3))}</li></ul>
+    <p class="say ${ok?'ok':''}">${ok?'n عدد صحيح، فالشحنة <b>ممكنة</b> لحامل شحنة.':'n ليس عددًا صحيحًا، فالشحنة <b>غير ممكنة</b> لحامل شحنة.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> الشحنة كمية مكمّمة Q = n e حيث n عدد صحيح و e = 1.6×10⁻¹⁹ C. شحنة البروتون تساوي شحنة الإلكترون في المقدار.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) شدة التيار Q = I t
+   ===================================================================== */
+function tabIt(){
+  const W={I:0.15,t:2400,run:false,te:0,ph:0};
+  ctrl.innerHTML=slider('I','شدة التيار I',0.05,10,0.05,0.15,'A')+slider('t','الزمن t',1,3600,1,2400,'s')+`<div class="btns"><button class="btn primary" id="go">ابدأ تدفق الشحنة</button><button class="btn" id="rs">أعد الضبط</button></div><p class="gt">أمثلة الدرس:</p><div class="btns" id="pre"></div>`;
+  setTalk(['شدة التيار معدل تدفق الشحنة عبر نقطة: I = Q / t، ومنها Q = I t.','حوّل الوحدات قبل التعويض: mA إلى A، وmin إلى s. المحاكي يعرض لك خطوة التحويل.','اضغط «ابدأ»: يعدّ الزمن وتتجمع الشحنة Q التي عبرت المقطع، ويظهر عدد الإلكترونات N = Q / e.','قارن: 3 A تعني أن 3 C تعبر المقطع كل ثانية.']);
+  const sl={I:bindSlider('I','A',v=>{W.I=v;W.te=0;W.run=false;render()}),t:bindSlider('t','s',v=>{W.t=v;W.te=0;W.run=false;render()})};
+  const pre=[['150 mA لمدة 40 min',0.15,2400],['5 A لمدة 2 s',5,2],['10 A لمدة 1 h',10,3600],['0.40 A لمدة 15 s',0.4,15]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i];W.I=p[1];W.t=p[2];W.te=0;W.run=false;sl.I.set(p[1]);sl.t.set(p[2]);render()};
+  $('go').onclick=()=>{W.te=0;W.run=true};$('rs').onclick=()=>{W.te=0;W.run=false;render()};
+  tick=dt=>{W.ph+=dt*(reduceMotion?.3:1);if(W.run){W.te+=dt*(W.t/5);if(W.te>=W.t){W.te=W.t;W.run=false}}render()};
+  function render(){
+    const Qt=W.I*(W.run||W.te>0?W.te:W.t),N=Qt/E;
+    let s=`<rect x="60" y="110" width="580" height="100" rx="50" fill="#f6d9c4" stroke="#b9794a" stroke-width="3"/><ellipse cx="350" cy="160" rx="18" ry="50" fill="none" stroke="${BLUE}" stroke-width="3" stroke-dasharray="7 5"/>`;
+    const n=Math.round(clamp(3+W.I*2.2,3,22));for(let i=0;i<n;i++){const f=((i/n+W.ph*(.05+W.I*.05))%1+1)%1;s+=ball(80+f*540,128+(i*37)%66,BLUE,6.5)}
+    s+=tx(350,100,'مقطع الموصل',{s:13,f:BLUE,w:700})+tx(350,250,'Q = I t = '+fm(Qt)+' C',{s:20,w:700,f:ORANGE});
+    s+=`<rect x="140" y="270" width="420" height="12" rx="6" fill="#dfe6ee"/><rect x="140" y="270" width="${420*clamp(W.te/W.t,0,1)}" height="12" rx="6" fill="${GREEN}"/>`+tx(350,305,(W.run||W.te>0?'الزمن المنقضي: '+fm(W.te,3)+' s من '+fm(W.t)+' s':'اضغط «ابدأ» لتجميع الشحنة'),{s:12,f:GRAY});
+    svg.innerHTML=s;
+    const mA=W.I<1?`${fm(W.I*1000)} mA`:'',min=W.t>=60?`${fm(W.t/60)} min`:'';
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">I</div><div class="v">${fm(W.I)} A ${mA?'= '+mA:''}</div></div><div class="chip"><div class="k">t</div><div class="v">${fm(W.t)} s ${min?'= '+min:''}</div></div><div class="chip"><div class="k">الشحنة Q</div><div class="v">${fm(W.I*W.t)} C</div></div><div class="chip"><div class="k">عدد الإلكترونات N</div><div class="v">${sci(W.I*W.t/E,2)}</div></div></div>
+    <ul class="steps"><li>${num('Q = I t = '+fm(W.I)+' × '+fm(W.t)+' = '+fm(W.I*W.t)+' C')}</li><li>${num('N = Q / e = '+fm(W.I*W.t)+' / 1.6×10⁻¹⁹ = '+sci(W.I*W.t/E,2))}</li><li>${num('I = Q / t = '+fm(W.I*W.t)+' / '+fm(W.t)+' = '+fm(W.I)+' A')}</li></ul>
+    <p class="say">كل ثانية تعبر المقطع شحنة مقدارها ${num(fm(W.I)+' C')}، وهذا معنى أن شدة التيار ${num(fm(W.I)+' A')}.</p>
+    <p class="rule"><b>اربط بالدرس:</b> I = Q / t ، Q = I t ، N = Q / e . الأمبير A = C s⁻¹ والكولوم C = A s . حوّل mA وmin وh قبل التعويض، وA h = 3600 C.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) معادلة I = n A v q
+   ===================================================================== */
+function tabNav(){
+  const W={m:'cu',d:1.0,I:5.0,ph:0};
+  ctrl.innerHTML=`<div><p class="gt">مادة السلك (الكثافة العددية n)</p>${seg('m',[['cu','نحاس'],['ag','فضة'],['au','ذهب'],['sc','شبه موصل']],'cu')}</div>`+slider('d','قطر السلك d',0.2,3,0.1,1,'mm')+slider('I','شدة التيار I',0.5,10,0.5,5,'A')+`<div class="btns"><button class="btn" id="ex">مثال الدرس: ${num('1.0 mm')} و${num('5.0 A')}</button></div>`;
+  setTalk(['n الكثافة العددية: عدد حاملات الشحنة لكل وحدة حجم، وv متوسط السرعة الانجرافية للإلكترونات.','من الاستنتاج: عدد الحاملات N = n A L، والشحنة Q = N q، والزمن t = L / v، فيكون I = n A v q.','غيّر قطر السلك والتيار والمادة وراقب v: عادة ما تكون صغيرة جدًا في الفلزات (أجزاء من mm في الثانية).','في شبه الموصل n أقل بنحو مليون مرة فتكون v أكبر بنحو مليون مرة للتيار نفسه.']);
+  bindSeg('m',k=>{W.m=k;render()});const sl={d:bindSlider('d','mm',v=>{W.d=v;render()}),I:bindSlider('I','A',v=>{W.I=v;render()})};
+  $('ex').onclick=()=>{Object.assign(W,{m:'cu',d:1,I:5});setSeg('m','cu');sl.d.set(1);sl.I.set(5);render()};
+  tick=dt=>{const v=W.I/(MAT[W.m][1]*Math.PI*(W.d*5e-4)**2*E);W.ph+=dt*speedPx(v);render()};
+  function render(){
+    const n=MAT[W.m][1],r=W.d/2*1e-3,A=Math.PI*r*r,v=W.I/(n*A*E),hh=24+W.d*26;
+    let s=`<rect x="60" y="${160-hh}" width="580" height="${2*hh}" rx="14" fill="#f6d9c4" stroke="#b9794a" stroke-width="3"/>`;
+    for(let i=0;i<12;i++){const x=80+(((i*54+W.ph)%540)+540)%540,y=160-hh+16+((i*41)%(Math.max(1,2*hh-32)));s+=ball(x,y,BLUE,6.5)+arr(x+8,y,x+8+Math.min(26,speedPx(v)*.28),y,NAVYC,2.2)}
+    s+=tx(350,160-hh-14,'v ← '+fm(v*1000)+' mm/s',{s:14,f:ORANGE,w:700})+tx(350,300,'d = '+f1(W.d)+' mm   ،   I = '+f1(W.I)+' A',{s:14,f:GRAY});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">مساحة المقطع A</div><div class="v">${fm(A,3)} m²</div></div><div class="chip"><div class="k">الكثافة العددية n</div><div class="v">${sci(n,1)} m⁻³</div></div><div class="chip"><div class="k">v = I / (n A e)</div><div class="v">${fm(v,3)} m/s</div></div><div class="chip"><div class="k">v بوحدة mm/s</div><div class="v">${fm(v*1000,3)}</div></div></div>
+    <ul class="steps"><li>${num('r = d / 2 = '+f1(W.d/2)+' mm = '+fm(r)+' m')}</li><li>${num('A = π r² = 3.14 × ( '+fm(r)+' )² = '+fm(Math.PI*r*r)+' m²')}</li><li>${num('v = I / ( n A e ) = '+f1(W.I)+' / ( '+sci(n,1)+' × '+fm(A,3)+' × 1.6×10⁻¹⁹ ) = '+fm(v,3)+' m/s')}</li></ul>
+    <p class="say ${W.m==='sc'?'ok':''}">${W.m==='sc'?'كثافة شبه الموصل العددية n أقل بكثير، فتكون <b>v أكبر بكثير</b> للتيار نفسه.':'سرعة الانجراف في الفلز صغيرة جدًا رغم أن التيار قد يكون كبيرًا.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> I = n A v q وللإلكترونات q = e ، ومنها v = I / ( n A e ). راجع الوحدات: قطر mm يتحول إلى نصف قطر بالمتر ثم A = π r².</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) العوامل ومقارنة سلكين على التوالي
+   ===================================================================== */
+function tabFac(){
+  const W={m1:'cu',m2:'cu',d1:1,d2:2,I:5,ph:0};
+  ctrl.innerHTML=`<div><p class="gt">مادة السلك P</p>${seg('m1',[['cu','نحاس'],['ag','فضة']],'cu')}</div><div><p class="gt">مادة السلك Q</p>${seg('m2',[['cu','نحاس'],['ag','فضة']],'cu')}</div>`+slider('d1','قطر السلك P',0.5,3,0.1,1,'mm')+slider('d2','قطر السلك Q',0.5,3,0.1,2,'mm')+slider('I','التيار المشترك I',0.5,10,0.5,5,'A')+`<p class="gt">أمثلة الدرس:</p><div class="btns" id="pre"></div>`;
+  setTalk(['السلكان على التوالي فيمرّ بهما التيار I نفسه.','v = I / ( n A e ): تتناسب v عكسيًا مع A وعكسيًا مع n وطرديًا مع I.','القطر d وضعفه 2d: المساحة تتناسب مع d² فتصبح 4 أمثال وتقل v إلى الربع، فنسبة v(P) / v(Q) = 4.','نحاس ثم فضة بالقطر نفسه: n أقل في الفضة فتزداد v بنحو 1.4 مرة.']);
+  const sl={};bindSeg('m1',k=>{W.m1=k;render()});bindSeg('m2',k=>{W.m2=k;render()});['d1','d2','I'].forEach(k=>sl[k]=bindSlider(k,k==='I'?'A':'mm',v=>{W[k]=v;render()}));
+  const pre=[['قطر Q ضعف قطر P',{m1:'cu',m2:'cu',d1:1,d2:2}],['نحاس ثم فضة بالقطر نفسه',{m1:'cu',m2:'ag',d1:1,d2:1}],['السلكان متساويان',{m1:'cu',m2:'cu',d1:1.5,d2:1.5}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=pre[b.dataset.i][1];Object.assign(W,p);setSeg('m1',W.m1);setSeg('m2',W.m2);sl.d1.set(W.d1);sl.d2.set(W.d2);render()};
+  const vOf=(m,d)=>W.I/(MAT[m][1]*Math.PI*(d*5e-4)**2*E);
+  tick=dt=>{W.ph+=dt*1;render()};
+  function render(){
+    const v1=vOf(W.m1,W.d1),v2=vOf(W.m2,W.d2),h1=18+W.d1*20,h2=18+W.d2*20;let s='';
+    const wire=(x,w,hh,v,lab,m)=>{let t=`<rect x="${x}" y="${150-hh}" width="${w}" height="${2*hh}" rx="12" fill="#f6d9c4" stroke="#b9794a" stroke-width="3"/>`;for(let i=0;i<6;i++){const xx=x+14+(((i*55+W.ph*speedPx(v))%(w-30))+(w-30))%(w-30),yy=150-hh+12+((i*37)%Math.max(1,2*hh-24));t+=ball(xx,yy,BLUE,6)}return t+tx(x+w/2,150-hh-10,lab,{s:15,w:700})+tx(x+w/2,150+hh+22,fm(v*1000,3)+' mm/s',{s:13,f:ORANGE,w:700})};
+    s+=wire(50,290,h1,v1,'P',W.m1)+wire(360,290,h2,v2,'Q',W.m2)+arr(18,150,48,150,ORANGE,5)+arr(654,150,684,150,ORANGE,5)+tx(350,290,'I = '+f1(W.I)+' A في السلكين',{s:13,f:GRAY});
+    svg.innerHTML=s;
+    const ratio=v1/v2,A1=Math.PI*(W.d1/2*1e-3)**2,A2=Math.PI*(W.d2/2*1e-3)**2;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">v في السلك P</div><div class="v">${fm(v1,3)} m/s</div></div><div class="chip"><div class="k">v في السلك Q</div><div class="v">${fm(v2,3)} m/s</div></div><div class="chip"><div class="k">v(P) / v(Q)</div><div class="v">${fm(ratio,3)}</div></div></div>
+    <ul class="steps"><li>${num('A(P) = '+fm(A1,3)+' m²  ،  A(Q) = '+fm(A2,3)+' m²')}</li><li>${num('v(P) / v(Q) = [ n(Q) A(Q) ] / [ n(P) A(P) ] = '+fm(ratio,3))}</li></ul>
+    <p class="say ${Math.abs(ratio-4)<.02?'ok':''}">${Math.abs(ratio-4)<.02?'قطر Q ضعف قطر P والمادة واحدة: النسبة <b>4</b> كما في مثال الدرس.':ratio>1?'السلك P أضيق أو كثافته أقل فسرعة الانجراف فيه <b>أكبر</b>.':ratio<1?'السلك P أوسع أو كثافته أكبر فسرعة الانجراف فيه <b>أقل</b>.':'السلكان متماثلان فسرعتاهما متساويتان.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> v = I / ( n A e ): v ∝ I ، v ∝ 1/n ، v ∝ 1/A. عند التوصيل على التوالي I واحد، وA = π r² تتناسب مع d².</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const S={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: حاملات الشحنة، الشحنة المكمّمة، Q = I t، معادلة I = n A v q، وعوامل v.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق قبل الضغط على الخيار.','ركّز على التعليل الذي يظهر بعد الإجابة: يربط الجواب بقاعدة الدرس.','كرّر الأسئلة حتى يتقن تحويل mA وmin وmm وإيجاد A من القطر.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const N=t=>`<span class="num">${t}</span>`;
+  const mk=(q,right,wrongs,why)=>({q,opts:[right,...wrongs],ans:0,why});
+  const U=(x,u)=>N(fm(x)+' '+u);
+  const GEN=[
+    ()=>{const I=rnd(2,9),t=rnd(2,9)*10,Qv=I*t;return mk(`يمرّ تيار شدته ${N(I+' A')} في موصل لمدة ${N(t+' s')}. ما الشحنة المارّة عبر مقطعه؟`,U(Qv,'C'),[U(I/t,'C'),U(t/I,'C'),U(Qv*60,'C')],`Q = I t = ${N(I+' × '+t+' = '+Qv+' C')}.`)},
+    ()=>{const Qv=rnd(2,9)*30,t=rnd(2,6)*5,I=Qv/t;return mk(`تدفقت شحنة ${N(Qv+' C')} عبر مقطع موصل خلال ${N(t+' s')}. ما شدة التيار؟`,U(I,'A'),[U(I*t,'A'),U(t/Qv,'A'),U(I/60,'A')],`I = Q / t = ${N(Qv+' / '+t+' = '+fm(I)+' A')}.`)},
+    ()=>{const mA=rnd(1,9)*50,m=rnd(1,6)*10,Qv=mA*1e-3*m*60;return mk(`يمرّ تيار شدته ${N(mA+' mA')} في مصباح لمدة ${N(m+' min')}. ما الشحنة المارّة؟`,U(Qv,'C'),[U(mA*m,'C'),U(mA*1e-3*m,'C'),U(mA*m*60,'C')],`نحوّل: I = ${N(fm(mA*1e-3)+' A')} و t = ${N(m*60+' s')} ثم Q = I t = ${N(fm(Qv)+' C')}.`)},
+    ()=>{const Qv=rnd(1,9)*1.6,N0=Qv/E;return mk(`كم عدد الإلكترونات في شحنة مقدارها ${N(fm(Qv)+' C')}؟`,N(sci(N0,2)),[N(sci(Qv*E,2)),N(sci(N0*10,2)),N(sci(N0/10,2))],`N = Q / e = ${N(fm(Qv)+' / 1.6×10⁻¹⁹ = '+sci(N0,2))}.`)},
+    ()=>{const good=rnd(2,9)*1.6,bad=[good+0.7,good+0.4,good-0.5].map(x=>+x.toFixed(1));return {q:'أيّ الشحنات الآتية يمكن أن يحملها جسيم مشحون؟ (e = 1.6×10⁻¹⁹ C)',opts:[N(good.toFixed(1)+'×10⁻¹⁹ C'),...bad.map(b=>N(b+'×10⁻¹⁹ C'))],ans:0,why:`الشحنة الممكنة مضاعف صحيح لـ e: ${N(good.toFixed(1)+' / 1.6 = '+Math.round(good/1.6))}.`}},
+    ()=>({q:'إذا تحركت شحنة سالبة في موصل من النقطة x إلى النقطة y فإن التيار الاصطلاحي يكون …',opts:['من y إلى x','من x إلى y','معدومًا','غير محدد'],ans:0,why:'التيار الاصطلاحي عكس حركة الشحنة السالبة.'}),
+    ()=>({q:'أيّ مما يأتي لا يعدّ من حاملات الشحنة؟',opts:['النيوترون','الإلكترون','البروتون','الأيون'],ans:0,why:'النيوترون متعادل لا يحمل شحنة فلا يسهم في التيار.'}),
+    ()=>({q:'أيّ العبارات صحيحة عن التيار في المحلول الإلكتروليتي؟',opts:['الأيونات الموجبة والسالبة تتحرك في اتجاهين متعاكسين وكلاهما يسهم','الإلكترونات وحدها تتحرك بين القطبين','الأيونات الموجبة وحدها تسهم في التيار','لا يتحرك أي حامل شحنة'],ans:0,why:'في المحلول تسهم الأيونات الموجبة والسالبة معًا في التيار.'}),
+    ()=>({q:'أيّ مما يأتي يكافئ الأمبير؟',opts:['C s⁻¹','C s','J C⁻¹','N C⁻¹'],ans:0,why:'الأمبير كولوم لكل ثانية: A = C s⁻¹ ، والكولوم C = A s.'}),
+    ()=>{const d=rnd(5,20)/10,I=rnd(2,9),A=Math.PI*(d/2*1e-3)**2,v=I/(8.5e28*A*E);return mk(`احسب متوسط السرعة الانجرافية للإلكترونات في سلك نحاسي قطره ${N(f1(d)+' mm')} يمرّ به تيار ${N(I+' A')} علمًا بأن n = ${N('8.5×10²⁸ m⁻³')}.`,U(v,'m/s'),[U(v*4,'m/s'),U(v/4,'m/s'),U(v*1e3,'m/s')],`A = π r² = ${N(fm(A,3)+' m²')} ثم v = I / ( n A e ) = ${N(fm(v,3)+' m/s')}.`)},
+    ()=>({q:'سلكان نحاسيان على التوالي قطر الثاني ضعف قطر الأول. كيف تقارن متوسط سرعة الانجراف في الأول بالثاني؟',opts:['أكبر بأربع مرات','أكبر بمرتين','متساوية','أقل بأربع مرات'],ans:0,why:'v ∝ 1/A و A ∝ d² فمع ضعف القطر تصبح المساحة 4 أمثال وتقل v إلى الربع في السلك الثاني.'}),
+    ()=>({q:'ماذا يحدث لمتوسط السرعة الانجرافية عندما يضيق السلك مع ثبات التيار؟',opts:['تزداد','تقل','لا تتغير','تنعدم'],ans:0,why:'v = I / ( n A e ): عند نقصان A تزداد v.'}),
+    ()=>({q:'ضوعفت شدة التيار في سلك معيّن. ماذا يحدث لمتوسط السرعة الانجرافية؟',opts:['تتضاعف','تصبح النصف','لا تتغير','تصبح الربع'],ans:0,why:'v تتناسب طرديًا مع I.'}),
+    ()=>({q:'لماذا متوسط السرعة الانجرافية في أشباه الموصلات أكبر منها في الفلزات لشدة التيار نفسها؟',opts:['لأن الكثافة العددية n أقل بكثير','لأن الكثافة العددية n أكبر','لأن مساحة المقطع أكبر دائمًا','لأن شحنة الإلكترون أصغر'],ans:0,why:'v ∝ 1/n ، وكثافة أشباه الموصلات العددية أقل بنحو مليون مرة.'}),
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();const idx=shuf(g.opts.map((_,i)=>i));
+    S.cur={q:g.q,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans),why:g.why};S.done=false;
+    svg.innerHTML=tx(350,170,'السؤال '+(S.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${S.cur.q}</p><div class="opts">${S.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(S.done)return;S.done=true;S.n++;const i=+b.dataset.i,right=i===S.cur.ans;if(right)S.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===S.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${S.cur.why}</p>`;
+      $('qn').textContent=S.n;$('qk').textContent=S.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{S.n=0;S.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+openTab('dir');
+</script>
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>
