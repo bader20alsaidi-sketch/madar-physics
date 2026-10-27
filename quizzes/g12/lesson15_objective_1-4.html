@@ -358,6 +358,73 @@
     a[href]:after{content:"" !important;}
   }
 
+
+  /* ===== صياغة الأسئلة بنمط ورقة الامتحان ===== */
+  .sol-section.nq{padding:16px 18px 14px;}
+  .nq-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;}
+  .nq-num{margin:0;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0;}
+  .nb{display:inline-block;padding:2px 12px;border-radius:999px;font-size:12.5px;font-weight:700;border:1px solid;line-height:1.7;}
+  .nb.exam{background:#e7f1f7;border-color:#b9d3e4;color:var(--primary-dark);}
+  .nb.marks{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nb.mcq{background:#e7f7ea;border-color:#b4dfbd;color:#1a7a3d;}
+  .nb.essay{background:#f1ebfa;border-color:#d3c3ee;color:#5b3ea0;}
+  .nb.prac{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nq-where{margin-inline-start:auto;font-size:12px;color:var(--muted);}
+  .nq-stem{font-size:16px;line-height:2.05;margin:4px 0 8px;}
+  .nq-stem bdi,.nq-pt bdi{white-space:nowrap;}
+  .nq-stem sub,.nq-pt sub,.nq-opt sub{font-size:.72em;}
+  .nq-fig{text-align:center;margin:8px 0 12px;}
+  .nq-fig img{max-width:100%;height:auto;display:inline-block;}
+  .nq-hint{font-size:13px;color:var(--muted);margin:6px 0 2px;}
+  .nq-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin:10px 0 6px;}
+  .nq-opts.c1{grid-template-columns:1fr;}
+  .nq-opts.c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .nq-opt{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;min-height:48px;}
+  .nq-opt .lt{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.6px solid #8fa3b0;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--primary-dark);}
+  .nq-opt .ot{flex:1;font-size:16px;text-align:center;direction:ltr;}
+  .nq-opt .ot.ar{direction:rtl;text-align:start;}
+  .nq-opt img{max-width:100%;height:auto;display:block;margin:0 auto;}
+  .nq-opt.fg{flex-direction:column;align-items:stretch;gap:6px;padding:10px;}
+  .nq-opt.fg .lt{align-self:flex-start;}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.25;margin:0 3px;font-style:normal;}
+  .fr i{font-style:normal;padding:0 4px;}
+  .fr i:first-child{border-bottom:1.5px solid currentColor;}
+  .nq-part{display:flex;align-items:flex-start;gap:10px;margin:14px 0 6px;}
+  .nq-pl{flex-shrink:0;min-width:26px;height:26px;border-radius:8px;background:#e7f1f7;color:var(--primary-dark);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:5px;}
+  .nq-pt{flex:1;font-size:16px;line-height:2.05;}
+  .nq-pm{flex-shrink:0;font-size:13px;font-weight:700;color:#a15c00;background:#fdf2e3;border:1px solid #f0d3a3;border-radius:8px;padding:0 8px;margin-top:5px;line-height:1.9;direction:ltr;}
+  .nq-tag{display:inline-block;margin-inline-start:6px;font-size:11.5px;font-weight:700;color:#5b3ea0;background:#f1ebfa;border:1px solid #d3c3ee;border-radius:999px;padding:0 9px;vertical-align:middle;}
+  .nq-solve{position:relative;border:1.6px dashed #b8c7d1;border-radius:12px;padding:6px 14px 4px;margin:8px 0 6px;background:#fbfdff;}
+  .nq-solve .tt{display:block;font-size:11.5px;color:#7a8a94;margin-bottom:0;}
+  .nq-solve .ln{border-bottom:1px solid #d9e2e8;height:31px;}
+  .nq-final{display:flex;align-items:center;gap:12px;background:#fdf6e8;border:1px solid #f0d9a8;border-radius:12px;padding:9px 14px;margin:8px 0 6px;}
+  .nq-final .fl{font-size:12.5px;font-weight:800;color:#a15c00;white-space:nowrap;}
+  .nq-final .fv{flex:1;display:flex;align-items:baseline;gap:8px;direction:ltr;font-size:16px;}
+  .nq-final .fv .bl{flex:1;border-bottom:1.5px solid #8a8a8a;min-width:60px;height:1.3em;}
+  .nq-tbl{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:15px;}
+  .nq-tbl th{background:var(--primary-dark);color:#fff;padding:8px 10px;border:1px solid var(--primary-dark);font-weight:700;}
+  .nq-tbl td{border:1px solid #b9c7d0;padding:9px 12px;vertical-align:middle;height:44px;}
+  .nq-tbl .bl{display:block;border-bottom:1.5px solid #8a8a8a;height:1.4em;margin:0 6px;}
+  .nq-mini{display:flex;gap:26px;margin:6px 0 2px;}
+  .nq-mini .nq-opt{min-height:0;padding:5px 12px;gap:8px;}
+  .nq-mini .nq-opt .ot{text-align:start;direction:rtl;flex:none;}
+  details.nq-key{background:#f3f9f5;border:1px solid #cfe6d6;border-radius:12px;padding:10px 16px;margin:0 0 16px;}
+  details.nq-key summary{cursor:pointer;font-weight:700;color:#1a7a3d;}
+  details.nq-key table{border-collapse:collapse;margin-top:10px;width:100%;max-width:560px;}
+  details.nq-key th,details.nq-key td{border:1px solid #cfe6d6;padding:6px 10px;text-align:center;font-size:14.5px;}
+  details.nq-key th{background:#e4f2e8;}
+  details.nq-key td b{display:inline-flex;width:26px;height:26px;border-radius:50%;border:1.6px solid #1a7a3d;align-items:center;justify-content:center;color:#1a7a3d;}
+  @media (max-width:640px){
+    .nq-opts.c4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-opts{grid-template-columns:1fr;}
+    .nq-opts.f2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-where{margin-inline-start:0;width:100%;}
+    .nq-final{flex-wrap:wrap;}
+  }
+  @media print{
+    .sol-section.nq{break-inside:avoid;}
+    details.nq-key{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -427,29 +494,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>1</td>
+          <td>تمثيل بياني (V مقابل Q) لأربعة مكثّفات مختلفة (A, B, C, D)؛ أيّها له أكبر سعة؟ (اختيار من متعدد)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الاختبار التجريبي 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
+          <td>2</td>
+          <td>شبكة مكثّفات (C1=50 µF || C2=10 µF ثم على التوالي مع C3=20 µF)؛ احسب السعة المكافئة، وأثر زيادة الجهد على الطاقة المختزنة، وعرّف السعة الكهربائية (سؤال بثلاثة أجزاء)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+          <td>3</td>
           <td>مكثّف (C1=50.0 µF) شُحن إلى (20.0 V) ثم فُصل ووُصِّل مع مكثّف آخر (C2=30.0 µF)؛ احسب فرق الجهد بين لوحي المكثّفين بعد التوصيل (اختيار من متعدد)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
         <tr class="qrow" data-type="official" onclick="goTo('q2')">
-          <td>2</td>
+          <td>4</td>
           <td>شبكة مكثّفات (C1=4.0 µF على التوالي مع C2=3.0 µF||C3=2.0 µF)؛ احسب السعة المكافئة، وصِف أثر إضافة مكثّف على التوالي، واحسب الشحنة على C1 عند جهد معيّن (سؤال بثلاثة أجزاء)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
-        </tr>
-        <tr class="qrow" data-type="official" onclick="goTo('q3')">
-          <td>3</td>
-          <td>شبكة مكثّفات (C1=50 µF || C2=10 µF ثم على التوالي مع C3=20 µF)؛ احسب السعة المكافئة، وأثر زيادة الجهد على الطاقة المختزنة، وعرّف السعة الكهربائية (سؤال بثلاثة أجزاء)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الدور الأول 2023/2024</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
-        </tr>
-        <tr class="qrow" data-type="official" onclick="goTo('q4')">
-          <td>4</td>
-          <td>تمثيل بياني (V مقابل Q) لأربعة مكثّفات مختلفة (A, B, C, D)؛ أيّها له أكبر سعة؟ (اختيار من متعدد)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الاختبار التجريبي 2023/2024</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
               <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>5</td>
@@ -517,101 +584,38 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    <div class="sol-section" id="q1">
-      <div class="sol-head">
-        <h3>السؤال 1</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge page">صفحات 119، 124</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الأول – العام الدراسي 2024/2025م — المفردة 17</div>
-      <div class="q-text-block">
-        <div class="q-text-body">17) يوضّح الشكل (1-17) مُكثّف سعته (C1 = 50.0 µF) شُحن إلى جهد (20.0 V) ثم فُصل عن مصدر الطاقة الكهربائية، ووُصِّل مع مُكثّف آخر سعته (C2 = 30.0 µF) كما هو موضّح في الشكل (2-17).
+    <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>1</td><td>تجريبي 2023/2024 – الفصل الأول</td><td><b>د</b></td></tr><tr><td>3</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>أ</b></td></tr><tr><td>4</td><td>رسمي 2024/2025 – الدور الثاني</td><td>أ: أ — ج: ج</td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 
-ما مقدار فرق الجهد الكهربائيّ بين لوحيّ المُكثّفين (C1) و(C2) في الدائرة الكهربائيّة الموضّحة في الشكل (2-17)؟
-(ظلّل الشكل (⬜) المقترن بالإجابة الصحيحة)
+<div class="sol-section nq" id="q4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">تجريبي 2023/2024 – الفصل الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س21 في الامتحان · الهدف 1-4 · صفحة 119</span></div>
+<div class="nq-stem">يوضّح التمثيل البياني في (الشكل <bdi dir="ltr">1-21</bdi>) علاقة فرق الجهد الكهربائي بالشحنة الكهربائية لأربع مكثّفات مختلفة <bdi dir="ltr"><bdi dir="ltr">(A, B, C, D)</bdi></bdi>. أيّ المكثّفات له سعة أكبر؟</div>
+<div class="nq-fig"><img src="data:image/webp;base64,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" alt="الشكل 1-21" style="max-width:min(400px,100%)"></div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">المكثّف A</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">المكثّف B</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">المكثّف C</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">المكثّف D</span></div></div>
+      <button class="show-btn" onclick="toggleSol('q4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q4-ans">
+        <div class="sol-body">بما أن العلاقة الممثَّلة هي (V مقابل Q)، فإن ميل كل خط مستقيم يساوي 1/C (لأن Q = CV ⇒ V = (1/C)Q).
 
-⬜ 12.5 V        ⬜ 10.0 V        ⬜ 20.0 V        ⬜ 18.7 V</div>
-        <div class="q-text-cap">نص السؤال 17 كاملاً</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكلان (1-17) و(2-17) كما وردا في ورقة اختبار الدور الأول 2024/2025</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q1-ans">
-        <div class="sol-body">عند فصل المكثّف (C1) عن مصدر الجهد تبقى شحنته محفوظة:
-Q = C1 × V1 = 50.0 µF × 20.0 V = 1000 µC
+كلما قلّ ميل الخط البياني، زادت قيمة السعة الكهربائية (لأنها تتناسب عكسيًا مع الميل).
 
-عند توصيله على التوازي مع المكثّف غير المشحون (C2)، تتوزّع هذه الشحنة الكلية على المكثّفين معًا دون أن يتغيّر مجموعها (حفظ الشحنة)، ويصبح فرق الجهد على الطرفين متساويًا لكليهما:
+بمقارنة الخطوط الأربعة في الشكل، يظهر أن الخط الخاص بالمكثّف (D) هو الأقل ميلًا (الأقرب إلى الأفقي)، أي أنه يحتاج إلى أقل فرق جهد لكل وحدة شحنة، وبالتالي فهو صاحب أكبر سعة كهربائية.
 
-V_جديد = Q ÷ (C1 + C2) = 1000 µC ÷ (50.0 + 30.0) µF = 1000 ÷ 80.0 = 12.5 V
-
-الإجابة الصحيحة: 12.5 V (الخيار الأول).</div>
-        <div class="grade-note">الدرجة: 1 — المفردة رقم 17 في نموذج الإجابة الرسمي (الإجابة الكاملة لهذا السؤال ضمن هذا الدرس؛ صفحات الكتاب المرجعية: 119، 124). ملاحظة: الوسم الرسمي المرفق في ملف المرجع لهذه المفردة هو «الهدف التعليمي: 4-2» (الطاقة المخزَّنة في مكثّف)، وقد أُدرجت هذه المفردة ضمن هذا الدرس (1-4) لأن صفحاتها المرجعية تقع ضمن نطاق صفحات الدرس في ملف المرجع، مع إشارة المصدر إلى أن «السؤال مكرر لارتباطه بأكثر من درس».</div>
+الإجابة الصحيحة: المكثّف D.</div>
+        <div class="grade-note">الدرجة: 1 — المفردة رقم 21 في نموذج إجابة الاختبار التجريبي 2023/2024، صفحة الكتاب المرجعية: 119. الوسم الرسمي المرفق في ملف المرجع لهذه المفردة هو «الهدف التعليمي: 4-2».</div>
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="q2">
-      <div class="sol-head">
-        <h3>السؤال 2</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge page">صفحة 119</span><span class="badge official">إجابة رسمية (جزئية ج)</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الثاني – العام الدراسي 2024/2025م — المفردة 16</div>
-      <div class="q-text-block">
-        <div class="q-text-body">16) يوضّح الشكل (1-16) جزء من دائرة كهربائيّة تحتوي على شبكة من المكثّفات.
-
-أ. ما مقدار السعة المكافئة؟ (ظلّل الشكل (⬜) المقترن بالإجابة الصحيحة)
-⬜ 2.2 µF        ⬜ 0.45 µF        ⬜ 9.0 µF        ⬜ 5.2 µF
-
-ب. صِف التغيّر الذي يحدث لقيمة السعة المكافئة لشبكة المكثّفات عند توصيل مكثّف آخر على التوالي مع المكثّف (C1).
-
-ج. ما مقدار الشحنة الكهربائيّة المخزَّنة على لوحيّ المكثّف (C1)، إذا كان فرق الجهد الكهربائيّ بين النقطتين (a) و(b) يساوي (6.0 V)؟ (ظلّل الشكل (⬜) المقترن بالإجابة الصحيحة)
-⬜ 18 µC        ⬜ 12 µC        ⬜ 30 µC        ⬜ 24 µC</div>
-        <div class="q-text-cap">نص السؤال 16 كاملاً (بأجزائه الثلاثة أ، ب، ج)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-16) كما ورد في ورقة اختبار الدور الثاني 2024/2025</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q2-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q2-ans">
-        <div class="sol-body">أ) المكثّفان (C2) و(C3) متوازيان بين النقطتين (a) و(b): C_{23} = C2 + C3 = 3.0 + 2.0 = 5.0 µF
-وهذا المجموع على التوالي مع (C1):
-1/CT = 1/C1 + 1/C_{23} = 1/4.0 + 1/5.0 = 0.25 + 0.20 = 0.45
-CT = 1/0.45 ≈ 2.2 µF
-
-ب) إضافة مكثّف آخر على التوالي مع (C1) تزيد عدد الحدود في علاقة التوالي (1/CT = 1/C1 + 1/C1' + …)، وأي زيادة في عدد المكثّفات الموصولة على التوالي تجعل السعة المكافئة أصغر من أصغر مكثّف في السلسلة، لذا فإن السعة المكافئة الكلية للشبكة تَقِلّ.
-
-ج) بما أن (C1) موصول على التوالي مع مجموعة (C2 || C3)، فإن الشحنة على (C1) تساوي الشحنة الكلية المارة عبر الفرع بأكمله، وهي نفسها شحنة المجموعة المتوازية (C2 || C3) عند فرق الجهد V_ab = 6.0 V:
-Q = C_{23} × V_ab = 5.0 µF × 6.0 V = 30 µC
-
-إذن شحنة المكثّف (C1) = 30 µC.</div>
-        <div class="grade-note">الدرجة: 1 (على الجزئية ج فقط ضمن هذا الدرس) — المفردة رقم 16 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 119. الوسم الرسمي المرفق لهذه الجزئية في ملف المرجع هو «الهدف التعليمي: 4-3» (توصيل المكثفات على التوازي)، مع إشارة المصدر إلى أن الجزئية الخاصة بهذا الدرس هي «مقطع 3» (الجزء ج) وأن «السؤال مكرر لارتباطه بأكثر من درس». إجابتا الجزأين الآخرين لغرض الاطلاع الكامل على السؤال: أ) 2.2 µF — ب) تَقِلّ.</div>
-      </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
-    </div>
-
-    <div class="sol-section" id="q3">
-      <div class="sol-head">
-        <h3>السؤال 3</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge page">صفحة 119</span><span class="badge official">إجابة رسمية (جزئية ج)</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الأول – العام الدراسي 2023/2024م — المفردة 19</div>
-      <div class="q-text-block">
-        <div class="q-text-body">19) يوضّح الشكل (1-19) شبكة من المكثّفات الموصَّلة بين النقطتين (a) و(b).
-
-أ. احسب السعة المكافئة بوحدة (µF).
-C = ____________ (µF)
-
-ب. إذا زاد فرق الجهد بين النقطتين (a) و(b)، ماذا سيحدث للطاقة الكلية المختزنة في شبكة المكثّفات؟
-
-ج. عرّف السعة الكهربائية.</div>
-        <div class="q-text-cap">نص السؤال 19 كاملاً (بأجزائه الثلاثة أ، ب، ج)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-19) كما ورد في ورقة اختبار الدور الأول 2023/2024</div>
-      </div>
+<div class="sol-section nq" id="q3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb marks">5 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س19 في الامتحان · الهدف 1-4 · صفحة 119</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-19)</bdi></bdi> شبكة من المكثّفات الموصَّلة بين النقطتين <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(b)</bdi></bdi>.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRlgCAABXRUJQVlA4TEwCAAAvWYFJAA8w//M///MfeJAjbf8bJ//FgbQzotwKEU7gjvy7Ch2t6TJ/2QRRaEYXIBwFechxWzpLpO3IQTsWegsZafcjp5mI/k8AyjM/YeFjYCmAMBIIMqA3A6ETuD4Eot01dkjg6SpQ7aywMwIF4F/vrBYOvdToHct2VgsHnmngo0YuwoyQK4PGSw0IVa6vgt/eqATO3h7hL+2ue3sUgtcFPttIb6AAT2mOaT+t8oeg649N8c0iBfv7xVzbCMy1zaSir4y2KRht078zrkp1/hdFpORnlaz/I0CPT0KOFR3r03Nf/ra4+jpfNIEKHT9AI3Aun6H1dymF0bcgLIHPBWzMBYIMfJmJxEMIywTikcD1IfhjjVcCBfSOHev7JF7TcMf29C2JxxreNzaWGtdOKrnFRjzWwB9rrAmsrJNYEiNwdlisM3tBIcgzfJmZ26gQlhH2+p0NZhQgBjBaKtQit6VGjdbTeSr1TmpJKvpmdf9OXQXTSf/ecG0jMNc2ksq6+Wnk3dqnYHT822WS/50KS7CqgI25QJBBWGYi8W0IXycQjwSuD2G42HglUKwCR/s+idcUwJULfUvisQbs7VuysdQ4+3mPkCsP9C2Jxxr4M401ETuSWBIjcPZ2QXg4sdkLChvzjCDPzEmE5QXC14UNYgWIAYz2U7i9Ti1yXepso+sU0m/WFSX/QCpXYiw10W9FCvZryCqp8ofropSrpSqlgdQerfKT1NLk6g5PZ2xP1XMTjcBcx1xtUK0w0RSspuOMbauZHN02IMTE/6yb6Aw=" alt="الشكل 1-19" style="max-width:min(300px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">احسب السعة المكافئة بوحدة <bdi dir="ltr"><bdi dir="ltr">(µF)</bdi></bdi>. <span class="nq-tag">يخص درسًا آخر</span></div><span class="nq-pm">[3]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>C =</span><span class="bl"></span><span>µF</span></span></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">إذا زاد فرق الجهد بين النقطتين <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(b)</bdi></bdi>، ماذا سيحدث للطاقة الكلية المختزنة في شبكة المكثّفات؟ <span class="nq-tag">يخص درسًا آخر</span></div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ج</span><div class="nq-pt">عرّف السعة الكهربائية.</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('q3-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q3-ans">
         <div class="sol-body">أ) المكثّفان (C1) و(C2) متوازيان:
@@ -627,54 +631,71 @@ CT = 15 µF
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="q1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2024/2025 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س17 في الامتحان · الهدف 1-4 · صفحات 119، 124</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-17)</bdi></bdi> مُكثّف سعته <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub> = 50.0 µF)</bdi></bdi> شُحن إلى جهد <bdi dir="ltr"><bdi dir="ltr">(20.0 V)</bdi></bdi> ثم فُصل عن مصدر الطاقة الكهربائية، ووُصِّل مع مُكثّف آخر سعته <bdi dir="ltr"><bdi dir="ltr">(C<sub>2</sub> = 30.0 µF)</bdi></bdi> كما هو موضّح في الشكل <bdi dir="ltr"><bdi dir="ltr">(2-17)</bdi></bdi>.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRroBAABXRUJQVlA4TK0BAAAvYkI6AA8w//M///MfeJBkW3sbKX/n3O4hwQdtoXpG/tdSO+ghwccyeWgWkLbBjNpBswO6R0wzVND5P6Lc+lpVZIjo/wQgqys/c1bCACuWjYVhg4WwUg0zsSdYCIUlu0Fy2NtEf+gspBIj2S2/qC2Rl8DxYbe0Vy+1SqU7JOiV9vKlVkjkqiGHP/uVs8mMRL/in6QDp7v4lfuZKC5/gWfJQLqipb0aYpDMSG5piX4+FnqbbX+Iw3SBY25P7i0EgvrEkONlc2/F8CaVXiT5Zjp5MGKKPxIvlhMIhjmBD1lRy4ob0uj0If5R9RjeMuKmVPs7WOCxI/ESDy/xgyiV6AYq8Qd5Coh18Ibo/ThDbAtF/Ivf1zB9uv+q0fX/wlS+TFOIiDQzH770afYR+98QczwNhRiLCoOXwOLECPTskKZkcBVNoYGhJjIGAw26HrMVDtDc47DpVHDUQxoNFFcCzUWG6izNmZJApWRxsk3gpWZRUQLMeRY0FODBDwVYXjom6fpdp/BG8hhK4HjaP0xIPLzED+IkuoFK/MHs09HBGzhbKDr+3veU5zk8wXGeaQAA" alt="الشكلان 1-17 و2-17" style="max-width:min(620px,100%)"></div>
+<div class="nq-stem">ما مقدار فرق الجهد الكهربائيّ بين لوحيّ المُكثّفين <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub>)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(C<sub>2</sub>)</bdi></bdi> في الدائرة الكهربائيّة الموضّحة في الشكل <bdi dir="ltr"><bdi dir="ltr">(2-17)</bdi></bdi>؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot">12.5 V</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">10.0 V</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">20.0 V</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">18.7 V</span></div></div>
+      <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q1-ans">
+        <div class="sol-body">عند فصل المكثّف (C1) عن مصدر الجهد تبقى شحنته محفوظة:
+Q = C1 × V1 = 50.0 µF × 20.0 V = 1000 µC
 
-    <div class="sol-section" id="q4">
-      <div class="sol-head">
-        <h3>السؤال 4</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge page">صفحة 119</span><span class="badge official">إجابة رسمية</span>
+عند توصيله على التوازي مع المكثّف غير المشحون (C2)، تتوزّع هذه الشحنة الكلية على المكثّفين معًا دون أن يتغيّر مجموعها (حفظ الشحنة)، ويصبح فرق الجهد على الطرفين متساويًا لكليهما:
+
+V_جديد = Q ÷ (C1 + C2) = 1000 µC ÷ (50.0 + 30.0) µF = 1000 ÷ 80.0 = 12.5 V
+
+الإجابة الصحيحة: 12.5 V (الخيار الأول).</div>
+        <div class="grade-note">الدرجة: 1 — المفردة رقم 17 في نموذج الإجابة الرسمي (الإجابة الكاملة لهذا السؤال ضمن هذا الدرس؛ صفحات الكتاب المرجعية: 119، 124). ملاحظة: الوسم الرسمي المرفق في ملف المرجع لهذه المفردة هو «الهدف التعليمي: 4-2» (الطاقة المخزَّنة في مكثّف)، وقد أُدرجت هذه المفردة ضمن هذا الدرس (1-4) لأن صفحاتها المرجعية تقع ضمن نطاق صفحات الدرس في ملف المرجع، مع إشارة المصدر إلى أن «السؤال مكرر لارتباطه بأكثر من درس».</div>
       </div>
-      <div class="q-source">نموذج إجابة الاختبار التجريبي في الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – العام الدراسي 2023/2024م — المفردة 21</div>
-      <div class="q-text-block">
-        <div class="q-text-body">21) يوضّح التمثيل البياني في (الشكل 1-21) علاقة فرق الجهد الكهربائي بالشحنة الكهربائية لأربع مكثّفات مختلفة (A, B, C, D). أيّ المكثّفات له سعة أكبر؟
-(ظلّل الشكل (⬜) أمام الإجابة الصحيحة)
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="q2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb essay">مقالي</span><span class="nq-where">س16 في الامتحان · الهدف 1-4 · صفحة 119</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-16)</bdi></bdi> جزء من دائرة كهربائيّة تحتوي على شبكة من المكثّفات.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRpYCAABXRUJQVlA4TIkCAAAvsoFMAA8w//M///MfeKAkbXsbuYFyzjniGgpdoo6iK2iXhVZOtuGwzxdR1s48wtClwOU0iw5kDYx3AXY3iN8dnCP6PwEI3bK0OOoBzVdgy5TMhWAPZ8HmKWWm6wzYlZQ0wRYGYEnJ4rXyR7jhz3yWGFr5Ax2/JQYc66jTOxnsHqWVa+VPB5/9ltbbTN1SPiClPeRglB+kpvkR0AxILLuVd5xNzQw7yi9Qj5LiWddLLm30SRGEjmS7HkoZPyclvBBZcFKafz3JVDgENX2xANBpoWHqd//E50TE/RvHUEim/IxxMnRae1T/w3nAMl4rR9yHfWXKR7J9GYUMhlLeSYm+IDyX8okQs1PKViEoKeukbBVidkpRYrwMjiIk+lLKOMB4PKhPUtpTALrJGriYVFkCe0bf1FB9mlKdA6uVlUGdv4PKplStsOEZdV5+U0bTBZA54zDqswlgSxHo8vJnkd6+A/Y0uoLmk3EjwipYF6sugdWRrWO0weVYbUBl30Fjx1Wm2fAMF1TRVoM2j+I7bKQGNjyjfVva+sokK2tgyN/1A8YFZyZ4l7eQYeu+siZQE7wtG/imtLX+oR9GwZUJtowq2HPpZKvVKJppNjyjmsZQ0/kNv0ejBeq372zdTIBZG0esanUtsPU0rsvG+6mMM76Hu1ULeft1ted2Wnuchz23Bm7P5iIG8TCezhzSyprZMn7WMHseTqdV97MetOouZlnSfxPRqrvoQavuIs6zGZGNKXoaAkwWWvq3f+nJ3Gwxs+aeFCXlqBdy0gkZLCNOeiFHmS0vhcSfN54LMUpIprwUJ0NHexhnj+p/+IeiE3gWZ1KtHD32kSkvwyhkMJTy7n9kZCp+MU8gdOYAAA==" alt="الشكل 1-16" style="max-width:min(360px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">ما مقدار السعة المكافئة؟ <span class="nq-tag">يخص درسًا آخر</span></div></div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot">2.2 µF</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">0.45 µF</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">9.0 µF</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">5.2 µF</span></div></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">صِف التغيّر الذي يحدث لقيمة السعة المكافئة لشبكة المكثّفات عند توصيل مكثّف آخر على التوالي مع المكثّف <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub>)</bdi></bdi>. <span class="nq-tag">يخص درسًا آخر</span></div></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ج</span><div class="nq-pt">ما مقدار الشحنة الكهربائيّة المخزَّنة على لوحيّ المكثّف <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub>)</bdi></bdi>، إذا كان فرق الجهد الكهربائيّ بين النقطتين <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(b)</bdi></bdi> يساوي <bdi dir="ltr"><bdi dir="ltr">(6.0 V)</bdi></bdi>؟</div></div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot">18 µC</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">12 µC</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">30 µC</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">24 µC</span></div></div>
+      <button class="show-btn" onclick="toggleSol('q2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q2-ans">
+        <div class="sol-body">أ) المكثّفان (C2) و(C3) متوازيان بين النقطتين (a) و(b): C₂₃ = C2 + C3 = 3.0 + 2.0 = 5.0 µF
+وهذا المجموع على التوالي مع (C1):
+1/CT = 1/C1 + 1/C₂₃ = 1/4.0 + 1/5.0 = 0.25 + 0.20 = 0.45
+CT = 1/0.45 ≈ 2.2 µF
 
-⬜ المكثّف A        ⬜ المكثّف B        ⬜ المكثّف C        ⬜ المكثّف D</div>
-        <div class="q-text-cap">نص السؤال 21 كاملاً</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-21) كما ورد في الاختبار التجريبي 2023/2024</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q4-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q4-ans">
-        <div class="sol-body">بما أن العلاقة الممثَّلة هي (V مقابل Q)، فإن ميل كل خط مستقيم يساوي 1/C (لأن Q = CV ⇒ V = (1/C)Q).
+ب) إضافة مكثّف آخر على التوالي مع (C1) تزيد عدد الحدود في علاقة التوالي (1/CT = 1/C1 + 1/C1' + …)، وأي زيادة في عدد المكثّفات الموصولة على التوالي تجعل السعة المكافئة أصغر من أصغر مكثّف في السلسلة، لذا فإن السعة المكافئة الكلية للشبكة تَقِلّ.
 
-كلما قلّ ميل الخط البياني، زادت قيمة السعة الكهربائية (لأنها تتناسب عكسيًا مع الميل).
+ج) بما أن (C1) موصول على التوالي مع مجموعة (C2 || C3)، فإن الشحنة على (C1) تساوي الشحنة الكلية المارة عبر الفرع بأكمله، وهي نفسها شحنة المجموعة المتوازية (C2 || C3) عند فرق الجهد V_ab = 6.0 V:
+Q = C₂₃ × V_ab = 5.0 µF × 6.0 V = 30 µC
 
-بمقارنة الخطوط الأربعة في الشكل، يظهر أن الخط الخاص بالمكثّف (D) هو الأقل ميلًا (الأقرب إلى الأفقي)، أي أنه يحتاج إلى أقل فرق جهد لكل وحدة شحنة، وبالتالي فهو صاحب أكبر سعة كهربائية.
-
-الإجابة الصحيحة: المكثّف D.</div>
-        <div class="grade-note">الدرجة: 1 — المفردة رقم 21 في نموذج إجابة الاختبار التجريبي 2023/2024، صفحة الكتاب المرجعية: 119. الوسم الرسمي المرفق في ملف المرجع لهذه المفردة هو «الهدف التعليمي: 4-2».</div>
+إذن شحنة المكثّف (C1) = 30 µC.</div>
+        <div class="grade-note">الدرجة: 1 (على الجزئية ج فقط ضمن هذا الدرس) — المفردة رقم 16 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 119. الوسم الرسمي المرفق لهذه الجزئية في ملف المرجع هو «الهدف التعليمي: 4-3» (توصيل المكثفات على التوازي)، مع إشارة المصدر إلى أن الجزئية الخاصة بهذا الدرس هي «مقطع 3» (الجزء ج) وأن «السؤال مكرر لارتباطه بأكثر من درس». إجابتا الجزأين الآخرين لغرض الاطلاع الكامل على السؤال: أ) 2.2 µF — ب) تَقِلّ.</div>
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
+    
+
+    
+
+    
+
 
   </section>
 
-      <div class="sol-section" id="p1">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 1</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">العنصر الكهربائي الذي يُصمَّم أساسًا لتخزين الشحنة الكهربائية (وبالتالي الطاقة الكهربائية) بين لوحين موصلين يفصل بينهما عازل، يُسمى: (اختر الإجابة الصحيحة)
-(أ) المقاوم
-(ب) المكثّف
-(ج) الملف (الحثّ)
-(د) الثنائي (الديود)</div>
-      </div>
+      <div class="sol-section nq" id="p1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-4</span></div>
+<div class="nq-stem">العنصر الكهربائي الذي يُصمَّم أساسًا لتخزين الشحنة الكهربائية (وبالتالي الطاقة الكهربائية) بين لوحين موصلين يفصل بينهما عازل، يُسمى:</div>
+<div class="nq-hint">اختر الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">المقاوم</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">المكثّف</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">الملف (الحثّ)</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">الثنائي (الديود)</span></div></div>
       <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p1-ans">
         <div class="sol-body">المقاوم يحوّل الطاقة الكهربائية إلى حرارة ولا يخزّن شحنة بشكل أساسي، والملف يخزّن طاقة في مجال مغناطيسي ناتج عن مرور تيار وليس شحنة ساكنة، والثنائي عنصر يسمح بمرور التيار في اتجاه واحد ولا يُصمَّم لتخزين الشحنة.
@@ -687,15 +708,10 @@ CT = 15 µF
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p2">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 2</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">شُحن مكثّف بشحنة مقدارها 450 μC عند توصيله بفرق جهد قدره 90 V بين لوحيه. احسب سعة هذا المكثّف بوحدة الفاراد.</div>
-      </div>
+    <div class="sol-section nq" id="p2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
+<div class="nq-stem">شُحن مكثّف بشحنة مقدارها <bdi dir="ltr">450 μC</bdi> عند توصيله بفرق جهد قدره <bdi dir="ltr">90 V</bdi> بين لوحيه. احسب سعة هذا المكثّف بوحدة الفاراد.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p2-ans">
         <div class="sol-body">تُعرَّف السعة الكهربائية بأنها الشحنة المخزَّنة على لوحي المكثّف لكل وحدة فرق جهد بينهما: C = Q / V.
@@ -710,15 +726,10 @@ C = (450×10⁻⁶) / 90 = 5×10⁻⁶ F.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p3">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 3</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">عند رسم العلاقة بين فرق الجهد V المطبَّق على مكثّف والشحنة Q المخزَّنة عليه، ينتج خط مستقيم يمر بنقطة الأصل. إذا كانت النقطة (V = 10 V، Q = 300 μC) تقع على هذا الخط المستقيم، حدد سعة المكثّف.</div>
-      </div>
+    <div class="sol-section nq" id="p3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
+<div class="nq-stem">عند رسم العلاقة بين فرق الجهد <bdi dir="ltr">V</bdi> المطبَّق على مكثّف والشحنة <bdi dir="ltr">Q</bdi> المخزَّنة عليه، ينتج خط مستقيم يمر بنقطة الأصل. إذا كانت النقطة (<bdi dir="ltr">V = 10 V</bdi>، <bdi dir="ltr">Q = 300 μC</bdi>) تقع على هذا الخط المستقيم، حدد سعة المكثّف.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p3-ans">
         <div class="sol-body">بما أن العلاقة بين Q و V خطية ومارّة بنقطة الأصل (Q = CV)، فإن ميل الخط المستقيم في تمثيل Q مقابل V يساوي السعة C.
@@ -731,15 +742,10 @@ C = Q / V = (300×10⁻⁶ C) / (10 V) = 30×10⁻⁶ F.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p4">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 4</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">شُحن مكثّف سعته C1 = 20 μF حتى بلغ فرق الجهد بين لوحيه 12 V، ثم فُصل عن مصدر الجهد وتم توصيله على التوازي مع مكثّف آخر غير مشحون سعته C2 = 30 μF (بحيث تتصل اللوحتان ذواتا الشحنة نفس الإشارة ببعضهما). حدد فرق الجهد المشترك النهائي بين لوحي المكثّفين، والشحنة على كل منهما بعد الاتصال.</div>
-      </div>
+    <div class="sol-section nq" id="p4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
+<div class="nq-stem">شُحن مكثّف سعته <bdi dir="ltr">C<sub>1</sub> = 20 μF</bdi> حتى بلغ فرق الجهد بين لوحيه <bdi dir="ltr">12 V</bdi>، ثم فُصل عن مصدر الجهد وتم توصيله على التوازي مع مكثّف آخر غير مشحون سعته <bdi dir="ltr">C<sub>2</sub> = 30 μF</bdi> (بحيث تتصل اللوحتان ذواتا الشحنة نفس الإشارة ببعضهما). حدد فرق الجهد المشترك النهائي بين لوحي المكثّفين، والشحنة على كل منهما بعد الاتصال.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p4-ans">
         <div class="sol-body">الشحنة الابتدائية المخزَّنة على C1 قبل الفصل (وهي الشحنة الكلية في المنظومة المعزولة بعد الفصل عن المصدر، حسب مبدأ حفظ الشحنة):
@@ -763,15 +769,10 @@ Q2 = C2 × V = 30×10⁻⁶ × 4.8 = 144×10⁻⁶ C = 144 μC.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p5">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 5</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">فسّر لماذا يُعَدّ الفاراد (F) وحدة كبيرة جدًا من الناحية العملية، ولماذا تُستخدم في أغلب المكثّفات التجارية مضاعفات صغرى مثل الميكروفاراد (μF) أو النانوفاراد (nF) أو البيكوفاراد (pF) بدلًا من الفاراد نفسه؟</div>
-      </div>
+    <div class="sol-section nq" id="p5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
+<div class="nq-stem">فسّر لماذا يُعَدّ الفاراد <bdi dir="ltr"><bdi dir="ltr">(F)</bdi></bdi> وحدة كبيرة جدًا من الناحية العملية، ولماذا تُستخدم في أغلب المكثّفات التجارية مضاعفات صغرى مثل الميكروفاراد <bdi dir="ltr"><bdi dir="ltr">(μF)</bdi></bdi> أو النانوفاراد <bdi dir="ltr"><bdi dir="ltr">(nF)</bdi></bdi> أو البيكوفاراد <bdi dir="ltr"><bdi dir="ltr">(pF)</bdi></bdi> بدلًا من الفاراد نفسه؟</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p5-ans">
         <div class="sol-body">الفاراد الواحد يعني أن المكثّف يخزّن شحنة مقدارها كولوم واحد مقابل كل فولت واحد من فرق الجهد بين لوحيه (C = Q/V)، وهذه كمية شحنة هائلة عمليًا لعنصر بحجم معقول.
@@ -790,15 +791,10 @@ Q = C × V = 1 × 100 = 100 C،
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p6">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 6</h3>
-        <span class="badge">الهدف 1-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">شُحن مكثّف C1 = 15 μF حتى بلغ فرق الجهد بين لوحيه 20 V، وشُحن مكثّف آخر C2 = 25 μF بشكل منفصل حتى بلغ فرق الجهد بين لوحيه 8 V. فُصل المكثّفان عن مصدريهما، ثم وُصلا معًا على التوازي بحيث تتلامس اللوحة الموجبة لأحدهما مع اللوحة السالبة للآخر (أي بقطبية متعاكسة). حدد فرق الجهد المشترك النهائي بين لوحي المكثّفين بعد الاتصال.</div>
-      </div>
+    <div class="sol-section nq" id="p6">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 6">6</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
+<div class="nq-stem">شُحن مكثّف <bdi dir="ltr">C<sub>1</sub> = 15 μF</bdi> حتى بلغ فرق الجهد بين لوحيه <bdi dir="ltr">20 V</bdi>، وشُحن مكثّف آخر <bdi dir="ltr">C<sub>2</sub> = 25 μF</bdi> بشكل منفصل حتى بلغ فرق الجهد بين لوحيه <bdi dir="ltr">8 V</bdi>. فُصل المكثّفان عن مصدريهما، ثم وُصلا معًا على التوازي بحيث تتلامس اللوحة الموجبة لأحدهما مع اللوحة السالبة للآخر (أي بقطبية متعاكسة). حدد فرق الجهد المشترك النهائي بين لوحي المكثّفين بعد الاتصال.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p6-ans">
         <div class="sol-body">الشحنة الابتدائية على كل مكثّف قبل الفصل:

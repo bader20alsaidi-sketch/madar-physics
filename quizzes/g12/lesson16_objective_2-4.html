@@ -358,6 +358,73 @@
     a[href]:after{content:"" !important;}
   }
 
+
+  /* ===== صياغة الأسئلة بنمط ورقة الامتحان ===== */
+  .sol-section.nq{padding:16px 18px 14px;}
+  .nq-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;}
+  .nq-num{margin:0;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0;}
+  .nb{display:inline-block;padding:2px 12px;border-radius:999px;font-size:12.5px;font-weight:700;border:1px solid;line-height:1.7;}
+  .nb.exam{background:#e7f1f7;border-color:#b9d3e4;color:var(--primary-dark);}
+  .nb.marks{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nb.mcq{background:#e7f7ea;border-color:#b4dfbd;color:#1a7a3d;}
+  .nb.essay{background:#f1ebfa;border-color:#d3c3ee;color:#5b3ea0;}
+  .nb.prac{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nq-where{margin-inline-start:auto;font-size:12px;color:var(--muted);}
+  .nq-stem{font-size:16px;line-height:2.05;margin:4px 0 8px;}
+  .nq-stem bdi,.nq-pt bdi{white-space:nowrap;}
+  .nq-stem sub,.nq-pt sub,.nq-opt sub{font-size:.72em;}
+  .nq-fig{text-align:center;margin:8px 0 12px;}
+  .nq-fig img{max-width:100%;height:auto;display:inline-block;}
+  .nq-hint{font-size:13px;color:var(--muted);margin:6px 0 2px;}
+  .nq-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin:10px 0 6px;}
+  .nq-opts.c1{grid-template-columns:1fr;}
+  .nq-opts.c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .nq-opt{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;min-height:48px;}
+  .nq-opt .lt{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.6px solid #8fa3b0;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--primary-dark);}
+  .nq-opt .ot{flex:1;font-size:16px;text-align:center;direction:ltr;}
+  .nq-opt .ot.ar{direction:rtl;text-align:start;}
+  .nq-opt img{max-width:100%;height:auto;display:block;margin:0 auto;}
+  .nq-opt.fg{flex-direction:column;align-items:stretch;gap:6px;padding:10px;}
+  .nq-opt.fg .lt{align-self:flex-start;}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.25;margin:0 3px;font-style:normal;}
+  .fr i{font-style:normal;padding:0 4px;}
+  .fr i:first-child{border-bottom:1.5px solid currentColor;}
+  .nq-part{display:flex;align-items:flex-start;gap:10px;margin:14px 0 6px;}
+  .nq-pl{flex-shrink:0;min-width:26px;height:26px;border-radius:8px;background:#e7f1f7;color:var(--primary-dark);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:5px;}
+  .nq-pt{flex:1;font-size:16px;line-height:2.05;}
+  .nq-pm{flex-shrink:0;font-size:13px;font-weight:700;color:#a15c00;background:#fdf2e3;border:1px solid #f0d3a3;border-radius:8px;padding:0 8px;margin-top:5px;line-height:1.9;direction:ltr;}
+  .nq-tag{display:inline-block;margin-inline-start:6px;font-size:11.5px;font-weight:700;color:#5b3ea0;background:#f1ebfa;border:1px solid #d3c3ee;border-radius:999px;padding:0 9px;vertical-align:middle;}
+  .nq-solve{position:relative;border:1.6px dashed #b8c7d1;border-radius:12px;padding:6px 14px 4px;margin:8px 0 6px;background:#fbfdff;}
+  .nq-solve .tt{display:block;font-size:11.5px;color:#7a8a94;margin-bottom:0;}
+  .nq-solve .ln{border-bottom:1px solid #d9e2e8;height:31px;}
+  .nq-final{display:flex;align-items:center;gap:12px;background:#fdf6e8;border:1px solid #f0d9a8;border-radius:12px;padding:9px 14px;margin:8px 0 6px;}
+  .nq-final .fl{font-size:12.5px;font-weight:800;color:#a15c00;white-space:nowrap;}
+  .nq-final .fv{flex:1;display:flex;align-items:baseline;gap:8px;direction:ltr;font-size:16px;}
+  .nq-final .fv .bl{flex:1;border-bottom:1.5px solid #8a8a8a;min-width:60px;height:1.3em;}
+  .nq-tbl{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:15px;}
+  .nq-tbl th{background:var(--primary-dark);color:#fff;padding:8px 10px;border:1px solid var(--primary-dark);font-weight:700;}
+  .nq-tbl td{border:1px solid #b9c7d0;padding:9px 12px;vertical-align:middle;height:44px;}
+  .nq-tbl .bl{display:block;border-bottom:1.5px solid #8a8a8a;height:1.4em;margin:0 6px;}
+  .nq-mini{display:flex;gap:26px;margin:6px 0 2px;}
+  .nq-mini .nq-opt{min-height:0;padding:5px 12px;gap:8px;}
+  .nq-mini .nq-opt .ot{text-align:start;direction:rtl;flex:none;}
+  details.nq-key{background:#f3f9f5;border:1px solid #cfe6d6;border-radius:12px;padding:10px 16px;margin:0 0 16px;}
+  details.nq-key summary{cursor:pointer;font-weight:700;color:#1a7a3d;}
+  details.nq-key table{border-collapse:collapse;margin-top:10px;width:100%;max-width:560px;}
+  details.nq-key th,details.nq-key td{border:1px solid #cfe6d6;padding:6px 10px;text-align:center;font-size:14.5px;}
+  details.nq-key th{background:#e4f2e8;}
+  details.nq-key td b{display:inline-flex;width:26px;height:26px;border-radius:50%;border:1.6px solid #1a7a3d;align-items:center;justify-content:center;color:#1a7a3d;}
+  @media (max-width:640px){
+    .nq-opts.c4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-opts{grid-template-columns:1fr;}
+    .nq-opts.f2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-where{margin-inline-start:0;width:100%;}
+    .nq-final{flex-wrap:wrap;}
+  }
+  @media print{
+    .sol-section.nq{break-inside:avoid;}
+    details.nq-key{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -426,35 +493,35 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q5')">
           <td>1</td>
-          <td>تمثيل بياني (V مقابل Q) لمكثّف؛ فسّر المساحة تحت المنحنى، واحسب الطاقة المخزّنة عند جهد 20 V<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الدور الأول 2024/2025</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
-        </tr>
-        <tr class="qrow" data-type="official" onclick="goTo('q2')">
-          <td>2</td>
-          <td>دائرة مكثّفين على التوالي (C1=4.0 µF، C2=6.0 µF) شحنة كل منهما 28.8 µC؛ احسب الطاقة المخزَّنة في المكثّفين<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الدور الثاني 2024/2025</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+          <td>تمثيل بياني (W مقابل V) لمكثّف موصول ببطارية؛ احسب الشحنة عند V=3V ثم احسب سعة المكثّف<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الاختبار التجريبي 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
         <tr class="qrow" data-type="official" onclick="goTo('q3')">
-          <td>3</td>
+          <td>2</td>
           <td>شبكة مكثّفات (C1=50 µF || C2=10 µF ثم على التوالي مع C3=20 µF)؛ ماذا يحدث للطاقة الكلية المختزنة إذا زاد فرق الجهد بين (a) و(b)؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
         <tr class="qrow" data-type="official" onclick="goTo('q4')">
-          <td>4</td>
+          <td>3</td>
           <td>تمثيل بياني (V مقابل Q) لمكثّف؛ احسب الشغل اللازم لشحنه إلى فرق جهد مقداره 20 V<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-        <tr class="qrow" data-type="official" onclick="goTo('q5')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+          <td>4</td>
+          <td>تمثيل بياني (V مقابل Q) لمكثّف؛ فسّر المساحة تحت المنحنى، واحسب الطاقة المخزّنة عند جهد 20 V<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2024/2025</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>5</td>
-          <td>تمثيل بياني (W مقابل V) لمكثّف موصول ببطارية؛ احسب الشحنة عند V=3V ثم احسب سعة المكثّف<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الاختبار التجريبي 2023/2024</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+          <td>دائرة مكثّفين على التوالي (C1=4.0 µF، C2=6.0 µF) شحنة كل منهما 28.8 µC؛ احسب الطاقة المخزَّنة في المكثّفين<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2024/2025</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
               <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>6</td>
@@ -570,26 +637,77 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    <div class="sol-section" id="q1">
-      <div class="sol-head">
-        <h3>السؤال 1</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge page">صفحة 122</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الأول – العام الدراسي 2024/2025م — المفردة 18</div>
-      <div class="q-text-block">
-        <div class="q-text-body">18) يوضّح التمثيل البياني في (الشكل 1-18) العلاقة بين فرق الجهد الكهربائيّ والشحنة الكهربائيّة بين لوحيّ مُكثِّف.
+    <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>ب</b></td></tr></tbody></table></details>
 
-أ. ماذا تمثّل المساحة تحت منحنى التمثيل البياني؟
+<div class="sol-section nq" id="q5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">تجريبي 2023/2024 – الفصل الأول</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س23 في الامتحان · الهدف 2-4 · صفحة 122</span></div>
+<div class="nq-stem">يوضّح (الشكل <bdi dir="ltr">1-23</bdi>) تمثيلًا بيانيًا للطاقة المخزَّنة <bdi dir="ltr"><bdi dir="ltr">(W)</bdi></bdi> في مكثّف موصل ببطارية وفرق الجهد الكهربائيّ <bdi dir="ltr"><bdi dir="ltr">(V)</bdi></bdi> بين لوحي المكثّف.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRpAcAABXRUJQVlA4TIQcAAAvNQJTAKWobduGsf7/3OmZImICZAmItyiLfsqhbdvUnvPbtu3Stm1bla3Kqv7ajJPO6OxUtm17j/Gc9tOI6D8btpEU+fjuGdv/1rckSZYkSbbF3zK/cP/WeZr/vMmstUxZWFhERT0TYAFE9N8XbFt1a9u2VUY30WsdFqOUAgIZYfXHnF9QURxW6AGjh9YYh+gsz9/ARXEDBkBfqczAPVpnBJvXMwYNf/OsevyW5o3hKZlBdG4APmmMujPC08DjPw1pUJsvM1DtwSzb8gU9xletGZ6zdAeojG331A25vM1fx2c/3wGNt7ICy8y8gwXw2cRRgZFpKzCo6/XjYLPwq597Dd/wvFPbJytwl7YQPo/mJowIjNQFs9z+AQt0BXhFR3hgOikzaDo1f9W6gk0vRAmM5CWyUgDsoW/Ab9rB59wnM1Dlfdz0Lx7RHe0ZiGSpHN85ZBDZEjVmAXBpEhjBjKU42UM3bpPWHLtaLYERXKBbogRmewOZQXCks5zFpgltSsCkBL3G7CszDzKN8B//8J/CZZcH8NbwhGzD//zjv2f47wumrUB/CWQs4d/sWz5BtUoAQP8DOGkEpYM/1X+mgNCQeYhvsCrDwiRKjCEQabHSx9emFGaLYLUS3CKjftXWMqlXAD50dBJ7O5hhUWoGRkM+dFxAcDAgL0pD7B36yX+JnBwIZ4UOsuMIkYyrRJvRweG3oOBLp6j0wzlXF5lzMhHF8sQXwk92+NCB5LjTB+o1JfLlKjjHyR9KRfeTtmKeYx6IHO4yMvCv4/+6gU8z5MFfpI2eIa1CBLIYCx3UpJsNcDkHwGCLQERvzRrBr6+TEKw/0iGA8MjpSTiTKwQ1pbLo2embAtiD74B6xWe8AUARGASUWhKrwSBjADKV10HyqyfnVCPybRuJsKCjqLRmgKhUFuNQKjEbZxFUekUZlLBCLfclF7lVgR8umF8AsRgs3XIo8NuAVHB3kANRCjzzhaymLRBYq1ShaERJqUO63eEv+mSAodh4x3HfaDtEP3xEXJCpzkNRXnQhxgCI27DImnQU05evSbf5AsQtFR3rffcWtSZTO7XjagHtabULmHsXGoH7KgL31nHC0Nfa6W/b+K6TmviVpI9NFwnX6HzR5zgEt0S92b2iP9YCUwr5ZtXFaaElt05vUtHQtNRldgzCdVj8iIdFzVB8okPqeoBMxJUOY9qLW9KxTxpg7uy0Jt0yBeIHWJNuk/HtoR5beYdZId2+8/Rd6ajpuCadve6HtrOO0hGJqIQjpQ1CrUA7cmH53rWoc4fLIgiiheOQeJbyg8yPqaaEIRGrNm/UnAvFv8yjn7ciH51hAXy6FG/lQTQhu8i99h13uWOzdIwOlBFtMcAMXAXsBHR8TrGAvm6HMLtTCoWZv0inTA2JvLyddDompSjS8Smt6vASDp/BpXRKTb1Y26YonXZwFJhZwBxg+ULjIF5wvyP9A60ThQ0hIdYASq6ZJ4ao0QkY+Ok6ROlGjfApHcHPFugywFCitkFQs1RGyS5DJ4alEVFH+UJHZNmilDfKXSg5As3WzdakL/9uRA+RPYJJFRVWEecAiayUBCcFGJpCNAOWy4IelAj3rC7K3l4LA2so3nIod72GAQkYCef3y1UbIRNxBYHGqxZBei1Q4FNa4ndXEAI12n+kYBCCIRvTvjpTxLuKfYI6nWpR6pIjn0oQHKfwNfcQ7lFR2HQIE9yoNOIKkH6p4K/DE91CGsxKsG6d8PHTuHJ5JiKSJo9FqFtk2iTRrQPsZoO72RzNAVAmSHhPBXwBtglQU7pjRTFmTbo2jM0DHTl9uHGdaMs9hOMRIhIplyAhIfTiIADt02Rkj2yu/hI5SR6nQUo4Y5rziaAU+HFBSTJJTFlQ7gezzICTaCAnmer/MksMjlyv6AUiNJsjaxXhuJOuxJQaxQ3JGEbSmqIvcXKYDAD6OtGKFaG1otVXF5mQa4vseYDPS+PydAwJuJAaVniWhY3eDnsIG7FC4QUQ+yAfAkMlIpCESic/JQV+HnkpAJNSFOm0Ku1oGpAulugqspaVkqaqHLdI8fvtBhsVAHXj9wAM+D0D6MBiQMk1lNKQ7UZfW0PWUVJqoQOfIzV+vv72RYsMRjj7GSote0jdDLJdRTjU9AKTgHWQMclwe/qXWpNu0AHEnDRgMX6ZIjnVZHdqE1w75C4gEO6T3uNcX2HThRzQGSf+Xw7uoGojbgkUfrJ0kQ6H4q2v29gIwwX4AO4W8P9gCn7MpxIsfxi/rVVck/4pn3O8Rhotad7pPVgk4JxM0xJ8M14TP0GpLYDNW9wSGGQchur/QbnZL0fkCBvChtXSy4D83Ibd16Snprsr2iZdkyufY/G+dGPnbOxdi6Q7gFqadb/Xp238MDmNFqVyoxSdG5MGdKWbBCiegpoZKAzwqg7fSDK0IojSpzqnQtBVxNGsOmMq+Dd7Ev8FQY+OL/oqor1huYA12QpF7YxuLdZcXaSb3/dD+WoJPXsIBfI9G/MwfQ8h5HS/RSlsrJGhsuNy1+fmxNvXpK8KSA9dOhDY2DEuKPaaFdaJJuH72hJQ2kYd2ktEFJZhUKPrFfg5pKsGHN76lDr4OehogM3x8+u5NaVS8Lug1C1nA4ZePRKnW/eBsyffIuU8Op4HuFMad1UEn5UMTv0Z43sDNr7yp6pwImmxe0V90o3O9cDvZ4B3c88JQ0nMwVd3al+yErFFRby1DAbA4cjlFYEStvmZCiXe3lqRAkYgAXejo8C8EQIVIugp5HG8xwAbYRUmXTgRNYsExGSkdFJEQxBLBftWpCCiJT0V0PCn+TzAQUg4SMXSTUIptDH387zCyqhJjqRH5qQGotRxMSDAtUGYAzQGmBkUWR9KbYcNDsRvZRCMXSeKn+H+l58vOKn70+nj+Oj7CGwfSHOSBTomHZEQkfm132tPWTYpbbEyhUVuPveg0FayrROh/j798jFvvWBeRfcdhrIMMPQEj3kqwe/03Qh+oXIa/OPvIdwGKutjBjoIL4fr0t0XKZyqh0jvvZPwWFSjk6Isl7I0KC0ct1lwwQgx4974vUHjYUpXXrNQLf0p0tEHWb/c8q34mb6HBXc67wNwGzABqOjCAfthieA78ew7RibHF22WXyqoNtBV6VAKgwxGcEjwYky9/rkKaMHJb3Wg9BnC9tkcCUu5cWQibRX5DGiqqNgoNTopik4CavctKQ2possRdUStQ3L0v0VArtStAHVhoTvnINyFwFF/BREOvP2pBG+8k6HjAUHcW1ERuUOWtEP6DgDEodVW0RIodTffBUdPABsRqNLlbikAhhnvxgD/F1AABmf6pymip9gpOJjlDbZhRct85xNPfpYFlHNsW6ifbxknnQhkfiLXKRvz6o7IGp3SXRb5CEeBJDQTZYty8qsE6tRWCzjVxkAnLELwwqgALUr7rJSREMPRCedU9GPtITxQC5ZKA5r+ldOvfQscwGQAos3bon5tIBGx0on+HX1QCavSsd0eQhAAMS3989xrdxeLBEmfm1e8COHA6F9haBmwQesVaWyWzh3avgAKLcMJUyt3S/O5/P+W6YyOhEJCR7oI+HxZkDJTNEHkGhCYgfA7OGgGREaHe6YRDiIpEucA6mJOBJQrFZbSpm59FUkPEKDkEwoncLZmrU0j1f5T7CF0SNryXrtKZ6mAdXp+Asz+vZhgFsqtqjfnfoiNoPZItgk645E5mJspUDiYFYkICkTyTfxE6RYDgtG2O1JslBqdLzTjyjIoYZ2a7PkgkEbjuohxKqKG+tV7KOgZ0uS2EXuURYHqEXoMkAkbwMh4DIbcmjXP5yBCACLnwVty0TXp2PswpBAarLWiWUir+9P9ffr9dUSNx7ggBgdYM9AuMHcNIOMJ60QOL7YAAIf+pZAYGYbDOj4SF07pVFgTP4PSqCnAJEccdBQAJrmUsENpctww6I+RBGBCTKmoJqwD0aIAtbGr3bkqjkwTwoYYBunXjTGuScceAfoC3BsoUPT/KnsI46dYJ4Lq5/o7NOrXTOrMDQudkGmLSqu0fUpLvrQoldRYCR8M4JVbaMKirW/+HlY8KyAd/qFBLHKvffmKAKeMjQHZtdLEIFEtkZJZ2vjJs4tHksOubucUvRRAg1wwyC0rBfuhRKQFGAHMBrrON5AqR+JN6RgXxI1PrG2faU8AMF8FvvG7ERh1NfKotwBVP58AhDr1tAeijiZ+4mRgMcDhbU1pgXCZznfZv8lxFKd81W1sDcwBJkFgeQuA82UyeHHkw+8G60Qx5Nt7t6dR1/WQQG4ytVMnvqpnYxE+wgKFFgU5Y/QY4CEsbNFK+M7dr7xjgNFBDAowKXASlh7k/8LAW8SCh+UKbnHu/FcdMras6AV7CMNR0WZ4VDqnkAx6htFb12Ggo+ugYlokoeSI27kizlec8MslhB2G8t6AZ7zF2NZ9WOQt2j2MMYjd4Jp/WgK84E6G3xdI+EUqis6KzJ1kh4ocej+9VARkucWiyHUDZH+KnYMNDjYfKuKfJSgiCFlGJA4OlCVjBqR0gqkO+Y/ekzyHRzPgiBgzgFIt/QF9aE8GuKGnW6xRcpsTW6mrBuMQ4jN6vn5KTw+ijUIlMbcPbluuSWvu3FjROoeRtrjvsCftPN39eYBFfnILPjWdU9CJME4WOiHSluXJtBPCZaUo+uJT2mURu7eewuEC52SxSBJyOZITMbdb5qsS1nU46Mg6cqX2t9SUdjsXOd5bkT4erxfg3ory5ntIcDwcIyXSs0507w4NrJZOeudLAPlhgAL0qyBGwUNEVCDQaeLXcIUURZbRl446v0AKt9yCRTXeGIfTgpyHisgRBoQZYUPU0KIUfY6gzu9sRxVuuSnhuBn4IrM1g2F6UOn1X434CJsvnO5MI0N80SFjo3QBf5BPdrsHf5rPA5wXwB40rkn3BbH2vXbahK4g1jss651VMJMmpTE4DXPvOsd0sft2OWd4ZNsXfZ0fubfyCZjwGQduwajD+j5JYdphsgEXHYYSXI7XgCsPE3+TfiisE+17WJGZTWm/cwA0wrcUuV9T3wKY16RhS1voPCAdBcSJlvSzd7lTu3yBYySRCaM0U1jooGOwsbQEVB1fuGRUC1sQuBtxwVsaQR2yjEk29DiXdsibg5d9D+tha9KfXtWC5wQxtBiKIUU7Ph9prin2Ar5SyWc8ugdb+YVDwUlROowIvnRSIsf7kuPoDnrOLCgzzpJZlEpnzh3OqNwjpO3xlGr6IZdanvjCqArGZ3wzThB8FywCb+SQLAra7ME9x5pF7FDRjQFpg7bCQWexomc32JYV3QEoiBLi8RXJfNXLAkWH+RxXdORK3QpQG2x8zuX1IxapaDEoRHLWTY3jg0Fp1OjA7YgqktdPdUwGbMA9mHyvPeZVtElAuqESjK7oOWkfMwcae9d9AKAaVcPT0jmFbiJKowp07PzEycA4RUN2xEoH+G4xdTj3RZvj3CJnsAbC3jlZ+l0IpPVjNGJDGAbh9m/vvSP4tlBvgAdWlBsodN+ea9jLVhd5R6vBYdT5GgCBtVxYLkoTypdDaKGwBTEo0AkL0muBAq9STQ2k+n+MAOsE5mJqcLymFbPutS8GdAAzgNtBlxSnIWbhiUETP2EyGBfoPh8vJ+HAFy2OU8I6NbXZcTmCo8HuInSWNiIQpcuSRqWPOkrOtSEciLAhsFcQ96Zxd0Xfl925Lxr8xLP3EG6ahg+fJcXLgDVB3ndSACOiLK5DoQOJ9tHSGr+EPJcuGMA1HYR1paokCP5lMqr+Id8LKFCQG4jyBbdMbk3Gl1qpakzal5H9+YpRgXCT9K0VZWscx4k7Y53oZeCvm4BVAOElMGEmdRQI2XQHkTbCiBYFqHVfnTZS+PRqQPQcVlOqSB32UmgUwHtGzqlIBIyIrKAqrE4HsCqFpNfuCLskclgko+5kFTq1WrPPeolnximtQ+WFO/rilmePyt2mT8cXbj8XCaA/owuuIsTCM7TIE0FzMTWAAFb/7LTnJKlwwHiIz+jC34knuyljWgl0CDIUMaJo4icoLaWlwquU/fJDl6ZlQ5nbanoygqBWkTqVP+/bexnSqaxBB/ZPH/AcFuaKLl4n8hHu6G68kXZNYxzOhXD+XhCYJh3IRBr5yaT02QAqYYck1vOcSgEMsCiFu5VMTahTG/aTrOHw/3S9rmgMvmdz3FzE7YdVdMF1/+uWdHvvmpfmfcWM69Pr7QZDiQhnWdPRxK9bKUz8IM17Lc590WIwJVyiFlKwGHQiayAGAOhxLpbAY56bMztN6cwI8jojZqZXD8akl3pLD8iTTS4D9oYya8xPf9Q08StNBkUDHN7ieLl8DodzX7Q4TglL1Aq+/NJ7CLVtX9cXePuvPh+T0j6ljaCvDPveyfjdDkPU6KCmlNef86Oa7EGfwWBwBusBApGhgAOT0ojYHysEj73Xnt0LLBpQ4/fiILfkQqAPaAf9meUtvwa+7vJv34OwKf1RmhLCpOU/FOnWRaT8BJZxSKVEkKqhqkUDImP2VV12DgmdECzKvMidC2RUT7e5MKl9NIsiBCszZoeRxAxB+7etV0tHToSz4SwVHe5PvIJqqtRMuOQtBOuanJuX1r0VhRxSXxBcUJHArysgo8JPmRbYOEyPXVcXycf8u9KwuIVVgZyCToRxEuj4+MkThkzHKwxOXwDd4ajrcBIOuR1lMQalheOuRO0EpjCcU9isgDYErVPgKJYPZqTXCXidt2J0ep/DPBODYcajRJr4NSoVuAKA0RG0OKcBsDhOCZeohRT8xojYAOFAOPHzrknjsPnWIB4VzH8LfFDpdCpF/vuZcADjoMqwry7KzY7LgeagOKPYryoMASpKoQMpEqN+gnRt9bX0ZLeHFdzv5Yo44Pg4mgSjof+F5ZmmbsS8ZwS0MOv1HUDL4kSfc3uns/6ZnXwKvPMeEN55yhdU+TUqZWdoi1KpJXyE2wwuGFprSAwEJIQBUWublm4ZNsQQ8NHiREO3KTZKiY4ZoaJGLW5BBMc5V9bXpC+vSKDTN8ckLruD+ekFgqoIHdf95QtFkOMqJzNGFZqxowq8qjhEyfir8Tuuo1r8QX2whnFeGRr45hiA3Vp3B3tU5Awm/hDe8pI0qmsdOZ53J2NiNeSkp6he12hTPHQ6USfStMUKFQPKFtHLOKhWVnSULaqw7GyUqDVyFI+bDNp0XBngOIGZGQJf8wiB7sKtlF4OVL31GoXGwsCaQx8ABQqYWnCtXNeOQavSdByPjQI85F77UkVT78puj04qYpEi0XA3kgbOOTmIOOkISkt09GsSWalw48LgbZVOg0UBCofcKWvS79ivrBo9u0hQFhbx57PLPS4DP2rd9MaA2DYIb8BZ1nT08UN5hhL/pI6Ht32OQOZXo0PRIZfDGWyHUP2Pvl4Y4YBLacSJCAkdY5fRucmIGhKprw6aZ7LkJSt93pr05gWaio6gQBiArgANjmDJ4jT6MogdwXlDwn9jIObdyRDqlPV6fGFwWFQQdu2djE0DbHKY9Cn/uRX9aGm6q+XPI63ypXZV29p3jqtEoCkNkJ+VFaBjsPl90qqlsjslIj2No9MRUJOO1AAV6HEEDucGA1CxU/oclNf8HlZpy+XVQbwwUC256/6XD4YMErx0h8btFYnDrzAGS1NlA52Qieh05E/DUKdo0a4mpbJFNTop7HJhaCsp+EX29VBmedZIGDWlslHjClVG51s4q8XSYQxuSQvfIbmgovhjeW6OywDyihhSYNVCbnZcidpVkHxh4lisN0z89qsbyun/ZSxKp6bhIJzC5gJ60z/ImjRqi4nXBG4dDEV1s4K3ADMBoKR0FOYHj0rnFBxECqQqwsLGT/wdx3jTLkeKzhn1Uhjkdh6WtPXlgAGwEYGt8ftQu+xADxSffYS7gAMLfTdC8kd0AMv+Kq2o3bNYPR2bBZJ/aRWbrS4WTn2gU2nCuNEAH2EV84JE6iCIHwHabClqw7c3GDthpt/HswcweLtvgBsCiEScQMdhaDlM0NFC5Hg1f3YGNj0MuX2ew6aCEWhE3AXzshA2SGN0+lqAgp9If55Pdhv4UmD7Hdc1pksTf4FUwgzqX0EaY4bo+ns5D5liTUf3qR0b4yNDCIbca7d9/h6112vPiqI7iKsDrWdCQqkpeFF3B462hq1PgF96N/cuyN46gEFps64v4SbMfBubYfJ1Iv+8h1GBPgGzWVAnLEpy0zHYhQqRwxRktH0Wgc7tjJkiDJpnB5/4Mp4YpFM6YRLRcph7CaB1hCAeRUdhC7BHRVsV4p+Etqzy5h0apzP265/56Riafuq9dpSIcJayjiLobwZfoSOIcQlD4m2J/A92r718lfHpPgmRnA4KhEUiEqn8jxWd9zRBaUlY1aIeo6TTVabNTRRa00DEKF3gvcL3sNoragzYpH1DMC+tBm51lLC/qfeAwKZIpP0D9PkzsZOYr39WupPhb59VAU5BIwIzEWU4Lwg7/12Zn00Ybbcvd8Vbw3lUNEA5DZ+dLjUFd0flK5xksBYsY+g7jJNjTKohjPA5twGAxYKBafqzhFnHR+VbKopa+seoaGaBgzHLFAi/5U5GfyG08paoXXw14Mg4r27kSxzRhqlpo14NQAeALYNaesgnnwP6R7WJh+Hiw9pkHJCt1D17YVq6ybdeGr9JWpj3ykQgDc0GIo2/0q5RmDhFIwT/1IkmZAMM/KYexoUZfAksk45Zb5F+OC9O571Fp93ROZfAWwJkHIS7W670U+5kYO6djCXfYu4k2bLzzgiH3keno3r14Ljiki936HuBth19OLlru9zjSwR849vM/1WJPgZoGwIyCdSnry0KEd19JuN0fOV77YL2viD5nDapKDK7fHUR3oq6Vhdzvx7znGP47lPIzHxrDOuk+7B3ELVAdkdsMlKv2nduLO7bofHuNOckz/wVZvqeCxSVVgzwXYIVLjhcRKStgJwZ9C1+odFxXT4iac2CsGoTviCQV5yjpfDtq39FwCGZo845L1gnwplJ2/quYDbGV4SD8E6BMP4IA7dvRmEclIVmoDSEy1OgTEfWUexdQw7bo7gfrGPZ31Lsz+S9CakK4WiCtd9DgkFplHy2O/eFrdlUFJSqvDEa/DpzTLryLdVxaR+RbdJFdVsGtD4FqLcNMiLSgzfgaGu0AGrvag9uBZ4DeZzOkW+xkFg3BaUJw7H4LzETSdmVFhulRueLOj1JBiVsDgJXon6iS8cyLynhIUWtTxSVwlc0GiATHoyYAGAkaDfUoD8ISu4BDoSK8BF234gzpy1K963o6DnT8KfzbD9gyr32KT9COWzgssKf5+Mlz9Pnxrtt1yvdR+i2Pw72vzG2kDrqUbZ/0gDwDmPjV4Wsfyz+zvy/DfFvy0vZqYH5OiF8HJguVJN63yYpXN61yAqPbAqadmrkPMZ3ndSo4Z3nXKITFjuu2v6CK06QUJRKOBuCUbF7kvBnPMYnPz0ld/iuprxC6aft7mrMiCiekUBiudIOLk8EGTmPyefi9QBwy1SVI66Y/4VbDhmyQwnFlRH3IC6DMMLcMP9D9la4eZZyOzzpBN4FSLhowJmOU1PR2w/SPpbU/ZtA6jt3fF68A0SSAQgNceL3SENSGldd9zMM/6xYBiBdI6AN4gebu3DXC9dYqw8B8wGUEAqAaIDwhA66iHIBmFpgNPKHldyhNBJfI+iTUsa3Z+GMpAOgTAb2iV/oPdNBh2h6pt0CKvUKpUJj3oD0jJQvKBUynaaQ6eNHvDsE9V7B+GGgcEYCEgXO5a/IDc+/M/ssRPz/U/8E" alt="الشكل 1-23" style="max-width:min(460px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">احسب الشحنة الكهربائيّة المخزَّنة في المكثّف عندما يكون فرق الجهد الكهربائيّ بين طرفيه <bdi dir="ltr"><bdi dir="ltr">(3 V)</bdi></bdi>.</div><span class="nq-pm">[2]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>Q =</span><span class="bl"></span><span>C</span></span></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">احسب سعة المكثّف.</div><span class="nq-pm">[2]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>C =</span><span class="bl"></span><span>F</span></span></div>
+      <button class="show-btn" onclick="toggleSol('q5-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q5-ans">
+        <div class="sol-body">أ) من التمثيل البياني، عند V = 3.0 V فإن W = 9.0 mJ = 9.0×10⁻³ J.
+بما أن W = ½QV، فإن:
+Q = 2W / V = (2 × 9.0×10⁻³) / 3.0 = 6.0×10⁻³ C
 
-ب. ما مقدار الطاقة المخزَّنة في المُكثِّف عندما يصبح فرق الجهد بين لوحيه (20 V)؟
-(ظلّل الشكل (⬜) المقترن بالإجابة الصحيحة)
-⬜ 8 J        ⬜ 0.08 J        ⬜ 800 J        ⬜ 80 J</div>
-        <div class="q-text-cap">نص السؤال 18 كاملاً (بجزأيه أ، ب)</div>
+ب) باستخدام نقطة أخرى من نفس المنحنى (V = 2.0 V، W = 4.0 mJ) وبما أن W = ½CV²:
+C = 2W / V² = (2 × 4×10⁻³) / 2² = 2×10⁻³ F = 2 mF</div>
+        <div class="grade-note">الدرجة: 4 (2 لكل جزئية) — المفردة رقم 23 في نموذج إجابة الاختبار التجريبي 2023/2024، صفحة الكتاب المرجعية: 122، الوسم الرسمي: «الهدف التعليمي: 4-6». ملاحظة أمانة علمية: نموذج الإجابة الرسمي المتوفر يعرض تفصيل الحل لجزئية (ب) فقط (باستخدام نقطة المنحنى عند V=2.0V، W=4.0mJ)؛ حل جزئية (أ) أعلاه اشتُقّ بنفس المنهجية الرسمية (العلاقة W=½QV) وبنفس بيانات المنحنى المرفق في نموذج الإجابة، لعدم توفر نص منفصل لجزئية (أ) في ملف المرجع.</div>
       </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-18) كما ورد في ورقة اختبار الدور الأول 2024/2025</div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="q3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb marks">5 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س19 في الامتحان · الهدف 2-4 · صفحة 122</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-19)</bdi></bdi> شبكة من المكثّفات الموصَّلة بين النقطتين <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(b)</bdi></bdi>.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRlgCAABXRUJQVlA4TEwCAAAvWYFJAA8w//M///MfeJAjbf8bJ//FgbQzotwKEU7gjvy7Ch2t6TJ/2QRRaEYXIBwFechxWzpLpO3IQTsWegsZafcjp5mI/k8AyjM/YeFjYCmAMBIIMqA3A6ETuD4Eot01dkjg6SpQ7aywMwIF4F/vrBYOvdToHct2VgsHnmngo0YuwoyQK4PGSw0IVa6vgt/eqATO3h7hL+2ue3sUgtcFPttIb6AAT2mOaT+t8oeg649N8c0iBfv7xVzbCMy1zaSir4y2KRht078zrkp1/hdFpORnlaz/I0CPT0KOFR3r03Nf/ra4+jpfNIEKHT9AI3Aun6H1dymF0bcgLIHPBWzMBYIMfJmJxEMIywTikcD1IfhjjVcCBfSOHev7JF7TcMf29C2JxxreNzaWGtdOKrnFRjzWwB9rrAmsrJNYEiNwdlisM3tBIcgzfJmZ26gQlhH2+p0NZhQgBjBaKtQit6VGjdbTeSr1TmpJKvpmdf9OXQXTSf/ecG0jMNc2ksq6+Wnk3dqnYHT822WS/50KS7CqgI25QJBBWGYi8W0IXycQjwSuD2G42HglUKwCR/s+idcUwJULfUvisQbs7VuysdQ4+3mPkCsP9C2Jxxr4M401ETuSWBIjcPZ2QXg4sdkLChvzjCDPzEmE5QXC14UNYgWIAYz2U7i9Ti1yXepso+sU0m/WFSX/QCpXYiw10W9FCvZryCqp8ofropSrpSqlgdQerfKT1NLk6g5PZ2xP1XMTjcBcx1xtUK0w0RSspuOMbauZHN02IMTE/6yb6Aw=" alt="الشكل 1-19" style="max-width:min(300px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">احسب السعة المكافئة بوحدة <bdi dir="ltr"><bdi dir="ltr">(µF)</bdi></bdi>. <span class="nq-tag">يخص درسًا آخر</span></div><span class="nq-pm">[3]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>C =</span><span class="bl"></span><span>µF</span></span></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">إذا زاد فرق الجهد بين النقطتين <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(b)</bdi></bdi>، ماذا سيحدث للطاقة الكلية المختزنة في شبكة المكثّفات؟</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ج</span><div class="nq-pt">عرّف السعة الكهربائية. <span class="nq-tag">يخص درسًا آخر</span></div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('q3-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q3-ans">
+        <div class="sol-body">ب) تَزْداد. فالطاقة المختزنة في المكثّف تُعطى بالعلاقة E = ½CV²، وبما أن السعة المكافئة (CT = 15 µF، من الجزء أ) ثابتة لا تتغيّر بتغيّر الجهد، فإن زيادة فرق الجهد V تؤدي إلى زيادة الطاقة الكلية المختزنة في شبكة المكثّفات.
+
+(للاطلاع الكامل على السؤال: أ) CT = 15 µF — ج) السعة الكهربائية هي الشحنة الكهربائية المخزَّنة على لوحي المكثّف لكل وحدة فرق جهد كهربائي بين اللوحين.)</div>
+        <div class="grade-note">الدرجة: 1 (على الجزئية ب فقط ضمن هذا الدرس) — المفردة رقم 19 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 122. الوسم الرسمي المرفق لهذه الجزئية في ملف المرجع هو «الهدف التعليمي: 4-6»، مع إشارة المصدر إلى أن «السؤال مكرر لارتباطه بأكثر من درس» (نفس السؤال يظهر أيضًا في الدرس الخامس عشر بجزئية مختلفة: ج، الموسومة بالهدف 1-4).</div>
       </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="q4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2023/2024 – الدور الثاني</span><span class="nb marks">3 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س21 في الامتحان · الهدف 2-4 · صفحة 122</span></div>
+<div class="nq-stem">يبيّن التمثيل البياني في (الشكل <bdi dir="ltr">1-21</bdi>) علاقة فرق الجهد الكهربائي <bdi dir="ltr"><bdi dir="ltr">(V)</bdi></bdi> بين لوحي المكثّف والشحنة <bdi dir="ltr"><bdi dir="ltr">(Q)</bdi></bdi> المختزنة في المكثّف.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRpgEAABXRUJQVlA4TIwEAAAvTcFDAA8w//M///MfeKDkbHskSYlUIII5WM4YjsBuKpXPgrjAPJfaGeohdx03oI/S0WPsOjgAIqMUqHMHToLBJf7ytwhn2v6YthH9nwBz0vb6ETAjuzbfDRvdAucMj4bN7RboCPTjvr3VQq856kXB8GuvhhaKwvXqUQvMDNLrn2kG/ROLHwwNWmN7jttEwC3Y3RGXARPaRim4YySgU2lczCzGX16wQCA0l/A0wb/fQLQhukrUEHU8ZuTRCe4ZSaRcXKFtoloSqDFR5eP0zSlRiRR9oibFw1RdAtUnUmOCq6lqm6CMMgdcAvUwRh+QBPphP4XccWWiskhs427uJgQFS41ggaMPTXOSdYpCjUlMl2KtXRKdZDKSRCUBkKT+gaf6kafc8jREHY8ZebTlUY6nEiLPs8I/UcdjiLTlUY6nEiLPU4JnRdTxmJFHWx7leGrhqTxPSdSAZ81jRh5teZTjqYWn8jwleBqiLtkOEqPHZCtto2yyQo0xyiU7eWGKqSWZvrmLqTI87GNK8BREXTrV/41surbvp5ALVKE2Rd/3ZZHYRk1tPyEoWJaC5YCjQ/t2miOQrnhjjFilM8WJjSjSobjijjNvZgBwnP4otCVQ7/BUJ0SnPKXmaYg6HjPyKEvkeCoh8jwleBqijseMPMoSOZ5aeCrPU4KnIep4zMijLU/t/okqz1OCp+ExHdHIoy2Pcjy18JSeCJkGyKEm1z1tD3W57qjxwNmYrZ0OnNhcQ9sfeC1ff+g5OWrIU/iF4cBRW6IhT8cwBXRI5ymLxDau3U1Y1hZLjeCAow/U0xySfGoMVQTahcp8gA81Eds0CHU8ZuTRlkc5nlp4Ks9TgqfhMR3RyKMtj3I8tfBUnqcET0PU8ZiRR1se5Xhq4ak8TwmeNVHHY0YebXmU46mFp/I8JXgaoo7HjDza8ijHUwuLzJUn0XYuQaLGuWFpp7mj6T8dWfr+bctTumR/xq0kxbDYxZU+xXbRx62QbJOgSB9XZvARLdOE9FcRocYMmxjtMuxiIESMUXpcGN8vDNY5VEDJaqE8QS3FosqEpZKXPID6iuS4FTBnJwvNcSb5lERYACsMQP29xNmINWBelB1w9c4+CufH+Q2gr7gZ2PdT3L0IBSjYC8ANu7g+rsbeAW7bJzs5osW5g5HtkM4fJTCCNm4KyEuhFtjgA9m/m6K2oQKL0/XiQ9m/k8SFmoU57Y6po1L+HRRBi7dk/xVHjY9l/zXRVw41gcJXsndu2xLoK1/Jx+58YDCFd6vx6syABu7OVMvAsMHFBYCeofbzYseg/OwAzAzG7hYXDJiGhVAAlwBAEvyPYoD2FotHq/7McwHzSMNDn0mrfs0y72Hua++gXxP1Rh6x0J2WGeY5qd+YchgZAxPMk6hO8/hzmFHLDuYGep1F+wnGGulhngDywRm3AZ7z0Lscyu+APRavnZ2+S3J5dnb69eMsOCTyzhvZKplx0cIXRVFwGIZfFpckwF+43BhfrLOFN+ZEAPyZxR8qFrER+hjP0qNALiOhHe7QTEgagQMzwxwShj9DniHv/xI=" alt="الشكل 1-21" style="max-width:min(360px,100%)"></div>
+<div class="nq-stem">ما مقدار الشغل اللازم لشحن المكثّف إلى فرق جهد مقداره <bdi dir="ltr"><bdi dir="ltr">(20 V)</bdi></bdi>؟</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>W =</span><span class="bl"></span><span>J</span></span></div>
+      <button class="show-btn" onclick="toggleSol('q4-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q4-ans">
+        <div class="sol-body">الشغل اللازم لشحن المكثّف يساوي الطاقة المخزَّنة فيه، وتُحسب بالعلاقة W = ½QV.
+
+من التمثيل البياني، عندما V = 20 V فإن Q = 10 µC = 10×10⁻⁶ C.
+
+W = ½ × Q × V = ½ × 10×10⁻⁶ × 20 = 1×10⁻⁴ J</div>
+        <div class="grade-note">الدرجة: 3 — المفردة رقم 21 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 122. الوسم الرسمي المرفق في ملف المرجع لهذه المفردة هو «الهدف التعليمي: 4-6».</div>
+      </div>
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="q1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2024/2025 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س18 في الامتحان · الهدف 2-4 · صفحة 122</span></div>
+<div class="nq-stem">يوضّح التمثيل البياني في (الشكل <bdi dir="ltr">1-18</bdi>) العلاقة بين فرق الجهد الكهربائيّ والشحنة الكهربائيّة بين لوحيّ مُكثِّف.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRgoEAABXRUJQVlA4TP4DAAAvfEFTAA8w//M///MfeAlFbRtJGv9G5c947yUQ0f8J8GXLQZdTGcLodqYw+jVznICc/f8TSflnbp7b85sSOZkWp3QIb4DX4O7ukEUr66isdCkdcri7dZxLxTnLPsssMpkkv509qyLCgdtIilQj9TGmceEDWQIvnwbfdejk1J0dULk07VAz9oKXZT5AVeTvE9hLkSpKJaHyvCzau7I0j7JQz3WpEww+oEZCLw6+xyUXfN0hnxiUO7GieqxhaU9QvFcvTQWrCJ5tvH92cF058JIsWhJvArTqY/+yzkzsL9Lw2umi5RVh1fAI7bT1X+LutQkR9yDCyweoXaMywxisV+7v/KeMRoUAUwGLal8lp3ujpD05F/1G0tHdHm+fJpimbM6dZV1yN5DVDWmiaYReVXBVwJWAVwEXntUdeJZmaG0gOw2A2BP4Np2hdQCuJKNBdiWgEeETiWNxjjo/FHXwG4adO6xfqVT7KBb1P3H1GWE1V6FHkMCeA8910ls75El6ATzqfqKx7x1Ya85QveSn4NjTLhx7AMcu4NjXa/IqAvtJTZ8ZR+xH1d/PFZ3TYu/UzRKjVAkr7J62/ReRZoGiTORjmNFwMhmunZo3AmDvfKZ5IwD2mv1D/qQ3wopd5g776Zxhx/XhTOn1cXMEs5wjDPRsWth0eqgbGSLyYxl1Eo6dw6NODvmT3nAUe/cjNPbsFzR2tn9gw87h2CUMuzDaL/VOrR+2OZhWGLlJyshI7bwy1XSOSGruBmDvbEdj/75M8wIA9rmjNDdiH3UcnvTkkL/mDL+wczh2WQU3scfO78INBrtjK7/eZo44qXCv91FzRCr698Qy6ubD9RQedbPhbnsfHnV18KjjA37Sk8PR/QyH4Nj3xR57Jxz7Dzj2c3DsAo69Mho7R8iL6POdcN9+zmiOSBml/3co7L9DJnLfwALbOWIPPOrGwaOuJhq7hEcdj33HJYeUSS83NWfkBzuPLXaRgN/ICXZJVnXHALvJfl4vej8vBLs/IEQdh0edHPInvZFd7CILx55WVPRPxnnSizZ1cxXhT1EAKgScJ3H+x9CnKjTovgaXmp9LQuiOJRU7dXqnfr/9RBRZP8/sMw6foEBTS84rOkVk+H+tUPezANzNFn/KfhBU/y9Y2KS0B5Axczk641u7nWRhvQoKdAeSmbsZvAWqTxea/u/m6aODQprl6JSB8e1mYa207tW4ossU1qKIpNFuaIR2jq4KOUF3O9HoNsKtGz1lJHa0ApWpD4gOYU+mKiJJH4AK5H72ywEnePENfFaSW8YozsuBH3hSz9En5LlVGeLQxP2sgkjsYUBdTzCiYgEUJ7G5Yh/USZ6libAnmCZcIhoFLd5FIcV+EQ==" alt="الشكل 1-18" style="max-width:min(380px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">ماذا تمثّل المساحة تحت منحنى التمثيل البياني؟</div></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">ما مقدار الطاقة المخزَّنة في المُكثِّف عندما يصبح فرق الجهد بين لوحيه <bdi dir="ltr"><bdi dir="ltr">(20 V)</bdi></bdi>؟</div></div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot">8 J</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">0.08 J</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">800 J</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">80 J</span></div></div>
       <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q1-ans">
         <div class="sol-body">أ) تمثّل المساحة تحت منحنى التمثيل البياني (فرق الجهد – الشحنة) الطاقة المخزَّنة في المكثِّف (طاقة الوضع الكهربائية).
@@ -602,24 +720,13 @@
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="q2">
-      <div class="sol-head">
-        <h3>السؤال 2</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge page">صفحة 122</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الثاني – العام الدراسي 2024/2025م — المفردة 17 (أ)</div>
-      <div class="q-text-block">
-        <div class="q-text-body">17) أ. يوضّح الشكل (1-17) دائرة كهربائيّة تحتوي على مكثّفين (C1) و(C2)، حيث أن الشحنة المخزَّنة في المكثّفين تساوي (28.8 µC).
-
-احسب الطاقة المخزَّنة في المكثّفين.
-W = __________ J</div>
-        <div class="q-text-cap">نص السؤال 17 (أ) كاملاً</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-17) كما ورد في ورقة اختبار الدور الثاني 2024/2025</div>
-      </div>
+<div class="sol-section nq" id="q2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س17 في الامتحان · الهدف 2-4 · صفحة 122</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-17)</bdi></bdi> دائرة كهربائيّة تحتوي على مكثّفين <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub>)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(C<sub>2</sub>)</bdi></bdi>، حيث أن الشحنة المخزَّنة في المكثّفين تساوي <bdi dir="ltr"><bdi dir="ltr">(28.8 µC)</bdi></bdi>.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRigCAABXRUJQVlA4TBwCAAAvpUFOAA8w//M///MfeJDj2nYjOb8wLhx5L1HL8CK0JGWu0V++w9EC3BZmB95lnSqbGsh0OGxZDubjv6DIwtSnvI3o/wSgSP8jYUKLqKQIiiUwha+Gpy7lm40pYN/5SwOKRVRSxABFdPm/B7OGZilbo9pMecUKAE+LFjgsppziLgDY8LKSmlU+0RgPLTjdaHFFO2o7i2FqRv01aWxZmMtNqO8nYGGArdRhdaYATFDESXX9CJXxnqkzDZZoCAC32LWwkTuXqaIl7+xNUHyRG+9ZGGRmSYy9AoBZihkY2W4hlkYNOPWGZrHV4ppwz4ru5PiKmnEyanECfOGlDR/GmWtyF3x3szYBkhYr4MXzd20MkAIrwO/eo4NZytZArsmKb4MmC9Irbbyh1oVwGcn//vtzzcR8JmIDANNdE0v3Uk4wAQBVB7OUrTkMUnPAAQXwypmQudQKcEEa3oKXF6ltcK+rtk4XUgHciw2YivBiZxZpbrFjZoICP4XXiBhejcwA8KReg70L4hITtal+LEIzr0ZmJig4jd4aAK+7XmMDRjZKUFQJ2fU9O05xNhW5J2a8LPgGi5iKwwRuCi4obs7bQD1KUV8qgJ6s2KjCQmKC4wPg7nWyMSMvEmABUL+CDWCYSiq6mKVsDWBUxvs2LHZuaBEEK00W7GMh0DKa/zI3UQZJCUyxjFCCL6XLb4Qa9j1TKCOWgEIqKWIGRRT5VQE=" alt="الشكل 1-17" style="max-width:min(300px,100%)"></div>
+<div class="nq-stem">احسب الطاقة المخزَّنة في المكثّفين.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>W =</span><span class="bl"></span><span>J</span></span></div>
       <button class="show-btn" onclick="toggleSol('q2-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q2-ans">
         <div class="sol-body">المكثّفان (C1) و(C2) موصولان على التوالي، فتُحسب سعتهما المكافئة أولًا:
@@ -636,111 +743,21 @@ W = ½ × CT × V² = ½ × 2.4×10⁻⁶ × 12² = 1.73×10⁻⁴ J</div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="q3">
-      <div class="sol-head">
-        <h3>السؤال 3</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge page">صفحة 122</span><span class="badge official">إجابة رسمية (جزئية ب)</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الأول – العام الدراسي 2023/2024م — المفردة 19</div>
-      <div class="q-text-block">
-        <div class="q-text-body">19) يوضّح الشكل (1-19) شبكة من المكثّفات الموصَّلة بين النقطتين (a) و(b).
+    
 
-أ. احسب السعة المكافئة بوحدة (µF).
-C = ____________ (µF)
+    
 
-ب. إذا زاد فرق الجهد بين النقطتين (a) و(b)، ماذا سيحدث للطاقة الكلية المختزنة في شبكة المكثّفات؟
+    
 
-ج. عرّف السعة الكهربائية.</div>
-        <div class="q-text-cap">نص السؤال 19 كاملاً (بأجزائه الثلاثة أ، ب، ج)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-19) كما ورد في ورقة اختبار الدور الأول 2023/2024</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q3-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q3-ans">
-        <div class="sol-body">ب) تَزْداد. فالطاقة المختزنة في المكثّف تُعطى بالعلاقة E = ½CV²، وبما أن السعة المكافئة (CT = 15 µF، من الجزء أ) ثابتة لا تتغيّر بتغيّر الجهد، فإن زيادة فرق الجهد V تؤدي إلى زيادة الطاقة الكلية المختزنة في شبكة المكثّفات.
-
-(للاطلاع الكامل على السؤال: أ) CT = 15 µF — ج) السعة الكهربائية هي الشحنة الكهربائية المخزَّنة على لوحي المكثّف لكل وحدة فرق جهد كهربائي بين اللوحين.)</div>
-        <div class="grade-note">الدرجة: 1 (على الجزئية ب فقط ضمن هذا الدرس) — المفردة رقم 19 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 122. الوسم الرسمي المرفق لهذه الجزئية في ملف المرجع هو «الهدف التعليمي: 4-6»، مع إشارة المصدر إلى أن «السؤال مكرر لارتباطه بأكثر من درس» (نفس السؤال يظهر أيضًا في الدرس الخامس عشر بجزئية مختلفة: ج، الموسومة بالهدف 1-4).</div>
-      </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
-    </div>
-
-    <div class="sol-section" id="q4">
-      <div class="sol-head">
-        <h3>السؤال 4</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge page">صفحة 122</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الدور الثاني – العام الدراسي 2023/2024م — المفردة 21</div>
-      <div class="q-text-block">
-        <div class="q-text-body">21) يبيّن التمثيل البياني في (الشكل 1-21) علاقة فرق الجهد الكهربائي (V) بين لوحي المكثّف والشحنة (Q) المختزنة في المكثّف.
-
-ما مقدار الشغل اللازم لشحن المكثّف إلى فرق جهد مقداره (20 V)؟
-W = __________ J</div>
-        <div class="q-text-cap">نص السؤال 21 كاملاً</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-21) كما ورد في ورقة اختبار الدور الثاني 2023/2024</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q4-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q4-ans">
-        <div class="sol-body">الشغل اللازم لشحن المكثّف يساوي الطاقة المخزَّنة فيه، وتُحسب بالعلاقة W = ½QV.
-
-من التمثيل البياني، عندما V = 20 V فإن Q = 10 µC = 10×10⁻⁶ C.
-
-W = ½ × Q × V = ½ × 10×10⁻⁶ × 20 = 1×10⁻⁴ J</div>
-        <div class="grade-note">الدرجة: 3 — المفردة رقم 21 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 122. الوسم الرسمي المرفق في ملف المرجع لهذه المفردة هو «الهدف التعليمي: 4-6».</div>
-      </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
-    </div>
-
-    <div class="sol-section" id="q5">
-      <div class="sol-head">
-        <h3>السؤال 5</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge page">صفحة 122</span><span class="badge official">إجابة رسمية (جزئية ب رسميًا؛ جزئية أ مُشتقّة بنفس الطريقة)</span>
-      </div>
-      <div class="q-source">نموذج إجابة الاختبار التجريبي في الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – العام الدراسي 2023/2024م — المفردة 23</div>
-      <div class="q-text-block">
-        <div class="q-text-body">23) يوضّح (الشكل 1-23) تمثيلًا بيانيًا للطاقة المخزَّنة (W) في مكثّف موصل ببطارية وفرق الجهد الكهربائيّ (V) بين لوحي المكثّف.
-
-أ. احسب الشحنة الكهربائيّة المخزَّنة في المكثّف عندما يكون فرق الجهد الكهربائيّ بين طرفيه (3 V).
-Q = __________ C
-
-ب. احسب سعة المكثّف.
-C = __________ F</div>
-        <div class="q-text-cap">نص السؤال 23 كاملاً (بجزأيه أ، ب)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-23) كما ورد في الاختبار التجريبي 2023/2024</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q5-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q5-ans">
-        <div class="sol-body">أ) من التمثيل البياني، عند V = 3.0 V فإن W = 9.0 mJ = 9.0×10⁻³ J.
-بما أن W = ½QV، فإن:
-Q = 2W / V = (2 × 9.0×10⁻³) / 3.0 = 6.0×10⁻³ C
-
-ب) باستخدام نقطة أخرى من نفس المنحنى (V = 2.0 V، W = 4.0 mJ) وبما أن W = ½CV²:
-C = 2W / V² = (2 × 4×10⁻³) / 2² = 2×10⁻³ F = 2 mF</div>
-        <div class="grade-note">الدرجة: 4 (2 لكل جزئية) — المفردة رقم 23 في نموذج إجابة الاختبار التجريبي 2023/2024، صفحة الكتاب المرجعية: 122، الوسم الرسمي: «الهدف التعليمي: 4-6». ملاحظة أمانة علمية: نموذج الإجابة الرسمي المتوفر يعرض تفصيل الحل لجزئية (ب) فقط (باستخدام نقطة المنحنى عند V=2.0V، W=4.0mJ)؛ حل جزئية (أ) أعلاه اشتُقّ بنفس المنهجية الرسمية (العلاقة W=½QV) وبنفس بيانات المنحنى المرفق في نموذج الإجابة، لعدم توفر نص منفصل لجزئية (أ) في ملف المرجع.</div>
-      </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
-    </div>
+    
 
 
   </section>
 
-      <div class="sol-section" id="p1">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 1</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">فسّر لماذا تُساوي الطاقة المخزَّنة في مكثّف نصف حاصل ضرب الشحنة النهائية في فرق الجهد النهائي (W = ½QV)، وليس حاصل ضربهما مباشرة (QV)، مستعينًا بمنحنى العلاقة بين فرق الجهد V والشحنة Q أثناء عملية الشحن.</div>
-      </div>
+      <div class="sol-section nq" id="p1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2-4</span></div>
+<div class="nq-stem">فسّر لماذا تُساوي الطاقة المخزَّنة في مكثّف نصف حاصل ضرب الشحنة النهائية في فرق الجهد النهائي <bdi dir="ltr"><bdi dir="ltr">(W = ½QV)</bdi></bdi>، وليس حاصل ضربهما مباشرة <bdi dir="ltr"><bdi dir="ltr">(QV)</bdi></bdi>، مستعينًا بمنحنى العلاقة بين فرق الجهد <bdi dir="ltr">V</bdi> والشحنة <bdi dir="ltr">Q</bdi> أثناء عملية الشحن.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p1-ans">
         <div class="sol-body">أثناء شحن المكثّف، لا يبقى فرق الجهد بين لوحيه ثابتًا عند قيمته النهائية طوال عملية الشحن، بل يتزايد تدريجيًا وخطيًا من الصفر (عندما يكون المكثّف فارغًا من الشحنة) إلى القيمة النهائية V عندما تصل الشحنة إلى قيمتها النهائية Q (لأن V = Q/C، والعلاقة بين V و Q خطية).
@@ -756,15 +773,10 @@ W = ½ × Q × V.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p2">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 2</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">مكثّف سعته 470 μF شُحن حتى بلغ فرق الجهد بين لوحيه 25 V. احسب الطاقة المخزَّنة في المكثّف.</div>
-      </div>
+    <div class="sol-section nq" id="p2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2-4</span></div>
+<div class="nq-stem">مكثّف سعته <bdi dir="ltr">470 μF</bdi> شُحن حتى بلغ فرق الجهد بين لوحيه <bdi dir="ltr">25 V</bdi>. احسب الطاقة المخزَّنة في المكثّف.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p2-ans">
         <div class="sol-body">تُستخدم العلاقة: W = ½CV².
@@ -783,15 +795,10 @@ W = ½ × 0.29375 = 0.146875 J.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p3">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 3</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يُمثَّل منحنى فرق الجهد V مقابل الشحنة Q لمكثّف يُشحَن تدريجيًا بخط مستقيم يمر من نقطة الأصل حتى النقطة (Q = 300 μC، V = 150 V). بيّن أن الطاقة المخزَّنة في المكثّف عند هذه الحالة تساوي 22.5 mJ، مستخدمًا مساحة المنطقة تحت المنحنى.</div>
-      </div>
+    <div class="sol-section nq" id="p3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2-4</span></div>
+<div class="nq-stem">يُمثَّل منحنى فرق الجهد <bdi dir="ltr">V</bdi> مقابل الشحنة <bdi dir="ltr">Q</bdi> لمكثّف يُشحَن تدريجيًا بخط مستقيم يمر من نقطة الأصل حتى النقطة (<bdi dir="ltr">Q = 300 μC</bdi>، <bdi dir="ltr">V = 150 V</bdi>). بيّن أن الطاقة المخزَّنة في المكثّف عند هذه الحالة تساوي <bdi dir="ltr">22.5 mJ</bdi>، مستخدمًا مساحة المنطقة تحت المنحنى.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p3-ans">
         <div class="sol-body">الطاقة المخزَّنة في المكثّف تساوي المساحة تحت منحنى V مقابل Q، وهذا المنحنى خط مستقيم من نقطة الأصل إلى النقطة (300 μC، 150 V)، أي أن المساحة تحته هي مساحة مثلث قائم الزاوية قاعدته Q = 300×10⁻⁶ C وارتفاعه V = 150 V.
@@ -808,15 +815,10 @@ W = ½ × 0.045 = 0.0225 J = 22.5×10⁻³ J = 22.5 mJ.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p4">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 4</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يخزّن مكثّف طاقة مقدارها 8.0×10⁻³ J عندما يكون فرق الجهد بين لوحيه 40 V. حدد سعة هذا المكثّف.</div>
-      </div>
+    <div class="sol-section nq" id="p4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2-4</span></div>
+<div class="nq-stem">يخزّن مكثّف طاقة مقدارها <bdi dir="ltr">8.0×10⁻³ J</bdi> عندما يكون فرق الجهد بين لوحيه <bdi dir="ltr">40 V</bdi>. حدد سعة هذا المكثّف.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p4-ans">
         <div class="sol-body">تُستخدم العلاقة: W = ½CV²، ومنها: C = 2W / V².
@@ -831,15 +833,10 @@ C = (2 × 8.0×10⁻³) / 1600 = (16×10⁻³) / 1600 = 1.0×10⁻⁵ F.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p5">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 5</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يحمل مكثّف سعته 100 μF شحنة مقدارها 2.0 mC. احسب الطاقة المخزَّنة في المكثّف مستخدمًا العلاقة W = Q²/2C.</div>
-      </div>
+    <div class="sol-section nq" id="p5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2-4</span></div>
+<div class="nq-stem">يحمل مكثّف سعته <bdi dir="ltr">100 μF</bdi> شحنة مقدارها <bdi dir="ltr">2.0 mC</bdi>. احسب الطاقة المخزَّنة في المكثّف مستخدمًا العلاقة <bdi dir="ltr">W = Q²/2C</bdi>.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p5-ans">
         <div class="sol-body">تُستخدم العلاقة: W = Q² / (2C).
@@ -858,15 +855,10 @@ W = (4.0×10⁻⁶) / (2.0×10⁻⁴) = 2.0×10⁻² J.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p6">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 6</h3>
-        <span class="badge">الهدف 2-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">شبكة من المكثّفات لها سعة مكافئة CT = 15 μF، وُصلت بمصدر قوة دافعة كهربائية قدره 12 V حتى تم شحنها بالكامل. احسب الطاقة الكلية المخزَّنة في هذه الشبكة.</div>
-      </div>
+    <div class="sol-section nq" id="p6">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 6">6</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2-4</span></div>
+<div class="nq-stem">شبكة من المكثّفات لها سعة مكافئة <bdi dir="ltr">CT = 15 μF</bdi>، وُصلت بمصدر قوة دافعة كهربائية قدره <bdi dir="ltr">12 V</bdi> حتى تم شحنها بالكامل. احسب الطاقة الكلية المخزَّنة في هذه الشبكة.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p6-ans">
         <div class="sol-body">عند اكتمال الشحن يكون فرق الجهد بين طرفي الشبكة مساوياً للقوة الدافعة الكهربائية للمصدر (بافتراض إهمال أي مقاومة داخلية عند الحالة المستقرة النهائية): V = 12 V.

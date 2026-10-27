@@ -358,6 +358,73 @@
     a[href]:after{content:"" !important;}
   }
 
+
+  /* ===== صياغة الأسئلة بنمط ورقة الامتحان ===== */
+  .sol-section.nq{padding:16px 18px 14px;}
+  .nq-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;}
+  .nq-num{margin:0;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0;}
+  .nb{display:inline-block;padding:2px 12px;border-radius:999px;font-size:12.5px;font-weight:700;border:1px solid;line-height:1.7;}
+  .nb.exam{background:#e7f1f7;border-color:#b9d3e4;color:var(--primary-dark);}
+  .nb.marks{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nb.mcq{background:#e7f7ea;border-color:#b4dfbd;color:#1a7a3d;}
+  .nb.essay{background:#f1ebfa;border-color:#d3c3ee;color:#5b3ea0;}
+  .nb.prac{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nq-where{margin-inline-start:auto;font-size:12px;color:var(--muted);}
+  .nq-stem{font-size:16px;line-height:2.05;margin:4px 0 8px;}
+  .nq-stem bdi,.nq-pt bdi{white-space:nowrap;}
+  .nq-stem sub,.nq-pt sub,.nq-opt sub{font-size:.72em;}
+  .nq-fig{text-align:center;margin:8px 0 12px;}
+  .nq-fig img{max-width:100%;height:auto;display:inline-block;}
+  .nq-hint{font-size:13px;color:var(--muted);margin:6px 0 2px;}
+  .nq-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin:10px 0 6px;}
+  .nq-opts.c1{grid-template-columns:1fr;}
+  .nq-opts.c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .nq-opt{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;min-height:48px;}
+  .nq-opt .lt{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.6px solid #8fa3b0;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--primary-dark);}
+  .nq-opt .ot{flex:1;font-size:16px;text-align:center;direction:ltr;}
+  .nq-opt .ot.ar{direction:rtl;text-align:start;}
+  .nq-opt img{max-width:100%;height:auto;display:block;margin:0 auto;}
+  .nq-opt.fg{flex-direction:column;align-items:stretch;gap:6px;padding:10px;}
+  .nq-opt.fg .lt{align-self:flex-start;}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.25;margin:0 3px;font-style:normal;}
+  .fr i{font-style:normal;padding:0 4px;}
+  .fr i:first-child{border-bottom:1.5px solid currentColor;}
+  .nq-part{display:flex;align-items:flex-start;gap:10px;margin:14px 0 6px;}
+  .nq-pl{flex-shrink:0;min-width:26px;height:26px;border-radius:8px;background:#e7f1f7;color:var(--primary-dark);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:5px;}
+  .nq-pt{flex:1;font-size:16px;line-height:2.05;}
+  .nq-pm{flex-shrink:0;font-size:13px;font-weight:700;color:#a15c00;background:#fdf2e3;border:1px solid #f0d3a3;border-radius:8px;padding:0 8px;margin-top:5px;line-height:1.9;direction:ltr;}
+  .nq-tag{display:inline-block;margin-inline-start:6px;font-size:11.5px;font-weight:700;color:#5b3ea0;background:#f1ebfa;border:1px solid #d3c3ee;border-radius:999px;padding:0 9px;vertical-align:middle;}
+  .nq-solve{position:relative;border:1.6px dashed #b8c7d1;border-radius:12px;padding:6px 14px 4px;margin:8px 0 6px;background:#fbfdff;}
+  .nq-solve .tt{display:block;font-size:11.5px;color:#7a8a94;margin-bottom:0;}
+  .nq-solve .ln{border-bottom:1px solid #d9e2e8;height:31px;}
+  .nq-final{display:flex;align-items:center;gap:12px;background:#fdf6e8;border:1px solid #f0d9a8;border-radius:12px;padding:9px 14px;margin:8px 0 6px;}
+  .nq-final .fl{font-size:12.5px;font-weight:800;color:#a15c00;white-space:nowrap;}
+  .nq-final .fv{flex:1;display:flex;align-items:baseline;gap:8px;direction:ltr;font-size:16px;}
+  .nq-final .fv .bl{flex:1;border-bottom:1.5px solid #8a8a8a;min-width:60px;height:1.3em;}
+  .nq-tbl{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:15px;}
+  .nq-tbl th{background:var(--primary-dark);color:#fff;padding:8px 10px;border:1px solid var(--primary-dark);font-weight:700;}
+  .nq-tbl td{border:1px solid #b9c7d0;padding:9px 12px;vertical-align:middle;height:44px;}
+  .nq-tbl .bl{display:block;border-bottom:1.5px solid #8a8a8a;height:1.4em;margin:0 6px;}
+  .nq-mini{display:flex;gap:26px;margin:6px 0 2px;}
+  .nq-mini .nq-opt{min-height:0;padding:5px 12px;gap:8px;}
+  .nq-mini .nq-opt .ot{text-align:start;direction:rtl;flex:none;}
+  details.nq-key{background:#f3f9f5;border:1px solid #cfe6d6;border-radius:12px;padding:10px 16px;margin:0 0 16px;}
+  details.nq-key summary{cursor:pointer;font-weight:700;color:#1a7a3d;}
+  details.nq-key table{border-collapse:collapse;margin-top:10px;width:100%;max-width:560px;}
+  details.nq-key th,details.nq-key td{border:1px solid #cfe6d6;padding:6px 10px;text-align:center;font-size:14.5px;}
+  details.nq-key th{background:#e4f2e8;}
+  details.nq-key td b{display:inline-flex;width:26px;height:26px;border-radius:50%;border:1.6px solid #1a7a3d;align-items:center;justify-content:center;color:#1a7a3d;}
+  @media (max-width:640px){
+    .nq-opts.c4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-opts{grid-template-columns:1fr;}
+    .nq-opts.f2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-where{margin-inline-start:0;width:100%;}
+    .nq-final{flex-wrap:wrap;}
+  }
+  @media print{
+    .sol-section.nq{break-inside:avoid;}
+    details.nq-key{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -426,41 +493,41 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q6')">
           <td>1</td>
-          <td>دائرة RC (R=1000 Ω)؛ احسب سعة المكثف من زمن التفريغ إلى 10.0V بعد أن كان 16.0V خلال 0.235s، وصف أثر تغييرات على زمن التفريغ<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الرسمي 2024/2025 - الدور الأول</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
-        </tr>
-        <tr class="qrow" data-type="official" onclick="goTo('q2')">
-          <td>2</td>
-          <td>دائرة RC (C=6.0×10⁻⁴F، R=2000Ω)؛ احسب زمن تفريغ نصف الشحنة، واذكر تغييرين لزيادة زمن التفريغ<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الرسمي 2024/2025 - الدور الثاني</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+          <td>مكثف (2mF) يُشحن بقوة دافعة (12V) ثم يُفرَّغ عبر مقاومة R فتنخفض قراءة الفولتميتر إلى (12e⁻³ V) خلال 24s؛ احسب R<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>التجريبي 2023/2024 - الفصل الأول</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
         <tr class="qrow" data-type="official" onclick="goTo('q3')">
-          <td>3</td>
+          <td>2</td>
           <td>اختر التمثيل البياني الصحيح لتغيّر الشحنة (Q) مع الزمن (t) عند تفريغ مكثف خلال مقاومة<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الرسمي 2023/2024 - الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
         <tr class="qrow" data-type="official" onclick="goTo('q4')">
-          <td>4</td>
+          <td>3</td>
           <td>دائرة بمكثفين على التوالي (C1=22µF، C2=47µF) ومقاومة (R=2.7×10⁶Ω)؛ احسب زمن تفريغ C1 حتى يصبح جهده 6.0V، وأثر زيادة R<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الرسمي 2023/2024 - الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
         <tr class="qrow" data-type="official" onclick="goTo('q5')">
-          <td>5</td>
+          <td>4</td>
           <td>دائرة تفريغ RC (C=20×10⁻⁶F، R=300Ω)؛ احسب الزمن اللازم لتصبح الشحنة (1/10) من شحنتها الابتدائية<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الرسمي 2023/2024 - الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-        <tr class="qrow" data-type="official" onclick="goTo('q6')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
+          <td>5</td>
+          <td>دائرة RC (C=6.0×10⁻⁴F، R=2000Ω)؛ احسب زمن تفريغ نصف الشحنة، واذكر تغييرين لزيادة زمن التفريغ<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الرسمي 2024/2025 - الدور الثاني</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>6</td>
-          <td>مكثف (2mF) يُشحن بقوة دافعة (12V) ثم يُفرَّغ عبر مقاومة R فتنخفض قراءة الفولتميتر إلى (12e⁻³ V) خلال 24s؛ احسب R<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>التجريبي 2023/2024 - الفصل الأول</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
+          <td>دائرة RC (R=1000 Ω)؛ احسب سعة المكثف من زمن التفريغ إلى 10.0V بعد أن كان 16.0V خلال 0.235s، وصف أثر تغييرات على زمن التفريغ<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الرسمي 2024/2025 - الدور الأول</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
               <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>7</td>
@@ -594,97 +661,33 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    <div class="sol-section" id="q1">
-      <div class="sol-head">
-        <h3>السؤال 1</h3>
-        <span class="badge">الهدف 4-8، 4-9</span><span class="badge page">صفحة 132</span><span class="badge official">إجابة رسمية (جزئيتا أ، ب)</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الرسمي – العام الدراسي 2024/2025م — المفردة 19</div>
-      <div class="q-text-block">
-        <div class="q-text-body">19) يوضّح الشكل (1-19) دائرة كهربائيّة تحتوي على مُكثِّف ومقاومة، عند توصيل المفتاح بالطرف (P) يُشحن المُكثِّف تمامًا، وعند توصيله بالطرف (E) يفرِّغ المكثف الشحنة عبر المقاومة.
+    <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>2</td><td>رسمي 2023/2024</td><td><b>د</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 6</td><td>تدريبي</td><td><b>ج</b></td></tr></tbody></table></details>
 
-أ. إذا علمت أن الزمن المستغرق لينخفض فرق الجهد الكهربائيّ بين لوحيّ المكثف إلى (10.0 V)، يساوي (0.235 s)، احسب سعة المكثِّف.
-C = __________ F
+<div class="sol-section nq" id="q6">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">تجريبي 2023/2024 – الفصل الأول</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س24 في الامتحان · الهدف 4-8، 4-9 · صفحة 132</span></div>
+<div class="nq-stem">يُشحن مكثّف سعته <bdi dir="ltr"><bdi dir="ltr">(2mF)</bdi></bdi> بواسطة بطارية قوّتها الدافعة الكهربائيّة تساوي <bdi dir="ltr"><bdi dir="ltr">(12 V)</bdi></bdi> كما في الشكل <bdi dir="ltr"><bdi dir="ltr">(1-24)</bdi></bdi>. بعد شحن المكثّف كاملًا نُقل المفتاح الكهربائيّ <bdi dir="ltr"><bdi dir="ltr">(S)</bdi></bdi> لتوصيل المكثّف بالمقاومة، فانخفضت قراءة الفولتميتر لتصل إلى <bdi dir="ltr"><bdi dir="ltr">(12 e⁻³ V)</bdi></bdi> خلال زمن قدره <bdi dir="ltr"><bdi dir="ltr">(24 s)</bdi></bdi>.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRiwDAABXRUJQVlA4TCADAAAvOEM8AA8w//M///MfeKDjbHvcSPoJAcWQN2j2TdhHmhtQszqsucEcpVVYww4nHBqz76yMgcA3sGBREv/Zl4j+TwCLEyt9orumEUWNDv9twMjKUQ358+GOlcPf66K0nFZJ07w7f5i0O9c/Vxds/4ZPF4b+mXHB9C9/uCC0vFtF0/3EcnsRRi18UuCzC5f7lxdsUeDtxTD3b1owtXuMAFHon1QgjAoMBfBJAZsAl9sYWXswNwG2KBBGwMwKIIBUDUwlCv2L1VbC1OhH4Oam8ha4jenzo7mKT432uTObNZh9ZZhVcBVTNSgOBA2SJY4qyBhkUuEmOUnbWMldIBQneauxD2DtvI0XqZ2493WbmIa5E19ull3pxDls5nvxsoOsRejFWY0vvRb3x5L18wYny1a+F27crjSKeXfTZq6VlW935vNmdm5kJO2tbPVaaqMpJJhY644kI21DJkFa5Q+VGvnCXQu3EOXaaT/vNZu5b+GPlKdGrkPvN7KV5xbuUEaNoRW8a0fbHdjaZmjkjzU3ozeu0fsd8mVP7lAh78kfKymR4qRDSIgOVjBFiapE+81kOXfA7CR1YPjdYStf7CH34d0mLY8z86yDK3zZwnXIZ846hCnmFr5DUV4VHTBSlRhGWrgehazF4qogWQkroxJGpKoQpZqigs+EBCbKtalLrsAEJlw1dckCgwp3gKsaJMDPGNr2JGYgFAVCAWLWYAbQwNeLswKOy3sNnFQ3PXcprjgtnHrj5NqydB8mQnYaxIlYNPiSiTD7aiDIcunT+aJ2p+kL7xNqUCDzPn4p9s7gCbNhcWJlTwoDjqhDvVXCKvJMLBq4WY97Nb5UwhctQnnRIqsyaxBTUSQokOHN3CG5Nq+onfFXpaUzmBmvwJdg6m+3cFVeuoeh4ujMcuLqZxjgVoETWDgp4OAE9wr4yi18qcZZgTADZAViAWJRgAwEFe4AVzV4H7BoYCu8r4IrxEmFMOGyCojIrMMggg5ekhLIrIVTw/9h4353eDWcGv4f19zvDq+GU8Or4bol6/8yMNKrRNP/vSdd/W1g1LC/yfImCv4OAQ==" alt="الشكل 1-24" style="max-width:min(420px,100%)"></div>
+<div class="nq-stem">احسب مقدار المقاومة <bdi dir="ltr"><bdi dir="ltr">(R)</bdi></bdi>.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>R =</span><span class="bl"></span><span>Ω</span></span></div>
+      <button class="show-btn" onclick="toggleSol('q6-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q6-ans">
+        <div class="sol-body">V = V0 e^(-t/τ)
+12e⁻³ = 12 e^(-24/τ)
+e⁻³ = e^(-24/τ)  ⟹  τ = 24/3 = 8 s
 
-ب. ماذا سيحدث لزمن التفريغ عبر المقاومة عند توصيل مكثّف آخر على التوالي مع المكثّف الموجود في الدائرة الكهربائيّة؟
-
-ج. ماذا سيحدث لزمن التفريغ إذا غُيّرت المقاومة إلى مقاومة أخرى مقدارها (2000 Ω)؟</div>
-        <div class="q-text-cap">نص السؤال 19 كاملاً (بأجزائه الثلاثة أ، ب، ج)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-19) كما ورد في ورقة اختبار الرسمي 2024/2025 - الدور الأول</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q1-ans">
-        <div class="sol-body">أ) V = V0 e^(-t/RC)
-10.0 = 16.0 e^[-0.235/(1000×C)]
-ln(10.0/16.0) = -0.235/(1000×C)
--0.470 = -0.235/(1000×C)
-C = 0.235/(1000×0.470)
-C = 4.99×10⁻⁴ ≈ 5.00×10⁻⁴ F
-
-ب) يَقِلّ زمن التفريغ.
-(توصيل مكثّف آخر على التوالي يُنقص السعة المكافئة للدائرة (1/CT = 1/C1 + 1/C2)، وبما أن ثابت الزمن τ = RC يتناسب طرديًا مع السعة، فإن نقصان السعة المكافئة يُنقص τ، وبالتالي يَقِلّ الزمن اللازم للتفريغ.)
-
-ج) [ملاحظة أمانة علمية: لا يرد في نموذج الإجابة الرسمي حلٌّ مكتوب لهذه الجزئية — بطاقة الإجابة الرسمية اقتصرت على الجزئيتين (أ) و(ب) فقط رغم أن السؤال المصوَّر يتضمّن مربّع إجابة مخصّصًا لـ(ج) بدرجة واحدة ضمن مجموع درجات السؤال (6). إجابة تعليمية (غير رسمية) بنفس منطق الجزئية (ب): زيادة المقاومة من (1000 Ω) إلى (2000 Ω) تُضاعف ثابت الزمن τ = RC (لأن C ثابتة)، وبالتالي يَزيد زمن التفريغ.]</div>
-        <div class="grade-note">الدرجة: 5 من 6 مؤكَّدة رسميًا (4 للجزئية أ + 1 للجزئية ب) — المفردة رقم 19 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 132، الوسم الرسمي: «الهدف التعليمي: 4-8، 4-9». الجزئية (ج) بدرجتها الواحدة لم يرد لها نص إجابة رسمي في ملف المرجع المصدر — أُدرجت إجابة تعليمية موضّحة أعلاه لإتمام الفائدة دون الادّعاء بأنها معتمدة رسميًا.</div>
+τ = RC
+R = τ/C = 8/(2×10⁻³)
+R = 4×10³ Ω</div>
+        <div class="grade-note">الدرجة: 4 — المفردة رقم 24 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 132، الوسم الرسمي: «الهدف التعليمي: 4-8، 4-9».</div>
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="q2">
-      <div class="sol-head">
-        <h3>السؤال 2</h3>
-        <span class="badge">الهدف 4-8، 4-9</span><span class="badge page">صفحات 131، 132</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الرسمي – العام الدراسي 2024/2025م — المفردة 18</div>
-      <div class="q-text-block">
-        <div class="q-text-body">18) يوضّح الشكل (1-18) دائرة كهربائيّة تُستعمل لشحن المُكثِّف عندما يكون المفتاح متصلًا بالطرف (a)، وعندما يكون متصلًا بالطرف (b) يتم تفريغ المُكثِّف عبر المقاومة.
-
-أ. احسب الزمن المستغرق حتى يفرِّغ المُكثِّف نصف شحنته.
-t = __________ s
-
-ب. اذكر اثنين من التغيّرات التي يمكن إحداثها في دائرة التفريغ لزيادة زمن التفريغ.</div>
-        <div class="q-text-cap">نص السؤال 18 كاملاً (بجزأيه أ، ب)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-18) كما ورد في ورقة اختبار الرسمي 2024/2025 - الدور الثاني</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q2-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q2-ans">
-        <div class="sol-body">أ) τ = RC = 2000 × 6.0×10⁻⁴ = 1.2 s
-Q = Q0 e^(-t/RC)
-Q = (1/2)Q0
-(1/2)Q0 = Q0 e^(-t/1.2)
-1/2 = e^(-t/1.2)
-ln(1/2) = -t/1.2
--0.69 = -t/1.2
-t = 0.832 ≈ 0.83 s
-
-ب) - زيادة قيمة المقاومة (R).
-- زيادة قيمة السعة المكافئة للمكثّف (C).
-(أيّ منهما يزيد ثابت الزمن τ = RC، فيزيد زمن التفريغ.)</div>
-        <div class="grade-note">الدرجة: 5 (3 للجزئية أ + 2 للجزئية ب) — المفردة رقم 18 في نموذج الإجابة الرسمي، صفحات الكتاب المرجعية: 131، 132، الوسم الرسمي: «الهدف التعليمي: 4-8، 4-9».</div>
-      </div>
-      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
-    </div>
-
-    <div class="sol-section" id="q3">
-      <div class="sol-head">
-        <h3>السؤال 3</h3>
-        <span class="badge">الهدف 4-7</span><span class="badge page">صفحة 131</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الرسمي – العام الدراسي 2023/2024م — المفردة 18</div>
-      <div class="q-text-block">
-        <div class="q-text-body">18) ما التمثيل البياني الذي يوضّح تغيّر الشحنة الكهربائيّة مع مرور الزمن عند تفريغ مكثّف خلال مقاومة؟ (ظلّل الشكل (⬜) أمام الإجابة الصحيحة)</div>
-        <div class="q-text-cap">نص السؤال 18 كاملاً</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الأشكال الأربعة كما وردت في ورقة اختبار الرسمي 2023/2024 - الدور الأول</div>
-      </div>
+<div class="sol-section nq" id="q3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2023/2024</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س18 في الامتحان · الهدف 4-7 · صفحة 131</span></div>
+<div class="nq-stem">ما التمثيل البياني الذي يوضّح تغيّر الشحنة الكهربائيّة مع مرور الزمن عند تفريغ مكثّف خلال مقاومة؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts f2"><div class="nq-opt fg"><span class="lt">أ</span><img src="data:image/webp;base64,UklGRugAAABXRUJQVlA4TNwAAAAvLgE4AA8w//M///MfeIAc23qzRgJsL1UCNbgCUl8mQ1upEclxS44aPWf7v6NhyUT0fwLEbF98Nc9wHcadS4hQi4hFe0FoL+QRh5zUDgqQaVYCoc3xBC0gvr1APNUiol9NCNcRojZhiNKHuMSoRYaOEGKGzpA1ZAkJEJ+VCaNN6TBqWakaSkK4zETEHeX+gJgvGVrqWqEAsabgBeTw3VKFX432BnmCBEKSLMFLhtCRngg2aY446AkxYZTND9YUHCGH7wq2JjEmmiMWaj0QksqEjjRuAxaSCBHy9eID" alt="الخيار أ" style="max-width:min(230px,100%)"></div><div class="nq-opt fg"><span class="lt">ب</span><img src="data:image/webp;base64,UklGRsgBAABXRUJQVlA4TLwBAAAvLwE4AA8w//M///MfeJAkbXvbNuCocIkjqB3BB4CdHCUHAdOXOkKuIo3bMlcgx20LpcIzCD53m+9A6YuI/k+AfpE/MyYN471NiLWLiM4HRBDCB3UFiVoTXFE8JajbNmoVEJ2PiH2XELXJCLcSs4EMIDYzXGToAvIT+xlyAukga8iqKA3DUwzDFWViclESwmIiop4yLk4uEfos5sl/aipzfx8T89D8dAPzYD2ZNabVo5/AGxMFGBg95eNqI4IzEVE3IngTEXYlhEkI1whRB4YRwq0YdWQMMsK1QtSJUYmxYkwCw2bGQIyW4QLDJsZAjJbhA2OSGDYzXouxhrQMFxmTzKjFeA1pGT4yXGJMMsOKsQ/pIIHhI8MlxiQzrBjHkBNIx/ABEhkuMSaZYcV4DzmGdJANJDJ8YjhKZlgxlpD3kH3ICWQDCQyfSuJySSZiLItyXJQTyKYokeEpieFySSYUMT5AlkU5huxDToqyKUrcQonxArLIJdmBDLR9Xvf2EXIM2b9jv58fUpUBHaSS9gUYpHtOemohzT3P+6lMumtgeo6QcFfPA5MQtRFi0Op9JkTVCVBJVsBOzEvILyE=" alt="الخيار ب" style="max-width:min(230px,100%)"></div><div class="nq-opt fg"><span class="lt">ج</span><img src="data:image/webp;base64,UklGRq4BAABXRUJQVlA4TKEBAAAvMME3AAnGbdtIgq35pf+KZ2YPVRDR/wlIspRl1bkGR6RbJW0dM+PIJ+BAggQJEiRIkOCAUfD8ByRIRsL7j5Ag4bcaVtI5fXubpBx+nuwGh20kKZI2/6D7maHUS9P7v//BCJIkQ7eYWeM4OH11zZemQQzTt/oQe23nOVtgK4ZYFK7VgizMytOENvYUL6PvdAJR3gDc1gMIoNuK4yf64iLuLofJXbxezQvRRcyyQkDZuwVnS02P+AtW+QsULRBq5eOtRmABs13GxFfQX6DuAO0pakyfG7gsB0vVtgNIR5kd44FFOMvoGsFM7HX3sq6No2nYi2wNsyAv1F7lGwOYWGqzbcJLzDJ0lWjYq4Q2mdrZ8GW2/2J1+4vVtbXq1hZTQ9BzI826nBAb2IuNpPsjaeGv1CX+XXHjFxnmLTHLmK+24S/aglVeZiW22w9p48V28xfur4YG7RKhpQbaiIlOFuHlUnn6Zx00kd0hQXX4yH1y4F4/guZoq5GdhDWxtZ2PSMAV8Z8tZiz/+u9qCeZvcMJyiQFZQrHuWxS/gW6ST00NpgAA" alt="الخيار ج" style="max-width:min(230px,100%)"></div><div class="nq-opt fg"><span class="lt">د</span><img src="data:image/webp;base64,UklGRtQBAABXRUJQVlA4TMgBAAAvSkE5AE24kSRJamKK8vb/T+YqQHIj+j8BE2YbMtCZLjOLV1p8G/+IdtCSGUqoGdQMagbUDKoVcDq8x/HLWJW1kwUEt40cSeX/P9p7ocNlrXtqLiJcQZIVNRzF+ng8k3DrGv9dvdxr5owwejwBQDT5DBLKMYZb0PbnyGDWOnCrLGFs+zzd0fYGXLEQFUWz4Rtd0CI1PKh5hHn1nh6YIZQBogAmGEImBSUfccpNJAFPqVKpJor2opjEtBOIYL1BTVKprSSmrtJYThhvKLlEktPJ8kbdv//uts6p7yjeCmX4YpnRcw5N9HnVe6FNq5uOcjovAEQy+ILJ8HQsk/NtEKcolgbbThGWBruPTucxoEsl1Bk33Mb/ut3Vxr1xLmydyw2XWB4ccOFB11ImrwWkU3jAQaEEJgoO+DmumcDvAM71rSEKNAKYgkyC065eDiQo1SQLp2omBVjNhrL4rGgcBaVaqMIsap5sCANllxgjW+fZ6x4q/8mMMqN7pZm+FcdUZQQ8QH0P+q72Ppj+8Hft6YtJVXDmUH0JP80bZCsD23OI6urOT8DlmxLL5yEwBnOpMhtM/PYVEiuJZmhrKwtSwwwlRob0Af1W7gs=" alt="الخيار د" style="max-width:min(230px,100%)"></div></div>
       <button class="show-btn" onclick="toggleSol('q3-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q3-ans">
         <div class="sol-body">الإجابة الصحيحة هي الشكل (د) — أسفل يسار الصفحة (المنحنى المتناقص أسّيًا: يبدأ بقيمة عظمى عند (t = 0) ثم يتناقص بسرعة في البداية، ويستمر في التناقص بمعدل أبطأ تدريجيًا مقتربًا من الصفر دون أن يصل إليه)، وهو الشكل الذي تمثّله المعادلة Q = Q0 e^(-t/RC).
@@ -697,27 +700,17 @@ t = 0.832 ≈ 0.83 s
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="q4">
-      <div class="sol-head">
-        <h3>السؤال 4</h3>
-        <span class="badge">الهدف 4-2، 4-4، 4-8، 4-9</span><span class="badge page">صفحات 132، 133</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الرسمي – العام الدراسي 2023/2024م — المفردة 20</div>
-      <div class="q-text-block">
-        <div class="q-text-body">20) توضِّح الدائرة في الشكل (1-20) مكثفان (C1) و(C2) ومقاومة (R) موصلة بمصدر جهد كهربائيّ.
-
-أ. عند اكتمال شحن المكثفين أصبحت الشحنة المختزنة في كل مكثّف تساوي (180 µC)، ثم نُقل المفتاح (S) إلى الموضع (Y).
-احسب الزمن اللازم ليصبح فرق الجهد عبر لوحيّ المكثّف (C1) مساويًا لـ (6.0 V).
-t = __________ s
-
-ب. ماذا سيحدث لزمن تفريغ المكثّف عند زيادة قيمة المقاومة (R)؟</div>
-        <div class="q-text-cap">نص السؤال 20 كاملاً (بجزأيه أ، ب)</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-20) كما ورد في ورقة اختبار الرسمي 2023/2024 - الدور الأول</div>
-      </div>
+<div class="sol-section nq" id="q4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2023/2024</span><span class="nb marks">6 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س20 في الامتحان · الهدف 4-2، 4-4، 4-8، 4-9 · صفحات 132، 133</span></div>
+<div class="nq-stem">توضِّح الدائرة في الشكل <bdi dir="ltr"><bdi dir="ltr">(1-20)</bdi></bdi> مكثفان <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub>)</bdi></bdi> و<bdi dir="ltr"><bdi dir="ltr">(C<sub>2</sub>)</bdi></bdi> ومقاومة <bdi dir="ltr"><bdi dir="ltr">(R)</bdi></bdi> موصلة بمصدر جهد كهربائيّ.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRlAEAABXRUJQVlA4TEQEAAAv4IFMAA8w//M///MfeKAkbXsjSVFGESNsC09NREVrjoBnbP/BSTysvYdSNS5ZUVt8XYEDuCzG1LK4wWQy3mfhWh2j0bcopdM/3hAR/Z8AsE6uPqnd7pKlP/KcaDs4ma+jOhc6WOOPqI6F5lXIeBW8ppewdV63sTIrnhMpVlo7TmrFcmo+YfW37sqGFi292Wf1xM+ckjc1J7Ghf+VjxMYdq3xQbNyxwsgeu2OLj0mX9ZwUIiqV1/OsjEfDChKVOUSelL0MiQhnFw/tWKVlWx7hY7AAMMcCQVWvED62UR1jE0SmRR3tERsGrkaK+KhOwQBllbEciirtOeytSsEhrSpYKB8yNooLofNV5ELaRxGco6axoRQskAP4CSiYTAEawVgmKaAn0J6JAvRvSMFEe+hfUXAxFtoZywUldEmeTQHK0G4cn8KMGKWAYKQ9ZCTtkjuoGBl7UDNCPmG1V084pc9lnBQWnLQHJ7KsUPIqeH3KS/HSnhU5VqZkhYLXXl4pL8WLHCtjWaHkVfD6lJfipT0rcqxMyQoFr728JC/tWZFjZSwrlLymh1ilI1ZKsNKtkAjGQKK5ZecBgOLwaGoTQjRGoPFmVCNWmPJq8QYrii7JAG2NcCA/HUfXWwdUuaT8l7PopARkvtQbDlL0YlPAsdyIr8ZqONjiExdXqjxQGFqZqbXBi0Nr45IBkN6r1gavDl0ZmxRu6c/QIjKphF9AU67WBlvWXBHZCEAJTaVaG6xQdDkAi4lZ8tGlUyk+chhzWZfiI485BYwrI+sBBMwp5yEBnS1m+tAS2eORKQ+V5cf0XjUcQL+Wx9VTDjLLj41T5W8HbYtt1ULm5aF0LN0ovvB5LB9CWNkyrqbabXIid4GVdZxM6Vm9xgrbwGr9Erb38kiLSnc5sB7TBGFTQ/Dq9CoFWVa6ZKXymMZVtkJmUYjwqEpUX/yqx1UOYRXVpIWclS5ZGceq2ysGzUxUXoIi/98blHmASulBwlb0TgMwuwXQEx2pFQ/ovOdqTQsAFIUkD6g8cTB2M2TKQwD0QABSd/Sp8cA822ph7PkQ2WM1qKMpPIApWZj3qtw5AOr7CSCficMsIawdAEg3BuSxzqCEK8zu/nB7LTHquXG6Vx7qKA/R7v6wX6GWsgfcPN0ri+4ALGitPxS1gK1ulu6VeRR2qd9g4I6le2XRUQYo4aym/nB7LSH6gUMdTZc+cmPqD9+r0AFhD6V75UZ3APlZI5iIdCYf7Q9tBVkAWHV/p3slOvrU+KXe9v4bdY4B0G6RPtuZXCVAZcl2sb3K5IsiIEVneqQ9ZCa2b+vnFUhstrQpP0lcRyi1BwB6z6Namd+xnM7RvBEqPGqngUNgMotNX0yOxWZQ/+/ARjxNNwOtxvENrxErExGhzTyeyC8+E+NbmBOrGflbHLhobEKi8ciIFjMSrbIznFyC5hPj0XxGHq3eumJOiCXqSxo=" alt="الشكل 1-20" style="max-width:min(480px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">عند اكتمال شحن المكثفين أصبحت الشحنة المختزنة في كل مكثّف تساوي <bdi dir="ltr"><bdi dir="ltr">(180 µC)</bdi></bdi>، ثم نُقل المفتاح <bdi dir="ltr"><bdi dir="ltr">(S)</bdi></bdi> إلى الموضع <bdi dir="ltr"><bdi dir="ltr">(Y)</bdi></bdi>.</div><span class="nq-pm">[5]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-stem">احسب الزمن اللازم ليصبح فرق الجهد عبر لوحيّ المكثّف <bdi dir="ltr"><bdi dir="ltr">(C<sub>1</sub>)</bdi></bdi> مساويًا لـ <bdi dir="ltr"><bdi dir="ltr">(6.0 V)</bdi></bdi>.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>t =</span><span class="bl"></span><span>s</span></span></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">ماذا سيحدث لزمن تفريغ المكثّف عند زيادة قيمة المقاومة <bdi dir="ltr"><bdi dir="ltr">(R)</bdi></bdi>؟</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('q4-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q4-ans">
         <div class="sol-body">أ) فرق الجهد الابتدائي عبر (C1):
@@ -742,20 +735,12 @@ t = 12.6 s
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-
-    <div class="sol-section" id="q5">
-      <div class="sol-head">
-        <h3>السؤال 5</h3>
-        <span class="badge">الهدف 4-8، 4-9</span><span class="badge page">صفحة 132</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – الرسمي – العام الدراسي 2023/2024م — المفردة 22</div>
-      <div class="q-text-block">
-        <div class="q-text-body">22) دائرة تفريغ كهربائيّة مكوَّنة من مكثّف سعته (20×10⁻⁶ F) ومقاومة مقدارها (300 Ω).
-
-احسب الزمن اللازم لتكون شحنة المكثّف (1/10) شحنته الابتدائيّة.
-t = __________ s</div>
-        <div class="q-text-cap">نص السؤال 22 كاملاً</div>
-      </div>
+<div class="sol-section nq" id="q5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2023/2024</span><span class="nb marks">5 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س22 في الامتحان · الهدف 4-8، 4-9 · صفحة 132</span></div>
+<div class="nq-stem">دائرة تفريغ كهربائيّة مكوَّنة من مكثّف سعته <bdi dir="ltr"><bdi dir="ltr">(20×10⁻⁶ F)</bdi></bdi> ومقاومة مقدارها <bdi dir="ltr"><bdi dir="ltr">(300 Ω)</bdi></bdi>.</div>
+<div class="nq-stem">احسب الزمن اللازم لتكون شحنة المكثّف <bdi dir="ltr"><bdi dir="ltr">(1/10)</bdi></bdi> شحنته الابتدائيّة.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>t =</span><span class="bl"></span><span>s</span></span></div>
       <button class="show-btn" onclick="toggleSol('q5-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q5-ans">
         <div class="sol-body">τ = RC = 300 × 20×10⁻⁶ = 6×10⁻³ s
@@ -770,54 +755,80 @@ t = 0.0138 s</div>
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="q2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2024/2025</span><span class="nb marks">5 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س18 في الامتحان · الهدف 4-8، 4-9 · صفحات 131، 132</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-18)</bdi></bdi> دائرة كهربائيّة تُستعمل لشحن المُكثِّف عندما يكون المفتاح متصلًا بالطرف <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi>، وعندما يكون متصلًا بالطرف <bdi dir="ltr"><bdi dir="ltr">(b)</bdi></bdi> يتم تفريغ المُكثِّف عبر المقاومة.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRuIDAABXRUJQVlA4TNYDAAAvgQJQAA8w//M///MfeKAkW3vbyvllDuiMqaOwBQ/z+7fSy3AGy50jvAJrK5RVZQ7fFiizyprCGXaj8Q2UKOLrnCL6PwGYtMcUq0cKGkdZFWX6UaSoq6sxjOSSVuPYVFQ3hteiNqtxYklYjuKK0naPirQc7M+7rIhIQ+FqB+AunOzsGay2fkclklCLRALDVlDpAcBJS2DdAa6vBTut5B2pNL0gcRdm/ZYWtVwBVhrstbIjl3RxlmEk7MMsAcaipEqAWnCgCYC5VFR9FZg1h7gG0L4oAE7kEFQZ0zyNHmEiASuSD9FAwEiLg1sCteDwiwRm8YiawBJHGgJHL/hM9XGLk3SclbJU4nFGclFWwnG1pLK+7UfQWJTJI1x0hWF53MqFwlYjYEqVjDjGABk1P1CsJjXgeIPlGAEj6oTy+riLriyb++NqjWV9HEaYl6UygpFUlJN0nJVcFCqM2KIs+BHGnVTNx2Q6NtFxkQ4CnzWfi3xqPibTsYmOi3TQ87nIp+ZjMh1NdFzkE+ig53ORT83HZDo20dFABz2fNZ+rfEymYxMdjXRcoIMln4t8aj4m07GRjuODwGfJ5yKfOtOxiY5GOuj5LGd0KklsaolsjAQ2Vno2hlF7f6lEJPGJD1srQAvo2Vg+KoGNk8gGkujMQMc/u0QDC40uuqgRdcPC9jrosPgTF2sWprXdYnO+wdpmEt3Kd7477xA0kdhc9b7zXeeCRhL/Xu185zfeRccCvjOdH7xGF4isDJdutWWYbB6A/tzlooss7vL5r9vyLmhikTqz8oPHlhMRufDDTET+L8flznd+47G2udKt3aEcxdWtq4uLV/892WYi1nl/3nXdYrH5s8KJh4l49Z3vzjvbVIFE3djNYvCDlQmsJ1I1GjTYMIl+InWL5JJL2tQnc79NBAefSn9l4z7a0PmRDt5p6Vg+2DyMbT8isSIiLRWz1RyiGWsAGwyAlcCghrvjkXp3C1DpSwAQcfAaao2mQc8AFzeFpMMCrLXFxYNcxELn8zxYl4GIQtJhCQs9m4OIJng9exODcRku3mOQ4fX7ZivBxUTAvgKv3+4Bhw/gNbV7hMJZ9prWVFw6xEUGZke7796DiN36vtnKQASHhZ69icHy+D5ZO59jsMpCv89q7TwPegY4Cu7zn3RhNA1uPoVKRCbwjnG/eE1Ld4sFlga9d18K1oBpKcDicArHnqgWkcQFmnHkqSrZ3zw8TfI5DJXsbx6ednqc9qX/XpRoltk4SWxUIhsrgU/PxjBqi4inqAuRkh/cTmqkxaSn0bOxjAIblcgGkuhcBJ2pPxAB" alt="الشكل 1-18" style="max-width:min(480px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">احسب الزمن المستغرق حتى يفرِّغ المُكثِّف نصف شحنته.</div><span class="nq-pm">[3]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>t =</span><span class="bl"></span><span>s</span></span></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">اذكر اثنين من التغيّرات التي يمكن إحداثها في دائرة التفريغ لزيادة زمن التفريغ.</div><span class="nq-pm">[2]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('q2-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q2-ans">
+        <div class="sol-body">أ) τ = RC = 2000 × 6.0×10⁻⁴ = 1.2 s
+Q = Q0 e^(-t/RC)
+Q = (1/2)Q0
+(1/2)Q0 = Q0 e^(-t/1.2)
+1/2 = e^(-t/1.2)
+ln(1/2) = -t/1.2
+-0.69 = -t/1.2
+t = 0.832 ≈ 0.83 s
 
-    <div class="sol-section" id="q6">
-      <div class="sol-head">
-        <h3>السؤال 6</h3>
-        <span class="badge">الهدف 4-8، 4-9</span><span class="badge page">صفحة 132</span><span class="badge official">إجابة رسمية</span>
+ب) - زيادة قيمة المقاومة (R).
+- زيادة قيمة السعة المكافئة للمكثّف (C).
+(أيّ منهما يزيد ثابت الزمن τ = RC، فيزيد زمن التفريغ.)</div>
+        <div class="grade-note">الدرجة: 5 (3 للجزئية أ + 2 للجزئية ب) — المفردة رقم 18 في نموذج الإجابة الرسمي، صفحات الكتاب المرجعية: 131، 132، الوسم الرسمي: «الهدف التعليمي: 4-8، 4-9».</div>
       </div>
-      <div class="q-source">نموذج إجابة امتحان الفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – التجريبي – العام الدراسي 2023/2024م — المفردة 24</div>
-      <div class="q-text-block">
-        <div class="q-text-body">24) يُشحن مكثّف سعته (2mF) بواسطة بطارية قوّتها الدافعة الكهربائيّة تساوي (12 V) كما في الشكل (1-24). بعد شحن المكثّف كاملًا نُقل المفتاح الكهربائيّ (S) لتوصيل المكثّف بالمقاومة، فانخفضت قراءة الفولتميتر لتصل إلى (12 e⁻³ V) خلال زمن قدره (24 s).
+      <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="q1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2024/2025</span><span class="nb marks">6 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س19 في الامتحان · الهدف 4-8، 4-9 · صفحة 132</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr"><bdi dir="ltr">(1-19)</bdi></bdi> دائرة كهربائيّة تحتوي على مُكثِّف ومقاومة، عند توصيل المفتاح بالطرف <bdi dir="ltr"><bdi dir="ltr">(P)</bdi></bdi> يُشحن المُكثِّف تمامًا، وعند توصيله بالطرف <bdi dir="ltr"><bdi dir="ltr">(E)</bdi></bdi> يفرِّغ المكثف الشحنة عبر المقاومة.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRq4CAABXRUJQVlA4TKECAAAvR4FSAA8w//M///MfeJDkbHvbRjTSqzC7FCNEjuDddO5ynngfhPT07gsE8FEiT4qWvoINAdYyEqbRGILfwrbKN+mZRUT/JwA3exUCGMXvJQJbkTQAsnAmcAuVCQCpmZl3r9OqJKD2PzT2XDyoTBm1/6UxtIO4KqGMah41hjY7qcoAaNYp+tpMGsRVfVcGzaPG0MaVvR/70ji3cVZVAKD5obHnopQhC2cWXC2sSnog674PfGXHGsBf4Bgng4pumIHIaS6LC+Ts3AB6BEpM7OeRokTDI8Yw8SJPByWqa0KPJxA5zWVR9X/WlHAsgUhZFtBnGeA9i4Uk0Q7KcygP7TgkAMvRATDiaAP4wdHjidShizkSdegSluc0+rmnqRMsCCFEqjewIIQQYRUzE8AQA0CCRSQA0CMwPK1LJ0IXMUcPJ/jBcsHSATDikAAshwLgOLSD8hywkCAZoM1yghOWYCNlUcKxoAWaqQ8sTngEkWfRj3kOaJQDjedxPAeeRT93NBu+JGkKQZSlSqihHCnDYklZCsWmFgrqnmWhbmg2ijl0Snrsaeq4dILnhgVK0Ege4H5FVEW3wOscgS9kCszkWHAV1XwOO03kd5Ci8L+AyQbjDh2M1zymLlQ1g+lBsW6B13nSQpOn5Y55Ip42j+RRnkY7GliejCfmiXjaPB0e5Wm0o4HlyXh+8CQ8PZ42jyylZOVpYC+hHzwJT8TTBgyJBITnUJ5GWzx2HBjxPOJZcMLzgMUaHnv5OJrA0yjgPw9JG7FSnuFkxrfkS4puzRu1QxE2/IbaAUWGDbVKcV7Tdf2FIqod0uwe1GE4mm4D4SWzO/yAPsfMeQsDjoXohKTUm9GPOyJPo939OzkmSkyhRWEAmuMUJf+AduC81wXPw3qXcXUCAA==" alt="الشكل 1-19" style="max-width:min(340px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">إذا علمت أن الزمن المستغرق لينخفض فرق الجهد الكهربائيّ بين لوحيّ المكثف إلى <bdi dir="ltr"><bdi dir="ltr">(10.0 V)</bdi></bdi>، يساوي <bdi dir="ltr"><bdi dir="ltr">(0.235 s)</bdi></bdi>، احسب سعة المكثِّف.</div><span class="nq-pm">[4]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-final"><span class="fl">الإجابة النهائية</span><span class="fv"><span>C =</span><span class="bl"></span><span>F</span></span></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">ماذا سيحدث لزمن التفريغ عبر المقاومة عند توصيل مكثّف آخر على التوالي مع المكثّف الموجود في الدائرة الكهربائيّة؟</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ج</span><div class="nq-pt">ماذا سيحدث لزمن التفريغ إذا غُيّرت المقاومة إلى مقاومة أخرى مقدارها <bdi dir="ltr"><bdi dir="ltr">(2000 Ω)</bdi></bdi>؟ <span class="nq-tag">نموذج إجابته غير متوفر</span></div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
+      <div class="sol-answer" id="q1-ans">
+        <div class="sol-body">أ) V = V0 e^(-t/RC)
+10.0 = 16.0 e^[-0.235/(1000×C)]
+ln(10.0/16.0) = -0.235/(1000×C)
+-0.470 = -0.235/(1000×C)
+C = 0.235/(1000×0.470)
+C = 4.99×10⁻⁴ ≈ 5.00×10⁻⁴ F
 
-احسب مقدار المقاومة (R).
-R = __________ Ω</div>
-        <div class="q-text-cap">نص السؤال 24 كاملاً</div>
-      </div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,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" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">الشكل (1-24) كما ورد في ورقة اختبار التجريبي 2023/2024 - الفصل الأول</div>
-      </div>
-      <button class="show-btn" onclick="toggleSol('q6-ans', this)">إظهار نموذج الحل ↓</button>
-      <div class="sol-answer" id="q6-ans">
-        <div class="sol-body">V = V0 e^(-t/τ)
-12e⁻³ = 12 e^(-24/τ)
-e⁻³ = e^(-24/τ)  ⟹  τ = 24/3 = 8 s
+ب) يَقِلّ زمن التفريغ.
+(توصيل مكثّف آخر على التوالي يُنقص السعة المكافئة للدائرة (1/CT = 1/C1 + 1/C2)، وبما أن ثابت الزمن τ = RC يتناسب طرديًا مع السعة، فإن نقصان السعة المكافئة يُنقص τ، وبالتالي يَقِلّ الزمن اللازم للتفريغ.)
 
-τ = RC
-R = τ/C = 8/(2×10⁻³)
-R = 4×10³ Ω</div>
-        <div class="grade-note">الدرجة: 4 — المفردة رقم 24 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 132، الوسم الرسمي: «الهدف التعليمي: 4-8، 4-9».</div>
+ج) [ملاحظة أمانة علمية: لا يرد في نموذج الإجابة الرسمي حلٌّ مكتوب لهذه الجزئية — بطاقة الإجابة الرسمية اقتصرت على الجزئيتين (أ) و(ب) فقط رغم أن السؤال المصوَّر يتضمّن مربّع إجابة مخصّصًا لـ(ج) بدرجة واحدة ضمن مجموع درجات السؤال (6). إجابة تعليمية (غير رسمية) بنفس منطق الجزئية (ب): زيادة المقاومة من (1000 Ω) إلى (2000 Ω) تُضاعف ثابت الزمن τ = RC (لأن C ثابتة)، وبالتالي يَزيد زمن التفريغ.]</div>
+        <div class="grade-note">الدرجة: 5 من 6 مؤكَّدة رسميًا (4 للجزئية أ + 1 للجزئية ب) — المفردة رقم 19 في نموذج الإجابة الرسمي، صفحة الكتاب المرجعية: 132، الوسم الرسمي: «الهدف التعليمي: 4-8، 4-9». الجزئية (ج) بدرجتها الواحدة لم يرد لها نص إجابة رسمي في ملف المرجع المصدر — أُدرجت إجابة تعليمية موضّحة أعلاه لإتمام الفائدة دون الادّعاء بأنها معتمدة رسميًا.</div>
       </div>
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
+    
+
+    
+
+    
+
+    
+
+    
+
 
   </section>
 
-      <div class="sol-section" id="p1">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 1</h3>
-        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">ثابت الزمن τ لدائرة تفريغ مكثّف عبر مقاومة (τ = RC) يمثّل: (اختر الإجابة الصحيحة)
-(أ) الزمن اللازم لتفريغ المكثّف بالكامل تمامًا (حتى تصبح شحنته صفرًا)
-(ب) الزمن اللازم لتناقص الشحنة (أو فرق الجهد) على المكثّف إلى نحو 37% (أي 1/e) من قيمتها الابتدائية
-(ج) الزمن اللازم لمضاعفة الشحنة على المكثّف
-(د) مقلوب معدل تناقص الشحنة عند بداية التفريغ مباشرة فقط</div>
-      </div>
+      <div class="sol-section nq" id="p1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 6-4</span></div>
+<div class="nq-stem">ثابت الزمن <bdi dir="ltr">τ</bdi> لدائرة تفريغ مكثّف عبر مقاومة <bdi dir="ltr"><bdi dir="ltr">(τ = RC)</bdi></bdi> يمثّل:</div>
+<div class="nq-hint">اختر الإجابة الصحيحة.</div>
+<div class="nq-opts c1"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">الزمن اللازم لتفريغ المكثّف بالكامل تمامًا (حتى تصبح شحنته صفرًا)</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">الزمن اللازم لتناقص الشحنة (أو فرق الجهد) على المكثّف إلى نحو 37% (أي 1/e) من قيمتها الابتدائية</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">الزمن اللازم لمضاعفة الشحنة على المكثّف</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">مقلوب معدل تناقص الشحنة عند بداية التفريغ مباشرة فقط</span></div></div>
       <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p1-ans">
         <div class="sol-body">من العلاقة الأسّية للتفريغ: Q = Q0 e^(−t/RC). عندما يكون الزمن المنقضي t مساويًا لثابت الزمن τ = RC بالضبط، فإن:
@@ -832,15 +843,10 @@ Q/Q0 = e^(−τ/τ) = e^(−1) ≈ 0.368 ≈ 37%.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p2">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 2</h3>
-        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يُفرَّغ مكثّف سعته 470 μF عبر مقاومة قدرها 2.2 kΩ. احسب ثابت الزمن τ لدائرة التفريغ هذه.</div>
-      </div>
+    <div class="sol-section nq" id="p2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 6-4</span></div>
+<div class="nq-stem">يُفرَّغ مكثّف سعته <bdi dir="ltr">470 μF</bdi> عبر مقاومة قدرها <bdi dir="ltr">2.2 kΩ</bdi>. احسب ثابت الزمن <bdi dir="ltr">τ</bdi> لدائرة التفريغ هذه.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p2-ans">
         <div class="sol-body">ثابت الزمن يُعطى بالعلاقة: τ = RC.
@@ -857,15 +863,10 @@ Q/Q0 = e^(−τ/τ) = e^(−1) ≈ 0.368 ≈ 37%.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p3">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 3</h3>
-        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">شُحن مكثّف حتى بلغ فرق الجهد بين لوحيه 9.0 V، ثم بدأ يتفرّغ عبر مقاومة بحيث كان ثابت الزمن لدائرة التفريغ τ = 4.0 s. احسب الزمن اللازم حتى يتناقص فرق الجهد بين لوحي المكثّف إلى 3.0 V.</div>
-      </div>
+    <div class="sol-section nq" id="p3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 6-4</span></div>
+<div class="nq-stem">شُحن مكثّف حتى بلغ فرق الجهد بين لوحيه <bdi dir="ltr">9.0 V</bdi>، ثم بدأ يتفرّغ عبر مقاومة بحيث كان ثابت الزمن لدائرة التفريغ <bdi dir="ltr">τ = 4.0 s</bdi>. احسب الزمن اللازم حتى يتناقص فرق الجهد بين لوحي المكثّف إلى <bdi dir="ltr">3.0 V</bdi>.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p3-ans">
         <div class="sol-body">تُستخدم العلاقة الأسّية للتفريغ: V = V0 e^(−t/τ).
@@ -887,15 +888,10 @@ t = 4.0 × 1.0986 = 4.394 s.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p4">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 4</h3>
-        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">مكثّف سعته 100 μF يُفرَّغ عبر مقاومة R. وُجد أن الشحنة عليه تناقصت إلى نصف قيمتها الابتدائية بعد مرور 3.5 s من بدء التفريغ. حدد قيمة المقاومة R.</div>
-      </div>
+    <div class="sol-section nq" id="p4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 6-4</span></div>
+<div class="nq-stem">مكثّف سعته <bdi dir="ltr">100 μF</bdi> يُفرَّغ عبر مقاومة <bdi dir="ltr">R</bdi>. وُجد أن الشحنة عليه تناقصت إلى نصف قيمتها الابتدائية بعد مرور <bdi dir="ltr">3.5 s</bdi> من بدء التفريغ. حدد قيمة المقاومة <bdi dir="ltr">R</bdi>.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p4-ans">
         <div class="sol-body">تُستخدم العلاقة الأسّية للتفريغ: Q = Q0 e^(−t/RC).
@@ -917,15 +913,10 @@ R = (RC)/C = 5.05/(100×10⁻⁶) = 5.05×10⁴ Ω.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p5">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 5</h3>
-        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">فسّر، باستخدام العلاقة τ = RC والمنحنى الأسّي لتناقص الشحنة مع الزمن أثناء تفريغ مكثّف، أثر مضاعفة قيمة المقاومة R (مع بقاء سعة المكثّف C ثابتة) على معدل تفريغ المكثّف والزمن اللازم لتفريغه إلى نسبة معينة من شحنته الابتدائية.</div>
-      </div>
+    <div class="sol-section nq" id="p5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 6-4</span></div>
+<div class="nq-stem">فسّر، باستخدام العلاقة <bdi dir="ltr">τ = RC</bdi> والمنحنى الأسّي لتناقص الشحنة مع الزمن أثناء تفريغ مكثّف، أثر مضاعفة قيمة المقاومة <bdi dir="ltr">R</bdi> (مع بقاء سعة المكثّف <bdi dir="ltr">C</bdi> ثابتة) على معدل تفريغ المكثّف والزمن اللازم لتفريغه إلى نسبة معينة من شحنته الابتدائية.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p5-ans">
         <div class="sol-body">ثابت الزمن يُعطى بالعلاقة τ = RC. فإذا تضاعفت قيمة المقاومة R مع بقاء C ثابتة، فإن ثابت الزمن الجديد τ' = (2R)C = 2τ، أي يتضاعف هو الآخر.
@@ -940,19 +931,11 @@ R = (RC)/C = 5.05/(100×10⁻⁶) = 5.05×10⁴ Ω.
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p6">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 6</h3>
-        <span class="badge">الهدف 6-4</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">مكثّف يتفرّغ عبر مقاومة بثابت زمن τ. أقل عدد صحيح من أضعاف ثابت الزمن τ يلزم مروره حتى تصبح الشحنة المتبقية على المكثّف أقل من 10% من شحنته الابتدائية هو: (اختر الإجابة الصحيحة)
-(أ) 1
-(ب) 2
-(ج) 3
-(د) 5</div>
-      </div>
+    <div class="sol-section nq" id="p6">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 6">6</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 6-4</span></div>
+<div class="nq-stem">مكثّف يتفرّغ عبر مقاومة بثابت زمن <bdi dir="ltr">τ</bdi>. أقل عدد صحيح من أضعاف ثابت الزمن <bdi dir="ltr">τ</bdi> يلزم مروره حتى تصبح الشحنة المتبقية على المكثّف أقل من <bdi dir="ltr">10%</bdi> من شحنته الابتدائية هو:</div>
+<div class="nq-hint">اختر الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot">1</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">2</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">3</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">5</span></div></div>
       <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p6-ans">
         <div class="sol-body">النسبة المتبقية من الشحنة بعد مرور n من أضعاف ثابت الزمن (t = nτ) تُعطى بالعلاقة: Q/Q0 = e^(−n).

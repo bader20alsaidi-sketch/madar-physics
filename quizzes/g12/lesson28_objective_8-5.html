@@ -347,6 +347,73 @@
     a[href]:after{content:"" !important;}
   }
 
+
+  /* ===== صياغة الأسئلة بنمط ورقة الامتحان ===== */
+  .sol-section.nq{padding:16px 18px 14px;}
+  .nq-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;}
+  .nq-num{margin:0;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0;}
+  .nb{display:inline-block;padding:2px 12px;border-radius:999px;font-size:12.5px;font-weight:700;border:1px solid;line-height:1.7;}
+  .nb.exam{background:#e7f1f7;border-color:#b9d3e4;color:var(--primary-dark);}
+  .nb.marks{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nb.mcq{background:#e7f7ea;border-color:#b4dfbd;color:#1a7a3d;}
+  .nb.essay{background:#f1ebfa;border-color:#d3c3ee;color:#5b3ea0;}
+  .nb.prac{background:#fdf2e3;border-color:#f0d3a3;color:#a15c00;}
+  .nq-where{margin-inline-start:auto;font-size:12px;color:var(--muted);}
+  .nq-stem{font-size:16px;line-height:2.05;margin:4px 0 8px;}
+  .nq-stem bdi,.nq-pt bdi{white-space:nowrap;}
+  .nq-stem sub,.nq-pt sub,.nq-opt sub{font-size:.72em;}
+  .nq-fig{text-align:center;margin:8px 0 12px;}
+  .nq-fig img{max-width:100%;height:auto;display:inline-block;}
+  .nq-hint{font-size:13px;color:var(--muted);margin:6px 0 2px;}
+  .nq-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin:10px 0 6px;}
+  .nq-opts.c1{grid-template-columns:1fr;}
+  .nq-opts.c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .nq-opt{display:flex;align-items:center;gap:12px;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;min-height:48px;}
+  .nq-opt .lt{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1.6px solid #8fa3b0;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--primary-dark);}
+  .nq-opt .ot{flex:1;font-size:16px;text-align:center;direction:ltr;}
+  .nq-opt .ot.ar{direction:rtl;text-align:start;}
+  .nq-opt img{max-width:100%;height:auto;display:block;margin:0 auto;}
+  .nq-opt.fg{flex-direction:column;align-items:stretch;gap:6px;padding:10px;}
+  .nq-opt.fg .lt{align-self:flex-start;}
+  .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.25;margin:0 3px;font-style:normal;}
+  .fr i{font-style:normal;padding:0 4px;}
+  .fr i:first-child{border-bottom:1.5px solid currentColor;}
+  .nq-part{display:flex;align-items:flex-start;gap:10px;margin:14px 0 6px;}
+  .nq-pl{flex-shrink:0;min-width:26px;height:26px;border-radius:8px;background:#e7f1f7;color:var(--primary-dark);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:5px;}
+  .nq-pt{flex:1;font-size:16px;line-height:2.05;}
+  .nq-pm{flex-shrink:0;font-size:13px;font-weight:700;color:#a15c00;background:#fdf2e3;border:1px solid #f0d3a3;border-radius:8px;padding:0 8px;margin-top:5px;line-height:1.9;direction:ltr;}
+  .nq-tag{display:inline-block;margin-inline-start:6px;font-size:11.5px;font-weight:700;color:#5b3ea0;background:#f1ebfa;border:1px solid #d3c3ee;border-radius:999px;padding:0 9px;vertical-align:middle;}
+  .nq-solve{position:relative;border:1.6px dashed #b8c7d1;border-radius:12px;padding:6px 14px 4px;margin:8px 0 6px;background:#fbfdff;}
+  .nq-solve .tt{display:block;font-size:11.5px;color:#7a8a94;margin-bottom:0;}
+  .nq-solve .ln{border-bottom:1px solid #d9e2e8;height:31px;}
+  .nq-final{display:flex;align-items:center;gap:12px;background:#fdf6e8;border:1px solid #f0d9a8;border-radius:12px;padding:9px 14px;margin:8px 0 6px;}
+  .nq-final .fl{font-size:12.5px;font-weight:800;color:#a15c00;white-space:nowrap;}
+  .nq-final .fv{flex:1;display:flex;align-items:baseline;gap:8px;direction:ltr;font-size:16px;}
+  .nq-final .fv .bl{flex:1;border-bottom:1.5px solid #8a8a8a;min-width:60px;height:1.3em;}
+  .nq-tbl{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:15px;}
+  .nq-tbl th{background:var(--primary-dark);color:#fff;padding:8px 10px;border:1px solid var(--primary-dark);font-weight:700;}
+  .nq-tbl td{border:1px solid #b9c7d0;padding:9px 12px;vertical-align:middle;height:44px;}
+  .nq-tbl .bl{display:block;border-bottom:1.5px solid #8a8a8a;height:1.4em;margin:0 6px;}
+  .nq-mini{display:flex;gap:26px;margin:6px 0 2px;}
+  .nq-mini .nq-opt{min-height:0;padding:5px 12px;gap:8px;}
+  .nq-mini .nq-opt .ot{text-align:start;direction:rtl;flex:none;}
+  details.nq-key{background:#f3f9f5;border:1px solid #cfe6d6;border-radius:12px;padding:10px 16px;margin:0 0 16px;}
+  details.nq-key summary{cursor:pointer;font-weight:700;color:#1a7a3d;}
+  details.nq-key table{border-collapse:collapse;margin-top:10px;width:100%;max-width:560px;}
+  details.nq-key th,details.nq-key td{border:1px solid #cfe6d6;padding:6px 10px;text-align:center;font-size:14.5px;}
+  details.nq-key th{background:#e4f2e8;}
+  details.nq-key td b{display:inline-flex;width:26px;height:26px;border-radius:50%;border:1.6px solid #1a7a3d;align-items:center;justify-content:center;color:#1a7a3d;}
+  @media (max-width:640px){
+    .nq-opts.c4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-opts{grid-template-columns:1fr;}
+    .nq-opts.f2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .nq-where{margin-inline-start:0;width:100%;}
+    .nq-final{flex-wrap:wrap;}
+  }
+  @media print{
+    .sol-section.nq{break-inside:avoid;}
+    details.nq-key{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -462,16 +529,17 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    <div class="sol-section" id="q1">
-      <div class="sol-head">
-        <h3>السؤال 1</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge page">صفحة 168</span><span class="badge official">إجابة رسمية</span>
-      </div>
-      <div class="q-source">نموذج إجابة الاختبار التجريبي للفيزياء – الصف الثاني عشر – الفصل الدراسي الأول – العام الدراسي 2023/2024م — السؤال 26</div>
-      <div class="q-image-wrap">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABf8AAARgCAAAAAByS3PRAAAzLElEQVR42u3d6XaruBIGUKrXef9Xrv6R2AFbgMRgM+y91r2dk2BsY/GpJAZHdgBHEt940uy66Lr82pN/wz9tDfaNMjXWkeI/J58he/+N62/p/zS2R5uL6qUibC44JZ3xzer/8LEjcGj8NG5R5F0//38/xrAb8qEGl4N//c4p5+tf3pct/mnkkcVVDH/++8dwDmqw5tISsXWfNfcePvwBVbyOfBwOkP+nj/+8SV/OEevN5fP/FTkVwzwf/vz4RwwzPbqWpbu41BBGFTh0+fn/7PL1Y9cZ8MEGmLnb42LYDbz9/Bvyr80+G5a+3s5SeZwv4g6H+a4//5Pvn/+zsIqsHJWGwoGFaZN7N+/oDXR/WncMz18pnMvyHBb/7gv9MfJ24+Xo8mB7TqTq71b1/wa1QPe1k4K5URt7q0AbBrcxUfO8jCP6p0Nkv+fI0ipXxXcccPhQ+YIyl47b1P8H3wfzUfo/jvK8T44q9tmqPo9lpx5EVfZm4+///pjl6njTqdKM7qTldj5e/9XLwHvkf+sxuNAJsGUHEPXNrn99Ul3PMWjdxaeaaM85s8pcs6vlyfeil415wUS4Rf7Pxn8Wj431d8AMJ5CyqITIqKw/emcqj5+1VlGaPFrq8FmzUNHH7Cuq7IAGZwud/4rnfOkBfz+OC0bAf/fYFbPhkx+cemHan8Xx3yvo6+O/JuKjpnm//D7irYqNmfJ/tvGPHqN4nD1zhlNoRuf577Dv3+L635yqkkqf9PBqmOwaBuNQmDyInGuiUazQq3qNLNQwgzZcHktMdBxLZn/ieWAhNt10+9f6FWMB+X/uSqzQH8TwVlAZvZv/5WtPEd3v2aIw0tDyJTd+D/1G4SDwXC0xPt2YM/EfI+H+fhy6Iv7/rhKYqYEiB+PnA0dmVqZ6vv3/JQ8I3uH637dMjxzvG0Z3sjAZREud8VvGxm9XMLPs2yg1ak6dH704d3D3h8K9HwZF/ssFBONJF3OdXn+5POKoOQuDjNp39c1RiPzfeGMPavnst4cs7cX5eIBJIFr6g+im64a/xeLld1FzfLZ3w+LoDVBjUMJHvh8NGDblKN7uIcfGCfH6Y77++uegd9edtGiKt20Tedo3c+v8z9HfZG0f/PYAfQDbNtIVufIWwDnodHJ84Pp85COsmy+CGX3dufKN7XYAIOaeLAbdYPS74yteOuz+/9OtRdSzuOzIygF+lpZ8noSWLU85UdZMnNGTjWVNvrzulyMfmc8NcIqp8/Lbz5q+Y7cq9QsDHQapb7qHJbVC/2LyrF72FAVNTN0ketv38rFaOwtPmt98Eer/o1UGUB1ZURVh8dl82e49xvC/XwjsXT614ltw/897h770Z1mUxGwDiu++wIV7RrzdJjQLE+PnmjYdPRvwcx/R9zaX/Ff7s0lzifr6obDsOZr0y41SdtxhPniwtXizjTjTx7JB5wdsUF5XHjs67dGl4slBe9zy5z5X28h/gFvm/zcj2PFfQCzek/wHGsry6D70zbg36QC++jblPyAZ7/kmzf8DBx1riH/1P2AA4B3Kf+BGHcDFe4Cvvz35D0jIe745+Q/IyHsObuQ/oAO45/ty/g9wbBc8D+gguSv/AT3APcc08h/QBdwx/eU/oAu4Y/bLf4D7cv4PgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/APkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/APkPcG8R8h/ghumv/ge4afjnrd7yP586wE8HcLMBgPznKzta2ggHqnrzDK/yQy/yVi3T/M9mA8eIeD12VH8sKVY88cG2w+Ll4pAf6/BT3P7oYPU2iz2e76fJ5oJP4JPHSSNq4j/Wtqbsuszc4NXK/xvGf7FBxYKdMj7X5GLj7RBrt+KRdrJ4frCxc9v54CcVhY24KP53rZOHXW40vbPH4ks6gPzgJyr/LzWZUWw7lR1AtKRovC8ai195fG+jzfzxMFVU7rxvx2f7tLdcXRR6setGeR9wVdXlgzosv9S2/0YqcYJ+Qf5vFP+blgPxucyOQ27RmKu6t3zZc/M7uW2pO5byO1XUI09XztWG0UhWNMh46dsiWgd5MRr+s6v6TgdQjP+Iv3cTcaT5Ifm/XYCWBwArW2F8qvg6VLPsIuuL8vUfYEznSnb797krZ5mmPrzRJrRmsjsXvtX4Vf3gkRdZtb0+OJM69fTxupMdZ0+T/5v191t9qvlYY0R0UWyQW7Wf3H92Y0l+5OY194p4jogPDLpWxsJ4GsZwvX+16Zrwj4XtMZufpe1FxuoaYe3BnmH5H/tXL/L/MLLbZgDw2+ZHGlBu2ZTymCe7ZVa8ttjjY8u9a8KRZ9lgsiJGnyq3j6Cs/Sxi1RGqbN7Z9mkjKwbVcejTgeT/rpXsmnFmjqw833/Mbd5G7py036l/KjZ0tubKms00Vnjnioo8x1/k2PxJbLlFc+Jz/o3AfLzHlvc58SoLI8T8esuM9s9H/p9ZLGtREVUHsLr84ERIjsf/WS+KrJy6yakPtepTWD9HlGsHcrl90/1yZz5zWkW+7UGxfuy9/gKAnBjjyf8b9AjvQ74Y2fVipurJHGtHGx71rcqJ+MJm3KRzjuZXn8VkzsldeNETnW/MumaMldu+yopTxI63udvGPvL/pBXn7A4Rjz0ixmvJmeYUm73aquo4PxARb4m62a6XrY+IJU9yqvsGZLfmqpGKYyb9DbPloebtxy97dYN56MJf/u81i1LT2DMH15q/n4QTH2+u40+6Uc0y0tnF6LKx/rMYTNxE5YBjYQfQOFX34fiKDTuAA/RSuVmzrG6Tyz62w1X88n/bvSpLQTDzoIkJ56iZB9lmAPA6VImdt1SUMzdiy2yMhYV5becwNb/RFv8rzvYsnVQS0fb2tu0Admo7Ex1AzUebtRuvok0edtAh/w/aMyzdW7I3NTRyZdJWJcXLDlTfuufPa6s4sBDj45DMZX3c1MWoc+sbHwC0369u89P+8nWzvTxBNDfI7TqA6QmgVTf7W/0iy3dkjNmAH70mPDbYLK7/ot+2qqZTY+MLf6PLbOhJCjtBww0aChM6MZNNS85G3eggbNY8a8zNTe9yy7Zu/M5oSyat2m9P9Qm5ogPI6j0vqt5q1al66n+WTL0UzgwaziBl/4ZWU3VVbLCvbZgC79M9pTmvsUODufBlzHVLUb8ZYtE2evl4uwWFcc2L/ttoz3FGrmuJ233wsfE1T5vOU0XXP25QPFPvpU1uOjkp//lt0bHohjuLZoBiJB2zJZLidegwP0ETU6uPZ4o1v5OY3Lu7sbtpVxX19Vv3bagR8bp5WqOjOKf/PpD6PXcgW26Inw1XbU2/gMbObJuZyomTBBp3ot/jBvny+h735flrk+XyKpt39J22iPw/dwfQtd98N5cVIsObRMcmhczcYe54a/s5fueKmvdVc3r9T/znoo00M6LKmr179s4cDfEfUb3WXPh000tFLMurXHrNYsT83tINw3r58HbsrLO3Nhn7nMBzmDGE/F+b5LHsYaPpH8OWmNPryNVVRdRVJjk4UaiuJhw9tWj6KwfzdRvU3Rs55j6TlrvDZEVYDzuAaNzNc21KxHAyoyuf41lbiGwWU7UdQLRtkFi0iUae49lUMsvx/9LgcuEAwPwPM0PR0n49Vgo1BNj7uUKFuZPZidrZ6aCpW9lPT9xmcd5kZBtE3Rg8V3XKTZ17FEYAvXm2iG7VHQAm+rt83FSn67rMiQHI2M0wB694bBYv2m691voNGI0XSrz2tLlqrX9fKtBveRETl4psnvpHGQDI/298poU7244dLY2FJerr13pERduOujTsfZlFeZEoFuXFCZWq75/9i/+onXLqHWBfdH1DjPZz/XeY3eAGl4N5tsoDh9l/QET/Vb++4egGG+2nBcWy1tfLwdJbKL+APeMrJl5k9j/a3msbvMLq6aD+sKn42Jfao+E8i/MNDv6J7Y/MEs3/KlpnZaKrPEcyX74mcuKuWTOXA1TsCo/nyK7L972znFb5eJkTTxA12yXj+cTF4xyT+2fGa3WfUXX+x0jX2h7IpXXFaC2Qi6P4fYNE3QvYrPk/mkh1h1D8SKOrGxdO7DZRsSe8jJznru7M2X3f939dOdrnS6UonXrTug/HV95N13VjN64o7TRbPmvt/jcs3+pXHt1rXVyeWxoun6NTNN2CGw/V/zUXzi5NPiwPtN+8LLvwy1xKU6alj2dsh7zYdL/6f4dpnxxUCdn7qX6eKAflRUxnaqEUyYq9KLqXOe3sZs5yydGyJcvDj4znHyOj5mtNcmwbDF5nTDxn6TXm3wxN1p/Ikq+xXnhsxvMJfj7h5y/6dejYrHqWZsbeX+rgs8r37Z+lDyWrnq7wiPx7z8Ptl93opxzrK5jp08fetvzbxon3zT693020uBy01Hxr6LVvNGsPHOSxwovlW3D24Fe2PWJmXVG5A23whC+Pi+Yz9XO4otiz4feeo+HLafP1H9WvMZp35MGqY/cQKL27PVa9TcK8zHPlTrvm0lXHwtmlPHjqmv/ZZG/YcHpjbhf5PR8511w5sMfb/NTLmJ2bWnZtXP8bqhreTOs8Rv/C7503R/buRh7br3r7Dz02a2hT68m9N/pLYzxy9W/+Z4NPfMWd3pY259xgP9g3/vOl0tq64inlZ7RGcq76loFlh/HisyGw09Ntfwjz57PI2PTF5g773se3jPr/4B3AR84Ja60YY5P4X7GWfh2dbfMyn+rSVn5QzVeG5g7t4mtPt0vObRn/sfXI+6tbRv6fsQMYaYOtt1Irn5JS0WGsHvr315IHyov37F35BYMf+ZaOD59qk/u9u9w85rbeNvGlaiNP1QE4/rvnViy3wegWflHU0hokN2n4uXoXyu0O7JUvoMjJTyjGbwH3ub1grCP/OXEsP/V0h4yOTT+LyK16hWftM9qIzhuq8v8bG725lm/fLxYfLdhhLVuP7Mtrm8r/w9+9JX67x87+uPd2zqWN/4q3ADL/862G2DJIXPAV2rnJ0H+btfytabPvLSusLdt2aW5cfbU1/i4v24jU/0dogrnXs+RlN2C2je1/L53IIzeJY7/AW469Xy9judxnJP8P0AH4DPbv7zR03hP99mlpt/h6D+AT2HVUAFNj73u3Gdd/fUkKLPjCjtdyPx/5z96dAPDJnS7sgs/RkAhCa+ZuLUX6q/8BI+8bc/4/9mqQ/wDIfwDkPwDyHwD5D8B5Of+Ta/u7e7vzg0D9z02Jf5D/3HIckNd4G7AZ8z+I/2PHfQ7+6R4XqP+hWp63+s/Ol0Ug/2FFEW3yB+Q/N+0AAPmPLuC0r103hvwHYwCQ/1AhT9wBZD5eum8LRf5Dc/znRd4HyH9oEaXzKE8V+9GZwEL+w6p+AJD/6ADONgAw/YP8h2UZqu+CIff/4R7Bf+YOIMPJP6j/AZD/cMdxDMh/uIcQ/sh/uGv6z/wGFrcvlQXaqX0C+xWcpAremb2CWzD/wwmKlPxwIJtkQf0PRyj+8wuZbL9A/Q9H8dlENgJA/sPNgl8HgPyHY/iboTQlA9ty/x+48LBCp4n6H46Q1BHOZEL+Q3t+nf8ezpk/X+irA0D+w6wLTWDEjZ4V+Q+892Xm5JH/cCtxs+dF/gPdS91vAID8BwwAkP8AyH+4oiz+CPIfykxegPxHV2ATgPznNvKGzwzyH5T/IP8xAADkP8p+/Q7If24wAIhv9AP7xr+pLOQ/1HYAcf7IFPocje//QnJ+uvwH+Q/C2Pbje8z/wKeHMWaCkP+gDFf+I//h+h3AV85kAvkP3/eN5Ff+I//h+wOALj5+Jqv4Z6Ig0TzgugMA+zfyH4AX5n8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkP1xfuLsn8h/u2gPYBMh/AOQ/3Kf4NwBA/gMg/+E25T/If9ALgPwHHQDIf5D7IP8BkP9wnfLfQAD5D7eMf5D/oC8A+Q+A/IfLl/wGAJygzaZtABt1ANl10XVpx+Ic/tkEsI0c+RkOyvwPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPwDyHwD5D4D8h+/zxV/IfwDkPwDyHwD5D2PCJgD5zy05igryH4B9/LMJOI54Vv/xGAVU//B81A5LD34o/QrU/7CB0yVqOFzBOQsu1Qva4uphS478A9T/UBGigPxHDwDIfwDkPxyTGX/kP6zJ0DzvSwf5D1IU5D8A8h8A+Q9FJ76I1vW/yH8A5D+0l9E2Ach/AOQ/AHtw/39Yy5ULqP9hVYiKUZD/qKIB+Q+A/IdDcuIq8h9umqI6AOQ/rMlQKQryHwD5D4D8B2Azrv/lIDKKFwBE13Vddl3UXSCw4+Ljy7pyAfU/rOoA5sJ33+PDsfFyIP9ho14hs23xrdfeuGqQ//CB4cHrYtG21uhyu1cA8h8+mft9EU0Pa5nRidIr8v2PyH9YI8Y7gIj6PM+2XiOry/+2ZUH+Q3X8T3QALaG7YPFtV200gPyH/QcHGyyeu74SkP9wka4F5D98NKDjCIuPLeuQAPIflhv9/sd4HHitzui9Fh9bVvwj/2FdB9DcNXx8cV9SjPyHj3mecBkNi+ceize+EpD/sC7+n4ODqF+822HxxlcC8h82iP9FdfeOiw+Xdf0v8h82i/qHHP3HmB0n6M39c7F9TpPmMPGfp33peYn3gfofAPkPwFX5/kdYy3wP6n9YFaJiFOQ/qmhA/gMg/+GQXP+F/IdVKWoTwEc5/4fPhnuOL+FiRJD/XE/GX0dws5h3QTDyH37vs3yrOt+sFsdl/p+Pxv/tbp+s9Ef+w2xQnjYqM/UByH9YHoNSEuQ/APKfi4j+Dzer9A1skP9w0fifuv7X+T/If3gEZd4xKd0iAvnPjcv+3wwcj//rRmSEgQAH5PovPibbI/DnEVk7bdRfvHr5rLpEt/GV9B6WXSx566D+5zrx/3OefNNMSLY+xaKHxvavZLh6R4CR/9w7/pekaLYF8I6LTy07+ehI8Y/857bqCuycit3KDN1x8VwW/3BY5v851ABhrPuojtiM1htutiweq4YwoP6H1vhccRxgu3BeNoO1uN8A+c/Vq/uNH7lg8Vy56pD7yH+Yr4M/8bgdF48t3xbIf+6S+lPn5X/zCtnYdLHiAwwDkP/cNf4jImYuy4qphzc+234jksYHpPEB8h+6bv6rUkp5my3fGbbj4o2rPtD4Boqc/8n+mb968FB/+4R9F++W38jBRcCo/2G0l8hyQGcvqut7m5bFs2rxGF31xKCm8YJkkP8YJrxHbU1Ex9+qajqAqF9766oHHUOme0Ag/2G5zY8Bx7K1O56L/IePDQvqL71tuUg3t7sDHJyxpNKSYfXAJAdjAzsV6n9oS1FA/nPL+NcBgPwHQP4DIP8BkP9cTZ73tBkXdyH/YV0HAMh/AOQ/HJ0TV5H/oAMA+Q+tGSpEQf6jigbkP5yM05iQ/wDIf1Dzg/yHsQw97/W/Pj3kP0hRkP8AyH8A5D+MOO/p/y5dQ/7DqviXoiD/AZD/AOzin03AoUXXdV12XdSdILrj4o2rBvkPm3UDR30lugPOyfwPB5Hlb9HNtpTdcfHGVYP8h5X9Qlvo5m+RvsPija8E5D98Wuy6OFxmT1HLcIo4zyMsPrLscPgQBgio/2GbMjyb8nzJ4jutGuQ/VMV/LOkcNln8IKsG+Q+A/IefijuOsHjjqkH+w8r4z4bYjS7bFq9f++iyjgkg/2G5ie9/bP5qyJYOoGnt5WXFP/If1nUAY/X8s/quK/9bEvm5eGy7LMh/WCnaKvoo/rjJ4o2rBvkPG8R/bezuuHjjqkH+wyd9Zybe9z9y0vLKoSsOU+rnJV65+z+g/ofGEAXkPwDyH4Bd+P5HWMt8P+p/WBWiYhTkP6poQP4DIP8BkP9cznkvAHD9L+fk/B+O1QE8b6+Zvd/8/ar+h7allz+bC9dQ/8NWsun3OfJDji/Q9mzlx2fNOuDYJZeWCxsPY+xUqP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPx/mZpgg/wE4NPf/Z1M1t74MN0wG9T8A8p+zicLXHsbjT71/APKfO3QKf/+N228EODbz/2ycfTee2o/hDw5yoP7norIccIrf5/YB+c+9Ai7mwi9vtkHgoMz/sMrkuZzPuaB4j8i4el7qDFD/c+n0j2444ZP594uc6TcuOFUk85H/3KHsL+R3/PYAUVx6+jddXKs30BUg/7lu/Mcj7l9CPd/S77lQb+nHjxHdhYYCUh/5z6XL/p+fXtN/NgT7U/+vDzQTBPKfM3UF+ZrcU7X883TReF82DADg85z/w4LyP4tB3/vty1Vgj7OEXi6Q6twmAtT/XKe6jXvXxWkYgPznwuV/e3chD0H+c+f+odAL5M+R4MzL9BCpu+M0u6yWSkO+Pw/h5uifCxf2xq0CMcQ/J+H4L63ZFuUqIsaL/HtJB7RR/3PFAUBXSvnZ6L9VSezrLZH/XLkDKF6+lZOPy7ZnYOdRik2A/GdBB5CtRa/vQwH5z90HDjoBOAznf/IJKf5B/nPrDkD8w4HG5XZIAPU/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wCs9s8mgGrhK2xQ/8MNwz+irosY/BfU/3DCaj/fYj1nH/PznXriH/U/fCysa/4UDdncf9jPz5m5/tWA+h+2jf/R77KO+kWnVpBzQwSQ//ClLiBn/xJd13UZf11CRXrHxHJRetbQJXAO5n+4x+igrDKpU6Ij/+GMKf/808JZ+Wz7i86CkzD/wzVkTP8petmc8/3FS+eR7V0DqP/hc33Ax0cW0T3PDQL5D18L//lZ/ly24vFuISKc7In8h0N3D5nZeBg3e/+NxuGBeSHkP3zSToX4aAeQ3c+5QdIe+Q/frPAXdA1Rv+oYGVU4OxT5D2ftGjYdXOgLkP/wDXsdiZXqXJHz/7lOlR9vHUFuuW73dUD9D6cZB/Tu2rxyaDB6CODnjqJOAUX9D8cYClR3FPma5lm7dFScGArqfzhLL5GTi0t75D+cuuqvFoOf8vUXhfvK+UIA5D+cQ1T9+W9+f/iLv/+PqtXBkZj/584DhpjtDaI/ush4/zJJyY/6Hw6e9Vs8PudXbvoH+Q+nCPkcHwFE784Oj59efvH76+z9Xj/AabikhVs057G/TJ3/6VAu8h9utEM8C/dQw3N1jv/CWxfwS/xzbeb/oSdHfgb5D7fsCuCSY12NHIb7hPRH/gNwYeZ/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/nMzca93G+Ej57t8/+M5c9Jtuy/Q1aVP1r4n/1Emd10XeZtvoxj7avlYv17dh31P/l+7CV5wH7/V9xA9Yvr1k1z7yZpPsu/J/xu0wit2ADeKrxwdA6z6ZKNLXYB9T/7fdv7gEsF4m2mE3PyTjTT9Y98z7r5peNTPB+QB31Te6gPMVZ/s1Mdtjz7Cvqf+57tJGTun7baJnXfqC3KXjjlXTf58pBL80Ce75dPEsGV25n+OMmL5ne/MnZ+m3Lxi+ext/Z5WXDKrmn3Ur3rBnh97JkpcfXyQ+w3LVgwerjIVEFv2ai8npV2uLvnvvJ9udN0HrqApPMXjiWNJKPYWm3310fCiGuN/sES0bpKo2Rkq32flYic+tFm+0Gvk7a55l9mf/o8NVrhrNO+5rbN+N5jYTlG/76n/vzL5kbHb80RONaBcM/CYXvXiWH6N/5xe9bOuyZitkuJtl8qN3mfUDx3OWaBG77OJ2Q56XXserL+ylX1t+L5f95LtDxlrh1c/oeq/s+1M2R+L5VcGZAueeNuiIeZ+OXuUKrP/iIba+lH658eLuzznCaLD8nLxiK+2aFmzwpNH3bNp5oJPaGIwllfaSOfO/3gPsf3OeIvp9Gx84ti/EeXEv7bZ938H15mVpVJssUMve0PHabF/mysKvfT67TJZBdzrpKr28J9rXHnxM2rPNv+f526fn1t9tmzIlq2a+YG3mOWkO2Px9Vsr5O+PscUnHbs0s/zEtsgd2/+CrM7ppn757vNU+R8f33G3XFe0rjrbNs26s3ii8kmazl3JTTf8OXfGkWPle0RhXqVWWvbuc4sP6mZOVv9ny1j4Sp3RzpuyenI9plaYm7/CvNZGz4oFYvVKXpb6+jbb/gWUT6i63ZTCzfI/TvxiLtHIJucvosute+NrDL83L1HyYiOkrXa/j9SCF9vEvv/lc9kZ+7XB71+XGD8HgOMs2/CTFX9s/A5yhy2Uu7aM7cM/Pvb6H53LJeeHTp7/Zn8++uKmD2DG4TfMVToA27R4QOVEYzj5f7f4r9vzv1VmVObSeAfwOCXW3cemO4Cd0+XL/cuHWm/xxJwd33os3ekP70TX/8bMpRhzcyAzp0MPz9N4XFicFUeaCremKb2W/L0kc2rV0R38TjcZY5dwZmyd/he5n2W+XGz9uv2WfObjN+DIihv5TO0JUbnNozwLWfj9WDuvuQVq83bJnZJn/ydR/y/4VHJYecR4+fzzh4m/1xf2s9fVzL2WuYY2ct+RQwxCp0cApX/nyr3u9GVXTpapsXzT1N9JqnZPiNrdINbsQr/PUrq1VrR/9DHfNNcXnle9FOC8+T88GT1mhqAxPcMSUb87vp4F/3bUc+y5qk7uG5suaJlc376pZk0HsNdMwhXG3VnRqto3TWkbzbWyqT1h7TYfa70x8smOLtfwQmLvpvkcy1+xBzjt/f+HMyzRNIR9G31GbTyXpnZyfnfLmiWfjXiqtjpAGxyfAtp6yP2hrubz229wn7b6dxmDL46MqvVXbub+v6KipY09SXbvrSOj8JSlJ4m/vfDnLzn/HRbxgaZ53fg/bf7H2NWOUWwl3dgtYYd/rrudaNa+tBjbhbsF+9axzhwZfx+bHL74m2LL83cAr2218JaqMvu5TBYKhYbYG7s58mOj5/RFHhXlQcUnO2zOkb3tlM13Um/vAOpb6bW/jOi88z8jF7vna3eQ8+kdzwmdRce93l7JyGupWn15mj8K+8zK+YTlC2SpG+0aZqGrhkFrDx8cqKVmzm6B+ndZyqNFd/6L8Y2e7/M1UXOY+tF4o/GTjXJJV/lWar+Ho+GNdHc5TfdE+Z9zkdQbXo4frYmfG0UNvyljdcaM3z52+FTZRd3T1R1i3bYL3frtr3nwpU8jzUIsVWye7CpbTzZ878mjeQ5Pasj3aZbamwvN3Zw8K0ZJWd+26u9EPvJGuupNZf7nYKPqt+b4O/Nf+D6T/oxM7yvdRmuBijssFsaZv7OWg+da9pbeJkabpjUrhsGNJ8++Ljs6h11x5C5mJpUmDu1cpQOI6nvvTZxrHFOTLqM5l39Xz75UVBvfPy3ep0HHW9nw5OEod0XDvW7kK5he2n7ksnb0dszC+T8H7wceX/02em5O77vhoh//rwss2BteG9nvQDhzSWn29uZmTl1dUJTHfIseHVU/D5aXvtpksEWbblNTTKKIK3zjdkxUu8u/RC6mNnDMj6MHJ+vE8FzqeLkDd7ztTVGxO/RmBQtfzTU8jSn6H3rdpsxCBIzu39EV30jU79qxKBmO3jTzVLvRW/GTpfuAxNzHWXupa6mOKj5xFhvTyLgiR0q0sacqvf7spuv3yXOgojjKzqkCMpo28vQmjIbh/fB1nvJYXKmrjUJ8lT/ZyY01umWi1yZz6hWt+rrh9ta78bOUTgFqfeYc24Heupc8bxu8xPxPzg9W584Zycl1ztaoY3/IygVj6RvOZQ+N+h2reZfJ5TcqbpvLut5U0MvM4OLv6c269XcztcImwbyq9U60pdylaTbv8dFd67rfk87/xOSn9n5mwfBAcOHvo7Oks80i338sPlc3nBKqWXVpxTmYLsj1e2e2REJhsNPfyL0V5ttBvLmCKce22OgvT539vVnIdcVyedOMrL+1db9WVPn2lNVNcP6uUDn+Mdd8/DnXNKfeSDZv7Eu1yFP1aY2Fy4HeW9S0noZzkqvuAN1QVJUf/XaENzfaGMtmdOK03wGcs83g8d5iZhYupzZN6ehV5PJm1rQffWZepHJ7rA/CGJt5utYo4FTn/7Rc2XisjjoXnA20+p2tTtZ4mSTefme7xbfo5HwzmDgcHPVnC2dh6ic/1dq+ULFu2eVk3Sa+2nlA5zr/88QXg+b+m2ZNZZLFbR3Po2m5x07c9mleYvY/G99a1pwnGl3DxOB15hLic/vTZU8APdn5/6VT+083C7DPHrSib4zP7mIZC8upi14UNne4NqdHaY3hdO5uNJ9XwMXHdtkrXwl8ujg9y+lXhRPyKsaY+Y1NE7Nn5G9d/S+J9Aveh+VveDVzOW1OLBbN23GnDfmpAwCfKgjiDrXH6a7/ytZPcPfee+xylZf2k/tPAS3+7tec3NSbn4OTC9Z8ydtwFc4JK34IY4tVPP7DjX7rAJ68UVLuvDtdP/4veU7rYFy8/0kjMXJAr/3CpfD1iTdT8RVnk4OlJV+RtkUrG7mmbeuvf8uxa+cebzp+hka566dz5b3y6vn/gY8vuskzOlr205D/bBLyX8j/jVvvo3obmfPKyT6CSv8u/N5+av9PZGrO/SpDU2O71rU6W3P9rvWBvbfLmLzevjhDhPr/cO+urkhR//Oh8UTust788N77sQpPQvKRPdPnwUc6gL8+YKsM+Ebrjb3ndvPaO6X8P9ie6fPgYx3AsB/Qemc6ygv6z84AN7Po+yJtK/kPXCDUsnSLTN6zP6/dAfzzIYO6ltGNdOUtZf4f4J7M/wDIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AeQ/wDIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/AN/yzybgQmLsD2nbsLoZXa4Vhf2Cy4e/HgDNSP5z291WB4Bm9Mb8P7fZs8M2YG38d5dqReb/Oe4umL1/Zc2j8h57LRXtJ2t+W37sdDO60pyJ+R+Ougdn3S75t1SuXIIrtZ9sqg9qG0ndak7D/A/Hky87Web6+Odm7Sf2iP+rNTL5z+FrudwsFMwCUdN33KYDkP9cJP6V/7yX/IWft12z/IcvFmSfXxEXbUVxu2Yk/zl2DSe1WZ335v3kP+dLf/HPmuIB+c+J91/xz/oBgDJC/iP+MQBA/mPn5TYDAOW//EcfgPaD/Oc09ZsdmPWdgPJf/qMD4G7tR/OR/+gAuGHTaS7/7zdOkP9cpAOI1QtgALBBO5P/sHUZB0siunX2P27VLOU/Z9qbV5R6bhGtfNjgAdcaRcp/Dr8HbzIDZPaHulY024wuVEXIfy7RAeT0rhsX+94mqltPtje3GG1FV6sifP8vB9+FK79yNWO2pxD/9ynic01zu08z8v2/HK9RDve0qNzr5mozTf1Wred35JilJrWiGV2rFan/OWz8D0uy2R0vJ3dd6X/L0eOSh8R9WpH6H+CeHP8FkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfOLWwCeQ/IP7f/hq79B0X7HPkP3Ct+N8nxmOuX5H/AOftO25G/gPMS/kPcNcO4HJdgPwHTuNnCv5LOXy9EYD8B04T/zbBpv7ZBMBZ4j/f/x0fq8vjciMA9T9wFvkeyfGpUUHE9cYf8h84S/kfg1Pwo1uQyLn4ybvuch2A/AdO1QkMojzzM8dlr3nkwfw/cPjQz0feD3I4Y5D+sWtH8PPscalDAPIfOE3N/3IINodLvYZzFJZaE/9dXmwYIP+Bo8uuq5+CeYZ077/ru4BH33KpAYD8B87RCcyffzkI53j7eVV0R5eXGwDIf+BEo4DxzH/P5nzvCJYX/lc8Buz8H+DoYtGfnt1AU93/d45p9Nafl9yu6n/gfN3Bczq+l8yjkzP1Nw2K0Z4lr3gKqPwHjp/42Vby9wN/WfqPrO9anYD5H+AUJf/jp/6VuCP3ZOgvHV3tDFAMfig+wcXGAJFaFnDQzB85gjs601Ou0V8uE8iJ/M+RjP97xitFpvofOEHZ38/i0W9iyZHFq7ubHFvJJeNf/gOH14/wYZwP/pWFiK4/+SeL/8yKHua83av5H+CoxX++VOAv/x5M9xQOEWdb5kUOnjle55Mul5byH+CecWj+B7hVyPsSSfkP3DL+x0/ivF/HIP+Ba+f98J9ZuaT8Bzhn0j9+Ga/xP3JG0B2nhRz/BS4S/1lO9XwL+fkF1f8A5x4BzJ++/3Ozh1vGv/u/AZcwck+IfJ/jKH9L5A3j3/wPcKM0i7ERwB3jX/4D3JT5fwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h+Aev9O80rDhwUcQar/ATizSNsA4I7U/wDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wHkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wHkPwDyHwD5D4D8B0D+A3Be/871cqPruq7Lxj8BcPb8n0j4fHQBAFQ43fyPAh/gnvn/EFH6EYCL57/IB7hn/vdm+8OcEMB98r/rHvM+RgIAS/w79auX/QC3q/+z+CMAV89/8Q+wyrnnf0Q/wP3qf9kPcM/8B+Cm+W8AAHDb+t/5nwD3zH8A5D8Ad8l/BwAA1P8AyH8A5D8A8h8A+Q9wd5e+/5vLw4CPB4/636cAoP7XPwCo/wGQ/wB8z+nmf2JsWsfBXoCr1/+SHmCDLHWMFED9D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wHkv00AIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwDkPwDyHwD5D4D8B0D+AyD/ASZENC4Q0XXd43+Va5x9kuP4p0kAlwv6ruvy+XM+f/f8R+1Krk3+A9eL/4zuJf5/eoToIitX0etCmuR5tpP8B64X/8Wfu67XL0x3HnmqHF/K/D9wNaPx3/vb6DR9zpbxMTU3FHGeAwDqf+Cy8f+b1v3+oObh2XXT80Qx/Zd4ecKjDiXkP3Bl8cjjjP5R4Z8fJmaKyh3A78zQ8MEx6HWy3z3E+KrkP8Cu4Z9d10Xkb1zHSxQXgzmy63LkSHFOdjSvhw1+uojDzgeZ/wcuLIeVeFaHcTbkdmZmFvqD3xHCYY8ky3/gZl3B1h3AYE5pcHD44OcQyX/gwpEfg4L8pT7vnwXUn7OPfgcwfFjpAc/fR9dlF49Jn+dc02HnfyI1EeBS4i3+e7Pww8uCo1DwZ7w/OrKQ+vlS6g9yPmP50EP9D7B+APD8/ywlcQ5/zOGShYcUH/D739/Ff3/+WzKPWmar/wHuSf0PIP8Bbijipm9c/gN3d9dpcPkPiH/5D4D8B0D+AyD/AZD/AMh/AOQ/APIf4HIucsWw738ELhLKXde9ff9iy8VdUVg4umy5TWYMbhYt/wE+Fv9zv9rGRa4Ylv/AReR7MR62ygTz/8BVBwS56tETk/xxjQMA8h+46HAgX0O7sQOY/FPMLnV85n+Ai+R94+HeubWNx3+ePfjlP3Ap8czmhkSPLJb9DWf8nPhYsPwHLlL+d13XReRPhFfFcjzyO/JlHFE6fHC5r0uX/8Ale4Kq+C+cIJRdlzEd9b0HnfoMI8d/gRuJYfy/9xU5P3rIwQLxtl75D/CtZG99XAx/MZwNen+K/Dm1KNY/+XeZ/wEu0gHk9Dn/8ZjZ/4vrGP7f8//Havoo/fM5YIjuZFcGq/+BS8guYhj/EfF2qVYWf/6p53Pw+5xYvndxwd9VBucbA1zugDbA5Bhgj/CLPGOYqv+Be/YER12Z/AfYXv7eBWI4UxSxMsHznF2A47/AnTqAKFzhu8FJ/HHGe0Kb/weQ/wDch/l/4G6levhaGPkPcOee0PwPgPofAPkPgPwHQP4DIP8Bri3mzhWdO5U0uuPeG8L9HwCmwv2Ul/bKf4BVsjvtzT0rmP8BmOsD5D/AnaO/5b4RZxg1mP8BaEzymm/6PcHNFeQ/QMNwIPKZ/c+ILxwizhMMAOQ/wGT5n3M1ftSNCOQ/wInjP8ZGBvHbB8Tb6OCwHP8FWFT9P/+U+fy/3i+P/+bkP8Ci+H9cHvb7j/jpArrneUJHvvS36zrzPwC18R9ddtk/CTT7HUC+9gyHPwdU/gNMl/iDaO+d2JO9f74v8vv/R35zvv8L4Japav4fYPMRg/wHuEvsxyP+zzOpYv4HYMPi/0SZKv8B7sn8D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDIfwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wGQ/wDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wHkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gMg/wHkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gPIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/AdA/gPIfwDkPwDyHwD5D4D8B0D+AyD/AZD/AMh/AOQ/APIfAPkPgPwHQP4DIP8BkP8AyH8A5D8A8h8A+Q+A/Ae4s/8BSP8ZzOmafFoAAAAASUVORK5CYII=" alt="صورة السؤال كما وردت في الاختبار">
-        <div class="q-image-cap">السؤال 26 كما ورد في الاختبار التجريبي للفصل الدراسي الأول 2023/2024 (صفحة 168 من كتاب الطالب)</div>
-      </div>
+    <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>1</td><td>تجريبي 2023/2024 – الفصل الأول</td><td>أ: M</td></tr></tbody></table></details>
+
+<div class="sol-section nq" id="q1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">تجريبي 2023/2024 – الفصل الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س26 في الامتحان · الهدف 8-5 · صفحة 168</span></div>
+<div class="nq-stem">يوضّح الشكل <bdi dir="ltr">26-1</bdi> سلكين نحاسيّين متماثلين يتمّ إسقاطهما من نفس الارتفاع <bdi dir="ltr"><bdi dir="ltr">(h)</bdi></bdi>.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRrwFAABXRUJQVlA4TLAFAAAv2EFPAA8w//M///MfeLDsbHsbWY5qBIwcDlpbh0bJ4QpybDTh1Sx9C9neenYnsxs1GDlr61w3coBWQYDlXJcglWV48jSFcmChefgtfnaJ/NnV7bSI6P8EwHe5BsOZv9f8XXHY+tpAMWh3vhpoBqXxJjlkcWlfC8FCxVT2vj685NBuvHUcysbXl/7MYhFV6uvR2ywyb3/l4P9KHSwd03YX07hTIZ7v13nYf5pMJjK7SCdYXut8gmFWTNC8LqcoXv8SN1Oa7G849Pvcm6C9bKU3KSYoL1f+xJSe14WMaTml5tXhBjk7HMAs3DYuEdO/pihmRUyI6nKK5tXlE8xeSbiL1FvHQSQTLa+Ak2peSxnTxZSelxRRnU5QvHBvgmY2m2CY+fxvkNeiag/W4mCdRzWLy8aUHCqZmIhEZPpAFYmKSLRXEaHF/2tY312eR+X95jtbZPn85H5fL7J8/nnVrxZZfnpfMak9fdey6OBZ8lhHVd06wKLzBR4BbzVrX9LeeNVdAmDRRRXwUEkenTfLorpzdUDWksVAViOA4hgACwDZYq8NuccoH0i5Jc0OgPgRpy2pRtIaAJJT4cg1KR2/hbQsOkBoUhiSWwDouVSANERYUjhGSFtx0Q5DhGMTScFOKFJokhtSQ4JFBxQbUinykgYgXwF4AFgOZD2S1xw/YbRuyGsD2Y4ARM6oLcnQkHEDoCgsnyZzLBwrh5GWRQe0Jdnus2RTwfPtDGDRRRXwUEnLoosm1UAVTVYHKgKVgbIwZR4oD9f5AipUYdocIW+0pgy0DtQEkLZCG6gHuiDbIDMFVEH6IF92nW9I3ZNeA8hedXzjL0E2K8fCsVLkqyR3fXwIMjaOciSNJl8zAIrfQKJCE0Y1QAdUO9Ia8g0LQPwN4AEgNyS3JAVRjoFFYR2gGZHaNQbRLuEoHBWBhkSFMdDKZRyW5A4FaUNJ3QPrSRaAdKldCJEooAIKTXJDMkfv0DqMcawV+Y4mnzIAROP6bQhnBbQjGRwvO1pXH6wDhg3ZKrLTAJYlgApGBQOwWRG1IVoBKHOHXw/njhqA1L3D8hkbolcAYBSANgcfv9Ky6KKq7lydL4BFwEMl47Is1lFVN9PyUIFF5ws8At5qOl/Ssqhua1lLFgNZjQCKY07NtHsAWADIB1JuSbMDIH7EqNiSakdaA0D+kV3uKNkJTQpDcgsAPaRl0QHSEGFJ4Ri5VIDUDrPP5kAIRQpNckNqRsWGrBV5SQOQr0CCRQcsB8eGvOb4CcADwLohrw1kOwIQBaO2JENDxg2AorB8moxsFkStAOSF4TZMkJbFEp6ZVHcJgEUXVcBbTedLWhbF51V/nmZHx5/v6/M0Ozq539fnaTZncl/1qzSbn9xX/SrN5if3Vb9K8zlYBPzvq6uDRYU9OAXw/FlMu5+GKoKMoWRSe7sANuF6bwBWvwRkCIQYsDpG8vjVIMpfjfIEyeMXQsz8PallcSKTxwnWAbS34z8KcYqZ/MBrf/CXerPvWQt5io+K+Wu/C2C8nbXi9BQvF0dD7S/zJe2slvMT3E+SJALManl0gsdhcutJOJ7haTTi6Blskhz/2V8BX9agyCEtgi69fcDIHMEufMnEyDMAJkzhC4lFDUCRNGGtZzgHBgA14T7DtTMdU2piymxMUf6v1BiTUAAuL6OQNtMA2tcYXQISj4iwM5CBUQsIfMmSpz2w5VUCwj5IDCDmBtig5GYeJJaAXQYIfd/xawADWk45IBMjydwC4FXtZYBf8SoAJNZxaoCEnwaRTzWQ2PY1TnYPq4BPgJWwgII0ZAOA33jNiqxZmX0adtKk9roygpkZrsmByx0zYIDU2Eqb2+VrMUDjStqvGG7Yx7S6GvRrEShcSb1Si6+pIYIRO5n0syRJem7ba1SaJC8oVtaxwyhSk33gxUz/i9kVcIWtQFBf1w95TOlZTFkdVR8I" alt="الشكل 26-1" style="max-width:min(440px,100%)"></div>
+<div class="nq-stem">أيّ السلكين يصطدم بسطح الأرض أولًا؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr">M</bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr">K</bdi></span></div></div>
+<div class="nq-stem">فسّر إجابتك.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="q1-ans">
         <div class="sol-body">السلك الذي يصطدم بسطح الأرض أولًا هو السلك (M)، وذلك لأنه لن يتأثر بأي قوة مغناطيسية (لا يمر بمنطقة المجال المغناطيسي، فيسقط سقوطًا حرًا طبيعيًا تحت تأثير الجاذبية فقط).
@@ -485,15 +553,10 @@
 
   </section>
 
-      <div class="sol-section" id="p1">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 1</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">فسّر المقصود بالتيارات الدوّامة (eddy currents)، وكيف تنشأ داخل قطعة معدنية موصلة صلبة (غير مغناطيسية) عند تحرّكها داخل منطقة يوجد بها مجال مغناطيسي غير منتظم (مثل حافة مجال مغناطيسي قوي).</div>
-      </div>
+      <div class="sol-section nq" id="p1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 8-5</span></div>
+<div class="nq-stem">فسّر المقصود بالتيارات الدوّامة <bdi dir="ltr"><bdi dir="ltr">(eddy currents)</bdi></bdi>، وكيف تنشأ داخل قطعة معدنية موصلة صلبة (غير مغناطيسية) عند تحرّكها داخل منطقة يوجد بها مجال مغناطيسي غير منتظم (مثل حافة مجال مغناطيسي قوي).</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p1-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p1-ans">
         <div class="sol-body">التيارات الدوّامة هي تيارات كهربائية دائرية (حلقية) مستحثة تنشأ داخل جسم موصل صلب (كلوح أو قرص معدني) نتيجة تغيّر الفيض المغناطيسي المار خلال أجزاء مختلفة من هذا الجسم، دون الحاجة إلى وجود سلك أو ملف محدد الشكل، حيث يتصرف الجسم الموصل نفسه وكأنه يحتوي على عدد لا نهائي من الحلقات الموصلة المتداخلة.
@@ -504,15 +567,10 @@
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p2">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 2</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">فسّر، باستخدام قانوني فاراداي ولنز معًا، لماذا يتباطأ (يتباطأ بشدة) بندول مصنوع من لوح ألومنيوم صلب عند تأرجحه خلال منطقة مجال مغناطيسي قوي بين قطبي مغناطيس دائم، بينما يواصل بندول مماثل تمامًا مصنوع من الخشب (مادة غير موصلة) تأرجحه بحرية دون أي تأثير يُذكر من المجال نفسه.</div>
-      </div>
+    <div class="sol-section nq" id="p2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 8-5</span></div>
+<div class="nq-stem">فسّر، باستخدام قانوني فاراداي ولنز معًا، لماذا يتباطأ (يتباطأ بشدة) بندول مصنوع من لوح ألومنيوم صلب عند تأرجحه خلال منطقة مجال مغناطيسي قوي بين قطبي مغناطيس دائم، بينما يواصل بندول مماثل تمامًا مصنوع من الخشب (مادة غير موصلة) تأرجحه بحرية دون أي تأثير يُذكر من المجال نفسه.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p2-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p2-ans">
         <div class="sol-body">عندما يتأرجح اللوح المعدني (الموصل) عبر منطقة المجال المغناطيسي، يدخل جزء منه المجال بينما يبقى جزء آخر خارجه (أو يخرج منه)، فيتغيّر الفيض المغناطيسي المار خلال مناطق مختلفة من اللوح باستمرار أثناء حركته. وفق قانون فاراداي، يُستحث نتيجة هذا التغيّر قوى دافعة كهربائية داخل اللوح، ولأن الألومنيوم موصل جيد، تسري تيارات دوّامة كبيرة داخل اللوح.
@@ -525,15 +583,10 @@
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p3">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 3</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">قارن بين حركة بندولين مصنوعين من نفس الشكل والأبعاد تمامًا، أحدهما من الألومنيوم الصلب والآخر من الخشب، عند إطلاقهما من نفس الارتفاع ليتأرجحا خلال نفس منطقة المجال المغناطيسي القوي بين قطبي مغناطيس دائم.</div>
-      </div>
+    <div class="sol-section nq" id="p3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 8-5</span></div>
+<div class="nq-stem">قارن بين حركة بندولين مصنوعين من نفس الشكل والأبعاد تمامًا، أحدهما من الألومنيوم الصلب والآخر من الخشب، عند إطلاقهما من نفس الارتفاع ليتأرجحا خلال نفس منطقة المجال المغناطيسي القوي بين قطبي مغناطيس دائم.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p3-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p3-ans">
         <div class="sol-body">التشابه: قبل الوصول إلى منطقة المجال المغناطيسي، يتأرجح كلا البندولين بنفس الطريقة تقريبًا (تحكمهما نفس قوانين الحركة التوافقية البسيطة، لأن لهما نفس الشكل والأبعاد والكتلة الفعّالة تقريبًا في غياب المجال).
@@ -546,15 +599,10 @@
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p4">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 4</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">اقترح تطبيقًا عمليًا واحدًا يُستفاد فيه من ظاهرة الكبح المغناطيسي بالتيارات الدوّامة، واشرح باختصار كيف تعمل هذه الظاهرة على تحقيق الغرض المطلوب في هذا التطبيق.</div>
-      </div>
+    <div class="sol-section nq" id="p4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 8-5</span></div>
+<div class="nq-stem">اقترح تطبيقًا عمليًا واحدًا يُستفاد فيه من ظاهرة الكبح المغناطيسي بالتيارات الدوّامة، واشرح باختصار كيف تعمل هذه الظاهرة على تحقيق الغرض المطلوب في هذا التطبيق.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p4-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p4-ans">
         <div class="sol-body">من التطبيقات العملية الشائعة لظاهرة الكبح المغناطيسي بالتيارات الدوّامة: أنظمة الفرملة المغناطيسية في بعض القطارات السريعة أو في ألعاب الملاهي (كبرج السقوط الحر)، وكذلك في بعض أجهزة قياس السرعة (عدّادات السرعة القديمة ذات القرص الدوّار).
@@ -565,15 +613,10 @@
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p5">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 5</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يُستخدم في بعض التجارب المعملية قرص معدني موصل (كالألومنيوم) له شكلان: قرص مصمت (سليم بالكامل)، وقرص آخر مطابق له تمامًا لكن قُطعت فيه عدة شقوق نصف قطرية (من الحافة باتجاه المركز تقريبًا) دون أن تصل إلى المركز نفسه. عند تأرجح كل من القرصين خلال منطقة مجال مغناطيسي قوي، لوحظ أن القرص المشقوق يتباطأ بدرجة أقل بكثير من القرص المصمت. فسّر سبب ذلك.</div>
-      </div>
+    <div class="sol-section nq" id="p5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 8-5</span></div>
+<div class="nq-stem">يُستخدم في بعض التجارب المعملية قرص معدني موصل (كالألومنيوم) له شكلان: قرص مصمت (سليم بالكامل)، وقرص آخر مطابق له تمامًا لكن قُطعت فيه عدة شقوق نصف قطرية (من الحافة باتجاه المركز تقريبًا) دون أن تصل إلى المركز نفسه. عند تأرجح كل من القرصين خلال منطقة مجال مغناطيسي قوي، لوحظ أن القرص المشقوق يتباطأ بدرجة أقل بكثير من القرص المصمت. فسّر سبب ذلك.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p5-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p5-ans">
         <div class="sol-body">في القرص المصمت (السليم)، يستطيع المعدن تكوين مسارات دائرية (حلقية) مغلقة وكاملة تمامًا للتيارات الدوّامة داخل جسمه دون أي عائق، فتسري فيه تيارات دوّامة كبيرة نسبيًا عند دخوله أو خروجه من منطقة المجال، مما يُنتج قوى كبح مغناطيسية قوية (وفق قانوني فاراداي ولنز) تُبطئ حركته بشدة.
@@ -586,15 +629,10 @@
       <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 
-    <div class="sol-section" id="p6">
-      <div class="sol-head">
-        <h3>سؤال تدريبي 6</h3>
-        <span class="badge">الهدف 8-5</span><span class="badge practice">تدريبي</span>
-      </div>
-      <div class="q-source">سؤال تدريبي أصلي بأسلوب أسئلة Cambridge International A Level Physics 9702 — من إعداد الأستاذ بدر السعيدي لتوفير مصدر إضافي للتدريب، وليس مأخوذًا من ورقة اختبار رسمية.</div>
-      <div class="q-text-block">
-        <div class="q-text-body">يدخل لوح معدني موصل كتلته 0.40 kg منطقة مجال مغناطيسي قوي بسرعة أفقية مقدارها 2.5 m/s، ونتيجة الكبح المغناطيسي بالتيارات الدوّامة، يخرج من هذه المنطقة بسرعة مقدارها 1.0 m/s فقط (مع إهمال أي تأثير للاحتكاك مع الهواء). احسب مقدار الطاقة الحركية المفقودة من اللوح أثناء عبوره منطقة المجال، واذكر إلى أي صورة من صور الطاقة تحوّلت هذه الطاقة المفقودة.</div>
-      </div>
+    <div class="sol-section nq" id="p6">
+      <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 6">6</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 8-5</span></div>
+<div class="nq-stem">يدخل لوح معدني موصل كتلته <bdi dir="ltr">0.40 kg</bdi> منطقة مجال مغناطيسي قوي بسرعة أفقية مقدارها <bdi dir="ltr">2.5 m/s</bdi>، ونتيجة الكبح المغناطيسي بالتيارات الدوّامة، يخرج من هذه المنطقة بسرعة مقدارها <bdi dir="ltr">1.0 m/s</bdi> فقط (مع إهمال أي تأثير للاحتكاك مع الهواء). احسب مقدار الطاقة الحركية المفقودة من اللوح أثناء عبوره منطقة المجال، واذكر إلى أي صورة من صور الطاقة تحوّلت هذه الطاقة المفقودة.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('p6-ans', this)">إظهار نموذج الحل ↓</button>
       <div class="sol-answer" id="p6-ans">
         <div class="sol-body">الطاقة الحركية الابتدائية: KE₁ = ½ m v₁² = ½ × 0.40 × (2.5)²
