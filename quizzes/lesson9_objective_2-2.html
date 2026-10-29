@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,20 +483,32 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+<tr class="qrow" data-type="official" onclick="goTo('n20703')">
           <td>1</td>
+          <td>قارن في الجدول ٥-١ بين الكميات العددية والكميات المتجهة:<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2022/2023</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20703')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
+          <td>2</td>
           <td>ما الكمية الفيزيائية التي يجب تحديدها مقداراً واتجاهاً؟ (الزمن / التسارع / الكتلة / المساحة)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
-          <td>2</td>
+<tr class="qrow" data-type="official" onclick="goTo('n20702')">
+          <td>3</td>
+          <td>عرّف مفهوم الكمية العددية؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20702')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+          <td>4</td>
           <td>ما المفهوم العلمي الذي يعبر عن "المسافة التي يقطعها جسم ما باتجاه معين"؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
-          <td>3</td>
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
+          <td>5</td>
           <td>أي مما يأتي تعد كمية متجهة؟ (الكتلة / الإزاحة / الزمن / السرعة المتوسطة)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
@@ -532,27 +549,21 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>1</td><td>رسمي 2022/2023 – الدور الأول (الفترة المسائية)</td><td><b>ب</b></td></tr><tr><td>2</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>أ</b></td></tr><tr><td>3</td><td>رسمي 2024/2025 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>2</td><td>رسمي 2022/2023 – الدور الأول (الفترة المسائية)</td><td><b>ب</b></td></tr><tr><td>4</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>أ</b></td></tr><tr><td>5</td><td>رسمي 2024/2025 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<div class="sol-section nq" id="n20703">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س5 في الامتحان · س5 في الامتحان</span></div>
+<div class="nq-stem">قارن في الجدول ٥-١ بين الكميات العددية والكميات المتجهة:</div>
+<table class="nq-tbl"><thead><tr><th>الكمية الفيزيائية</th><th>الكمية العددية</th><th>الكمية المتجهة</th></tr></thead><tbody><tr><td>المفهوم</td><td><span class="bl"></span></td><td><span class="bl"></span></td></tr><tr><td>مثال</td><td><span class="bl"></span></td><td><span class="bl"></span></td></tr></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n20703-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20703-ans">
+        <div class="sol-body"><table class="nq-tbl"><thead><tr><th>الكمية الفيزيائية</th><th>الكمية العددية</th><th>الكمية المتجهة</th></tr></thead><tbody><tr><td>المفهوم</td><td>الكمية التي تحدد بالمقدار</td><td>الكمية التي تحدد بالمقدار والاتجاه</td></tr><tr><td>مثال</td><td>الزمن</td><td>التسارع</td></tr></tbody></table><br>يُقبل أي مثال آخر صحيح.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 5 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
 <div class="sol-section nq" id="q3">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول (الفترة المسائية)</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س7 في الامتحان · الهدف 2.2 · صفحة 43</span></div>
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول (الفترة المسائية)</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س7 في الامتحان · الهدف 2.2 · صفحة 43</span></div>
 <div class="nq-stem">ما الكمية الفيزيائية التي يجب تحديدها مقدارًا واتجاهًا؟</div>
 <div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
 <div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot">الزمن</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">التسارع</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">الكتلة</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">المساحة</span></div></div>
@@ -565,8 +576,19 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n20702">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2023/2024 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb essay">مقالي</span><span class="nq-where">س7 في الامتحان · س7 في الامتحان</span></div>
+<div class="nq-stem">عرّف مفهوم الكمية العددية؟</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n20702-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20702-ans">
+        <div class="sol-body">هي كمية تحدد بالمقدار فقط.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 7 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
 <div class="sol-section nq" id="q1">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2024/2025 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س6 في الامتحان · الهدف 2.2 · صفحة 43</span></div>
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2024/2025 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س6 في الامتحان · الهدف 2.2 · صفحة 43</span></div>
 <div class="nq-stem">ما المفهوم العلمي الذي يعبّر عن «المسافة التي يقطعها جسم ما باتجاه معيّن»؟</div>
 <div class="nq-hint">ظلّل أمام الإجابة الصحيحة.</div>
 <div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot">الإزاحة</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">التسارع</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">السرعة المتوسطة</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">السرعة المتجهة</span></div></div>
@@ -580,7 +602,7 @@
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
 <div class="sol-section nq" id="q2">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س8 في الامتحان · الهدف 2.2 · صفحة 23</span></div>
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س8 في الامتحان · الهدف 2.2 · صفحة 23</span></div>
 <div class="nq-stem">أيّ مما يأتي تُعدّ كمية متجهة؟</div>
 <div class="nq-hint">ظلّل أمام الإجابة الصحيحة.</div>
 <div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot">الكتلة</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">الإزاحة</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot">الزمن</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot">السرعة المتوسطة</span></div></div>
@@ -593,6 +615,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 2.2</span></div>
 <div class="nq-stem">أي الأزواج التالية يُصنَّف فيه العنصر الأول على أنه كمّية عددية (قياسية)، والعنصر الثاني على أنه كمّية متجهة؟</div>
@@ -611,6 +634,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.2</span></div>
 <div class="nq-stem">عرّف الكمّية المتجهة، واذكر مثالين عليها من موضوع وصف الحركة.</div>
@@ -628,6 +652,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.2</span></div>
 <div class="nq-stem">تتحرك سيارة على مضمار دائري بسرعة عددية <bdi dir="ltr">(speed)</bdi> ثابتة لا تتغيّر مقدارها طوال الوقت. هل يمكن اعتبار سرعتها المتجهة <bdi dir="ltr">(velocity)</bdi> ثابتة أيضًا خلال هذه الحركة؟ فسّر إجابتك.</div>
@@ -645,6 +670,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.2</span></div>
 <div class="nq-stem">يمشي شخص مسافة <bdi dir="ltr">50 m</bdi> متجهًا نحو الشمال، ثم يعود فيمشي مسافة <bdi dir="ltr">50 m</bdi> أخرى متجهًا نحو الجنوب حتى يصل إلى نقطة بدايته تمامًا. احسب:</div>
@@ -666,6 +692,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.2</span></div>
 <div class="nq-stem">جسم كتلته <bdi dir="ltr">5 kg</bdi> موضوع على سطح الأرض، حيث شدة مجال الجاذبية الأرضية <bdi dir="ltr">g = 9.8 N/kg</bdi>.</div>

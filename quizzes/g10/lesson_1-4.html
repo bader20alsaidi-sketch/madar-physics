@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -445,17 +450,17 @@
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>1</td><td>شخص يدفع صندوقاً، والشكل يوضح اتجاهات القوى المؤثرة عليه أثناء دفعه (أربعة أسهم بالرموز…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>2</td><td>اكتب قوتين تسبّبان تغيرات في حجم الجسم الصلب وشكله.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>3</td><td>أي من خصائص الجسم الآتية يمكن تغييرها بواسطة القوة المحصّلة عليه؟ (السرعة والشكل والكتل…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
@@ -495,11 +500,7 @@
   </section>
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-  
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ج</b></td></tr><tr><td>تدريبي 4</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q1">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4 · صفحة 43</span></div>
@@ -528,6 +529,7 @@
 <div class="sol-answer" id="q3-ans"><div class="sol-body">السرعة والكتلة واتجاه الحركة (القوة المحصّلة تغيّر من حركة الجسم: سرعته واتجاهه، ولا تغيّر كتلته الجوهرية ولا حجمه أو شكله بحد ذاتها في هذا السياق — والإجابة الصحيحة وفق النموذج الرسمي هي هذا الخيار).</div></div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-4</span></div>
 <div class="nq-stem">أثناء صعود عربة قطار الملاهي على مسار مستقيم بواسطة سلسلة تسحبها إلى الأعلى، تؤثر عليها عدة قوى. أي من القوى التالية المؤثرة على العربة تُصنَّف على أنها قوة تؤثر عن بُعد (لا تحتاج إلى تلامس مباشر)؟</div>
@@ -546,6 +548,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
 <div class="nq-stem">عندما تتحرك عربة قطار الملاهي على جزء أفقي مستقيم من المسار، تؤثر الأرض (المسار) على العربة بقوة تُسمى قوة رد الفعل العمودية <bdi dir="ltr">(Normal Reaction Force)</bdi>. عرّف هذه القوة، وبيّن اتجاهها بالنسبة لسطح المسار في هذه الحالة.</div>
@@ -563,6 +566,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
 <div class="nq-stem">تنحدر عربة قطار الملاهي على جزء مستقيم مائل من المسار دون أن تدفعها أي سلسلة أو محرك. حدِّد نوعي القوتين اللتين تحدّدان معًا ما إذا كانت سرعة العربة ستزداد أم تقل أثناء الانحدار، ووضّح تأثير كل منهما.</div>
@@ -580,6 +584,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-4</span></div>
 <div class="nq-stem">عند مرور عربة قطار الملاهي بأعلى نقطة في حلقة <bdi dir="ltr">(Loop)</bdi> رأسية دائرية، تؤثر عليها كل من وزنها وقوة رد الفعل من المسار. أي مما يلي يصف الاتجاه الصحيح لهاتين القوتين عند تلك النقطة؟</div>
@@ -600,6 +605,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-4</span></div>
 <div class="nq-stem">وفقًا للقانون الثالث لنيوتن، لكل قوة تؤثر بها عربة قطار الملاهي على المسار (عبر عجلاتها) قوة مقابلة لها. صف هذه القوة المقابلة من حيث المقدار والاتجاه ومكان تأثيرها، ووضّح لماذا لا تُعتبر هذه القوة وقوة رد الفعل العمودي المؤثرة على العربة زوج قوى متزنًا (متوازنًا) رغم تساويهما أحيانًا في المقدار.</div>

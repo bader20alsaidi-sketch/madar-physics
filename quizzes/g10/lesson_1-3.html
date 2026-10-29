@@ -413,6 +413,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -432,7 +437,7 @@
     <div class="sub">الوحدة الثالثة: مخاطر الكهرباء — المخاطر الكهربائية</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-3</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>10</b></div>
     </div>
   </div>
 </header>
@@ -442,18 +447,42 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+<tr class="qrow" data-type="official" onclick="goTo('n4')">
           <td>1</td>
+          <td>ماذا يحدث إذا تلف نظام العزل للكابل وكان موصلًا بمصدر للطاقة الكهربائية؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n4')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+          <td>2</td>
           <td>متى يتعرض الشخص لخطر الصدمة الكهربائية؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n2')">
+          <td>3</td>
+          <td>اشرح أحد المخاطر التي قد تنشأ عند استخدام كيبل رفيع نسبيًا لشحن سيارة كبيرة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2024/2025</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n2')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n3')">
+          <td>4</td>
+          <td>اشرح كيف يمكن لتلف العوازل أن يؤدي إلى حدوث صدمة كهربائية. حدد الخطر الناشئ عن توصيل عدد كبير من الأ…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2024/2025</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n3')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n1')">
+          <td>5</td>
+          <td>يقوم فني كهرباء بفحص غرفة غسيل الملابس بالمنزل، ووجد المفتاح الكهربائي الموضح بالشكل ١-٩ داخل غرفة ا…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n1')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>2</td>
@@ -491,22 +520,21 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 4</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<div class="sol-section nq" id="n4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb essay">مقالي</span><span class="nq-where">س10 في الامتحان · س10 في الامتحان</span></div>
+<div class="nq-stem">ماذا يحدث إذا تلف نظام العزل للكابل وكان موصلًا بمصدر للطاقة الكهربائية؟</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n4-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n4-ans">
+        <div class="sol-body">يتعرض الأشخاص لصدمة كهربائية عند لمس السلك مباشرةً.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 10 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
 <div class="sol-section nq" id="q1">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3 · صفحة 38</span></div>
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3 · صفحة 38</span></div>
 <div class="nq-stem">متى يتعرض الشخص لخطر الصدمة الكهربائية؟</div>
 <div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
       <button class="show-btn" onclick="toggleSol('q1-ans', this)">إظهار نموذج الحل ↓</button>
@@ -515,6 +543,45 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2024/2025 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س11 في الامتحان · س11 في الامتحان</span></div>
+<div class="nq-stem">اشرح أحد المخاطر التي قد تنشأ عند استخدام كيبل رفيع نسبيًا لشحن سيارة كبيرة.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n2-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n2-ans">
+        <div class="sol-body">الخطر: نشوب حريق، أو انصهار الكيبل.<br>الشرح: ارتفاع درجة الحرارة بسبب تدفق تيار كهربائي شدته كبيرة.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 11 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س11 في الامتحان · س11 في الامتحان</span></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">اشرح كيف يمكن لتلف العوازل أن يؤدي إلى حدوث صدمة كهربائية.</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">حدد الخطر الناشئ عن توصيل عدد كبير من الأجهزة الكهربائية بمقبس رئيسي واحد.</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n3-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n3-ans">
+        <div class="sol-body">(أ) عند لمس الأسلاك المكشوفة يتدفق التيار الكهربائي عبر الجسم ويجعل العضلات تنقبض بشدة.
+
+(ب) ارتفاع حرارة الكيبل أو نشوب حريق.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 11 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb essay">مقالي</span><span class="nq-where">س9 في الامتحان · س9 في الامتحان</span></div>
+<div class="nq-stem">يقوم فني كهرباء بفحص غرفة غسيل الملابس بالمنزل، ووجد المفتاح الكهربائي الموضح بالشكل ١-٩ داخل غرفة الغسيل وأوصى بنقله خارجها. لماذا أوصى بذلك؟</div>
+<div class="nq-fig"><img src="data:image/webp;base64,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" alt="شكل من ورقة الامتحان" style="max-width:min(122px,100%)"></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n1-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n1-ans">
+        <div class="sol-body">لتجنب المخاطر الناتجة عن الرطوبة أو البلل؛ لأن رطوبة غرفة الغسيل تزيد من خطر حدوث صدمة كهربائية (الماء موصل للكهرباء).</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 9 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-3</span></div>
 <div class="nq-stem">أي مما يلي يُعد من المخاطر الكهربائية الشائعة في المنزل؟</div>
@@ -533,6 +600,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3</span></div>
 <div class="nq-stem">فسّر لماذا يشكّل استخدام الأجهزة الكهربائية في الأماكن الرطبة (مثل الحمام) خطرًا كبيرًا على الإنسان، رغم أن الماء النقي في حد ذاته موصل ضعيف جدًا للكهرباء.</div>
@@ -548,6 +616,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3</span></div>
 <div class="nq-stem">اذكر سببين قد يؤديان إلى ارتفاع درجة حرارة سلك التوصيل الكهربائي بشكل خطير، ووضّح كيف يمكن أن يؤدي ذلك إلى نشوب حريق.</div>
@@ -563,6 +632,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-3</span></div>
 <div class="nq-stem">يظهر على سلك كهربائي تمزق في الغلاف العازل الخارجي مما يكشف السلك المعدني الداخلي. ما الخطر الرئيسي الناتج عن ذلك؟</div>
@@ -581,6 +651,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-3</span></div>
 <div class="nq-stem">منزل به دائرة كهربائية مصممة لتحمّل تيار أقصاه <bdi dir="ltr">13</bdi> أمبير بأمان. إذا وُصّلت عدة أجهزة كهربائية في آنٍ واحد بحيث أصبح مجموع التيار المسحوب من هذه الدائرة <bdi dir="ltr">18</bdi> أمبير، وضّح الخطر المترتب على ذلك، وما الإجراء الوقائي الذي يجب اتخاذه لتجنبه.</div>

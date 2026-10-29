@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,41 +483,47 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q6')">
+        <tr class="qrow" data-type="official" onclick="goTo('q6')">
           <td>1</td>
           <td>طائرة وزنها 3×10^5 N تحلق أفقياً بقوة محرك مقدارها 6×10^5 N. احسب محصلة القوى المؤثرة على الطائرة باستخدام مثلث المتجهات.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>2</td>
           <td>قوتان متعامدتان (15N و20N) تؤثران على جسم، إيجاد المحصلة بمثلث المتجهات (مقداراً واتجاهاً)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>3</td>
           <td>جسم مؤثر عليه 4 قوى بالاتجاهات الأربعة (شمال/جنوب/شرق/غرب)، إيجاد القوة اللازمة لجعله متزناً<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>4</td>
           <td>جسم تحت تأثير قوتين متعامدتين F₁=12N و F₂=10N: احسب محصلتهما باستخدام مثلث المتجهات<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>5</td>
           <td>يوضح الشكل حلقة معدنية تؤثر عليها ثلاث قوى شد من خلال ثلاثة حبال: الحبل A بقوة (80N) أفقيًا، والحبل B بقوة (120N) رأسيًا، والحبل C بزاوية θ. احسب مقدار قوة الشد في الحبل C واتجاهها (θ) مع المحور الأفقي؛ لجعل الحلقة المعدنية ساكنة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q5')">
+        <tr class="qrow" data-type="official" onclick="goTo('q5')">
           <td>6</td>
           <td>كرة تنس كتلتها (59 g) تتحرك بتأثير قوة أفقية مقدارها (0.341 N). احسب محصلة القوى المؤثرة عليها.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40801')">
+          <td>7</td>
+          <td>يوضّح الشكل ٣١-١ شخص متعلق بحبل. أثبت أن T=w إذا كانت الزاوية )∘(θ=30 عند حالة اتزان الجسم.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40801')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>7</td>
@@ -550,29 +561,6 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q6">
@@ -689,6 +677,19 @@ F = √(0.341² + 0.578²) = 0.67 N</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n40801">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 7">7</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س31 في الامتحان · س31 في الامتحان</span></div>
+<div class="nq-stem">يوضّح الشكل ٣١-١ شخص متعلق بحبل. أثبت أن <bdi dir="ltr">T=w</bdi> إذا كانت الزاوية <bdi dir="ltr">)<sup>∘</sup>(θ=30</bdi> عند حالة اتزان الجسم.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,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" alt="شكل من ورقة الامتحان" style="max-width:min(366px,100%)"></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n40801-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40801-ans">
+        <div class="sol-body">محصلة القوى الرأسية: <bdi dir="ltr">w = T sin θ + T sin θ = 2T sin θ</bdi><br>عندما <bdi dir="ltr">θ = 30°</bdi> : <bdi dir="ltr">w = 2T sin 30° = 2T × 0.5 ⇒ T = w</bdi></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 31 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 4.9</span></div>
 <div class="nq-stem">إذا كانت ثلاث قوى متزامنة (تؤثر عند نقطة واحدة) في حالة اتزان تام، فما الخاصية الهندسية التي يجب أن تتحقق عند تمثيل هذه القوى الثلاث بمتجهات متتالية (رأس إلى ذيل)؟</div>
@@ -707,6 +708,7 @@ F = √(0.341² + 0.578²) = 0.67 N</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.9</span></div>
 <div class="nq-stem">اشرح لماذا يُمثَّل اتزان ثلاث قوى غير متوازية بمثلث قوى مغلق، مستعينًا بقانون نيوتن الأول للحركة.</div>
@@ -722,6 +724,7 @@ F = √(0.341² + 0.578²) = 0.67 N</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.9</span></div>
 <div class="nq-stem">يتدلى مصباح ساكن بواسطة خيطين: خيط أفقي <bdi dir="ltr">T<sub>1</sub></bdi> متصل بحائط جانبي، وخيط مائل <bdi dir="ltr">T<sub>2</sub></bdi> متصل بالسقف بزاوية <bdi dir="ltr">60°</bdi> فوق الأفقي، بالإضافة إلى وزن المصباح <bdi dir="ltr">W = 20 N</bdi> المتجه رأسيًا لأسفل. عند تمثيل القوى الثلاث (<bdi dir="ltr">W</bdi>، <bdi dir="ltr">T<sub>1</sub></bdi>، <bdi dir="ltr">T<sub>2</sub></bdi>) متتالية (رأس إلى ذيل) للحصول على مثلث القوى الخاص بها، ينتج مثلث قائم الزاوية. باستخدام الدوال المثلثية، احسب <bdi dir="ltr">T<sub>1</sub></bdi> و<bdi dir="ltr">T<sub>2</sub></bdi>.</div>
@@ -747,6 +750,7 @@ T₁ = W / tan 60° = 20 / 1.732 ≈ 11.5 N
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.9</span></div>
 <div class="nq-stem">جسم معلّق في حالة اتزان تام تحت تأثير ثلاث قوى متزامنة: الوزن <bdi dir="ltr">W = 50 N</bdi> رأسيًا لأسفل، وقوتا شد <bdi dir="ltr">T<sub>1</sub></bdi> و<bdi dir="ltr">T<sub>2</sub></bdi> في حبلين. عند رسم مثلث القوى (بالتوالي، رأس إلى ذيل)، تبيّن أن الزاوية المقابلة لضلع القوة <bdi dir="ltr">W</bdi> تساوي <bdi dir="ltr">100°</bdi>، والزاوية المقابلة لضلع <bdi dir="ltr">T<sub>1</sub></bdi> تساوي <bdi dir="ltr">40°</bdi>، والزاوية المقابلة لضلع <bdi dir="ltr">T<sub>2</sub></bdi> تساوي <bdi dir="ltr">40°</bdi> أيضًا (أي أن المثلث متساوي الساقين). باستخدام قاعدة الجيب <bdi dir="ltr">(sine rule)</bdi>، احسب مقدار كل من <bdi dir="ltr">T<sub>1</sub></bdi> و<bdi dir="ltr">T<sub>2</sub></bdi>.</div>
@@ -776,6 +780,7 @@ T₂ ≈ 32.6 N
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.9</span></div>
 <div class="nq-stem">تؤثر على نقطة ساكنة قوتان: <bdi dir="ltr">F1 = 8 N</bdi> نحو الشرق، و<bdi dir="ltr">F2 = 6 N</bdi> نحو الشمال (متعامدتان تمامًا)، بالإضافة إلى قوة ثالثة <bdi dir="ltr">F3</bdi> مجهولة المقدار والاتجاه تجعل النقطة في حالة اتزان تام. باستخدام مفهوم مثلث القوى المغلق، احسب مقدار القوة <bdi dir="ltr">F3</bdi> واتجاهها (الزاوية التي تصنعها مع اتجاه <bdi dir="ltr">F1</bdi>).</div>

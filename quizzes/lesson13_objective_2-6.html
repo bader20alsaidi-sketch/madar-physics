@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -463,8 +468,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -477,23 +482,29 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>1</td>
           <td>يوضح التمثيل البياني في الشكل (7-1) العلاقة بين الإزاحة والزمن لحركة جسم في خط مستقيم. احسب السرعة المتجهة للجسم.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>2</td>
           <td>يوضح الشكل التمثيل البياني (الإزاحة – الزمن) لحركة جسم. أوجد السرعة المتجهة في الفترة الزمنية (5 s - 9 s).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>3</td>
           <td>يوضح الشكل (1-11) التمثيل البياني (الإزاحة – الزمن) لحركة سيارة. ما الزمن اللازم لتصل السيارة إلى الإزاحة (s = 16 m)؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n20301')">
+          <td>4</td>
+          <td>يوضّح الشكل ١١-١ أربعة أجسام تتحرك في مسارات مختلفة. أي الأجسام التالية سرعته أكبر؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20301')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>4</td>
@@ -531,25 +542,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>أ</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q3">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س7 في الامتحان · الهدف 2.6 · صفحة 47</span></div>
 <div class="nq-stem">يوضح التمثيل البياني في الشكل <bdi dir="ltr">(7-1)</bdi> العلاقة بين الإزاحة والزمن لحركة جسم في خط مستقيم.</div>
@@ -604,6 +598,20 @@ t = 18.67 s</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n20301">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س11 في الامتحان · س11 في الامتحان</span></div>
+<div class="nq-stem">يوضّح الشكل ١١-١ أربعة أجسام تتحرك في مسارات مختلفة. أي الأجسام التالية سرعته أكبر؟</div>
+<div class="nq-fig"><img src="data:image/webp;base64,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" alt="شكل من ورقة الامتحان" style="max-width:min(251px,100%)"></div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr">A</bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr">B</bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr">C</bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr">D</bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n20301-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20301-ans">
+        <div class="sol-body">الإجابة الصحيحة: أ — <bdi dir="ltr">A</bdi><br>الجسم <bdi dir="ltr">A</bdi> لأن ميل منحنى (الإزاحة – الزمن) له هو الأكبر.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 11 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 2.6</span></div>
 <div class="nq-stem">في تمثيل بياني للإزاحة مقابل الزمن، ماذا يمثّل ميل <bdi dir="ltr">(gradient)</bdi> الخط المرسوم عند أي نقطة على المنحنى؟</div>
@@ -622,6 +630,7 @@ t = 18.67 s</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.6</span></div>
 <div class="nq-stem">وضّح العلاقة بين درجة انحدار (شدة ميل) خط الإزاحة-الزمن ومقدار السرعة المتجهة، ثم وضّح ماذا تدل عليه إشارة الميل (موجب أو سالب) بخصوص اتجاه الحركة.</div>
@@ -637,6 +646,7 @@ t = 18.67 s</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.6</span></div>
 <div class="nq-stem">يمثّل خط مستقيم على تمثيل بياني للإزاحة-الزمن حركة جسم، حيث يبدأ الخط من النقطة (الزمن = <bdi dir="ltr">0 s</bdi>، الإزاحة = <bdi dir="ltr">0 m</bdi>) وينتهي عند النقطة (الزمن = <bdi dir="ltr">10 s</bdi>، الإزاحة = <bdi dir="ltr">50 m</bdi>). احسب ميل هذا الخط، وما الذي يمثّله هذا الميل فيزيائيًا؟</div>
@@ -655,6 +665,7 @@ t = 18.67 s</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.6</span></div>
 <div class="nq-stem">سجّل طالب في تجربة قيم إزاحة جسم عند لحظات زمنية مختلفة كما في الجدول التالي:</div>
@@ -677,6 +688,7 @@ t = 18.67 s</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.6</span></div>
 <div class="nq-stem">يتكوّن تمثيل بياني للإزاحة-الزمن لحركة جسم من جزأين: الجزء الأول خط مستقيم يبدأ من النقطة (<bdi dir="ltr">0 s</bdi>، <bdi dir="ltr">0 m</bdi>) وينتهي عند النقطة (<bdi dir="ltr">5 s</bdi>، <bdi dir="ltr">20 m</bdi>)، والجزء الثاني خط أفقي مستقيم يمتد من النقطة (<bdi dir="ltr">5 s</bdi>، <bdi dir="ltr">20 m</bdi>) إلى النقطة (<bdi dir="ltr">15 s</bdi>، <bdi dir="ltr">20 m</bdi>).</div>

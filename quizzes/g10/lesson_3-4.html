@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -429,7 +434,7 @@
     <div class="sub">الوحدة الرابعة: تأثيرات القوى — القوّة والكتلة والتسارع</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>3-4</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>6</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>11</b></div>
     </div>
   </div>
 </header>
@@ -438,17 +443,47 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (6)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (1)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>1</td><td>أكمل الجدول: ما المصطلح الفيزيائي الذي تعريفه "القوة التي لها نفس تأثير قوتين أو أكثر م…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n5')">
+          <td>2</td>
+          <td>يوضح الشكل (١-١٧) طائرة تحلق في الهواء تتعرض لعدة قوى.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2024/2025</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n5')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n1')">
+          <td>3</td>
+          <td>أثرت محصلة قوى مقدارها (F) على جسم كتلته (m) فأكسبته تسارع (a). ما مقدار التسارع إذا تضاعفت القوى أر…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n2')">
+          <td>4</td>
+          <td>أثرت قوى مختلفة على أربعة أجسام متماثلة، ما الجسم الذي يكتسب أكبر تسارع؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n2')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n3')">
+          <td>5</td>
+          <td>قوة محصلة مقدارها (700 N) أثرت على جسم كتلته (25 kg) فحركته أفقيًا باتجاه اليمين. التسارع الذي يكتسب…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n3')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n4')">
+          <td>6</td>
+          <td>أثرت قوة مقدارها (F) على جسم كتلته (m) فأكسبته تسارع (a)، إذا قلت القوة المؤثرة على الجسم إلى ربع ما…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n4')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>2</td>
@@ -485,20 +520,8 @@
   </section>
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ج</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>3</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>4</td><td>رسمي 2025/2026 – الدور الثاني</td><td><b>ج</b></td></tr><tr><td>5</td><td>رسمي 2025/2026 – الدور الثاني</td><td><b>أ</b></td></tr><tr><td>6</td><td>رسمي 2025/2026 – الدور الثاني</td><td><b>ج</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ج</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q1">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3-4 · صفحة 49</span></div>
 <div class="nq-stem">أكمل الجدول: ما المصطلح الفيزيائي الذي تعريفه "القوة التي لها نفس تأثير قوتين أو أكثر مؤثرتين على جسم ما"؟</div>
@@ -508,6 +531,72 @@
 <div class="sol-answer" id="q1-ans"><div class="sol-body">محصّلة القوى (القوة المحصّلة).</div></div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n5">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb marks">3 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س17 في الامتحان · س17 في الامتحان</span></div>
+<div class="nq-stem">يوضح الشكل (١-١٧) طائرة تحلق في الهواء تتعرض لعدة قوى.</div>
+<div class="nq-fig"><img src="data:image/webp;base64,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" alt="شكل من ورقة الامتحان" style="max-width:min(295px,100%)"></div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">ما مقدار مقاومة الهواء المؤثرة على حركة الطائرة؟</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">احسب تسارع الطائرة إذا علمت أن كتلة الطائرة <bdi dir="ltr"><bdi dir="ltr">(16000 kg)</bdi></bdi>.</div><span class="nq-pm">[2]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n5-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n5-ans">
+        <div class="sol-body">(أ) <bdi dir="ltr">1000 N</bdi>
+
+(ب) المحصلة <bdi dir="ltr">20000 − 1000 = 19000 N =</bdi><br><bdi dir="ltr">F = m a ⟸ a = <span class="fr"><i>F</i><i>m</i></span> = <span class="fr"><i>19000</i><i>16000</i></span> = 1.19 ≈ 1.2 m/s<sup>2</sup></bdi><br>الإجابة النهائية <bdi dir="ltr">| a = 1.2 m/s<sup>2</sup></bdi></div>
+        <div class="grade-note">الدرجة: 3 — السؤال رقم 17 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س12 في الامتحان · س12 في الامتحان</span></div>
+<div class="nq-stem">أثرت محصلة قوى مقدارها <bdi dir="ltr"><bdi dir="ltr">(F)</bdi></bdi> على جسم كتلته <bdi dir="ltr"><bdi dir="ltr">(m)</bdi></bdi> فأكسبته تسارع <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi>. ما مقدار التسارع إذا تضاعفت القوى أربعة أضعاف؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>m</i><i>4F</i></span></bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>4F</i><i>m</i></span></bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>F</i><i>4m</i></span></bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>4m</i><i>F</i></span></bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n1-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n1-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — <bdi dir="ltr"><span class="fr"><i>4F</i><i>m</i></span></bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 12 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س10 في الامتحان · س10 في الامتحان</span></div>
+<div class="nq-stem">أثرت قوى مختلفة على أربعة أجسام متماثلة، ما الجسم الذي يكتسب أكبر تسارع؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts f2"><div class="nq-opt fg"><span class="lt">أ</span><img src="data:image/webp;base64,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" alt="الخيار أ" style="max-width:min(160px,100%)"></div><div class="nq-opt fg"><span class="lt">ب</span><img src="data:image/webp;base64,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" alt="الخيار ب" style="max-width:min(160px,100%)"></div><div class="nq-opt fg"><span class="lt">ج</span><img src="data:image/webp;base64,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" alt="الخيار ج" style="max-width:min(159px,100%)"></div><div class="nq-opt fg"><span class="lt">د</span><img src="data:image/webp;base64,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" alt="الخيار د" style="max-width:min(160px,100%)"></div></div>
+      <button class="show-btn" onclick="toggleSol('n2-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n2-ans">
+        <div class="sol-body">الإجابة الصحيحة: ج</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 10 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n3">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س12 في الامتحان · س12 في الامتحان</span></div>
+<div class="nq-stem">قوة محصلة مقدارها <bdi dir="ltr"><bdi dir="ltr">(700 N)</bdi></bdi> أثرت على جسم كتلته <bdi dir="ltr"><bdi dir="ltr">(25 kg)</bdi></bdi> فحركته أفقيًا باتجاه اليمين. التسارع الذي يكتسبه الجسم بوحدة <bdi dir="ltr"><bdi dir="ltr">(m/s<sup>2</sup>)</bdi></bdi> يساوي:</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr">28</bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr">675</bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr">725</bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr">17500</bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n3-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n3-ans">
+        <div class="sol-body">الإجابة الصحيحة: أ — <bdi dir="ltr">28</bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 12 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n4">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س14 في الامتحان · س14 في الامتحان</span></div>
+<div class="nq-stem">أثرت قوة مقدارها <bdi dir="ltr"><bdi dir="ltr">(F)</bdi></bdi> على جسم كتلته <bdi dir="ltr"><bdi dir="ltr">(m)</bdi></bdi> فأكسبته تسارع <bdi dir="ltr"><bdi dir="ltr">(a)</bdi></bdi>، إذا قلت القوة المؤثرة على الجسم إلى ربع ما كانت عليه، فإن تسارع الجسم يساوي:</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>4F</i><i>4m</i></span></bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>4F</i><i>m</i></span></bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>F</i><i>4m</i></span></bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr"><span class="fr"><i>4m</i><i>F</i></span></bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n4-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n4-ans">
+        <div class="sol-body">الإجابة الصحيحة: ج — <bdi dir="ltr"><span class="fr"><i>F</i><i>4m</i></span></bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 14 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 3-4</span></div>
 <div class="nq-stem">وفقًا لقانون نيوتن الثاني للحركة (القوة = الكتلة × التسارع)، إذا أثّرت قوة محصّلة ثابتة على جسمين مختلفين في الكتلة، فإن الجسم ذا الكتلة الأكبر سيكتسب:</div>
@@ -526,6 +615,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3-4</span></div>
 <div class="nq-stem">أثّرت قوة محصّلة مقدارها <bdi dir="ltr">60</bdi> نيوتن على جسم كتلته <bdi dir="ltr">12</bdi> كجم كان ساكنًا على سطح أفقي أملس. احسب مقدار تسارع الجسم الناتج عن هذه القوة.</div>
@@ -541,6 +631,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3-4</span></div>
 <div class="nq-stem">تحرّكت عربة بتسارع مقداره <bdi dir="ltr">2.5</bdi> م/ث² تحت تأثير قوة محصّلة مقدارها <bdi dir="ltr">175</bdi> نيوتن. احسب كتلة العربة.</div>
@@ -556,6 +647,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3-4</span></div>
 <div class="nq-stem">يجرّ عاملان صندوقًا كتلته <bdi dir="ltr">25</bdi> كجم على أرض أفقية: يجذبه أحدهما بقوة مقدارها <bdi dir="ltr">90</bdi> نيوتن في اتجاه معيّن، بينما تقاوم حركته قوة احتكاك مقدارها <bdi dir="ltr">40</bdi> نيوتن في الاتجاه المعاكس. احسب مقدار تسارع الصندوق الناتج.</div>
@@ -571,6 +663,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3-4</span></div>
 <div class="nq-stem">توضّح شركة مصنّعة للسيارات أن سيارة الشحن الثقيلة تحتاج إلى قوة كبح (فرملة) أكبر بكثير من السيارة الصغيرة لتتوقف بنفس معدل التباطؤ (التسارع السالب). فسّر هذه الحقيقة باستخدام العلاقة بين القوة والكتلة والتسارع.</div>

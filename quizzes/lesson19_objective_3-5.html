@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -463,8 +468,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -477,29 +482,41 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>1</td>
           <td>كرة تسقط سقوطاً حراً من أعلى بناية وتصل إلى الأرض بعد 3 ثوان. احسب طول البناية بإهمال مقاومة الهواء.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>2</td>
           <td>سيارة تتحرك بسرعة (10 m/s) تتباطأ بمقدار (5 m/s²) حتى تتوقف عند الضغط على المكابح. احسب المسافة اللازمة للتوقف.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>3</td>
           <td>أحمد يقذف كرة رأسياً، ويلاحظ تغير اتجاه الكرة بعد 3s. احسب السرعة الابتدائية التي قُذفت بها الكرة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>4</td>
           <td>يمثل الشكل منحنى (التسارع – الزمن) لحركة جسم يبدأ من السكون لمدة خمس ثوانٍ. أ) عرّف التسارع. ب) إذا كانت سرعة الجسم عند (t=2s) تساوي (4 m s⁻¹)، احسب المسافة الكلية التي قطعها الجسم خلال الفترة (0 – 5s) باستخدام معادلات الحركة الخطية.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n30701')">
+          <td>5</td>
+          <td>اذكر الحالتين اللتيْن تستخدم فيهما معادلات الحركة الخطية (معادلات سوڤات).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n30701')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n30702')">
+          <td>6</td>
+          <td>تسير سيارة بسرعة (30 m s−1)، تم الضغط على المكابح فتحركت بتسارع (−10 m s−2) حتى توقفت. احسب الزمن ال…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n30702')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>5</td>
@@ -537,25 +554,6 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q3">
@@ -633,6 +631,29 @@ u = 29.43 m.s⁻¹</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n30701">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س16 في الامتحان · س16 في الامتحان</span></div>
+<div class="nq-stem">اذكر الحالتين اللتيْن تستخدم فيهما معادلات الحركة الخطية (معادلات سوڤات).</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n30701-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n30701-ans">
+        <div class="sol-body">حركة جسم في خط مستقيم.<br>حركة جسم بتسارع ثابت.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 16 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n30702">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س21 في الامتحان · س21 في الامتحان</span></div>
+<div class="nq-stem">تسير سيارة بسرعة <bdi dir="ltr"><bdi dir="ltr">(30 m s<sup>−1</sup>)</bdi></bdi>، تم الضغط على المكابح فتحركت بتسارع <bdi dir="ltr"><bdi dir="ltr">(−10 m s<sup>−2</sup>)</bdi></bdi> حتى توقفت. احسب الزمن الذي تستغرقه السيارة للتوقف.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n30702-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n30702-ans">
+        <div class="sol-body"><bdi dir="ltr">v=u+at</bdi><br><bdi dir="ltr">0=30+(−10)t⇒t=3 s</bdi><br>الإجابة النهائية: <bdi dir="ltr">3 s</bdi></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 21 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 3.5</span></div>
 <div class="nq-stem">سيارة تتحرك بتسارع منتظم غير معلوم <bdi dir="ltr">a</bdi>، وتنطلق من سرعة ابتدائية <bdi dir="ltr">u</bdi> معلومة، وتقطع مسافة <bdi dir="ltr">s</bdi> معلومة خلال زمن <bdi dir="ltr">t</bdi> معلوم، دون أن تُعطى سرعتها النهائية <bdi dir="ltr">v</bdi>. أي معادلات الحركة التالية هي الأنسب لإيجاد التسارع <bdi dir="ltr">a</bdi> مباشرة دون الحاجة لحساب <bdi dir="ltr">v</bdi> أولاً؟</div>
@@ -653,6 +674,7 @@ u = 29.43 m.s⁻¹</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.5</span></div>
 <div class="nq-stem">اشرح متى تكون معادلة الحركة <bdi dir="ltr">v<sup>2</sup> = u<sup>2</sup> + 2as</bdi> هي الخيار الأنسب لحل مسألة حركة بتسارع منتظم، مقارنة بالمعادلات الأخرى.</div>
@@ -668,6 +690,7 @@ u = 29.43 m.s⁻¹</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.5</span></div>
 <div class="nq-stem">يتحرك قطار بسرعة منتظمة قدرها <bdi dir="ltr">30 m/s</bdi>، ثم يبدأ السائق بالكبح فيتباطأ القطار بمعدل منتظم حتى يتوقف تمامًا بعد قطع مسافة <bdi dir="ltr">300 m</bdi>. احسب:</div>
@@ -695,6 +718,7 @@ t = 30 / 1.5 = 20 s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.5</span></div>
 <div class="nq-stem">يتحرك جسم بتسارع منتظم مقداره <bdi dir="ltr">4 m/s<sup>2</sup></bdi>، وكانت سرعته الابتدائية <bdi dir="ltr">5 m/s</bdi>. احسب:</div>
@@ -719,6 +743,7 @@ v = 5 + (4×6) = 5 + 24 = 29 m/s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.5</span></div>
 <div class="nq-stem">ينطلق دراج بسرعة <bdi dir="ltr">2 m/s</bdi> ثم يزيد من سرعته بمعدل منتظم حتى تصل سرعته إلى <bdi dir="ltr">8 m/s</bdi> بعد قطع مسافة <bdi dir="ltr">25 m</bdi>. احسب مقدار تسارع الدراج خلال هذه الفترة.</div>

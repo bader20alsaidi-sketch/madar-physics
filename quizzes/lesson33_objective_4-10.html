@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,35 +483,47 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>1</td>
           <td>اسطوانة معدنية معلقة بحبلين في حالة اتزان، حساب وزنها من تحليل مركبتي قوة شد الحبل الثاني<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>2</td>
           <td>زلاجة تُسحب على مسار جليدي بقوتين (200N بزاوية 65°، 120N بزاوية 45° من الخط العمودي على المسار)؛ احسب القوة الأفقية المحصلة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>3</td>
           <td>صندوق يُسحب بواسطة قوتين مقدار كل منهما 40N بزاوية 35° عن الأفقي: احسب محصلة القوة<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>4</td>
           <td>تؤثر قوة مقدارها (10N) على جسم ما. إذا كانت المركبة الأفقية للقوة (6N)، فما مقدار المركبة الرأسية؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q5')">
+        <tr class="qrow" data-type="official" onclick="goTo('q5')">
           <td>5</td>
           <td>جسم كتلته (50 kg) مُعلَّق بحبلين بين جدارين، كل حبل يميل بزاوية (40°) عن الرأسي. احسب قوة الشد على أحد الحبلين.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40901')">
+          <td>6</td>
+          <td>يوضّح الشكل ٣٠-١ شخص يجر عربة بقوة. جِد المُركّبة الأفقية<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40901')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40902')">
+          <td>7</td>
+          <td>يوضّح الجدول ٢٦-١ نتائج قياسات سيارة ألعاب تنزلق على منحدر مائل بزاوية (θ) مع الأفقي على سطح أملس. ا…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40902')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>6</td>
@@ -544,29 +561,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>7</td><td>رسمي 2025/2026 – الدور الثاني</td><td><b>د</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q2">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الثاني</span><span class="nb marks">3 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س19 في الامتحان · الهدف 4.10</span></div>
 <div class="nq-stem">يوضّح الشكل <bdi dir="ltr">(19-1)</bdi> أسطوانة من المعدن معلّقة بواسطة حبلين في حالة اتزان. قوة شد الحبل الأول <bdi dir="ltr">(T<sub>1</sub> = 36 N)</bdi> أفقيًا وقوة شد الحبل الثاني <bdi dir="ltr">(T<sub>2</sub>)</bdi> تصنع مع الأفقي زاوية قدرها <bdi dir="ltr">(30°)</bdi>.</div>
@@ -668,6 +664,34 @@ F = (50 × 9.81) ÷ (2 × 0.766) = 320.15 N</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n40901">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س30 في الامتحان · س30 في الامتحان</span></div>
+<div class="nq-fig"><img src="data:image/webp;base64,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" alt="شكل من ورقة الامتحان" style="max-width:min(229px,100%)"></div>
+<div class="nq-stem">يوضّح الشكل ٣٠-١ شخص يجر عربة بقوة. جِد المُركّبة الأفقية</div>
+<div class="nq-part"><span class="nq-pl">و</span><div class="nq-pt">الرأسية لهذه القوة موضّحاً خطوات الحل.</div></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n40901-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40901-ans">
+        <div class="sol-body">المركّبة الأفقية: <bdi dir="ltr">F<sub>x</sub> = F cos θ = 80 cos 30° = 69.28 N</bdi><br>المركّبة الرأسية: <bdi dir="ltr">F<sub>y</sub> = F sin θ = 80 sin 30° = 40 N</bdi><br>الإجابة النهائية: <bdi dir="ltr">F<sub>x</sub> = 69.28 N</bdi> ، <bdi dir="ltr">F<sub>y</sub> = 40 N</bdi></div>
+        <div class="grade-note">الدرجة: 4 — السؤال رقم 30 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n40902">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 7">7</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س26 في الامتحان · س26 في الامتحان</span></div>
+<div class="nq-stem">يوضّح الجدول ٢٦-١ نتائج قياسات سيارة ألعاب تنزلق على منحدر مائل بزاوية <bdi dir="ltr"><bdi dir="ltr">(θ)</bdi></bdi> مع الأفقي على سطح أملس. استنتج الزاوية التي تنتج أعلى قيمة لمركّبة الوزن الموازية للمنحدر باتجاه الأسفل.</div>
+<table class="nq-tbl"><thead><tr><th>رقم المحاولة</th><th>الكتلة <bdi dir="ltr">(kg)</bdi></th><th>الزاوية )<bdi dir="ltr"><sup>∘</sup></bdi>(<bdi dir="ltr">θ</bdi></th></tr></thead><tbody><tr><td><bdi dir="ltr">1</bdi></td><td><bdi dir="ltr">0.5</bdi></td><td><bdi dir="ltr"><sup>∘</sup>10</bdi></td></tr><tr><td><bdi dir="ltr">2</bdi></td><td><bdi dir="ltr">0.5</bdi></td><td><bdi dir="ltr"><sup>∘</sup>20</bdi></td></tr><tr><td><bdi dir="ltr">3</bdi></td><td><bdi dir="ltr">0.5</bdi></td><td><bdi dir="ltr"><sup>∘</sup>30</bdi></td></tr><tr><td><bdi dir="ltr">4</bdi></td><td><bdi dir="ltr">0.5</bdi></td><td><bdi dir="ltr"><sup>∘</sup>40</bdi></td></tr></tbody></table>
+<div class="nq-stem">الجدول ٢٦-١</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr"><sup>∘</sup>10</bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr"><sup>∘</sup>20</bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr"><sup>∘</sup>30</bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr"><sup>∘</sup>40</bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n40902-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40902-ans">
+        <div class="sol-body">الإجابة الصحيحة: د — <bdi dir="ltr">40°</bdi><br>المركّبة الموازية للمنحدر <bdi dir="ltr">= mg sin θ</bdi> وتزداد بزيادة الزاوية.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 26 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 4.10</span></div>
 <div class="nq-stem">قوة مقدارها <bdi dir="ltr">100 N</bdi> تؤثر بزاوية <bdi dir="ltr">30°</bdi> فوق الأفقي. ما مقدار المركبة الأفقية لهذه القوة؟ (خذ <bdi dir="ltr">cos30°</bdi> ≈ <bdi dir="ltr">0.866</bdi>، <bdi dir="ltr">sin30° = 0.5</bdi>)</div>
@@ -688,6 +712,7 @@ F = (50 × 9.81) ÷ (2 × 0.766) = 320.15 N</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.10</span></div>
 <div class="nq-stem">اشرح لماذا نحلل القوة المائلة إلى مركبتين متعامدتين (أفقية ورأسية) عند دراسة حركة أو اتزان جسم، وما الشرط الذي يجب أن تحققه هاتان المركبتان معًا لتكافئا القوة الأصلية.</div>
@@ -705,6 +730,7 @@ F = √(Fx² + Fy²)، وأن تكون زاوية ميل القوة الأصلي
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.10</span></div>
 <div class="nq-stem">جسم كتلته <bdi dir="ltr">4</bdi> كجم موضوع على سطح مائل أملس (عديم الاحتكاك) بزاوية ميل <bdi dir="ltr">25°</bdi> عن الأفقي. حلّل وزن الجسم إلى مركبتين: مركبة موازية لسطح الميل (وهي التي تُسبب انزلاقه نحو الأسفل)، ومركبة عمودية على سطح الميل. احسب مقدار كل مركبة. خذ <bdi dir="ltr">g = 10 m/s<sup>2</sup></bdi>.</div>
@@ -730,6 +756,7 @@ W_perpendicular = W × cos 25° = 40 × 0.9063 ≈ 36.3 N
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.10</span></div>
 <div class="nq-stem">يُسحب صندوق كتلته <bdi dir="ltr">15</bdi> كجم على سطح أفقي بواسطة حبل يميل بزاوية <bdi dir="ltr">40°</bdi> فوق الأفقي وبقوة شد مقدارها <bdi dir="ltr">60 N</bdi>. إذا كانت قوة الاحتكاك المعاكسة لحركته تساوي <bdi dir="ltr">25 N</bdi>، احسب:</div>
@@ -758,6 +785,7 @@ a = F_net / m = 21 / 15 = 1.4 m/s²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.10</span></div>
 <div class="nq-stem">جسم كتلته <bdi dir="ltr">5</bdi> كجم موضوع على سطح مائل خشن بزاوية ميل <bdi dir="ltr">30°</bdi> عن الأفقي، وهو في حالة اتزان تام (ساكن) بفعل قوة احتكاك سكوني تمنعه من الانزلاق نحو الأسفل. حلّل وزن الجسم إلى مركبتيه (موازية وعمودية على سطح الميل)، ثم احسب:</div>

@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,23 +483,47 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>1</td>
           <td>قارن في الجدول (1-5) بين المسافة والإزاحة (من حيث كونها كمّية عددية أم متجهة، مع ذكر مثال على كلٍّ منهما).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>2</td>
           <td>يوضح الشكل (1-8) حركة كائن في مسار دائري من النقطة W إلى Z مروراً بـ Y ثم X ثم يعود إلى النقطة W. ما الوصف الصحيح لإزاحة الجسم والمسافة التي يقطعها خلال حركته؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>3</td>
           <td>يوضح الشكل مسار حركة سيارة قطعت مسافة (13.6 km) من ولاية العامرات إلى ولاية بوشر، ثم اتجهت نحو ولاية مطرح وقطعت مسافة (20.3 km). ارسم على الشكل متجه الإزاحة الكلية للسيارة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n20101')">
+          <td>4</td>
+          <td>يركض عدّاء بسرعة منتظمة حول مسار منحني. هل تتساوى المسافة التي يقطعها العدّاء مع إزاحته؟ اختر الإجاب…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20101')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n20102')">
+          <td>5</td>
+          <td>يوضّح الجدول ١٣-١ نتائج حركة سيّارة على مسار دائري نصف قطره (9 m) عكس عقارب الساعة. حدّد الخيار الصح…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20102')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n20103')">
+          <td>6</td>
+          <td>اكتب المصطلح العلمي المناسب في الجدول.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20103')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n20104')">
+          <td>7</td>
+          <td>يركض عدّاء في مسار مستقيم بسرعة منتظمة. هل تتساوى المسافة التي يقطعها العدّاء مع إزاحته؟ اختر الإجاب…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n20104')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>4</td>
@@ -532,25 +561,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>2</td><td>رسمي 2023/2024 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ج</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>2</td><td>رسمي 2023/2024 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>5</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>ج</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ج</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q3">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الثاني</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س4 في الامتحان · الهدف 2.3 · صفحة 43</span></div>
 <div class="nq-stem">قارن في الجدول <bdi dir="ltr">(1-5)</bdi> بين المسافة والإزاحة (من حيث كونها كمّية عددية أم متجهة، مع ذكر مثال على كلٍّ منهما).</div>
@@ -598,6 +610,58 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n20101">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb essay">موضوعي + مقالي</span><span class="nq-where">س10 في الامتحان · س10 في الامتحان</span></div>
+<div class="nq-stem">يركض عدّاء بسرعة منتظمة حول مسار منحني. هل تتساوى المسافة التي يقطعها العدّاء مع إزاحته؟ اختر الإجابة الصحيحة:</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">نعم</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">لا</span></div></div>
+<div class="nq-stem">فسّر إجابتك.</div>
+      <button class="show-btn" onclick="toggleSol('n20101-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20101-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — لا<br>لأن المسار منحنٍ فإن الإزاحة تكون أصغر من المسافة.
+
+ملاحظة: تُعطى الدرجة عند الاختيار الصحيح مع التفسير الصحيح.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 10 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n20102">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س13 في الامتحان · س13 في الامتحان</span></div>
+<div class="nq-stem">يوضّح الجدول ١٣-١ نتائج حركة سيّارة على مسار دائري نصف قطره <bdi dir="ltr"><bdi dir="ltr">(9 m)</bdi></bdi> عكس عقارب الساعة. حدّد الخيار الصحيح الذي يمثّل مقدار كل من المسافة والإزاحة التي تقطعها السيّارة خلال دورة ونصف.</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">المسافة <bdi dir="ltr">28.26 m</bdi> ، الإزاحة <bdi dir="ltr">18 m</bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">المسافة <bdi dir="ltr">56.52 m</bdi> ، الإزاحة <bdi dir="ltr">0 m</bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">المسافة <bdi dir="ltr">84.78 m</bdi> ، الإزاحة <bdi dir="ltr">18 m</bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">المسافة <bdi dir="ltr">113.04 m</bdi> ، الإزاحة <bdi dir="ltr">0 m</bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n20102-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20102-ans">
+        <div class="sol-body">الإجابة الصحيحة: ج — المسافة <bdi dir="ltr">84.78 m</bdi> ، الإزاحة <bdi dir="ltr">18 m</bdi><br>المسافة: <bdi dir="ltr">1.5×2πr=1.5×2×3.14×9=84.78 m</bdi> ، والإزاحة = القطر: <bdi dir="ltr">18 m</bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 13 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n20103">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س9 في الامتحان · س9 في الامتحان</span></div>
+<div class="nq-stem">اكتب المصطلح العلمي المناسب في الجدول.</div>
+<table class="nq-tbl"><thead><tr><th>التعريف</th><th>المصطلح العلمي</th></tr></thead><tbody><tr><td>أقصر مسافة من نقطة البداية إلى نقطة النهاية في اتجاه معين.</td><td><span class="bl"></span></td></tr><tr><td>مقدار الطول الكلي للمسار الذي يقطعه الجسم أثناء حركته وليس له اتجاه محدّد.</td><td><span class="bl"></span></td></tr></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n20103-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20103-ans">
+        <div class="sol-body"><table class="nq-tbl"><thead><tr><th>التعريف</th><th>المصطلح العلمي</th></tr></thead><tbody><tr><td>أقصر مسافة من نقطة البداية إلى نقطة النهاية في اتجاه معين.</td><td>الإزاحة</td></tr><tr><td>مقدار الطول الكلي للمسار الذي يقطعه الجسم أثناء حركته وليس له اتجاه محدّد.</td><td>المسافة</td></tr></tbody></table><br>لا تُقبل الرموز.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 9 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n20104">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 7">7</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb essay">موضوعي + مقالي</span><span class="nq-where">س10 في الامتحان · س10 في الامتحان</span></div>
+<div class="nq-stem">يركض عدّاء في مسار مستقيم بسرعة منتظمة. هل تتساوى المسافة التي يقطعها العدّاء مع إزاحته؟ اختر الإجابة الصحيحة:</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">نعم</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot">لا</span></div></div>
+<div class="nq-stem">فسّر إجابتك.</div>
+      <button class="show-btn" onclick="toggleSol('n20104-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n20104-ans">
+        <div class="sol-body">الإجابة الصحيحة: أ — نعم<br>بما أن المسار مستقيم والاتجاه ثابت فإن الإزاحة = المسافة.
+
+ملاحظة: تُعطى الدرجة عند الاختيار الصحيح مع التفسير الصحيح.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 10 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 2.3</span></div>
 <div class="nq-stem">أي العبارات التالية تصف بشكل صحيح الفرق بين المسافة <bdi dir="ltr">(distance)</bdi> والإزاحة <bdi dir="ltr">(displacement)</bdi>؟</div>
@@ -616,6 +680,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.3</span></div>
 <div class="nq-stem">عرّف كلًا من المسافة والإزاحة، ثم اذكر الشرط الذي يجب أن يتحقق حتى يتساوى مقدار الإزاحة مع المسافة الكلية المقطوعة.</div>
@@ -633,6 +698,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.3</span></div>
 <div class="nq-stem">سار شخص مسافة <bdi dir="ltr">80 m</bdi> متجهًا نحو الشرق، ثم غيّر اتجاهه وسار مسافة <bdi dir="ltr">60 m</bdi> متجهًا نحو الشمال. احسب:</div>
@@ -655,6 +721,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.3</span></div>
 <div class="nq-stem">تحرّكت دراجة مسافة <bdi dir="ltr">200 m</bdi> باتجاه الشرق، ثم عادت فتحركت مسافة <bdi dir="ltr">150 m</bdi> باتجاه الغرب. احسب:</div>
@@ -677,6 +744,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 2.3</span></div>
 <div class="nq-stem">سارت مجموعة كشفية مسافة <bdi dir="ltr">3 km</bdi> متجهة نحو الشمال، ثم غيّرت اتجاهها وسارت مسافة <bdi dir="ltr">4 km</bdi> متجهة نحو الشرق. احسب المسافة الكلية التي قطعتها المجموعة، ومقدار إزاحتها الكلية واتجاهها بالنسبة إلى الشمال.</div>

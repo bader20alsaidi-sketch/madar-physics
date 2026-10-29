@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -463,8 +468,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -477,23 +482,35 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>1</td>
           <td>أوجد وحدة قياس طاقة الوضع (PE=mgh) بدلالة الوحدات الأساسية للنظام الدولي (SI).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>2</td>
           <td>استخدم الوحدات الأساسية لإثبات أن المعادلة t = s/v متجانسة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>3</td>
           <td>استخدم الوحدات الأساسية لإثبات أن المعادلة v=u+at متجانسة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40701')">
+          <td>4</td>
+          <td>حدّد المعادلة التي تحقق التجانس مستخدماً الوحدات الأساسية الدولية (SI)؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40701')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40702')">
+          <td>5</td>
+          <td>أي الوحدات الأساسية الدولية (SI) الآتية تعبّر عن الكمية الناتجة من هذه المعادلة (v2=u2+2ad)؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40702')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>4</td>
@@ -531,25 +548,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>5</td><td>رسمي 2025/2026 – الدور الثاني</td><td><b>د</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q3">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول (الفترة المسائية)</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س16 في الامتحان · الهدف 4.8 · صفحة 106</span></div>
 <div class="nq-stem">أوجد وحدة قياس طاقة الوضع <bdi dir="ltr">(PE = mgh)</bdi> بدلالة الوحدات الأساسية للنظام الدولي للوحدات <bdi dir="ltr">(SI)</bdi>. [<bdi dir="ltr">2</bdi>]</div>
@@ -606,6 +606,33 @@ PE = kg . m.s⁻² . m = kg.m².s⁻²</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n40701">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س29 في الامتحان · س29 في الامتحان</span></div>
+<div class="nq-stem">حدّد المعادلة التي تحقق التجانس مستخدماً الوحدات الأساسية الدولية <bdi dir="ltr"><bdi dir="ltr">(SI)</bdi></bdi>؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr">F=<span class="fr"><i>Δv</i><i>Δt</i></span></bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr">F=<span class="fr"><i>mΔv</i><i>Δt</i></span></bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr">F=<span class="fr"><i>Δv</i><i>Δt</i></span></bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr">F=<span class="fr"><i>mΔv</i><i>Δt</i></span></bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n40701-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40701-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — <bdi dir="ltr">F = <span class="fr"><i>mΔv</i><i>Δt</i></span></bdi>
+
+ملاحظة: وردت البدائل في ورقة الامتحان الأصلية مكرّرة على هذا النحو، والإجابة المعتمدة: <bdi dir="ltr">F = <span class="fr"><i>mΔv</i><i>Δt</i></span></bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 29 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n40702">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س28 في الامتحان · س28 في الامتحان</span></div>
+<div class="nq-stem">أي الوحدات الأساسية الدولية <bdi dir="ltr"><bdi dir="ltr">(SI)</bdi></bdi> الآتية تعبّر عن الكمية الناتجة من هذه المعادلة <bdi dir="ltr"><bdi dir="ltr">(v<sup>2</sup>=u<sup>2</sup>+2ad)</bdi></bdi>؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr">m s<sup>−1</sup></bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr">m<sup>2</sup>s<sup>−1</sup></bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr">m s<sup>−2</sup></bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr">m<sup>2</sup>s<sup>−2</sup></bdi> </span></div></div>
+      <button class="show-btn" onclick="toggleSol('n40702-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40702-ans">
+        <div class="sol-body">الإجابة الصحيحة: د — <bdi dir="ltr">m<sup>2</sup> s<sup>−2</sup></bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 28 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 4.8</span></div>
 <div class="nq-stem">أي المجموعات التالية تمثل الوحدات الأساسية <bdi dir="ltr">(SI base units)</bdi> في النظام الدولي للوحدات؟</div>
@@ -624,6 +651,7 @@ PE = kg . m.s⁻² . m = kg.m².s⁻²</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.8</span></div>
 <div class="nq-stem">اشرح المقصود بـ "تجانس المعادلة" <bdi dir="ltr">(Homogeneity of an equation)</bdi> من الناحية البعدية (الوحدات)، ولماذا تُعد هذه الخاصية شرطًا ضروريًا، لكنه غير كافٍ، لصحة أي معادلة فيزيائية.</div>
@@ -639,6 +667,7 @@ PE = kg . m.s⁻² . m = kg.m².s⁻²</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.8</span></div>
 <div class="nq-stem">تُعطى الطاقة الحركية لجسم بالعلاقة: <bdi dir="ltr">Ek</bdi> = ½<bdi dir="ltr">mv<sup>2</sup></bdi>، حيث <bdi dir="ltr">m</bdi> الكتلة و<bdi dir="ltr">v</bdi> السرعة. اشتق الوحدة الأساسية <bdi dir="ltr">(SI)</bdi> لوحدة الطاقة (الجول) معبّرًا عنها بدلالة الوحدات الأساسية <bdi dir="ltr">kg</bdi> و<bdi dir="ltr">m</bdi> و<bdi dir="ltr">s</bdi>.</div>
@@ -664,6 +693,7 @@ J = kg·m²·s⁻²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.8</span></div>
 <div class="nq-stem">تحقق مما إذا كانت المعادلة التالية متجانسة من حيث الوحدات: <bdi dir="ltr">v<sup>2</sup> = u<sup>2</sup> + 2as</bdi>، حيث <bdi dir="ltr">v</bdi> و<bdi dir="ltr">u</bdi> بوحدة <bdi dir="ltr">m/s</bdi>، و<bdi dir="ltr">a</bdi> بوحدة <bdi dir="ltr">m/s<sup>2</sup></bdi>، و<bdi dir="ltr">s</bdi> بوحدة <bdi dir="ltr">m</bdi>. بيّن خطوات التحقق بوضوح.</div>
@@ -689,6 +719,7 @@ J = kg·m²·s⁻²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.8</span></div>
 <div class="nq-stem">تنص معادلة تجريبية لقوة السحب اللزج المؤثرة على كرة صغيرة تتحرك ببطء داخل سائل لزج على أن: <bdi dir="ltr">F = 6πηrv</bdi>، حيث <bdi dir="ltr">F</bdi> القوة <bdi dir="ltr">(N)</bdi>، و<bdi dir="ltr">r</bdi> نصف قطر الكرة <bdi dir="ltr">(m)</bdi>، و<bdi dir="ltr">v</bdi> سرعتها <bdi dir="ltr">(m/s)</bdi>، و<bdi dir="ltr">η</bdi> ثابت يسمى معامل اللزوجة. بما أن العدد <bdi dir="ltr">6π</bdi> كمية بلا وحدة (عدد صرف)، استنتج الوحدة الأساسية لـ <bdi dir="ltr">η</bdi> بدلالة الوحدات الأساسية <bdi dir="ltr">kg</bdi> و<bdi dir="ltr">m</bdi> و<bdi dir="ltr">s</bdi>.</div>

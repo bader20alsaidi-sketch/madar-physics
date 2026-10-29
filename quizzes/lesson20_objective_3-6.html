@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,35 +483,47 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>1</td>
           <td>المنحنى البياني (11-1) يوضح العلاقة بين السرعة المتجهة والزمن لجسم يتحرك بتسارع ثابت. اشتق معادلة الإزاحة (S) بدلالة الزمن باستخدام المساحة تحت المنحنى.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q5')">
+        <tr class="qrow" data-type="official" onclick="goTo('q5')">
           <td>2</td>
           <td>لنفس الجسم الساقط سقوطاً حراً في السؤال 13، احسب المسافة الرأسية التي قطعها منذ بدء سقوطه حتى الزمن (0.2 s).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>3</td>
           <td>قذيفة قذفت رأسياً لأعلى، إيجاد أقصى ارتفاع من منحنى (السرعة-الزمن)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>4</td>
           <td>من خلال معادلتي الحركة الخطية v=u+at و s=(u+v)t/2، وضح خطوات اشتقاق معادلة الحركة الرابعة v²=u²+2as.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>5</td>
           <td>سقطت كرة من ارتفاع مبنى (h) فاستغرقت زمناً مقداره (3s) حتى وصولها عند النقطة (A) الواقعة على ارتفاع (15m) من الأرض. احسب ارتفاع المبنى، مهملاً مقاومة الهواء.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n31001')">
+          <td>6</td>
+          <td>سقط جسم من السكون سقوطًا حرًا إلى الأرض. متى ستكون سرعة الجسم (9.81 m s−1)؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n31001')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n31002')">
+          <td>7</td>
+          <td>يوضّح الشكل ٢٢-١ سقوط كرة من سطح طاولة. (افترض أن مقاومة الهواء مهملة).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n31002')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>6</td>
@@ -544,29 +561,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>6</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q4">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول (الفترة المسائية)</span><span class="nb marks">3 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س11 في الامتحان · الهدف 3.6 · صفحة 70</span></div>
 <div class="nq-stem">المنحنى البياني <bdi dir="ltr">(11-1)</bdi> يوضّح العلاقة البيانية بين السرعة المتجهة لجسم ما يتحرك بتسارع ثابت مع مرور الزمن.</div>
@@ -681,6 +677,36 @@ s = ut + ½gt²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n31001">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س21 في الامتحان · س21 في الامتحان</span></div>
+<div class="nq-stem">سقط جسم من السكون سقوطًا حرًا إلى الأرض. متى ستكون سرعة الجسم <bdi dir="ltr"><bdi dir="ltr">(9.81 m s<sup>−1</sup>)</bdi></bdi>؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">خلال الثانية الأولى من سقوطه</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">في نهاية الثانية الأولى من سقوطه</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">عند بداية الثانية الأولى من سقوطه</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">عند الثانية <bdi dir="ltr">(9.81 s)</bdi> من سقوطه</span></div></div>
+      <button class="show-btn" onclick="toggleSol('n31001-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n31001-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — في نهاية الثانية الأولى من سقوطه</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 21 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n31002">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 7">7</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س22 في الامتحان · س22 في الامتحان</span></div>
+<div class="nq-fig"><img src="data:image/webp;base64,UklGRrgPAABXRUJQVlA4TKsPAAAv7EFLAGUobtvGkfbf+1rK3f0iYgL8g2xXtjSYYL0ntoZSgt07oeMZjGDPke3K4Iob5G1SgLZNkZx8cffsXHDiyXKCu2wKd12yuDvs4Q6bwd2G4A4T3NngPsE17hOXiSeDbIa9rpp2tBuriP5DYtvIkST35lSDqevgnkv9pPD//+FGugdwj6HI2qxtG1usrbq92l4bddfbLKtFud6tbTuqkWRmMq9tOjPJIa/8riKQtMXbfgJJWzj//kOCJMlRkw3ILyN/N2dwP5yW80ZAGKE0H4wEBOD3RWmWxmhE3WppTdRgDdak1nRRvxg2TahgC6NJqqHHLaLZbAabQfQ3/c2gGWyG27HE5jNNCbSvHaIvdFd+cmo6m9Kms5k269g0k007ipty9LezLV1lxiaUoPoeXOqhbPlLfdu9qW167VjC2+V2N/d1KaE6v9lFN3s340SmSAPEI4xAao56KaqZbju2vdvpPLdK9WpELOIQh1g0QoPWST8SHoXs3Kx0k4aISxB966g+KzyGTXNzzhUVqNdmiPgXBKVJKqe42EYlVi3BKjRG8MSn7wrdtm3K27E8pAFCiKKaNt2TU1PY9uZiKgmeb+SQd9u7bdyCU6xJQkhAVD96HHov99A2hS1ew8QjaD6lS3fT3QJSIoZEmVocptx4RWmzyk31Ep9gaZDcohr37YeNk2gVMamUDm6qm1nyaUSgPC8eJUdri7UyoSQgEacYZ+ir+WVXnEUXJJ9MUKMOySzVJE5Z7+WiLZv3NkiA1EMpMklYGyJxdCpTas1x+0WAVE+eUs/DNkvimKIKmUVvyyY4QukLGUUjxSZeYYM6Ec0kG0JgNEvZom0WqSDxsCghhonVNIHRMGWIth1Oo8QzRhlyiL+GCYw67XZom5t1kHgm6Y0ONffWTWDUatdD2/ysh8QzTR91MudaB0GSv3pJTCU63c4Fjjp1J7TNJ90knikr0MnmvsHxBYYeirad3FpJPOOWpf0JzIjBcaA827LZp4rEXO56VRYtMTOGExjz1bQ2g5QKI7HWnhkiH+luScIJjurILZrbU82RWGvFNZp19Lc3AqR+eiSzRGSYxNFLT6O+uaZSgDRFbXQ8TqkWQqK/DqFSc4viFhImARJKc3QlWqETi0Qvik23oxDzPAifcIJkSmSac8mzOcJIxOM4Zelg257IlAknUGKSW5Q23zTahEQ5CAijUSqnw1LeTFMotmAJodfR3TQ2r1S3OYmCR6V2Noqy3u6kTwjhBMt0Kz72m/oW3D5qghCiwiMOvZG3aWzOutmabEbg3Oyon3LkF4Nm26LyKs1GOiRC/fQkQTGOlUJTREOSNF+hcQ2qS9JdesWg+VbODHXrkTyawWayHU5Y0lNmHRLW0q5G+0BJOm8mm8Hmr1caJC5JnPWtG5SjFEl3eZJiMUg4vc/UxxbS7Jp6U4jVFpUkCWu5l+t2LmZNJc5bdL6LQxJo/vShDmTzJt1Fe/NpNbRgip9LbPpMl+SYPdumbWExm7b1m8Lmn2+aIh5hJIGkyT60zbIdztFIazmyHW5Km+J2vlUR4RvIokYqppe6GP9YZ+e2dXNSQIvWXaNbBUmmOT2U0sxuW7/FKEuvTFrLS72QfZtHvg7FDwqR1qa0XdRPNYhN8906SWXz9lEzxDdpLXzik3eooITSfRlu6tsroYSSgAQkuWzZiiTNbbvsGyHyFFCUgtqCzYyArJNKVah+AjQBzQewlJpbq5IIy4EBDSOEEMII0PITtPnqu0k2G7Yrek+Fkt7iEupXJ8Vw08gbk2TS5Zh1m1Gzb44hi0McYhu7OIRQw4ISDED2sY19iN8Hu9jGPuTfCIfm0BQ2lc29SVZv5COT2MYh5F9S6yhsmptlCGyiFKVYRxqgl90x3Ii0tu2bYbONBIu4Jj7NJElh1Eh5lCaK3M+VqG1OW3wINVyXdrRzSWkyAJ3I7s0jhApS5ZI1m7tuShbUM5USgyQgsVanH5BdYtNshBoY5CLX9JA0MPGXIv32yogz74nasGWJTQpBLporsrhEqJwAjUHN1EgcAjQ+zdIsIbRYrYHeUJY6CNDeyitn8pmAPdAKZ57naFxSaID2y1J0Jw0GaCjxiUcoARpOOOGEE2yJsHECoH1UZIL1y4A90ApoYD3QLwK05XP7NUWL1W1ahLg0J5QAjUmt1KRRArQSXVSsKgnYA61w5lkOb04pMEDrtu/2WUME7DbtknBV9sQyrZUAjW4ntgMpMmDP369wptqe2UNBeiAuTdGk+ATszt1i9b5cWNRGLRojQPusa7qQagP8QJ/fyuhFQl6kH7DYcply5yAAu31GyKfbI3PvKus1c+K1gbtpANfhIRt27oYBfX4kZGlNfcUqQSiPtlMe3Y0opqQ3zyVkaJepxB6pujlQ9dqmL0Zd0ovd0fzy/GbjiEUSgFcxiVDTpy2AQT8Tm2QnAfokSlGXAO3G2yQhROomETwNYJPVFokn5CZRm9bl4LbAJRbJaCF1RKmyyRarbwZajLLIu+sF0AgnSqd1m0GqOwB9K/aIL8DLKI1r9hLtTHQCXrZHEhIvjdK5Read7gUKFunc1dF2WuBP2y3Kzt2K/j+xQW+KdjNs0qbtpkj6gyIpLtRt2hW5tbhDZo4CNphhlRMwPMLpoTlulso3ivO6rlS6je68JXeXUl3xwC9WOdtWRU+UoRaC9N6QB9RPi8l7Q1b4O9QAjU0d1EZjBGjf7LauptaAvfXoCmde2KkcSjFBuk07YOBu0y4J10BvjK5OArSXdiaHU2yAlhyTTTtvDdjNnCXhsnRsc02hAVolPVSqmgnQRqmXummSgN25WxKu2fKVrW5bteuKVbDVqQ4aN2A3c5aEG6BKlYlBgPaZripBVQRo6bHajJJrwG7mQN6bBx6wguGpxsYLrZcrARzF8FkOzZdbqE1bQKRGtPK/b9t6CRPDs6gltkk5peu+GonUdbcRsjmeZbgPx1gmvZQe3+zb7FqgPVU7Uezh4xCcx3A87rZKMJqhZ2QbpW3TtmFT3ly266qmaSJ1HnZlgl4X46wSLvXIOjKbzC+7yW4ym8wmu12zLiJ1K9ZmbB40NFkl4/RampvMtjCnW66oLhNyecpQvEysEiZdbXs3AquWJFIfA6MImdZiC2KXjFBk27nNv5vsNk9/u9JITQPuJ+SoZp9bJgy7GuKJdZJFfqstu+LopmvbjSCWyQTlmV5kNyHZnbZ7bB9FXs8ByN6dfoRtwieGeWfdJrQ1FqGLQeRctOm8M7FOBIRRvnnGoG3c1m3mm38yrV0oUVzXBqDLLBudbeNTE8XLZNPfbqdNKIlwNToeJjYKRjPUR/VWR4M2SwKicj8OsugDHRe077Pcormq3XfEjlnx+s9kvvMssVaGqJaqiEXk18nglnvW2J3YK190QxdD+s/iNABtvrFYUmO+6SXbyNx3bunJhZZ9CPO/s8mIzWacXAO0bPPKmXw2QOuln/qmYQP2TgCWhOuyLyq1QQL2/P3ybIvVu+Sq0yt6rg4CtHEaoD4t/b4WHVzqokqVqVh5ysknK1OZqtUjABu1pzq5OcUs2pvWZhmnOMU/rwRgY0SPRmS3hTmRtwZgM1Quw0YQ2soJwPjEJquN4HYbJADDiEfHRYvQmm1n6JkhEA8UausjtGUzT7HhBGL3s2UTUo5fqgzGsrNjE9LdktRBMFYuhU3IYisWg2CszzQ3ue03+c21DdAcwRhTB7Jz+23P5qcJQgnGJu1mTLff7LZUcQknGOPSD51sv/2V70IIyBAaUGBbv63ZLrceoQRkAsLoahSydXssrjCCMgE9jmtst3fCSEBgXkOmQJEJyE/CCScwq9FTpaWZAG1QlfqaIQHatJga1DQBe63W/0dgxBdX/71MUJdsEpVaEWroJyc5p424MgDdk27LMkIFc4rT+u2Jhuj3t1mIiCasl+pVp/9cylUo43gm2wg1lMoyltsH1ckAFBW17VoIFdTKe1u3XckX+v1t1oiImvU4IQnIfy5+cWt7NqPtdAg1eDTFTXE7n4AYgKy3bdu+jVCBfzPeaJvj5pnf32YViOirgqK+KW7wTVJIHkasb8rSM8E39SJ5tFRY6lMfwTfjhBOss+q/Vf+t+m8pptFerRNZ87U9AWRiLSKfiyqxMaJiJIrBqwWVT3SIHS6s0VkzZqXG/hd8jSdsBKKKQePHzIZ8zpCkXAtWOxIthgOHMAnpwIjxe6vnC2q4kmSYRWXyducpO4nGClOxxC547Sh7PAwkHAtk2bc1YiLAU6VOUO+PBopMAvEXRYQ6K5PkprwnuHaL9BVRBq7sL2IGAjbgxIDZke5k9XzhKg4PcJkIXQ5HB6Y1SHpzzy/L3z+pASTl0JRatioKzZcYVJESRdB0oCVi2wSkKvOpFGni0xgzbqS+KFGTRTQyawpmypA6iqOxcms1fvg9rQQCLusK5TB0odGul1l2BGqDRLG1cpRwYmNmppNyglpEeYiUqxCyzIFA26p3JlkAtM9dpTZUWHBsmlN1p8QCLk6hUZgnWn05xZZFhMMkhS/iUT24lUCrVb50DgFEXl6JVk8sZRMmaa/eAd9ROmiLBbhVXQizUHuBVi3lyNmeej4mrBzzYvWHdzrkfEGrv0VK8ZCin9bz2oyEavEgN3ge4jjElGmkqaO6wmPSiI5l0lFTKXnq7O2oXFxaH3nCG8/R+sykGc6+UP2NhVxG0/FXYB8mQdVLGTsm5MKQiAlNmtHMGttp3Aw5uEbB+VVgCjOWRKjs9Js7FdGEWOzzWsbdlOz6mYzxow84/5cbP6jbw17IJi6Hz2LITu0h7Je3dDX9DpG1FxWojsKjRILEpLta8owyTdGgMJO6Pp6gPouMGo96qgw3CFggdF1FqoVaKoTIxGIkQ8beiYgCUGTCGUnrqrIAYtSMFrQKNwqG31XBCC4r7sOLkEUTqhFKZ9En054iE82C0YKq6XNDRlpRfK/R9DeJ+D7lOIUxvdik2ybluSpl2Qfn0WxNg3o4plRHbwVcWH0tjaT34t40vArlZGBPw6aoWFFwfhrkXo2CzysOeh92TRXzWd7f7YBU3QccwBr6nBnIzbz2HbAdMy7kCAwZX8Okofa51N7xFGITk4dEZTIM+qpJ+OlagyZRpCBzbyK1bMyL+wOQ4NLjnPQJuA5HB2LKaBhyGSCUdwtUzkTHSbmSqoKpaCIBtQwFdlU8BRG6fPQHGDMaR5RLs2+0msXnCjIloSE4QYHJpUP4eZs4OKUtkDnEn5c+XvBJsCO2SKMvF7MpQ14hPM+aMmFevU92ej6RmDFDPNXGB4eEJH6MaSmKv9m2+1ViRQrlTb/l6hBZX9B2iYX4xH4V1XFkAmLDqn7+aKlUunV0lfxfiAgA" alt="شكل من ورقة الامتحان" style="max-width:min(201px,100%)"></div>
+<div class="nq-stem">يوضّح الشكل ٢٢-١ سقوط كرة من سطح طاولة. (افترض أن مقاومة الهواء مهملة).</div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">صف سرعة الكرة وتسارعها بين النقطتين <bdi dir="ltr"><bdi dir="ltr">(x)</bdi></bdi> و <bdi dir="ltr"><bdi dir="ltr">(y)</bdi></bdi>. ِ</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">احسب سرعة الكرة بعد مرور زمن <bdi dir="ltr"><bdi dir="ltr">(0.8 s)</bdi></bdi>.</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n31002-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n31002-ans">
+        <div class="sol-body">(أ) السرعة تتزايد ، والتسارع ثابت (يُقبل ذكر <bdi dir="ltr">g=9.8 m s<sup>−2</sup>)</bdi>.
+
+(ب) <bdi dir="ltr">v=u+gt=0+9.81×0.8=7.8 m s<sup>−1</sup></bdi><br>الإجابة النهائية: <bdi dir="ltr">7.8 m s<sup>−1</sup></bdi></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 22 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 3.6</span></div>
 <div class="nq-stem">يُترك جسم ليسقط سقوطًا حرًا من السكون بالقرب من سطح الأرض، بإهمال مقاومة الهواء. أي العبارات التالية صحيحة بخصوص تسارعه أثناء السقوط؟</div>
@@ -697,6 +723,7 @@ s = ut + ½gt²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.6</span></div>
 <div class="nq-stem">أُسقط جسمان مختلفان في الكتلة من نفس الارتفاع وفي نفس اللحظة، بإهمال مقاومة الهواء. فسّر لماذا تكون سرعتاهما متساويتين عند لحظة وصولهما إلى الأرض، رغم اختلاف كتلتيهما.</div>
@@ -714,6 +741,7 @@ s = ut + ½gt²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.6</span></div>
 <div class="nq-stem">سقطت كرة من السكون من ارتفاع <bdi dir="ltr">45 m</bdi> فوق سطح الأرض. بإهمال مقاومة الهواء وباعتبار <bdi dir="ltr">g = 10 m/s<sup>2</sup></bdi>، احسب:</div>
@@ -739,6 +767,7 @@ v = 0 + 10×3 = 30 m/s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.6</span></div>
 <div class="nq-stem">قُذف جسم رأسيًا إلى أعلى بسرعة ابتدائية مقدارها <bdi dir="ltr">25 m/s</bdi>. بإهمال مقاومة الهواء وباعتبار <bdi dir="ltr">g = 10 m/s<sup>2</sup></bdi>، احسب:</div>
@@ -764,6 +793,7 @@ t = 25 / 10 = 2.5 s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.6</span></div>
 <div class="nq-stem">قُذف جسم رأسيًا إلى أسفل من سطح مبنى ارتفاعه <bdi dir="ltr">60 m</bdi>، بسرعة ابتدائية مقدارها <bdi dir="ltr">5 m/s</bdi>. باعتبار <bdi dir="ltr">g = 10 m/s<sup>2</sup></bdi>، احسب الزمن اللازم لوصول الجسم إلى الأرض.</div>

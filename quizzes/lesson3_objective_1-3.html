@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -465,8 +470,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (14)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (9)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -479,41 +484,59 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>1</td>
           <td>قام طالبان من الصف الحادي عشر بقياس زمن لحركة عربة تقطع مسافة معينة، وسُجلت النتائج في الجدول. فسّر: يُعتبر الطالب الأول أكثر دقة في قياس الزمن من الطالب الثاني.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q5b')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>2</td>
-          <td>بطارية فرق الجهد بين طرفيها يساوي (2.5V)، قام طالب بقياس فرق الجهد بين طرفيها باستخدام جهاز الفولتميتر وحصل على النتائج الموضحة في الجدول. فسّر: القراءات التي حصل عليها الطالب غير مضبوطة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
-          <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
-          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5b')">الانتقال ↓</a></td>
-        </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
-          <td>3</td>
           <td>يوضح الشكل منحنى يمثل قياسات مختلفة لكمية ما، وأن القراءة الحقيقية لها هي (x). أي الخيارات الآتية تصف هذه القياسات بشكل صحيح؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q6')">
+<tr class="qrow" data-type="official" onclick="goTo('n10311')">
+          <td>3</td>
+          <td>قارن بين مصطلح كل من الدقة والضبط في الجدول الآتي:<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10311')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q6')">
           <td>4</td>
           <td>أيٌّ من المخططات الآتية يمثل نتائج الأقل دقة والأكثر ضبطاً عند الحصول على نتائج تجربة ما؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q6')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>5</td>
           <td>قطعة خشب طولها الحقيقي (50.4 cm). تم قياس طولها عدة مرات باستخدام مسطرة وكانت النتائج (50.5 cm، 50.4 cm، 50.5 cm). ما الوصف الصحيح لنتائج التجربة؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>6</td>
           <td>عرّف كلاً من: أ) الدقة (Precision)   ب) الضبط/المطابقة (Accuracy).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10310')">
+          <td>7</td>
+          <td>عرّف كلاً من:<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2024/2025</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10310')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10301')">
+          <td>8</td>
+          <td>أجرى الطالب ست محاولات لإيجاد قيمة تسارع السقوط الحر (g)، وتم التوصل للنتائج الآتية بوحدة 4.91) :(m …<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10301')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10303')">
+          <td>9</td>
+          <td>اكتب المصطلح العلمي في الفراغ المناسب في الجدول الآتي:<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10303')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>7</td>
@@ -551,31 +574,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>3</td><td>رسمي 2022/2023 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>4</td><td>رسمي 2023/2024 – الدور الثاني</td><td><b>ج</b></td></tr><tr><td>5</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>أ</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 5</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2022/2023 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>5</td><td>رسمي 2023/2024 – الدور الثاني</td><td><b>ج</b></td></tr><tr><td>6</td><td>رسمي 2024/2025 – الدور الأول</td><td><b>أ</b></td></tr><tr><td>8</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 5</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q3">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س3 في الامتحان · الهدف 1.3 · صفحة 22</span></div>
 <div class="nq-stem">قام طالبان من الصف الحادي عشر بقياس زمن حركة عربة تقطع مسافة معينة، وسُجّلت النتائج في الجدول <bdi dir="ltr">(1-3)</bdi>:</div>
@@ -589,21 +589,8 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
-<div class="sol-section nq" id="q5b">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول (الفترة المسائية)</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س2 في الامتحان · الهدف 1.3 · صفحة 22</span></div>
-<div class="nq-stem">بطارية فرق الجهد بين طرفيها يساوي <bdi dir="ltr">(2.5 V)</bdi>، فقام طالب بقياس فرق الجهد بين طرفي البطارية باستخدام جهاز الفولتميتر وحصل على النتائج التالية كما في الجدول <bdi dir="ltr">(1-2)</bdi>:</div>
-<table class="nq-tbl"><thead><tr><th>عدد المحاولات</th><th><bdi dir="ltr">(1)</bdi></th><th><bdi dir="ltr">(2)</bdi></th><th><bdi dir="ltr">(3)</bdi></th><th><bdi dir="ltr">(4)</bdi></th></tr></thead><tbody><tr><td>قيمة فرق الجهد المقاسة <bdi dir="ltr">(V)</bdi></td><td><bdi dir="ltr">2.8</bdi></td><td><bdi dir="ltr">2.3</bdi></td><td><bdi dir="ltr">2.1</bdi></td><td><bdi dir="ltr">2.9</bdi></td></tr></tbody></table>
-<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">فسّر: القراءات التي حصل عليها الطالب غير مضبوطة.</div><span class="nq-pm">[2]</span></div>
-<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
-      <button class="show-btn" onclick="toggleSol('q5b-ans', this)">إظهار نموذج الحل ↓</button>
-<div class="sol-answer" id="q5b-ans">
-        <div class="sol-body">جميع قراءات الطالب (2.8V، 2.3V، 2.1V، 2.9V) بعيدة عن القيمة الحقيقية لفرق الجهد (2.5V)، لذلك تُعتبر قراءات غير مضبوطة (Not accurate).</div>
-        <div class="grade-note">الدرجة: 2 — المفردة رقم 2 (أ) في نموذج الإجابة الرسمي</div>
-      </div>
-<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
-    </div>
 <div class="sol-section nq" id="q4">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2022/2023 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س1 في الامتحان · الهدف 1.3 · صفحة 23</span></div>
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2022/2023 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س1 في الامتحان · الهدف 1.3 · صفحة 23</span></div>
 <div class="nq-stem">يوضّح الشكل <bdi dir="ltr">(1-1)</bdi> منحنى يمثل قياسات مختلفة لكمية ما، وأن القراءة الحقيقية لها هي <bdi dir="ltr">(x)</bdi>.</div>
 <div class="nq-fig"><img src="data:image/webp;base64,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" alt="الشكل 1-1" style="max-width:min(330px,100%)"></div>
 <div class="nq-stem">أيّ الخيارات الآتية تصف هذه القياسات بشكل صحيح؟</div>
@@ -615,6 +602,17 @@
 
 (القراءات متجمعة بشكل ضيق جداً حول قيمة واحدة، مما يدل على دقة عالية، إلا أن هذه القيمة بعيدة عن القراءة الحقيقية (x) المشار إليها على المحور، مما يدل على أن القياسات غير مضبوطة)</div>
         <div class="grade-note">الدرجة: 1 — المفردة رقم 1 في نموذج الإجابة الرسمي</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n10311">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س3 في الامتحان · س3 في الامتحان</span></div>
+<div class="nq-stem">قارن بين مصطلح كل من الدقة والضبط في الجدول الآتي:</div>
+<table class="nq-tbl"><thead><tr><th>الدقة</th><th>الضبط</th></tr></thead><tbody></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n10311-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10311-ans">
+        <div class="sol-body"><table class="nq-tbl"><thead><tr><th>الدقة</th><th>الضبط</th></tr></thead><tbody><tr><td>مدى تقارب نتائج القياس عند تكرار قياس الكمية نفسها عدة مرات</td><td>مدى قرب القيمة المقاسة من القيمة الحقيقية</td></tr></tbody></table></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 3 في الامتحان</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
@@ -663,6 +661,46 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n10310">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 7">7</h3><span class="nb exam">رسمي 2024/2025 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س6 في الامتحان · س6 في الامتحان</span></div>
+<div class="nq-stem">عرّف كلاً من:</div>
+<div class="nq-part"><span class="nq-pl">أ</span><div class="nq-pt">الدقة.</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+<div class="nq-part"><span class="nq-pl">ب</span><div class="nq-pt">الضبط.</div><span class="nq-pm">[1]</span></div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n10310-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10310-ans">
+        <div class="sol-body">(أ) مدى تقارب نتائج القياس عند تكرار قياس الكمية نفسها عدة مرات.
+
+(ب) مدى قرب القيمة المقاسة من القيمة الحقيقية.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 6 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n10301">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 8">8</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س2 في الامتحان · س2 في الامتحان</span></div>
+<div class="nq-stem">أجرى الطالب ست محاولات لإيجاد قيمة تسارع السقوط الحر <bdi dir="ltr"><bdi dir="ltr">(g)</bdi></bdi>، وتم التوصل للنتائج الآتية بوحدة <bdi dir="ltr">4.91</bdi>) :<bdi dir="ltr"><bdi dir="ltr">(m s<sup>−2</sup>)</bdi></bdi> ، <bdi dir="ltr">4.89</bdi> ، <bdi dir="ltr">4.88</bdi> ، <bdi dir="ltr">4.90</bdi> ، <bdi dir="ltr">4.93</bdi> ، <bdi dir="ltr">4.93</bdi>). ما الوصف الصحيح لنتائج هذه التجربة؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">دقيقة ومضبوطة</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">دقيقة وغير مضبوطة</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">مضبوطة وغير دقيقة</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">غير دقيقة وغير مضبوطة</span></div></div>
+      <button class="show-btn" onclick="toggleSol('n10301-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10301-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — دقيقة وغير مضبوطة</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 2 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n10303">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 9">9</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س1 في الامتحان · س1 في الامتحان</span></div>
+<div class="nq-stem">اكتب المصطلح العلمي في الفراغ المناسب في الجدول الآتي:</div>
+<table class="nq-tbl"><thead><tr><th>التعريف</th><th>المصطلح العلمي</th></tr></thead><tbody><tr><td>مدى قرب القيمة المقاسة من القيمة الحقيقية.</td><td><span class="bl"></span></td></tr><tr><td>مدى تقارب نتائج القياس عند تكرار قياس الكمية نفسها عدة مرات.</td><td><span class="bl"></span></td></tr></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n10303-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10303-ans">
+        <div class="sol-body"><table class="nq-tbl"><thead><tr><th>التعريف</th><th>المصطلح العلمي</th></tr></thead><tbody><tr><td>مدى قرب القيمة المقاسة من القيمة الحقيقية.</td><td>الضبط</td></tr><tr><td>مدى تقارب نتائج القياس عند تكرار قياس الكمية نفسها عدة مرات.</td><td>الدقة</td></tr></tbody></table></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 1 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1.3</span></div>
 <div class="nq-stem">إذا كرر طالب قياس نفس الكمية الفيزيائية عدة مرات وحصل على نتائج متقاربة جدًا من بعضها البعض (أي أن التشتت بينها صغير جدًا)، لكنها جميعًا بعيدة عن القيمة الحقيقية المقبولة لتلك الكمية، فإن هذه النتائج تكون:</div>
@@ -681,6 +719,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.3</span></div>
 <div class="nq-stem">اربط بين مفهومي الضبط <bdi dir="ltr">(accuracy)</bdi> والدقة <bdi dir="ltr">(precision)</bdi> من جهة، وبين الخطأ المنتظم <bdi dir="ltr">(systematic error)</bdi> والخطأ العشوائي <bdi dir="ltr">(random error)</bdi> من جهة أخرى، موضحًا هل يمكن لمجموعة قراءات أن تكون دقيقة دون أن تكون مضبوطة، أو العكس.</div>
@@ -698,6 +737,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.3</span></div>
 <div class="nq-stem">قاس طالبان تسارع السقوط الحر <bdi dir="ltr">g</bdi> بنفس الطريقة، خمس مرات لكل منهما، فكانت النتائج كالتالي (بوحدة <bdi dir="ltr">m/s<sup>2</sup></bdi>):</div>
@@ -723,6 +763,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.3</span></div>
 <div class="nq-stem">يستخدم طالب ميزانًا إلكترونيًا حساسيته <bdi dir="ltr">0.001</bdi> غم لقياس كتلة قطعة معايرة كتلتها الحقيقية المعروفة هي <bdi dir="ltr">15.185</bdi> غم، فيكرر الوزن خمس مرات ويحصل على القيم التالية (بالغرام): <bdi dir="ltr">15.234</bdi>، <bdi dir="ltr">15.235</bdi>، <bdi dir="ltr">15.234</bdi>، <bdi dir="ltr">15.236</bdi>، <bdi dir="ltr">15.235</bdi>.</div>
@@ -745,6 +786,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1.3</span></div>
 <div class="nq-stem">يستخدم مدرّس الفيزياء تشبيه إصابة السهام على لوحة هدف لتوضيح مفهومي الضبط والدقة. إذا أصابت جميع السهام الخمسة نقطة قريبة جدًا من بعضها البعض، لكن بعيدة عن مركز الهدف، فإن هذا يمثل تشبيهًا لقياس:</div>

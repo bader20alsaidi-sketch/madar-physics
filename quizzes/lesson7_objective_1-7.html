@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -466,8 +471,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -480,29 +485,41 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>1</td>
           <td>أراد طالب حساب طول الصف بالشريط المتري وكرر القياسات عدة مرات: (3.8, 3.7, 3.8, 3.9) m. أ) احسب عدم اليقين المطلق لطول الصف.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>2</td>
           <td>تحركت سيارة بسرعة مقدارها (100.0 ± 2.0) m/s خلال زمن مقداره (50.0 ± 0.3) s. احسب عدم اليقين للمسافة التي قطعتها السيارة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>3</td>
           <td>يبين الشكل مقياساً لدرجة الحرارة (الثرمومتر). أوجد القراءة الصحيحة لمقياس الحرارة متضمناً النسبة المئوية لعدم اليقين.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>4</td>
           <td>يوضح الشكل مسطرة لقياس طول عود ثقاب. اكتب طول قطعة عود الثقاب متضمناً مقدار عدم اليقين المطلق.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10601')">
+          <td>5</td>
+          <td>علبة أسطوانية الشكل ارتفاعها (h) ونصف قطرها (r)، تستخدم العلاقة (V=πr2h) لحساب حجم العلبة (V). النسب…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10601')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10602')">
+          <td>6</td>
+          <td>يقوم طالب بإجراء تجربة لقياس كثافة كرة معدنية (ρ) فحصل على القياسات التالية: الكتلة (125.0±0.5) g= ،…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10602')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>5</td>
@@ -540,25 +557,6 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>د</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q4">
@@ -636,6 +634,29 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n10601">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س5 في الامتحان · س5 في الامتحان</span></div>
+<div class="nq-stem">علبة أسطوانية الشكل ارتفاعها <bdi dir="ltr"><bdi dir="ltr">(h)</bdi></bdi> ونصف قطرها <bdi dir="ltr"><bdi dir="ltr">(r)</bdi></bdi>، تستخدم العلاقة <bdi dir="ltr"><bdi dir="ltr">(V=πr<sup>2</sup>h)</bdi></bdi> لحساب حجم العلبة <bdi dir="ltr"><bdi dir="ltr">(V)</bdi></bdi>. النسبة المئوية لعدم اليقين في نصف القطر <bdi dir="ltr"><bdi dir="ltr">(%5)</bdi></bdi> وفي الارتفاع <bdi dir="ltr"><bdi dir="ltr">(%3)</bdi></bdi>. جِدْ النسبة المئوية لعدم اليقين في الحجم.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n10601-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10601-ans">
+        <div class="sol-body">النسبة المئوية لعدم اليقين في الحجم: <bdi dir="ltr">5% + 5% + 3% = 13%</bdi><br>الإجابة النهائية: <bdi dir="ltr">13%</bdi></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 5 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n10602">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س6 في الامتحان · س6 في الامتحان</span></div>
+<div class="nq-stem">يقوم طالب بإجراء تجربة لقياس كثافة كرة معدنية <bdi dir="ltr"><bdi dir="ltr">(ρ)</bdi></bdi> فحصل على القياسات التالية: الكتلة <bdi dir="ltr"><bdi dir="ltr">(125.0±0.5)</bdi> g=</bdi> ، الحجم <bdi dir="ltr"><bdi dir="ltr">(45.0±0.2)</bdi> cm<sup>3</sup>=</bdi>. احسب كثافة الكرة المعدنية متضمنًا النسبة المئوية لعدم اليقين موضّحًا خطوات الحل. (علماً بأن الكثافة <bdi dir="ltr">= </bdi><span class="fr"><i>الكتلة</i><i>الحجم</i></span>)</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n10602-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10602-ans">
+        <div class="sol-body">كثافة الكرة: <bdi dir="ltr">ρ = <span class="fr"><i>125.0</i><i>45.0</i></span> = 2.78 g cm<sup>−3</sup></bdi><br>النسبة المئوية لعدم اليقين في الكتلة: <bdi dir="ltr"><span class="fr"><i>0.5</i><i>125.0</i></span> × 100% = 0.4%</bdi><br>النسبة المئوية لعدم اليقين في الحجم: <bdi dir="ltr"><span class="fr"><i>0.2</i><i>45.0</i></span> × 100% = 0.4%</bdi><br>النسبة المئوية لعدم اليقين في الكثافة: <bdi dir="ltr">0.4% + 0.4% = 0.8%</bdi><br>الإجابة النهائية: <bdi dir="ltr">ρ = 2.78 g cm<sup>−3</sup> ± 0.8%</bdi></div>
+        <div class="grade-note">الدرجة: 4 — السؤال رقم 6 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1.7</span></div>
 <div class="nq-stem">إذا كانت الكمية <bdi dir="ltr">Z = X − Y</bdi>، حيث <bdi dir="ltr">X</bdi> = <bdi dir="ltr">(12.0 ± 0.2)</bdi> وحدة، و<bdi dir="ltr">Y</bdi> = <bdi dir="ltr">(5.0 ± 0.3)</bdi> وحدة، فإن عدم اليقين المطلق في <bdi dir="ltr">Z</bdi> يساوي:</div>
@@ -652,6 +673,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.7</span></div>
 <div class="nq-stem">اذكر القواعد العامة الثلاث المستخدمة لحساب عدم اليقين الناتج عند إجراء عمليات حسابية على كميات لها عدم يقين، موضحًا متى تُستخدم كل قاعدة: عملية الجمع أو الطرح، عملية الضرب أو القسمة، وحالة رفع كمية إلى أُس (قوة) <bdi dir="ltr">n</bdi>.</div>
@@ -667,6 +689,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.7</span></div>
 <div class="nq-stem">قِيست كتلة جسم فكانت <bdi dir="ltr">m</bdi> = <bdi dir="ltr">(50.0 ± 0.5)</bdi> غم، وقِيس حجمه فكان <bdi dir="ltr">V</bdi> = <bdi dir="ltr">(20.0 ± 0.4)</bdi> سم³.</div>
@@ -689,6 +712,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.7</span></div>
 <div class="nq-stem">جسم كتلته <bdi dir="ltr">m</bdi> = <bdi dir="ltr">(2.00 ± 0.02)</bdi> كغم يتحرك بسرعة <bdi dir="ltr">v</bdi> = <bdi dir="ltr">(8.0 ± 0.2)</bdi> م/ث.</div>
@@ -712,6 +736,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.7</span></div>
 <div class="nq-stem">لوح معدني مستطيل الشكل طوله <bdi dir="ltr">l</bdi> = <bdi dir="ltr">(15.0 ± 0.2)</bdi> سم، وعرضه <bdi dir="ltr">w</bdi> = <bdi dir="ltr">(8.0 ± 0.1)</bdi> سم.</div>

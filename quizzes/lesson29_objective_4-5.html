@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (8)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (3)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,23 +483,35 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>1</td>
           <td>حافلة متوقفة تنطلق فجأة للأمام فيتحرك الطلاب للخلف؛ أكمل الجدول (النتيجة، السبب، وقانون نيوتن المفسر للحالة).<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>2</td>
           <td>اكتب القانون الفيزيائي الذي يوضح حالة الحركة الآتية: صعوبة البدء بتحريك جسم ساكن كتلته كبيرة.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>3</td>
           <td>أي من الخيارات الآتية تمثل خاصية القصور الذاتي؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40601')">
+          <td>4</td>
+          <td>اذكر قانوني نيوتن معتمداً على خصائص القوى التي تؤثر على الجسم في الجدول أدناه:<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40601')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n40602')">
+          <td>5</td>
+          <td>اذكر قانوني نيوتن معتمداً على خصائص القوى التي تؤثر على الجسم في الجدول أدناه:<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n40602')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>4</td>
@@ -532,23 +549,6 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>3</td><td>رسمي 2024/2025 – الدور الثاني</td><td><b>د</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q2">
@@ -595,6 +595,29 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n40601">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س25 في الامتحان · س25 في الامتحان</span></div>
+<div class="nq-stem">اذكر قانوني نيوتن معتمداً على خصائص القوى التي تؤثر على الجسم في الجدول أدناه:</div>
+<table class="nq-tbl"><thead><tr><th>خصائص القوى</th><th>قانون نيوتن</th></tr></thead><tbody><tr><td>القوى المؤثرة على الجسم متزنة.</td><td><span class="bl"></span></td></tr><tr><td>القوى المؤثرة على جسمين مختلفين.</td><td><span class="bl"></span></td></tr></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n40601-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40601-ans">
+        <div class="sol-body"><table class="nq-tbl"><thead><tr><th>خصائص القوى</th><th>قانون نيوتن</th></tr></thead><tbody><tr><td>القوى المؤثرة على الجسم متزنة.</td><td>الأول</td></tr><tr><td>القوى المؤثرة على جسمين مختلفين.</td><td>الثالث</td></tr></tbody></table><br>يُقبل »القصور الذاتي« عوضاً عن قانون نيوتن الأول.</div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 25 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n40602">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س24 في الامتحان · س24 في الامتحان</span></div>
+<div class="nq-stem">اذكر قانوني نيوتن معتمداً على خصائص القوى التي تؤثر على الجسم في الجدول أدناه:</div>
+<table class="nq-tbl"><thead><tr><th>خصائص القوى</th><th>قانون نيوتن</th></tr></thead><tbody><tr><td>القوى المؤثرة على الجسم غير متزنة.</td><td><span class="bl"></span></td></tr><tr><td>القوى المؤثرة على جسمين مختلفين.</td><td><span class="bl"></span></td></tr></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n40602-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n40602-ans">
+        <div class="sol-body"><table class="nq-tbl"><thead><tr><th>خصائص القوى</th><th>قانون نيوتن</th></tr></thead><tbody><tr><td>القوى المؤثرة على الجسم غير متزنة.</td><td>نيوتن الثاني</td></tr><tr><td>القوى المؤثرة على جسمين مختلفين.</td><td>نيوتن الثالث</td></tr></tbody></table></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 24 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 4.5</span></div>
 <div class="nq-stem">سيارة تتحرك بسرعة ثابتة (مقدارًا واتجاهًا) على طريق مستقيم أفقي. ماذا يمكن أن نستنتج عن القوة المحصلة المؤثرة عليها وفقًا لقانون نيوتن الأول؟</div>
@@ -613,6 +636,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.5</span></div>
 <div class="nq-stem">عرّف مفهوم "القصور الذاتي" <bdi dir="ltr">(Inertia)</bdi> واشرح العلاقة بينه وبين كتلة الجسم، مستعينًا بمثال عملي (مثل الركاب داخل حافلة تتوقف فجأة).</div>
@@ -628,6 +652,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.5</span></div>
 <div class="nq-stem">جسم ساكن تؤثر عليه ثلاث قوى أفقية: <bdi dir="ltr">20 N</bdi> نحو اليمين، و<bdi dir="ltr">35 N</bdi> نحو اليسار، وقوة ثالثة مجهولة <bdi dir="ltr">F</bdi>. إذا كان الجسم في حالة اتزان تام (ساكن تمامًا)، احسب مقدار القوة الثالثة <bdi dir="ltr">F</bdi> واتجاهها.</div>
@@ -651,6 +676,7 @@ F = 15 N، متجهة نحو اليمين.
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.5</span></div>
 <div class="nq-stem">تؤثر قوة أفقية مقدارها <bdi dir="ltr">10 N</bdi> على جسمين منفصلين موضوعين على سطح أملس (عديم الاحتكاك): جسم <bdi dir="ltr">A</bdi> كتلته <bdi dir="ltr">2</bdi> كجم، وجسم <bdi dir="ltr">B</bdi> كتلته <bdi dir="ltr">8</bdi> كجم. احسب تسارع كل منهما، وفسّر أيهما "يقاوم" التغير في حالته الحركية بدرجة أكبر، مستعينًا بمفهوم القصور الذاتي.</div>
@@ -670,6 +696,7 @@ F = 15 N، متجهة نحو اليمين.
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 4.5</span></div>
 <div class="nq-stem">مصعد كتلته الكلية (بما فيه محتوياته) <bdi dir="ltr">500</bdi> كجم يتحرك إلى الأعلى بسرعة رأسية ثابتة (منتظمة). احسب مقدار الشد في الكابل الرافع للمصعد. خذ <bdi dir="ltr">g = 10 m/s<sup>2</sup></bdi>.</div>

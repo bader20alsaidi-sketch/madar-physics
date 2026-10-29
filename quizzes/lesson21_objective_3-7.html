@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -478,19 +483,19 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>1</td>
           <td>كرة قذفت أفقياً، تجربة تحديد تسارع الجاذبية g من جدول بيانات (مسافة رأسية-زمن) ورسم بياني<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>2</td>
           <td>تجربة القفز بحبل مرن (بنجي) لحساب تسارع السقوط الحر<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>3</td>
           <td>يوضح الشكل شريطاً يمر عبر نابض زمني تم سحبه بواسطة كتلة تسقط سقوطاً حراً نحو الأرض. فسّر سبب تباعد المسافات بين النقاط.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
@@ -532,23 +537,6 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>أ</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q2">
@@ -607,6 +595,7 @@ g = 2L / t²</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 3.7</span></div>
 <div class="nq-stem">في تجربة لتحديد تسارع السقوط الحر <bdi dir="ltr">g</bdi>، تُسقط كرة معدنية عبر بوابتي ضوء <bdi dir="ltr">(light gates)</bdi> متصلتين بجهاز توقيت إلكتروني، بدلاً من استخدام ساعة إيقاف تُشغَّل وتوقَف يدويًا. ما السبب الرئيسي لاستخدام بوابتي الضوء؟</div>
@@ -625,6 +614,7 @@ g = 2L / t²</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.7</span></div>
 <div class="nq-stem">اذكر مصدرين محتملين للخطأ في تجربة تحديد تسارع السقوط الحر <bdi dir="ltr">g</bdi> باستخدام كرة تسقط عبر بوابتي ضوء، واقترح طريقة عملية لتقليل كل منهما.</div>
@@ -640,6 +630,7 @@ g = 2L / t²</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.7</span></div>
 <div class="nq-stem">في تجربة لقياس <bdi dir="ltr">g</bdi>، أُسقطت كرة من السكون وسقطت مسافة رأسية مقدارها <bdi dir="ltr">1.25 m</bdi> بين بوابتي ضوء، فسجّل جهاز التوقيت زمن سقوط مقداره <bdi dir="ltr">0.500 s</bdi>. احسب:</div>
@@ -667,6 +658,7 @@ g = 1.25 / 0.125 = 10.0 m/s²
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.7</span></div>
 <div class="nq-stem">في تجربة ملاصقة تُستخدم لتقدير زمن رد الفعل باستخدام مسطرة تسقط سقوطًا حرًا، أفلت أحد الطلاب المسطرة من السكون، فأمسك بها زميله بعد أن سقطت مسافة <bdi dir="ltr">0.180 m</bdi>. باعتبار <bdi dir="ltr">g = 9.81 m/s<sup>2</sup></bdi>، احسب زمن رد فعل الزميل الذي أمسك بالمسطرة.</div>
@@ -688,6 +680,7 @@ t = √0.0367 ≈ 0.192 s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.7</span></div>
 <div class="nq-stem">في تجربة لتحديد <bdi dir="ltr">g</bdi>، أُسقطت كرة عدة مرات من ارتفاعات رأسية مختلفة <bdi dir="ltr">s</bdi>، وقيس زمن السقوط <bdi dir="ltr">t</bdi> لكل ارتفاع، ثم رُسمت علاقة بيانية بين <bdi dir="ltr">s</bdi> (على المحور الرأسي) و<bdi dir="ltr">t<sup>2</sup></bdi> (على المحور الأفقي)، فكان الناتج خطًا مستقيمًا يمر بنقطة الأصل تقريبًا. وضّح كيف يمكن استخدام ميل (انحدار) هذا الخط المستقيم لحساب قيمة <bdi dir="ltr">g</bdi>، مع كتابة العلاقة الرياضية بين الميل و<bdi dir="ltr">g</bdi>.</div>

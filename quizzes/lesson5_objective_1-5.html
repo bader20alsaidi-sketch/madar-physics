@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -464,8 +469,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (12)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (7)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -478,29 +483,47 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>1</td>
           <td>أراد طالب تعيين كتلة مكعب من الحديد وكرر القياسات عدة مرات كما هو موضح في الجدول (1.8, 1.7, 1.8, 1.9 kg). أ) احسب عدم اليقين لكتلة المكعب.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>2</td>
           <td>أراد طالب في الصف الحادي عشر التأكد من مقدار كتلة عن طريق قياسها عدة مرات بواسطة ميزان في البقالة، وحصل على القياسات المبينة في الجدول (1.02, 1.03, 0.98, 1.10 kg). احسب قيمة الكتلة وعدم اليقين المطلق في قياسات الطالب.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>3</td>
           <td>سُجل قياس زمن سقوط كرة من ارتفاع معين عدة مرات كالآتي: (4.0 s، 4.1 s، 4.2 s، 3.9 s، 4.1 s). اكتب القيمة المتوسطة للزمن متضمناً قيمة عدم اليقين المطلق.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>4</td>
           <td>قطعت سيارة مسافة معينة فكان الزمن المُقاس (10 s ± 0.1 s). ما النسبة المئوية لعدم اليقين؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10401')">
+          <td>5</td>
+          <td>إذا كانت قراءات قياس كتلة ما متقاربة جداً. ما العبارة التي تصف قيمة عدم اليقين؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10401')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10402')">
+          <td>6</td>
+          <td>يقيس طالب زمن التأرجح لبندول، حيث أجرى محاولتين لقياس زمن 10 تأرجحات كاملة وكانت القراءتان: (16.4 s)…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10402')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n10403')">
+          <td>7</td>
+          <td>قام مجموعة من الطلبة بقياس طول قلم رصاص وكانت القياسات بوحدة (cm) كالتالي: (12.1 ، 12.3 ، 11.9 ، 12.…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n10403')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>5</td>
@@ -538,27 +561,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
-
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2024/2025 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>4</td><td>رسمي 2024/2025 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>5</td><td>رسمي 2025/2026 – الدور الأول</td><td><b>د</b></td></tr><tr><td>7</td><td>رسمي 2025/2026 – الدور الثاني</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q3">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb essay">مقالي</span><span class="nq-where">س5 في الامتحان · الهدف 1.5 · صفحة 27</span></div>
 <div class="nq-stem">أراد طالب تعيين كتلة مكعب من الحديد وكرّر القياسات عدة مرات كما هو موضّح في الجدول <bdi dir="ltr">(4-1)</bdi>:</div>
@@ -627,6 +631,42 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n10401">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 5">5</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س6 في الامتحان · س6 في الامتحان</span></div>
+<div class="nq-stem">إذا كانت قراءات قياس كتلة ما متقاربة جداً. ما العبارة التي تصف قيمة عدم اليقين؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">مساوية للقيم المقاسة</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">كبيرة لأن الجهاز دقيق</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">غير مرتبطة بتقارب القراءات</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">صغيرة لأن التغير بين القياسات قليل</span></div></div>
+      <button class="show-btn" onclick="toggleSol('n10401-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10401-ans">
+        <div class="sol-body">الإجابة الصحيحة: د — صغيرة لأن التغير بين القياسات قليل</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 6 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n10402">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">4 درجات</span><span class="nb essay">مقالي</span><span class="nq-where">س7 في الامتحان · س7 في الامتحان</span></div>
+<div class="nq-stem">يقيس طالب زمن التأرجح لبندول، حيث أجرى محاولتين لقياس زمن <bdi dir="ltr">10</bdi> تأرجحات كاملة وكانت القراءتان: <bdi dir="ltr"><bdi dir="ltr">(16.4 s)</bdi></bdi> و <bdi dir="ltr"><bdi dir="ltr">(16.8 s)</bdi></bdi>. احسب مقدار زمن تأرجح واحد كامل <bdi dir="ltr"><bdi dir="ltr">(T)</bdi></bdi> متضمّنًا قيمة عدم اليقين.</div>
+<div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+      <button class="show-btn" onclick="toggleSol('n10402-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10402-ans">
+        <div class="sol-body">متوسط زمن <bdi dir="ltr">(10)</bdi> تأرجحات: <bdi dir="ltr"><span class="fr"><i>16.4 + 16.8</i><i>2</i></span> = 16.6 s</bdi><br>زمن تأرجح واحد: <bdi dir="ltr"><span class="fr"><i>16.6</i><i>10</i></span> = 1.66 s</bdi><br>عدم اليقين في زمن 10 تأرجحات: <bdi dir="ltr"><span class="fr"><i>16.8 − 16.4</i><i>2</i></span> = 0.2 s</bdi> ، وبالقسمة على 10: <bdi dir="ltr">0.02 s</bdi><br><bdi dir="ltr">T = (1.66 ± 0.02) s</bdi> (وفق تعديل نموذج الإجابة المعتمد)<br>الإجابة النهائية: <bdi dir="ltr">T = (1.66 ± 0.02) s</bdi></div>
+        <div class="grade-note">الدرجة: 4 — السؤال رقم 7 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+<div class="sol-section nq" id="n10403">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 7">7</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س2 في الامتحان · س2 في الامتحان</span></div>
+<div class="nq-stem">قام مجموعة من الطلبة بقياس طول قلم رصاص وكانت القياسات بوحدة <bdi dir="ltr"><bdi dir="ltr">(cm)</bdi></bdi> كالتالي: (<bdi dir="ltr">12.1</bdi> ، <bdi dir="ltr">12.3</bdi> ، <bdi dir="ltr">11.9</bdi> ، <bdi dir="ltr">12.2</bdi>). ما مقدار عدم اليقين المطلق بوحدة <bdi dir="ltr"><bdi dir="ltr">(cm)</bdi></bdi>؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot"><bdi dir="ltr">0.1</bdi></span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot"><bdi dir="ltr">0.2</bdi></span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot"><bdi dir="ltr">0.3</bdi></span></div><div class="nq-opt"><span class="lt">د</span><span class="ot"><bdi dir="ltr">0.4</bdi></span></div></div>
+      <button class="show-btn" onclick="toggleSol('n10403-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n10403-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — <bdi dir="ltr">0.2</bdi><br>عدم اليقين المطلق: <bdi dir="ltr"><span class="fr"><i>المدى</i><i>2</i></span> = <span class="fr"><i>12.3 − 11.9</i><i>2</i></span> = 0.2 cm</bdi></div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 2 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1.5</span></div>
 <div class="nq-stem">عند استخدام مسطرة مترية أصغر تدريج فيها <bdi dir="ltr">1</bdi> مم لقياس طول قطعة معدنية مرة واحدة فقط (بدون تكرار)، فإن أفضل تقدير لعدم اليقين المطلق في تلك القراءة المفردة هو:</div>
@@ -643,6 +683,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.5</span></div>
 <div class="nq-stem">وضّح القاعدة العامة المستخدمة لتقدير عدم اليقين المطلق في قراءة مفردة (غير مكررة)، مميزًا بين حالة الأداة التناظرية التي تتطلب استكمالًا بصريًا بين خطي تدريج، وحالة الأداة الرقمية أو التي تعطي قراءة مباشرة دون الحاجة للاستكمال.</div>
@@ -658,6 +699,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.5</span></div>
 <div class="nq-stem">ساعة إيقاف رقمية تعرض القراءة حتى <bdi dir="ltr">0.01</bdi> ثانية (أي أن دقتها القرائية <bdi dir="ltr">0.01</bdi> ث). استخدمها طالب لقياس زمن سقوط جسم يدويًا بالضغط على الزر عند بداية ونهاية الحركة، فسجّل قراءة <bdi dir="ltr">3.45</bdi> ث.</div>
@@ -676,6 +718,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.5</span></div>
 <div class="nq-stem">يحتوي ترمومتر زئبقي على تدريج يظهر كل درجة مئوية واحدة (أي أصغر تدريج = <bdi dir="ltr">1°C</bdi>). قرأ طالب درجة الحرارة باستكمال موقع سطح الزئبق بصريًا بين تدريجي <bdi dir="ltr">36°C</bdi> و<bdi dir="ltr">37°C</bdi>، فقدّرها بـ <bdi dir="ltr">36.5°C</bdi>.</div>
@@ -692,6 +735,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1.5</span></div>
 <div class="nq-stem">قِيست نفس الفجوة (التي طولها الحقيقي نحو <bdi dir="ltr">15</bdi> مم) مرة باستخدام مسطرة مترية أصغر تدريج فيها <bdi dir="ltr">1</bdi> مم بقراءة مفردة، ومرة أخرى باستخدام ورنية (فرنية) دقتها القرائية <bdi dir="ltr">0.1</bdi> مم.</div>

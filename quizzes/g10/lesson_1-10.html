@@ -414,6 +414,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -433,7 +438,7 @@
     <div class="sub">الوحدة العاشرة: الاضمحلال الإشعاعيّ وعمر النصف — تناقُص النشاط الإشعاعي مع مرور الزمن</div>
     <div class="meta-row">
       <div class="meta-chip">رقم الهدف: <b>1-10</b></div>
-      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>7</b></div>
+      <div class="meta-chip">عدد الأسئلة المجمّعة حتى الآن: <b>9</b></div>
     </div>
   </div>
 </header>
@@ -443,23 +448,35 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على السؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية. هذه الأسئلة نصية (منقولة حرفياً من نموذج الإجابة الرسمي) وليست بصور الأسئلة الأصلية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (7)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (2)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (9)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (4)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
       <thead><tr><th>م</th><th>نص السؤال (ملخّص)</th><th>المصدر</th><th></th></tr></thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>1</td><td>ما المصطلح العلمي الذي يدل على العبارة الآتية: "انحلال أنوية المواد المشعة غير المستقرة…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+<tr class="qrow" data-type="official" onclick="goTo('n2')">
           <td>2</td>
+          <td>ما الوحدة المستخدمة لقياس النشاط الإشعاعي؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2023/2024</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n2')">الانتقال ↓</a></td>
+        </tr>
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
+          <td>3</td>
           <td>ما اسم وحدة قياس النشاط الإشعاعي في النظام الدولي؟<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n1')">
+          <td>4</td>
+          <td>يستخدم عاملان عداد جيجر للتحقق من مستويات الإشعاع، يقول العامل الأول: أستطيع أن أتوقع أي عينة سوف يح…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الثاني 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n1')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>3</td>
@@ -497,10 +514,8 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
 
-  
-<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 4</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
+<details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>2</td><td>رسمي 2023/2024 – الدور الأول</td><td><b>ب</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr><tr><td>تدريبي 4</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q2">
       <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 1">1</h3><span class="nb exam">رسمي 2022/2023 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-10 · صفحة 102</span></div>
 <div class="nq-stem">ما المصطلح العلمي الذي يدل على العبارة الآتية: "انحلال أنوية المواد المشعة غير المستقرة بإطلاق جسيمات أو إشعاعات لتصبح نواة مستقرة"؟</div>
@@ -510,8 +525,20 @@
 <div class="sol-answer" id="q2-ans"><div class="sol-body">الاضمحلال الإشعاعي.</div></div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n2">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb marks">درجة واحدة</span><span class="nb mcq">موضوعي</span><span class="nq-where">س24 في الامتحان · س24 في الامتحان</span></div>
+<div class="nq-stem">ما الوحدة المستخدمة لقياس النشاط الإشعاعي؟</div>
+<div class="nq-hint">ظلّل الإجابة الصحيحة.</div>
+<div class="nq-opts c4"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">النيوتن</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">البيكريل</span></div><div class="nq-opt"><span class="lt">ج</span><span class="ot ar">الثانية</span></div><div class="nq-opt"><span class="lt">د</span><span class="ot ar">الباسكال</span></div></div>
+      <button class="show-btn" onclick="toggleSol('n2-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n2-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — البيكريل</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 24 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
 <div class="sol-section nq" id="q1">
-      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 2">2</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-10 · صفحة 102</span></div>
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 3">3</h3><span class="nb exam">رسمي 2023/2024 – الدور الأول</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-10 · صفحة 102</span></div>
 <div class="nq-stem">ما اسم وحدة قياس النشاط الإشعاعي في النظام الدولي؟</div>
 <div class="nq-fig"><img src="data:image/webp;base64,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" alt="صورة السؤال من ورقة الامتحان" style="max-width:min(720px,100%)"></div>
 <div class="nq-solve"><span class="tt">منطقة الحل</span><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
@@ -521,6 +548,19 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n1">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 4">4</h3><span class="nb exam">رسمي 2025/2026 – الدور الثاني</span><span class="nb marks">درجة واحدة</span><span class="nb essay">موضوعي + مقالي</span><span class="nq-where">س25 في الامتحان · س25 في الامتحان</span></div>
+<div class="nq-stem">يستخدم عاملان عداد جيجر للتحقق من مستويات الإشعاع، يقول العامل الأول: أستطيع أن أتوقع أي عينة سوف يحدث لها انبعاث قريبًا، بينما يقول العامل الثاني: يستحيل ذلك. أي العاملين على صواب؟</div>
+<div class="nq-opts"><div class="nq-opt"><span class="lt">أ</span><span class="ot ar">الأول</span></div><div class="nq-opt"><span class="lt">ب</span><span class="ot ar">الثاني</span></div></div>
+<div class="nq-stem">فسّر إجابتك:</div>
+      <button class="show-btn" onclick="toggleSol('n1-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n1-ans">
+        <div class="sol-body">الإجابة الصحيحة: ب — الثاني<br>لأن الانبعاثات الإشعاعية عملية عشوائية، فلا نستطيع توقع متى سيحدث الانبعاث الإشعاعي للذرة.</div>
+        <div class="grade-note">الدرجة: 1 — السؤال رقم 25 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-10</span></div>
 <div class="nq-stem">أي العبارات التالية تصف بدقة طبيعة عملية الاضمحلال (التحلل) الإشعاعي لنواة غير مستقرة؟</div>
@@ -539,6 +579,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-10</span></div>
 <div class="nq-stem">فسّر لماذا لا يمكن التنبؤ باللحظة التي ستتحلل فيها نواة مشعة واحدة بعينها، رغم إمكانية التنبؤ بسلوك عدد كبير جدًا من الأنوية المتماثلة (كمعدل تناقص النشاط الكلي) بدقة عالية نسبيًا.</div>
@@ -554,6 +595,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-10</span></div>
 <div class="nq-stem">يحتوي مصدر مشع في لحظة البدء على عدد كبير من الأنوية غير المستقرة. وضّح لماذا يتناقص معدل نشاطه الإشعاعي (معدل العدّ) باستمرار مع مرور الوقت، ولماذا لا يمكن أن يزداد هذا المعدل من تلقاء نفسه.</div>
@@ -571,6 +613,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 1-10</span></div>
 <div class="nq-stem">رُسم منحنى يمثّل العلاقة بين معدل العدّ (النشاط) لمصدر مشع والزمن، باستخدام عدّاد جايجر-مولر بعد استبعاد الإشعاع الخلفي. أي وصف يمثّل الشكل العام الصحيح لهذا المنحنى؟</div>
@@ -589,6 +632,7 @@
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 1-10</span></div>
 <div class="nq-stem">لاحظ طالب أن معدل عدّ مصدر مشع كان <bdi dir="ltr">800</bdi> نبضة/دقيقة، ثم أصبح <bdi dir="ltr">400</bdi> نبضة/دقيقة بعد مرور فترة زمنية معينة، ثم أصبح <bdi dir="ltr">200</bdi> نبضة/دقيقة بعد مرور فترة زمنية أخرى مساوية للأولى تمامًا. فسّر ماذا يخبرنا هذا النمط عن طريقة تناقص النشاط الإشعاعي مع الزمن: هل يتناقص بمقدار ثابت أم بنسبة ثابتة في كل فترة زمنية متساوية؟</div>

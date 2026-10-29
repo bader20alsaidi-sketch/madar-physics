@@ -412,6 +412,11 @@
     .sol-section.nq{break-inside:avoid;}
     details.nq-key{display:none;}
   }
+
+  .nuc{display:inline-flex;flex-direction:column;vertical-align:middle;line-height:1;font-size:.72em;margin:0 1px;text-align:center;font-style:normal;}
+  .nuc sup,.nuc sub{position:static;vertical-align:baseline;line-height:1.1;font-size:1em;}
+  .nq-cellimg{max-width:150px;width:100%;height:auto;display:block;margin:4px auto;}
+  @media(max-width:520px){.nq-tbl{font-size:13px}.nq-tbl th,.nq-tbl td{padding:6px 3px;height:38px;text-align:center}.nq-tbl th:first-child,.nq-tbl td:first-child{padding-inline:5px}}
 </style>
 </head>
 <body>
@@ -463,8 +468,8 @@
     <h2>أسئلة الاختبارات النهائية المرتبطة بهذا الهدف</h2>
     <div class="toc-note">اضغط على أي سؤال للانتقال إلى بطاقته بالأسفل، ثم اضغط زر "إظهار نموذج الحل" لعرض الإجابة الرسمية.</div>
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (10)</button>
-      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (5)</button>
+      <button class="filter-btn active" onclick="filterRows('all', this)">الكل (11)</button>
+      <button class="filter-btn" onclick="filterRows('official', this)">رسمي فقط (6)</button>
       <button class="filter-btn" onclick="filterRows('practice', this)">تدريبي فقط (5)</button>
     </div>
     <table class="qtable">
@@ -477,35 +482,41 @@
         </tr>
       </thead>
       <tbody>
-<tr class="qrow" data-type="official" onclick="goTo('q4')">
+        <tr class="qrow" data-type="official" onclick="goTo('q4')">
           <td>1</td>
           <td>قُذفت كرة بسرعة ابتدائية 20 m/s بزاوية 60°. حلل السرعة الابتدائية إلى مركبتيها الأفقية والرأسية.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q4')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q5')">
+        <tr class="qrow" data-type="official" onclick="goTo('q5')">
           <td>2</td>
           <td>قُذف حجر إلى أعلى باتجاه جدار بسرعة ابتدائية (40 m/s) وبزاوية 60° عن الأفق. وصل الحجر إلى الجدار بعد 3s. احسب ارتفاع الجدار.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2022/2023 (الفترة المسائية)</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q5')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q2')">
+        <tr class="qrow" data-type="official" onclick="goTo('q2')">
           <td>3</td>
           <td>قذف كرة بسرعة 10 m/s وزاوية 25°: السرعة الأفقية لحظة الاصطدام بالأرض (اختيار من متعدد)<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2023/2024</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q2')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q1')">
+        <tr class="qrow" data-type="official" onclick="goTo('q1')">
           <td>4</td>
           <td>يوضح الشكل مسار مقذوف بسرعة ابتدائية متجهة مقدارها (42 m s⁻¹) وبزاوية (63°) مع الاتجاه الأفقي حتى يسقط على تلة عند النقطة A بعد مرور (5.0 s) من انطلاقها. جد مركبتي السرعة الأفقية والرأسية للسرعة الابتدائية.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الأول 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q1')">الانتقال ↓</a></td>
         </tr>
-<tr class="qrow" data-type="official" onclick="goTo('q3')">
+        <tr class="qrow" data-type="official" onclick="goTo('q3')">
           <td>5</td>
           <td>كرة قُذفت بزاوية (35°) بسرعة ابتدائية (40 m/s) نحو مبنى على بعد (50 m). احسب ارتفاع نقطة ارتطام الكرة بالمبنى عن سطح الأرض.<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
           <td>الدور الثاني 2024/2025</td>
           <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('q3')">الانتقال ↓</a></td>
+        </tr>
+<tr class="qrow" data-type="official" onclick="goTo('n31201')">
+          <td>6</td>
+          <td>يقفز لاعب بسرعة متجهة مقدارها (9 m s−1)، وبزاوية تميل على المحور الأفقي بمقدار (θ). جِد المركبتين ال…<span class="badge official" style="margin-inline-start:6px;">رسمي</span></td>
+          <td>الدور الأول 2025/2026</td>
+          <td><a class="go-btn" href="javascript:void(0)" onclick="event.stopPropagation(); goTo('n31201')">الانتقال ↓</a></td>
         </tr>
 <tr class="qrow" data-type="practice" onclick="goTo('p1')">
           <td>6</td>
@@ -543,27 +554,6 @@
 
   <section class="card">
     <h2>بطاقات الأسئلة ونماذج الحل</h2>
-    
-
-    
-
-    
-
-    
-
-    
-
-
-      
-
-    
-
-    
-
-    
-
-    
-
 
 <details class="nq-key"><summary>مفتاح إجابات الأسئلة الموضوعية (اضغط للإظهار)</summary><table><thead><tr><th>السؤال</th><th>الامتحان</th><th>الإجابة</th></tr></thead><tbody><tr><td>3</td><td>رسمي 2023/2024 – الدور الثاني</td><td><b>ج</b></td></tr><tr><td>تدريبي 1</td><td>تدريبي</td><td><b>ب</b></td></tr></tbody></table></details>
 <div class="sol-section nq" id="q4">
@@ -660,6 +650,19 @@ h = u t + ½ a t² = (22.9 × 1.52) + (½ × −9.81 × 1.52²) = 23.5 m</div>
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+<div class="sol-section nq" id="n31201">
+      <div class="nq-head"><h3 class="nq-num" aria-label="السؤال 6">6</h3><span class="nb exam">رسمي 2025/2026 – الدور الأول</span><span class="nb marks">درجتان</span><span class="nb essay">مقالي</span><span class="nq-where">س17 في الامتحان · س17 في الامتحان</span></div>
+<div class="nq-stem">يقفز لاعب بسرعة متجهة مقدارها <bdi dir="ltr"><bdi dir="ltr">(9 m s<sup>−1</sup>)</bdi></bdi>، وبزاوية تميل على المحور الأفقي بمقدار <bdi dir="ltr"><bdi dir="ltr">(θ)</bdi></bdi>. جِد المركبتين الأفقية والرأسية للسرعة المتجهة.</div>
+<table class="nq-tbl"><thead><tr><th>المُركّبة الأفقية:</th><th>[١]</th></tr></thead><tbody></tbody></table>
+<table class="nq-tbl"><thead><tr><th>المُركّبة الرأسية:</th><th>[١]</th></tr></thead><tbody></tbody></table>
+      <button class="show-btn" onclick="toggleSol('n31201-ans', this)">إظهار نموذج الحل ↓</button>
+<div class="sol-answer" id="n31201-ans">
+        <div class="sol-body"><bdi dir="ltr">vx =9cosθ</bdi><br><bdi dir="ltr">vy =9sinθ</bdi></div>
+        <div class="grade-note">الدرجة: 2 — السؤال رقم 17 في الامتحان</div>
+      </div>
+<div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
+    </div>
+
 <div class="sol-section nq" id="p1">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 1">1</h3><span class="nb prac">تدريبي</span><span class="nb mcq">موضوعي</span><span class="nq-where">الهدف 3.10</span></div>
 <div class="nq-stem">أُطلقت قذيفة بسرعة ابتدائية مقدارها <bdi dir="ltr">40 m/s</bdi>، بزاوية <bdi dir="ltr">37°</bdi> فوق الاتجاه الأفقي. (خذ <bdi dir="ltr">sin37°</bdi> ≈ <bdi dir="ltr">0.6</bdi>، <bdi dir="ltr">cos37°</bdi> ≈ <bdi dir="ltr">0.8</bdi>) ما مقدار المركبة الرأسية لسرعتها الابتدائية؟</div>
@@ -679,6 +682,7 @@ Vy = 40 × sin37° = 40 × 0.6 = 24 m/s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p2">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 2">2</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.10</span></div>
 <div class="nq-stem">وضّح لماذا يجب تحليل السرعة الابتدائية لقذيفة أُطلقت بزاوية إلى مركبتين أفقية ورأسية، قبل تطبيق معادلات الحركة <bdi dir="ltr">(SUVAT)</bdi> على حركتها.</div>
@@ -696,6 +700,7 @@ Vy = 40 × sin37° = 40 × 0.6 = 24 m/s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p3">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 3">3</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.10</span></div>
 <div class="nq-stem">أُطلقت قذيفة بسرعة ابتدائية مقدارها <bdi dir="ltr">50 m/s</bdi> بزاوية <bdi dir="ltr">30°</bdi> فوق الأفقي. (خذ <bdi dir="ltr">sin30° = 0.5</bdi>، <bdi dir="ltr">cos30°</bdi> ≈ <bdi dir="ltr">0.87</bdi>) احسب المركبة الأفقية والمركبة الرأسية لسرعتها الابتدائية.</div>
@@ -713,6 +718,7 @@ Vy = 40 × sin37° = 40 × 0.6 = 24 m/s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p4">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 4">4</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.10</span></div>
 <div class="nq-stem">أُطلقت كرة بسرعة ابتدائية مقدارها <bdi dir="ltr">20 m/s</bdi> بزاوية <bdi dir="ltr">45°</bdi> فوق الأفقي. (خذ <bdi dir="ltr">sin45°</bdi> ≈ <bdi dir="ltr">0.71</bdi>، <bdi dir="ltr">g = 10 m/s<sup>2</sup></bdi>) احسب:</div>
@@ -735,6 +741,7 @@ t = 14.2 / 10 = 1.42 s
       </div>
 <div><a class="back-link" href="#top">↑ الرجوع لأعلى الصفحة</a></div>
     </div>
+
 <div class="sol-section nq" id="p5">
       <div class="nq-head"><h3 class="nq-num" aria-label="سؤال تدريبي 5">5</h3><span class="nb prac">تدريبي</span><span class="nb essay">مقالي</span><span class="nq-where">الهدف 3.10</span></div>
 <div class="nq-stem">أُطلقت كرة بمركبة أفقية للسرعة مقدارها <bdi dir="ltr">Vx = 18 m/s</bdi>، ومركبة رأسية مقدارها <bdi dir="ltr">Vy = 24 m/s</bdi>. احسب:</div>
