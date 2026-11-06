@@ -1,0 +1,295 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر الزنبرك وقانون هوك — الصف العاشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.tb{width:100%;border-collapse:collapse;margin-top:10px}.tb th,.tb td{border:1px solid var(--line);padding:6px 8px;text-align:center}.tb td{font-family:var(--f-mono)}.tb th{background:var(--chip);font-size:.85rem}.steps li{overflow-wrap:anywhere}.steps .num,.say .num,.btn .num{white-space:normal}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر الزنبرك وقانون هوك</h1><p class="sub">الوحدة الرابعة: تأثيرات القوى — استطالة الزنبرك، منحنى (الاستطالة – الحمل)، حد التناسب، قانون هوك، ثابت الزنبرك</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|]*[0-9A-Za-z%²³¹₀-₉)]|[0-9A-Za-zΔ½²³])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='load';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['load','الحمل والاستطالة'],['graph','المنحنى وحد التناسب'],['hooke','قانون هوك'],['compare','قارن زنبركين'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({load:tabLoad,graph:tabGraph,hooke:tabHooke,compare:tabCompare,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)).replace('-','−'),f1b=x=>String(+(+x).toFixed(1)).replace('-','−');
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+const TEAL='#1c8f95',PURPLE='#8a3aa8';
+const fixN=t=>String(t).replace(/(−?\d+(?:\.\d+)?(?: ?(?:N\/cm|N\/m|cm|mm|kg|N|m)(?![A-Za-z]))?|F = k x|x = F \/ k|k = F \/ x|x = L − L₀)/g,'<span class="num">$1</span>');
+/* spring model: linear up to the limit of proportionality, then the extension grows faster */
+const FP=8;
+const ext=(F,k)=>F<=FP?F/k:FP/k+(F-FP)/k*(1+0.45*(F-FP));
+const resid=(F,k)=>F<=FP?0:0.35*(ext(F,k)-FP/k);
+const coil=(x,y0,y1,w,turns,col)=>{const pts=[[x,y0],[x,y0+8]],n=turns*2,a=y0+8,b=y1-8;for(let i=1;i<=n;i++)pts.push([x+(i%2?-w:w),a+(b-a)*(i-.5)/n]);pts.push([x,b],[x,y1]);return `<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${col||'#8a97a8'}" stroke-width="3" stroke-linejoin="round"/>`};
+function G(gx,gy,gw,gh,xmax,ymax,xt,yt,xl,yl){
+  const X=t=>gx+t/xmax*gw,Y=v=>gy+gh-v/ymax*gh;
+  let s=`<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" fill="none" stroke="${GRAY}" stroke-width="1.2"/>`;
+  yt.forEach(v=>{s+=`<line x1="${gx}" y1="${Y(v)}" x2="${gx+gw}" y2="${Y(v)}" stroke="${GRAY}" stroke-width=".8" opacity=".3"/>`+tx(gx-5,Y(v)+4,String(v),{s:10,a:'end',f:GRAY})});
+  xt.forEach(t=>{s+=`<line x1="${X(t)}" y1="${gy}" x2="${X(t)}" y2="${gy+gh}" stroke="${GRAY}" stroke-width=".8" opacity=".22"/>`+tx(X(t),gy+gh+14,String(t),{s:10,f:GRAY})});
+  s+=tx(gx+gw/2,gy+gh+30,xl,{s:11,f:GRAY})+tx(gx+4,gy-6,yl,{s:11,f:GRAY,a:'start'});
+  return {svg:s,X,Y};
+}
+const poly=(pts,X,Y)=>pts.map(p=>X(p[0])+','+Y(p[1])).join(' ');
+
+/* =====================================================================
+   1) الحمل والاستطالة (تجربة)
+   ===================================================================== */
+function tabLoad(){
+  const W={k:2,F:0,L0:12,rows:[]};
+  ctrl.innerHTML=slider('k','ثابت الزنبرك k',.5,5,.5,W.k,'N/cm')+slider('L0','الطول الأصلي L₀',8,16,1,W.L0,'cm')+slider('F','الحمل F',0,12,.5,W.F,'N')+`<div class="btns"><button class="btn primary" id="rec">سجّل القراءة</button><button class="btn" id="clr">امسح الجدول</button></div><p class="gt">الحد الأقصى المرن لهذا الزنبرك: ${FP} N</p>`;
+  setTalk(['ابدأ بحمل صفر وسجّل الطول الأصلي، ثم أضف حملًا واحدًا بعد الآخر مع تسجيل كل قراءة.','انظر إلى المسطرة: الاستطالة x = الطول الجديد − الطول الأصلي، وليست الطول نفسه.','أضف 1 N في كل مرة: تزداد الاستطالة بمقدار ثابت ما دام الحمل ضمن حد التناسب.','اجعل الحمل أكبر من 8 N: تزداد الاستطالة بمقدار أكبر، وهذا يعني أن الحمل تجاوز حد التناسب.','غيّر k: الزنبرك الأصلب (k أكبر) يستطيل أقل عند الحمل نفسه.']);
+  [['k','N/cm'],['L0','cm'],['F','N']].forEach(([id,u])=>bindSlider(id,u,v=>{W[id]=v;if(id!=='F')W.rows=[];render()}));
+  $('rec').onclick=()=>{const x=ext(W.F,W.k);if(!W.rows.some(r=>r[0]===W.F))W.rows.push([W.F,W.L0+x,x]);W.rows.sort((a,b)=>a[0]-b[0]);render()};
+  $('clr').onclick=()=>{W.rows=[];render()};
+  function render(){
+    const x=ext(W.F,W.k),L=W.L0+x,sc=9,top=34;
+    let s=`<rect x="120" y="${top-16}" width="240" height="14" fill="#b9c3cc" stroke="${GRAY}" stroke-width="1.5"/>`;
+    s+=coil(240,top,top+L*sc,26,10,'#6b7a8c')+`<rect x="226" y="${top+L*sc}" width="28" height="8" fill="#6b7a8c"/><rect x="214" y="${top+L*sc+8}" width="52" height="${14+W.F*3}" rx="4" fill="${ORANGE}" opacity=".85" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(240,top+L*sc+30,f1b(W.F)+' N',{s:12,f:'#fff'});
+    // ruler
+    s+=`<rect x="320" y="${top}" width="34" height="${30*sc}" fill="#f4e6b8" stroke="#1a1a1a" stroke-width="1.5" opacity=".95"/>`;
+    for(let c=0;c<=30;c++){s+=`<line x1="320" y1="${top+c*sc}" x2="${c%5===0?340:332}" y2="${top+c*sc}" stroke="#1a1a1a" stroke-width="${c%5===0?1.6:1}"/>`;if(c%5===0)s+=tx(366,top+c*sc+4,String(c),{s:11,f:'#1a1a1a',a:'start'})}
+    s+=arr(300,top+L*sc,330,top+L*sc,GREEN,3)+`<line x1="230" y1="${top+L0y(W)}" x2="318" y2="${top+L0y(W)}" stroke="${BLUE}" stroke-width="1.6" stroke-dasharray="4 4"/>`;
+    s+=tx(12,top+L0y(W)-8,'الطول الأصلي '+f1b(W.L0)+' cm',{s:11,f:BLUE,a:'start'});
+    if(x>0)s+=arr(180,top+L0y(W),180,top+L*sc,ORANGE,4)+tx(170,top+(L0y(W)+L*sc)/2+4,'x = '+f1b(x)+' cm',{s:12,f:ORANGE,a:'end'});
+    svg.innerHTML=s;
+    const beyond=W.F>FP;
+    const rows=W.rows.map(r=>`<tr><td>${f1b(r[0])}</td><td>${f1b(r[1])}</td><td>${f1b(r[2])}</td></tr>`).join('');
+    info.innerHTML=`<div class="chips">${chip('الحمل F',f1b(W.F)+' N')}${chip('الطول الحالي L',f1b(L)+' cm')}${chip('الاستطالة x',f1b(x)+' cm')}${chip('الطول الأصلي L₀',f1b(W.L0)+' cm')}</div><p class="say${beyond?'':' ok'}">${beyond?'تجاوز الحمل حد التناسب: الاستطالة أكبر مما يتوقعه قانون هوك.':'ضمن حد التناسب: الاستطالة تتناسب طرديًا مع الحمل.'}</p><ul class="steps"><li>${num('x = L − L₀ = '+f1b(L)+' − '+f1b(W.L0)+' = '+f1b(x)+' cm')}</li></ul><table class="tb"><thead><tr><th>الحمل (N)</th><th>الطول (cm)</th><th>الاستطالة (cm)</th></tr></thead><tbody>${rows||'<tr><td colspan="3">اضغط «سجّل القراءة» لملء الجدول</td></tr>'}</tbody></table><p class="rule"><b>اربط بالدرس:</b> الاستطالة = الطول الجديد − الطول الأصلي، والحمل هو العامل المستقل بينما الاستطالة هي العامل التابع.</p>`;
+  }
+  render();
+}
+const L0y=W=>W.L0*9;
+
+/* =====================================================================
+   2) منحنى (الاستطالة – الحمل) وحد التناسب
+   ===================================================================== */
+function tabGraph(){
+  const W={k:1.5,F:3,mode:'load'};
+  ctrl.innerHTML=slider('k','ثابت الزنبرك k',.5,3,.5,W.k,'N/cm')+slider('F','الحمل F',0,12,.5,W.F,'N')+seg('mode',[['load','تحميل'],['unload','إزالة الحمل']],W.mode)+`<p class="gt">حد التناسب لهذا الزنبرك عند ${FP} N</p>`;
+  setTalk(['زد الحمل ببطء: النقطة تتحرك على خط مستقيم يمر بنقطة الأصل، فالاستطالة تتناسب مع الحمل.','عند 8 N تظهر النقطة الحمراء «حد التناسب»، وبعدها ينحني المنحنى لأعلى.','اختر «إزالة الحمل» بعد تجاوز 8 N: لا يعود الخط إلى الصفر، ويبقى الزنبرك أطول من طوله الأصلي.','اربط الميل بثابت الزنبرك: ميل الجزء المستقيم يساوي 1 / k، فيقل الميل كلما زاد k.','اطلب من الطالب أن يرسم الشكلين (أ) و(ب) من كتابه على الورق بعد ملاحظة الحركة.']);
+  bindSlider('k','N/cm',v=>{W.k=v;render()});bindSlider('F','N',v=>{W.F=v;render()});bindSeg('mode',m=>{W.mode=m;render()});
+  function render(){
+    const g=G(80,30,560,260,12,Math.max(8,ext(12,W.k)*1.05),[2,4,6,8,10,12],[],'الحمل F (N)','الاستطالة x (cm)');
+    const ymax=Math.max(8,ext(12,W.k)*1.05),yt=[];for(let v=2;v<ymax;v+=2)yt.push(v);
+    const g2=G(80,30,560,260,12,ymax,[2,4,6,8,10,12],yt,'الحمل F (N)','الاستطالة x (cm)');let s=g2.svg;
+    const lin=[[0,0],[FP,FP/W.k]],cur=[];for(let F=FP;F<=12.001;F+=.25)cur.push([F,ext(F,W.k)]);
+    s+=`<polyline points="${poly(lin,g2.X,g2.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/><polyline points="${poly(cur,g2.X,g2.Y)}" fill="none" stroke="${PURPLE}" stroke-width="4"/>`;
+    s+=`<circle cx="${g2.X(FP)}" cy="${g2.Y(FP/W.k)}" r="7" fill="${RED}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g2.X(FP)+12,g2.Y(FP/W.k)+24,'حد التناسب',{s:12,f:RED,a:'start'});
+    const x=ext(W.F,W.k);
+    if(W.mode==='unload'&&W.F>0){const r=resid(W.F,W.k);s+=`<line x1="${g2.X(W.F)}" y1="${g2.Y(x)}" x2="${g2.X(0)}" y2="${g2.Y(r)}" stroke="${RED}" stroke-width="3.5" stroke-dasharray="7 5"/>`+`<circle cx="${g2.X(0)}" cy="${g2.Y(r)}" r="6" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`;if(r>0)s+=tx(g2.X(0)+14,g2.Y(r)+22,'استطالة باقية '+f1b(r)+' cm',{s:12,f:ORANGE,a:'start'})}
+    s+=`<circle cx="${g2.X(W.F)}" cy="${g2.Y(x)}" r="6.5" fill="${GREEN}" stroke="#1a1a1a" stroke-width="1.5"/>`;
+    svg.innerHTML=s;
+    const beyond=W.F>FP,r=resid(W.F,W.k);
+    info.innerHTML=`<div class="chips">${chip('الحمل F',f1b(W.F)+' N')}${chip('الاستطالة x',f1b(x)+' cm')}${chip('ميل الجزء المستقيم',f2(1/W.k)+' cm/N')}${W.mode==='unload'?chip('الاستطالة بعد إزالة الحمل',f1b(r)+' cm'):chip('x / F',W.F>0?f2(x/W.F)+' cm/N':'—')}</div><p class="say${beyond?'':' ok'}">${W.mode==='unload'?(beyond?'تجاوز الحمل حد التناسب فتشوّه الزنبرك: يبقى أطول من طوله الأصلي بعد إزالة الحمل.':'ضمن حد التناسب: يعود الزنبرك إلى طوله الأصلي (الاستطالة صفر).'):beyond?'بعد حد التناسب: لم تعد الاستطالة متناسبة مع الحمل.':'الخط المستقيم من نقطة الأصل: x تتناسب طرديًا مع F.'}</p><p class="rule"><b>اربط بالدرس:</b> حد التناسب هو النقطة التي لا يعود الزنبرك عندها خاضعًا لقانون هوك. الميل في هذا المنحنى = ${num('1 / k = '+f2(1/W.k)+' cm/N')}.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) قانون هوك F = k x
+   ===================================================================== */
+function tabHooke(){
+  const W={unk:'F',F:12,k:4,x:3,unit:'cm'};
+  function ui(){
+    ctrl.innerHTML=`<div><p class="gt">ما المطلوب؟</p>${seg('unk',[['F','القوة F'],['k','الثابت k'],['x','الاستطالة x']],W.unk)}</div><div><p class="gt">وحدة ثابت الزنبرك</p>${seg('unit',[['cm','N/cm'],['m','N/m']],W.unit)}</div>`+(W.unk!=='F'?slider('F','القوة F',1,60,1,W.F,'N'):'')+(W.unk!=='k'?slider('k','ثابت الزنبرك k',W.unit==='cm'?1:100,W.unit==='cm'?10:1000,W.unit==='cm'?.5:50,W.unit==='cm'?W.k:W.k*100,W.unit==='cm'?'N/cm':'N/m'):'')+(W.unk!=='x'?slider('x','الاستطالة x',W.unit==='cm'?1:.01,W.unit==='cm'?10:.1,W.unit==='cm'?.5:.01,W.unit==='cm'?W.x:W.x/100,W.unit==='cm'?'cm':'m'):'');
+    bindSeg('unk',k=>{W.unk=k;ui();render()});bindSeg('unit',u=>{W.unit=u;ui();render()});
+    const un={F:'N',k:W.unit==='cm'?'N/cm':'N/m',x:W.unit==='cm'?'cm':'m'};
+    ['F','k','x'].forEach(q=>{if(W.unk!==q)bindSlider(q,un[q],v=>{W[q]=q==='k'?(W.unit==='cm'?v:v/100):q==='x'?(W.unit==='cm'?v:v*100):v;render()})});
+  }
+  setTalk(['اختر المطلوب ثم غيّر الكميتين المعلومتين: القانون F = k x يعطي الكمية الثالثة.','انتبه إلى الوحدات: إذا كانت k بوحدة N/m فيجب أن تكون x بالمتر.','حوّل 4 cm إلى 0.04 m ثم قارن k = F / x بوحدتي N/cm وN/m: القيمة بالمتر 100 ضعف القيمة بالسنتيمتر.','اسأل: لو ضاعفنا F وبقي k ثابتًا ماذا يحدث لـ x؟ (تتضاعف).','تذكير: القانون يصح ضمن حد التناسب فقط.']);
+  function render(){
+    const k=W.k,x=W.x,F=W.F,Fv=W.unk==='F'?k*x:F,kv=W.unk==='k'?F/x:k,xv=W.unk==='x'?F/k:x;
+    const kU=W.unit==='cm'?'N/cm':'N/m',xU=W.unit==='cm'?'cm':'m',kD=W.unit==='cm'?kv:kv*100,xD=W.unit==='cm'?xv:xv/100;
+    const kd=W.unit==='cm'?kv:kv*100,xd=W.unit==='cm'?xv:xv/100;
+    // scene: spring with extension
+    const sc=22,top=40,L0=70,xcm=xv;
+    let s=`<rect x="160" y="22" width="200" height="12" fill="#b9c3cc" stroke="${GRAY}" stroke-width="1.5"/>`+coil(260,34,34+L0+xcm*sc*.9,24,9,'#6b7a8c');
+    const yb=34+L0+xcm*sc*.9;
+    s+=`<rect x="236" y="${yb}" width="48" height="${16+Fv*.5}" rx="4" fill="${ORANGE}" opacity=".85" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(260,yb+14+Fv*.25,f1b(Fv)+' N',{s:11,f:'#fff'});
+    s+=arr(330,34+L0,330,yb,GREEN,3.5)+tx(342,(34+L0+yb)/2+4,'x = '+f2(xd)+' '+xU,{s:12,f:GREEN,a:'start'});
+    s+=tx(520,70,'F = k x',{s:26,f:TEAL})+tx(520,108,'k = F / x',{s:16,f:GRAY})+tx(520,134,'x = F / k',{s:16,f:GRAY});
+    svg.innerHTML=s;
+    const steps=W.unk==='F'?['F = k x','F = '+f2(kd)+' × '+f2(xd)+' = '+f2(kd*xd)+' N']:W.unk==='k'?['k = F / x','k = '+f2(F)+' / '+f2(xd)+' = '+f2(F/xd)+' '+kU]:['x = F / k','x = '+f2(F)+' / '+f2(kd)+' = '+f2(F/kd)+' '+xU];
+    const other=W.unit==='cm'?'N/m':'N/cm';
+    info.innerHTML=`<div class="chips">${chip('القوة F',f2(Fv)+' N')}${chip('ثابت الزنبرك k',f2(kd)+' '+kU)}${chip('الاستطالة x',f2(xd)+' '+xU)}</div><ul class="steps">${steps.map(t=>`<li>${num(t)}</li>`).join('')}</ul><p class="say ok">${num('k = '+f2(kd)+' '+kU+' = '+f2(W.unit==='cm'?kd*100:kd/100)+' '+other)}</p><p class="rule"><b>احفظ:</b> قانون هوك F = k x لا يأتي في ورقة القوانين في الاختبار النهائي، ووحدة k هي N/m أو N/cm.</p>`;
+  }
+  ui();render();
+}
+
+/* =====================================================================
+   4) قارن بين زنبركين
+   ===================================================================== */
+function tabCompare(){
+  const W={kA:1,kB:4,F:6};
+  ctrl.innerHTML=slider('kA','ثابت الزنبرك A',.5,5,.5,W.kA,'N/cm')+slider('kB','ثابت الزنبرك B',.5,5,.5,W.kB,'N/cm')+slider('F','الحمل المعلّق F',1,8,.5,W.F,'N');
+  setTalk(['علّق الحمل نفسه بالزنبركين: الأصلب (k أكبر) يستطيل أقل.','الحمل نفسه والاستطالة مختلفة: x = F / k فهما متناسبان عكسيًا.','في الرسم: ميل الخط = 1 / k، فالأصلب خطه أقل ميلًا.','اطلب من الطالب أن يتوقع أي الزنبركين له الخط الأكثر ميلًا قبل النظر.','ضع kA = kB وراقب تطابق الخطين.']);
+  [['kA','N/cm'],['kB','N/cm'],['F','N']].forEach(([id,u])=>bindSlider(id,u,v=>{W[id]=v;render()}));
+  function render(){
+    const xa=W.F/W.kA,xb=W.F/W.kB,sc=26;
+    let s='';
+    [[130,W.kA,xa,BLUE,'A'],[300,W.kB,xb,ORANGE,'B']].forEach(([cx,k,xx,c,nm])=>{
+      s+=`<rect x="${cx-40}" y="20" width="80" height="10" fill="#b9c3cc" stroke="${GRAY}" stroke-width="1.5"/>`+coil(cx,30,30+60+xx*sc,18,8,c)+`<rect x="${cx-22}" y="${30+60+xx*sc}" width="44" height="${18}" rx="3" fill="#8a97a8" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(cx,30+60+xx*sc+13,f1b(W.F)+' N',{s:10,f:'#fff'});
+      s+=arr(cx+40,90,cx+40,30+60+xx*sc,GREEN,3)+tx(cx+48,(90+30+60+xx*sc)/2+4,'x = '+f2(xx)+' cm',{s:11,f:GREEN,a:'start'})+tx(cx,350,'الزنبرك '+nm+' (k = '+f1b(k)+' N/cm)',{s:11,f:c});
+    });
+    const ymax=Math.max(4,W.F/Math.min(W.kA,W.kB)*1.05),g=G(440,30,230,240,8,ymax,[2,4,6,8],[],'F (N)','x (cm)');
+    const yt=[];for(let v=2;v<ymax;v+=2)yt.push(v);const g2=G(440,30,230,240,8,ymax,[2,4,6,8],yt,'F (N)','x (cm)');s+=g2.svg;
+    s+=`<line x1="${g2.X(0)}" y1="${g2.Y(0)}" x2="${g2.X(8)}" y2="${g2.Y(8/W.kA)}" stroke="${BLUE}" stroke-width="3.5"/><line x1="${g2.X(0)}" y1="${g2.Y(0)}" x2="${g2.X(8)}" y2="${g2.Y(8/W.kB)}" stroke="${ORANGE}" stroke-width="3.5"/>`+`<circle cx="${g2.X(W.F)}" cy="${g2.Y(xa)}" r="5" fill="${BLUE}"/><circle cx="${g2.X(W.F)}" cy="${g2.Y(xb)}" r="5" fill="${ORANGE}"/>`;
+    svg.innerHTML=s;
+    const stiff=W.kA>W.kB?'A':W.kA<W.kB?'B':null;
+    info.innerHTML=`<div class="chips">${chip('استطالة A',f2(xa)+' cm')}${chip('استطالة B',f2(xb)+' cm')}${chip('ميل خط A',f2(1/W.kA)+' cm/N')}${chip('ميل خط B',f2(1/W.kB)+' cm/N')}</div><p class="say ok">${stiff?`الزنبرك ${stiff} أصلب لأن ثابته أكبر، فتكون استطالته أقل عند الحمل نفسه.`:'الزنبركان لهما الثابت نفسه، فتتساوى الاستطالتان.'}</p><ul class="steps"><li>${num('x = F / k')}</li><li>${num('A: '+f1b(W.F)+' / '+f1b(W.kA)+' = '+f2(xa)+' cm   ،   B: '+f1b(W.F)+' / '+f1b(W.kB)+' = '+f2(xb)+' cm')}</li></ul><p class="rule"><b>اربط بالدرس:</b> كلما كان ثابت الزنبرك أكبر كان الزنبرك أقل مرونة (أصلب)، وميل منحنى (الاستطالة – الحمل) يساوي 1 / k.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: الاستطالة، قانون هوك، ثابت الزنبرك، حد التناسب، المنحنى البياني.</p>`;
+  setTalk(['اطلب من الطالب أن يحسب بيده قبل أن يرى الخيارات.','ركّز على الوحدات: N/cm مقابل N/m.','في أسئلة الرسم: ما شكل الجزء المستقيم وأين ينحني؟','كرّر حتى يتقن الطالب الأنواع كلها.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const uniq=a=>[...new Set(a)];
+  const numOpts=(c,w,unit)=>{let o=uniq([c,...w].map(x=>+(+x).toFixed(2)));let i=1;while(o.length<4){o.push(+(c+i*Math.max(1,Math.abs(c)*.25)).toFixed(2));o=uniq(o);i++}return o.slice(0,4).map(x=>f2(x)+' '+unit)};
+  let drawFn=null;
+  const GEN=[
+    ()=>{const L0=pick([10,12,15,18,20]),x=pick([1.5,2.5,3.5,4,5.5,6]);return {q:`زنبرك طوله الأصلي ${L0} cm، وبعد تعليق حمل عليه أصبح طوله ${f1b(L0+x)} cm. ما استطالة الزنبرك؟`,c:x,w:[L0+x,L0,L0+x+L0],unit:'cm',why:`الاستطالة = الطول الجديد − الطول الأصلي = ${f1b(L0+x)} − ${L0} = ${f1b(x)} cm.`}},
+    ()=>{const k=pick([2,2.5,4,5,8]),x=pick([1.5,2,2.5,3,4]);return {q:`ثابت زنبرك ${k} N/cm. ما الحمل اللازم لاستطالة مقدارها ${x} cm ضمن حد التناسب؟`,c:k*x,w:[k/x,k+x,x/k],unit:'N',why:`F = k x = ${k} × ${x} = ${f2(k*x)} N.`}},
+    ()=>{const F=pick([6,10,12,15,24]),x=pick([2,2.5,3,4,5]);return {q:`أحدث حمل مقداره ${F} N استطالة مقدارها ${x} cm في زنبرك ضمن حد التناسب. ما ثابت الزنبرك؟`,c:F/x,w:[F*x,x/F,F+x],unit:'N/cm',why:`k = F / x = ${F} / ${x} = ${f2(F/x)} N/cm.`}},
+    ()=>{const k=pick([2,4,5,10]),F=pick([8,10,20,30,40]);return {q:`ثابت زنبرك ${k} N/cm. ما الاستطالة التي يحدثها حمل ${F} N ضمن حد التناسب؟`,c:F/k,w:[F*k,k/F,F+k],unit:'cm',why:`x = F / k = ${F} / ${k} = ${f2(F/k)} cm.`}},
+    ()=>{const k=pick([2,4,5,8]);return {q:`ثابت زنبرك ${k} N/cm. ما قيمته بوحدة N/m؟`,c:k*100,w:[k/100,k*10,k],unit:'N/m',why:`1 cm = 0.01 m، فنضرب في 100: ${k} × 100 = ${k*100} N/m.`}},
+    ()=>{const F=pick([2,3,4,5]),x=pick([1.5,2,2.5,3]),m=pick([2,3,4]);return {q:`استطال زنبرك ${x} cm عند حمل ${F} N وهو يخضع لقانون هوك. ما استطالته عند حمل ${F*m} N؟`,c:x*m,w:[x+m,x/m,x*m*m],unit:'cm',why:`الاستطالة تتناسب طرديًا مع الحمل، فتصبح ${m} أضعاف: ${m} × ${x} = ${f1b(x*m)} cm.`}},
+    ()=>{const s=pick([1.5,2,2.5,3]),p=pick([4,6,8]),loads=[0,2,4,6,8,10,12];const xs=loads.map(F=>F<=p?s*F/2:s*p/2+(F-p)*s/2*1.8);drawFn=()=>{const g=G(80,24,560,250,12,Math.ceil(xs[6]/2)*2+2,[2,4,6,8,10,12],(()=>{const a=[];for(let v=2;v<Math.ceil(xs[6]/2)*2+2;v+=2)a.push(v);return a})(),'الحمل (N)','الاستطالة (cm)');return g.svg+`<polyline points="${poly(loads.map((F,i)=>[F,xs[i]]),g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/>`+loads.map((F,i)=>`<circle cx="${g.X(F)}" cy="${g.Y(xs[i])}" r="5" fill="${ORANGE}" stroke="#1a1a1a"/>`).join('')};return {q:`يوضح الرسم نتائج تجربة تمدد زنبرك: خط مستقيم من نقطة الأصل ثم ينحني. عند أي حمل يقع حد التناسب؟`,opts:[p+' N',(p-2)+' N',(p+2)+' N',(p+4)+' N'],ans:0,why:`ينحني المنحنى بعد حمل ${p} N، فحد التناسب عند ${p} N.`,fixed:true}},
+    ()=>pick([{q:'ما وحدة ثابت الزنبرك في النظام الدولي (SI)؟',opts:['N/m','N m','m/N','kg/N'],ans:0,why:'k = F / x، فوحدته نيوتن لكل متر (N/m).',fixed:true},{q:'كلما زاد ثابت الزنبرك فإن الزنبرك:',opts:['أصلب وأقل مرونة','أكثر مرونة','لا يتغير','يفقد حد التناسب'],ans:0,why:'ثابت الزنبرك الأكبر يعني زنبركًا أقل مرونة وأصلب.',fixed:true},{q:'عند تجاوز حد التناسب ثم إزالة الحمل فإن الزنبرك:',opts:['يبقى أطول من طوله الأصلي','يعود إلى طوله الأصلي','يصبح أقصر من الأصلي','يتضاعف ثابته'],ans:0,why:'بعد حد التناسب يتشوه الزنبرك بشكل دائم فلا يعود إلى طوله الأصلي.',fixed:true},{q:'ماذا يمثل ميل الجزء المستقيم من منحنى (الاستطالة – الحمل)؟',opts:['1 / k','k','F','x فقط'],ans:0,why:'الميل = x / F = 1 / k.',fixed:true},{q:'أي العلاقات الآتية تمثل قانون هوك؟',opts:['F = k x','F = k / x','F = k + x','x = k F²'],ans:0,why:'قانون هوك: F = k x ضمن حد التناسب.',fixed:true},{q:'ما المقصود بحد التناسب؟',opts:['النقطة التي لا يعود بعدها الزنبرك خاضعًا لقانون هوك','أقصى طول للزنبرك','وزن الزنبرك نفسه','الحمل الذي يعيد الزنبرك لطوله الأصلي'],ans:0,why:'حد التناسب هو النقطة التي لا يعود الزنبرك عندها خاضعًا لقانون هوك.',fixed:true}])
+  ];
+  function next(){
+    drawFn=null;const g=GEN[Math.floor(Math.random()*GEN.length)]();
+    let opts,ans;
+    if(g.fixed){const idx=shuf(opts=g.opts.map((o,i)=>i));opts=idx.map(i=>g.opts[i]);ans=idx.indexOf(g.ans)}else{const o=numOpts(g.c,g.w,g.unit),right=f2(g.c)+' '+g.unit,sh=shuf(o);opts=sh;ans=sh.indexOf(right);if(ans<0){sh[0]=right;ans=0}}
+    Q.cur={...g,opts,ans};Q.done=false;
+    svg.innerHTML=drawFn?drawFn():tx(350,190,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixN(Q.cur.q)}</p><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixN(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixN(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('load');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

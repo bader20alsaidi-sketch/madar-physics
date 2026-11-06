@@ -1,0 +1,690 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر قانوني كيرشوف — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}}
+.steps li,.say,.rule{overflow-x:auto}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر قانوني كيرشوف</h1><p class="sub">الوحدة الثالثة: الدوائر الكهربائية — الدرس 4-3</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([+\-\u2212]?[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3][0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3\u00B0 .,+\-\u2212\u00D7=\/%]*[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3%\u00B0]|[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3])/g,'\u2066$1\u2069');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine ---------- */
+let tick=null,raf=0,lastT=0,curTab='draw';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+function fm(x,d=3){if(Math.abs(x)<1e-9)return'0';let t=x.toPrecision(d);if(t.includes('.')&&!t.includes('e'))t=t.replace(/0+$/,'').replace(/\.$/,'');return String(+t).replace('-','−')}
+const setSeg=(id,on)=>$(id).querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===on));
+const TABS=[['draw','ارسم دائرتك'],['build','ابنِ بالأدوات'],['chal','تحديات الدرس'],['j','القانون الأول'],['loop','القانون الثاني'],['sign','قواعد الإشارات'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;svg.onclick=null;svg.onpointerdown=null;info.onclick=null;ctrl.onclick=null;svg.onpointermove=null;svg.onpointerup=null;svg.onpointercancel=null;svg.style.touchAction='';svg.setAttribute('viewBox','0 0 700 360');$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({draw:tabDraw,build:()=>tabBoard('build'),chal:()=>tabBoard('chal'),j:tabJ,loop:tabLoop,sign:tabSign,quiz:tabQuiz})[k]();startLoop()}
+const TEAL='#0b6e73',YEL='#f2c14e';
+const ln=(x1,y1,x2,y2,col='#5b6678',w=4)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`;
+const rbox=(cx,cy,w=70,h=26,fill='#fff')=>`<rect x="${cx-w/2}" y="${cy-h/2}" width="${w}" height="${h}" rx="3" fill="${fill}" stroke="#1a1a1a" stroke-width="2.6"/>`;
+const dot=(x,y,col=YEL,r=6)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${col}" stroke="#1a1a1a" stroke-width="1.6"/>`;
+const battH=(cx,cy,right)=>{const lp=right?cx+6:cx-6,sp=right?cx-6:cx+6;return ln(lp,cy-18,lp,cy+18,'#d99a2b',4.5)+ln(sp,cy-9,sp,cy+9,'#d99a2b',8)};
+const SUBD='₀₁₂₃₄₅₆₇₈₉',sub=n=>String(n).split('').map(d=>SUBD[d]).join('');
+(function(){const st=document.createElement('style');st.textContent=`.brrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0;padding:8px;border:1.5px solid var(--line);border-radius:10px;background:var(--chip)}.brrow b{min-width:52px}.btn.tiny{padding:4px 9px;font-size:.8rem}.btn.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.selbox{padding:10px;border:1.5px dashed var(--accent);border-radius:10px;margin-top:6px}.qcard{padding:12px 14px;border-radius:12px;background:var(--chip);margin-bottom:10px;line-height:1.7}.qcard .gv{display:inline-block;margin-top:6px;padding:3px 10px;border-radius:8px;background:var(--raised);font:700 .95rem var(--f-mono);direction:ltr}.ansrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}.ansrow input{font:700 1.05rem var(--f-mono);direction:ltr;width:120px;padding:8px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink)}.qlist{display:flex;flex-wrap:wrap;gap:6px}.qlist button{min-width:40px}.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.tools .btn{padding:9px 6px;font-size:.92rem}.hint{margin:8px 0 0;font-size:.85rem;color:var(--muted);line-height:1.6}.ansrow .btn{padding:6px 12px}`;document.head.appendChild(st)})();
+
+/* =====================================================================
+   حلّال الدوائر: سكتان (L و M) وفروع على التوازي، وكل فرع سلسلة مكوّنات (R مقاومة، B بطارية، A أميتر، S مفتاح)
+   ===================================================================== */
+function solveCircuit(br){
+  const idx={L:0};let N=1;br.forEach((c,k)=>{for(let j=0;j<c.length-1;j++)idx[k+'.'+j]=N++});
+  const nid=(k,i,n)=>i<=0?'L':i>=n?'M':k+'.'+(i-1),ni=id=>id==='M'?-1:idx[id];
+  const Rs=[],Vs=[];
+  br.forEach((c,k)=>{const n=c.length;if(n===0){Vs.push({a:0,b:-1,e:0,r:1e-6,k,i:-1});return}
+    c.forEach((x,i)=>{const a=ni(nid(k,i,n)),b=ni(nid(k,i+1,n));
+      if(x.t==='R')Rs.push({a,b,g:1/Math.max(x.v,1e-6),k,i});
+      else if(x.t==='B')Vs.push({a,b,e:(x.flip?-1:1)*x.v,r:1e-3,k,i});
+      else if(x.t==='A'||(x.t==='S'&&x.closed))Vs.push({a,b,e:0,r:1e-6,k,i});});});
+  const M=N+Vs.length,A=Array.from({length:M},()=>new Array(M+1).fill(0));
+  Rs.forEach(r=>{if(r.a>=0)A[r.a][r.a]+=r.g;if(r.b>=0)A[r.b][r.b]+=r.g;if(r.a>=0&&r.b>=0){A[r.a][r.b]-=r.g;A[r.b][r.a]-=r.g}});
+  Vs.forEach((v,j)=>{const r=N+j;if(v.a>=0){A[v.a][r]+=1;A[r][v.a]-=1}if(v.b>=0){A[v.b][r]-=1;A[r][v.b]+=1}A[r][M]=v.e;A[r][r]-=(v.r||0)});
+  for(let i=0;i<N;i++)A[i][i]+=1e-9;
+  for(let c=0;c<M;c++){let p=c;for(let r=c+1;r<M;r++)if(Math.abs(A[r][c])>Math.abs(A[p][c]))p=r;if(Math.abs(A[p][c])<1e-11)return{ok:false};[A[c],A[p]]=[A[p],A[c]];
+    for(let r=0;r<M;r++){if(r===c)continue;const f=A[r][c]/A[c][c];if(f)for(let k=c;k<=M;k++)A[r][k]-=f*A[c][k]}}
+  const x=A.map((row,i)=>row[M]/row[i]);
+  const volt=id=>{const i=ni(id);return i<0?0:x[i]};
+  const cur=br.map(c=>c.map(()=>0)),bi=br.map(()=>0);
+  Rs.forEach(r=>{const va=r.a<0?0:x[r.a],vb=r.b<0?0:x[r.b];cur[r.k][r.i]=r.g*(va-vb)});
+  Vs.forEach((v,j)=>{if(v.i>=0)cur[v.k][v.i]=x[N+j];else bi[v.k]=x[N+j]});
+  br.forEach((c,k)=>{if(c.length){bi[k]=c.some(z=>z.t==='S'&&!z.closed)?0:cur[k][0]}});
+  br.forEach((c,k)=>{if(c.length&&bi[k]===0)c.forEach((_,i)=>{cur[k][i]=0})});
+  return{ok:true,volt,cur,bi};
+}
+
+/* =====================================================================
+   لوحة الدوائر: ابنِ دائرتك + تحديات الدرس
+   ===================================================================== */
+const S={br:[],sel:null,vm:[],tool:'sel',pend:null,mode:'build',showI:true,ph:0,chal:null,given:null,note:'',warn:false};
+const clone=o=>JSON.parse(JSON.stringify(o));
+const XL=110,XR=590;
+const mkR=(v,o={})=>Object.assign({t:'R',v},o),mkB=(v,flip=false,o={})=>Object.assign({t:'B',v,flip},o),mkA=()=>({t:'A'}),mkS=(closed=true)=>({t:'S',closed});
+const PRE=[
+  ['حلقة بسيطة (12 V ، 20 Ω ، 10 Ω)',()=>[[mkB(12),mkR(20)],[mkR(10)]]],
+  ['بطاريتان متعاكستان 6.0 V و 2.0 V',()=>[[mkB(6),mkR(10)],[mkB(2),mkR(30)]]],
+  ['ثلاثة فروع (14 V و 10 V)',()=>[[mkB(14,true),mkR(4)],[mkB(10),mkR(6)],[mkR(2)]]],
+  ['ثلاث بطاريات',()=>[[mkB(5),mkR(2)],[mkB(4,true),mkR(3)],[mkB(9,true),mkR(4)]]],
+];
+function geomY(){return S.br.map((_,k)=>70+110*k)}
+function posX(k,i){const n=S.br[k].length;return XL+(XR-XL)*(i+1)/(n+1)}
+function nodeAt(k,i){const n=S.br[k].length;if(i<=0)return{id:'L',x:XL,y:geomY()[k]};if(i>=n)return{id:'M',x:XR,y:geomY()[k]};return{id:k+'.'+(i-1),x:(posX(k,i-1)+posX(k,i))/2,y:geomY()[k]}}
+function nameOf(type,k,i){let c=0;for(let a=0;a<S.br.length;a++)for(let b=0;b<S.br[a].length;b++){if(S.br[a][b].t===type){c++;if(a===k&&b===i)return c}}return 0}
+function drawComp(x,cx,cy,k,i,sol,sel){
+  const nm=nameOf(x.t,k,i);let s='';
+  const hit=`<rect data-k="${k}" data-i="${i}" x="${cx-48}" y="${cy-44}" width="96" height="88" fill="transparent" style="cursor:pointer"/>`;
+  if(sel)s+=`<rect x="${cx-46}" y="${cy-42}" width="92" height="84" rx="12" fill="none" stroke="${ORANGE}" stroke-width="2.4" stroke-dasharray="6 5"/>`;
+  if(x.t==='R'){s+=rbox(cx,cy,64,28,'#e4f3f4')+tx(cx,cy-26,'R'+sub(nm)+' = '+(x.hide?'؟':fm(x.v)+' Ω'),{s:13,w:700,f:x.hide?RED:TEAL})}
+  else if(x.t==='B'){const lx=x.flip?cx-7:cx+7,sx=x.flip?cx+7:cx-7;s+=ln(lx,cy-20,lx,cy+20,'#d99a2b',4.5)+ln(sx,cy-10,sx,cy+10,'#d99a2b',9)+tx(lx+(x.flip?-12:12),cy-22,'+',{s:15,w:700,f:RED})+tx(cx,cy-46,'ε'+sub(nm)+' = '+fm(x.v)+' V',{s:13,w:700,f:ORANGE})}
+  else if(x.t==='A'){const I=sol&&sol.ok?sol.cur[k][i]:0;s+=`<circle cx="${cx}" cy="${cy}" r="19" fill="#ffe9a8" stroke="#1a1a1a" stroke-width="2.6"/>`+tx(cx,cy+6,'A',{s:17,w:800,f:'#1a1a1a'});
+    if(sol&&sol.ok){const m=Math.abs(I)<1e-6?0:I;s+=(m===0?'':(I>0?arr(cx-14,cy-30,cx+14,cy-30,RED,3):arr(cx+14,cy-30,cx-14,cy-30,RED,3)))+tx(cx,cy+40,fm(Math.abs(I)<1e-6?0:Math.abs(I))+' A',{s:14,w:800,f:RED})}}
+  else if(x.t==='S'){s+=dot(cx-20,cy,'#d99a2b',4.5)+dot(cx+20,cy,'#d99a2b',4.5)+(x.closed?ln(cx-20,cy,cx+20,cy,'#d99a2b',4):ln(cx-20,cy,cx+16,cy-20,'#d99a2b',4))+tx(cx,cy+30,x.closed?'مغلق':'مفتوح',{s:12,f:GRAY})}
+  return s+hit;
+}
+const TOOLS=[['sel','تحديد'],['R','مقاومة'],['B','بطارية'],['A','أميتر'],['S','مفتاح'],['V','فولتميتر']];
+const HINT={sel:'اضغط على أي مكوّن في الدائرة لتعديل قيمته أو عكس قطبيته أو حذفه.',R:'اضغط على أي فرع في المكان الذي تريد وضع المقاومة فيه.',B:'اضغط على أي فرع لوضع البطارية. يمكن أن يحتوي الفرع على بطارية فقط.',A:'اضغط على فرع لوضع الأميتر فيه (يُوضع على التوالي ويقيس تيار الفرع).',S:'اضغط على فرع لوضع مفتاح فيه، ثم افتحه أو أغلقه من لوحة التعديل.',V:'اضغط على مكوّن لقياس فرق الجهد عبره، أو اضغط نقطتين دائريتين لقياس فرق الجهد بينهما.'};
+function svgPt(e){const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
+function nodeAtId(k,i){return nodeAt(k,i)}
+function render(){
+  const n=S.br.length,H=Math.max(300,40+110*n+30),ys=geomY();svg.setAttribute('viewBox',`0 0 700 ${H}`);
+  const sol=solveCircuit(S.br);let s='';
+  const placing=['R','B','A','S'].includes(S.tool);
+  s+=ln(XL,ys[0],XL,ys[n-1],'#5b6678',5)+ln(XR,ys[0],XR,ys[n-1],'#5b6678',5);
+  s+=tx(XL-26,ys[0]-6,'L',{s:12,f:GRAY})+tx(XR+26,ys[0]-6,'M',{s:12,f:GRAY});
+  S.br.forEach((c,k)=>{const y=ys[k],m=c.length;
+    s+=`<rect data-b="${k}" x="${XL}" y="${y-34}" width="${XR-XL}" height="68" rx="12" fill="${placing?'rgba(217,154,43,.08)':'transparent'}" ${placing?'stroke="#d99a2b" stroke-width="1.5" stroke-dasharray="6 6"':''} style="cursor:${placing?'copy':'default'}"/>`;
+    if(m===0)s+=ln(XL,y,XR,y,'#5b6678',5)+(S.mode==='build'?tx((XL+XR)/2,y-12,'فرع فارغ (سلك): اختر أداة واضغط هنا',{s:12,f:GRAY}):'');
+    else{let px=XL;c.forEach((x,i)=>{const cx=posX(k,i),half=x.t==='B'?9:x.t==='R'?32:x.t==='A'?19:20;s+=ln(px,y,cx-half,y,'#5b6678',5);px=cx+half});s+=ln(px,y,XR,y,'#5b6678',5)}
+    if(k>0&&k<n-1)s+=dot(XL,y,'#8fa0b5',5)+dot(XR,y,'#8fa0b5',5);
+    if(sol.ok){const I=sol.bi[k],nn=Math.round(clamp(Math.abs(I)*2.2,0,10));if(nn>0&&Math.abs(I)>1e-4&&Math.abs(I)<500){const sg=Math.sign(I);for(let j=0;j<nn;j++){const f=((j/nn+sg*S.ph*(0.12+Math.min(Math.abs(I),6)*0.04))%1+1)%1;const xx=XL+f*(XR-XL);let over=false;c.forEach((x,i)=>{if(Math.abs(xx-posX(k,i))<(x.t==='R'?34:22))over=true});if(!over)s+=dot(xx,y,YEL,5)}}}
+    c.forEach((x,i)=>{s+=drawComp(x,posX(k,i),y,k,i,sol,S.sel&&S.sel.k===k&&S.sel.i===i)});
+    if(S.showI&&sol.ok){const I=sol.bi[k];if(Math.abs(I)<500)s+=(Math.abs(I)<1e-6?'':(I>0?arr(XL+14,y+30,XL+58,y+30,RED,3.5):arr(XL+58,y+30,XL+14,y+30,RED,3.5)))+tx(XL+36,y+52,'I'+sub(k+1)+' = '+fm(Math.abs(I)<1e-6?0:I)+' A',{s:12,w:700,f:RED})}
+    if(S.given&&S.given.k===k)s+=(S.given.dir>0?arr(XL+14,y+30,XL+58,y+30,GREEN,4):arr(XL+58,y+30,XL+14,y+30,GREEN,4))+tx(XL+36,y+52,'I'+sub(k+1)+' = '+S.given.txt,{s:13,w:800,f:GREEN});
+    if(S.mode==='build'&&n>2)s+=`<g data-del="${k}" style="cursor:pointer"><circle cx="${XR+44}" cy="${y}" r="13" fill="#fdeceb" stroke="${RED}" stroke-width="2"/>`+tx(XR+44,y+6,'×',{s:17,w:800,f:RED})+`</g>`;
+  });
+  if(S.tool==='V'){S.br.forEach((c,k)=>{for(let i=0;i<=c.length;i++){const nd=nodeAt(k,i);const picked=S.pend&&S.pend.id===nd.id&&S.pend.y===nd.y;s+=`<circle data-n="${nd.id}" data-x="${nd.x}" data-y="${nd.y}" cx="${nd.x}" cy="${nd.y}" r="${picked?10:8}" fill="${picked?ORANGE:'#fff'}" stroke="${BLUE}" stroke-width="3" style="cursor:pointer"/>`}})}
+  S.vm.forEach((v,j)=>{const a=v.a,b=v.b,cxm=(a.x+b.x)/2,top=Math.max(a.y,b.y)+74,mx=0.25*a.x+0.5*cxm+0.25*b.x,my=0.25*a.y+0.5*top+0.25*b.y;
+    const V=sol.ok?sol.volt(a.id)-sol.volt(b.id):0;
+    s+=`<path d="M ${a.x} ${a.y} Q ${cxm} ${top} ${b.x} ${b.y}" fill="none" stroke="${BLUE}" stroke-width="2.4" stroke-dasharray="6 5"/>`+`<circle cx="${a.x}" cy="${a.y}" r="5" fill="${RED}"/><circle cx="${b.x}" cy="${b.y}" r="5" fill="${BLUE}"/>`+`<circle cx="${mx}" cy="${my}" r="17" fill="#dbe9ff" stroke="${BLUE}" stroke-width="2.6"/>`+tx(mx,my+6,'V',{s:16,w:800,f:BLUE})+tx(mx,my+36,fm(V)+' V',{s:13,w:800,f:BLUE})});
+  const huge=sol.ok&&sol.bi.some(x=>Math.abs(x)>500);
+  if(huge)s+=`<rect x="110" y="${H/2-24}" width="480" height="48" rx="10" fill="#fdeceb" stroke="${RED}" stroke-width="2"/>`+tx(350,H/2+6,'تنبيه: بطارية موصولة بلا مقاومة (دائرة قصر). أضف مقاومة في الفرع.',{s:14,w:800,f:RED});
+  svg.innerHTML=s;
+  S.warn=huge;
+  return sol;
+}
+function refreshInfo(sol){
+  if(S.mode==='chal')return;
+  let chips='',sum=0;S.br.forEach((c,k)=>{const I=sol.ok?sol.bi[k]:0;sum+=I;chips+=`<div class="chip"><div class="k">I${sub(k+1)} (يمينًا +)</div><div class="v">${Math.abs(I)>500?'∞':fm(Math.abs(I)<1e-6?0:I)} A</div></div>`});
+  const vm=S.vm.map((v,j)=>`<li>${num('فولتميتر '+(j+1)+': V = '+fm(sol.ok?sol.volt(v.a.id)-sol.volt(v.b.id):0)+' V')} <button class="btn tiny" data-vm="${j}" data-act="flip">عكس</button> <button class="btn tiny" data-vm="${j}" data-act="del">حذف</button></li>`).join('');
+  info.innerHTML=`<div class="chips">${chips}<div class="chip"><div class="k">ΣI عند السكة L</div><div class="v">${S.warn?'—':fm(Math.abs(sum)<1e-6?0:sum)} A</div></div></div>${vm?`<ul class="steps">${vm}</ul>`:''}
+  <p class="say ${sol.ok&&!S.warn?'ok':''}">${S.warn?'أضف مقاومة في الفرع الذي فيه بطارية فقط، فالبطارية الحقيقية لا تُوصل بسلك مباشرة.':'ابنِ الدائرة ثم اقرأ التيارات والجهود. مجموع التيارات عند السكة L يساوي صفرًا (قانون كيرشوف الأول).'}</p>
+  <p class="rule"><b>اربط بالدرس:</b> قانون كيرشوف الأول: ΣI = 0 عند نقطة التفرع. الثاني: Σε = Σ I R في أي مسار مغلق. الأسهم الحمراء تُظهر اتجاه التيار الفعلي.</p>`;
+}
+function redraw(){const sol=render();refreshInfo(sol);if(S.mode==='chal')chalInfo(sol)}
+function structChanged(msg){if(S.vm.length&&msg!==false){S.note='أُزيلت الفولتميترات لأن شكل الدائرة تغيّر، ضعها من جديد بعد الانتهاء من البناء.'}S.vm=[];S.pend=null;S.sel=null;buildCtrl();redraw()}
+function buildCtrl(){
+  if(S.mode==='chal'){chalCtrl();return}
+  ctrl.innerHTML=`<div><p class="gt">الأدوات: اختر أداة ثم اضغط على فرع لتضعها</p><div class="tools" id="tools">${TOOLS.map(([k,t])=>`<button class="btn ${S.tool===k?'on':''}" data-t="${k}">${t}</button>`).join('')}</div><p class="hint" id="hint">${HINT[S.tool]}</p>${S.note?`<p class="hint" style="color:var(--bad)">${S.note}</p>`:''}</div>
+  <div><p class="gt">الفروع (حتى 4)</p><div class="btns">${S.br.length<4?'<button class="btn small" data-a="addBr">+ فرع جديد</button>':''}<button class="btn small" data-a="clear">دائرة فارغة</button></div></div>
+  <div><p class="gt">المكوّن المحدد</p><div class="selbox" id="selbox"></div></div>
+  <div><p class="gt">أمثلة جاهزة</p><div class="btns">${PRE.map((p,i)=>`<button class="btn small" data-a="pre" data-k="${i}">${p[0]}</button>`).join('')}</div></div>`;
+  S.note='';selCtrl();
+}
+function setVal(v){const x=S.sel&&S.br[S.sel.k]&&S.br[S.sel.k][S.sel.i];if(!x)return;v=Math.max(0.1,Math.min(x.t==='B'?48:100,Math.round(v*10)/10));x.v=v;const inp=$('sv');if(inp)inp.value=v;redraw()}
+function selCtrl(){
+  const box=$('selbox');if(!box)return;const sel=S.sel;
+  if(!sel||!S.br[sel.k]||!S.br[sel.k][sel.i]){box.innerHTML='<span style="color:var(--muted)">اضغط على مكوّن في الدائرة لتعديله، أو اختر أداة وضع مكوّنًا جديدًا.</span>';return}
+  const x=S.br[sel.k][sel.i];let h=`<b>${{R:'مقاومة',B:'بطارية',A:'أميتر',S:'مفتاح'}[x.t]}</b> — فرع ${sel.k+1}<br>`;
+  if(x.t==='R'||x.t==='B'){const chips=x.t==='R'?[1,2,3,4,5,6,8,10,20,30]:[1.5,3,5,6,9,12,15];h+=`<div class="ansrow" style="margin:8px 0"><button class="btn small" data-a="dec">−</button><input id="sv" type="number" step="0.5" value="${x.v}" inputmode="decimal"><span>${x.t==='R'?'Ω':'V'}</span><button class="btn small" data-a="inc">+</button></div><div class="btns">${chips.map(v=>`<button class="btn tiny" data-a="val" data-v="${v}">${v}</button>`).join('')}</div>`}
+  if(x.t==='B')h+=`<div class="btns" style="margin-top:8px"><button class="btn small" data-a="flip">عكس القطبية ⇄</button></div>`;
+  if(x.t==='S')h+=`<div class="btns"><button class="btn small" data-a="tog">${x.closed?'افتح المفتاح':'أغلق المفتاح'}</button></div>`;
+  h+=`<div class="btns" style="margin-top:8px"><button class="btn tiny" data-a="mvl">▶ لليمين</button><button class="btn tiny" data-a="mvr">◀ لليسار</button><button class="btn tiny" data-a="del">حذف المكوّن</button></div>`;
+  box.innerHTML=h;const inp=$('sv');if(inp)inp.oninput=()=>{const v=parseFloat(inp.value);if(v>0){x.v=Math.min(v,x.t==='B'?48:100);redraw()}};
+}
+function placeComp(k,xpos,t){
+  const c=S.br[k];let idx=0;c.forEach((z,i)=>{if(posX(k,i)<xpos)idx=i+1});
+  const comp=t==='R'?mkR(10):t==='B'?mkB(6):t==='A'?mkA():mkS(true);
+  c.splice(idx,0,comp);S.sel={k,i:idx};if(S.vm.length)S.note='أُزيلت الفولتميترات لأن شكل الدائرة تغيّر، ضعها من جديد بعد الانتهاء من البناء.';S.vm=[];S.pend=null;buildCtrl();redraw();
+}
+function addVmAcross(k,i){let a=nodeAt(k,i),b=nodeAt(k,i+1);const sol=solveCircuit(S.br);if(sol.ok&&sol.volt(a.id)<sol.volt(b.id))[a,b]=[b,a];if(S.vm.length>=3)S.vm.shift();S.vm.push({a:{id:a.id,x:a.x,y:a.y},b:{id:b.id,x:b.x,y:b.y}});S.pend=null;redraw()}
+function onCtrl(e){
+  if(S.mode==='chal')return;
+  const t=e.target.closest('[data-t]');
+  if(t){S.tool=t.dataset.t;S.pend=null;buildCtrl();redraw();return}
+  const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=+b.dataset.k,sel=S.sel;
+  if(a==='addBr'){S.br.push([]);S.sel=null;S.note='';buildCtrl();redraw()}
+  else if(a==='pre'){S.br=PRE[k][1]();structChanged(false)}
+  else if(a==='clear'){S.br=[[],[]];structChanged(false)}
+  else if(a==='flip'&&sel){S.br[sel.k][sel.i].flip=!S.br[sel.k][sel.i].flip;redraw()}
+  else if(a==='tog'&&sel){const x=S.br[sel.k][sel.i];x.closed=!x.closed;selCtrl();redraw()}
+  else if(a==='del'&&sel){S.br[sel.k].splice(sel.i,1);S.sel=null;S.vm=[];S.pend=null;buildCtrl();redraw()}
+  else if((a==='mvl'||a==='mvr')&&sel){const c=S.br[sel.k],j=sel.i+(a==='mvl'?1:-1);if(j>=0&&j<c.length){[c[sel.i],c[j]]=[c[j],c[sel.i]];S.sel={k:sel.k,i:j};S.vm=[];S.pend=null;redraw()}}
+  else if(a==='inc'||a==='dec'){const x=sel&&S.br[sel.k][sel.i];if(x){const st=x.t==='R'&&x.v>=5?1:0.5;setVal(x.v+(a==='inc'?st:-st))}}
+  else if(a==='val'){setVal(+b.dataset.v)}
+}
+function onBoard(e){
+  // the board is redrawn every animation frame, so a click (mouse-up on a new element) never reaches the shapes: use pointer-down and geometry instead of event targets
+  const p=svgPt(e),ys=geomY(),n=S.br.length,placing=['R','B','A','S'].includes(S.tool);
+  if(S.mode==='build'&&n>2)for(let k=0;k<n;k++)if(Math.hypot(p.x-(XR+44),p.y-ys[k])<18){S.br.splice(k,1);structChanged();return}
+  if(S.tool==='V'){let best=null,bd=18;S.br.forEach((c,k)=>{for(let i=0;i<=c.length;i++){const nd=nodeAt(k,i),d=Math.hypot(p.x-nd.x,p.y-nd.y);if(d<bd){bd=d;best=nd}}});
+    if(best){const q={id:best.id,x:best.x,y:best.y};if(!S.pend)S.pend=q;else{if(S.pend.id===q.id&&S.pend.y===q.y){S.pend=null}else{if(S.vm.length>=3)S.vm.shift();S.vm.push({a:S.pend,b:q});S.pend=null}}redraw();return}}
+  let hit=null;
+  for(let k=0;k<n;k++){if(Math.abs(p.y-ys[k])<48)for(let i=0;i<S.br[k].length;i++){const cx=posX(k,i);if(Math.abs(p.x-cx)<(S.br[k][i].t==='R'?40:30)){hit={k,i};break}}if(hit)break}
+  if(hit){
+    if(S.tool==='V'){addVmAcross(hit.k,hit.i);return}
+    if(S.mode==='build'&&!placing){S.sel=hit;selCtrl();redraw();return}
+    if(S.mode==='build'&&placing){placeComp(hit.k,p.x,S.tool);return}
+    return}
+  if(S.mode==='build'&&placing)for(let k=0;k<n;k++)if(Math.abs(p.y-ys[k])<48&&p.x>XL-14&&p.x<XR+14){placeComp(k,p.x,S.tool);return}
+  if(S.mode==='build'&&S.tool==='sel'){S.sel=null;selCtrl();redraw()}
+}
+function tabBoard(mode){
+  S.mode=mode;S.sel=null;S.vm=[];S.pend=null;S.tool='sel';S.given=null;S.chal=null;S.note='';
+  if(mode==='build'){S.showI=true;if(!S.br.length||S.keep!=='build')S.br=PRE[2][1]();S.keep='build';
+    setTalk(['اختر أداة من الأدوات (مقاومة، بطارية، أميتر، مفتاح، فولتميتر) ثم اضغط على الفرع الذي تريد وضعها فيه. يمكنك إضافة حتى أربعة فروع، وفرع البطارية وحدها مسموح.','اضغط على المكوّن لتعديل قيمته بالأزرار أو بكتابة الرقم، أو لعكس قطبية البطارية.','الفولتميتر: اختر أداة «فولتميتر» ثم اضغط على المكوّن لقياس فرق الجهد عبره، أو اضغط نقطتين لقياسه بينهما.','حلّ الدائرة على الورق بقانوني كيرشوف ثم قارن نتيجتك بقراءات الأميتر والفولتميتر لتعرف هل حلّك صحيح.'])}
+  else{S.showI=false;S.keep='chal';setTalk(['اختر تحديًا، احسب المطلوب على الورق بقانوني كيرشوف، ثم اكتب الجواب واضغط «تحقق».','للتأكد بالقياس: ضع أميترًا في الفرع المطلوب، أو اضغط «جرّب قيمتي» ليعوّض المحاكي قيمتك ويقارن القراءة بالمعطى.','«أظهر الحل» يعرض خطوات القانونين الأول والثاني.']);loadChal(0)}
+  buildCtrl();ctrl.onclick=onCtrl;svg.onpointerdown=onBoard;info.onclick=onInfo;
+  tick=dt=>{S.ph+=dt*(reduceMotion?.1:1);render()};
+  redraw();
+}
+function onInfo(e){const b=e.target.closest('[data-vm]');if(!b)return;const j=+b.dataset.vm;if(b.dataset.act==='del')S.vm.splice(j,1);else{const v=S.vm[j];S.vm[j]={a:v.b,b:v.a}}redraw()}
+document.addEventListener('keydown',e=>{if(curTab!=='build'||!S.sel||/INPUT|TEXTAREA/.test((e.target||{}).tagName||''))return;if(e.key==='Delete'||e.key==='Backspace'){S.br[S.sel.k].splice(S.sel.i,1);S.sel=null;S.vm=[];buildCtrl();redraw();e.preventDefault()}});
+
+
+/* =====================================================================
+   ارسم دائرتك: أسلاك حرة على شبكة (يرسم الطالب الأسلاك بالسحب ثم يحوّل أي قطعة إلى مقاومة أو بطارية...)
+   ===================================================================== */
+const D={E:[],sel:null,tool:'W',vm:[],pend:null,drag:null,hide:false,showI:false,labels:[],qi:0,val:'',msg:'',steps:false,warn:false,matchMsg:''};
+const GX=70,GY=60,GS=60,NC=11,NR=6;
+const gxy=(c,r)=>({x:GX+GS*c,y:GY+GS*r});
+const pk=p=>p[0]+','+p[1];
+function canon(a,b){return(a[0]<b[0]||(a[0]===b[0]&&a[1]<b[1]))?[a,b]:[b,a]}
+function findEdge(p,q){const k=pk(p)+'-'+pk(q);return D.E.findIndex(e=>pk(e.p)+'-'+pk(e.q)===k)}
+function setEdge(a,b,t,extra){const[p,q]=canon(a,b),i=findEdge(p,q),el=Object.assign({t,p,q},extra||{});if(t==='R'&&!el.v)el.v=10;if(t==='B'){if(!el.v)el.v=6;el.flip=!!el.flip}if(t==='S')el.closed=el.closed!==false;if(i>=0)D.E[i]=el;else D.E.push(el);return i>=0?i:D.E.length-1}
+function allEdges(){const out=[];for(let c=0;c<NC;c++)for(let r=0;r<NR;r++){if(c<NC-1)out.push([[c,r],[c+1,r]]);if(r<NR-1)out.push([[c,r],[c,r+1]])}return out}
+function nearPoint(p,rad=24){let best=null,bd=rad;for(let c=0;c<NC;c++)for(let r=0;r<NR;r++){const g=gxy(c,r),d=Math.hypot(p.x-g.x,p.y-g.y);if(d<bd){bd=d;best=[c,r]}}return best}
+function nearEdge(p,rad=20){let best=null,bd=rad;allEdges().forEach(([a,b])=>{const A=gxy(a[0],a[1]),B=gxy(b[0],b[1]);const dx=B.x-A.x,dy=B.y-A.y,t=Math.max(0,Math.min(1,((p.x-A.x)*dx+(p.y-A.y)*dy)/(dx*dx+dy*dy))),d=Math.hypot(p.x-(A.x+t*dx),p.y-(A.y+t*dy));if(d<bd){bd=d;best=[a,b]}});return best}
+function pathEdges(a,b){const out=[];let c=a[0],r=a[1];const horizFirst=Math.abs(b[0]-a[0])>=Math.abs(b[1]-a[1]);const stepH=()=>{while(c!==b[0]){const n=c+Math.sign(b[0]-c);out.push([[c,r],[n,r]]);c=n}},stepV=()=>{while(r!==b[1]){const n=r+Math.sign(b[1]-r);out.push([[c,r],[c,n]]);r=n}};if(horizFirst){stepH();stepV()}else{stepV();stepH()}return out}
+
+/* ---- حلّال عام لشبكة من العناصر ---- */
+function solveGraph(E){
+  const par=new Map();const f=k=>{if(!par.has(k))par.set(k,k);let r=k;while(par.get(r)!==r)r=par.get(r);let c=k;while(par.get(c)!==r){const n=par.get(c);par.set(c,r);c=n}return r};
+  E.forEach(e=>{if(e.t==='W'){const a=f(pk(e.p)),b=f(pk(e.q));if(a!==b)par.set(a,b)}});
+  const comps=E.map((e,i)=>({e,i})).filter(x=>x.e.t!=='W');
+  if(!comps.length)return{ok:true,empty:true,cur:{},volt:()=>0};
+  const nodes=new Map();comps.forEach(x=>{[x.e.p,x.e.q].forEach(p=>{const r=f(pk(p));if(!nodes.has(r))nodes.set(r,nodes.size)})});
+  const ground=[...nodes.keys()][0];const idx=new Map();let N=0;nodes.forEach((_,k)=>{if(k!==ground)idx.set(k,N++)});
+  const ni=k=>k===ground?-1:idx.get(k);
+  const Rs=[],Vs=[];
+  comps.forEach(({e,i})=>{const a=ni(f(pk(e.p))),b=ni(f(pk(e.q)));
+    if(e.t==='R')Rs.push({a,b,g:1/Math.max(e.v,1e-6),i});
+    else if(e.t==='B')Vs.push({a,b,e:(e.flip?-1:1)*e.v,r:1e-3,i});
+    else if(e.t==='A'||(e.t==='S'&&e.closed))Vs.push({a,b,e:0,r:1e-6,i});});
+  const M=N+Vs.length,A=Array.from({length:M},()=>new Array(M+1).fill(0));
+  Rs.forEach(r=>{if(r.a>=0)A[r.a][r.a]+=r.g;if(r.b>=0)A[r.b][r.b]+=r.g;if(r.a>=0&&r.b>=0){A[r.a][r.b]-=r.g;A[r.b][r.a]-=r.g}});
+  Vs.forEach((v,j)=>{const r=N+j;if(v.a>=0){A[v.a][r]+=1;A[r][v.a]-=1}if(v.b>=0){A[v.b][r]-=1;A[r][v.b]+=1}A[r][M]=v.e;A[r][r]-=v.r});
+  for(let i=0;i<N;i++)A[i][i]+=1e-9;
+  for(let c=0;c<M;c++){let p=c;for(let r=c+1;r<M;r++)if(Math.abs(A[r][c])>Math.abs(A[p][c]))p=r;if(Math.abs(A[p][c])<1e-12)return{ok:false,cur:{},volt:()=>0};[A[c],A[p]]=[A[p],A[c]];
+    for(let r=0;r<M;r++){if(r===c)continue;const fct=A[r][c]/A[c][c];if(fct)for(let k=c;k<=M;k++)A[r][k]-=fct*A[c][k]}}
+  const x=A.map((row,i)=>row[M]/row[i]);
+  const volt=key=>{const k=f(key),i=ni(k);if(!nodes.has(k))return 0;return i<0?0:x[i]};
+  const cur={};
+  Rs.forEach(r=>{const va=r.a<0?0:x[r.a],vb=r.b<0?0:x[r.b];cur[r.i]=r.g*(va-vb)});
+  Vs.forEach((v,j)=>{cur[v.i]=x[N+j]});
+  return{ok:true,cur,volt,empty:false};
+}
+/* ---- الدائرة الجاهزة من الصورة ---- */
+function presetImage(){
+  const E=[],w=(a,b)=>E.push({t:'W',p:a,q:b}),el=(a,b,t,o)=>E.push(Object.assign({t,p:a,q:b},o));
+  w([1,1],[2,1]);el([2,1],[3,1],'A');w([3,1],[4,1]);w([4,1],[5,1]);w([5,1],[6,1]);el([6,1],[7,1],'A');w([7,1],[8,1]);w([8,1],[9,1]);
+  el([1,1],[1,2],'B',{v:18,flip:true});el([1,2],[1,3],'R',{v:6});w([1,3],[1,4]);w([1,4],[2,4]);w([2,4],[3,4]);w([3,4],[4,4]);
+  el([5,1],[5,2],'B',{v:8,flip:true});el([5,2],[5,3],'R',{v:4});w([5,3],[5,4]);el([4,4],[5,4],'A');
+  w([9,1],[9,2]);w([9,2],[9,3]);w([9,3],[9,4]);w([9,4],[9,5]);w([4,4],[4,5]);w([4,5],[5,5]);w([5,5],[6,5]);el([6,5],[7,5],'R',{v:12});w([7,5],[8,5]);w([8,5],[9,5]);
+  return E;
+}
+const IMG_LABELS=[['a',[1,1],-1,-1],['c',[5,1],0,-1],['d',[9,1],0,-1],['F',[1,4],-1,1],['e',[4,4],-1,1],['b',[4,5],-1,1],['g',[9,5],1,1]];
+const DQ=[
+  {l:'I₁',unit:'A',get:s=>Math.abs(s.cur[ammIdx(1)]),steps:['نقطة التفرع c: I₁ = I₂ + I₃','الفرع الأول والثاني: 18 − 6 I₁ = 8 + 4 I₂ (فرق جهد النقطتين c و e متساوٍ)','الفرع الثالث: 12 I₃ = 8 + 4 I₂','بالحل: I₂ = 0.50 A و I₃ = 0.83 A','I₁ = 0.50 + 0.83 = 1.33 A']},
+  {l:'I₂',unit:'A',get:s=>Math.abs(s.cur[ammIdx(2)]),steps:['نقطة التفرع c: I₁ = I₂ + I₃','المسار الأول والثاني: 18 − 8 = 6 I₁ + 4 I₂','10 = 6 ( I₂ + I₃ ) + 4 I₂ فيكون 10 = 10 I₂ + 6 I₃','المسار الثاني والثالث: 8 + 4 I₂ = 12 I₃','بالحل: I₂ = 0.50 A']},
+  {l:'I₃',unit:'A',get:s=>Math.abs(s.cur[ammIdx(3)]),steps:['12 I₃ = 8 + 4 I₂ ومن المعادلتين السابقتين I₂ = 0.50 A','12 I₃ = 8 + 2.0 = 10','I₃ = 10 / 12 = 0.83 A']},
+  {l:'V (بين c و e)',unit:'V',get:s=>Math.abs(s.volt('5,1')-s.volt('4,4')),steps:['فرق الجهد بين c و e يساوي فرق الجهد عبر المقاومة 12 Ω','V = I₃ R = 0.833 × 12','V = 10 V']},
+];
+function ammIdx(n){const P={1:'2,1',2:'4,4',3:'6,1'};const a=D.ref;return a?a[n]:-1}
+let PRESET_SOL=null;
+function prepRef(){const E=presetImage();D.ref={1:E.findIndex(e=>e.t==='A'&&pk(e.p)==='2,1'),2:E.findIndex(e=>e.t==='A'&&pk(e.p)==='4,4'),3:E.findIndex(e=>e.t==='A'&&pk(e.p)==='6,1')};PRESET_SOL=solveGraph(E);D.refSol=PRESET_SOL}
+
+function dDrawEl(e,i,sol,sel){
+  const A=gxy(e.p[0],e.p[1]),B=gxy(e.q[0],e.q[1]),cx=(A.x+B.x)/2,cy=(A.y+B.y)/2,hor=A.y===B.y;
+  let s=ln(A.x,A.y,B.x,B.y,'#7d8da1',5);
+  if(e.t==='W')return s;
+  const gt=hor?`translate(${cx} ${cy})`:`translate(${cx} ${cy}) rotate(90)`;
+  if(e.t==='R')s+=`<g transform="${gt}"><rect x="-20" y="-11" width="40" height="22" rx="3" fill="#e4f3f4" stroke="#1a1a1a" stroke-width="2.4"/></g>`;
+  else if(e.t==='B'){const sg=e.flip?-1:1,px=sg*6,sx=-sg*6;s+=`<g transform="${gt}"><rect x="-14" y="-20" width="28" height="40" fill="#0e1722"/>`+ln(px,-19,px,19,'#d99a2b',4.5)+ln(sx,-9,sx,9,'#d99a2b',8)+'</g>'+tx(hor?cx+sg*17:cx+17,hor?cy-17:cy+sg*17+5,'+',{s:14,w:800,f:RED})}
+  else if(e.t==='A')s+=`<circle cx="${cx}" cy="${cy}" r="17" fill="#ffe9a8" stroke="#1a1a1a" stroke-width="2.4"/>`+tx(cx,cy+6,'A',{s:16,w:800,f:'#1a1a1a'});
+  else if(e.t==='S')s+=`<g transform="${gt}"><circle cx="-16" r="4" fill="#d99a2b"/><circle cx="16" r="4" fill="#d99a2b"/>`+(e.closed?ln(-16,0,16,0,'#d99a2b',4):ln(-16,0,12,-16,'#d99a2b',4))+'</g>';
+  let lab='';if(e.t==='R')lab='R = '+fm(e.v)+' Ω';else if(e.t==='B')lab='ε = '+fm(e.v)+' V';else if(e.t==='S')lab=e.closed?'مغلق':'مفتوح';
+  if(lab)s+=tx(cx+(hor?0:-26),cy+(hor?-26:5),lab,{s:14,w:700,f:e.t==='R'?TEAL:e.t==='B'?ORANGE:GRAY,a:hor?undefined:'end'});
+  if(sol&&sol.ok&&(e.t==='A'||D.showI)&&e.t!=='S'){const I=sol.cur[i]||0,m=Math.abs(I)<1e-6?0:I,hidden=e.t==='A'&&D.hide;const dir=hor?[1,0]:[0,1],pr=hor?[0,1]:[1,0],ax=cx+pr[0]*32,ay=cy+pr[1]*32;
+    if(!hidden&&m!==0){const sgn=m>0?1:-1;s+=arr(ax-dir[0]*13*sgn,ay-dir[1]*13*sgn,ax+dir[0]*13*sgn,ay+dir[1]*13*sgn,RED,3)}
+    s+=tx(ax+(hor?0:24),ay+(hor?22:5),hidden?'؟':fm(Math.abs(m))+' A',{s:14,w:800,f:RED,a:hor?undefined:'start'})}
+  if(sel)s+=`<rect x="${Math.min(A.x,B.x)-24}" y="${Math.min(A.y,B.y)-24}" width="${Math.abs(A.x-B.x)+48}" height="${Math.abs(A.y-B.y)+48}" rx="14" fill="none" stroke="${ORANGE}" stroke-width="2.4" stroke-dasharray="6 5"/>`;
+  return s;
+}
+function dRender(){
+  const sol=solveGraph(D.E);D.warn=sol.ok&&Object.values(sol.cur).some(x=>Math.abs(x)>500);
+  let s='';
+  for(let c=0;c<NC;c++)for(let r=0;r<NR;r++){const g=gxy(c,r);s+=`<circle cx="${g.x}" cy="${g.y}" r="2.6" fill="#8fa0b5" opacity=".5"/>`}
+  D.labels.forEach(([t,p,dx,dy])=>{const g=gxy(p[0],p[1]);s+=tx(g.x+dx*14,g.y+dy*14+(dy>0?10:0),t,{s:16,w:800,f:BLUE})});
+  D.E.forEach((e,i)=>{s+=dDrawEl(e,i,sol,D.sel===i)});
+  // wires junction dots (points with 3+ elements)
+  const deg={};D.E.forEach(e=>{[e.p,e.q].forEach(p=>{deg[pk(p)]=(deg[pk(p)]||0)+1})});Object.keys(deg).forEach(k=>{if(deg[k]>=3){const[c,r]=k.split(',').map(Number),g=gxy(c,r);s+=dot(g.x,g.y,'#8fa0b5',5.5)}});
+  // drag preview
+  if(D.drag&&D.tool==='W'&&D.drag.start&&D.drag.cur){pathEdges(D.drag.start,D.drag.cur).forEach(([a,b])=>{const A=gxy(a[0],a[1]),B=gxy(b[0],b[1]);s+=ln(A.x,A.y,B.x,B.y,ORANGE,4)});const g=gxy(D.drag.start[0],D.drag.start[1]);s+=dot(g.x,g.y,ORANGE,6)}
+  // points to pick for the voltmeter
+  if(D.tool==='V'){const used=new Set();D.E.forEach(e=>{used.add(pk(e.p));used.add(pk(e.q))});used.forEach(k=>{const[c,r]=k.split(',').map(Number),g=gxy(c,r),pk2=D.pend&&pk(D.pend)===k;s+=`<circle cx="${g.x}" cy="${g.y}" r="${pk2?10:7}" fill="${pk2?ORANGE:'#fff'}" stroke="${BLUE}" stroke-width="2.6"/>`})}
+  D.vm.forEach(v=>{const a=gxy(v.a[0],v.a[1]),b=gxy(v.b[0],v.b[1]),cxm=(a.x+b.x)/2,top=Math.max(a.y,b.y)+80,mx=0.25*a.x+0.5*cxm+0.25*b.x,my=0.25*a.y+0.5*top+0.25*b.y;const V=sol.ok?sol.volt(pk(v.a))-sol.volt(pk(v.b)):0;
+    s+=`<path d="M ${a.x} ${a.y} Q ${cxm} ${top} ${b.x} ${b.y}" fill="none" stroke="${BLUE}" stroke-width="2.4" stroke-dasharray="6 5"/><circle cx="${a.x}" cy="${a.y}" r="5" fill="${RED}"/><circle cx="${b.x}" cy="${b.y}" r="5" fill="${BLUE}"/><circle cx="${mx}" cy="${my}" r="17" fill="#dbe9ff" stroke="${BLUE}" stroke-width="2.6"/>`+tx(mx,my+6,'V',{s:16,w:800,f:BLUE})+tx(mx,my+38,fm(V)+' V',{s:13,w:800,f:BLUE})});
+  if(!sol.ok)s+=tx(350,30,'تعذّر حل الدائرة: تحقق من توصيل المكوّنات',{s:14,w:800,f:RED});
+  if(D.warn)s+=`<rect x="120" y="150" width="480" height="48" rx="10" fill="#fdeceb" stroke="${RED}" stroke-width="2"/>`+tx(360,180,'تنبيه: بطارية موصولة بسلك فقط (دائرة قصر). أضف مقاومة.',{s:14,w:800,f:RED});
+  svg.setAttribute('viewBox','0 0 740 420');svg.innerHTML=s;return sol;
+}
+function dInfo(sol){
+  const q=DQ[D.qi];let h='';
+  const ams=D.E.map((e,i)=>({e,i})).filter(x=>x.e.t==='A');
+  if(ams.length)h+=`<div class="chips">${ams.map((x,j)=>`<div class="chip"><div class="k">أميتر ${j+1}</div><div class="v">${D.hide?'؟':fm(Math.abs(sol.cur[x.i]||0)<1e-6?0:Math.abs(sol.cur[x.i]))+' A'}</div></div>`).join('')}</div>`;
+  if(D.vm.length)h+=`<ul class="steps">${D.vm.map((v,j)=>`<li>${num('فولتميتر '+(j+1)+': V = '+fm(sol.ok?sol.volt(pk(v.a))-sol.volt(pk(v.b)):0)+' V')} <button class="btn tiny" data-dvm="${j}" data-act="flip">عكس</button> <button class="btn tiny" data-dvm="${j}" data-act="del">حذف</button></li>`).join('')}</ul>`;
+  if(D.msg)h+=`<p class="say ${/صحيح|مطابق/.test(D.msg)&&!/ليست/.test(D.msg)?'ok':''}">${D.msg}</p>`;
+  if(D.steps)h+=`<p class="gt" style="margin-top:12px">خطوات حل ${q.l}</p><ul class="steps">${q.steps.map(t=>`<li>${num(t)}</li>`).join('')}</ul>`;
+  if(!h)h=`<p class="rule"><b>ابدأ:</b> اختر «سلك» واسحب على الشبكة لتمدّ الأسلاك، ثم اختر مقاومة أو بطارية أو أميترًا واضغط على أي قطعة سلك لتحويلها إليه. أو اضغط «دائرة الصورة» لتحميل الدائرة الجاهزة.</p>`;
+  info.innerHTML=h;
+}
+function dRedraw(){const sol=dRender();dInfo(sol);return sol}
+const DH={W:'اسحب بين نقطتين على الشبكة لرسم سلك (يمكنك الدوران بزاوية قائمة). لا توصل الأسلاك إلا عند نقاط الشبكة.',R:'اضغط على قطعة سلك (بين نقطتين متجاورتين) لتحويلها إلى مقاومة، أو على أي مكان فارغ لتضع مقاومة هناك.',B:'اضغط على قطعة سلك لتحويلها إلى بطارية. الخط الطويل هو القطب الموجب، وتعكسها من لوحة التعديل.',A:'اضغط على قطعة سلك لتحويلها إلى أميتر، فهو يقيس التيار المار في ذلك الفرع.',S:'اضغط على قطعة سلك لتحويلها إلى مفتاح يمكنك فتحه وإغلاقه.',V:'اضغط على مكوّن لقياس فرق الجهد عبره، أو اضغط على نقطتين دائريتين لقياس فرق الجهد بينهما.',sel:'اضغط على أي مكوّن لتعديله أو حذفه.',X:'اضغط على أي قطعة (سلك أو مكوّن) أو اسحب فوقها لحذفها.'};
+function dCtrl(){
+  const q=DQ[D.qi];
+  ctrl.innerHTML=`<div><p class="gt">الأدوات</p><div class="tools" id="dtools" style="grid-template-columns:repeat(4,1fr)">${[['W','سلك'],['R','مقاومة'],['B','بطارية'],['A','أميتر'],['S','مفتاح'],['V','فولتميتر'],['sel','تحديد'],['X','حذف']].map(([k,t])=>`<button class="btn ${D.tool===k?'on':''}" data-dt="${k}">${t}</button>`).join('')}</div><p class="hint">${DH[D.tool]}</p></div>
+  <div><p class="gt">المكوّن المحدد</p><div class="selbox" id="dsel"></div></div>
+  <div><p class="gt">الدائرة</p><div class="btns"><button class="btn small" data-da="img">دائرة الصورة (جاهزة)</button><button class="btn small" data-da="clear">مسح الكل</button><button class="btn small ${D.showI?'on':''}" data-da="showI">تيارات كل العناصر</button><button class="btn small ${D.hide?'on':''}" data-da="hide">${D.hide?'أظهر قراءات الأميتر':'أخفِ قراءات الأميتر'}</button></div></div>
+  <div><p class="gt">تحدّي دائرة الصورة</p><div class="qlist">${DQ.map((x,i)=>`<button class="btn tiny ${i===D.qi?'on':''}" data-dq="${i}">${i+1}</button>`).join('')}</div>
+  <div class="qcard" style="margin-top:8px">ثلاثة فروع بين النقطتين c و e: الفرع الأول بطارية 18 V ومقاومة 6.0 Ω وأميتر A₁، والثاني بطارية 8.0 V ومقاومة 4.0 Ω وأميتر A₂، والثالث مقاومة 12 Ω وأميتر A₃. البطاريات مهملة المقاومة الداخلية. احسب <b>${q.l}</b>.</div>
+  <div class="ansrow"><span>${q.l} =</span><input id="dans" type="number" step="any" inputmode="decimal" placeholder="?" value="${D.val}"><span>${q.unit}</span></div>
+  <div class="btns" style="margin-top:10px"><button class="btn primary" data-da="chk">تحقق</button><button class="btn" data-da="steps">أظهر الحل</button><button class="btn" data-da="match">تحقق من رسمي</button></div></div>`;
+  dSelUI();const inp=$('dans');if(inp)inp.oninput=()=>{D.val=inp.value};
+}
+function dSelUI(){
+  const box=$('dsel');if(!box)return;const e=D.E[D.sel];
+  if(!e||e.t==='W'){box.innerHTML='<span style="color:var(--muted)">اختر أداة «تحديد» واضغط على مكوّن لتعديله.</span>';return}
+  let h=`<b>${{R:'مقاومة',B:'بطارية',A:'أميتر',S:'مفتاح'}[e.t]}</b><br>`;
+  if(e.t==='R'||e.t==='B'){const chips=e.t==='R'?[1,2,3,4,5,6,8,10,12,20,30]:[1.5,3,5,6,8,9,12,15,18];h+=`<div class="ansrow" style="margin:8px 0"><button class="btn small" data-da="dec">−</button><input id="dval" type="number" step="0.5" value="${e.v}" inputmode="decimal"><span>${e.t==='R'?'Ω':'V'}</span><button class="btn small" data-da="inc">+</button></div><div class="btns">${chips.map(v=>`<button class="btn tiny" data-da="val" data-v="${v}">${v}</button>`).join('')}</div>`}
+  if(e.t==='B')h+=`<div class="btns" style="margin-top:8px"><button class="btn small" data-da="flip">عكس القطبية ⇄</button></div>`;
+  if(e.t==='S')h+=`<div class="btns"><button class="btn small" data-da="tog">${e.closed?'افتح المفتاح':'أغلق المفتاح'}</button></div>`;
+  h+=`<div class="btns" style="margin-top:8px"><button class="btn tiny" data-da="wire">حوّله إلى سلك</button><button class="btn tiny" data-da="del">احذفه</button></div>`;
+  box.innerHTML=h;const inp=$('dval');if(inp)inp.oninput=()=>{const v=parseFloat(inp.value);if(v>0){e.v=Math.min(v,e.t==='B'?48:100);dRedraw()}};
+}
+function dSetVal(v){const e=D.E[D.sel];if(!e)return;e.v=Math.max(0.1,Math.min(e.t==='B'?48:100,Math.round(v*10)/10));const inp=$('dval');if(inp)inp.value=e.v;dRedraw()}
+function dCtrlClick(ev){
+  const t=ev.target.closest('[data-dt]');if(t){D.tool=t.dataset.dt;D.pend=null;D.drag=null;dCtrl();dRedraw();return}
+  const q=ev.target.closest('[data-dq]');if(q){D.qi=+q.dataset.dq;D.val='';D.msg='';D.steps=false;dCtrl();dRedraw();return}
+  const b=ev.target.closest('[data-da]');if(!b)return;const a=b.dataset.da,e=D.E[D.sel];
+  if(a==='img'){D.E=presetImage();D.labels=IMG_LABELS.slice();D.sel=null;D.vm=[];D.pend=null;D.hide=true;D.msg='';dCtrl();dRedraw();return}
+  if(a==='clear'){D.E=[];D.labels=[];D.sel=null;D.vm=[];D.pend=null;D.msg='';dCtrl();dRedraw();return}
+  if(a==='showI'){D.showI=!D.showI;dCtrl();dRedraw();return}
+  if(a==='hide'){D.hide=!D.hide;dCtrl();dRedraw();return}
+  if(a==='steps'){D.steps=!D.steps;dRedraw();return}
+  if(a==='chk'){const v=parseFloat(D.val),q=DQ[D.qi],t=q.get(D.refSol);if(isNaN(v)){D.msg='اكتب قيمة أولًا.'}else{const ok=Math.abs(v-t)<=Math.max(0.02*Math.abs(t),0.02);D.msg=ok?`إجابة صحيحة: ${q.l} = ${fm(t)} ${q.unit}. للتأكد بالقياس أظهر قراءة الأميتر على دائرتك.`:'ليست صحيحة بعد. راجع القانونين وقواعد الإشارات ثم حاول مرة أخرى.'}dRedraw();return}
+  if(a==='match'){const sol=solveGraph(D.E),am=D.E.map((x,i)=>({x,i})).filter(z=>z.x.t==='A').map(z=>Math.abs(sol.cur[z.i]||0)).sort((m,n)=>m-n);const want=[D.refSol.cur[D.ref[1]],D.refSol.cur[D.ref[2]],D.refSol.cur[D.ref[3]]].map(Math.abs).sort((m,n)=>m-n);
+    if(am.length!==3)D.msg='ضع ثلاثة أميترات في دائرتك (واحد في كل فرع) ثم اضغط «تحقق من رسمي».';else{const ok=am.every((v,i)=>Math.abs(v-want[i])<0.02);D.msg=ok?'رسمك مطابق: قراءات الأميترات الثلاثة تساوي قراءات دائرة الصورة.':'رسمك لا يعطي القراءات نفسها. راجع قيم المقاومات والبطاريات واتجاه قطبيتها وأماكن التوصيل.'}dRedraw();return}
+  if(!e)return;
+  if(a==='inc'||a==='dec'){const st=e.t==='R'&&e.v>=5?1:0.5;dSetVal(e.v+(a==='inc'?st:-st))}
+  else if(a==='val')dSetVal(+b.dataset.v);
+  else if(a==='flip'){e.flip=!e.flip;dRedraw()}
+  else if(a==='tog'){e.closed=!e.closed;dSelUI();dRedraw()}
+  else if(a==='wire'){e.t='W';delete e.v;D.sel=null;dSelUI();dRedraw()}
+  else if(a==='del'){D.E.splice(D.sel,1);D.sel=null;D.vm=[];dSelUI();dRedraw()}
+}
+function dInfoClick(ev){const b=ev.target.closest('[data-dvm]');if(!b)return;const j=+b.dataset.dvm;if(b.dataset.act==='del')D.vm.splice(j,1);else{const v=D.vm[j];D.vm[j]={a:v.b,b:v.a}}dRedraw()}
+function dDown(ev){
+  const p=svgPt(ev),tool=D.tool,ed=nearEdge(p);
+  if(tool==='W'){const st=nearPoint(p,28);if(!st)return;D.drag={start:st,cur:st};try{svg.setPointerCapture(ev.pointerId)}catch(_){}dRedraw();return}
+  if(tool==='X'){D.drag={erase:true};if(ed){const i=findEdge(ed[0],ed[1]);if(i>=0){D.E.splice(i,1);D.sel=null;D.vm=[];dRedraw()}}return}
+  if(tool==='V'){
+    if(ed){const i=findEdge(ed[0],ed[1]);if(i>=0&&D.E[i].t!=='W'){const e=D.E[i],sol=solveGraph(D.E);let a=e.p,b=e.q;if(sol.ok&&sol.volt(pk(a))<sol.volt(pk(b)))[a,b]=[b,a];if(D.vm.length>=3)D.vm.shift();D.vm.push({a,b});D.pend=null;dRedraw();return}}
+    const pt=nearPoint(p,16);if(pt){if(!D.pend)D.pend=pt;else if(pk(D.pend)===pk(pt))D.pend=null;else{if(D.vm.length>=3)D.vm.shift();D.vm.push({a:D.pend,b:pt});D.pend=null}dRedraw()}return}
+  if(['R','B','A','S'].includes(tool)){if(ed){const i=findEdge(ed[0],ed[1]);const keep=i>=0&&D.E[i].t===tool?D.E[i]:null;D.sel=setEdge(ed[0],ed[1],tool,keep?{v:keep.v,flip:keep.flip,closed:keep.closed}:null);D.vm=[];dSelUI();dRedraw()}return}
+  if(tool==='sel'){if(ed){const i=findEdge(ed[0],ed[1]);D.sel=i>=0&&D.E[i].t!=='W'?i:null}else D.sel=null;dSelUI();dRedraw()}
+}
+function dMove(ev){
+  if(!D.drag)return;const p=svgPt(ev);
+  if(D.tool==='W'&&D.drag.start){const pt=nearPoint(p,40);if(pt&&pk(pt)!==pk(D.drag.cur)){D.drag.cur=pt;dRedraw()}}
+  else if(D.tool==='X'&&D.drag.erase&&ev.buttons){const ed=nearEdge(p,14);if(ed){const i=findEdge(ed[0],ed[1]);if(i>=0){D.E.splice(i,1);D.sel=null;D.vm=[];dRedraw()}}}
+}
+function dUp(ev){
+  if(!D.drag)return;
+  if(D.tool==='W'&&D.drag.start){const a=D.drag.start,b=D.drag.cur;D.drag=null;
+    if(pk(a)!==pk(b)){pathEdges(a,b).forEach(([u,v])=>{if(findEdge(...canon(u,v))<0)setEdge(u,v,'W')});D.vm=[]}
+    dRedraw();return}
+  D.drag=null;
+}
+function tabDraw(){
+  if(!D.ref)prepRef();
+  svg.style.touchAction='none';
+  setTalk(['هذه لوحة حرة: يرسم الطالب الأسلاك بنفسه بالسحب على الشبكة، ثم يحوّل أي قطعة سلك إلى مقاومة أو بطارية أو أميتر أو مفتاح.','دائرة الصورة (a وc وd وe وb وg): ثلاثة فروع بين النقطتين c وe. اطلب من الطالب أن يحلّها على الورق ثم يقيس بالأميتر.','«تحقق من رسمي» يقارن قراءات الأميترات في دائرته بقراءات دائرة الصورة، فيعرف الطالب إن كان رسمه صحيحًا.','الفولتميتر يقيس فرق الجهد عبر أي مكوّن أو بين أي نقطتين.']);
+  ctrl.onclick=dCtrlClick;info.onclick=dInfoClick;svg.onpointerdown=dDown;svg.onpointermove=dMove;svg.onpointerup=dUp;svg.onpointercancel=dUp;
+  tick=null;dCtrl();dRedraw();
+}
+document.addEventListener('keydown',ev=>{if(curTab!=='draw'||D.sel==null||/INPUT|TEXTAREA/.test((ev.target||{}).tagName||''))return;if(ev.key==='Delete'||ev.key==='Backspace'){D.E.splice(D.sel,1);D.sel=null;D.vm=[];dSelUI();dRedraw();ev.preventDefault()}});
+
+
+/* ---------- التحديات ---------- */
+const CHS=[
+  {t:'تحدي 1: التيار I₃ (مقاومة مجهولة غير مطلوبة)',q:'دائرة فيها بطاريتان (ε₁ = 14 V نحو اليسار و ε₂ = 10 V نحو اليمين) ومقاومة مجهولة R₁. احسب شدة التيار I₃ في المقاومة R₃، علمًا بأن مقاومة البطاريات الداخلية مهملة.',br:()=>[[mkB(14,true),mkR(4,{hide:true})],[mkB(10),mkR(6)],[mkR(2)]],given:{k:0,txt:'3 A',dir:-1},ask:{type:'I',k:2,sign:1,unit:'A',label:'I₃'},
+    steps:['نقطة التفرع: I₁ = I₂ + I₃ فيكون I₂ = 3.0 − I₃','المسار الذي يضم ε₂ و R₂ و R₃ (لا يمر بالمقاومة المجهولة):','ε₂ = I₂ R₂ − I₃ R₃','10 = 6.0 ( 3.0 − I₃ ) − 2.0 I₃','10 = 18 − 8.0 I₃','I₃ = 1.0 A']},
+  {t:'تحدي 2: التيار I₂',q:'احسب شدة التيار I₂ في الفرع الأوسط، علمًا بأن التيار I₁ = 4.0 A نحو اليسار والمقاومة R₁ مجهولة ومقاومة البطاريات الداخلية مهملة.',br:()=>[[mkB(15,true),mkR(3,{hide:true})],[mkB(12),mkR(5)],[mkR(3)]],given:{k:0,txt:'4 A',dir:-1},ask:{type:'I',k:1,sign:1,unit:'A',label:'I₂'},
+    steps:['I₁ = I₂ + I₃ فيكون I₃ = 4.0 − I₂','المسار الذي يضم ε₂ و R₂ و R₃:','ε₂ = I₂ R₂ − I₃ R₃','12 = 5.0 I₂ − 3.0 ( 4.0 − I₂ )','12 = 8.0 I₂ − 12','I₂ = 3.0 A']},
+  {t:'تحدي 3: المقاومة المجهولة R',q:'ثلاث بطاريات وثلاث مقاومات، ومقاومة البطاريات الداخلية مهملة. التيار في الفرع الثالث I₃ = 2.0 A نحو اليسار. احسب قيمة المقاومة R في الفرع الأوسط.',br:()=>[[mkB(5),mkR(2)],[mkB(4,true),mkR(3,{hide:true})],[mkB(9,true),mkR(4)]],given:{k:2,txt:'2 A',dir:-1},ask:{type:'R',k:1,i:1,unit:'Ω',label:'R'},
+    steps:['القانون الأول: I₁ = I₂ + I₃','المسار الأول والثالث: ε₁ + ε₃ = I₁ R₁ + I₃ R₃','5.0 + 9.0 = 2.0 I₁ + 2.0 × 4.0 فيكون I₁ = 3.0 A','I₂ = 3.0 − 2.0 = 1.0 A','المسار الأول والثاني: ε₁ + ε₂ = I₁ R₁ + I₂ R','5.0 + 4.0 = 3.0 × 2.0 + 1.0 R','R = 3.0 Ω']},
+  {t:'تحدي 4: المقاومة المجهولة R₂',q:'ثلاث بطاريات وثلاث مقاومات إحداها مجهولة (R₂ في الفرع الأوسط). التيار I₁ = 2.0 A نحو اليمين. احسب قيمة R₂.',br:()=>[[mkB(4),mkR(2)],[mkB(9,true),mkR(3,{hide:true})],[mkB(4),mkR(4)]],given:{k:0,txt:'2 A',dir:1},ask:{type:'R',k:1,i:1,unit:'Ω',label:'R₂'},
+    steps:['المسار الأول والثالث: ε₁ − ε₃ = I₁ R₁ − I₃ R₃','4.0 − 4.0 = 2.0 × 2.0 − 4.0 I₃ فيكون I₃ = 1.0 A','القانون الأول: I₂ = I₁ + I₃ = 3.0 A','المسار الأول والثاني: ε₁ + ε₂ = I₁ R₁ + I₂ R₂','4.0 + 9.0 = 4.0 + 3.0 R₂','R₂ = 3.0 Ω']},
+  {t:'تحدي 5: التيار I₃',q:'ثلاث بطاريات ومقاومتان معلومتان وثالثة مجهولة. التيار I₁ = 1.0 A نحو اليمين. احسب شدة التيار I₃.',br:()=>[[mkB(4),mkR(2)],[mkB(4,true),mkR(3)],[mkB(6),mkR(4,{hide:true})]],given:{k:0,txt:'1 A',dir:1},ask:{type:'I',k:2,sign:1,unit:'A',label:'I₃'},
+    steps:['المسار الأول والثاني: ε₁ + ε₂ = I₁ R₁ + I₂ R₂','4.0 + 4.0 = 1.0 × 2.0 + 3.0 I₂','I₂ = 2.0 A (نحو اليسار)','القانون الأول: I₂ = I₁ + I₃','I₃ = 2.0 − 1.0 = 1.0 A']},
+  {t:'تحدي 6: التيار I₃ (ثلاث بطاريات)',q:'في الدائرة ثلاث بطاريات وثلاث مقاومات كلها معلومة. احسب شدة التيار I₃ في الفرع الثالث (البطارية الثالثة تدفع نحو اليسار).',br:()=>[[mkB(5),mkR(2)],[mkB(6),mkR(3)],[mkB(5,true),mkR(4)]],given:null,ask:{type:'I',k:2,sign:-1,unit:'A',label:'I₃'},
+    steps:['القانون الأول: I₃ = I₁ + I₂ (I₃ نحو اليسار)','المسار الأول والثالث: 10 = 2.0 I₁ + 4.0 ( I₁ + I₂ )','5.0 = 3.0 I₁ + 2.0 I₂','المسار الثاني والثالث: 11 = 3.0 I₂ + 4.0 ( I₁ + I₂ )','11 = 4.0 I₁ + 7.0 I₂','بالحل: I₁ = 1.0 A و I₂ = 1.0 A','I₃ = 2.0 A']},
+  {t:'تحدي 7: الفرع بلا مقاومة',q:'الفرع الثالث سلك بلا مقاومة. احسب شدة التيار في هذا السلك (نحو اليسار)، علمًا بأن مقاومة البطاريات الداخلية مهملة.',br:()=>[[mkB(12),mkR(6)],[mkB(5,true),mkR(10)],[]],given:null,ask:{type:'I',k:2,sign:-1,unit:'A',label:'I₃'},
+    steps:['المسار الأول: ε₁ = I₁ R₁ فيكون I₁ = 12 / 6.0 = 2.0 A','المسار الثاني: ε₂ = I₂ R₂ فيكون I₂ = 5.0 / 10 = 0.50 A (نحو اليسار)','القانون الأول: I₁ = I₂ + I₃','I₃ = 2.0 − 0.50 = 1.5 A']},
+  {t:'تحدي 8: بطاريتان متعاكستان',q:'بطاريتان متعاكستان (6.0 V و 2.0 V) ومقاومتان (10 Ω و 30 Ω) في حلقة واحدة. احسب شدة التيار في الدائرة.',br:()=>[[mkB(6),mkR(10)],[mkB(2),mkR(30)]],given:null,ask:{type:'I',k:0,sign:1,unit:'A',label:'I'},
+    steps:['المسار مع اتجاه البطارية الأكبر:','Σε = 6.0 − 2.0 = 4.0 V','Σ I R = I ( 10 + 30 ) = 40 I','I = 4.0 / 40 = 0.10 A']},
+  {t:'تحدي 9: المفتاح المفتوح',q:'المفتاح S مفتوح في الفرع الأوسط. احسب شدة التيار في المقاومة R₁ (الفرع الأول). ثم أغلق المفتاح من الدائرة وراقب ما يتغير.',br:()=>[[mkB(12),mkR(8)],[mkR(2),mkS(false)],[mkB(6,true),mkR(4)]],given:null,ask:{type:'I',k:0,sign:1,unit:'A',label:'I₁'},
+    steps:['عند فتح المفتاح لا يمر تيار في الفرع الأوسط وتبقى حلقة واحدة','Σε = 12 + 6.0 = 18 V','Σ I R = I ( 8.0 + 4.0 ) = 12 I','I = 18 / 12 = 1.5 A']},
+  {t:'تحدي 10: فرق الجهد',q:'احسب فرق الجهد عبر المقاومة R₃ في الفرع الثالث (انظر ε₃ = 5.0 V نحو اليسار)، ومقاومة البطاريات الداخلية مهملة.',br:()=>[[mkB(5),mkR(2)],[mkB(6),mkR(3)],[mkB(5,true),mkR(4)]],given:null,ask:{type:'V',k:2,i:1,unit:'V',label:'V₃'},
+    steps:['نحسب I₃ كما في التحدي السادس: I₃ = 2.0 A','V₃ = I₃ R₃','V₃ = 2.0 × 4.0 = 8.0 V']},
+];
+function chalTarget(def,br){const sol=solveCircuit(br);if(!sol.ok)return null;const a=def.ask;
+  if(a.type==='I')return sol.bi[a.k]*a.sign;
+  if(a.type==='R')return def.br()[a.k][a.i].v;
+  if(a.type==='V'){const c=br[a.k],n=c.length,i=a.i;const L=i===0?'L':a.k+'.'+(i-1),Rn=i===n-1?'M':a.k+'.'+i;return Math.abs(sol.volt(L)-sol.volt(Rn))}}
+function loadChal(i){const d=CHS[i];S.chal={i,state:'idle',val:'',msg:'',steps:false};S.br=d.br();S.given=d.given?Object.assign({},d.given):null;S.sel=null;S.vm=[];S.pend=null;S.keep='chal'}
+function chalCtrl(){
+  const c=S.chal,d=CHS[c.i];
+  ctrl.innerHTML=`<div><p class="gt">اختر التحدي</p><div class="qlist">${CHS.map((x,i)=>`<button class="btn tiny ${i===c.i?'on':''}" data-q="${i}">${i+1}</button>`).join('')}</div></div>
+  <div class="qcard"><b>${d.t}</b><br>${d.q}${S.given?`<br><span class="gv">I${sub(S.given.k+1)} = ${S.given.txt} (${S.given.dir<0?'نحو اليسار':'نحو اليمين'})</span>`:''}</div>
+  <div class="ansrow"><span>${d.ask.label} =</span><input id="ans" type="number" step="any" inputmode="decimal" placeholder="?" value="${c.val}"><span>${d.ask.unit}</span></div>
+  <div class="btns" style="margin-top:10px"><button class="btn primary" data-c="chk">تحقق</button><button class="btn" data-c="meas">${d.ask.type==='R'?'جرّب قيمتي':'اقرأ بالأميتر'}</button><button class="btn" data-c="vm">فولتميتر</button><button class="btn" data-c="sol">أظهر الحل</button></div>
+  <div class="btns" style="margin-top:8px"><button class="btn small" data-c="amm">+ أميتر في فرع</button><button class="btn small" data-c="clr">إزالة القياسات</button><button class="btn small" data-c="edit">افتح الدائرة للتعديل</button></div>`;
+  ctrl.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{loadChal(+b.dataset.q);chalCtrl();redraw()});
+  ctrl.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>chalAct(b.dataset.c));
+  const inp=$('ans');if(inp)inp.oninput=()=>{c.val=inp.value}
+}
+let ammPick=0;
+function chalAct(a){
+  const c=S.chal,d=CHS[c.i];
+  if(a==='chk'){const v=parseFloat(c.val);const t=chalTarget(d,S.br.length?d.br():[]);if(isNaN(v)){c.msg='اكتب قيمة أولًا.';c.state='idle'}else{const ok=Math.abs(v-t)<=Math.max(0.02*Math.abs(t),0.02);c.state=ok?'ok':'bad';c.msg=ok?`إجابة صحيحة: ${d.ask.label} = ${fm(t)} ${d.ask.unit}. اضغط «اقرأ بالأميتر» للتأكد بالقياس.`:`ليست صحيحة بعد. راجع القانونين وقواعد الإشارات ثم حاول مرة أخرى.`}}
+  else if(a==='meas'){
+    if(d.ask.type==='R'){const v=parseFloat(c.val);if(isNaN(v)||v<=0){c.msg='اكتب قيمة المقاومة أولًا لتجربتها.';c.state='idle'}else{const x=S.br[d.ask.k][d.ask.i];x.v=v;x.hide=false;const g=d.given;if(g&&!S.br[g.k].some(z=>z.t==='A'))S.br[g.k].push(mkA());c.msg=`وُضعت قيمتك R = ${fm(v)} Ω في الدائرة. قارن قراءة الأميتر في الفرع ${g?g.k+1:''} بالتيار المعطى (${g?g.txt:''}): إن تطابقتا فحلّك صحيح.`;c.state='idle'}}
+    else{const k=d.ask.k;if(!S.br[k].some(z=>z.t==='A'))S.br[k].push(mkA());c.msg=`ظهر الأميتر في الفرع ${k+1}: قارن قراءته بجوابك (القيمة المطلقة والاتجاه).`;c.state='idle'}
+  }
+  else if(a==='vm'){S.tool=S.tool==='V'?'sel':'V';S.pend=null;c.msg=S.tool==='V'?'اضغط على مقاومة أو بطارية لقياس فرق الجهد عبرها، أو اضغط نقطتين دائريتين لقياسه بينهما.':'';c.state='idle'}
+  else if(a==='sol'){c.steps=!c.steps}
+  else if(a==='amm'){const k=ammPick%S.br.length;ammPick++;if(!S.br[k].some(z=>z.t==='A'))S.br[k].push(mkA());c.msg=`أُضيف أميتر في الفرع ${k+1}. اضغط الزر مرة أخرى لفرع آخر.`;c.state='idle'}
+  else if(a==='clr'){S.br.forEach(b=>{for(let i=b.length-1;i>=0;i--)if(b[i].t==='A')b.splice(i,1)});S.vm=[];S.pend=null;c.msg='';c.state='idle'}
+  else if(a==='edit'){const copy=clone(S.br);copy.forEach(b=>b.forEach(z=>{delete z.hide}));S.keep='build';S.br=copy;openTab('build');return}
+  chalCtrl();redraw();
+}
+function chalInfo(sol){
+  const c=S.chal,d=CHS[c.i];let h='';
+  if(c.msg)h+=`<p class="say ${c.state==='ok'?'ok':''}">${c.msg}</p>`;
+  if(S.vm.length)h+=`<ul class="steps">${S.vm.map((v,j)=>`<li>${num('فولتميتر '+(j+1)+': V = '+fm(sol.ok?sol.volt(v.a.id)-sol.volt(v.b.id):0)+' V')}</li>`).join('')}</ul>`;
+  if(c.steps)h+=`<p class="gt" style="margin-top:12px">خطوات الحل</p><ul class="steps">${d.steps.map(t=>`<li>${num(t)}</li>`).join('')}</ul>`;
+  if(c.state==='bad')h+=`<p class="rule"><b>تلميح:</b> ابدأ بالقانون الأول عند نقطة التفرع، ثم اكتب Σε = Σ I R لمسارين مغلقين، وانتبه لإشارة كل ε وكل I R.</p>`;
+  if(!h)h=`<p class="rule"><b>اربط بالدرس:</b> المطلوب في هذا التحدي ${d.ask.label}. الأسهم الخضراء هي القيم المعطاة، وكل مقاومة مجهولة تظهر بعلامة ؟.</p>`;
+  info.innerHTML=h;
+}
+
+/* =====================================================================
+   1) القانون الأول: نقطة تفرع
+   ===================================================================== */
+function tabJ(){
+  const W={a:3,b:1.2,c:2.5,ph:0};
+  ctrl.innerHTML=slider('a','التيار الداخل I₁',0,6,0.1,3,'A')+slider('b','التيار الداخل I₂',0,6,0.1,1.2,'A')+slider('c','التيار الخارج I₃',0,8,0.1,2.5,'A')+`<p class="gt">التيار الرابع I (مجهول) يخرج من النقطة، ويحسبه القانون الأول.</p><div class="btns"><button class="btn small" id="p1">مثال الكتاب: 3.0 و 1.2 و 2.5</button><button class="btn small" id="p2">تيار سالب (I < 0)</button></div>`;
+  setTalk(['قانون كيرشوف الأول: مجموع التيارات الداخلة إلى نقطة = مجموع التيارات الخارجة منها، لأن الشحنة محفوظة ولا تتراكم عند النقطة.','النقاط الصفراء شحنات تدخل النقطة وتخرج منها بالمعدل نفسه: ما يدخل كل ثانية يخرج كل ثانية.','عندما تجعل التيارات الخارجة المعلومة أكبر من الداخلة يصبح التيار المجهول سالبًا: اتجاهه الفعلي نحو النقطة، أي عكس المرسوم.']);
+  const sl={a:bindSlider('a','A',v=>{W.a=v;render()}),b:bindSlider('b','A',v=>{W.b=v;render()}),c:bindSlider('c','A',v=>{W.c=v;render()})};
+  $('p1').onclick=()=>{W.a=3;W.b=1.2;W.c=2.5;sl.a.set(3);sl.b.set(1.2);sl.c.set(2.5);render()};
+  $('p2').onclick=()=>{W.a=2;W.b=1;W.c=4.5;sl.a.set(2);sl.b.set(1);sl.c.set(4.5);render()};
+  tick=dt=>{W.ph+=dt*(reduceMotion?.1:1);render()};
+  const CX=350,CY=170,L=170;
+  const wires=[{ang:165,k:'a',dir:'in'},{ang:195,k:'b',dir:'in'},{ang:20,k:'c',dir:'out'},{ang:-20,k:'x',dir:'out'}];
+  function render(){
+    const Ix=W.a+W.b-W.c;let s='';
+    wires.forEach(w=>{const a=w.ang*Math.PI/180,ux=Math.cos(a),uy=-Math.sin(a),ex=CX+L*ux,ey=CY+L*uy;s+=ln(ex,ey,CX,CY,'#5b6678',5);
+      const val=w.k==='x'?Ix:W[w.k];let flowIn=w.dir==='in';if(w.k==='x'&&Ix<0)flowIn=true;
+      const mag=Math.abs(val),n=Math.round(clamp(mag*1.2,0,10));
+      for(let i=0;i<n;i++){let f=((i/Math.max(n,1)+W.ph*(0.12+mag*0.05))%1+1)%1;const pos=flowIn?1-f:f;s+=dot(CX+ux*L*pos,CY+uy*L*pos,flowIn?BLUE:ORANGE,5.5)}
+      const lab=w.k==='x'?'I = '+fm(Ix)+' A':(w.k==='c'?'I₃ = ':w.k==='a'?'I₁ = ':'I₂ = ')+fm(val)+' A';
+      s+=tx(CX+(L+52)*ux,CY+(L+30)*uy+5,lab,{s:14,w:700,f:w.k==='x'&&Ix<0?RED:flowIn?BLUE:ORANGE});
+      const mx=CX+ux*L*0.55,my=CY+uy*L*0.55;s+=flowIn?arr(mx+ux*18,my+uy*18,mx-ux*18,my-uy*18,RED,4):arr(mx-ux*18,my-uy*18,mx+ux*18,my+uy*18,RED,4);});
+    s+=dot(CX,CY,'#1a1a1a',9);
+    svg.innerHTML=s;
+    const IN=W.a+W.b+(Ix<0?-Ix:0),OUT=W.c+(Ix>0?Ix:0);
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">الداخلة</div><div class="v">${fm(IN)} A</div></div><div class="chip"><div class="k">الخارجة</div><div class="v">${fm(OUT)} A</div></div><div class="chip"><div class="k">التيار المجهول I</div><div class="v">${fm(Ix)} A</div></div></div>
+    <ul class="steps"><li>${num('Σ I(in) = Σ I(out)')}</li><li>${num(fm(W.a)+' + '+fm(W.b)+' = '+fm(W.c)+' + I')}</li><li>${num('I = '+fm(W.a+W.b)+' − '+fm(W.c)+' = '+fm(Ix)+' A')}</li></ul>
+    <p class="say ${Ix<0?'':'ok'}">${Ix<0?'التيار المجهول <b>سالب</b>: شدته '+num(fm(-Ix)+' A')+' واتجاهه الفعلي نحو النقطة، أي عكس الاتجاه المفروض.':Ix===0?'التيار المجهول صفر.':'التيار المجهول يخرج من النقطة بالشدة المحسوبة.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> قانون كيرشوف الأول: مجموع التيارات الداخلة = مجموع التيارات الخارجة، وهو نتيجة لحفظ الشحنة.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) القانون الثاني: حلقة واحدة
+   ===================================================================== */
+function tabLoop(){
+  const W={e1:12,e2:0,r1:20,r2:10,ph:0};
+  ctrl.innerHTML=slider('e1','القوة الدافعة ε₁',1,15,0.5,12,'V')+slider('e2','القوة الدافعة ε₂ (سالبة = معاكسة)',-8,8,0.5,0,'V')+slider('r1','المقاومة R₁',5,50,5,20,'Ω')+slider('r2','المقاومة R₂',5,50,5,10,'Ω')+`<p class="gt">أمثلة الدرس:</p><div class="btns" id="pre"></div>`;
+  setTalk(['القانون الثاني: Σε = Σ I R. كل كولوم يكتسب طاقة من البطاريات ويفقدها في المقاومات.','الأعمدة الخضراء طاقة مكتسبة لكل كولوم، والحمراء طاقة مفقودة، ومجموعهما حول الحلقة صفر: هذا هو حفظ الطاقة.','اجعل ε₂ سالبة لتصبح بطارية معاكسة: تنقص الطاقة المكتسبة ويقل التيار.']);
+  const sl={};['e1','e2','r1','r2'].forEach(k=>sl[k]=bindSlider(k,k[0]==='e'?'V':'Ω',v=>{W[k]=v;render()}));
+  const pre=[['12 V مع 20 Ω و 10 Ω',{e1:12,e2:0,r1:20,r2:10}],['بطاريتان معاكستان 6.0 و 2.0',{e1:6,e2:-2,r1:10,r2:30}],['9.0 V مع 2.0 و 4.0',{e1:9,e2:0,r1:5,r2:10}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;Object.assign(W,pre[b.dataset.i][1]);['e1','e2','r1','r2'].forEach(k=>sl[k].set(W[k]));render()};
+  tick=dt=>{W.ph+=dt*(reduceMotion?.1:1);render()};
+  const X0=130,X1=570,Y0=60,Y1=190;
+  const pos=s=>{const w=X1-X0,h=Y1-Y0,P=2*(w+h);s=((s%P)+P)%P;if(s<w)return[X0+s,Y0];s-=w;if(s<h)return[X1,Y0+s];s-=h;if(s<w)return[X1-s,Y1];s-=w;return[X0,Y1-s]};
+  function render(){
+    const E=W.e1+W.e2,R=W.r1+W.r2,I=E/R,V1=I*W.r1,V2=I*W.r2;
+    let s=ln(X0,Y0,320,Y0)+ln(380,Y0,X1,Y0)+ln(X1,Y0,X1,Y1)+(W.e2!==0?ln(X1,Y1,356,Y1)+battH(350,Y1,W.e2<0)+ln(344,Y1,X0,Y1):ln(X1,Y1,X0,Y1))+ln(X0,Y1,X0,132)+ln(X0,118,X0,Y0)+rbox(350,Y0,60,24,'#d8ecee');
+    s+=ln(X0-18,118,X0+18,118,'#d99a2b',4.5)+ln(X0-9,132,X0+9,132,'#d99a2b',8);
+    s+=ln(X1,Y0,X1,100)+ln(X1,160,X1,Y1);
+    s+=`<rect x="${X1-13}" y="100" width="26" height="60" rx="3" fill="#fbe3cf" stroke="#1a1a1a" stroke-width="2.6"/>`;
+    const n=12,P=2*((X1-X0)+(Y1-Y0)),sp=Math.sign(I)||1;
+    for(let i=0;i<n;i++){const [x,y]=pos(i*P/n+sp*W.ph*Math.min(120,25+Math.abs(I)*80));s+=dot(x,y,YEL,5)}
+    s+=tx(350,Y0-18,'R₁ = '+W.r1+' Ω',{s:14,f:TEAL})+tx(X1-50,135,'R₂ = '+W.r2+' Ω',{s:14,f:TEAL,a:'end'})+tx(X0-26,128,'ε₁ = '+fm(W.e1)+' V',{s:14,w:700,f:ORANGE,a:'end'});
+    if(W.e2!==0)s+=tx(350,Y1+30,'ε₂ = '+fm(Math.abs(W.e2))+' V '+(W.e2<0?'(معاكسة)':'(مساعدة)'),{s:13,f:W.e2<0?RED:GREEN});
+    // energy bars per coulomb
+    const mx=Math.max(Math.abs(W.e1),Math.abs(W.e2),Math.abs(V1),Math.abs(V2),1),k=Math.max(6,Math.min(20,70/mx)),by=270,bx=90;let bars=[[W.e1,GREEN,'ε₁'],[W.e2,W.e2<0?RED:GREEN,'ε₂'],[-V1,RED,'R₁'],[-V2,RED,'R₂']];
+    s+=ln(60,by,640,by,'#5b6678',2);
+    bars.forEach((b,i)=>{const x=bx+i*130,h=Math.abs(b[0])*k,top=b[0]>=0?by-h:by;s+=`<rect x="${x}" y="${top}" width="70" height="${h}" fill="${b[0]>=0?'#bfe3c8':'#f4c9c4'}" stroke="${b[1]}" stroke-width="2"/>`+tx(x+35,b[0]>=0?top-8:top+h+18,(b[0]>=0?'+':'−')+fm(Math.abs(b[0]))+' J',{s:13,w:700,f:b[1]})+tx(x+35,by+(b[0]>=0?18:-8-0),b[2],{s:12,f:GRAY});});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">Σε</div><div class="v">${fm(E)} V</div></div><div class="chip"><div class="k">التيار I</div><div class="v">${fm(I)} A</div></div><div class="chip"><div class="k">V₁ عبر R₁</div><div class="v">${fm(V1)} V</div></div><div class="chip"><div class="k">V₂ عبر R₂</div><div class="v">${fm(V2)} V</div></div></div>
+    <ul class="steps"><li>${num('Σε = ε₁ + ε₂ = '+fm(W.e1)+' + ('+fm(W.e2)+') = '+fm(E)+' V')}</li><li>${num('Σ I R = I ( '+W.r1+' + '+W.r2+' ) = '+fm(R)+' I')}</li><li>${num('I = '+fm(E)+' / '+fm(R)+' = '+fm(I)+' A')}</li><li>${num('V₁ + V₂ = '+fm(V1)+' + '+fm(V2)+' = '+fm(V1+V2)+' V = Σε')}</li></ul>
+    <p class="say ok">المكتسب لكل كولوم ${num(fm(W.e1+Math.max(W.e2,0))+' J')} والمفقود ${num(fm(V1+V2)+' J')}${W.e2<0?' (البطارية المعاكسة تأخذ '+num(fm(-W.e2)+' J')+')':''}: الطاقة محفوظة.</p>
+    <p class="rule"><b>اربط بالدرس:</b> القانون الثاني: Σε = Σ I R في أي مسار مغلق، وهو نتيجة لحفظ الطاقة. التيار يسير في اتجاه البطارية الأكبر.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) قواعد الإشارات
+   ===================================================================== */
+function tabSign(){
+  const W={loop:'cw',cur:'cw',bat:'up'};
+  ctrl.innerHTML=`<div><p class="gt">اتجاه المسار (loop)</p>${seg('loop',[['cw','مع عقارب الساعة'],['ccw','عكس عقارب الساعة']],'cw')}</div><div><p class="gt">اتجاه التيار في المقاومة</p>${seg('cur',[['cw','مع عقارب الساعة'],['ccw','عكس عقارب الساعة']],'cw')}</div><div><p class="gt">البطارية: القطب الموجب (الخط الطويل) إلى</p>${seg('bat',[['up','الأعلى'],['down','الأسفل']],'up')}</div>`;
+  setTalk(['القوة الدافعة ε موجبة عندما يعبر المسار البطارية من القطب السالب (الخط القصير) إلى القطب الموجب (الخط الطويل).','الحد I R موجب عندما يكون اتجاه المسار هو اتجاه التيار في المقاومة، وسالب عندما يعاكسه.','غيّر الاختيارات وراقب الإشارتين، ثم اكتب المعادلة Σε = Σ I R.']);
+  bindSeg('loop',k=>{W.loop=k;render()});bindSeg('cur',k=>{W.cur=k;render()});bindSeg('bat',k=>{W.bat=k;render()});
+  function render(){
+    const x0=190,x1=510,y0=70,y1=250,cx=350,cy=160;let s=ln(x0,y0,x1,y0)+ln(x1,y0,x1,y1)+ln(x1,y1,x0,y1)+ln(x0,y1,x0,y0);
+    // resistor on the top wire, battery on the left wire
+    s=ln(x0,y0,cx-35,y0)+rbox(cx,y0,70,26,'#d8ecee')+ln(cx+35,y0,x1,y0)+ln(x1,y0,x1,y1)+ln(x1,y1,x0,y1)+ln(x0,y1,x0,cy+6)+ln(x0,cy-6,x0,y0);
+    const pushUp=W.bat==='up',lp=pushUp?cy-6:cy+6,sp=pushUp?cy+6:cy-6;
+    s+=ln(x0-18,lp,x0+18,lp,'#d99a2b',4.5)+ln(x0-9,sp,x0+9,sp,'#d99a2b',8)+tx(x0-34,pushUp?cy-12:cy+22,'+',{s:18,w:700,f:RED,a:'end'})+tx(x0-34,pushUp?cy+22:cy-12,'−',{s:20,w:700,f:BLUE,a:'end'});
+    s+=tx(cx,y0-24,'R',{s:15,f:TEAL})+tx(x0+38,cy+6,'ε',{s:16,f:ORANGE,a:'start'});
+    // current arrow on the resistor (cw = to the right on top), loop arrow below the resistor
+    const curRight=W.cur==='cw';s+=curRight?arr(cx-40,y0-48,cx+40,y0-48,RED,5):arr(cx+40,y0-48,cx-40,y0-48,RED,5);s+=tx(cx+(curRight?58:-58),y0-44,'I',{s:16,w:700,f:RED});
+    const loopRight=W.loop==='cw';s+=loopRight?arr(cx-40,y0+44,cx+40,y0+44,BLUE,5):arr(cx+40,y0+44,cx-40,y0+44,BLUE,5);s+=tx(cx,y0+72,'loop',{s:14,f:BLUE});
+    // loop arrow at the battery side
+    const loopUp=W.loop==='cw'?true:false; // clockwise goes up the left wire
+    s+=loopUp?arr(x0+34,cy+36,x0+34,cy-36,BLUE,5):arr(x0+34,cy-36,x0+34,cy+36,BLUE,5);
+    svg.innerHTML=s;
+    const sIR=(W.loop===W.cur)?'+':'−';
+    const batThroughNegToPos=(loopUp&&pushUp)||(!loopUp&&!pushUp);
+    const sE=batThroughNegToPos?'+':'−';
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">إشارة ε</div><div class="v">${sE}ε</div></div><div class="chip"><div class="k">إشارة I R</div><div class="v">${sIR} I R</div></div></div>
+    <ul class="steps"><li>${num('الحد الخاص بالمقاومة: '+sIR+' I R')} لأن المسار ${W.loop===W.cur?'مع':'عكس'} اتجاه التيار فيها.</li><li>${num('الحد الخاص بالبطارية: '+sE+' ε')} لأن المسار يعبرها من القطب ${batThroughNegToPos?'السالب إلى الموجب':'الموجب إلى السالب'}.</li><li>${num('المعادلة: '+sE+' ε = '+sIR+' I R')}</li></ul>
+    <p class="say ${(sE==='+'&&sIR==='+')?'ok':''}">${sE==='+'&&sIR==='+'?'الاختيار الأنسب: المسار مع التيار وفي اتجاه دفع البطارية فتكون الإشارتان موجبتين.':'الإشارة السالبة هنا تعني أن المسار يعاكس التيار أو البطارية؛ المعادلة تبقى صحيحة وتعطي النتيجة نفسها.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> ε موجبة من − إلى + على المسار، و I R موجبة مع اتجاه التيار. والقطب الموجب هو الخط الطويل.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const S={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: نص القانونين، مبدأ الحفظ، التيار المجهول، حلقة واحدة، وقواعد الإشارات.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق قبل الضغط على الخيار.','ركّز على التعليل بعد الإجابة: يربط الجواب بقاعدة الدرس.','كرّر حتى يتقن اتجاه التيار وإشارات الحدود في القانون الثاني.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const N=t=>`<span class="num">${t}</span>`;
+  const mk=(q,right,wrongs,why)=>({q,opts:[right,...wrongs],ans:0,why});
+  const U=(x,u)=>N(fm(x)+' '+u);
+  const GEN=[
+    ()=>{const a=rnd(2,6),b=rnd(1,4),c=rnd(1,5),I=a+b-c;return mk(`يدخل نقطة تفرع تياران ${N(a+' A')} و${N(b+' A')}، ويخرج منها تيار ${N(c+' A')} وتيار مجهول (I). ما قيمة (I) باستخدام قانون كيرشوف الأول؟`,U(I,'A'),[U(a+b+c,'A'),U(Math.abs(a-b-c)||9,'A'),U(a+b,'A')].filter(x=>x!==U(I,'A')),`الداخلة ${N(a+' + '+b+' = '+(a+b)+' A')} والخارجة ${N(c+' + I')} فيكون I = ${N(fm(I)+' A')}${I<0?'، والسالب يعني أن الاتجاه الفعلي عكس المرسوم':''}.`)},
+    ()=>{const E=rnd(3,9)*3,R1=rnd(1,4)*2,R2=rnd(1,4)*3,I=E/(R1+R2);return mk(`بطارية ${N(E+' V')} مقاومتها الداخلية مهملة وُصلت بمقاومتين ${N(R1+' Ω')} و${N(R2+' Ω')} على التوالي. ما شدة التيار باستخدام قانون كيرشوف الثاني؟`,U(I,'A'),[U(E*(R1+R2),'A'),U(E/R1,'A'),U(E/R2,'A')],`Σε = Σ I R فيكون ${N(E+' = I × '+(R1+R2))} ومنه I = ${N(fm(I)+' A')}.`)},
+    ()=>{const e1=rnd(5,9),e2=rnd(1,4),R=rnd(2,6)*5,I=(e1-e2)/R;return mk(`بطاريتان متعاكستان ${N(e1+' V')} و${N(e2+' V')} موصولتان في حلقة مع مقاومة كلية ${N(R+' Ω')}. ما شدة التيار؟`,U(I,'A'),[U((e1+e2)/R,'A'),U(e1/R,'A'),U(e2/R,'A')],`Σε = ${N(e1+' − '+e2+' = '+(e1-e2)+' V')} و I = ${N((e1-e2)+' / '+R+' = '+fm(I)+' A')}.`)},
+    ()=>({q:'يُعدّ قانون كيرشوف الأول نتيجة لمبدأ حفظ:',opts:['الشحنة الكهربائية','الطاقة','الزخم الخطي','الكتلة'],ans:0,why:'الشحنة لا تتراكم عند نقطة التفرع فتتساوى الداخلة والخارجة.'}),
+    ()=>({q:'يُعدّ قانون كيرشوف الثاني نتيجة لمبدأ حفظ:',opts:['الطاقة','الشحنة الكهربائية','الزخم الخطي','الكتلة'],ans:0,why:'ما يكتسبه الكولوم من طاقة في المصادر يساوي ما يفقده في المقاومات حول المسار المغلق.'}),
+    ()=>({q:'أي العبارات الآتية تمثّل قانون كيرشوف الأول؟',opts:['مجموع التيارات الداخلة إلى نقطة = مجموع التيارات الخارجة منها','مجموع القوى الدافعة في مسار مغلق = مجموع فروق الجهد فيه','فرق الجهد = التيار × المقاومة','الطاقة = الشحنة × فرق الجهد'],ans:0,why:'القانون الأول يخص التيارات عند نقطة تفرع، والثاني يخص المسار المغلق.'}),
+    ()=>({q:'عند تطبيق القانون الثاني: إذا كان اتجاه المسار عكس اتجاه التيار في مقاومة فإن حدّها يُكتب:',opts:['− I R','+ I R','صفرًا','+ I² R'],ans:0,why:'اتجاه المسار عكس التيار يعطي إشارة سالبة.'}),
+    ()=>({q:'تُكتب القوة الدافعة ε موجبة عندما يعبر المسار البطارية:',opts:['من القطب السالب إلى الموجب','من القطب الموجب إلى السالب','بسرعة أكبر','عبر المقاومة الداخلية'],ans:0,why:'القطب الموجب هو الخط الطويل، والمسار من − إلى + يعطي ε موجبة.'}),
+    ()=>({q:'ظهر تيار بإشارة سالبة في الحل. هذا يعني أن:',opts:['اتجاهه الفعلي عكس المفروض','قيمته صفر','الحل خاطئ','المقاومة سالبة'],ans:0,why:'الإشارة السالبة تعني عكس الاتجاه المفروض.'}),
+    ()=>{const Q=rnd(1,3),e=rnd(2,6);return mk(`ما الطاقة التي تكتسبها شحنة ${N(Q+' C')} عند مرورها ببطارية قوتها الدافعة ${N(e+' V')}؟`,U(Q*e,'J'),[U(e/Q,'J'),U(Q/e,'J'),U(Q*e*2,'J')],`W = Q ε = ${N(Q+' × '+e+' = '+Q*e+' J')}.`)},
+    ()=>({q:'كم معادلة نحتاج لحل دائرة ذات ثلاثة تيارات مجهولة؟',opts:['ثلاث: واحدة من القانون الأول واثنتان من الثاني','معادلتان فقط من القانون الثاني','معادلة واحدة','أربع معادلات من القانون الأول'],ans:0,why:'ثلاثة مجاهيل تحتاج ثلاث معادلات مستقلة.'}),
+  ];
+  function next(){
+    let g,tries=0;do{g=GEN[Math.floor(Math.random()*GEN.length)]();tries++}while(new Set(g.opts).size<g.opts.length&&tries<20);const idx=shuf(g.opts.map((_,i)=>i));
+    S.cur={q:g.q,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans),why:g.why};S.done=false;
+    svg.innerHTML=tx(350,170,'السؤال '+(S.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${S.cur.q}</p><div class="opts">${S.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(S.done)return;S.done=true;S.n++;const i=+b.dataset.i,right=i===S.cur.ans;if(right)S.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===S.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${S.cur.why}</p>`;
+      $('qn').textContent=S.n;$('qk').textContent=S.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{S.n=0;S.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+openTab('draw');
+</script>
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

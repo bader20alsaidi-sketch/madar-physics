@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>عاصفة مدار الكهربائية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0A19; --surface:#14142A; --surface2:#1B1B36; --line:#2D2D52;
+  --ink:#EEF0FF; --muted:#9EA3C8;
+  --sun:#FFB547; --sun-ink:#2A1A00; --orbit:#6FD3FF; --planet:#FF7A59;
+  --ok:#5EDB9C; --bad:#FF7B7B;
+  --display:"Changa","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;min-height:100%;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 72% 8%,#fff8 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 62%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 88% 44%,#fff9 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 84%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 30%,#fff8 50%,transparent 51%),
+    radial-gradient(1px 1px at 94% 90%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 5% 50%,#fff6 50%,transparent 51%),
+    radial-gradient(900px 500px at 85% -10%,#2A1E5C 0%,transparent 60%);
+  background-size:340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,100% 100%;
+  background-attachment:fixed}
+.wrap{max-width:840px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.top b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--sun);font-family:var(--mono)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.25;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.1rem)}
+h1 span{color:var(--sun)}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px 4px}
+.orbit-art{width:170px;height:170px}
+.orbit-art .sat{transform-origin:85px 85px;animation:spin 14s linear infinite}
+.orbit-art .sat2{transform-origin:85px 85px;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.orbit-art{display:none}}
+.id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.id-row label{color:var(--muted);font-size:.9rem}
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+.id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
+.rank{border:1px solid var(--orbit);color:var(--orbit);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
+
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px}
+.st{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:12px;align-content:start}
+.st-head{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.planet{width:54px;height:54px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 30%,#fff5 0 8%,transparent 30%),var(--pc);box-shadow:inset -8px -8px 14px #0006}
+.planet.ring::after{content:"";position:absolute;inset:18px -9px;border:2px solid #fff8;border-radius:50%;transform:rotate(-18deg)}
+.st-head p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lv{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;color:var(--ink);display:grid;gap:2px;justify-items:center;transition:border-color .15s,transform .15s}
+.lv:hover{border-color:var(--sun);transform:translateY(-2px)}
+.lv .n{font-family:var(--display);font-weight:700}
+.lv .dsc{font-size:.75rem;color:var(--muted)}
+.stars{color:var(--line);letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+.stars .on{color:var(--sun)}
+.boss{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:start;color:var(--ink);
+  background:linear-gradient(135deg,#3A1F10,var(--surface) 60%);border:1.5px solid var(--sun);border-radius:18px;padding:14px}
+.boss p{margin:0;color:var(--muted);font-size:.88rem}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:8px 12px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--surface);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orbit),var(--sun));transition:width .4s}
+.card{min-width:0;overflow-wrap:anywhere;background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tag.ex{color:var(--sun);border-color:color-mix(in srgb,var(--sun) 45%,var(--line))}
+.q{font-size:1.08rem;font-weight:700;margin:0;text-wrap:pretty}
+.given{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--line);color:var(--muted);font-size:.9rem}
+.eq{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{background:var(--surface2);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--sun)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--surface2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface2))}
+.ans{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sci{display:flex;align-items:center;gap:6px;direction:ltr;font-family:var(--mono);font-size:1.15rem}
+.sci input{font-family:var(--mono);font-size:1.15rem;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 8px;text-align:center}
+.sci .man{width:5.2em}
+.sci .exp{width:3.4em;border-color:var(--sun);font-size:.95rem;align-self:flex-start;margin-top:-6px}
+.sci .x{color:var(--muted)}
+.sci .ten{color:var(--ink)}
+.sci input.ok{border-color:var(--ok)} .sci input.no{border-color:var(--bad)}
+.num input{font-family:var(--mono);font-size:1.15rem;width:8em;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 10px;text-align:center}
+.num input.ok{border-color:var(--ok)} .num input.no{border-color:var(--bad)}
+.unit{font-family:var(--mono);color:var(--muted)}
+.hint2{margin:0;color:var(--muted);font-size:.8rem}
+.check{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:8px 18px;font-weight:700}
+.check:disabled{opacity:.5;cursor:default}
+.feedback{border-radius:12px;padding:12px 14px;background:var(--surface2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{justify-self:start;background:var(--sun);color:var(--sun-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+.diagram{width:100%;max-width:420px;justify-self:center;height:auto;direction:ltr}
+.diagram text{font-family:var(--mono);font-size:12px}
+/* boss */
+.launch{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch}
+.sky{position:relative;border-radius:14px;background:linear-gradient(180deg,#05050F,#1B1440 70%,#243B6B);border:1px solid var(--line);min-height:210px;overflow:hidden}
+.sky .earth{position:absolute;bottom:-40px;left:50%;width:120px;height:70px;transform:translateX(-50%);border-radius:50% 50% 0 0;background:radial-gradient(circle at 50% 100%,#3E9BFF,#1E5AA8)}
+.sky .rocket{position:absolute;left:50%;transform:translateX(-50%);transition:bottom .8s cubic-bezier(.3,1.3,.5,1);font-size:0}
+.sky .orbitline{position:absolute;top:18px;left:6px;right:6px;border-top:2px dashed var(--orbit);opacity:.7}
+.timer{height:8px;border-radius:99px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.timer i{display:block;height:100%;background:var(--sun);transition:width 1s linear}
+.timer.low i{background:var(--bad)}
+.hearts{color:var(--bad);letter-spacing:3px}
+.hearts .off{color:var(--line)}
+.summary{text-align:center;justify-items:center;margin-top:18px}
+.big{font-size:2.4rem;letter-spacing:6px;color:var(--line)} .big .on{color:var(--sun)}
+.cert{border:2px solid var(--sun);border-radius:16px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center;background:linear-gradient(180deg,#2A1A0A,var(--surface))}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.lb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.lb-count,.lb-note{color:var(--muted);font-size:.85rem;margin:0}
+.lb-note.small{font-size:.75rem}
+.lb-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lb-list li{display:grid;grid-template-columns:2em 1fr auto 3.5em;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--bg);font-variant-numeric:tabular-nums}
+.lb-list li:nth-child(-n+3) .rk{color:var(--sun);font-weight:700}
+.lb-list li.me{outline:2px solid var(--sun)}
+.lb-list .rk{text-align:center;color:var(--muted)}
+.lb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sr{color:var(--sun)}
+.lb-list .pt{text-align:end;color:var(--muted);font-size:.9rem}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.boss{grid-template-columns:1fr}.launch{grid-template-columns:54px 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span id="brand"><a href="../../" style="color:var(--sun);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · <b>مدار الفيزياء</b> · الصف الثاني عشر · الوحدة الثانية: المجالات الكهربائية وقانون كولوم</span>
+    <span class="chips"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="sts">0</strong>/48</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=s=>`<span class="eq">${s}</span>`;
+const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+/* x -> "6.67×10⁻¹¹" */
+function sci(x,sf=3){if(x===0)return'0';let e=Math.floor(Math.log10(Math.abs(x)));let ms=(x/Math.pow(10,e)).toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){e++;ms=(x/Math.pow(10,e)).toPrecision(sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+const r2=(x,sf=2)=>+x.toPrecision(sf);
+function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
+
+/* ---------- state ---------- */
+const KEY='madar-g12u2';
+const S={name:'',points:0,stars:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v)Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
+function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
+const rankOf=n=>n>=36?T.ranks[2]:n>=15?T.ranks[1]:T.ranks[0];
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+const LB={game:'g12u2',api:'/api/scores'};
+
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
+/* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
+function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
+  if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
+let lbPending=Promise.resolve(), lbDeb=null;
+function lbSubmit(){ if(!S.name||!(S.points>0)) return lbPending;
+  lbPending=fetch(LB.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({game:LB.game,pid:playerId(),name:S.name,stars:totalStars(),points:S.points})}).catch(()=>{});
+  return lbPending }
+function lbNameChanged(){clearTimeout(lbDeb);lbDeb=setTimeout(()=>{lbSubmit().then(lbRender)},1200)}
+async function lbRender(){
+  const box=document.getElementById('lb'); if(!box) return;
+  try{
+    await lbPending;
+    const r=await fetch(`${LB.api}?game=${LB.game}&pid=${encodeURIComponent(playerId())}`,{cache:'no-store'});
+    const d=await r.json(); if(!d.ok) throw 0;
+    const rows=d.rows||[];
+    box.innerHTML=`<div class="lb-head"><h2>لوحة المتصدرين</h2><span class="lb-count">${d.total} لاعب</span></div>
+      ${rows.length?`<ol class="lb-list">${rows.map((x,i)=>`<li class="${x.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(x.name)}${x.me?' (أنت)':''}</span><span class="sr">★ ${x.stars}</span><span class="pt">${x.points}</span></li>`).join('')}</ol>`:'<p class="lb-note">لا يوجد لاعبون بعد. كن الأول!</p>'}
+      ${d.mine&&!rows.some(x=>x.me)?`<p class="lb-note">ترتيبك: <b>${d.mine.rank}</b> من ${d.total} · ★ ${d.mine.stars} · ${d.mine.points} نقطة</p>`:''}
+      <p class="lb-note small">الترتيب حسب النجوم ثم النقاط.</p>`;
+    box.hidden=false;
+  }catch(e){ box.hidden=true }
+}
+
+const SRC={a1:'اختبار نهائي 2024/2025 · الدور الأول',a2:'اختبار نهائي 2024/2025 · الدور الثاني',b1:'اختبار نهائي 2023/2024 · الدور الأول',b2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  t:'الاختبار التجريبي 2023/2024',c1:'اختبار نهائي 2025/2026 · الدور الأول',x:'بنمط أسئلة الاختبارات النهائية'};
+const EPS=8.85e-12, K=1/(4*Math.PI*EPS), QE=1.6e-19;
+const GIVEN=`${E('ε₀ = 8.85×10⁻¹² F m⁻¹')} · ${E('e = 1.6×10⁻¹⁹ C')}`;
+const GE=`${E('e = 1.6×10⁻¹⁹ C')}`;
+const fx=(x,d=2)=>(+x.toFixed(d)).toString();
+
+/* ================= DIAGRAMS ================= */
+const MK=`<defs><marker id="ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--orbit)"/></marker></defs>`;
+const chg=(x,y,s,lab)=>`<circle cx="${x}" cy="${y}" r="15" fill="${s>0?'var(--planet)':'#5B8CFF'}"/><text x="${x}" y="${y+5}" text-anchor="middle" fill="#fff" font-size="16">${s>0?'+':'−'}</text>${lab?`<text x="${x}" y="${y+36}" text-anchor="middle" fill="var(--muted)">${lab}</text>`:''}`;
+const qch=(x,y,lab)=>`<circle cx="${x}" cy="${y}" r="15" fill="#6A6F98"/><text x="${x}" y="${y+5}" text-anchor="middle" fill="#fff" font-size="14">?</text><text x="${x}" y="${y+36}" text-anchor="middle" fill="var(--muted)">${lab}</text>`;
+/* خط مع سهم في منتصفه، rev يعكس الاتجاه */
+function arrowLine(x1,y1,x2,y2,rev){if(rev)[x1,y1,x2,y2]=[x2,y2,x1,y1];const mx=(x1+x2)/2,my=(y1+y2)/2;
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="var(--orbit)" stroke-width="1.6"/><line x1="${x1}" y1="${y1}" x2="${mx}" y2="${my}" stroke="var(--orbit)" stroke-width="1.6" marker-end="url(#ar)"/>`}
+function arrowPath(d,rev){return `<path d="${d}" fill="none" stroke="var(--orbit)" stroke-width="1.6"/>${''}`}
+/* شحنة منفردة: out=true خطوط خارجة */
+function singleSVG(out,hidden){let s='';for(let i=0;i<8;i++){const a=i*Math.PI/4,x1=150+22*Math.cos(a),y1=90+22*Math.sin(a),x2=150+80*Math.cos(a),y2=90+68*Math.sin(a);s+=arrowLine(x1,y1,x2,y2,!out)}
+  return `<svg class="diagram" viewBox="0 0 300 180" aria-hidden="true">${MK}${s}${hidden?qch(150,90,''):chg(150,90,out?1:-1)}</svg>`}
+/* زوج شحنات: mode 'AB' خطوط من A إلى B، 'BA' من B إلى A، 'out' كلاهما خارج، 'in' كلاهما داخل */
+function pairSVG(mode){const ax=80,bx=220,y=95;let s='';
+  if(mode==='AB'||mode==='BA'){const rev=mode==='BA';
+    s+=arrowLine(ax+16,y,bx-16,y,rev);
+    [[-38],[-70],[38],[70]].forEach(([h])=>{const d=`M${ax+10} ${y+(h>0?10:-10)} Q150 ${y+h*1.6} ${bx-10} ${y+(h>0?10:-10)}`;
+      const midY=y+h*0.8+(h>0?5:-5);s+=`<path d="${d}" fill="none" stroke="var(--orbit)" stroke-width="1.6"/>`+`<path d="M${rev?156:144} ${midY} L${rev?144:156} ${midY}" stroke="var(--orbit)" stroke-width="1.6" marker-end="url(#ar)"/>`});
+    [[ax,-1],[bx,1]].forEach(([cx,side])=>{[0,-0.5,0.5].forEach(t=>{const a=(side>0?0:Math.PI)+t,x1=cx+18*Math.cos(a),y1=y+18*Math.sin(a),x2=cx+62*Math.cos(a),y2=y+62*Math.sin(a);
+      const outward=(cx===ax)!==rev; s+=arrowLine(x1,y1,x2,y2,!outward)})});
+  } else {const out=mode==='out';
+    [ax,bx].forEach(cx=>{for(let i=0;i<8;i++){const a=i*Math.PI/4;if(Math.abs(Math.cos(a))>0.9&&((cx===ax&&Math.cos(a)>0)||(cx===bx&&Math.cos(a)<0)))continue;
+      const bend=(cx===ax?-1:1)*0.25*Math.sign(Math.sin(a)||0);const x1=cx+18*Math.cos(a),y1=y+18*Math.sin(a),x2=cx+62*Math.cos(a+bend),y2=y+62*Math.sin(a+bend);s+=arrowLine(x1,y1,x2,y2,!out)}});
+    s+=`<circle cx="150" cy="${y}" r="3.5" fill="var(--sun)"/><text x="150" y="${y-10}" text-anchor="middle" fill="var(--sun)">N</text>`}
+  return `<svg class="diagram" viewBox="0 0 300 190" aria-hidden="true">${MK}${s}${qch(ax,y,'A')}${qch(bx,y,'B')}</svg>`}
+/* لوحان أفقيان: topPos اللوح العلوي موجب */
+function platesSVG(topPos,extra=''){let s='';for(let i=0;i<6;i++){const x=55+i*38;s+=arrowLine(x,46,x,134,!topPos)}
+  return `<svg class="diagram" viewBox="0 0 300 180" aria-hidden="true">${MK}<rect x="30" y="30" width="240" height="10" rx="2" fill="${topPos?'var(--planet)':'#5B8CFF'}"/><rect x="30" y="140" width="240" height="10" rx="2" fill="${topPos?'#5B8CFF':'var(--planet)'}"/>
+  <text x="285" y="40" fill="var(--muted)">${topPos?'+':'−'}</text><text x="285" y="150" fill="var(--muted)">${topPos?'−':'+'}</text>${s}${extra}</svg>`}
+/* محور: شحنتان على خط مع نقطة */
+function lineSVG(items,pt){const xs=items.map(i=>i.x);return `<svg class="diagram" viewBox="0 0 320 110" aria-hidden="true">
+  <line x1="10" y1="55" x2="310" y2="55" stroke="var(--line)" stroke-dasharray="4 4"/>
+  ${items.map(i=>chg(i.x,55,i.s,i.lab)).join('')}
+  ${pt?`<circle cx="${pt.x}" cy="55" r="5" fill="var(--sun)"/><text x="${pt.x}" y="38" text-anchor="middle" fill="var(--sun)">${pt.lab}</text>`:''}
+  ${(items.concat(pt?[pt]:[])).filter(i=>i.dl).map(i=>`<text x="${i.dlx}" y="100" text-anchor="middle" fill="var(--muted)">${i.dl}</text>`).join('')}</svg>`}
+
+/* ================= STATION 1: خطوط المجال (1-2) ================= */
+const S1B={
+ neg:{kind:'mc',tag:'b1',q:'أي وصف يمثّل خطوط المجال الكهربائي لشحنة نقطية سالبة منفردة؟',o:['خطوط مستقيمة شعاعية متجهة إلى الداخل نحو الشحنة','خطوط مستقيمة شعاعية خارجة من الشحنة','خطوط منحنية متجهة نحو الشحنة','دوائر متحدة المركز حول الشحنة'],a:0,sol:'خطوط المجال تدخل الشحنة السالبة، وحول شحنة نقطية منفردة تكون مستقيمة شعاعية. الدوائر تمثّل أسطح تساوي الجهد وليست خطوط المجال.'},
+ opp:{kind:'mc',tag:'b2',q:'ما النمط الصحيح لخطوط المجال بين شحنتين مختلفتين في النوع؟',o:['تخرج من الشحنة الموجبة وتنحني لتدخل الشحنة السالبة','تخرج من الشحنة السالبة وتدخل الموجبة','تخرج من الشحنتين وتتنافر بينهما نقطة تعادل','لا توجد خطوط بين الشحنتين'],a:0,sol:'اتجاه المجال دائماً من الموجب إلى السالب، والخطوط تصل بين الشحنتين مباشرة.'},
+ like:{kind:'mc',tag:'a1',q:'شحنتان متشابهتان في النوع ومتساويتان في المقدار. ماذا يوجد في منتصف المسافة بينهما؟',o:['نقطة تعادل يكون فيها المجال المحصّل صفراً','أكبر شدة للمجال','خط مجال يصل بين الشحنتين','تتقاطع عندها خطوط المجال'],a:0,sol:'الخطوط تتنافر ولا تصل بين الشحنتين، وفي المنتصف يتساوى المجالان مقداراً ويتعاكسان اتجاهاً.'},
+ cloud:{kind:'mc',tag:'a2',q:'قاعدة سحابة رعدية سالبة الشحنة فوق مبنى (تُستحث عليه شحنة موجبة). ما اتجاه خطوط المجال بينهما؟',o:['من المبنى إلى أعلى نحو قاعدة السحابة','من قاعدة السحابة إلى أسفل نحو المبنى','أفقية موازية لسطح الأرض','لا يوجد مجال بينهما'],a:0,sol:'الخطوط تخرج من الموجب (المبنى) وتدخل السالب (قاعدة السحابة)، فتتجه إلى أعلى.'},
+ plate:{kind:'mc',tag:'c1',q:'كرة سالبة الشحنة فوق لوح مؤرّض. أي وصف صحيح لخطوط المجال بينهما؟',o:['تتجه من اللوح نحو الكرة، وتكون عمودية على سطح اللوح','تتجه من الكرة نحو اللوح، ومائلة على سطحه','متوازية مع سطح اللوح','تخرج من الكرة وتعود إليها'],a:0,sol:'تُستحث على اللوح شحنة موجبة، فالخطوط تخرج منه نحو الكرة السالبة، وتكون عمودية على سطح الموصل.'},
+ dens:{kind:'mc',tag:'x',q:'خطوط مجال تخرج كلها من النقطة A وتدخل في النقطة B، وكثافة الخطوط عند A أكبر بوضوح منها عند B. أي العبارات صحيحة؟',o:['A موجبة وB سالبة، ومقدار شحنة A أكبر','A سالبة وB موجبة، ومقدارهما متساويان','A وB موجبتان','A وB سالبتان'],a:0,sol:'الخطوط تخرج من الموجب وتدخل السالب، وعدد الخطوط يتناسب مع مقدار الشحنة.'},
+ cross:{kind:'mc',tag:'x',q:'لماذا لا تتقاطع خطوط المجال الكهربائي أبداً؟',o:['لأن للمجال عند أي نقطة اتجاهاً واحداً فقط','لأن الشحنات تتنافر دائماً','لأن الخطوط تكون مستقيمة دائماً','لأن شدة المجال ثابتة في كل مكان'],a:0,sol:'لو تقاطع خطان لكان للمجال عند نقطة التقاطع اتجاهان في الوقت نفسه، وهذا مستحيل.'},
+ means:{kind:'mc',tag:'x',q:'ماذا يمثّل اتجاه خط المجال الكهربائي عند نقطة؟',o:['اتجاه القوة المؤثرة على شحنة اختبار موجبة عند تلك النقطة','اتجاه حركة الإلكترونات دائماً','اتجاه تزايد الجهد','اتجاه القوة على أي شحنة سالبة'],a:0,sol:'المجال يُعرّف باستخدام شحنة اختبار موجبة.'},
+ spacing:{kind:'mc',tag:'x',q:'ماذا يعني تباعد خطوط المجال كلما ابتعدنا عن شحنة نقطية؟',o:['أن شدة المجال تقل مع زيادة المسافة','أن شدة المجال تزداد مع زيادة المسافة','أن الشحنة تتغير','أن المجال يصبح منتظماً'],a:0,sol:`كثافة الخطوط مقياس لشدة المجال، و${E('E ∝ 1/r²')}`},
+ uniform:{kind:'mc',tag:'x',q:'كيف تبدو خطوط المجال بين لوحين متوازيين مشحونين (بعيداً عن الحواف)؟',svg:platesSVG(true),o:['خطوط مستقيمة متوازية متساوية التباعد من اللوح الموجب إلى السالب','خطوط شعاعية من مركز اللوح','خطوط منحنية تتقارب في المنتصف','خطوط من اللوح السالب إلى الموجب'],a:0,sol:'المجال بين اللوحين منتظم: له المقدار والاتجاه نفسهما في كل النقاط.'},
+ gravity:{kind:'mc',tag:'x',q:'ما الفرق الأساسي بين خطوط المجال الكهربائي وخطوط مجال الجاذبية؟',o:['قوة الجاذبية تجاذب دائماً، أما الكهربائية فقد تكون تجاذباً أو تنافراً','خطوط الجاذبية تتقاطع وخطوط الكهربائية لا تتقاطع','المجال الكهربائي لا يعتمد على المسافة','لا يمكن تمثيل مجال الجاذبية بخطوط'],a:0,sol:'كلاهما شعاعي حول جسم نقطي ويتناسب عكسياً مع مربع المسافة، لكن الجاذبية تجاذب فقط.'}
+};
+const PAIRS={AB:'A موجبة وB سالبة',BA:'A سالبة وB موجبة',out:'A وB موجبتان',in:'A وB سالبتان'};
+const gPair=()=>{const m=pick(['AB','BA','out','in']);const ks=['AB','BA','out','in'];return{kind:'mc',tag:'x',svg:pairSVG(m),q:'من نمط خطوط المجال في الشكل، حدّد نوع الشحنتين A وB.',
+  o:[PAIRS[m],...ks.filter(k=>k!==m).map(k=>PAIRS[k])],a:0,sol:m==='AB'||m==='BA'?'الخطوط تصل بين الشحنتين، فهما مختلفتان: تخرج من الموجبة وتدخل السالبة.':`الخطوط لا تصل بين الشحنتين وتوجد نقطة تعادل N، فهما متشابهتان. الخطوط ${m==='out'?'خارجة، إذن موجبتان':'داخلة، إذن سالبتان'}.`}};
+const gSingle=()=>{const out=Math.random()<.5;return{kind:'mc',tag:'b1',svg:singleSVG(out,1),q:'ما نوع الشحنة في الشكل؟',o:[out?'موجبة':'سالبة',out?'سالبة':'موجبة','متعادلة','لا يمكن تحديدها'],a:0,sol:`الخطوط ${out?'تخرج من الشحنة، فهي موجبة':'تدخل الشحنة، فهي سالبة'}.`}};
+
+/* ================= STATION 2: شدة المجال (2-2) ================= */
+const S2B={
+ def:{kind:'mc',tag:'a2',q:'ما تعريف شدة المجال الكهربائي عند نقطة؟',o:['القوة المؤثرة على وحدة الشحنات الموجبة الموضوعة عند تلك النقطة','الشغل المبذول لنقل وحدة الشحنات من اللانهاية','القوة بين شحنتين نقطيتين','فرق الجهد لكل وحدة شحنة'],a:0,sol:`${E('E = F / Q')}، ووحدتها ${E('N C⁻¹')}`},
+ mean:{kind:'mc',tag:'c1',q:`ما المقصود بأن شدة المجال الكهربائي عند نقطة تساوي ${E('5 N C⁻¹')}؟`,o:['أي شحنة مقدارها 1 C توضع عند النقطة تتأثر بقوة مقدارها 5 N','أي شحنة توضع عند النقطة تتأثر بقوة 5 N مهما كان مقدارها','الشغل المبذول لنقل 1 C إلى النقطة يساوي 5 J','فرق الجهد عند النقطة يساوي 5 V'],a:0,sol:'وأي شحنة Q أخرى تتأثر بقوة مقدارها 5Q نيوتن.'},
+ unit:{kind:'mc',tag:'x',q:`وحدة شدة المجال ${E('N C⁻¹')} تكافئ:`,o:['V m⁻¹','V m','J C⁻¹','C V⁻¹'],a:0,ltr:1,sol:`${E('E = V/d')} ⇒ ${E('N C⁻¹ = V m⁻¹')}`},
+ dir:{kind:'mc',tag:'x',svg:platesSVG(true),q:'إلكترون بين لوحين أفقيين: العلوي موجب والسفلي سالب. ما اتجاه القوة الكهربائية عليه؟',o:['إلى الأعلى، عكس اتجاه المجال','إلى الأسفل، في اتجاه المجال','أفقياً موازية للوحين','لا توجد قوة لأن شحنته صغيرة'],a:0,sol:'القوة على الشحنة السالبة عكس اتجاه المجال، والمجال من الموجب إلى السالب (إلى الأسفل).'},
+ uniform:{kind:'mc',tag:'x',q:'شحنة نقطية تتحرك من منتصف المسافة بين لوحين متوازيين إلى نقطة أقرب من أحدهما. ماذا يحدث لمقدار القوة الكهربائية عليها؟',o:['لا يتغير لأن المجال منتظم','يزداد كلما اقتربت من اللوح','يقل كلما اقتربت من اللوح','يصبح صفراً'],a:0,sol:`المجال بين اللوحين منتظم ${E('E = V/d')}، فالقوة ${E('F = EQ')} ثابتة.`}
+};
+const gEVd=()=>{const V=pick([120,250,400,600,900,1500,2400]),dcm=pick([2.0,4.0,5.0,8.0,10.0]);const d=dcm/100,Ev=V/d;return{kind:'sci',tag:'x',
+  q:`لوحان متوازيان المسافة بينهما ${E(dcm.toFixed(1)+' cm')} وفرق الجهد بينهما ${E(V+' V')}. احسب شدة المجال الكهربائي المنتظم بينهما.`,ans:Ev,unit:'V m⁻¹',
+  sol:`${E(`E = V/d = ${V} / ${sci(d,2)} = ${sci(Ev)} V m⁻¹`)}`}};
+const gEratio=()=>{const k=pick([2,3,4]),m=pick([2,3,4]);const E0=pick([50,100,200,300]);const En=E0*k/m;return{kind:'num',tag:'t',
+  q:`شدة المجال بين لوحين متوازيين ${E(E0+' N C⁻¹')} عندما يكون فرق الجهد V والمسافة d. احسب شدة المجال إذا أصبح فرق الجهد ${E(k+'V')} والمسافة ${E(m+'d')}.`,ans:En,rel:.01,unit:'N C⁻¹',
+  sol:`${E(`E₂/E₁ = (${k}V/${m}d) ÷ (V/d) = ${k}/${m}`)}<br>${E(`E₂ = ${k}/${m} × ${E0} = ${fx(En,1)} N C⁻¹`)}`}};
+const gFE=()=>{const V=pick([400,600,900,2400]),dmm=pick([5.0,8.0,10,20]);const q=pick([1,2,3])*QE*2;const d=dmm/1000,Ev=V/d,F=Ev*q;return{kind:'sci',tag:'x',
+  q:`لوحان متوازيان بينهما ${E(dmm+' mm')} وفرق جهد ${E(V+' V')}. احسب القوة الكهربائية على شحنة نقطية مقدارها ${E(sci(q,2)+' C')} موضوعة بينهما.`,ans:F,unit:'N',
+  sol:`${E(`E = V/d = ${sci(Ev)} V m⁻¹`)}<br>${E(`F = EQ = ${sci(Ev)} × ${sci(q,2)} = ${sci(F)} N`)}`}};
+const gQfromF=()=>{const n=pick([1,2,3,4,5]);const q=n*QE,Ev=pick([1.2e4,2.0e4,5.0e4,8.0e3]);const F=q*Ev;return{kind:'sci',tag:'x',
+  q:`مجال كهربائي منتظم شدته ${E(sci(Ev,2)+' V m⁻¹')} يؤثر بقوة ${E(sci(F,2)+' N')} على شحنة نقطية. احسب مقدار الشحنة.`,ans:q,unit:'C',
+  sol:`${E(`Q = F/E = ${sci(F,2)} / ${sci(Ev,2)} = ${sci(q)} C`)}`}};
+const gVfromE=()=>{const Ev=pick([1.2e4,2.5e4,4.0e3,6.0e4]),dcm=pick([1.5,2.0,2.5,4.0]);const V=Ev*dcm/100;return{kind:'num',tag:'x',
+  q:`شدة المجال المنتظم بين لوحين ${E(sci(Ev,2)+' V m⁻¹')}، والمسافة بينهما ${E(dcm+' cm')}. احسب فرق الجهد بين اللوحين.`,ans:V,rel:.01,unit:'V',
+  sol:`${E(`V = E d = ${sci(Ev,2)} × ${sci(dcm/100,2)} = ${fx(V,1)} V`)}`}};
+const gEdHalf=()=>{const ch=pick([{t:'قُرّب اللوحان حتى أصبحت المسافة نصف قيمتها مع ثبات V',r:'2E'},{t:'أُبعد اللوحان حتى أصبحت المسافة ثلاثة أمثالها مع ثبات V',r:'E/3'},{t:'ضوعف فرق الجهد مع ثبات المسافة',r:'2E'},{t:'ضوعف فرق الجهد وضوعفت المسافة',r:'E'}]);
+  const o=[...new Set([ch.r,'2E','E/2','4E','E/3','E'])].slice(0,4);return{kind:'mc',tag:'x',q:`شدة المجال بين لوحين متوازيين ${E('E')}. ${ch.t}. كم تصبح شدة المجال؟`,o,a:0,ltr:1,sol:`${E('E = V/d')}`}};
+
+/* ================= STATION 3: القوة على شحنة (3-2) ================= */
+const S3B={
+ beam:{kind:'mc',tag:'b1',svg:platesSVG(true,`<path d="M20 90 Q150 90 270 52" fill="none" stroke="var(--sun)" stroke-width="2" stroke-dasharray="5 4"/><text x="22" y="82" fill="var(--sun)">e⁻</text>`),
+   q:'حزمة إلكترونات تنحرف نحو اللوح العلوي كما في الشكل. ما اتجاه خطوط المجال بين اللوحين؟',o:['من اللوح العلوي إلى اللوح السفلي (إلى الأسفل)','من اللوح السفلي إلى اللوح العلوي (إلى الأعلى)','موازية للوحين','لا يمكن تحديده'],a:0,sol:'الإلكترون سالب، فالقوة عليه عكس المجال. القوة إلى الأعلى ⇒ المجال إلى الأسفل (اللوح العلوي موجب).'},
+ pos:{kind:'mc',tag:'c1',q:'شحنة موجبة +Q موضوعة في مجال كهربائي منتظم. في أي اتجاه تتحرك؟',o:['في نفس اتجاه خطوط المجال','عكس اتجاه خطوط المجال','عمودياً على خطوط المجال','لا تتحرك'],a:0,sol:'القوة على الشحنة الموجبة في اتجاه المجال.'},
+ pair:{kind:'mc',tag:'x',q:'وُضع بروتون وإلكترون عند النقطة نفسها بين لوحين: العلوي موجب والسفلي سالب. أي العبارات صحيحة؟',o:['القوتان متساويتان مقداراً: على البروتون إلى الأسفل وعلى الإلكترون إلى الأعلى','القوة على البروتون أكبر لأن كتلته أكبر','القوتان في الاتجاه نفسه','لا تؤثر قوة على البروتون'],a:0,sol:`${E('F = eE')} للاثنين، والإشارة تحدد الاتجاه فقط.`},
+ path:{kind:'mc',tag:'x',q:'يدخل إلكترون بسرعة أفقية بين لوحين أفقيين مشحونين. ما شكل مساره بين اللوحين؟',o:['قطع مكافئ (منحنٍ) نحو اللوح الموجب','خط مستقيم','دائرة','قطع مكافئ نحو اللوح السالب'],a:0,sol:'سرعته الأفقية ثابتة، وتسارعه الرأسي ثابت نحو اللوح الموجب، كالمقذوف الأفقي.'},
+ dbl:{kind:'mc',tag:'b2',q:`لوحان بينهما فرق جهد ثابت V. ماذا يحدث للقوة على إلكترون بينهما إذا زادت المسافة إلى ${E('2d')}؟`,o:['تقل إلى النصف','تتضاعف','تقل إلى الربع','لا تتغير'],a:0,sol:`${E('F = eV/d')}: مضاعفة d تنصّف القوة.`}
+};
+const gFe=()=>{const V=pick([160,600,1200,2400,3400]),dcm=pick([4.0,5.0,8.0,10.0]);const F=QE*V/(dcm/100);return{kind:'sci',tag:pick(['b1','b2']),
+  q:`فرق الجهد بين لوحين متوازيين ${E(V+' V')} والمسافة بينهما ${E(dcm.toFixed(1)+' cm')}. احسب القوة المؤثرة على إلكترون بينهما.`,given:GE,ans:F,unit:'N',
+  sol:`${E(`F = eV/d = 1.6×10⁻¹⁹ × ${V} / ${sci(dcm/100,2)} = ${sci(F)} N`)}`}};
+const gRain=()=>{const V=pick([100,200,300]),h=pick([2000,4000,5000]),q=pick([2.0,4.0,5.0]);const Ev=V*1e6/h,F=Ev*q*1e-12;return{kind:'sci',tag:'t',
+  q:`فرق الجهد بين سحابة رعدية والأرض ${E(V+' MV')} والمسافة بينهما ${E(h+' m')}. احسب القوة الكهربائية على قطرة مطر شحنتها ${E(q.toFixed(1)+' pC')}.`,ans:F,unit:'N',
+  sol:`${E(`E = V/d = ${sci(V*1e6,2)} / ${h} = ${sci(Ev)} N C⁻¹`)}<br>${E(`F = EQ = ${sci(Ev)} × ${sci(q*1e-12,2)} = ${sci(F)} N`)}`}};
+const gRainF=()=>{const Ev=pick([1.5e4,2.0e4,3.0e4]),q=pick([2.0e-14,4.0e-14,5.0e-14]);const F=Ev*q;return{kind:'sci',tag:'x',
+  q:`مجال شبه منتظم شدته ${E(sci(Ev,2)+' V m⁻¹')} بين قاعدة سحابة والأرض، موجّه نحو الأرض. احسب مقدار القوة على قطرة مطر شحنتها سالبة مقدارها ${E(sci(q,2)+' C')}. (اتجاهها إلى الأعلى لأن شحنتها سالبة)`,ans:F,unit:'N',
+  sol:`${E(`F = EQ = ${sci(Ev,2)} × ${sci(q,2)} = ${sci(F)} N`)} نحو السحابة (عكس المجال).`}};
+const gFk=()=>{const k=pick([2,3,4]);const ch=pick([{t:`أصبحت المسافة ${k}d`,r:`F/${k}`},{t:`أصبحت المسافة d/${k}`,r:`${k}F`},{t:`أصبح فرق الجهد ${k}V`,r:`${k}F`}]);
+  const o=[...new Set([ch.r,`${k}F`,`F/${k}`,`${k*k}F`,`F/${k*k}`])].slice(0,4);return{kind:'mc',tag:'b2',q:`القوة على شحنة بين لوحين متوازيين ${E('F')}. إذا ${ch.t} (مع ثبات باقي المتغيرات)، كم تصبح القوة؟`,o,a:0,ltr:1,sol:`${E('F = QV/d')}`}};
+const gEfromF=()=>{const F=pick([2.4e-15,4.8e-15,8.0e-16]),dcm=pick([2.0,4.0,5.0]);const V=F*dcm/100/QE;return{kind:'num',tag:'x',
+  q:`تؤثر قوة ${E(sci(F,2)+' N')} على إلكترون بين لوحين متوازيين المسافة بينهما ${E(dcm.toFixed(1)+' cm')}. احسب فرق الجهد بين اللوحين.`,given:GE,ans:V,rel:.02,unit:'V',
+  sol:`${E(`V = Fd/e = ${sci(F,2)} × ${sci(dcm/100,2)} / 1.6×10⁻¹⁹ = ${fx(V,0)} V`)}`}};
+
+/* ================= STATION 4: قانون كولوم (4-2) ================= */
+const S4B={
+ law:{kind:'mc',tag:'a2',q:'ما نص قانون كولوم؟',o:['قوة التجاذب أو التنافر بين شحنتين نقطيتين تتناسب طردياً مع حاصل ضربهما وعكسياً مع مربع المسافة بينهما','القوة بين شحنتين تتناسب طردياً مع المسافة بينهما','القوة بين شحنتين تتناسب عكسياً مع حاصل ضربهما','شدة المجال تساوي القوة لكل وحدة شحنة'],a:0,sol:`${E('F = Q₁Q₂ / (4πε₀ r²)')}`},
+ mid:{kind:'mc',tag:'b1',svg:lineSVG([{x:70,s:1,lab:'Q₁'},{x:250,s:1,lab:'Q₂'}],{x:160,lab:'b'}),q:'شحنتان متماثلتان. أين توضع شحنة اختبار موجبة لتكون محصلة القوى عليها صفراً؟',o:['في منتصف المسافة بينهما (b)','قرب Q₁','خارج الشحنتين','لا توجد نقطة'],a:0,sol:'عند المنتصف تتساوى القوتان مقداراً وتتعاكسان اتجاهاً.'},
+ slope:{kind:'mc',tag:'b2',q:`في التمثيل البياني لشدة المجال E مقابل ${E('1/r²')} لشحنة نقطية، ماذا يمثّل الميل؟`,o:['Q/(4πε₀)','4πε₀/Q','Q','Q/r'],a:0,ltr:1,sol:`${E('E = (Q/4πε₀) × 1/r²')}`},
+ sphere:{kind:'mc',tag:'a1',q:'شحنة اختبار موجبة عند نقطة P قرب كرة فلزية موجبة. ما اتجاه حركتها؟',o:['في اتجاه المجال، مبتعدة عن الكرة شعاعياً','نحو مركز الكرة','عمودياً على خطوط المجال','لا تتحرك'],a:0,sol:'الشحنتان موجبتان فتتنافران، والحركة في اتجاه المجال.'}
+};
+const gCoulF=()=>{const q1=pick([1.0,2.0,3.0,5.0]),q2=pick([1.0,2.0,4.0,6.0]),rc=pick([2.0,3.0,5.0,10]);const F=K*q1*q2*1e-12/(rc/100)**2;return{kind:'sci',tag:'x',
+  q:`شحنتان نقطيتان ${E(q1.toFixed(1)+' µC')} و${E(q2.toFixed(1)+' µC')} المسافة بين مركزيهما ${E(rc+' cm')}. احسب القوة الكهربائية بينهما.`,given:GIVEN,ans:F,unit:'N',
+  sol:`${E(`F = Q₁Q₂/(4πε₀r²) = (${sci(q1*1e-6,2)} × ${sci(q2*1e-6,2)}) / (4π × 8.85×10⁻¹² × ${sci(rc/100,2)}²) = ${sci(F)} N`)}`}};
+const gCoulR=()=>{const q=pick([1.0,2.0,0.5]),F=pick([90,40,10,250]);const r=Math.sqrt(K*(q*1e-6)**2/F);return{kind:'sci',tag:'b1',
+  q:`شحنتان متماثلتان مقدار كل منهما ${E(q.toFixed(1)+' µC')} تنشأ بينهما قوة ${E(F+' N')}. احسب المسافة بين مركزيهما.`,given:GIVEN,ans:r,unit:'m',
+  sol:`${E(`r² = Q₁Q₂/(4πε₀F) = ${sci(r*r)}`)} ⇒ ${E(`r = ${sci(r)} m`)}`}};
+const gCoulRatio=()=>{const F0=pick([128,72,180,64]),ch=pick([{t:'تضاعفت المسافة بين مركزيهما',f:1/4},{t:'أصبحت المسافة ثلاثة أمثالها',f:1/9},{t:'قلّت المسافة إلى النصف',f:4},{t:'تضاعفت إحدى الشحنتين وتضاعفت المسافة',f:1/2}]);const Fn=F0*ch.f;
+  return{kind:'num',tag:'a2',q:`تنشأ قوة كهربائية مقدارها ${E(F0+' N')} بين شحنتين نقطيتين. احسب القوة إذا ${ch.t}.`,ans:Fn,rel:.01,unit:'N',
+  sol:`${E('F ∝ Q₁Q₂ / r²')}<br>${E(`F₂ = ${F0} × ${ch.f>=1?ch.f:'1/'+(1/ch.f)} = ${fx(Fn,2)} N`)}`}};
+const gEpoint=()=>{const q=pick([2.0,3.0,5.0,8.0]),un=pick([['nC',1e-9],['µC',1e-6]]),rc=pick([10,20,30,50]);const Ev=K*q*un[1]/(rc/100)**2;return{kind:'sci',tag:'x',
+  q:`احسب شدة المجال الكهربائي على بعد ${E(rc+' cm')} من شحنة نقطية مقدارها ${E(q.toFixed(1)+' '+un[0])}.`,given:GIVEN,ans:Ev,unit:'N C⁻¹',
+  sol:`${E(`E = Q/(4πε₀r²) = ${sci(q*un[1],2)} / (4π × 8.85×10⁻¹² × ${sci(rc/100,2)}²) = ${sci(Ev)} N C⁻¹`)}`}};
+const gNullQ=()=>{const c=pick([[1,3],[1,4],[2,5],[1,5]]);const x=c[0]/c[1];const R=(x/(1-x))**2;const fr=(a,b)=>{const g=(p,q)=>q?g(q,p%q):p;const k=g(a,b);return `${a/k}/${b/k}`};
+  const num=c[0]**2,den=(c[1]-c[0])**2;return{kind:'mc',tag:'a1',svg:lineSVG([{x:40,s:1,lab:'Q₁'},{x:280,s:1,lab:'Q₂'}],{x:40+240*x,lab:'q₃'}),
+  q:`شحنتان موجبتان Q₁ وQ₂ المسافة بينهما d، والشحنة q₃ على بعد ${E(fr(c[0],c[1])+' d')} من Q₁. إذا كانت محصلة القوة على q₃ صفراً، فما النسبة ${E('Q₁/Q₂')}؟`,
+  o:[fr(num,den),fr(c[0],c[1]-c[0]),fr(den,num),'1'],a:0,ltr:1,sol:`${E(`Q₁/x² = Q₂/(d−x)²`)} ⇒ ${E(`Q₁/Q₂ = (${c[0]}/${c[1]-c[0]})² = ${fr(num,den)}`)}`}};
+const gNetX=()=>{const Q1=pick([1.0,2.0]),Q2=pick([1.0,2.0,4.0]),a=pick([1.0,2.0]),d=pick([3.0,4.0]);const q=1e-6;
+  const F1=K*Q1*1e-6*q/(a/100)**2,F2=K*Q2*1e-6*q/((a+d)/100)**2,F=F1+F2;return{kind:'num',tag:'b2',svg:lineSVG([{x:130,s:1,lab:'Q₁'},{x:270,s:1,lab:'Q₂'}],{x:60,lab:'X'}),
+  q:`شحنتان موجبتان ${E('Q₁ = '+Q1.toFixed(1)+' µC')} و${E('Q₂ = '+Q2.toFixed(1)+' µC')} المسافة بينهما ${E(d+' cm')}. النقطة X على بعد ${E(a+' cm')} من Q₁ (خارج الشحنتين). احسب محصلة القوة على شحنة موجبة ${E('1.00 µC')} عند X.`,given:GIVEN,ans:F,rel:.02,unit:'N',
+  sol:`القوتان في الاتجاه نفسه (تنافر) فتُجمعان:<br>${E(`F₁ = ${fx(F1,1)} N`)}، ${E(`F₂ = ${fx(F2,1)} N`)}<br>${E(`F = F₁ + F₂ = ${fx(F,1)} N`)}`}};
+const gOrigin=()=>{const q1=pick([2.0,3.0,4.0]),q2=pick([5.0,6.0,8.0]),x1=pick([0.30,0.20]),x2=pick([0.80,0.60]);const E1=K*q1*1e-6/x1**2,E2=K*q2*1e-6/x2**2,En=Math.abs(E1-E2);if(En<0.2*Math.max(E1,E2))return gOrigin();
+  return{kind:'sci',tag:'a2',svg:lineSVG([{x:40,s:0,lab:''},{x:40+300*x1/0.9,s:1,lab:'q₁'},{x:40+300*x2/0.9,s:-1,lab:'q₂'}].slice(1),{x:40,lab:'O'}),
+  q:`الشحنة ${E('q₁ = +'+q1.toFixed(1)+' µC')} على بعد ${E(x1.toFixed(2)+' m')} من نقطة الأصل O، والشحنة ${E('q₂ = −'+q2.toFixed(1)+' µC')} على بعد ${E(x2.toFixed(2)+' m')} في الجهة نفسها. احسب مقدار شدة المجال المحصّلة عند O.`,given:GIVEN,ans:En,unit:'N C⁻¹',
+  sol:`مجال q₁ يبتعد عنها ومجال q₂ يتجه نحوها، فهما متعاكسان عند O:<br>${E(`E₁ = ${sci(E1)}`)}، ${E(`E₂ = ${sci(E2)}`)}<br>${E(`E = |E₁ − E₂| = ${sci(En)} N C⁻¹`)}`}};
+const gBalance=()=>{const W0=pick([0.0326,0.0450,0.0500]),q1=pick([5,4,3]),q2=pick([4,2,6]),rc=pick([3,2,4]);const F=K*q1*q2*1e-16/(rc/100)**2,R=W0+F;return{kind:'num',tag:'c1',
+  q:`كرة موصلة شحنتها ${E('+'+q1+'×10⁻⁸ C')} على ميزان قراءته ${E(W0+' N')}. ثُبّتت فوقها رأسياً كرة شحنتها ${E('+'+q2+'×10⁻⁸ C')} على مسافة ${E(rc+'×10⁻² m')} بين المركزين. احسب قراءة الميزان الجديدة.`,given:GIVEN,ans:R,rel:.02,unit:'N',
+  sol:`قوة التنافر تدفع الكرة السفلية إلى الأسفل:<br>${E(`F = Q₁Q₂/(4πε₀r²) = ${F.toFixed(4)} N`)}<br>${E(`القراءة = ${W0} + ${F.toFixed(4)} = ${R.toFixed(4)} N`)}`}};
+const gSlopeQ=()=>{const s=pick([1.25e-7,2.0e-7,4.5e-8]);const Q=4*Math.PI*EPS*s;return{kind:'sci',tag:'b2',
+  q:`ميل الخط البياني لشدة المجال E مقابل ${E('1/r²')} لشحنة نقطية موجبة يساوي ${E(sci(s,3)+' N m² C⁻¹')}. احسب مقدار الشحنة.`,given:GIVEN,ans:Q,unit:'C',
+  sol:`الميل ${E('= Q/(4πε₀)')} ⇒ ${E(`Q = 4π × 8.85×10⁻¹² × ${sci(s,3)} = ${sci(Q)} C`)}`}};
+const gEfromV=()=>{const V=pick([11989,9000,6000,15000]),rc=pick([12.0,10.0,15.0,20.0]);const Ev=V/(rc/100);return{kind:'sci',tag:'a1',
+  q:`الجهد الكهربائي عند نقطة P تبعد ${E(rc.toFixed(1)+' cm')} عن مركز كرة فلزية موجبة يساوي ${E(V+' V')}. احسب شدة المجال عند P.`,given:GIVEN,ans:Ev,unit:'V m⁻¹',
+  sol:`${E(`Q = 4πε₀ r V`)}، ثم ${E(`E = Q/(4πε₀r²) = V/r`)}<br>${E(`E = ${V} / ${(rc/100).toFixed(2)} = ${sci(Ev)} V m⁻¹`)}`}};
+
+/* ================= STATION 5: الجهد وطاقة الوضع (5-2) ================= */
+const S5B={
+ def:{kind:'mc',tag:'c1',q:'ما المصطلح العلمي: الشغل المبذول لكل وحدة شحنة لنقل وحدة شحنة موجبة من اللانهاية إلى تلك النقطة؟',o:['الجهد الكهربائي','شدة المجال الكهربائي','طاقة الوضع الكهربائية','القوة الدافعة الكهربائية'],a:0,sol:`${E('V = Q/(4πε₀r)')}`},
+ plates:{kind:'mc',tag:'b1',q:'شحنة اختبار موجبة تُحرَّك في مجال منتظم من موضع قرب اللوح السالب إلى موضع B قرب اللوح الموجب. ماذا يحدث لطاقة وضعها وللجهد عند B؟',o:['تزداد طاقة الوضع ويزداد الجهد','تقل طاقة الوضع ويقل الجهد','تزداد طاقة الوضع ويقل الجهد','تقل طاقة الوضع ويزداد الجهد'],a:0,sol:'B أقرب للوح الموجب فجهده أعلى، ونبذل شغلاً ضد المجال فتزداد طاقة الوضع.'},
+ closer:{kind:'mc',tag:'b2',q:'شحنة موجبة Q₁ تُقرّب من شحنة موجبة أخرى Q₂ ثابتة. ماذا يحدث لطاقة الوضع الكهربائية؟',o:['تزداد لأننا نبذل شغلاً ضد قوة التنافر','تقل لأن الشحنتين تتجاذبان','لا تتغير','تصبح صفراً'],a:0,sol:`${E('Ep = Q₁Q₂/(4πε₀r)')}: بنقصان r تزداد Ep.`},
+ gold:{kind:'mc',tag:'a1',q:`ما الجهد الكهربائي على سطح نواة ذرة ذهب نصف قطرها ${E('144×10⁻¹² m')} وشحنتها ${E('79e')}؟`,o:['7.8×10² V','1.2×10⁻³ V','1.8×10⁻¹² V','4.9×10²¹ V'],a:0,ltr:1,sol:`${E('V = 79 × 1.6×10⁻¹⁹ / (4π × 8.85×10⁻¹² × 144×10⁻¹²) ≈ 7.8×10² V')}`},
+ sign:{kind:'mc',tag:'x',q:'كيف يتغير الجهد الكهربائي حول شحنة نقطية موجبة كلما ابتعدنا عنها؟',o:['موجب ويقل مقترباً من الصفر','سالب ويقترب من الصفر','موجب ويزداد','ثابت لا يتغير'],a:0,sol:`${E('V = Q/(4πε₀r)')}: موجب لشحنة موجبة، ويتناسب عكسياً مع r.`}
+};
+const gVpoint=()=>{const q=pick([2.0,5.0,8.0]),un=pick([['nC',1e-9],['µC',1e-6]]),rc=pick([5.0,10,20,40]);const V=K*q*un[1]/(rc/100);return{kind:'sci',tag:'x',
+  q:`احسب الجهد الكهربائي على بعد ${E(rc+' cm')} من شحنة نقطية مقدارها ${E('+'+q.toFixed(1)+' '+un[0])}.`,given:GIVEN,ans:V,unit:'V',
+  sol:`${E(`V = Q/(4πε₀r) = ${sci(q*un[1],2)} / (4π × 8.85×10⁻¹² × ${sci(rc/100,2)}) = ${sci(V)} V`)}`}};
+const gEp2=()=>{const q1=pick([2.0,1.0,3.0]),q2=pick([0.50,1.0,2.0]),rc=pick([2.0,3.0,5.0]);const Ep=K*q1*q2*1e-12/(rc/100);return{kind:'num',tag:'a2',
+  q:`شحنتان نقطيتان موجبتان ${E(q1.toFixed(1)+' µC')} و${E(q2.toFixed(2)+' µC')} في الفراغ، المسافة بينهما ${E(rc.toFixed(1)+' cm')}. احسب طاقة الوضع الكهربائية للنظام.`,given:GIVEN,ans:Ep,rel:.03,unit:'J',
+  sol:`${E(`Ep = Q₁Q₂/(4πε₀r) = ${sci(q1*1e-6,2)} × ${sci(q2*1e-6,2)} / (4π × 8.85×10⁻¹² × ${sci(rc/100,2)}) = ${Ep.toFixed(3)} J`)}`}};
+const gEpHalf=()=>{const m=pick([2,3,4]),Ep=pick([2.1,3.6,1.5]);const n=Ep*m;return{kind:'sci',tag:'a1',
+  q:`طاقة الوضع الكهربائية لشحنة على بعد r من شحنة مصدر تساوي ${E(Ep+'×10⁻⁴ J')}. احسب طاقة وضعها على بعد ${E('r/'+m)}.`,ans:n*1e-4,unit:'J',
+  sol:`${E('Ep ∝ 1/r')} ⇒ ${E(`Ep₂ = ${m} × ${Ep}×10⁻⁴ = ${sci(n*1e-4)} J`)}`}};
+const gVab=()=>{const q=pick([-0.05,-0.08,0.05,0.10]),ra=pick([3.0,2.0]),rb=pick([4.5,6.0]);const d=K*q*1e-6*(1/(ra/100)-1/(rb/100));return{kind:'sci',tag:'t',
+  svg:`<svg class="diagram" viewBox="0 0 320 90" aria-hidden="true">${chg(40,45,q>0?1:-1,'Q')}<circle cx="${40+ra*40}" cy="45" r="4" fill="var(--sun)"/><text x="${40+ra*40}" y="32" text-anchor="middle" fill="var(--sun)">a</text><circle cx="${40+rb*40}" cy="45" r="4" fill="var(--sun)"/><text x="${40+rb*40}" y="32" text-anchor="middle" fill="var(--sun)">b</text></svg>`,
+  q:`شحنة نقطية ${E('Q = '+(q>0?'+':'−')+Math.abs(q)+' µC')} في الهواء. النقطة a على بعد ${E(ra+' cm')} منها، والنقطة b على بعد ${E(rb+' cm')}. احسب فرق الجهد ${E('Va − Vb')}.`,given:GIVEN,ans:d,unit:'V',
+  sol:`${E(`Va − Vb = (Q/4πε₀)(1/ra − 1/rb)`)}<br>${E(`= ${sci(K*q*1e-6,3)} × (${(100/ra).toFixed(2)} − ${(100/rb).toFixed(2)}) = ${sci(d)} V`)}`}};
+const gWork=()=>{const Q=pick([1,2]),ra=pick([0.45,0.60]),rb=pick([0.26,0.30]);const Va=K*Q*1e-9/ra,Vb=K*Q*1e-9/rb,W=QE*(Vb-Va);return{kind:'sci',tag:'c1',
+  q:`أسطح تساوي جهد حول شحنة موجبة ${E(Q+' nC')}. النقطة a على بعد ${E(ra+' m')} والنقطة b على بعد ${E(rb+' m')}. احسب الشغل المبذول لنقل شحنة ${E('1.6×10⁻¹⁹ C')} من a إلى b.`,given:GIVEN,ans:W,unit:'J',
+  sol:`${E(`Va = ${fx(Va,1)} V`)}، ${E(`Vb = ${fx(Vb,1)} V`)}<br>${E(`W = qΔV = 1.6×10⁻¹⁹ × ${fx(Vb-Va,1)} = ${sci(W)} J`)}`}};
+const gSurf=()=>{const R=pick([0.1,0.2,0.05]),h=pick([0.1,0.2,0.3]),V=pick([50e4,20e4,30e4]);const Vs=V*(R+h)/R;return{kind:'sci',tag:'c1',
+  q:`كرة نصف قطرها ${E(R+' m')}. الجهد على مسافة ${E(h+' m')} من سطحها يساوي ${E(sci(V,2)+' V')}. احسب الجهد على سطح الكرة.`,ans:Vs,unit:'V',
+  sol:`المسافة من المركز ${E(`r = ${R} + ${h} = ${fx(R+h,2)} m`)}<br>${E('V ∝ 1/r')} ⇒ ${E(`V_s = ${sci(V,2)} × ${fx(R+h,2)}/${R} = ${sci(Vs)} V`)}`}};
+const gProton=()=>{const r=pick([0.2,0.1,0.25]),V0=pick([200,400,500]),k=pick([3,2,1]);const Q=4*Math.PI*EPS*r*V0,d=r+k*r,Ep=QE*Q*K/d;return{kind:'sci',tag:'t',
+  q:`كرة مشحونة نصف قطرها ${E(r+' m')} وجهد سطحها ${E(V0+' V')}. احسب طاقة الوضع الكهربائية لبروتون على بعد ${E(k+'r')} من سطح الكرة.`,given:GIVEN,ans:Ep,unit:'J',
+  sol:`${E(`Q = 4πε₀ r V = ${sci(Q)} C`)}<br>بعد البروتون عن المركز ${E(`= ${k+1}r = ${fx(d,2)} m`)}<br>${E(`Ep = Q e/(4πε₀ × ${fx(d,2)}) = ${sci(Ep)} J`)}`}};
+const gWorkPair=()=>{const Q1=pick([70,50]),Q2=pick([46,30]),r1=2.0,r2=pick([1.25,1.0,1.5]);const W=K*Q1*Q2*1e-12*(1/(r2/100)-1/(r1/100));return{kind:'num',tag:'b2',
+  q:`شحنتان موجبتان ${E('Q₁ = '+Q1+' µC')} و${E('Q₂ = '+Q2+' µC')} المسافة بينهما ${E('2.0 cm')}. احسب الشغل المبذول لتقريب Q₁ حتى تصبح المسافة بينهما ${E(r2+' cm')}.`,given:GIVEN,ans:W,rel:.03,unit:'J',
+  sol:`${E(`W = ΔEp = (Q₁Q₂/4πε₀)(1/r₂ − 1/r₁)`)}<br>${E(`= ${sci(K*Q1*Q2*1e-12,3)} × (${(100/r2).toFixed(1)} − 50) = ${fx(W,1)} J`)}`}};
+
+/* ================= STATIONS ================= */
+const LV=['مبتدئ','متمكّن','خبير'];
+const STATIONS=[
+ {k:'s1',title:'خريطة الخطوط',sub:'تمثيل المجال الكهربائي بخطوط',lessons:'الدرس 1-2',pc:'#FF7A59',
+  levels:[()=>shuffle([S1B.neg,S1B.opp,S1B.means,S1B.uniform,S1B.cross]),
+          ()=>[gSingle(),gPair(),S1B.like,gPair(),S1B.cloud],
+          ()=>shuffle([S1B.plate,S1B.dens,gPair(),S1B.spacing,S1B.gravity])]},
+ {k:'s2',title:'مقياس الشدة',sub:'شدة المجال الكهربائي والمجال المنتظم',lessons:'الدرس 2-2',pc:'#C58BFF',
+  levels:[()=>shuffle([S2B.def,S2B.mean,S2B.unit,S2B.dir,S2B.uniform]),
+          ()=>[gEVd(),gEdHalf(),gVfromE(),gEVd(),gEratio()],
+          ()=>[gFE(),gQfromF(),gEratio(),gFE(),gVfromE()]]},
+ {k:'s3',title:'مسار الإلكترون',sub:'القوة على شحنة في مجال منتظم',lessons:'الدرس 3-2',pc:'#4FA3FF',
+  levels:[()=>shuffle([S3B.beam,S3B.pos,S3B.pair,S3B.path,S3B.dbl]),
+          ()=>[gFe(),gFk(),gRainF(),gFe(),gFk()],
+          ()=>[gRain(),gEfromF(),gFe(),gRain(),gEfromF()]]},
+ {k:'s4',title:'حلبة كولوم',sub:'قانون كولوم والمجال الشعاعي',lessons:'الدرس 4-2',pc:'#5EDB9C',
+  levels:[()=>[S4B.law,gCoulRatio(),S4B.mid,S4B.slope,gCoulRatio()],
+          ()=>[gCoulF(),gEpoint(),gCoulR(),gEfromV(),gCoulF()],
+          ()=>[gNullQ(),gOrigin(),gNetX(),gBalance(),gSlopeQ()]]},
+ {k:'s5',title:'سلّم الجهد',sub:'الجهد الكهربائي وطاقة الوضع',lessons:'الدرس 5-2',pc:'#FFD166',
+  levels:[()=>shuffle([S5B.def,S5B.plates,S5B.closer,S5B.gold,S5B.sign]),
+          ()=>[gVpoint(),gEp2(),gEpHalf(),gVpoint(),gSurf()],
+          ()=>[gVab(),gWork(),gProton(),gWorkPair(),gSurf()]]}
+];
+const bossSet=()=>shuffle([gEVd(),gFE(),gFe(),gRain(),gCoulF(),gCoulR(),gEpoint(),gOrigin(),gNetX(),gVpoint(),gEp2(),gVab(),gWork(),gSurf(),gProton()]).slice(0,10);
+
+/* ================= THEME ================= */
+const T={h1:'عاصفة <span>مدار</span> الكهربائية',kicker:'الوحدة الثانية: المجالات الكهربائية وقانون كولوم',
+  lead:'أنت في مختبر رصد العواصف. أنهِ مهام المحطات الخمس على ثلاثة مستويات، ثم اشحن مانعة الصواعق في «الصاعقة الكبرى». أرقام المسائل تتجدد في كل مرة تلعب.',
+  who:'اسم الباحث',errMsg:'اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ المهمة.',hub:'غرفة الرصد',
+  boss:'الصاعقة الكبرى',bossSub:'10 مسائل مختلطة · 90 ثانية لكل مسألة · كل إجابة صحيحة تشحن السحابة أكثر · 3 محاولات خاطئة فقط',meter:'الشحنة',
+  win:'ضربت الصاعقة مانعة الصواعق بأمان!',lose:'تفرّغت الشحنة',again:'عاصفة جديدة',fail:'تفرّغت الشحنة',
+  cert:'شهادة إتمام مهمة العاصفة',unit:'أتم الوحدة الثانية: المجالات الكهربائية وقانون كولوم',
+  ranks:['متدرّب مختبر','محلّل مجالات','صيّاد الصواعق']};
+const ART=`<svg class="orbit-art" viewBox="0 0 170 170" aria-hidden="true">
+  <ellipse cx="85" cy="52" rx="58" ry="26" fill="#3B3F6E"/><ellipse cx="60" cy="44" rx="28" ry="20" fill="#4A4F85"/><ellipse cx="108" cy="40" rx="30" ry="22" fill="#4A4F85"/>
+  <path class="bolt-a" d="M92 66 L74 104 L90 104 L76 146 L112 96 L94 96 L108 66z" fill="var(--sun)"/>
+  <text x="44" y="56" fill="#fff" font-size="16">− −</text><text x="100" y="52" fill="#fff" font-size="16">− −</text></svg>`;
+const BOSS_ICON=`<svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><ellipse cx="24" cy="14" rx="18" ry="9" fill="#4A4F85"/><path d="M26 20 L18 33 L24 33 L19 46 L32 28 L26 28 L30 20z" fill="var(--sun)"/></svg>`;
+function bossVis(p){return `<div class="cloud"></div><div class="tower"></div><div class="bolt" id="rk" style="height:${p*78}%"></div>`}
+function bossUpd(p){const b=$('#rk');if(b)b.style.height=(p*78)+'%'}
+const BOSS_CSS=`.launch{grid-template-columns:90px 1fr}
+.sky .cloud{position:absolute;top:6px;left:10%;right:10%;height:34px;border-radius:30px;background:#4A4F85;box-shadow:0 0 18px #0008}
+.sky .tower{position:absolute;bottom:0;left:50%;width:14px;height:46px;transform:translateX(-50%);background:#9EA3C8;border-radius:3px 3px 0 0}
+.sky .tower::before{content:"";position:absolute;top:-16px;left:6px;width:2px;height:16px;background:#EEF0FF}
+.sky .bolt{position:absolute;top:36px;left:50%;width:10px;transform:translateX(-50%);background:linear-gradient(var(--sun),#FFF3C4);clip-path:polygon(40% 0,100% 0,60% 35%,100% 35%,20% 100%,45% 55%,0 55%);transition:height .8s cubic-bezier(.3,1.3,.5,1);filter:drop-shadow(0 0 6px var(--sun))}
+.orbit-art .bolt-a{animation:flash 3s infinite}@keyframes flash{0%,86%,100%{opacity:1}90%{opacity:.2}94%{opacity:1}96%{opacity:.3}}`;
+
+document.head.insertAdjacentHTML('beforeend','<style>'+BOSS_CSS+'</style>');
+
+/* ================= HOME ================= */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <div>
+      <h1>${T.h1}</h1>
+      <p class="lead">${T.lead}</p>
+      <div class="id-row"><label for="nm">${T.who}</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank">${rankOf(totalStars())}</span><p class="nm-err" id="nmErr" hidden>${T.errMsg}</p></div>
+    </div>
+    ${ART}
+  </section>
+  <div class="stations">
+   ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
+      <div class="st-head"><div class="planet ${st.ring?'ring':''}" style="--pc:${st.pc}"></div><div><h3>${st.title}</h3><p>${st.lessons} · ${st.sub}</p></div></div>
+      <div class="levels">${LV.map((l,j)=>`<button class="lv" data-s="${i}" data-l="${j}"><span class="n">المستوى ${j+1}</span><span class="dsc">${l} · ${(j+1)*10} نقاط</span>${starsHTML(S.stars[st.k+j]||0)}</button>`).join('')}</div>
+   </section>`).join('')}
+   <button class="boss" id="boss">
+     ${BOSS_ICON}
+     <span><h3>${T.boss}</h3><p>${T.bossSub}</p></span>
+     ${starsHTML(S.stars.boss||0)}
+   </button>
+  </div>
+  <section id="lb" class="lb" hidden></section>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
+  lbRender();
+}
+
+/* ================= RUNNER ================= */
+let timerId=null;
+function rocketSVG(){return `<svg width="34" height="52" viewBox="0 0 34 52" aria-hidden="true"><path d="M17 2c7 7 9 18 6 30H11C8 20 10 9 17 2z" fill="#EEF0FF"/><circle cx="17" cy="17" r="4" fill="#6FD3FF"/><path d="M11 30l-7 9h8zM23 30l7 9h-8z" fill="#FF7A59"/><path d="M13 34h8l-4 14z" fill="#FFB547"/></svg>`}
+function play(si,li){
+  const boss=si<0, st=boss?null:STATIONS[si];
+  const items=boss?bossSet():st.levels[li]();
+  const pts=boss?30:(li+1)*10;
+  const R={i:0,correct:0,hearts:3};
+  const title=boss?T.boss:`${st.title} · المستوى ${li+1}`;
+  function render(){
+    clearInterval(timerId);
+    const Q=items[R.i];
+    const alt=Math.round(R.correct/items.length*100);
+    app.innerHTML=`<div class="bar"><button class="back" id="bk">→ ${T.hub}</button><h2>${title}</h2><span class="chip">${R.i+1} / ${items.length}</span></div>
+      <div class="progress"><i style="width:${R.i/items.length*100}%"></i></div>
+      ${boss?`<div class="bar" style="margin-top:-4px"><span class="hearts" aria-label="المحاولات المتبقية">${[1,2,3].map(i=>`<span class="${i<=R.hearts?'':'off'}">♥</span>`).join('')}</span><span class="chip">${T.meter} <strong>${alt}%</strong></span><span class="chip" id="tl">90</span></div><div class="timer" id="tm"><i style="width:100%"></i></div>
+        <div class="launch" style="margin-top:12px"><div class="sky">${bossVis(R.correct/items.length)}</div><div class="card" id="card"></div></div>`
+      :`<div class="card" id="card"></div>`}`;
+    $('#bk').onclick=()=>{clearInterval(timerId);home()};
+    const card=$('#card');
+    let finished=false;
+    const done=(ok)=>{
+      if(finished)return;finished=true;clearInterval(timerId);
+      if(ok){R.correct++;S.points+=pts;save();hud();bossUpd(R.correct/items.length)} else if(boss){R.hearts--}
+      const fb=document.createElement('div');fb.className='feedback'+(ok?'':' no');
+      fb.innerHTML=`<b>${ok?`إجابة صحيحة! +${pts}`:'ليست الإجابة الصحيحة'}</b><div>${Q.sol||''}</div>`;
+      card.appendChild(fb);
+      const nx=document.createElement('button');nx.className='next';
+      const over=boss&&R.hearts<=0, last=R.i+1>=items.length;
+      nx.textContent=over?T.fail:last?'إنهاء':'التالي ←';
+      nx.onclick=()=>{ if(over) return lose(); R.i++; if(R.i>=items.length) return finish(); render(); };
+      card.appendChild(nx);nx.focus({preventScroll:true});
+    };
+    renderQ(card,Q,done);
+    if(boss){let t=90;timerId=setInterval(()=>{t--;const tl=$('#tl'),tm=$('#tm');if(!tl){clearInterval(timerId);return}
+      tl.textContent=t;tm.querySelector('i').style.width=(t/90*100)+'%';tm.classList.toggle('low',t<=20);
+      if(t<=0){card.querySelectorAll('button,input').forEach(x=>x.disabled=true);done(false)}},1000)}
+  }
+  function finish(){
+    const pct=R.correct/items.length;
+    const stars=boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+    const key=boss?'boss':st.k+li;
+    S.stars[key]=Math.max(S.stars[key]||0,stars);save();hud();lbSubmit();
+    app.innerHTML=`<div class="card summary">
+      <h2>${boss?T.win:'أنهيت المهمة'}</h2>${starsHTML(stars,'big')}
+      <p style="margin:0;color:var(--muted)">أجبت ${R.correct} من ${items.length} إجابة صحيحة.</p>
+      ${boss?`<div class="cert"><span style="color:var(--muted);font-size:.85rem">${T.cert}</span><h2>${esc(S.name||'')}</h2><span>${T.unit} · ${S.points} نقطة · الرتبة: ${rankOf(totalStars())}</span><span style="color:var(--muted);font-size:.85rem">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+      <div class="btns"><button class="next" id="h">${T.hub}</button><button class="back" id="ag">${boss?T.again:'أعد المستوى بأرقام جديدة'}</button>
+      ${!boss&&li<2?`<button class="back" id="nl">المستوى ${li+2} ←</button>`:''}</div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+    const nl=$('#nl');if(nl)nl.onclick=()=>play(si,li+1);
+  }
+  function lose(){
+    app.innerHTML=`<div class="card summary"><h2>${T.lose}</h2><p style="margin:0;color:var(--muted)">راجع خطوات الحل وحاول مرة أخرى، ستتغير الأرقام.</p>
+    <div class="btns"><button class="next" id="ag">${T.again}</button><button class="back" id="h">${T.hub}</button></div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+  }
+  render();
+}
+
+/* ================= RENDERERS ================= */
+function renderQ(card,Q,done){
+  card.innerHTML=`<div class="meta"><span class="tag ${Q.tag&&Q.tag!=='x'?'ex':''}">${SRC[Q.tag]||SRC.x}</span></div><p class="q">${Q.q}</p>`+(Q.svg||'')+(Q.given?`<p class="given">معطيات: ${Q.given}</p>`:'');
+  if(Q.kind==='mc'){
+    const order=shuffle(Q.o.map((_,i)=>i));
+    card.insertAdjacentHTML('beforeend',`<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${Q.ltr?E(Q.o[i]):Q.o[i]}</button>`).join('')}</div>`);
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.a)x.classList.add('right')});if(p!==Q.a)b.classList.add('wrong');done(p===Q.a)});
+  }
+  else if(Q.kind==='sci'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans"><span class="sci"><input class="man" id="man" inputmode="decimal" autocomplete="off" aria-label="الرقم"><span class="x">×</span><span class="ten">10</span><input class="exp" id="exp" inputmode="numeric" autocomplete="off" aria-label="الأُس"><span class="unit">${Q.unit}</span></span><button class="check" id="ck">تحقّق</button></div>
+      <p class="hint2">اكتب الناتج بالصيغة العلمية: الرقم في الخانة الزرقاء والأُس في الخانة الصغيرة. للأُس السالب اكتب إشارة −. استخدم الإشارة السالبة في الرقم إن كان الناتج سالباً.</p>`);
+    const m=$('#man'),e=$('#exp'),ck=$('#ck');
+    const go=()=>{const a=parseNum(m.value);let b=parseNum(e.value);if(isNaN(a)){m.focus();return}if(isNaN(b))b=0;
+      const v=a*Math.pow(10,b),ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.03);
+      [m,e].forEach(x=>{x.classList.add(ok?'ok':'no');x.disabled=true});ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(sci(Q.ans,2)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;[m,e].forEach(x=>x.addEventListener('keydown',ev=>{if(ev.key==='Enter')go()}));m.focus({preventScroll:true});
+  }
+  else if(Q.kind==='num'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans num"><input id="in" inputmode="decimal" dir="ltr" autocomplete="off" aria-label="الإجابة"><span class="unit">${Q.unit}</span><button class="check" id="ck">تحقّق</button></div>`);
+    const inp=$('#in'),ck=$('#ck');
+    const go=()=>{const v=parseNum(inp.value);if(isNaN(v)){inp.focus();return}
+      const ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.02);inp.classList.add(ok?'ok':'no');inp.disabled=ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(Q.ans.toPrecision(3)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus({preventScroll:true});
+  }
+}
+
+home();
+})();
+</script>
+
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</html>

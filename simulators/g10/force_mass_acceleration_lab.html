@@ -1,0 +1,363 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر القوة والكتلة والتسارع — الصف العاشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.tbl{width:100%;border-collapse:collapse;margin:12px 0 0;font:600 13px var(--f-mono);direction:ltr;text-align:center}.tbl th,.tbl td{border:1px solid var(--line);padding:5px 8px}.tbl th{background:var(--chip)}.steps li.fin{background:var(--ok-bg);color:var(--ok);font-weight:700}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر القوة والكتلة والتسارع</h1><p class="sub">الوحدة الرابعة: تأثيرات القوى — العلاقة بين القوة المحصلة والكتلة والتسارع ووحدة النيوتن</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-z][0-9A-Za-z .,+-−×=/%²³⁻₁₂()]*[0-9A-Za-z%²³₁₂)]|[0-9A-Za-z])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='force';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['force','القوة والتسارع'],['mass','الكتلة والتسارع'],['eq','معادلة القوة'],['net','القوة المحصلة'],['lab','نشاط العربة'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({force:tabForce,mass:tabMass,eq:tabEq,net:tabNet,lab:tabLab,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)),f3=x=>String(+(+x).toFixed(3));
+const blockSvg=(cx,gy,w,h,col='#d9a55b',txt='')=>`<rect x="${cx-w/2}" y="${gy-h}" width="${w}" height="${h}" rx="5" fill="${col}" stroke="#1a1a1a" stroke-width="2.6"/>`+(txt?tx(cx,gy-h/2+6,txt,{s:15}):'');
+function axes(gx,gy,gw,gh,xl,yl,xmax,ymax,xt,yt){
+  let s=`<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" fill="none" stroke="${GRAY}" stroke-width="1.2"/><line x1="${gx}" y1="${gy+gh}" x2="${gx+gw}" y2="${gy+gh}" stroke="currentColor" stroke-width="2"/><line x1="${gx}" y1="${gy}" x2="${gx}" y2="${gy+gh}" stroke="currentColor" stroke-width="2"/>`;
+  xt.forEach(v=>{s+=tx(gx+v/xmax*gw,gy+gh+15,String(v),{s:10,f:GRAY})});
+  yt.forEach(v=>{s+=`<line x1="${gx}" y1="${gy+gh-v/ymax*gh}" x2="${gx+gw}" y2="${gy+gh-v/ymax*gh}" stroke="${GRAY}" stroke-width=".8" opacity=".4"/>`+tx(gx-4,gy+gh-v/ymax*gh+4,String(v),{s:10,a:'end',f:GRAY})});
+  return s+tx(gx+gw/2,gy+gh+30,xl,{s:11,f:GRAY})+tx(gx+4,gy-5,yl,{s:11,f:GRAY,a:'start'});
+}
+const fixT=t=>String(t).replace(/(\d+(?:\.\d+)?(?: \d{3})* ?(?:m\/s²|kg|N|g)(?![A-Za-z]))/g,'<span class="num">$1</span>');
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+
+/* =====================================================================
+   1) القوة والتسارع — الكتلة ثابتة
+   ===================================================================== */
+function tabForce(){
+  const W={F:20,m:5,v:0,x:0,t:0,prev:20,msg:''};
+  ctrl.innerHTML=slider('F','القوة المحصلة F',0,60,5,W.F,'N')+`<div><p class="gt">الكتلة ثابتة</p>${seg('mm',[['2',num('2 kg')],['5',num('5 kg')],['10',num('10 kg')]],'5')}</div><div class="btns"><button class="btn primary" id="dbl">ضاعف القوة</button><button class="btn" id="rst">ابدأ من جديد</button></div><div><p class="gt">أمثلة جاهزة</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['ثبّت الكتلة على 5 kg وغيّر القوة: لاحظ أن سهم التسارع يطول بالنسبة نفسها التي يطول بها سهم القوة.','اضغط «ضاعف القوة» وانظر إلى الرقم: تضاعف التسارع. اطلب من الطالب أن يتوقع الرقم قبل أن يظهر.','انظر إلى الرسم البياني: النقاط كلها على خط مستقيم يبدأ من الصفر، أي أن التسارع يتناسب مع القوة.','غيّر الكتلة إلى 10 kg: يبقى الخط مستقيمًا لكنه أقل ميلًا، أي أن القوة نفسها تعطي تسارعًا أقل.','اربط بسائق السيارة: يضغط دواسة الوقود فتزداد القوة التي يوفرها المحرك فيزداد التسارع.']);
+  const setF=v=>{if(v>W.F)W.msg=v===W.F*2&&W.F>0?'تضاعفت القوة فتضاعف التسارع.':'ازدادت القوة فازداد التسارع.';else if(v<W.F)W.msg=v*2===W.F?'قلّت القوة إلى النصف فقلّ التسارع إلى النصف.':'قلّت القوة فقلّ التسارع.';W.F=v;re()};
+  const re=()=>{W.v=0;W.t=0;W.x=0};
+  const sl=bindSlider('F','N',v=>setF(v));
+  bindSeg('mm',k=>{W.m=+k;W.msg='';re()});
+  $('dbl').onclick=()=>{const v=Math.min(60,W.F*2||5);if(v!==W.F){setF(v);sl.set(v)}};
+  $('rst').onclick=()=>{re();W.msg=''};
+  const pre=[['5 kg و10 N',()=>({F:10,m:5})],['5 kg و20 N',()=>({F:20,m:5})],['5 kg و30 N',()=>({F:30,m:5})],['10 kg و20 N',()=>({F:20,m:10})]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${fixT(p[0])}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;const o=pre[b.dataset.i][1]();W.F=o.F;W.m=o.m;W.msg='';sl.set(W.F);$('mm').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k==String(W.m)));re()};
+  function render(){
+    const a=W.F/W.m,bw=48+W.m*5,gy=186;let s=groundMarks(-W.x*14,gy+8,GRAY)+`<line x1="20" y1="${gy}" x2="680" y2="${gy}" stroke="${GRAY}" stroke-width="3"/>`+blockSvg(330,gy,bw,56,'#d9a55b',W.m+' kg');
+    if(W.F)s+=arr(330-bw/2-W.F*3.2-4,gy-28,330-bw/2-4,gy-28,GREEN,7)+tx(330-bw/2-86,gy-44,'F = '+W.F+' N',{f:GREEN,s:16});
+    if(a)s+=arr(330,gy-76,330+a*9,gy-76,ORANGE,7)+tx(330+a*4.5,gy-92,'a = '+f2(a)+' m/s²',{f:ORANGE,s:16});
+    
+    const gx=385,gyy=222,gw=270,gh=92;s+=axes(gx,gyy,gw,gh,'F (N)','a (m/s²)',60,30,[0,20,40,60],[0,10,20,30]);
+    s+=`<line x1="${gx}" y1="${gyy+gh}" x2="${gx+gw}" y2="${gyy+gh-clamp(60/W.m,0,30)/30*gh}" stroke="${BLUE}" stroke-width="2.5"/><circle cx="${gx+W.F/60*gw}" cy="${gyy+gh-clamp(a,0,30)/30*gh}" r="6" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`;
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('القوة المحصلة F',W.F+' N')}${chip('الكتلة m',W.m+' kg')}${chip('التسارع a',f2(a)+' m/s²')}${chip('السرعة v',f1(W.v)+' m/s')}</div><ul class="steps"><li>${num('a = F / m = '+W.F+' / '+W.m+' = '+f2(a)+' m/s²')}</li></ul><p class="say ${W.msg?'ok':''}">${W.msg||'غيّر القوة وراقب سهم التسارع والرسم البياني.'}</p><p class="rule"><b>اربط بالدرس:</b> عند ثبات الكتلة، كلما ازدادت القوة المحصلة ازداد التسارع؛ فمضاعفة القوة تكسب الجسم ضعف التسارع، وثلاثة أضعاف القوة تكسبه ثلاثة أضعاف التسارع.</p>`;
+  }
+  tick=dt=>{const a=W.F/W.m;W.v+=a*dt;W.t+=dt;W.x+=Math.min(W.v,30)*dt;if(W.t>5)re();render()};
+  re();render();
+}
+
+/* =====================================================================
+   2) الكتلة والتسارع — القوة ثابتة
+   ===================================================================== */
+function tabMass(){
+  const W={F:20,m:2,v:0,x:0,t:0,msg:''};
+  ctrl.innerHTML=slider('m','كتلة الجسم m',1,20,1,W.m,'kg')+`<div><p class="gt">القوة المحصلة ثابتة</p>${seg('ff',[['10',num('10 N')],['20',num('20 N')],['40',num('40 N')]],'20')}</div><div class="btns"><button class="btn primary" id="dbl">ضاعف الكتلة</button><button class="btn" id="rst">ابدأ من جديد</button></div>`;
+  setTalk(['ثبّت القوة على 20 N وابدأ بكتلة 2 kg: التسارع 10 m/s².','اضغط «ضاعف الكتلة»: تصبح 4 kg فيقل التسارع إلى النصف (5 m/s²). اطلب من الطالب أن يتوقع قبل الضغط.','الكتلة خاصية تجعل الجسم يقاوم التغير في حركته: الجسم الأكبر كتلة أصعب تسريعًا (وأصعب إبطاءً).','انظر إلى الرسم البياني: كلما ازدادت الكتلة هبط التسارع.','اربط بالشاحنة المحمّلة: تحتاج قوة أكبر لتتسارع كالسيارة الفارغة.']);
+  const re=()=>{W.v=0;W.t=0;W.x=0};
+  const sl=bindSlider('m','kg',v=>{if(v>W.m)W.msg=v===W.m*2?'تضاعفت الكتلة فقلّ التسارع إلى النصف.':'ازدادت الكتلة فقلّ التسارع.';else if(v<W.m)W.msg=v*2===W.m?'قلّت الكتلة إلى النصف فتضاعف التسارع.':'قلّت الكتلة فازداد التسارع.';W.m=v;re()});
+  bindSeg('ff',k=>{W.F=+k;W.msg='';re()});
+  $('dbl').onclick=()=>{const v=Math.min(20,W.m*2);if(v!==W.m){W.msg=v===W.m*2?'تضاعفت الكتلة فقلّ التسارع إلى النصف.':'ازدادت الكتلة فقلّ التسارع.';W.m=v;sl.set(v);re()}};
+  $('rst').onclick=()=>{re();W.msg=''};
+  function render(){
+    const a=W.F/W.m,bw=36+W.m*8,gy=186;let s=groundMarks(-W.x*14,gy+8,GRAY)+`<line x1="20" y1="${gy}" x2="680" y2="${gy}" stroke="${GRAY}" stroke-width="3"/>`+blockSvg(330,gy,bw,56,'#d9a55b',W.m+' kg');
+    s+=arr(330-bw/2-W.F*3.2-4,gy-28,330-bw/2-4,gy-28,GREEN,7)+tx(330-bw/2-86,gy-44,'F = '+W.F+' N',{f:GREEN,s:16});
+    s+=arr(330,gy-76,330+a*9,gy-76,ORANGE,7)+tx(330+a*4.5,gy-92,'a = '+f2(a)+' m/s²',{f:ORANGE,s:16});
+    
+    const gx=385,gyy=222,gw=270,gh=92;s+=axes(gx,gyy,gw,gh,'m (kg)','a (m/s²)',20,40,[0,5,10,15,20],[0,10,20,30,40]);
+    let pts='';for(let m=1;m<=20;m+=.5)pts+=`${(gx+m/20*gw).toFixed(1)},${(gyy+gh-clamp(W.F/m,0,40)/40*gh).toFixed(1)} `;
+    s+=`<polyline points="${pts}" fill="none" stroke="${BLUE}" stroke-width="2.5"/><circle cx="${gx+W.m/20*gw}" cy="${gyy+gh-clamp(a,0,40)/40*gh}" r="6" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`;
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('القوة المحصلة F',W.F+' N')}${chip('الكتلة m',W.m+' kg')}${chip('التسارع a',f2(a)+' m/s²')}${chip('السرعة v',f1(W.v)+' m/s')}</div><ul class="steps"><li>${num('a = F / m = '+W.F+' / '+W.m+' = '+f2(a)+' m/s²')}</li></ul><p class="say ${W.msg?'ok':''}">${W.msg||'غيّر الكتلة وراقب سهم التسارع.'}</p><p class="rule"><b>اربط بالدرس:</b> كلما ازدادت كتلة جسم يقل التسارع الذي ينتج عن قوة ما؛ فمضاعفة الكتلة تنصّف التسارع. والكتلة خاصية الجسم التي تجعله يقاوم التغيرات في حركته.</p>`;
+  }
+  tick=dt=>{const a=W.F/W.m;W.v+=a*dt;W.t+=dt;W.x+=Math.min(W.v,30)*dt;if(W.t>5)re();render()};
+  re();render();
+}
+
+/* =====================================================================
+   3) المعادلة F = ma — ثلاث صيغ
+   ===================================================================== */
+function tabEq(){
+  const W={unk:'F',F:20,m:4,a:5,g:false,rng:null};
+  ctrl.innerHTML=`<div><p class="gt">ما المجهول؟</p>${seg('unk',[['F','القوة F'],['a','التسارع a'],['m','الكتلة m']],'F')}</div><div id="sl"></div><label class="chk"><input type="checkbox" id="gram"> أُعطيت الكتلة بالجرام</label><div><p class="gt">أمثلة جاهزة من الدرس</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['ابدأ بالمجهول F: اختر الكتلة والتسارع ثم اتبع الخطوات المكتوبة: المعطيات، الصيغة، التعويض، الناتج مع الوحدة.','انتقل إلى المجهول a ثم m: انظر كيف تتغير الصيغة (a = F / m و m = F / a) مع بقاء المعادلة نفسها.','فعّل «أُعطيت الكتلة بالجرام»: تظهر خطوة تحويل g إلى kg. الكتلة يجب أن تكون بوحدة kg إذا كانت القوة بوحدة N.','جرّب الأمثلة الجاهزة: الطائرة (1 280 000 N و560 000 kg)، كرة المضرب (0.10 kg و500 m/s²)، والصندوق (80 N و0.10 m/s²).','اطلب من الطالب أن يحسب بنفسه ثم يقارن بالناتج.']);
+  const BASE={F:[1,100,1,'N'],m:[0.5,20,0.5,'kg'],a:[0.5,20,0.5,'m/s²']};
+  const RANGE=new Proxy({},{get:(_,k)=>(W.rng&&W.rng[k])?[...W.rng[k],BASE[k][3]]:BASE[k]});
+  const NAME={F:'القوة المحصلة F',m:'الكتلة m',a:'التسارع a'};
+  function build(){
+    const known=['F','m','a'].filter(k=>k!==W.unk);
+    $('sl').innerHTML=known.map(k=>slider('s_'+k,NAME[k],RANGE[k][0],RANGE[k][1],RANGE[k][2],W[k],RANGE[k][3])).join('');
+    known.forEach(k=>bindSlider('s_'+k,RANGE[k][3],v=>{W[k]=v;render()}));
+    $('gram').disabled=W.unk==='m';if(W.unk==='m'){W.g=false;$('gram').checked=false}
+    render();
+  }
+  bindSeg('unk',k=>{W.unk=k;W.rng=null;build()});
+  $('gram').onchange=e=>{W.g=e.target.checked;render()};
+  const pre=[['طائرة A380',()=>Object.assign(W,{unk:'a',F:1280000,m:560000,a:5,g:false,rng:{F:[0,2000000,10000],m:[100000,1000000,10000]}})],['كرة المضرب',()=>Object.assign(W,{unk:'F',m:0.1,a:500,F:10,g:false,rng:{m:[0.05,1,0.05],a:[100,1000,10]}})],['الصندوق',()=>Object.assign(W,{unk:'m',F:80,a:0.1,m:4,g:false,rng:{F:[10,200,10],a:[0.05,2,0.05]}})],['سيارة 600 kg',()=>Object.assign(W,{unk:'F',m:600,a:2.5,F:10,g:false,rng:{m:[100,2000,100],a:[0.5,10,0.5]}})]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${fixT(p[0])}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;pre[b.dataset.i][1]();$('unk').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===W.unk));$('gram').checked=W.g;build()};
+  function render(){
+    const F=W.unk==='F'?W.m*W.a:W.F,m=W.unk==='m'?W.F/W.a:W.m,a=W.unk==='a'?W.F/W.m:W.a;
+    let s='',res;
+    const col=k=>k===W.unk?ORANGE:'currentColor';
+    s+=tx(350,70,'',{})+`<text x="350" y="92" font-size="56" font-weight="700" text-anchor="middle" font-family="var(--f-mono)" direction="ltr"><tspan fill="${col('F')}">F</tspan><tspan> = </tspan><tspan fill="${col('m')}">m</tspan><tspan> × </tspan><tspan fill="${col('a')}">a</tspan></text>`;
+    s+=tx(350,128,'القوة المحصلة = الكتلة × التسارع',{s:15,f:GRAY});
+    const gy=250,bw=48+clamp(m,0.5,20)*4;s+=`<line x1="40" y1="${gy}" x2="660" y2="${gy}" stroke="${GRAY}" stroke-width="3"/>`+blockSvg(350,gy,bw,52,'#d9a55b','m');
+    const kF=Math.min(3.2,150/Math.max(F,1)),ka=Math.min(9,150/Math.max(a,.1));
+    s+=arr(350-bw/2-F*kF-4,gy-26,350-bw/2-4,gy-26,GREEN,7)+tx(350-bw/2-F*kF/2-4,gy-40,'F',{f:GREEN,s:16});
+    s+=arr(350,gy-68,350+a*ka,gy-68,ORANGE,7)+tx(350+a*ka/2,gy-82,'a',{f:ORANGE,s:16});
+    svg.innerHTML=s;
+    const steps=[];
+    const gtxt=W.g&&W.unk!=='m'?`${f3(m*1000)} g`:'';
+    steps.push(`<li>المعطيات: ${['F','m','a'].filter(k=>k!==W.unk).map(k=>num(k==='m'&&W.g?`m = ${f3(m*1000)} g`:`${k} = ${f2(W[k])} ${RANGE[k][3]}`)).join(' ، ')} — المجهول: ${num(W.unk)}</li>`);
+    if(W.g&&W.unk!=='m')steps.push(`<li>نحوّل الكتلة إلى كيلوغرام: ${num(f3(m*1000)+' / 1000 = '+f3(m)+' kg')}</li>`);
+    if(W.unk==='F'){steps.push(`<li>الصيغة: ${num('F = m a')}</li>`,`<li>التعويض: ${num('F = '+f3(m)+' × '+f2(a))}</li>`);res=`F = ${f2(F)} N`}
+    if(W.unk==='a'){steps.push(`<li>الصيغة: ${num('a = F / m')}</li>`,`<li>التعويض: ${num('a = '+f2(F)+' / '+f3(m))}</li>`);res=`a = ${f2(a)} m/s²`}
+    if(W.unk==='m'){steps.push(`<li>الصيغة: ${num('m = F / a')}</li>`,`<li>التعويض: ${num('m = '+f2(F)+' / '+f2(a))}</li>`);res=`m = ${f2(m)} kg`}
+    steps.push(`<li class="fin">الناتج: ${num(res)}</li>`);
+    info.innerHTML=`<div class="chips">${chip('القوة F (N)',f2(F)+' N')}${chip('الكتلة m (kg)',f3(m)+' kg')}${chip('التسارع a',f2(a)+' m/s²')}</div><ul class="steps">${steps.join('')}</ul><p class="say ok">${W.unk==='F'?'القوة المحصلة = الكتلة × التسارع.':W.unk==='a'?'التسارع = القوة المحصلة ÷ الكتلة.':'الكتلة = القوة المحصلة ÷ التسارع.'}</p><p class="rule"><b>اربط بالدرس:</b> القوة المحصلة = الكتلة × التسارع (F = ma)، ووحدة القوة النيوتن (N). تذكّر: تُكتب الكتلة بوحدة kg وليس g إذا كانت القوة بوحدة N، وهذه القاعدة <b>لا تأتي في ورقة القوانين</b> في الاختبار النهائي فاحفظها.</p>`;
+  }
+  build();
+}
+
+/* =====================================================================
+   4) القوة المحصلة ثم التسارع
+   ===================================================================== */
+function tabNet(){
+  const W={mode:'car',E:900,R:600,m:1500,v:0,x:0,t:0};
+  ctrl.innerHTML=`<div>${seg('mode',[['car','سيارة'],['box','صندوق']],'car')}</div><div id="mc"></div><div class="btns"><button class="btn" id="rst">ابدأ من جديد</button></div><div><p class="gt">أمثلة جاهزة من الدرس</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['القوة التي تدخل في F = ma هي القوة المحصلة: نحسبها أولًا ثم نقسمها على الكتلة.','ابدأ بمثال السيارة: 900 N و600 N و1500 kg، المحصلة 300 N والتسارع 0.20 m/s².','اجعل قوة المحرك مساوية لقوى المقاومة: المحصلة صفر فيصبح التسارع صفرًا (سرعة ثابتة).','انتقل إلى الصندوق: دفع 100 N واحتكاك 60 N وكتلة 40 kg، المحصلة 40 N والتسارع 1.0 m/s².','اسأل الطالب: ماذا يحدث للتسارع إذا زاد الاحتكاك؟']);
+  const R={car:{E:[0,1500,50],R:[0,1500,50],m:[500,2000,100],lab:['قوة المحرك (يمينًا)','قوى المقاومة (يسارًا)']},box:{E:[0,200,5],R:[0,150,5],m:[10,80,5],lab:['قوة الدفع (يمينًا)','قوة الاحتكاك (يسارًا)']}};
+  function build(){const r=R[W.mode];$('mc').innerHTML=slider('E',r.lab[0],r.E[0],r.E[1],r.E[2],W.E,'N')+slider('R',r.lab[1],r.R[0],r.R[1],r.R[2],W.R,'N')+slider('m','الكتلة m',r.m[0],r.m[1],r.m[2],W.m,'kg');bindSlider('E','N',v=>{W.E=v;re()});bindSlider('R','N',v=>{W.R=v;re()});bindSlider('m','kg',v=>{W.m=v;re()});re();render()}
+  const re=()=>{W.v=0;W.t=0;W.x=0};
+  bindSeg('mode',k=>{W.mode=k;Object.assign(W,k==='car'?{E:900,R:600,m:1500}:{E:100,R:60,m:40});build()});
+  $('rst').onclick=re;
+  const pre=[['سيارة: 900 و600 و1500 kg',()=>Object.assign(W,{mode:'car',E:900,R:600,m:1500})],['صندوق: 100 و60 و40 kg',()=>Object.assign(W,{mode:'box',E:100,R:60,m:40})],['قوى متزنة',()=>Object.assign(W,{mode:'car',E:600,R:600,m:1500})]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${fixT(p[0])}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;pre[b.dataset.i][1]();$('mode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===W.mode));build()};
+  function render(){
+    const net=W.E-W.R,a=net/W.m,k=W.mode==='car'?.14:1.5,gy=190;
+    let s=`<line x1="20" y1="${gy}" x2="680" y2="${gy}" stroke="${GRAY}" stroke-width="3"/>`+groundMarks(-W.x*10,gy+8,GRAY);
+    s+=W.mode==='car'?carSvg(350,gy-4,1.1):blockSvg(350,gy,100,70,'#d9a55b','');
+    if(W.E)s+=arr(350+(W.mode==='car'?72:50),gy-38,350+(W.mode==='car'?72:50)+W.E*k,gy-38,GREEN,7)+tx(350+(W.mode==='car'?72:50)+W.E*k/2,gy-54,W.E+' N',{f:GREEN,s:15});
+    if(W.R)s+=arr(350-(W.mode==='car'?72:50),gy-38,350-(W.mode==='car'?72:50)-W.R*k,gy-38,RED,7)+tx(350-(W.mode==='car'?72:50)-W.R*k/2,gy-54,W.R+' N',{f:RED,s:15});
+    s+=tx(350,gy+50,'m = '+W.m+' kg',{s:15});
+    const kk=W.mode==='car'?.14:1.5;if(net)s+=arr(350,gy+84,350+net*kk,gy+84,ORANGE,9)+tx(350+net*kk/2,gy+112,'R = '+Math.abs(net)+' N',{f:ORANGE,s:15});
+    svg.innerHTML=s;
+    const dir=net>0?'نحو اليمين':net<0?'نحو اليسار':'';
+    info.innerHTML=`<div class="chips">${chip('القوة المحصلة R',Math.abs(net)+' N')}${chip('الكتلة m',W.m+' kg')}${chip('التسارع a',f2(Math.abs(a))+' m/s²')}${chip('السرعة v',f1(W.v)+' m/s')}</div><ul class="steps"><li>أولًا القوة المحصلة: ${num('R = '+Math.max(W.E,W.R)+' − '+Math.min(W.E,W.R)+' = '+Math.abs(net)+' N')} ${dir}</li><li>ثانيًا التسارع: ${num('a = R / m = '+Math.abs(net)+' / '+W.m+' = '+f2(Math.abs(a))+' m/s²')}</li></ul><p class="say ${net===0?'ok':''}">${net===0?'القوتان متزنتان: المحصلة صفر فالتسارع صفر، وتبقى السرعة ثابتة.':`التسارع في اتجاه القوة المحصلة (${dir}).`}</p><p class="rule"><b>اربط بالدرس:</b> عندما تؤثر عدة قوى نحسب القوة المحصلة أولًا، ثم نستخدم F = ma بالقوة المحصلة.</p>`;
+  }
+  tick=dt=>{const a=(W.E-W.R)/W.m*(W.mode==='car'?60:1);W.v=Math.max(0,W.v+a*dt);W.t+=dt;W.x+=Math.min(W.v,30)*dt;if(W.t>6)re();render()};
+  build();
+}
+
+/* =====================================================================
+   5) نشاط العربة والكتل المعلقة
+   ===================================================================== */
+function tabLab(){
+  const W={mode:'force',k:2,p:0,s:0,v:0,run:false,rec:{force:[],mass:[]}};
+  const MT=0.5,MS=0.1,G=10; // trolley 0.50 kg, each slotted mass 0.10 kg, g = 10 m/s²
+  ctrl.innerHTML=`<div>${seg('mode',[['force','أثر القوة'],['mass','أثر الكتلة']],'force')}</div><div id="mc"></div><div class="btns"><button class="btn primary" id="go">أطلق العربة</button><button class="btn" id="rec">سجّل القياس</button><button class="btn" id="clr">امسح الجدول</button></div><p class="gt">نفترض في المحاكي: كتلة العربة 0.50 kg، وكل كتلة 0.10 kg، و g = 10 m/s².</p>`;
+  setTalk(['هذا هو نشاط الكتاب: عربة وخيط وبكرة وكتل معلقة وبوابة ضوئية.','قوة الشد المؤثرة في العربة هي وزن الكتل المعلقة F = m₂ g، والكتلة المتسارعة هي كتلة العربة مع الكتل المعلقة.','«أثر القوة»: ننقل الكتل من العربة إلى نهاية الخيط فتزداد القوة وتبقى الكتلة الكلية ثابتة (10 كتل موزعة بين العربة والخيط).','«أثر الكتلة»: نترك الكتل المعلقة ثابتة فتبقى القوة ثابتة ونضيف كتلًا فوق العربة.','اضغط «أطلق العربة» ثم «سجّل القياس» عدة مرات وراقب نقاط الرسم البياني.','نكون مستعدين للإمساك بالعربة عندما تصل إلى نهاية المسار (إجراء وقائي).']);
+  const tot=()=>W.mode==='force'?MT+10*MS:MT+W.p*MS+W.k*MS;
+  const Fn=()=>W.k*MS*G, acc=()=>Fn()/tot();
+  function build(){
+    $('mc').innerHTML=W.mode==='force'?slider('k','عدد الكتل المعلقة (من 10 كتل)',1,9,1,W.k,'كتل'):slider('p','عدد الكتل فوق العربة (تُضاف إليها)',0,8,1,W.p,'كتل');
+    if(W.mode==='force')bindSlider('k','كتل',v=>{W.k=v;stop()});else bindSlider('p','كتل',v=>{W.p=v;stop()});
+    stop();
+  }
+  function stop(){W.s=0;W.v=0;W.run=false;render()}
+  bindSeg('mode',k=>{W.mode=k;if(k==='mass')W.k=2;else W.k=Math.max(1,Math.min(9,W.k));build()});
+  $('go').onclick=()=>{W.s=0;W.v=0;W.run=true};
+  $('rec').onclick=()=>{const r={F:Fn(),m:tot(),a:acc()};const L=W.rec[W.mode];if(!L.some(x=>Math.abs(x.F-r.F)<1e-9&&Math.abs(x.m-r.m)<1e-9))L.push(r);render()};
+  $('clr').onclick=()=>{W.rec[W.mode]=[];render()};
+  function render(){
+    const F=Fn(),m=tot(),a=acc(),ty=150;
+    let s=`<rect x="30" y="${ty}" width="560" height="12" fill="#c8a878" stroke="#1a1a1a" stroke-width="2"/><rect x="50" y="${ty+12}" width="12" height="60" fill="#c8a878" stroke="#1a1a1a" stroke-width="2"/><rect x="560" y="${ty+12}" width="12" height="60" fill="#c8a878" stroke="#1a1a1a" stroke-width="2"/>`;
+    const tx0=70+clamp(W.s,0,1)*300;
+    const load=W.mode==='force'?10-W.k:W.p;
+    s+=`<rect x="${tx0}" y="${ty-30}" width="96" height="26" rx="5" fill="#6fa8dc" stroke="#1a1a1a" stroke-width="2.2"/><circle cx="${tx0+20}" cy="${ty-2}" r="8" fill="#333"/><circle cx="${tx0+76}" cy="${ty-2}" r="8" fill="#333"/>`;
+    for(let i=0;i<Math.min(load,10);i++)s+=`<rect x="${tx0+8+(i%5)*16}" y="${ty-46-Math.floor(i/5)*14}" width="15" height="13" fill="#b8b8b8" stroke="#1a1a1a" stroke-width="1.4"/>`;
+    s+=`<circle cx="590" cy="${ty-8}" r="14" fill="#e8e8e8" stroke="#1a1a1a" stroke-width="2.2"/><line x1="${tx0+96}" y1="${ty-17}" x2="590" y2="${ty-17}" stroke="#1a1a1a" stroke-width="2"/><line x1="604" y1="${ty-8}" x2="604" y2="${ty+40}" stroke="#1a1a1a" stroke-width="2"/>`;
+    for(let i=0;i<W.k;i++)s+=`<rect x="591" y="${ty+40+i*10}" width="26" height="9" fill="#b8b8b8" stroke="#1a1a1a" stroke-width="1.2"/>`;
+    s+=`<path d="M420 ${ty-4} L420 ${ty-46} L440 ${ty-46} L440 ${ty-4}" fill="none" stroke="${GREEN}" stroke-width="4"/>`+tx(430,ty-54,'بوابة ضوئية',{s:12,f:GREEN});
+    s+=arr(tx0+50,ty-70,tx0+50+Math.min(a,6)*26,ty-70,ORANGE,6)+tx(tx0+50+Math.min(a,6)*13,ty-84,'a = '+f2(a)+' m/s²',{f:ORANGE,s:13})+arr(650,ty+30,650,ty+30+F*5,GREEN,6)+tx(650,ty+30+F*5+20,'F = '+f2(F)+' N',{f:GREEN,s:13});
+    // recorded-points graph
+    const L=W.rec[W.mode],gx=70,gy=232,gw=250,gh=76,xmax=W.mode==='force'?10:2,ymax=W.mode==='force'?8:4;
+    s+=axes(gx,gy,gw,gh,W.mode==='force'?'F (N)':'m (kg)','a (m/s²)',xmax,ymax,W.mode==='force'?[0,5,10]:[0,1,2],W.mode==='force'?[0,4,8]:[0,2,4]);
+    L.forEach(r=>{s+=`<circle cx="${gx+(W.mode==='force'?r.F:r.m)/xmax*gw}" cy="${gy+gh-clamp(r.a,0,ymax)/ymax*gh}" r="5" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.3"/>`});
+    svg.innerHTML=s;
+    const rows=L.map(r=>`<tr><td>${f2(r.F)}</td><td>${f2(r.m)}</td><td>${f2(r.a)}</td></tr>`).join('');
+    info.innerHTML=`<div class="chips">${chip('قوة الشد F',f2(F)+' N')}${chip('الكتلة المتسارعة',f2(m)+' kg')}${chip('التسارع a',f2(a)+' m/s²')}</div><ul class="steps"><li>قوة الشد: ${num('F = m₂ g = '+f2(W.k*MS)+' × '+G+' = '+f2(F)+' N')}</li><li>الكتلة المتسارعة: ${num('m = '+f2(m)+' kg')} (العربة مع الكتل المعلقة)</li></ul><table class="tbl"><tr><th>F (N)</th><th>m (kg)</th><th>a (m/s²)</th></tr>${rows||'<tr><td colspan="3">اضغط «أطلق العربة» ثم «سجّل القياس»</td></tr>'}</table><p class="say ${W.mode==='force'?'':'ok'}">${W.mode==='force'?'تتغير القوة وتبقى الكتلة الكلية ثابتة، فيزداد التسارع بزيادة القوة.':'تبقى القوة ثابتة وتزداد الكتلة، فيقل التسارع بزيادة الكتلة.'}</p><p class="rule"><b>اربط بالدرس:</b> لمعرفة أثر القوة نثبّت الكتلة الكلية بنقل الكتل من العربة إلى نهاية الخيط، ولمعرفة أثر الكتلة نثبّت القوة (الكتل المعلقة) ونضيف كتلًا فوق العربة.</p>`;
+  }
+  tick=dt=>{if(W.run){W.v+=acc()*dt*3;W.s+=W.v*dt*.5;if(W.s>=1){W.s=1;W.run=false}render()}};
+  build();
+}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: F = ma، النيوتن، تأثير القوة والكتلة، القوة المحصلة، نشاط العربة.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق أولًا ثم يضغط على الخيار.','ركّز على التعليل الذي يظهر بعد الإجابة: يربط الجواب بقاعدة الدرس.','كرّر الأسئلة حتى يتقن الطالب الصيغ الثلاث وتحويل g إلى kg.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const uniq=(arr)=>{const out=[],seen=new Set();for(const o of arr){if(!seen.has(o)){seen.add(o);out.push(o)}}return out};
+  const mk=(correct,wrongs,fill)=>{let o=uniq([correct,...wrongs]);let i=2;while(o.length<4){o.push(fill(i++));o=uniq(o)}return o.slice(0,4)};
+  const GEN=[
+    ()=>{const m=pick([2,4,5,8,10,20]),a=pick([1,2,2.5,3,4,5,6]),F=m*a;return {draw:{m,F:null,a},q:`ما القوة المحصلة اللازمة لإكساب جسم كتلته ${m} kg تسارعًا مقداره ${a} m/s²؟`,opts:mk(`${f2(F)} N`,[`${f2(m/a)} N`,`${f2(m+a)} N`,`${f2(F*2)} N`],i=>`${f2(F+i*3)} N`),ans:0,corr:`${f2(F)} N`,why:`F = ma = ${m} × ${a} = ${f2(F)} N.`}},
+    ()=>{const m=pick([2,4,5,8,10]),a=pick([2,3,4,5,6]),F=m*a;return {draw:{m,F,a:null},q:`تؤثر قوة محصلة مقدارها ${F} N على جسم كتلته ${m} kg. ما تسارعه؟`,opts:mk(`${f2(a)} m/s²`,[`${f2(F*m)} m/s²`,`${f2(F+m)} m/s²`,`${f2(m/F)} m/s²`],i=>`${f2(a+i)} m/s²`),ans:0,corr:`${f2(a)} m/s²`,why:`a = F / m = ${F} / ${m} = ${f2(a)} m/s².`}},
+    ()=>{const a=pick([2,4,5,10]),m=pick([2,3,5,6,8]),F=m*a;return {draw:{m:null,F,a},q:`قوة محصلة ${F} N تُكسب جسمًا تسارعًا ${a} m/s². ما كتلة الجسم؟`,opts:mk(`${f2(m)} kg`,[`${f2(F*a)} kg`,`${f2(F+a)} kg`,`${f2(a/F)} kg`],i=>`${f2(m+i)} kg`),ans:0,corr:`${f2(m)} kg`,why:`m = F / a = ${F} / ${a} = ${f2(m)} kg.`}},
+    ()=>{const g=pick([200,500,800,250]),a=pick([2,4,5]),m=g/1000,F=m*a;return {draw:{m,F:null,a},q:`كرة كتلتها ${g} g تتسارع بمقدار ${a} m/s². ما القوة المحصلة المؤثرة عليها؟`,opts:mk(`${f2(F)} N`,[`${f2(g*a)} N`,`${f2(g/a)} N`,`${f2(F*10)} N`],i=>`${f2(F+i)} N`),ans:0,corr:`${f2(F)} N`,why:`نحوّل الكتلة إلى kg أولًا: ${g} / 1000 = ${f2(m)} kg، ثم F = ma = ${f2(m)} × ${a} = ${f2(F)} N.`}},
+    ()=>{const F=pick([10,20,30]),m=pick([2,5]);const a=F/m;return {q:`تؤثر قوة محصلة ${F} N على جسم كتلته ${m} kg فيتسارع. إذا تضاعفت القوة وبقيت الكتلة ثابتة، فإن تسارعه الجديد يساوي:`,opts:[`${f2(2*a)} m/s²`,`${f2(a/2)} m/s²`,`${f2(a)} m/s²`,`${f2(4*a)} m/s²`],ans:0,why:`عند ثبات الكتلة يتضاعف التسارع بمضاعفة القوة: 2 × ${f2(a)} = ${f2(2*a)} m/s².`}},
+    ()=>{const F=pick([10,20,40]),m=pick([2,4,5]);const a=F/m;return {q:`تؤثر قوة محصلة ${F} N على جسم كتلته ${m} kg فيتسارع ${f2(a)} m/s². إذا تضاعفت الكتلة وبقيت القوة ثابتة، فإن تسارعه الجديد يساوي:`,opts:[`${f2(a/2)} m/s²`,`${f2(2*a)} m/s²`,`${f2(a)} m/s²`,`${f2(a/4)} m/s²`],ans:0,why:`كلما ازدادت الكتلة قلّ التسارع: عند مضاعفة الكتلة يقل التسارع إلى النصف: ${f2(a)} / 2 = ${f2(a/2)} m/s².`}},
+    ()=>{const E=pick([600,800,900,1200]),Rr=pick([200,300,400]),m=pick([500,1000,1500]);const R=E-Rr,a=R/m;return {q:`تتحرك سيارة كتلتها ${m} kg بقوة محرك ${E} N نحو اليمين وقوى مقاومة ${Rr} N نحو اليسار. ما تسارعها؟`,opts:mk(`${f2(a)} m/s²`,[`${f2(E/m)} m/s²`,`${f2((E+Rr)/m)} m/s²`,`${f2(R*m)} m/s²`],i=>`${f2(a+i/5)} m/s²`),ans:0,why:`نحسب القوة المحصلة أولًا: ${E} − ${Rr} = ${R} N، ثم a = R / m = ${R} / ${m} = ${f2(a)} m/s².`}},
+    ()=>({q:'ما تعريف النيوتن (N)؟',opts:['القوة اللازمة لإكساب كتلة 1 kg تسارعًا مقداره 1 m/s²','القوة اللازمة لإكساب كتلة 1 g تسارعًا مقداره 1 m/s²','القوة اللازمة لإكساب كتلة 1 kg سرعة مقدارها 1 m/s','القوة اللازمة لرفع كتلة 1 kg'],ans:0,why:'النيوتن هو القوة اللازمة لإكساب كتلة 1 kg تسارعًا مقداره 1 m/s²، أي 1 N = 1 kg × 1 m/s².'}),
+    ()=>({q:'وحدة قياس الكتلة التي تُستخدم عند التعويض في F = ma بوحدة النيوتن هي:',opts:['الكيلوغرام (kg)','الجرام (g)','النيوتن (N)','المتر في مربع الثانية'],ans:0,why:'يجب أن تكون الكتلة بوحدة kg وليس g إذا كانت وحدة القوة N.'}),
+    ()=>({q:'ما المقصود بالكتلة؟',opts:['خاصية الجسم التي تجعله يقاوم التغيرات في حركته','قوة جذب الأرض للجسم','مقدار تسارع الجسم','حجم الجسم'],ans:0,why:'الكتلة خاصية الجسم التي تجعله يقاوم التغيرات في حركته، لذلك يقل التسارع الناتج عن قوة معينة كلما ازدادت الكتلة.'}),
+    ()=>({q:'لماذا يصعب تسريع شاحنة محمّلة مقارنة بسيارة صغيرة فارغة؟',opts:['لأن كتلتها أكبر فتقاوم تغيّر حركتها أكثر','لأن كتلتها أقل','لأن القوة لا تؤثر في الأجسام الثقيلة','لأن التسارع لا يعتمد على الكتلة'],ans:0,why:'الكتلة الأكبر تقاوم تغيّر الحركة أكثر، فيقل التسارع الناتج عن القوة نفسها.'}),
+    ()=>({q:'في نشاط العربة، لدراسة أثر القوة في التسارع ننقل الكتل واحدة تلو الأخرى من العربة إلى نهاية الخيط. لماذا؟',opts:['لتبقى الكتلة الكلية ثابتة وتتغير القوة فقط','لتزداد الكتلة الكلية','لتبقى القوة ثابتة','لتقليل الاحتكاك فقط'],ans:0,why:'ننقل الكتل (لا نضيف كتلًا جديدة) فتبقى الكتلة الكلية ثابتة ويتغير عامل واحد فقط هو القوة.'}),
+    ()=>({q:'في نشاط العربة، لدراسة أثر الكتلة في التسارع نترك الكتل المعلقة بنهاية الخيط كما هي ونضيف كتلًا فوق العربة. لماذا نترك الكتل المعلقة دون تغيير؟',opts:['لتبقى القوة ثابتة','لتبقى الكتلة الكلية ثابتة','لتزداد القوة','لأن الكتل المعلقة لا وزن لها'],ans:0,why:'قوة الشد هي وزن الكتل المعلقة، فتبقى القوة ثابتة عند عدم تغييرها.'}),
+  ];
+  function drawQ(D){
+    const gy=230,mm=D.m||5,bw=60+Math.min(mm,20)*3;let s=`<line x1="40" y1="${gy}" x2="660" y2="${gy}" stroke="${GRAY}" stroke-width="3"/>`+blockSvg(350,gy,bw,60,'#d9a55b','m');
+    s+=tx(350,gy-34-62,D.m?'m = '+D.m+' kg':'m = ؟',{s:17,f:D.m?'currentColor':ORANGE});
+    s+=arr(350-bw/2-120,gy-30,350-bw/2-4,gy-30,GREEN,7)+tx(350-bw/2-62,gy-44,D.F?'F = '+D.F+' N':'F = ؟',{f:D.F?GREEN:ORANGE,s:17});
+    s+=arr(350,gy-96,350+110,gy-96,ORANGE,7)+tx(350+55,gy-110,D.a?'a = '+D.a+' m/s²':'a = ؟',{f:ORANGE,s:17});
+    return s}
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();const idx=shuf([0,1,2,3]);
+    Q.cur={...g,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans)};Q.done=false;
+    const fixN=t=>t.replace(/(1 N = 1 kg × 1 m\/s²|[Ff] = ma|\d+(?:\.\d+)? ?(?:m\/s²|kg|N|g)(?![A-Za-z])|\bkg\b|\bg\b|\bN\b)/g,'<span class="num">$1</span>');
+    svg.innerHTML=Q.cur.draw?drawQ(Q.cur.draw):tx(350,180,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixN(Q.cur.q)}</p><div class="opts">${Q.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixN(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixN(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('force');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>شبكة مدار الكهربائية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0A19; --surface:#14142A; --surface2:#1B1B36; --line:#2D2D52;
+  --ink:#EEF0FF; --muted:#9EA3C8;
+  --sun:#FFB547; --sun-ink:#2A1A00; --orbit:#6FD3FF; --planet:#FF7A59;
+  --ok:#5EDB9C; --bad:#FF7B7B;
+  --display:"Changa","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;min-height:100%;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 72% 8%,#fff8 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 62%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 88% 44%,#fff9 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 84%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 30%,#fff8 50%,transparent 51%),
+    radial-gradient(1px 1px at 94% 90%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 5% 50%,#fff6 50%,transparent 51%),
+    radial-gradient(900px 500px at 85% -10%,#2A1E5C 0%,transparent 60%);
+  background-size:340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,100% 100%;
+  background-attachment:fixed}
+.wrap{max-width:840px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.top b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--sun);font-family:var(--mono)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.25;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.1rem)}
+h1 span{color:var(--sun)}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px 4px}
+.orbit-art{width:170px;height:170px}
+.orbit-art .sat{transform-origin:85px 85px;animation:spin 14s linear infinite}
+.orbit-art .sat2{transform-origin:85px 85px;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.orbit-art{display:none}}
+.id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.id-row label{color:var(--muted);font-size:.9rem}
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+.id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
+.rank{border:1px solid var(--orbit);color:var(--orbit);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
+
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px}
+.st{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:12px;align-content:start}
+.st-head{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.planet{width:54px;height:54px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 30%,#fff5 0 8%,transparent 30%),var(--pc);box-shadow:inset -8px -8px 14px #0006}
+.planet.ring::after{content:"";position:absolute;inset:18px -9px;border:2px solid #fff8;border-radius:50%;transform:rotate(-18deg)}
+.st-head p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lv{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;color:var(--ink);display:grid;gap:2px;justify-items:center;transition:border-color .15s,transform .15s}
+.lv:hover{border-color:var(--sun);transform:translateY(-2px)}
+.lv .n{font-family:var(--display);font-weight:700}
+.lv .dsc{font-size:.75rem;color:var(--muted)}
+.stars{color:var(--line);letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+.stars .on{color:var(--sun)}
+.boss{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:start;color:var(--ink);
+  background:linear-gradient(135deg,#3A1F10,var(--surface) 60%);border:1.5px solid var(--sun);border-radius:18px;padding:14px}
+.boss p{margin:0;color:var(--muted);font-size:.88rem}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:8px 12px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--surface);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orbit),var(--sun));transition:width .4s}
+.card{min-width:0;overflow-wrap:anywhere;background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tag.ex{color:var(--sun);border-color:color-mix(in srgb,var(--sun) 45%,var(--line))}
+.q{font-size:1.08rem;font-weight:700;margin:0;text-wrap:pretty}
+.given{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--line);color:var(--muted);font-size:.9rem}
+.eq{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{background:var(--surface2);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--sun)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--surface2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface2))}
+.ans{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sci{display:flex;align-items:center;gap:6px;direction:ltr;font-family:var(--mono);font-size:1.15rem}
+.sci input{font-family:var(--mono);font-size:1.15rem;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 8px;text-align:center}
+.sci .man{width:5.2em}
+.sci .exp{width:3.4em;border-color:var(--sun);font-size:.95rem;align-self:flex-start;margin-top:-6px}
+.sci .x{color:var(--muted)}
+.sci .ten{color:var(--ink)}
+.sci input.ok{border-color:var(--ok)} .sci input.no{border-color:var(--bad)}
+.num input{font-family:var(--mono);font-size:1.15rem;width:8em;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 10px;text-align:center}
+.num input.ok{border-color:var(--ok)} .num input.no{border-color:var(--bad)}
+.unit{font-family:var(--mono);color:var(--muted)}
+.hint2{margin:0;color:var(--muted);font-size:.8rem}
+.check{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:8px 18px;font-weight:700}
+.check:disabled{opacity:.5;cursor:default}
+.feedback{border-radius:12px;padding:12px 14px;background:var(--surface2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{justify-self:start;background:var(--sun);color:var(--sun-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+.diagram{width:100%;max-width:420px;justify-self:center;height:auto;direction:ltr}
+.diagram text{font-family:var(--mono);font-size:12px}
+/* boss */
+.launch{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch}
+.sky{position:relative;border-radius:14px;background:linear-gradient(180deg,#05050F,#1B1440 70%,#243B6B);border:1px solid var(--line);min-height:210px;overflow:hidden}
+.sky .earth{position:absolute;bottom:-40px;left:50%;width:120px;height:70px;transform:translateX(-50%);border-radius:50% 50% 0 0;background:radial-gradient(circle at 50% 100%,#3E9BFF,#1E5AA8)}
+.sky .rocket{position:absolute;left:50%;transform:translateX(-50%);transition:bottom .8s cubic-bezier(.3,1.3,.5,1);font-size:0}
+.sky .orbitline{position:absolute;top:18px;left:6px;right:6px;border-top:2px dashed var(--orbit);opacity:.7}
+.timer{height:8px;border-radius:99px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.timer i{display:block;height:100%;background:var(--sun);transition:width 1s linear}
+.timer.low i{background:var(--bad)}
+.hearts{color:var(--bad);letter-spacing:3px}
+.hearts .off{color:var(--line)}
+.summary{text-align:center;justify-items:center;margin-top:18px}
+.big{font-size:2.4rem;letter-spacing:6px;color:var(--line)} .big .on{color:var(--sun)}
+.cert{border:2px solid var(--sun);border-radius:16px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center;background:linear-gradient(180deg,#2A1A0A,var(--surface))}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.lb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.lb-count,.lb-note{color:var(--muted);font-size:.85rem;margin:0}
+.lb-note.small{font-size:.75rem}
+.lb-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lb-list li{display:grid;grid-template-columns:2em 1fr auto 3.5em;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--bg);font-variant-numeric:tabular-nums}
+.lb-list li:nth-child(-n+3) .rk{color:var(--sun);font-weight:700}
+.lb-list li.me{outline:2px solid var(--sun)}
+.lb-list .rk{text-align:center;color:var(--muted)}
+.lb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sr{color:var(--sun)}
+.lb-list .pt{text-align:end;color:var(--muted);font-size:.9rem}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.boss{grid-template-columns:1fr}.launch{grid-template-columns:54px 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span id="brand"><a href="../../" style="color:var(--sun);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · <b>مدار الفيزياء</b> · الصف الثاني عشر · الوحدة الثالثة: الدوائر الكهربائية</span>
+    <span class="chips"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="sts">0</strong>/48</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=s=>`<span class="eq">${s}</span>`;
+const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+/* x -> "6.67×10⁻¹¹" */
+function sci(x,sf=3){if(x===0)return'0';let e=Math.floor(Math.log10(Math.abs(x)));let ms=(x/Math.pow(10,e)).toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){e++;ms=(x/Math.pow(10,e)).toPrecision(sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+const r2=(x,sf=2)=>+x.toPrecision(sf);
+function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
+
+/* ---------- state ---------- */
+const KEY='madar-g12u3';
+const S={name:'',points:0,stars:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v)Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
+function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
+const rankOf=n=>n>=36?T.ranks[2]:n>=15?T.ranks[1]:T.ranks[0];
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+const LB={game:'g12u3',api:'/api/scores'};
+
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
+/* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
+function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
+  if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
+let lbPending=Promise.resolve(), lbDeb=null;
+function lbSubmit(){ if(!S.name||!(S.points>0)) return lbPending;
+  lbPending=fetch(LB.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({game:LB.game,pid:playerId(),name:S.name,stars:totalStars(),points:S.points})}).catch(()=>{});
+  return lbPending }
+function lbNameChanged(){clearTimeout(lbDeb);lbDeb=setTimeout(()=>{lbSubmit().then(lbRender)},1200)}
+async function lbRender(){
+  const box=document.getElementById('lb'); if(!box) return;
+  try{
+    await lbPending;
+    const r=await fetch(`${LB.api}?game=${LB.game}&pid=${encodeURIComponent(playerId())}`,{cache:'no-store'});
+    const d=await r.json(); if(!d.ok) throw 0;
+    const rows=d.rows||[];
+    box.innerHTML=`<div class="lb-head"><h2>لوحة المتصدرين</h2><span class="lb-count">${d.total} لاعب</span></div>
+      ${rows.length?`<ol class="lb-list">${rows.map((x,i)=>`<li class="${x.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(x.name)}${x.me?' (أنت)':''}</span><span class="sr">★ ${x.stars}</span><span class="pt">${x.points}</span></li>`).join('')}</ol>`:'<p class="lb-note">لا يوجد لاعبون بعد. كن الأول!</p>'}
+      ${d.mine&&!rows.some(x=>x.me)?`<p class="lb-note">ترتيبك: <b>${d.mine.rank}</b> من ${d.total} · ★ ${d.mine.stars} · ${d.mine.points} نقطة</p>`:''}
+      <p class="lb-note small">الترتيب حسب النجوم ثم النقاط.</p>`;
+    box.hidden=false;
+  }catch(e){ box.hidden=true }
+}
+
+const SRC={a1:'اختبار نهائي 2024/2025 · الدور الأول',a2:'اختبار نهائي 2024/2025 · الدور الثاني',b1:'اختبار نهائي 2023/2024 · الدور الأول',b2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  t:'الاختبار التجريبي 2023/2024',c1:'اختبار نهائي 2025/2026 · الدور الأول',x:'بنمط أسئلة الاختبارات النهائية'};
+const QE=1.6e-19;
+const GE=`${E('e = 1.6×10⁻¹⁹ C')}`;
+const fx=(x,d=2)=>(+x.toFixed(d)).toString();
+
+/* ================= DIAGRAMS ================= */
+const W='stroke="var(--orbit)" stroke-width="2" fill="none"';
+const res=(x,y,lab,vert)=>vert?`<rect x="${x-8}" y="${y-18}" width="16" height="36" rx="2" fill="var(--surface2)" stroke="var(--sun)" stroke-width="2"/><text x="${x+14}" y="${y+4}" fill="var(--sun)">${lab}</text>`
+  :`<rect x="${x-18}" y="${y-8}" width="36" height="16" rx="2" fill="var(--surface2)" stroke="var(--sun)" stroke-width="2"/><text x="${x}" y="${y-14}" text-anchor="middle" fill="var(--sun)">${lab}</text>`;
+/* خلية رأسية: القطب الموجب (الخط الطويل) في الأعلى */
+const cellV=(x,y,lab)=>`<rect x="${x-14}" y="${y-6}" width="28" height="12" fill="var(--bg)"/><line x1="${x-14}" y1="${y-5}" x2="${x+14}" y2="${y-5}" stroke="var(--ink)" stroke-width="2.5"/><line x1="${x-6}" y1="${y+5}" x2="${x+6}" y2="${y+5}" stroke="var(--ink)" stroke-width="4"/><text x="${x-22}" y="${y-2}" fill="var(--planet)" font-size="13">+</text><text x="${x+18}" y="${y+4}" fill="var(--ink)">${lab}</text>`;
+const cellH=(x,y,lab,posRight)=>{const a=posRight?1:-1;return `<rect x="${x-6}" y="${y-14}" width="12" height="28" fill="var(--bg)"/><line x1="${x+5*a}" y1="${y-14}" x2="${x+5*a}" y2="${y+14}" stroke="var(--ink)" stroke-width="2.5"/><line x1="${x-5*a}" y1="${y-6}" x2="${x-5*a}" y2="${y+6}" stroke="var(--ink)" stroke-width="4"/><text x="${x+13*a}" y="${y+26}" text-anchor="middle" fill="var(--planet)" font-size="13">+</text><text x="${x}" y="${y-20}" text-anchor="middle" fill="var(--ink)">${lab}</text>`};
+/* ثلاثة فروع متوازية بين خطين */
+function branchSVG(br){const xs=[60,160,260];let s=`<line x1="60" y1="25" x2="260" y2="25" ${W}/><line x1="60" y1="195" x2="260" y2="195" ${W}/>`;
+  br.forEach((b,i)=>{const x=xs[i];s+=`<line x1="${x}" y1="25" x2="${x}" y2="195" ${W}/>`;if(b.e)s+=cellV(x,70,`ε${i+1}=${b.e}V`);s+=res(x,135,`R${i+1}=${b.R}Ω`,1);
+    s+=`<path d="M${x-18} 180 l0 -14 m-5 6 l5 -6 l5 6" stroke="var(--muted)" stroke-width="1.5" fill="none"/><text x="${x-34}" y="186" fill="var(--muted)">I${i+1}</text>`});
+  return `<svg class="diagram" viewBox="0 0 330 215" aria-hidden="true"><circle cx="160" cy="25" r="4" fill="var(--ink)"/><circle cx="160" cy="195" r="4" fill="var(--ink)"/>${s}</svg>`}
+/* حلقة واحدة: خليتان ومقاومتان */
+function loopSVG(e1,e2,aid,R1,R2){return `<svg class="diagram" viewBox="0 0 300 170" aria-hidden="true"><rect x="40" y="30" width="220" height="110" ${W}/>
+  ${cellH(110,30,`ε₁=${e1}V`,true)}${cellH(190,30,`ε₂=${e2}V`,aid)}${res(110,140,`R₁=${R1}Ω`)}${res(190,140,`R₂=${R2}Ω`)}</svg>`}
+function dividerSVG(R1,R2,Vin){return `<svg class="diagram" viewBox="0 0 260 200" aria-hidden="true"><line x1="60" y1="20" x2="150" y2="20" ${W}/><line x1="60" y1="180" x2="150" y2="180" ${W}/><line x1="60" y1="20" x2="60" y2="180" ${W}/><line x1="150" y1="20" x2="150" y2="180" ${W}/>
+  ${cellV(60,100,'')}<text x="8" y="104" fill="var(--ink)">${Vin}</text>${res(150,62,R1,1)}${res(150,138,R2,1)}
+  <line x1="150" y1="100" x2="220" y2="100" ${W}/><line x1="150" y1="180" x2="220" y2="180" ${W}/><circle cx="220" cy="100" r="4" fill="var(--sun)"/><circle cx="220" cy="180" r="4" fill="var(--sun)"/><text x="228" y="145" fill="var(--sun)">Vout</text></svg>`}
+
+/* ================= STATION 1: التيار الكهربائي (1-3) ================= */
+const S1B={
+ def:{kind:'mc',tag:'b1',q:'ما المصطلح العلمي: معدل تدفق الشحنة الكهربائية عبر نقطة في دائرة كهربائية؟',o:['شدة التيار الكهربائي','القدرة الكهربائية','المقاومة الكهربائية','القوة الدافعة الكهربائية'],a:0,sol:`${E('I = Q / t')}`},
+ unit:{kind:'mc',tag:'t',q:'أي البدائل يكافئ وحدة الأمبير (A)؟',o:['C s⁻¹','s C⁻¹','C s⁻²','s C'],a:0,ltr:1,sol:`${E('I = Q/t')} ⇒ ${E('A = C s⁻¹')}`},
+ nwire:{kind:'mc',tag:'a1',q:'ماذا يحدث للكثافة العددية للإلكترونات (n) عند مضاعفة قطر سلك الفضة؟',o:['لا تتغير لأنها تعتمد على نوع المادة فقط','تزيد إلى الضعف','تقل إلى الربع','تزيد أربعة أضعاف'],a:0,sol:'الكثافة العددية خاصية للمادة، ولا تعتمد على أبعاد السلك.'},
+ half:{kind:'mc',tag:'b2',q:'ماذا يحدث للسرعة الانجرافية للإلكترونات إذا نقصت مساحة مقطع السلك إلى النصف مع ثبات التيار ونوع المادة؟',o:['تتضاعف','تقل إلى النصف','لا تتغير','تزيد أربعة أضعاف'],a:0,sol:`${E('I = nAvq')}: بثبات I وn، ${E('v ∝ 1/A')}`},
+ thick:{kind:'mc',tag:'a2',q:'قطعتان من سلك نحاسي موصولتان على التوالي، والقطعة (2) مساحة مقطعها أكبر. ما الذي يحدث في القطعة (2)؟',o:['تقل السرعة الانجرافية ولا تتغير الكثافة العددية','تزيد السرعة الانجرافية والكثافة العددية','تقل السرعة الانجرافية والكثافة العددية','تزيد السرعة الانجرافية ولا تتغير الكثافة العددية'],a:0,sol:'التيار نفسه في القطعتين (توالٍ)، والمادة نفسها، فزيادة A تقلل v.'},
+ carriers:{kind:'mc',tag:'x',q:'ما حاملات الشحنة المسؤولة عن التيار الكهربائي في الفلزات؟',o:['الإلكترونات الحرة','البروتونات','الأيونات الموجبة','النيوترونات'],a:0,sol:'في الفلزات تتحرك الإلكترونات الحرة، أما في المحاليل فتتحرك الأيونات.'}
+};
+const gIQt=()=>{const t=pick([10,20,40,60,120]),I=pick([0.5,1.5,2.5,4.0,0.25]);const Q=I*t;return pick([
+  {kind:'num',tag:'c1',q:`تمر شحنة مقدارها ${E(Q+' C')} عبر نقطة في دائرة خلال ${E(t+' s')}. احسب شدة التيار.`,ans:I,rel:.01,unit:'A',sol:`${E(`I = Q/t = ${Q}/${t} = ${I} A`)}`},
+  {kind:'num',tag:'x',q:`يمر تيار شدته ${E(I+' A')} في سلك لمدة ${E(t+' s')}. احسب الشحنة المارة.`,ans:Q,rel:.01,unit:'C',sol:`${E(`Q = It = ${I} × ${t} = ${Q} C`)}`}])};
+const gI4=()=>{const I=pick([2,3,4,5]);const opts=[[2*I,2],[I,2],[2*I,1],[I/2,1]];return{kind:'mc',tag:'b2',q:`ما العبارة الصحيحة التي تصف تياراً كهربائياً شدته ${E(I+' A')}؟`,
+  o:opts.map(([q,t])=>`نقل شحنة مقدارها ${q} C خلال زمن ${t} s`),a:0,sol:`${E(`I = Q/t = ${2*I}/2 = ${I} A`)}`}};
+const gQuant=()=>{const n=pick([3,5,10,12]);const good=+(n*1.6).toFixed(1);const bad=shuffle([7.0,3.0,11,5.0,2.5,9.0,13]).filter(b=>Math.abs(b/1.6-Math.round(b/1.6))>.05).slice(0,3);
+  return{kind:'mc',tag:'b1',q:'أي من الكميات الآتية يمكن أن تكون شحنة كهربائية مكمّمة؟',o:[good,...bad].map(v=>`${v} × 10⁻¹⁹ C`),a:0,ltr:1,
+  sol:`الشحنة المكمّمة مضاعف صحيح لـ e: ${E(`${good}×10⁻¹⁹ ÷ 1.6×10⁻¹⁹ = ${n}`)}`}};
+const gNe=()=>{const I=pick([0.20,0.50,1.6,3.2]),t=pick([5,10,30]);const N=I*t/QE;return{kind:'sci',tag:'x',q:`يمر تيار شدته ${E(I+' A')} في سلك لمدة ${E(t+' s')}. احسب عدد الإلكترونات التي عبرت مقطع السلك.`,given:GE,ans:N,unit:'إلكترون',
+  sol:`${E(`Q = It = ${fx(I*t)} C`)}<br>${E(`N = Q/e = ${sci(N)}`)}`}};
+const gDriftR=()=>{const r=pick([0.40,0.50,0.25]),I=pick([6.0,3.0,2.0]),n=pick([8.0e28,8.5e28]);const A=Math.PI*(r*1e-3)**2,v=I/(n*QE*A);return{kind:'sci',tag:'t',
+  q:`سلك نحاسي نصف قطره ${E(r.toFixed(2)+'×10⁻³ m')} يمر به تيار ${E(I+' A')}، والكثافة العددية للإلكترونات ${E(sci(n,2)+' m⁻³')}. احسب متوسط السرعة الانجرافية.`,given:GE,ans:v,unit:'m s⁻¹',
+  sol:`${E(`A = πr² = ${sci(A)} m²`)}<br>${E(`v = I/(nAq) = ${sci(v)} m s⁻¹`)}`}};
+const gDriftA=()=>{const A=pick([1.5e-6,2.0e-6,1.0e-6]),I=pick([3.0,2.0,4.0]),n=pick([5.0e28,8.0e28]);const v=I/(n*A*QE);return{kind:'sci',tag:'b2',
+  q:`سلك مساحة مقطعه ${E(sci(A,2)+' m²')} يمر به تيار ${E(I+' A')}، وعدد الإلكترونات لكل وحدة حجم ${E(sci(n,2)+' m⁻³')}. احسب متوسط السرعة الانجرافية.`,given:GE,ans:v,unit:'m s⁻¹',
+  sol:`${E(`v = I/(nAe) = ${I} / (${sci(n,2)} × ${sci(A,2)} × 1.6×10⁻¹⁹) = ${sci(v)} m s⁻¹`)}`}};
+const gDriftAtoms=()=>{const at=pick([6.0e28,8.5e28]),val=pick([3,1,2]),A=pick([4e-4,1e-4,2e-6]),I=pick([1,2,5]);const n=at*val,v=I/(n*A*QE);return{kind:'sci',tag:'b1',
+  q:`سلك مساحة مقطعه ${E(sci(A,1)+' m²')} يمر به تيار ${E(I+' A')}. يحتوي على ${E(sci(at,2))} ذرة لكل ${E('m³')}، وتساهم كل ذرة بـ${val===1?'إلكترون واحد':val===2?'إلكترونين':'ثلاثة إلكترونات'}. احسب متوسط السرعة الانجرافية.`,given:GE,ans:v,unit:'m s⁻¹',
+  sol:`${E(`n = ${val} × ${sci(at,2)} = ${sci(n)} m⁻³`)}<br>${E(`v = I/(nAq) = ${sci(v)} m s⁻¹`)}`}};
+const gDriftCount=()=>{const L=pick([5,2,4]),A=pick([2.5e-6,1.0e-6]),Nn=pick([7.25e23,2.0e23,4.0e23]),I=pick([3,2]);const n=Nn/(A*L),v=I/(n*A*QE);return{kind:'sci',tag:'a1',
+  q:`سلك فضة طوله ${E(L+' m')} ومساحة مقطعه ${E(sci(A,2)+' m²')} يحتوي على ${E(sci(Nn,3))} إلكتروناً حراً، ويمر به تيار ${E(I+' A')}. احسب متوسط السرعة الانجرافية.`,given:GE,ans:v,unit:'m s⁻¹',
+  sol:`${E(`n = N/(AL) = ${sci(n)} m⁻³`)}<br>${E(`v = I/(nAq) = ${sci(v)} m s⁻¹`)}`}};
+
+/* ================= STATION 2: فرق الجهد (2-3) ================= */
+const S2B={
+ pd:{kind:'mc',tag:'x',q:'ما تعريف فرق الجهد الكهربائي بين طرفي مكوّن؟',o:['الطاقة المنقولة من الطاقة الكهربائية إلى أشكال أخرى لكل وحدة شحنة تمر خلاله','الطاقة التي يكتسبها كل 1 C من المصدر','معدل تدفق الشحنة','الشحنة لكل وحدة زمن'],a:0,sol:`${E('V = W / Q')}`},
+ emf:{kind:'mc',tag:'x',q:'ما تعريف القوة الدافعة الكهربائية (ε) لمصدر؟',o:['الطاقة المنقولة إلى طاقة كهربائية لكل وحدة شحنة تمر خلال المصدر','القوة المؤثرة على الإلكترونات في السلك','فرق الجهد بين طرفي أي مقاومة','الطاقة المفقودة في المقاومة الداخلية'],a:0,sol:'القوة الدافعة: تحويل إلى طاقة كهربائية. فرق الجهد: تحويل من الطاقة الكهربائية.'},
+ volt:{kind:'mc',tag:'x',q:'الفولت (V) يكافئ:',o:['J C⁻¹','C J⁻¹','J s⁻¹','C s⁻¹'],a:0,ltr:1,sol:`${E('V = W/Q')} ⇒ ${E('1 V = 1 J C⁻¹')}`},
+ internal:{kind:'mc',tag:'a1',q:'استُبدلت بطارية مقاومتها الداخلية مهملة ببطارية لها نفس القوة الدافعة لكن مقاومتها الداخلية غير مهملة. ماذا يحدث للطاقة المنقولة لكل وحدة شحنة في مقاومة خارجية؟',o:['تقل','تزيد','لا تتغير','تصبح صفراً'],a:0,sol:'تزداد المقاومة الكلية فيقل التيار، فيقل فرق الجهد على المقاومة الخارجية.'}
+};
+const gSeriesW=()=>{const V=pick([6,9,12]),R1=pick([10,4,6]),R2=pick([15,8,12]);const I=V/(R1+R2),V1=I*R1;return{kind:'num',tag:'a1',
+  q:`بطارية ${E(V+' V')} مقاومتها الداخلية مهملة موصولة بمقاومتين على التوالي ${E('R₁ = '+R1+' Ω')} و${E('R₂ = '+R2+' Ω')}. احسب الطاقة المنقولة في ${E('R₁')} لكل شحنة مقدارها ${E('1 C')}.`,ans:V1,rel:.02,unit:'J',
+  sol:`${E(`I = ${V}/(${R1}+${R2}) = ${fx(I,3)} A`)}<br>${E(`V₁ = IR₁ = ${fx(V1,2)} V`)}<br>${E(`W = V₁Q = ${fx(V1,2)} J`)}`}};
+const gWQV=()=>{const Q=pick([2,5,10,0.5]),V=pick([1.5,6,9,12]);return pick([
+  {kind:'num',tag:'a2',q:`احسب الطاقة التي تكتسبها شحنة مقدارها ${E(Q+' C')} عند مرورها في بطارية قوتها الدافعة ${E(V+' V')}.`,ans:Q*V,rel:.01,unit:'J',sol:`${E(`W = Qε = ${Q} × ${V} = ${fx(Q*V)} J`)}`},
+  {kind:'num',tag:'x',q:`تنقل شحنة مقدارها ${E(Q+' C')} طاقة مقدارها ${E(fx(Q*V)+' J')} عند مرورها في مصباح. احسب فرق الجهد بين طرفي المصباح.`,ans:V,rel:.01,unit:'V',sol:`${E(`V = W/Q = ${fx(Q*V)}/${Q} = ${V} V`)}`}])};
+const gWItV=()=>{const I=pick([0.5,2,3]),t=pick([60,120,30]),V=pick([6,12,9]);const Wv=V*I*t;return{kind:'num',tag:'x',
+  q:`مصباح فرق الجهد بين طرفيه ${E(V+' V')} ويمر به تيار ${E(I+' A')} لمدة ${E(t+' s')}. احسب الطاقة المنقولة في المصباح.`,ans:Wv,rel:.01,unit:'J',
+  sol:`${E(`Q = It = ${I*t} C`)}<br>${E(`W = QV = ${I*t} × ${V} = ${Wv} J`)}`}};
+
+/* ================= STATION 3: المقاومة النوعية (3-3) ================= */
+const S3B={
+ prop:{kind:'mc',tag:'x',q:'المقاومة النوعية (ρ) لسلك تعتمد على:',o:['نوع المادة ودرجة الحرارة فقط','طول السلك','مساحة مقطع السلك','الطول ومساحة المقطع معاً'],a:0,sol:`${E('R = ρL/A')}: R تعتمد على الأبعاد، أما ρ فخاصية للمادة.`},
+ unit:{kind:'mc',tag:'x',q:'وحدة المقاومة النوعية:',o:['Ω m','Ω m⁻¹','Ω m²','Ω'],a:0,ltr:1,sol:`${E('ρ = RA/L')} ⇒ ${E('Ω m² / m = Ω m')}`},
+ thicker:{kind:'mc',tag:'a2',q:'ماذا يحدث لمقاومة سلك إذا زاد قطره (مع ثبات طوله ونوع مادته)؟',o:['تقل','تزيد','لا تتغير','تتضاعف دائماً'],a:0,sol:`${E('R ∝ 1/A')}`},
+ wider:{kind:'mc',tag:'c1',q:'قطعة جرافيت على شكل متوازي مستطيلات. ماذا يحدث لمقاومتها بين طرفيها عند زيادة عرضها (مع ثبات طولها وسمكها)؟',o:['تقل لأن مساحة المقطع تزيد','تزيد لأن المساحة تزيد','لا تتغير','تقل لأن الطول يقل'],a:0,sol:'العرض × السمك = مساحة المقطع A، و R تتناسب عكسياً مع A.'}
+};
+const RF=(n,d)=>{const g=(a,b)=>b?g(b,a%b):a;const k=g(n,d);n/=k;d/=k;return d===1?`${n}R₁`:`${n}/${d} R₁`};
+const gRratio=()=>{const l=pick([1,2,3]),dv=pick([2,3,1]),dm=pick([1,2]);if(dm===dv||(l===1&&dv===1))return gRratio();/* L2=l L, r2 = r*dm/dv */const num=l*dv*dv,den=dm*dm;
+  return{kind:'mc',tag:'b2',q:`سلك نيكروم طوله L ونصف قطره r ومقاومته ${E('R₁')}. سلك آخر من النيكروم طوله ${E((l===1?'':l)+'L')} ونصف قطره ${E(dv===1?dm+'r':(dm===1?'':dm)+'r/'+dv)}. ما مقاومته؟`,
+  o:[...new Set([RF(num,den),RF(l*dv,dm),RF(den,num),RF(l,1),RF(num*2,den)])].slice(0,4),a:0,ltr:1,sol:`${E(`R₂/R₁ = (L₂/L₁) × (r₁/r₂)² = ${l} × (${dv}/${dm})² = ${fx(num/den,3)}`)}`}};
+const gLratio=()=>{const k=pick([12,8,16,18]),dv=2;const L=k/(dv*dv);return{kind:'mc',tag:'a1',q:`سلكان من النيكروم: الأول قطره d ومقاومته R، والثاني قطره d/2 ومقاومته ${E(k+'R')}. ما العلاقة بين طولي السلكين؟`,
+  o:[`L₂ = ${L}L₁`,`L₂ = ${k}L₁`,`L₂ = ${k*4}L₁`,`L₂ = ${k/2}L₁`],a:0,ltr:1,sol:`${E(`R₂/R₁ = (L₂/L₁) × 4 = ${k}`)} ⇒ ${E(`L₂ = ${L}L₁`)}`}};
+const gLength=()=>{const d=pick([1.0e-4,2.0e-4,5.0e-4]),R=pick([5.0,2.0,10]),rho=pick([1.69e-8,2.8e-8,4.9e-7]);const A=Math.PI*(d/2)**2,L=R*A/rho;return{kind:'num',tag:'a2',
+  q:`سلك قطره ${E(sci(d,2)+' m')} ومقاومته ${E(R+' Ω')} والمقاومة النوعية لمادته ${E(sci(rho,3)+' Ω m')}. احسب طوله.`,ans:L,rel:.03,unit:'m',
+  sol:`${E(`A = π(d/2)² = ${sci(A)} m²`)}<br>${E(`L = RA/ρ = ${L.toPrecision(3)} m`)}`}};
+const gRwire=()=>{const L=pick([0.5,1.0,2.0,3.0]),d=pick([0.20,0.40,0.50]),rho=pick([1.1e-6,4.9e-7,1.69e-8]);const A=Math.PI*(d*1e-3/2)**2,R=rho*L/A;return{kind:'num',tag:'x',
+  q:`سلك طوله ${E(L+' m')} وقطره ${E(d+' mm')}، والمقاومة النوعية لمادته ${E(sci(rho,3)+' Ω m')}. احسب مقاومته.`,ans:R,rel:.03,unit:'Ω',
+  sol:`${E(`A = π(d/2)² = ${sci(A)} m²`)}<br>${E(`R = ρL/A = ${R.toPrecision(3)} Ω`)}`}};
+const gGraphite=()=>{const R=pick([1e-3,2e-3]),rho=800e-8,L=pick([0.050,0.040]),th=pick([0.015,0.010]);const A=rho*L/R,X=A/th;return{kind:'num',tag:'c1',
+  q:`قطعة جرافيت طولها ${E(L+' m')} وسمكها ${E(th+' m')} ومقاومتها ${E(sci(R,1)+' Ω')}. احسب عرضها X علماً أن المقاومة النوعية للجرافيت ${E('800×10⁻⁸ Ω m')}.`,ans:X,rel:.03,unit:'m',
+  sol:`${E(`A = ρL/R = ${sci(A)} m²`)}<br>${E(`X = A / السمك = ${X.toPrecision(3)} m`)}`}};
+const gMaxR=()=>{const W=[['L','4r'],['L','2r'],['2L','4r'],['2L','2r']];const v=W.map(([l,r])=>(l==='2L'?2:1)/(r==='4r'?16:4));const best=v.indexOf(Math.max(...v));
+  const o=[best,...[0,1,2,3].filter(i=>i!==best)].map(i=>`طوله ${W[i][0]} ونصف قطره ${W[i][1]}`);return{kind:'mc',tag:'t',q:'أربعة أسلاك من النيكروم. أيها له أكبر مقاومة؟',o,a:0,sol:`${E('R ∝ L/r²')}: أطول سلك وأصغر نصف قطر.`}};
+
+/* ================= STATION 4: قانونا كيرشوف (4-3) ================= */
+const S4B={
+ k1:{kind:'mc',tag:'c1',q:'ما اسم القانون: مجموع التيارات الداخلة إلى أي نقطة في دائرة يساوي مجموع التيارات الخارجة منها؟',o:['قانون كيرشوف الأول','قانون كيرشوف الثاني','قانون أوم','قانون كولوم'],a:0,sol:'ويعبّر عن مبدأ حفظ الشحنة.'},
+ k2:{kind:'mc',tag:'c1',q:'ما اسم القانون: مجموع القوى الدافعة الكهربائية في أي مسار مغلق يساوي مجموع فروق الجهد في ذلك المسار؟',o:['قانون كيرشوف الثاني','قانون كيرشوف الأول','قانون أوم','قانون حفظ الكتلة'],a:0,sol:`${E('Σε = ΣIR')}`},
+ cons:{kind:'mc',tag:'b2',q:'قانون كيرشوف الأول يعبّر عن مبدأ حفظ:',o:['الشحنة','الكتلة','الزخم','القوة'],a:0,sol:'الشحنة لا تُفنى ولا تتجمع عند نقطة التفرع.'},
+ series:{kind:'mc',tag:'x',q:'ثلاث مقاومات متساوية R موصولة على التوازي. ما المقاومة المكافئة؟',o:['R/3','3R','R','2R/3'],a:0,ltr:1,sol:`${E('1/R_eq = 3/R')} ⇒ ${E('R_eq = R/3')}`}
+};
+const gJunc=()=>{const ins=[pick([1.5,2.0,3.0]),pick([0.5,1.0,2.5])],out1=pick([0.8,1.2,1.5]);const x=ins[0]+ins[1]-out1;if(x<=0)return gJunc();return{kind:'num',tag:'x',
+  q:`تدخل نقطة تفرّع تياراتٌ شدتها ${E(ins[0]+' A')} و${E(ins[1]+' A')}، ويخرج منها تيار ${E(out1+' A')} وتيار آخر I. احسب I.`,ans:x,rel:.01,unit:'A',
+  sol:`قانون كيرشوف الأول: ${E(`${ins[0]} + ${ins[1]} = ${out1} + I`)} ⇒ ${E(`I = ${fx(x)} A`)}`}};
+const gLoop=()=>{const e1=pick([12,9,6]),e2=pick([3,4,5,2]),aid=Math.random()<.4,R1=pick([2,4,5]),R2=pick([3,6,10]);const I=(aid?e1+e2:e1-e2)/(R1+R2);return{kind:'num',tag:'x',svg:loopSVG(e1,e2,aid,R1,R2),
+  q:`في الدائرة، المقاومة الداخلية للخليتين مهملة، والخليتان ${aid?'موصولتان بحيث تدفعان التيار في الاتجاه نفسه':'متعاكستان'}. احسب شدة التيار.`,ans:I,rel:.02,unit:'A',
+  sol:`قانون كيرشوف الثاني: ${E(`${aid?`${e1} + ${e2}`:`${e1} − ${e2}`} = I(${R1} + ${R2})`)} ⇒ ${E(`I = ${fx(I,3)} A`)}`}};
+const gReq=()=>{const R1=pick([2,4,5]),R2=pick([6,12,4]),R3=pick([3,6,12]);const p=R2*R3/(R2+R3),Rt=R1+p;return{kind:'num',tag:'x',
+  q:`المقاومة ${E('R₁ = '+R1+' Ω')} موصولة على التوالي مع مجموعة من مقاومتين على التوازي ${E('R₂ = '+R2+' Ω')} و${E('R₃ = '+R3+' Ω')}. احسب المقاومة المكافئة.`,ans:Rt,rel:.02,unit:'Ω',
+  sol:`${E(`R₂₃ = (${R2}×${R3})/(${R2}+${R3}) = ${fx(p)} Ω`)}<br>${E(`R = ${R1} + ${fx(p)} = ${fx(Rt)} Ω`)}`}};
+/* ثلاثة فروع: الفرع الثالث مقاومة فقط */
+function gBranch(){for(let t=0;t<60;t++){const R=[pick([2,4,5,8]),pick([2,4,6,10]),pick([2,4,5,10])];const U=pick([2,4,5,6,8]);const I3=-U/R[2];const I1=pick([0.5,1,1.5,2,3]);const I2=-I3-I1;
+    const e1=U+I1*R[0],e2=U+I2*R[1];if(e2<=0||e1<=0||Math.abs(e1-Math.round(e1))>1e-9||Math.abs(e2-Math.round(e2))>1e-9||Math.abs(I2)<0.1)continue;
+    const ask=pick([1,2,3]);const I=[I1,I2,I3][ask-1];
+    return{kind:'num',tag:pick(['b1','a1','c1']),svg:branchSVG([{e:e1,R:R[0]},{e:e2,R:R[1]},{e:0,R:R[2]}]),
+      q:`في الدائرة، المقاومة الداخلية للخلايا مهملة. احسب مقدار شدة التيار ${E('I'+ask)}.`,ans:Math.abs(I),rel:.02,unit:'A',
+      sol:`نفرض فرق الجهد بين النقطة العلوية والسفلية U. بقانون كيرشوف الثاني على كل فرع: ${E('ε − IR = U')}، وبالأول: ${E('I₁ + I₂ + I₃ = 0')}<br>
+      ${E(`I₁ = (${e1} − U)/${R[0]}`)}، ${E(`I₂ = (${e2} − U)/${R[1]}`)}، ${E(`I₃ = −U/${R[2]}`)} ⇒ ${E(`U = ${U} V`)}<br>
+      ${E(`I₁ = ${fx(I1,3)} A`)}، ${E(`I₂ = ${fx(I2,3)} A`)}، ${E(`I₃ = ${fx(I3,3)} A`)} (الإشارة السالبة تعني أن التيار للأسفل)`}}
+  return gJunc()}
+
+/* ================= STATION 5: الدوائر العملية (5-3) ================= */
+const S5B={
+ par:{kind:'mc',tag:'b1',q:'خلية لها مقاومة داخلية r متصلة بمقاومة R. ماذا يحدث لقراءتي الأميتر (في الدائرة الرئيسية) والڤولتميتر (على الطرفين) عند توصيل مقاومة أخرى على التوازي مع R؟',o:['تزيد قراءة الأميتر وتقل قراءة الڤولتميتر','تقل القراءتان','تزيد القراءتان','تقل قراءة الأميتر وتزيد قراءة الڤولتميتر'],a:0,sol:`تقل المقاومة الكلية فيزيد I، و${E('V = ε − Ir')} يقل.`},
+ incR:{kind:'mc',tag:'b2',q:'خلية لها مقاومة داخلية r متصلة بمقاومة متغيرة R. ماذا يحدث لقراءتي الأميتر والڤولتميتر عند زيادة R؟',o:['تقل قراءة الأميتر وتزيد قراءة الڤولتميتر','تزيد القراءتان','تقل القراءتان','تزيد قراءة الأميتر وتقل قراءة الڤولتميتر'],a:0,sol:`تزيد المقاومة الكلية فيقل I، فيقل الفقد ${E('Ir')} ويزيد الجهد الطرفي.`},
+ potinc:{kind:'mc',tag:'a2',q:'في مقياس الجهد (الجهد المجهول على السلك المنتظم)، ماذا يحدث لطول سلك الاتزان عند زيادة فرق الجهد المراد قياسه؟',o:['يزيد','يقل','لا يتغير','يصبح صفراً'],a:0,sol:`${E('V/ε = l/L')}: الطول يتناسب طردياً مع V.`},
+ zero:{kind:'mc',tag:'b1',q:'لماذا تكون قراءة الجلڤانوميتر صفراً عند نقطة الاتزان في مقياس الجهد؟',o:['لأن فرق الجهد على جزء السلك يساوي فرق الجهد المراد قياسه، فلا يمر تيار في الجلڤانوميتر','لأن مقاومة الجلڤانوميتر صفر','لأن البطارية فرغت','لأن السلك لا يحمل تياراً'],a:0,sol:'عند تساوي الجهدين ينعدم فرق الجهد بين طرفي الجلڤانوميتر.'},
+ incl:{kind:'mc',tag:'c1',q:'أي إجراء يزيد طول سلك الاتزان l في مقياس جهد يقيس القوة الدافعة لخلية εB، والسلك موصول بخلية εA؟',o:['تقليل εA','زيادة εA','تقصير السلك المنتظم','تقليل εB'],a:0,sol:`${E('l = (εB/εA) L')}: تقليل εA يزيد l.`},
+ divmax:{kind:'mc',tag:'c1',q:'في مجزّئ جهد، يُقاس Vout على المقاومة السفلية. أي اختيار يعطي أكبر Vout؟',o:['علوية R/2 وسفلية 2R','علوية 2R وسفلية R/2','علوية R وسفلية R','علوية 2R وسفلية R'],a:0,sol:`${E('Vout = Vin × R₂/(R₁+R₂)')}: ${E('2R/(2.5R) = 0.8')} هي الأكبر.`},
+ ideal:{kind:'mc',tag:'x',q:'لماذا يجب أن تكون مقاومة الڤولتميتر المثالي لا نهائية؟',o:['حتى لا يسحب تياراً فيغيّر قراءات الدائرة','حتى يمر فيه أكبر تيار','لأنه يوصل على التوالي','حتى تقل المقاومة الكلية'],a:0,sol:'يوصل على التوازي، فلو سحب تياراً لتغيّرت فروق الجهد.'}
+};
+const gIntR=()=>{const e=pick([1.6,1.5,3.0,6.0]),r=pick([0.1,0.2,0.5,1.0]),I=pick([2,4,1]);const V=e-I*r;return pick([
+  {kind:'num',tag:'t',q:`في التمثيل البياني لفرق الجهد الطرفي V مقابل التيار I لخلية: عند ${E('I = 0')} يكون ${E('V = '+e+' V')}، وعند ${E('I = '+I+' A')} يكون ${E('V = '+fx(V)+' V')}. احسب المقاومة الداخلية.`,ans:r,rel:.02,unit:'Ω',
+   sol:`${E('V = ε − Ir')}: الميل = ${E('−r')}<br>${E(`r = (${e} − ${fx(V)}) / ${I} = ${r} Ω`)}`},
+  {kind:'num',tag:'x',q:`خلية قوتها الدافعة ${E(e+' V')} ومقاومتها الداخلية ${E(r+' Ω')} يمر بها تيار ${E(I+' A')}. احسب فرق الجهد الطرفي.`,ans:V,rel:.02,unit:'V',
+   sol:`${E(`V = ε − Ir = ${e} − ${I}×${r} = ${fx(V)} V`)}`}])};
+const gIRr=()=>{const e=pick([6,9,12]),r=pick([0.5,1,2]),R=pick([4,5,10,11]);const I=e/(R+r),V=I*R;return{kind:'num',tag:'x',
+  q:`بطارية قوتها الدافعة ${E(e+' V')} ومقاومتها الداخلية ${E(r+' Ω')} موصولة بمقاومة ${E(R+' Ω')}. احسب فرق الجهد بين طرفي المقاومة.`,ans:V,rel:.02,unit:'V',
+  sol:`${E(`I = ε/(R + r) = ${fx(I,3)} A`)}<br>${E(`V = IR = ${fx(V,2)} V`)}`}};
+const gDiv=()=>{const Vin=pick([6,9,12]),R1=pick([1,2,3,4]),R2=pick([1,2,3,5]);const Vo=Vin*R2/(R1+R2);return{kind:'num',tag:'x',svg:dividerSVG(`${R1} kΩ`,`${R2} kΩ`,`${Vin} V`),
+  q:`في مجزّئ الجهد، ${E('Vin = '+Vin+' V')} والمقاومة الداخلية للبطارية مهملة. احسب Vout على المقاومة السفلية.`,ans:Vo,rel:.02,unit:'V',
+  sol:`${E(`Vout = Vin × R₂/(R₁+R₂) = ${Vin} × ${R2}/${R1+R2} = ${fx(Vo,2)} V`)}`}};
+const gDiv3=()=>{const a=pick([[3,2,1],[2,2,1],[4,1,1],[3,1,2]]);const tot=a[0]+a[1]+a[2];const fr=(n,d)=>{const g=(p,q)=>q?g(q,p%q):p;const k=g(n,d);return `${n/k===1?'':n/k}Vin/${d/k}`};
+  return{kind:'mc',tag:'a2',q:`ثلاث مقاومات ${E(a[0]+'R')} و${E(a[1]+'R')} و${E(a[2]===1?'R':a[2]+'R')} على التوالي في مجزّئ جهد، و Vout يُقاس على المقاومة ${E(a[2]===1?'R':a[2]+'R')}. ما قيمة Vout؟`,
+  o:[...new Set([fr(a[2],tot),fr(a[0],tot),fr(1,3),fr(1,2),fr(a[1],tot)])].slice(0,4),a:0,ltr:1,sol:`${E(`Vout = Vin × ${a[2]}R/${tot}R = ${fr(a[2],tot)}`)}`}};
+const gPotL=()=>{const eA=pick([8.0,6.0,4.0]),VB=pick([0.20,1.0,1.5,2.0]),L=1.0;const l=VB/eA*L;return{kind:'num',tag:'a1',
+  q:`مقياس جهد: سلك منتظم طوله ${E('1.0 m')} موصول بخلية ${E('εA = '+eA+' V')}. احسب طول سلك الاتزان عند قياس فرق جهد ${E('VB = '+VB+' V')}.`,ans:l,rel:.02,unit:'m',
+  sol:`${E(`VB/εA = l/L`)} ⇒ ${E(`l = ${VB}/${eA} × 1.0 = ${fx(l,3)} m`)}`}};
+const gPotV=()=>{const eA=pick([6.0,4.5,3.0]),l=pick([0.80,0.40,0.60,0.25]);const V=eA*l;return{kind:'num',tag:'a2',
+  q:`مقياس جهد: سلك منتظم طوله ${E('1.0 m')} موصول بخلية ${E('εA = '+eA+' V')}، وطول سلك الاتزان ${E(l+' m')}. احسب فرق الجهد VB.`,ans:V,rel:.02,unit:'V',
+  sol:`${E(`VB = εA × l/L = ${eA} × ${l} = ${fx(V,2)} V`)}`}};
+const gPotR=()=>{const R1=pick([5,9,6]),k=pick([4/3,5,2,1.5]);const L1=pick([12.5,60,20]);const R2=R1*k,L2=L1*k;return pick([
+  {kind:'num',tag:'b2',q:`في مقياس الجهد، طول سلك الاتزان للمقاومة ${E('R₁ = '+R1+' Ω')} يساوي ${E(L1+' cm')}، وللمقاومة ${E('R₂')} يساوي ${E(fx(L2,1)+' cm')}. احسب ${E('R₂')}.`,ans:R2,rel:.02,unit:'Ω',
+   sol:`${E('L₁/L₂ = R₁/R₂')} ⇒ ${E(`R₂ = ${R1} × ${fx(L2,1)}/${L1} = ${fx(R2,2)} Ω`)}`},
+  {kind:'num',tag:'b1',q:`في مقياس الجهد، طول سلك الاتزان للمقاومة ${E('R₁ = '+R1+' Ω')} يساوي ${E(L1+' cm')}. احسب طول سلك الاتزان للمقاومة ${E('R₂ = '+fx(R2,2)+' Ω')}.`,ans:L2,rel:.02,unit:'cm',
+   sol:`${E('L₁/L₂ = R₁/R₂')} ⇒ ${E(`L₂ = ${L1} × ${fx(R2,2)}/${R1} = ${fx(L2,1)} cm`)}`}])};
+const gPotE=()=>{const cb=pick([0.34,0.60,0.25,0.40]);const ac=+(1-cb).toFixed(2);return{kind:'mc',tag:'t',q:`سلك مقياس جهد AB طوله ${E('1.00 m')} موصول بخلية ${E('ε₀')}. نقطة الاتزان C حيث ${E('CB = '+cb+' m')}. ما القوة الدافعة للخلية المجهولة ε (طول الاتزان AC)؟`,
+  o:[`ε = ${ac} ε₀`,`ε = ${cb} ε₀`,`ε = ${fx(1/ac,2)} ε₀`,`ε = ε₀`],a:0,ltr:1,sol:`${E(`AC = 1.00 − ${cb} = ${ac} m`)} ⇒ ${E(`ε = (AC/AB) ε₀ = ${ac} ε₀`)}`}};
+
+/* ================= STATIONS ================= */
+const LV=['مبتدئ','متمكّن','خبير'];
+const STATIONS=[
+ {k:'s1',title:'محطة التيار',sub:'الشحنة والتيار والسرعة الانجرافية',lessons:'الدرس 1-3',pc:'#FF7A59',
+  levels:[()=>[S1B.def,S1B.unit,gQuant(),gI4(),S1B.carriers],
+          ()=>[gIQt(),gNe(),S1B.half,gIQt(),S1B.nwire],
+          ()=>[gDriftR(),gDriftA(),S1B.thick,gDriftAtoms(),gDriftCount()]]},
+ {k:'s2',title:'محطة الطاقة',sub:'فرق الجهد والقوة الدافعة الكهربائية',lessons:'الدرس 2-3',pc:'#C58BFF',
+  levels:[()=>shuffle([S2B.pd,S2B.emf,S2B.volt,S2B.internal,gWQV()]),
+          ()=>[gWQV(),gWItV(),gWQV(),gWItV(),gSeriesW()],
+          ()=>[gSeriesW(),gWItV(),gSeriesW(),S2B.internal,gWQV()]]},
+ {k:'s3',title:'مصنع الأسلاك',sub:'المقاومة والمقاومة النوعية',lessons:'الدرس 3-3',pc:'#4FA3FF',
+  levels:[()=>shuffle([S3B.prop,S3B.unit,S3B.thicker,S3B.wider,gMaxR()]),
+          ()=>[gRwire(),gRratio(),gRwire(),gLratio(),gRratio()],
+          ()=>[gLength(),gGraphite(),gLratio(),gLength(),gRratio()]]},
+ {k:'s4',title:'عقدة كيرشوف',sub:'قانونا كيرشوف وتوصيل المقاومات',lessons:'الدرس 4-3',pc:'#5EDB9C',
+  levels:[()=>[S4B.k1,S4B.k2,S4B.cons,gJunc(),S4B.series],
+          ()=>[gJunc(),gLoop(),gReq(),gLoop(),gReq()],
+          ()=>[gBranch(),gLoop(),gBranch(),gReq(),gBranch()]]},
+ {k:'s5',title:'ورشة الدوائر',sub:'المقاومة الداخلية ومجزّئ الجهد ومقياس الجهد',lessons:'الدرس 5-3',pc:'#FFD166',
+  levels:[()=>shuffle([S5B.par,S5B.incR,S5B.zero,S5B.ideal,S5B.divmax]),
+          ()=>[gIntR(),gDiv(),gIRr(),gDiv3(),gIntR()],
+          ()=>[gPotL(),gPotV(),gPotR(),gPotE(),S5B.incl]]}
+];
+const bossSet=()=>shuffle([gIQt(),gNe(),gDriftR(),gDriftA(),gSeriesW(),gWItV(),gRwire(),gLength(),gLoop(),gReq(),gBranch(),gIntR(),gIRr(),gDiv(),gPotL(),gPotR()]).slice(0,10);
+
+/* ================= THEME ================= */
+const T={h1:'شبكة <span>مدار</span> الكهربائية',kicker:'الوحدة الثالثة: الدوائر الكهربائية',
+  lead:'المدينة بلا كهرباء وأنت مهندس الشبكة. أنهِ مهام المحطات الخمس على ثلاثة مستويات، ثم أعِد الكهرباء للمدينة في «إنارة المدينة». أرقام المسائل تتجدد في كل مرة تلعب.',
+  who:'اسم المهندس',errMsg:'اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ المهمة.',hub:'غرفة التحكم',
+  boss:'إنارة المدينة',bossSub:'10 مسائل مختلطة · 90 ثانية لكل مسألة · كل إجابة صحيحة تضيء حيّاً من المدينة · 3 محاولات خاطئة فقط',meter:'الإنارة',
+  win:'أضاءت المدينة بالكامل!',lose:'انقطعت الكهرباء',again:'محاولة جديدة',fail:'انقطعت الكهرباء',
+  cert:'شهادة مهندس الشبكة',unit:'أتم الوحدة الثالثة: الدوائر الكهربائية',
+  ranks:['فني متدرّب','مهندس دوائر','كبير مهندسي الشبكة']};
+const ART=`<svg class="orbit-art" viewBox="0 0 170 170" aria-hidden="true">
+  <rect x="20" y="70" width="34" height="80" fill="#2D2D52"/><rect x="62" y="40" width="40" height="110" fill="#2D2D52"/><rect x="110" y="86" width="40" height="64" fill="#2D2D52"/>
+  ${[[28,80],[40,80],[28,96],[40,112],[70,52],[86,52],[70,70],[86,88],[70,106],[86,124],[118,96],[134,96],[118,114],[134,130]].map(([x,y],i)=>`<rect class="win" style="animation-delay:${(i%5)*.4}s" x="${x}" y="${y}" width="8" height="8" fill="var(--sun)"/>`).join('')}
+  <path d="M10 150 H160" stroke="var(--orbit)" stroke-width="2"/></svg>`;
+const BOSS_ICON=`<svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M24 4a12 12 0 0 0-7 22v6h14v-6A12 12 0 0 0 24 4z" fill="var(--sun)"/><rect x="18" y="34" width="12" height="4" fill="var(--ink)"/><rect x="19" y="40" width="10" height="3" fill="var(--ink)"/></svg>`;
+const CITY=[[4,40],[13,62],[22,34],[31,70],[40,48],[49,80],[58,42],[67,64],[76,36],[85,56]];
+function bossVis(p){const n=Math.round(p*10);return CITY.map(([x,h],i)=>`<div class="bld${i<n?' lit':''}" style="left:${x}%;height:${h}%"></div>`).join('')+`<div class="grid-line"></div>`}
+function bossUpd(p){const n=Math.round(p*10);document.querySelectorAll('.sky .bld').forEach((b,i)=>b.classList.toggle('lit',i<n))}
+const BOSS_CSS=`.launch{grid-template-columns:120px 1fr}@media (max-width:460px){.launch{grid-template-columns:90px 1fr}}
+.sky .bld{position:absolute;bottom:0;width:8%;background:#22224A;border:1px solid #33336A;border-bottom:0;transition:background .6s,box-shadow .6s;
+  background-image:repeating-linear-gradient(0deg,transparent 0 8px,#0000 8px 12px)}
+.sky .bld::after{content:"";position:absolute;inset:6px 18%;background:repeating-linear-gradient(0deg,#3A3A66 0 5px,transparent 5px 11px);transition:background .6s}
+.sky .bld.lit{box-shadow:0 0 14px #FFB54766}.sky .bld.lit::after{background:repeating-linear-gradient(0deg,var(--sun) 0 5px,transparent 5px 11px)}
+.sky .grid-line{position:absolute;top:14px;left:4px;right:4px;border-top:2px dashed var(--orbit);opacity:.5}
+.orbit-art .win{animation:blink 4s infinite}@keyframes blink{0%,60%,100%{opacity:1}70%{opacity:.25}}`;
+
+document.head.insertAdjacentHTML('beforeend','<style>'+BOSS_CSS+'</style>');
+
+/* ================= HOME ================= */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <div>
+      <h1>${T.h1}</h1>
+      <p class="lead">${T.lead}</p>
+      <div class="id-row"><label for="nm">${T.who}</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank">${rankOf(totalStars())}</span><p class="nm-err" id="nmErr" hidden>${T.errMsg}</p></div>
+    </div>
+    ${ART}
+  </section>
+  <div class="stations">
+   ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
+      <div class="st-head"><div class="planet ${st.ring?'ring':''}" style="--pc:${st.pc}"></div><div><h3>${st.title}</h3><p>${st.lessons} · ${st.sub}</p></div></div>
+      <div class="levels">${LV.map((l,j)=>`<button class="lv" data-s="${i}" data-l="${j}"><span class="n">المستوى ${j+1}</span><span class="dsc">${l} · ${(j+1)*10} نقاط</span>${starsHTML(S.stars[st.k+j]||0)}</button>`).join('')}</div>
+   </section>`).join('')}
+   <button class="boss" id="boss">
+     ${BOSS_ICON}
+     <span><h3>${T.boss}</h3><p>${T.bossSub}</p></span>
+     ${starsHTML(S.stars.boss||0)}
+   </button>
+  </div>
+  <section id="lb" class="lb" hidden></section>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
+  lbRender();
+}
+
+/* ================= RUNNER ================= */
+let timerId=null;
+function rocketSVG(){return `<svg width="34" height="52" viewBox="0 0 34 52" aria-hidden="true"><path d="M17 2c7 7 9 18 6 30H11C8 20 10 9 17 2z" fill="#EEF0FF"/><circle cx="17" cy="17" r="4" fill="#6FD3FF"/><path d="M11 30l-7 9h8zM23 30l7 9h-8z" fill="#FF7A59"/><path d="M13 34h8l-4 14z" fill="#FFB547"/></svg>`}
+function play(si,li){
+  const boss=si<0, st=boss?null:STATIONS[si];
+  const items=boss?bossSet():st.levels[li]();
+  const pts=boss?30:(li+1)*10;
+  const R={i:0,correct:0,hearts:3};
+  const title=boss?T.boss:`${st.title} · المستوى ${li+1}`;
+  function render(){
+    clearInterval(timerId);
+    const Q=items[R.i];
+    const alt=Math.round(R.correct/items.length*100);
+    app.innerHTML=`<div class="bar"><button class="back" id="bk">→ ${T.hub}</button><h2>${title}</h2><span class="chip">${R.i+1} / ${items.length}</span></div>
+      <div class="progress"><i style="width:${R.i/items.length*100}%"></i></div>
+      ${boss?`<div class="bar" style="margin-top:-4px"><span class="hearts" aria-label="المحاولات المتبقية">${[1,2,3].map(i=>`<span class="${i<=R.hearts?'':'off'}">♥</span>`).join('')}</span><span class="chip">${T.meter} <strong>${alt}%</strong></span><span class="chip" id="tl">90</span></div><div class="timer" id="tm"><i style="width:100%"></i></div>
+        <div class="launch" style="margin-top:12px"><div class="sky">${bossVis(R.correct/items.length)}</div><div class="card" id="card"></div></div>`
+      :`<div class="card" id="card"></div>`}`;
+    $('#bk').onclick=()=>{clearInterval(timerId);home()};
+    const card=$('#card');
+    let finished=false;
+    const done=(ok)=>{
+      if(finished)return;finished=true;clearInterval(timerId);
+      if(ok){R.correct++;S.points+=pts;save();hud();bossUpd(R.correct/items.length)} else if(boss){R.hearts--}
+      const fb=document.createElement('div');fb.className='feedback'+(ok?'':' no');
+      fb.innerHTML=`<b>${ok?`إجابة صحيحة! +${pts}`:'ليست الإجابة الصحيحة'}</b><div>${Q.sol||''}</div>`;
+      card.appendChild(fb);
+      const nx=document.createElement('button');nx.className='next';
+      const over=boss&&R.hearts<=0, last=R.i+1>=items.length;
+      nx.textContent=over?T.fail:last?'إنهاء':'التالي ←';
+      nx.onclick=()=>{ if(over) return lose(); R.i++; if(R.i>=items.length) return finish(); render(); };
+      card.appendChild(nx);nx.focus({preventScroll:true});
+    };
+    renderQ(card,Q,done);
+    if(boss){let t=90;timerId=setInterval(()=>{t--;const tl=$('#tl'),tm=$('#tm');if(!tl){clearInterval(timerId);return}
+      tl.textContent=t;tm.querySelector('i').style.width=(t/90*100)+'%';tm.classList.toggle('low',t<=20);
+      if(t<=0){card.querySelectorAll('button,input').forEach(x=>x.disabled=true);done(false)}},1000)}
+  }
+  function finish(){
+    const pct=R.correct/items.length;
+    const stars=boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+    const key=boss?'boss':st.k+li;
+    S.stars[key]=Math.max(S.stars[key]||0,stars);save();hud();lbSubmit();
+    app.innerHTML=`<div class="card summary">
+      <h2>${boss?T.win:'أنهيت المهمة'}</h2>${starsHTML(stars,'big')}
+      <p style="margin:0;color:var(--muted)">أجبت ${R.correct} من ${items.length} إجابة صحيحة.</p>
+      ${boss?`<div class="cert"><span style="color:var(--muted);font-size:.85rem">${T.cert}</span><h2>${esc(S.name||'')}</h2><span>${T.unit} · ${S.points} نقطة · الرتبة: ${rankOf(totalStars())}</span><span style="color:var(--muted);font-size:.85rem">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+      <div class="btns"><button class="next" id="h">${T.hub}</button><button class="back" id="ag">${boss?T.again:'أعد المستوى بأرقام جديدة'}</button>
+      ${!boss&&li<2?`<button class="back" id="nl">المستوى ${li+2} ←</button>`:''}</div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+    const nl=$('#nl');if(nl)nl.onclick=()=>play(si,li+1);
+  }
+  function lose(){
+    app.innerHTML=`<div class="card summary"><h2>${T.lose}</h2><p style="margin:0;color:var(--muted)">راجع خطوات الحل وحاول مرة أخرى، ستتغير الأرقام.</p>
+    <div class="btns"><button class="next" id="ag">${T.again}</button><button class="back" id="h">${T.hub}</button></div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+  }
+  render();
+}
+
+/* ================= RENDERERS ================= */
+function renderQ(card,Q,done){
+  card.innerHTML=`<div class="meta"><span class="tag ${Q.tag&&Q.tag!=='x'?'ex':''}">${SRC[Q.tag]||SRC.x}</span></div><p class="q">${Q.q}</p>`+(Q.svg||'')+(Q.given?`<p class="given">معطيات: ${Q.given}</p>`:'');
+  if(Q.kind==='mc'){
+    const order=shuffle(Q.o.map((_,i)=>i));
+    card.insertAdjacentHTML('beforeend',`<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${Q.ltr?E(Q.o[i]):Q.o[i]}</button>`).join('')}</div>`);
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.a)x.classList.add('right')});if(p!==Q.a)b.classList.add('wrong');done(p===Q.a)});
+  }
+  else if(Q.kind==='sci'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans"><span class="sci"><input class="man" id="man" inputmode="decimal" autocomplete="off" aria-label="الرقم"><span class="x">×</span><span class="ten">10</span><input class="exp" id="exp" inputmode="numeric" autocomplete="off" aria-label="الأُس"><span class="unit">${Q.unit}</span></span><button class="check" id="ck">تحقّق</button></div>
+      <p class="hint2">اكتب الناتج بالصيغة العلمية: الرقم في الخانة الزرقاء والأُس في الخانة الصغيرة. للأُس السالب اكتب إشارة −. استخدم الإشارة السالبة في الرقم إن كان الناتج سالباً.</p>`);
+    const m=$('#man'),e=$('#exp'),ck=$('#ck');
+    const go=()=>{const a=parseNum(m.value);let b=parseNum(e.value);if(isNaN(a)){m.focus();return}if(isNaN(b))b=0;
+      const v=a*Math.pow(10,b),ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.03);
+      [m,e].forEach(x=>{x.classList.add(ok?'ok':'no');x.disabled=true});ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(sci(Q.ans,2)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;[m,e].forEach(x=>x.addEventListener('keydown',ev=>{if(ev.key==='Enter')go()}));m.focus({preventScroll:true});
+  }
+  else if(Q.kind==='num'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans num"><input id="in" inputmode="decimal" dir="ltr" autocomplete="off" aria-label="الإجابة"><span class="unit">${Q.unit}</span><button class="check" id="ck">تحقّق</button></div>`);
+    const inp=$('#in'),ck=$('#ck');
+    const go=()=>{const v=parseNum(inp.value);if(isNaN(v)){inp.focus();return}
+      const ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.02);inp.classList.add(ok?'ok':'no');inp.disabled=ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(Q.ans.toPrecision(3)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus({preventScroll:true});
+  }
+}
+
+home();
+})();
+</script>
+
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</html>

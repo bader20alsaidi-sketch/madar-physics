@@ -1,0 +1,316 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر فرق الجهد والمقاومة النوعية — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}}
+.steps li,.say,.rule{overflow-x:auto}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر فرق الجهد والمقاومة النوعية</h1><p class="sub">الوحدة الثالثة: الدوائر الكهربائية — الدرسان 2-3 و3-3</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([+\-\u2212]?[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3][0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3\u00B0 .,+\-\u2212\u00D7=\/%]*[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3%\u00B0]|[0-9A-Za-z\u00B5\u03BC\u0394\u03B5\u03A9\u03C1\u03C0\u2070-\u2079\u2080-\u2089\u207B\u00B9\u00B2\u00B3])/g,'\u2066$1\u2069');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine ---------- */
+let tick=null,raf=0,lastT=0,curTab='pd';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci(x,d=2){if(x===0)return'0';const s=x<0?'−':'';x=Math.abs(x);let e=Math.floor(Math.log10(x)+1e-12),m=x/10**e;if(+m.toFixed(d)>=10){m/=10;e++}return `${s}${+m.toFixed(d)}×10${String(e).split('').map(c=>SUP[c]).join('')}`}
+function fm(x,d=3){if(x===0||Math.abs(x)<1e-300)return'0';const a=Math.abs(x);if(a>=0.01&&a<10000){let t=x.toPrecision(d);if(t.includes('.')&&!t.includes('e'))t=t.replace(/0+$/,'').replace(/\.$/,'');return String(+t).replace('-','−')}return sci(x,d-1)}
+const setSeg=(id,on)=>$(id).querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===on));
+const TABS=[['pd','فرق الجهد في دائرة'],['emf','القوة الدافعة والمقاومة الداخلية'],['wire','مقاومة السلك والمقاومة النوعية'],['temp','درجة الحرارة'],['stretch','سحب السلك'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({pd:tabPd,emf:tabEmf,wire:tabWire,temp:tabTemp,stretch:tabStretch,quiz:tabQuiz})[k]();startLoop()}
+const MAT={cu:['النحاس',1.69e-8],al:['الألومنيوم',3.21e-8],mn:['المنجانين',44.0e-8],eu:['اليوريكا',49.0e-8]};
+const TEAL='#0b6e73',YEL='#f2c14e';
+const ln=(x1,y1,x2,y2,col='#5b6678',w=4)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`;
+const rbox=(x,y,w,h,fill='#fff')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${fill}" stroke="#1a1a1a" stroke-width="2.6"/>`;
+const dot=(x,y,col=YEL,r=6)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${col}" stroke="#1a1a1a" stroke-width="1.6"/>`;
+const cellH=(x,y)=>ln(x-26,y-12,x+26,y-12,'#1a1a1a',4)+ln(x-14,y+12,x+14,y+12,'#1a1a1a',8)+tx(x+44,y-7,'+',{s:18,w:700,f:RED})+tx(x+44,y+22,'−',{s:20,w:700,f:BLUE});
+const X0=100,X1=600,Y0=62,Y1=222,PER=2*((X1-X0)+(Y1-Y0));
+function loopPos(s){s=((s%PER)+PER)%PER;const w=X1-X0,h=Y1-Y0;if(s<w)return[X0+s,Y0];s-=w;if(s<h)return[X1,Y0+s];s-=h;if(s<w)return[X1-s,Y1];s-=w;return[X0,Y1-s]}
+function charges(ph,n,col=YEL){let s='';for(let i=0;i<n;i++){const [x,y]=loopPos(i*PER/n+ph*60);s+=dot(x,y,col,5.5)}return s}
+const energyBar=(parts,total,y,title)=>{let s=tx(350,y-12,title,{s:13,f:GRAY});let x=90;const W=520;for(const [v,col,lab] of parts){const w=W*v/total;s+=`<rect x="${x}" y="${y}" width="${w}" height="28" fill="${col}" stroke="#1a1a1a" stroke-width="1.6"/>`+(w>60?tx(x+w/2,y+19,lab,{s:13,w:700,f:'#fff'}):'');x+=w}return s};
+
+/* =====================================================================
+   1) فرق الجهد في دائرة على التوالي
+   ===================================================================== */
+function tabPd(){
+  const W={E:12,r1:20,r2:10,ph:0};
+  ctrl.innerHTML=slider('E','القوة الدافعة للمصدر ε',2,24,0.5,12,'V')+slider('r1','المقاومة R₁',5,60,5,20,'Ω')+slider('r2','المقاومة R₂',5,60,5,10,'Ω')+`<p class="gt">أمثلة الدرس:</p><div class="btns" id="pre"></div>`;
+  setTalk(['فرق الجهد عبر المكوّن هو الطاقة المنقولة لكل كولوم: V = W / Q، ووحدته J C⁻¹ = V.','المصدر يعطي كل كولوم طاقة ε، وكل مقاومة تأخذ جزءًا منها، فيكون مجموع فروق الجهد عبر المقاومتين مساويًا لـ ε عند إهمال المقاومة الداخلية.','حرّك R₂ وراقب: التيار واحد في المقاومتين، وفرق الجهد يتوزع بنسبة المقاومتين.','الفولتميتر يوصل على التوازي مع المكوّن، والأميتر على التوالي.']);
+  const sl={E:bindSlider('E','V',v=>{W.E=v;render()}),r1:bindSlider('r1','Ω',v=>{W.r1=v;render()}),r2:bindSlider('r2','Ω',v=>{W.r2=v;render()})};
+  const pre=[["مثال الكتاب: <span class='num'>12 V , 20 Ω , 10 Ω</span>",{E:12,r1:20,r2:10}],['مقاومتان متساويتان',{E:12,r1:20,r2:20}],["<span class='num'>6 V , 10 Ω , 15 Ω</span>",{E:6,r1:10,r2:15}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;Object.assign(W,pre[b.dataset.i][1]);['E','r1','r2'].forEach(k=>sl[k].set(W[k]));render()};
+  tick=dt=>{W.ph+=dt*(reduceMotion?.1:1)*Math.min(2,W.E/(W.r1+W.r2)*2.5);render()};
+  function render(){
+    const R=W.r1+W.r2,I=W.E/R,V1=I*W.r1,V2=I*W.r2;
+    let s=ln(X0,Y0,270,Y0)+ln(350,Y0,X1,Y0)+ln(X1,Y0,X1,110)+ln(X1,170,X1,Y1)+ln(X1,Y1,X0,Y1)+ln(X0,Y1,X0,152)+ln(X0,128,X0,Y0);
+    s+=charges(W.ph,12);
+    s+=rbox(270,Y0-14,80,28,'#d8ecee')+rbox(X1-14,110,28,60,'#fbe3cf');
+    s+=cellH(X0,140)+tx(X0-46,146,W.E+' V',{s:15,w:700,f:ORANGE})+tx(310,Y0+38,'R₁ = '+W.r1+' Ω',{s:14,f:TEAL})+tx(X1-60,145,'R₂ = '+W.r2+' Ω',{s:14,f:TEAL})+tx(310,Y0-24,'I = '+fm(I)+' A',{s:15,w:700,f:RED});
+    s+=energyBar([[V1,TEAL,fm(V1)+' J'],[V2,ORANGE,fm(V2)+' J']],W.E,272,'الطاقة لكل كولوم: المصدر يعطي '+fm(W.E)+' J والمقاومتان تأخذان المجموع نفسه');
+    s+=tx(350,326,'V₁ = '+fm(V1)+' V',{s:14,w:700,f:TEAL})+tx(470,326,'V₂ = '+fm(V2)+' V',{s:14,w:700,f:ORANGE});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">المقاومة الكلية</div><div class="v">${fm(R)} Ω</div></div><div class="chip"><div class="k">التيار I</div><div class="v">${fm(I)} A</div></div><div class="chip"><div class="k">V₁ عبر R₁</div><div class="v">${fm(V1)} V</div></div><div class="chip"><div class="k">V₂ عبر R₂</div><div class="v">${fm(V2)} V</div></div></div>
+    <ul class="steps"><li>${num('I = ε / R = '+fm(W.E)+' / '+fm(R)+' = '+fm(I)+' A')}</li><li>${num('V₁ = I R₁ = '+fm(I)+' × '+W.r1+' = '+fm(V1)+' V')}</li><li>${num('V₂ = I R₂ = '+fm(I)+' × '+W.r2+' = '+fm(V2)+' V')}</li><li>${num('V₁ + V₂ = '+fm(V1+V2)+' V = ε')}</li></ul>
+    <p class="say ok">كل كولوم يكتسب ${num(fm(W.E)+' J')} من المصدر، ويفقد ${num(fm(V1)+' J')} في R₁ و${num(fm(V2)+' J')} في R₂.</p>
+    <p class="rule"><b>اربط بالدرس:</b> V = W / Q ، W = V Q ، 1 V = 1 J C⁻¹. فرق الجهد هو الطاقة المنقولة لكل وحدة شحنة عبر المكوّن.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) e.m.f. والمقاومة الداخلية
+   ===================================================================== */
+function tabEmf(){
+  const W={E:12,r:1,R:5,ph:0};
+  ctrl.innerHTML=slider('E','القوة الدافعة للمصدر ε',3,24,0.5,12,'V')+slider('r','المقاومة الداخلية r',0,5,0.5,1,'Ω')+slider('R','المقاومة الخارجية R',1,20,0.5,5,'Ω')+`<div class="btns"><button class="btn small" id="p0">r مهملة (r = 0)</button><button class="btn small" id="p1">r = 2 Ω</button></div>`;
+  setTalk(['القوة الدافعة الكهربائية هي الطاقة التي يعطيها المصدر لكل كولوم لدفعه حول الدائرة كاملة، أما فرق الجهد فهو الطاقة المنقولة لكل كولوم عبر مكوّن.','عند إهمال المقاومة الداخلية (r = 0) يساوي فرق الجهد بين القطبين قيمة ε.','زد r وراقب: يقل التيار، ويصير فرق الجهد بين القطبين V = ε − I r أقل من ε لأن جزءًا من الطاقة يُفقد داخل المصدر.']);
+  const sl={E:bindSlider('E','V',v=>{W.E=v;render()}),r:bindSlider('r','Ω',v=>{W.r=v;render()}),R:bindSlider('R','Ω',v=>{W.R=v;render()})};
+  $('p0').onclick=()=>{W.r=0;sl.r.set(0);render()};$('p1').onclick=()=>{W.r=2;sl.r.set(2);render()};
+  tick=dt=>{W.ph+=dt*(reduceMotion?.1:1)*Math.min(2,W.E/(W.R+W.r)*1.5);render()};
+  function render(){
+    const I=W.E/(W.R+W.r),VR=I*W.R,Vr=I*W.r;
+    let s=ln(X0,Y0,X1,Y0)+ln(X1,Y0,X1,110)+ln(X1,170,X1,Y1)+ln(X1,Y1,X0,Y1)+ln(X0,Y1,X0,196)+ln(X0,160,X0,150)+ln(X0,112,X0,Y0)+`<rect x="${X0-62}" y="86" width="124" height="${Y1-86-14}" rx="10" fill="none" stroke="${ORANGE}" stroke-width="2" stroke-dasharray="7 5"/>`;
+    s+=charges(W.ph,12);
+    s+=cellH(X0,130)+rbox(X0-14,160,28,36,'#fbe3cf')+rbox(X1-14,110,28,60,'#d8ecee');
+    s+=tx(X0+76,134,'ε = '+fm(W.E)+' V',{s:14,w:700,a:'start',f:ORANGE})+tx(X0+76,182,'r = '+fm(W.r)+' Ω',{s:14,a:'start',f:ORANGE})+tx(X1-62,145,'R = '+fm(W.R)+' Ω',{s:14,f:TEAL})+tx(X0+76,Y1-18,'المصدر',{s:13,a:'start',f:ORANGE})+tx(350,Y0-18,'I = '+fm(I)+' A',{s:15,w:700,f:RED});
+    s+=energyBar([[VR,GREEN,fm(VR)+' V'],[Vr,RED,Vr>0.01?fm(Vr)+' V':'']],W.E,272,'ε = '+fm(W.E)+' V : الأخضر فرق الجهد الخارجي، والأحمر المفقود داخل المصدر');
+    s+=tx(350,326,'V = '+fm(VR)+' V بين القطبين',{s:14,w:700,f:GREEN});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">التيار I</div><div class="v">${fm(I)} A</div></div><div class="chip"><div class="k">V بين القطبين</div><div class="v">${fm(VR)} V</div></div><div class="chip"><div class="k">المفقود I r</div><div class="v">${fm(Vr)} V</div></div></div>
+    <ul class="steps"><li>${num('I = ε / ( R + r ) = '+fm(W.E)+' / '+fm(W.R+W.r)+' = '+fm(I)+' A')}</li><li>${num('V = I R = '+fm(I)+' × '+fm(W.R)+' = '+fm(VR)+' V')}</li><li>${num('V = ε − I r = '+fm(W.E)+' − '+fm(Vr)+' = '+fm(W.E-Vr)+' V')}</li></ul>
+    <p class="say ${W.r===0?'ok':''}">${W.r===0?'المقاومة الداخلية مهملة: فرق الجهد بين القطبين يساوي <b>القوة الدافعة ε</b>':'جزء من الطاقة يُفقد داخل المصدر: فرق الجهد بين القطبين <b>أقل</b> من القوة الدافعة'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> ε = I R + I r ، V = ε − I r. يتساوى V مع ε عند إهمال r.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) مقاومة السلك والمقاومة النوعية
+   ===================================================================== */
+function tabWire(){
+  const W={m:'cu',L:2,d:0.6,ph:0};
+  ctrl.innerHTML=`<div><p class="gt">مادة السلك</p>${seg('m',[['cu','نحاس'],['al','ألومنيوم'],['mn','منجانين'],['eu','يوريكا']],'cu')}</div>`+slider('L','الطول L',0.5,10,0.5,2,'m')+slider('d','قطر السلك d',0.2,2,0.05,0.6,'mm')+`<p class="gt">جرّب:</p><div class="btns" id="pre"></div>`;
+  setTalk(['R = ρ L / A: تتناسب المقاومة طرديًا مع الطول وعكسيًا مع مساحة المقطع، وتتناسب مع المقاومة النوعية للمادة.','A = π r² = π d² / 4: ضعف القطر يعني 4 أمثال المساحة، فتنقص المقاومة إلى الربع.','غيّر المادة مع ثبات الأبعاد: تتغير R بنسبة المقاومة النوعية فقط، لأن ρ خاصية للمادة.','حوّل الوحدات: d بالمليمتر إلى متر قبل حساب المساحة.']);
+  bindSeg('m',k=>{W.m=k;render()});const sl={L:bindSlider('L','m',v=>{W.L=v;render()}),d:bindSlider('d','mm',v=>{W.d=v;render()})};
+  const pre=[['ضاعف الطول',()=>{W.L=Math.min(10,W.L*2)}],['ضاعف القطر',()=>{W.d=Math.min(2,+(W.d*2).toFixed(2))}],['نصّف القطر',()=>{W.d=Math.max(0.2,+(W.d/2).toFixed(2))}],['القيم الابتدائية',()=>{W.L=2;W.d=0.6}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;pre[b.dataset.i][1]();sl.L.set(W.L);sl.d.set(W.d);render()};
+  tick=dt=>{W.ph+=dt;render()};
+  function render(){
+    const rho=MAT[W.m][1],A=Math.PI*(W.d*5e-4)**2,R=rho*W.L/A,R0=rho*2/(Math.PI*(0.6*5e-4)**2);
+    const len=60+W.L*45,th=10+W.d*34;let s='';
+    const x0=350-len/2,y0=150;
+    s+=`<rect x="${x0}" y="${y0-th/2}" width="${len}" height="${th}" rx="${Math.min(12,th/2)}" fill="#f1c9a3" stroke="#a8672b" stroke-width="3"/>`;
+    const n=Math.round(clamp(len/18,4,30));for(let i=0;i<n;i++){const f=((i/n+W.ph*.12)%1+1)%1;s+=dot(x0+10+f*(len-20),y0-th/2+6+((i*37)%Math.max(1,th-12)),BLUE,4.5)}
+    s+=ln(x0,y0+th/2+34,x0+len,y0+th/2+34,GRAY,2)+tx(350,y0+th/2+58,'L = '+fm(W.L)+' m',{s:14,f:TEAL})+tx(x0-14,y0+5,'d = '+fm(W.d)+' mm',{s:13,a:'end',f:ORANGE});
+    s+=tx(350,50,'سلك من '+MAT[W.m][0]+'  ،  ρ = '+sci(rho,2)+' Ω m',{s:15,w:700});
+    s+=tx(350,300,'R = '+(R<1?fm(R,3):fm(R,3))+' Ω',{s:26,w:800,f:ORANGE});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">المساحة A</div><div class="v">${sci(A,2)} m²</div></div><div class="chip"><div class="k">المقاومة R</div><div class="v">${fm(R,3)} Ω</div></div><div class="chip"><div class="k">R نسبة إلى 2 m و 0.60 mm</div><div class="v">${fm(R/R0,3)}</div></div></div>
+    <ul class="steps"><li>${num('r = d / 2 = '+fm(W.d/2)+' mm = '+sci(W.d*5e-4,2)+' m')}</li><li>${num('A = π r² = '+sci(A,2)+' m²')}</li><li>${num('R = ρ L / A = '+sci(rho,2)+' × '+fm(W.L)+' / '+sci(A,2)+' = '+fm(R,3)+' Ω')}</li></ul>
+    <p class="say">المقاومة النوعية ${num('ρ = R A / L')} ووحدتها ${num('Ω m')}، وهي خاصية للمادة لا تتغير بتغيير الطول أو القطر.</p>
+    <p class="rule"><b>اربط بالدرس:</b> R = ρ L / A. الطول × 2 ⇒ R × 2. القطر × 2 ⇒ A × 4 ⇒ R ÷ 4. نصف القطر ÷ 2 ⇒ R × 4.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) أثر درجة الحرارة
+   ===================================================================== */
+function tabTemp(){
+  const W={T:20,ph:0};
+  ctrl.innerHTML=slider('T','درجة الحرارة T',0,300,10,20,'°C')+`<div class="btns"><button class="btn small" id="cold">0 °C</button><button class="btn small" id="room">20 °C</button><button class="btn small" id="hot">300 °C</button></div>`;
+  setTalk(['عند ارتفاع درجة حرارة الفلز تهتز أيوناته الموجبة بسعة أكبر.','فتتكرر تصادمات الإلكترونات الحرة بها في الثانية، فتزداد المقاومة R وتزداد المقاومة النوعية ρ للفلز.','النموذج المعروض تقريبي لتوضيح الاتجاه فقط: مقاومة السلك عند 20 °C تساوي 10 Ω.']);
+  const sl=bindSlider('T','°C',v=>{W.T=v;render()});
+  $('cold').onclick=()=>{W.T=0;sl.set(0);render()};$('room').onclick=()=>{W.T=20;sl.set(20);render()};$('hot').onclick=()=>{W.T=300;sl.set(300);render()};
+  tick=dt=>{W.ph+=dt*(reduceMotion?.2:1)*6;render()};
+  const Rof=T=>10*(1+0.004*(T-20));
+  function render(){
+    const R=Rof(W.T),amp=2+W.T/300*9;let s=`<rect x="50" y="70" width="380" height="170" rx="14" fill="#f6e3d0" stroke="#b9794a" stroke-width="3"/>`;
+    for(let i=0;i<5;i++)for(let j=0;j<3;j++){const cx=100+i*70,cy=105+j*50;s+=`<circle cx="${cx+amp*Math.sin(W.ph*3+i*1.7+j)}" cy="${cy+amp*Math.cos(W.ph*2.6+i+j*2)}" r="14" fill="#e9a8a0" stroke="#7a2b24" stroke-width="2"/>`+tx(cx+amp*Math.sin(W.ph*3+i*1.7+j),cy+amp*Math.cos(W.ph*2.6+i+j*2)+5,'+',{s:13,w:700,f:'#7a2b24'})}
+    const ne=7,rate=1+W.T/300*2.2;for(let k=0;k<ne;k++){const f=((k/ne+W.ph*.03*rate)%1+1)%1,x=60+f*360,y=88+((k*47)%130)+Math.sin(W.ph*(3+W.T/60)+k)*5;s+=dot(x,y,BLUE,5)}
+    s+=tx(240,60,'إلكترونات حرة (أزرق) وأيونات موجبة تهتز',{s:13,f:GRAY});
+    // R-T mini graph
+    const gx=490,gy=250,gw=180,gh=150;s+=ln(gx,gy,gx+gw,gy,'#1a1a1a',2.4)+ln(gx,gy,gx,gy-gh,'#1a1a1a',2.4);
+    let pts=[];for(let t=0;t<=300;t+=20)pts.push(`${gx+t/300*gw},${gy-(Rof(t)-6)/(Rof(300)-6)*(gh-20)}`);
+    s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${BLUE}" stroke-width="3.4"/>`+dot(gx+W.T/300*gw,gy-(R-6)/(Rof(300)-6)*(gh-20),ORANGE,6.5)+tx(gx+10,gy-gh-8,'R / Ω',{s:13,a:'start',f:BLUE})+tx(gx+gw,gy+20,'T / °C',{s:13,a:'end',f:BLUE});
+    s+=tx(240,290,'R = '+fm(R)+' Ω',{s:24,w:800,f:ORANGE});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">درجة الحرارة</div><div class="v">${W.T} °C</div></div><div class="chip"><div class="k">المقاومة R</div><div class="v">${fm(R)} Ω</div></div><div class="chip"><div class="k">R نسبة إلى 20 °C</div><div class="v">${fm(R/10,3)}</div></div></div>
+    <p class="say ${W.T>20?'ok':''}">${W.T>20?'الحرارة أعلى: الأيونات تهتز بسعة أكبر، فالتصادمات أكثر والمقاومة <b>أكبر</b>.':W.T<20?'الحرارة أقل: الاهتزاز أضعف، فالتصادمات أقل والمقاومة <b>أصغر</b>.':'درجة حرارة الغرفة.'}</p>
+    <p class="rule"><b>اربط بالدرس:</b> تزداد مقاومة الفلز ومقاومته النوعية بارتفاع درجة حرارته.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) سحب السلك بحجم ثابت
+   ===================================================================== */
+function tabStretch(){
+  const W={n:2};
+  ctrl.innerHTML=slider('n','عامل زيادة الطول n',1,4,0.5,2,'×')+`<div class="btns"><button class="btn small" data-n="2">× 2</button><button class="btn small" data-n="3">× 3</button></div><p class="gt">سلك مقاومته الابتدائية 10 Ω.</p>`;
+  setTalk(['السحب يبقي الحجم ثابتًا: V = A L، فإذا صار الطول n مثلًا صارت المساحة A / n.','R = ρ L / A فتصبح R′ = ρ ( n L ) / ( A / n ) = n² R.','الطول مثلان ⇒ المقاومة 4 أمثال، والطول ثلاثة أمثال ⇒ 9 أمثال.']);
+  const sl=bindSlider('n','×',v=>{W.n=v;render()});ctrl.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{W.n=+b.dataset.n;sl.set(W.n);render()});
+  function render(){
+    const n=W.n,R=10*n*n;let s='';
+    s+=`<rect x="80" y="70" width="140" height="50" rx="14" fill="#f1c9a3" stroke="#a8672b" stroke-width="3"/>`+tx(150,150,'L , A',{s:15,f:TEAL})+tx(150,176,'R = 10 Ω',{s:15,w:700,f:ORANGE});
+    const len=140*n,th=50/n;s+=`<rect x="${Math.min(80,700-len-40)}" y="${230-th/2}" width="${Math.min(len,580)}" height="${th}" rx="${Math.min(12,th/2)}" fill="#f1c9a3" stroke="#a8672b" stroke-width="3"/>`+tx(350,285,n+'L , A / '+n,{s:15,f:TEAL})+tx(350,320,'R₂ = '+fm(R)+' Ω',{s:17,w:800,f:ORANGE});
+    s+=arr(150,128,150,196,GRAY,3);
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips"><div class="chip"><div class="k">الطول</div><div class="v">× ${fm(n)}</div></div><div class="chip"><div class="k">المساحة</div><div class="v">÷ ${fm(n)}</div></div><div class="chip"><div class="k">المقاومة</div><div class="v">× ${fm(n*n)} = ${fm(R)} Ω</div></div></div>
+    <ul class="steps"><li>${num('R′ = ρ ( n L ) / ( A / n ) = n² R')}</li><li>${num('R′ = '+fm(n)+'² × 10 = '+fm(R)+' Ω')}</li></ul>
+    <p class="rule"><b>اربط بالدرس:</b> عند كلمة «مُدّ» أو «سُحب» يبقى الحجم ثابتًا: الطول يزداد والمساحة تقل، فتتناسب المقاومة مع مربع الطول.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const S={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: V = W / Q، والقوة الدافعة وفرق الجهد، R = ρ L / A، ومقارنة الأسلاك، والسحب، ودرجة الحرارة.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق قبل الضغط على الخيار.','ركّز على التعليل بعد الإجابة: يربط الجواب بقاعدة الدرس.','كرّر حتى يتقن تحويل الوحدات (mm² و μm) وإيجاد A من القطر.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const N=t=>`<span class="num">${t}</span>`;
+  const mk=(q,right,wrongs,why)=>({q,opts:[right,...wrongs],ans:0,why});
+  const U=(x,u)=>N(fm(x)+' '+u);
+  const GEN=[
+    ()=>{const Q=rnd(2,9)*10,V=rnd(2,12),Wd=V*Q;return mk(`يمرّ ${N(Q+' C')} من الشحنة عبر مكوّن فيحوّل طاقة ${N(Wd+' J')}. ما فرق الجهد عبر المكوّن؟`,U(V,'V'),[U(Q*Wd,'V'),U(Q/Wd,'V'),U(V*10,'V')],`V = W / Q = ${N(Wd+' / '+Q+' = '+V+' V')}.`)},
+    ()=>{const V=rnd(2,12),Q=rnd(2,9)*5,Wd=V*Q;return mk(`فرق الجهد عبر مصباح ${N(V+' V')} وقد مرّت فيه شحنة ${N(Q+' C')}. ما الطاقة المحوّلة فيه؟`,U(Wd,'J'),[U(V/Q,'J'),U(Q/V,'J'),U(Wd*2,'J')],`W = V Q = ${N(V+' × '+Q+' = '+Wd+' J')}.`)},
+    ()=>{const Wd=rnd(2,9)*12,Q=rnd(2,6)*6,e=Wd/Q;return mk(`يبذل مصدر شغلًا ${N(Wd+' J')} لتحريك شحنة ${N(Q+' C')} حول دائرة كاملة. ما القوة الدافعة للمصدر؟`,U(e,'V'),[U(Wd*Q,'V'),U(Q/Wd,'V'),U(e*2,'V')],`ε = W / Q = ${N(Wd+' / '+Q+' = '+fm(e)+' V')}.`)},
+    ()=>{const E=rnd(3,6)*3,R1=rnd(1,4)*10,R2=rnd(1,4)*10,I=E/(R1+R2),V2=I*R2;return mk(`بطارية ${N(E+' V')} ومقاومتها الداخلية مهملة وُصلت بمقاومتين على التوالي ${N(R1+' Ω')} و${N(R2+' Ω')}. كم جولًا ينقل كل كولوم إلى المقاومة ${N(R2+' Ω')}؟`,U(V2,'J'),[U(E,'J'),U(I,'J'),U(V2*R2,'J')],`I = ${N(E+' / '+(R1+R2)+' = '+fm(I)+' A')} ثم V = I R = ${N(fm(V2)+' V')} أي ${N(fm(V2)+' J')} لكل كولوم.`)},
+    ()=>{const m=['cu','al','mn','eu'][rnd(0,3)],L=rnd(1,5),d=rnd(2,8)/10,rho=MAT[m][1],A=Math.PI*(d*5e-4)**2,R=rho*L/A;return mk(`سلك من ${MAT[m][0]} (ρ = ${N(sci(rho,2)+' Ω m')}) طوله ${N(L+' m')} وقطره ${N(d+' mm')}. ما مقاومته؟`,U(R,'Ω'),[U(R*4,'Ω'),U(R/4,'Ω'),U(R*1e3,'Ω')],`A = π r² = ${N(sci(A,2)+' m²')} ثم R = ρ L / A = ${N(fm(R,3)+' Ω')}.`)},
+    ()=>{const a=[2,3,4][rnd(0,2)],b=[2,3][rnd(0,1)],f=a/(b*b);return mk(`سلكان من المادة نفسها: الثاني طوله ${N(a+'L')} ونصف قطره ${N(b+'r')} بالنسبة إلى الأول. نسبة مقاومة الثاني إلى الأول:`,N(fm(f,3)),[N(fm(a*b*b,3)),N(fm(a*b,3)),N(fm(b*b/a,3))],`R تتناسب مع L / r² فالنسبة ${N(a+' / '+b+'² = '+fm(f,3))}.`)},
+    ()=>{const n=[2,3,4][rnd(0,2)],R=[5,10,12][rnd(0,2)];return mk(`سلك مقاومته ${N(R+' Ω')} سُحب حتى صار طوله ${N(n+' أمثال')} طوله الأصلي مع ثبات حجمه. مقاومته الجديدة:`,U(R*n*n,'Ω'),[U(R*n,'Ω'),U(R/n,'Ω'),U(R/(n*n),'Ω')],`الطول ${N('× '+n)} والمساحة ${N('÷ '+n)} فتصبح R × n² = ${N(R+' × '+n*n+' = '+R*n*n+' Ω')}.`)},
+    ()=>({q:'أي الأجهزة يوصل على التوازي مع المكوّن لقياس فرق الجهد عبره؟',opts:['الفولتميتر','الأميتر','المقاومة المتغيرة','المفتاح'],ans:0,why:'الفولتميتر يوصل على التوازي، والأميتر على التوالي.'}),
+    ()=>({q:'أي العبارات صحيحة عن بطارية مقاومتها الداخلية غير مهملة وفيها تيار؟',opts:['فرق الجهد بين قطبيها أقل من القوة الدافعة','فرق الجهد بين قطبيها يساوي القوة الدافعة دائمًا','القوة الدافعة أصغر من فرق الجهد بين القطبين','لا تتحول طاقة داخل البطارية'],ans:0,why:'V = ε − I r فيقل فرق الجهد عن القوة الدافعة'}),
+    ()=>({q:'تعتمد المقاومة النوعية لمادة موصلة على:',opts:['نوع المادة ودرجة حرارتها','طول السلك فقط','مساحة المقطع فقط','الطول والمساحة معًا'],ans:0,why:'المقاومة النوعية خاصية للمادة وتتغير بدرجة الحرارة.'}),
+    ()=>({q:'ماذا يحدث لمقاومة سلك فلزي ومقاومته النوعية عند ارتفاع درجة حرارته؟',opts:['كلتاهما تزداد','كلتاهما تقل','R تزداد وρ ثابتة','R ثابتة وρ تزداد'],ans:0,why:'تزداد تصادمات الإلكترونات بالأيونات المهتزة فتزداد المقاومة والمقاومة النوعية.'}),
+    ()=>({q:'أي العلاقات صحيحة لوحدة الفولت؟',opts:['1 V = 1 J C⁻¹','1 V = 1 C J⁻¹','1 V = 1 A s','1 V = 1 J A⁻¹'],ans:0,why:'V = W / Q فوحدته جول لكل كولوم.'}),
+    ()=>({q:'ما وحدة المقاومة النوعية؟',opts:['Ω m','Ω m⁻¹','Ω','Ω m²'],ans:0,why:'ρ = R A / L فوحدتها Ω m² / m = Ω m.'}),
+  ];
+  function next(){
+    let g,tries=0;do{g=GEN[Math.floor(Math.random()*GEN.length)]();tries++}while(new Set(g.opts).size<g.opts.length&&tries<20);const idx=shuf(g.opts.map((_,i)=>i));
+    S.cur={q:g.q,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans),why:g.why};S.done=false;
+    svg.innerHTML=tx(350,170,'السؤال '+(S.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${S.cur.q}</p><div class="opts">${S.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(S.done)return;S.done=true;S.n++;const i=+b.dataset.i,right=i===S.cur.ans;if(right)S.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===S.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${S.cur.why}</p>`;
+      $('qn').textContent=S.n;$('qk').textContent=S.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{S.n=0;S.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+openTab('pd');
+</script>
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

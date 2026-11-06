@@ -1,0 +1,326 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر التسارع والرسوم البيانية — الصف الحادي عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.steps li{overflow-wrap:anywhere}.steps .num,.say .num,.btn .num{white-space:normal}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر التسارع والرسوم البيانية</h1><p class="sub">الوحدة الثالثة: الحركة المتسارعة — معنى التسارع ووحدته، تسارع أم تباطؤ، ميل منحنى (السرعة – الزمن)، المساحة والإزاحة، قطرات الزيت</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|]*[0-9A-Za-z%²³¹₀-₉)]|[0-9A-Za-zΔ½²³])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='acc';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['acc','معنى التسارع'],['slope','الميل = التسارع'],['area','المساحة = الإزاحة'],['oil','قطرات الزيت'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({acc:tabAcc,slope:tabSlope,area:tabArea,oil:tabOil,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)).replace("-","−"),f1b=x=>String(+(+x).toFixed(1)).replace("-","−");
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+const PURPLE='#8a3aa8',TEAL='#1c8f95';
+const U1='m s⁻¹',U2='m s⁻²';
+/* graph frame: returns svg string and the X / Y mappers */
+function G(gx,gy,gw,gh,tmax,vmin,vmax,tt,vv){
+  const X=t=>gx+t/tmax*gw,Y=v=>gy+gh-(v-vmin)/(vmax-vmin)*gh;
+  let s=`<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" fill="none" stroke="${GRAY}" stroke-width="1.2"/>`;
+  vv.forEach(v=>{s+=`<line x1="${gx}" y1="${Y(v)}" x2="${gx+gw}" y2="${Y(v)}" stroke="${GRAY}" stroke-width="${v===0?2:.8}" opacity="${v===0?.9:.3}"/>`+tx(gx-5,Y(v)+4,String(v),{s:10,a:'end',f:GRAY})});
+  tt.forEach(t=>{s+=`<line x1="${X(t)}" y1="${gy}" x2="${X(t)}" y2="${gy+gh}" stroke="${GRAY}" stroke-width=".8" opacity=".22"/>`+tx(X(t),gy+gh+14,String(t),{s:10,f:GRAY})});
+  s+=tx(gx+gw/2,gy+gh+30,'t (s)',{s:11,f:GRAY})+tx(gx+4,gy-6,'v (m s⁻¹)',{s:11,f:GRAY,a:'start'});
+  return {svg:s,X,Y};
+}
+const nice=(max,n)=>{const raw=max/n,p=Math.pow(10,Math.floor(Math.log10(raw))),m=raw/p,st=(m<=1?1:m<=2?2:m<=5?5:10)*p;const a=[];for(let v=0;v<=max+1e-9;v+=st)a.push(+v.toFixed(4));return a};
+const poly=(pts,X,Y)=>pts.map(p=>X(p[0])+','+Y(p[1])).join(' ');
+const sgn=x=>x>0?'+':x<0?'−':'';
+const fixT=t=>String(t).replace(/(−?\+?\d+(?:\.\d+)?(?: ?(?:m s⁻[¹²]|km h⁻¹|m|s)(?![A-Za-z]))?)/g,'<span class="num">$1</span>');
+const kindOf=(a,v)=>a===0?['لا يوجد تسارع: السرعة المتجهة ثابتة',GRAY]:(v*a>0?['تسارع تزايدي: السرعة تزداد',GREEN]:v*a<0?['تباطؤ (تسارع تناقصي): السرعة تقل',RED]:['السرعة صفر لحظيًا',ORANGE]);
+
+/* =====================================================================
+   1) معنى التسارع: السرعة تتغير بمقدار ثابت كل ثانية
+   ===================================================================== */
+function tabAcc(){
+  const W={u:0,a:2,T:8,clk:0};
+  ctrl.innerHTML=slider('u','السرعة الابتدائية u',-10,30,1,W.u,U1)+slider('a','التسارع a',-6,6,.5,W.a,U2)+slider('T','زمن الحركة t',2,10,1,W.T,'s')+`<div class="btns"><button class="btn primary" id="rst">أعد التشغيل</button></div><div><p class="gt">أمثلة جاهزة</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['ابدأ بحالة «من السكون»: u = 0 وa = 2 فتزداد السرعة 2 m s⁻¹ في كل ثانية، وهذا هو معنى المعدل.','اجعل a = 0: لا تتغير الأعمدة، فلا يوجد تسارع لأن السرعة ثابتة.','اجعل a سالبًا مع u موجبة: الأعمدة تقصر، وهذا هو التباطؤ، ثم تنعكس إشارة السرعة إذا استمر التسارع.','اختبر الطالب: ماذا نقصد بقولنا إن تسارع العدّاء 5 m s⁻²؟ (ضع a = 5 وراقب كل ثانية).','اربط القانون a = ( v − u ) / t بالأعمدة: فرق عمودين مقسومًا على الزمن بينهما.']);
+  [['u',U1],['a',U2],['T','s']].forEach(([k,u])=>bindSlider(k,u,v=>{W[k]=v;W.clk=0;render()}));
+  $('rst').onclick=()=>{W.clk=0};
+  const pre=[['سيارة من السكون: 2.0 m s⁻²',{u:0,a:2,T:8}],['عدّاء: 5 m s⁻²',{u:0,a:5,T:6}],['فرملة: من 23 بتباطؤ 0.6',{u:23,a:-.5,T:10}],['سرعة ثابتة 10 m s⁻¹',{u:10,a:0,T:8}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${fixT(p[0])}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;Object.assign(W,pre[b.dataset.i][1]);const un={u:U1,a:U2,T:'s'};['u','a','T'].forEach(k=>{$(k).value=W[k];$(k+'_o').textContent=W[k]+' '+un[k]});W.clk=0;render()};
+  const pos=t=>W.u*t+.5*W.a*t*t,vel=t=>W.u+W.a*t;
+  function render(){
+    const T=W.T,t=Math.min(W.clk,T),v=vel(t),vT=vel(T);
+    let s='';
+    const xs=Array.from({length:41},(_,i)=>pos(T*i/40)),mn=Math.min(0,...xs),mx=Math.max(1,...xs),rg=Math.max(mx-mn,10),k=520/rg,px=p=>90+(p-mn)*k;
+    s+=`<line x1="40" y1="88" x2="660" y2="88" stroke="${GRAY}" stroke-width="4"/>`;
+    for(let i=0;i<=4;i++){const p=mn+rg*i/4;s+=`<line x1="${px(p)}" y1="88" x2="${px(p)}" y2="96" stroke="${GRAY}" stroke-width="2"/>`+tx(px(p),112,f1b(p)+' m',{s:10,f:GRAY})}
+    s+=carSvg(px(pos(t)),84,.5,'#4e86d6')+tx(px(pos(t)),22,'v = '+f1b(v)+' '+U1,{s:13,f:GREEN});
+    // speed bars once per second
+    const vm=Math.max(1,Math.abs(W.u),Math.abs(vT)),y0=230,sc=62/vm,bw=Math.min(38,480/(T+1)-8),x0=90,hasNeg=Math.min(W.u,vT)<0,labY=hasNeg?y0+82:y0+18;
+    s+=`<line x1="60" y1="${y0}" x2="660" y2="${y0}" stroke="${GRAY}" stroke-width="2"/>`+tx(70,y0-88,'v ('+U1+')',{s:11,f:GRAY,a:'start'});
+    for(let i=0;i<=T;i++){const vi=vel(i),h=vi*sc,x=x0+i*(520/T)-bw/2,on=i<=t+1e-9;
+      s+=`<rect x="${x}" y="${vi>=0?y0-h:y0}" width="${bw}" height="${Math.abs(h)}" rx="3" fill="${vi>=0?BLUE:RED}" opacity="${on?.9:.22}"/>`+tx(x+bw/2,vi>=0?y0-h-5:y0-h+14,f1b(vi),{s:10,f:on?'currentColor':GRAY})+tx(x+bw/2,labY,String(i),{s:10,f:GRAY})}
+    s+=tx(350,labY+20,'الزمن t (s)',{s:11,f:GRAY});
+    if(W.a!==0&&T>=2){const i=1,x1=x0+i*(520/T),x2=x0+2*(520/T),y1=y0-vel(1)*sc,y2=y0-vel(2)*sc;s+=arr(x1+bw/2+4,y1-14,x2-bw/2-4,y2-14,ORANGE,3)+tx((x1+x2)/2,Math.min(y1,y2)-24,'Δv = '+f1b(W.a)+' '+U1,{s:11,f:ORANGE})}
+    svg.innerHTML=s;
+    const kd=kindOf(W.a,v);
+    info.innerHTML=`<div class="chips">${chip('السرعة الحالية v',f1b(v)+' '+U1)}${chip('التسارع a',f1b(W.a)+' '+U2)}${chip('الإزاحة S',f1b(pos(t))+' m')}${chip('الزمن',f1b(t)+' s')}</div><p class="say" style="border-right:5px solid ${kd[1]}">${kd[0]}</p><ul class="steps"><li>${num('a = ( v − u ) / t = ( '+f1b(vT)+' − '+f1b(W.u)+' ) / '+T+' = '+f1b((vT-W.u)/T)+' '+U2)}</li><li>${W.a===0?'السرعة لا تتغير أبدًا.':'تتغير السرعة المتجهة بمقدار '+num(f1b(Math.abs(W.a))+' '+U1)+' في كل ثانية '+(W.a>0?'(زيادة)':'(نقصان)')+'.'}</li></ul><p class="rule"><b>اربط بالدرس:</b> التسارع هو معدل تغير السرعة المتجهة، ووحدته ${num(U2)}.</p>`;
+  }
+  tick=dt=>{W.clk+=dt*.9;if(W.clk>W.T+.9)W.clk=0;render()};
+  render();
+}
+
+/* =====================================================================
+   2) الميل = التسارع (خط مستقيم، منحنى ومماس)
+   ===================================================================== */
+function tabSlope(){
+  const W={mode:'line',u:2,a:1.5,t1:2,t2:6,tp:4};
+  function ui(){
+    ctrl.innerHTML=seg('mode',[['line','خط مستقيم'],['curve','منحنى ومماس']],W.mode)+(W.mode==='line'?slider('u','السرعة الابتدائية u',0,20,1,W.u,U1)+slider('a','التسارع a (الميل)',-3,3,.25,W.a,U2)+slider('t1','النقطة الأولى t₁',0,8,1,W.t1,'s')+slider('t2','النقطة الثانية t₂',1,10,1,W.t2,'s'):slider('tp','النقطة P عند t',1,6,.5,W.tp,'s')+`<p class="gt">المنحنى: v = 0.5 t²</p>`);
+    bindSeg('mode',k=>{W.mode=k;ui();render()});
+    if(W.mode==='line'){[['u',U1],['a',U2],['t1','s'],['t2','s']].forEach(([k,u])=>bindSlider(k,u,v=>{W[k]=v;if(W.t2<=W.t1){if(k==='t2'){W.t1=W.t2-1;$('t1').value=W.t1;$('t1_o').textContent=W.t1+' s'}else{W.t2=W.t1+1;$('t2').value=W.t2;$('t2_o').textContent=W.t2+' s'}}render()}))}
+    else bindSlider('tp','s',v=>{W.tp=v;render()});
+  }
+  setTalk(['غيّر النقطتين t₁ وt₂ على الخط المستقيم: يبقى ميل الخط (التسارع) كما هو مهما اخترت النقطتين.','اجعل a موجبًا ثم صفرًا ثم سالبًا: الخط يميل لأعلى ثم يصير أفقيًا ثم يميل لأسفل.','كلما زاد الميل زاد التسارع: ضع a = 3 ثم a = 1.','في وضع المنحنى: المماس عند P يغيّر ميله، أي أن التسارع متغير، ونحسب التسارع عند لحظة بميل المماس.','تذكير: ميل منحنى (الإزاحة – الزمن) يمثل السرعة المتجهة، لا التسارع.']);
+  function render(){
+    let s='',h='';
+    if(W.mode==='line'){
+      const T=10,vf=t=>W.u+W.a*t,vs=[vf(0),vf(T),0],vmin=Math.min(...vs)-2,vmax=Math.max(...vs)+3;
+      const g=G(80,30,560,250,T,vmin,vmax,nice(10,5),[...new Set([...nice(Math.max(1,vmax),4).map(Math.round),0,...(vmin<0?[Math.round(vmin)]:[])])]);s+=g.svg;
+      s+=`<line x1="${g.X(0)}" y1="${g.Y(vf(0))}" x2="${g.X(T)}" y2="${g.Y(vf(T))}" stroke="${BLUE}" stroke-width="4"/>`;
+      const a=W.t1,b=W.t2,va=vf(a),vb=vf(b);
+      s+=`<line x1="${g.X(a)}" y1="${g.Y(va)}" x2="${g.X(b)}" y2="${g.Y(va)}" stroke="${ORANGE}" stroke-width="3"/><line x1="${g.X(b)}" y1="${g.Y(va)}" x2="${g.X(b)}" y2="${g.Y(vb)}" stroke="${GREEN}" stroke-width="3"/>`+tx((g.X(a)+g.X(b))/2,g.Y(va)+(vb>=va?18:-8),'Δt = '+f1b(b-a)+' s',{s:12,f:ORANGE})+tx(g.X(b)+8,(g.Y(va)+g.Y(vb))/2,'Δv = '+f1b(vb-va),{s:12,f:GREEN,a:'start'});
+      [[a,va,'1'],[b,vb,'2']].forEach(([t,v,n])=>{s+=`<circle cx="${g.X(t)}" cy="${g.Y(v)}" r="6" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g.X(t)-14,g.Y(v)-10,'P'+n,{s:12})});
+      svg.innerHTML=s;
+      const d=vb-va,dt=b-a,aa=d/dt;
+      const kd=W.a>0?'الميل موجب: تسارع ثابت موجب':W.a<0?'الميل سالب: تباطؤ (إذا كانت السرعة موجبة)':'الخط أفقي: لا يوجد تسارع';
+      h=`<div class="chips">${chip('Δv = v₂ − v₁',f2(d)+' '+U1)}${chip('Δt = t₂ − t₁',f2(dt)+' s')}${chip('التسارع a = الميل',f2(aa)+' '+U2)}</div><p class="say ok">${kd}</p><ul class="steps"><li>${num('a = ( v₂ − v₁ ) / ( t₂ − t₁ )')}</li><li>${num('a = ( '+f2(vb)+' − '+f2(va)+' ) / ( '+b+' − '+a+' ) = '+f2(aa)+' '+U2)}</li></ul><p class="rule"><b>اربط بالدرس:</b> ميل الخط المستقيم في منحنى (السرعة المتجهة – الزمن) يساوي التسارع، ونحسبه من نقطتين.</p>`;
+    }else{
+      const T=6,vmax=19,g=G(80,30,560,250,T,0,vmax,[1,2,3,4,5,6],[0,4,8,12,16]);s+=g.svg;
+      const pts=[];for(let i=0;i<=60;i++){const t=T*i/60;pts.push([t,.5*t*t])}
+      s+=`<polyline points="${poly(pts,g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/>`;
+      const tp=W.tp,vp=.5*tp*tp,sl=tp,ta=Math.max(0,tp-1.6),tb=Math.min(T,tp+1.6),ya=vp+sl*(ta-tp),yb=vp+sl*(tb-tp);
+      s+=`<line x1="${g.X(ta)}" y1="${g.Y(Math.max(0,ya))}" x2="${g.X(tb)}" y2="${g.Y(Math.min(vmax,yb))}" stroke="${ORANGE}" stroke-width="3.2" stroke-dasharray="8 5"/>`;
+      const t1=Math.max(0,tp-1),t2=Math.min(T,tp+1),v1=vp+sl*(t1-tp),v2=vp+sl*(t2-tp);
+      s+=`<circle cx="${g.X(tp)}" cy="${g.Y(vp)}" r="6.5" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g.X(tp)+16,g.Y(vp)+24,'P',{s:14})+`<line x1="${g.X(tp)}" y1="${g.Y(vp)}" x2="${g.X(tp)}" y2="${g.Y(0)}" stroke="${GREEN}" stroke-width="1.6" stroke-dasharray="3 4"/>`;
+      svg.innerHTML=s;
+      h=`<div class="chips">${chip('السرعة عند P',f2(vp)+' '+U1)}${chip('ميل المماس = التسارع عند P',f2(sl)+' '+U2)}</div><p class="say">المنحنى ليس خطًا مستقيمًا، فيتغير ميله من نقطة لأخرى، أي أن التسارع متغير.</p><ul class="steps"><li>نرسم المماس للمنحنى عند P ونختار نقطتين عليه:</li><li>${num('( '+f1b(t1)+' s , '+f2(v1)+' '+U1+' )')} و ${num('( '+f1b(t2)+' s , '+f2(v2)+' '+U1+' )')}</li><li>${num('a = ( '+f2(v2)+' − '+f2(v1)+' ) / ( '+f1b(t2)+' − '+f1b(t1)+' ) = '+f2(sl)+' '+U2)}</li></ul><p class="rule"><b>اربط بالدرس:</b> التسارع عند نقطة على منحنى يساوي ميل المماس عند تلك النقطة.</p>`;
+    }
+    info.innerHTML=h;
+  }
+  ui();render();
+}
+
+/* =====================================================================
+   3) المساحة تحت المنحنى = الإزاحة
+   ===================================================================== */
+function tabArea(){
+  const W={v1:36,t1:6,t2:9,t3:9,vf:0,clk:0};
+  ctrl.innerHTML=slider('v1','السرعة القصوى v',10,40,2,W.v1,U1)+slider('t1','زمن التسارع من السكون',2,12,1,W.t1,'s')+slider('t2','زمن السرعة الثابتة',0,12,1,W.t2,'s')+slider('t3','زمن المرحلة الأخيرة',2,12,1,W.t3,'s')+slider('vf','السرعة في نهاية المرحلة الأخيرة',-20,40,2,W.vf,U1)+`<div><p class="gt">أمثلة جاهزة من الدرس</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['اجعل المرحلة الثالثة تنتهي عند السرعة صفر: المساحات مثلث ومستطيل ومثلث، وهذا مثال الدرس: 108 m و324 m و162 m.','اجعل زمن السرعة الثابتة صفرًا فيصبح الشكل مثلثًا كاملًا كمثال السيارة A وB وC.','اجعل السرعة النهائية سالبة: تظهر مساحة تحت المحور (حمراء) فتُحسب إزاحة سالبة، وتختلف الإزاحة عن المسافة.','السرعة المتوسطة = المسافة الكلية ÷ الزمن الكلي، أما السرعة المتجهة المتوسطة = الإزاحة ÷ الزمن.','اطلب من الطالب أن يحسب كل مساحة بيده قبل أن يقرأ النتيجة.']);
+  const un={v1:U1,t1:'s',t2:'s',t3:'s',vf:U1};
+  ['v1','t1','t2','t3','vf'].forEach(k=>bindSlider(k,un[k],v=>{W[k]=v;render()}));
+  const pre=[['مثال الدرس: 36 ثم ثابتة ثم 0',{v1:36,t1:6,t2:9,t3:9,vf:0}],['مثلث A وB وC',{v1:12,t1:2,t2:0,t3:3,vf:0}],['مستطيل ومثلث (3 s)',{v1:14,t1:0.5,t2:0,t3:2.5,vf:0}],['انعكاس الاتجاه',{v1:12,t1:3,t2:0,t3:7,vf:-4}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${fixT(p[0])}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;Object.assign(W,pre[b.dataset.i][1]);['v1','t1','t2','t3','vf'].forEach(k=>{$(k).value=W[k];$(k+'_o').textContent=W[k]+' '+un[k]});render()};
+  function render(){
+    const {v1,t1,t2,t3,vf}=W,T=t1+t2+t3,ts2=t1+t2;
+    const vmin=Math.min(0,vf)-3,vmax=v1+6;
+    const g=G(80,24,570,250,T,vmin,vmax,nice(T,8),[...new Set([...nice(vmax,4).map(Math.round),0,Math.round(vmin+3)])]);let s=g.svg;
+    const fill=(pts,c,o)=>`<polygon points="${poly(pts,g.X,g.Y)}" fill="${c}" opacity="${o||.3}"/>`;
+    const S1=.5*t1*v1,S2=t2*v1;let S3,D3,S3p=0,S3n=0,tz=null;
+    if(vf>=0){S3=.5*(v1+vf)*t3;D3=S3}else{tz=t3*v1/(v1-vf);S3p=.5*v1*tz;S3n=-.5*(-vf)*(t3-tz);S3=S3p+S3n;D3=S3p-S3n}
+    s+=fill([[0,0],[t1,v1],[t1,0]],ORANGE,.32)+(t2>0?fill([[t1,0],[t1,v1],[ts2,v1],[ts2,0]],TEAL,.3):'');
+    if(vf>=0)s+=fill([[ts2,0],[ts2,v1],[T,vf],[T,0]],GREEN,.3);
+    else s+=fill([[ts2,0],[ts2,v1],[ts2+tz,0]],GREEN,.3)+fill([[ts2+tz,0],[T,vf],[T,0]],RED,.3);
+    s+=`<polyline points="${poly([[0,0],[t1,v1],[ts2,v1],[T,vf]],g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4" stroke-linejoin="round"/>`;
+    s+=tx(g.X(t1*.62),g.Y(v1*.3),'S₁',{s:14,f:ORANGE});if(t2>0)s+=tx(g.X(t1+t2/2),g.Y(v1/2),'S₂',{s:14,f:TEAL});
+    s+=tx(g.X(ts2+(vf>=0?t3*.35:tz*.3)),g.Y(vf>=0?(v1+vf)*.3:v1*.3),'S₃',{s:14,f:GREEN});if(vf<0)s+=tx(g.X(ts2+tz+(t3-tz)*.6),g.Y(vf*.3),'S₄',{s:14,f:RED});
+    svg.innerHTML=s;
+    const disp=S1+S2+S3,dist=S1+S2+D3,a1=v1/t1,a3=(vf-v1)/t3;
+    info.innerHTML=`<div class="chips">${chip('الإزاحة الكلية',f2(disp)+' m')}${chip('المسافة الكلية',f2(dist)+' m')}${chip('السرعة المتوسطة (مسافة ÷ زمن)',f2(dist/T)+' '+U1)}${chip('الزمن الكلي',f2(T)+' s')}</div><ul class="steps"><li>${num('(1)  a = '+f2(v1)+' / '+t1+' = '+f2(a1)+' '+U2+'   ،   S₁ = ½ × '+t1+' × '+f2(v1)+' = '+f2(S1)+' m')}</li>${t2>0?`<li>${num('(2)  a = 0   ،   S₂ = '+t2+' × '+f2(v1)+' = '+f2(S2)+' m')}</li>`:''}<li>${num('(3)  a = ( '+f2(vf)+' − '+f2(v1)+' ) / '+t3+' = '+f2(a3)+' '+U2+'   ،   '+(vf>=0?'S₃ = ½ × ( '+f2(v1)+' + '+f2(vf)+' ) × '+t3+' = '+f2(S3)+' m':'S₃ = +'+f2(S3p)+' m   ،   S₄ = '+f2(S3n)+' m'))}</li><li>${num('S = '+[S1,t2>0?S2:null,vf>=0?S3:S3p,vf<0?S3n:null].filter(x=>x!==null).map(x=>f2(x)).join(' + ')+' = '+f2(disp)+' m')}</li></ul>${vf<0?`<p class="say">المساحة الحمراء تحت محور الزمن إزاحة سالبة، لذلك تختلف الإزاحة (${num(f2(disp)+' m')}) عن المسافة (${num(f2(dist)+' m')}).</p>`:`<p class="say ok">الإزاحة = مجموع المساحات: كل شكل يُحسب بقانونه (مستطيل، مثلث، شبه منحرف).</p>`}<p class="rule"><b>اربط بالدرس:</b> الإزاحة = المساحة بين المنحنى ومحور الزمن، والسرعة المتوسطة = المسافة الكلية ÷ الزمن الكلي.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) قطرات الزيت: المسافات بين القطرات تدل على الحركة
+   ===================================================================== */
+function tabOil(){
+  const W={u:2,a:2,clk:0};const T=8;
+  ctrl.innerHTML=slider('u','السرعة الابتدائية u',0,20,1,W.u,U1)+slider('a','التسارع a',-3,3,.5,W.a,U2)+`<div class="btns"><button class="btn primary" id="rst">أعد التشغيل</button></div><div><p class="gt">حالات جاهزة</p><div class="btns" id="pre"></div></div>`;
+  setTalk(['تسقط قطرة زيت كل ثانية من الشاحنة، فالمسافة بين قطرتين متتاليتين تساوي المسافة التي قطعتها الشاحنة في ثانية واحدة.','المسافات تزداد: السرعة تزداد، فالحركة متسارعة.','المسافات متساوية: السرعة ثابتة ولا يوجد تسارع.','المسافات تقل: السرعة تتناقص، فالحركة متباطئة.','هذا هو نمط سؤال الامتحان: وصف الحركة من المسافات بين القطرات مع التفسير بأن الأزمنة متساوية.']);
+  const un={u:U1,a:U2};
+  ['u','a'].forEach(k=>bindSlider(k,un[k],v=>{W[k]=v;W.clk=0;render()}));
+  $('rst').onclick=()=>{W.clk=0};
+  const pre=[['تتسارع',{u:2,a:2}],['سرعة ثابتة',{u:10,a:0}],['تتباطأ',{u:16,a:-2}]];
+  $('pre').innerHTML=pre.map((p,i)=>`<button class="btn small" data-i="${i}">${p[0]}</button>`).join('');
+  $('pre').onclick=e=>{const b=e.target.closest('button');if(!b)return;Object.assign(W,pre[b.dataset.i][1]);['u','a'].forEach(k=>{$(k).value=W[k];$(k+'_o').textContent=W[k]+' '+un[k]});W.clk=0;render()};
+  const tstop=W2=>W2.a<0?Math.min(T,W2.u/(-W2.a)):T;
+  const S=t=>{const ts=tstop(W),tt=Math.min(t,ts);return W.u*tt+.5*W.a*tt*tt};
+  function render(){
+    const t=Math.min(W.clk,T),smax=Math.max(S(T),10),k=560/smax,px=p=>60+p*k;
+    let s=`<line x1="30" y1="150" x2="680" y2="150" stroke="${GRAY}" stroke-width="5"/>`;
+    const gaps=[];for(let i=0;i<T;i++)gaps.push(S(i+1)-S(i));
+    for(let i=0;i<=T;i++){if(i<=t){s+=`<circle cx="${px(S(i))}" cy="140" r="7" fill="#444" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(px(S(i)),176,String(i),{s:11,f:GRAY});if(i>0&&gaps[i-1]>0.2){const x1=px(S(i-1)),x2=px(S(i));s+=`<line x1="${x1+8}" y1="112" x2="${x2-8}" y2="112" stroke="${ORANGE}" stroke-width="2"/>`+tx((x1+x2)/2,100,f1b(gaps[i-1]),{s:10,f:ORANGE})}}}
+    s+=carSvg(px(S(t)),138,.5,'#d9783b');
+    s+=tx(350,230,'الأرقام تحت القطرات: الزمن بالثواني — الأرقام فوقها: المسافة بين قطرتين بالمتر',{s:12,f:GRAY});
+    s+=tx(350,260,'المسافة بين قطرتين = ما قطعته الشاحنة في ثانية واحدة',{s:13});
+    svg.innerHTML=s;
+    const g0=gaps.filter(x=>x>0.2),inc=g0.length>1&&g0[g0.length-1]>g0[0]+.2,dec=g0.length>1&&g0[g0.length-1]<g0[0]-.2;
+    const verdict=W.a===0?['المسافات متساوية: السرعة ثابتة ولا يوجد تسارع.',GRAY]:W.a>0?['المسافات تزداد: السرعة تزداد، فالحركة متسارعة.',GREEN]:['المسافات تقل: السرعة تتناقص، فالحركة متباطئة.',RED];
+    info.innerHTML=`<div class="chips">${chip('السرعة الحالية',f1b(Math.max(0,W.u+W.a*Math.min(t,tstop(W))))+' '+U1)}${chip('التسارع',f1b(W.a)+' '+U2)}${chip('أول مسافة',f1b(gaps[0])+' m')}${chip('آخر مسافة',f1b(g0.length?g0[g0.length-1]:0)+' m')}</div><p class="say" style="border-right:5px solid ${verdict[1]}">${verdict[0]}</p><p class="rule"><b>التفسير في الامتحان:</b> الفاصل الزمني بين القطرات متساوٍ، والمسافات ${W.a===0?'متساوية':W.a>0?'متزايدة':'متناقصة'}، لذلك ${W.a===0?'السرعة ثابتة':W.a>0?'تزداد السرعة':'تتناقص السرعة'}.</p>`;
+  }
+  tick=dt=>{W.clk+=dt*1.1;if(W.clk>T+1)W.clk=0;render()};
+  render();
+}
+
+/* =====================================================================
+   5) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: حساب التسارع، نوعه، قراءة الميل والمساحة من الرسم، تحويل الوحدات.</p>`;
+  setTalk(['اطلب من الطالب أن يحسب بيده قبل أن يرى الخيارات.','في أسئلة الرسم: الميل للتسارع والمساحة للإزاحة.','ركّز على إشارة التسارع ووحدته m s⁻².','كرّر حتى يتقن الطالب الأنواع كلها.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const uniq=a=>[...new Set(a)];
+  const numOpts=(c,w,unit)=>{let o=uniq([c,...w].map(x=>+(+x).toFixed(2)));let i=1;while(o.length<4){o.push(+(c+i*Math.max(1,Math.abs(c)*.25)).toFixed(2));o=uniq(o);i++}return o.slice(0,4).map(x=>f2(x)+' '+unit)};
+  const fixN=t=>String(t).replace(/(−?\+?\d+(?:\.\d+)?(?: ?(?:m s⁻[¹²]|km h⁻¹|m|s)(?![A-Za-z]))?|a = Δv \/ Δt|v = u \+ a t|S = ½ t v)/g,'<span class="num">$1</span>');
+  let drawFn=null;
+  const GEN=[
+    ()=>{let u,a,t,v;do{u=pick([0,4,8,12,20]);a=pick([-4,-3,-2,2,3,4,5]);t=pick([2,3,4,5,6,8]);v=u+a*t}while(v<0);return {q:`تتغير سرعة سيارة من ${u} m s⁻¹ إلى ${v} m s⁻¹ خلال ${t} s. تسارعها يساوي:`,c:a,w:[-a,(v-u)*t,v/t],unit:U2,why:`a = ( v − u ) / t = ( ${v} − ${u} ) / ${t} = ${f2(a)} m s⁻².`}},
+    ()=>{const u=pick([0,2,5,10]),a=pick([2,3,4,5]),t=pick([2,3,4,6,8]);const v=u+a*t;return {q:`تتحرك سيارة بتسارع ثابت ${a} m s⁻² من سرعة ${u} m s⁻¹. سرعتها بعد ${t} s تساوي:`,c:v,w:[a*t,u+a,(u+v)/2*t],unit:U1,why:`v = u + a t = ${u} + ${a} × ${t} = ${v} m s⁻¹.`}},
+    ()=>{const X=pick([36,72,108,144]),t=pick([4,5,6,8,10]);const v=X/3.6,a=v/t;return {q:`تنطلق سيارة سباق من السكون وتصل إلى ${X} km h⁻¹ خلال ${t} s. تسارعها يساوي:`,c:a,w:[X/t,v*t,a*3.6],unit:U2,why:`نقسم ${X} على 3.6 فتكون السرعة ${v} m s⁻¹، ثم a = ${v} / ${t} = ${f2(a)} m s⁻².`}},
+    ()=>{const v=pick([6,10,12,16,20]),t=pick([2,3,4,5]);const S=.5*v*t;drawFn=()=>{const g=G(80,24,560,250,t+1,0,v+4,nice(t+1,6),nice(v+4,4).map(Math.round));return g.svg+`<polygon points="${poly([[0,0],[t,v],[t,0]],g.X,g.Y)}" fill="${BLUE}" opacity=".22"/><polyline points="${poly([[0,0],[t,v]],g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/>`};return {q:`تنطلق سيارة من السكون وتتسارع بانتظام فتصل سرعتها إلى ${v} m s⁻¹ بعد ${t} s. الإزاحة التي قطعتها خلال هذه المدة تساوي:`,c:S,w:[v*t,v/t,S*2+v],unit:'m',why:`الإزاحة = مساحة المثلث تحت المنحنى = ½ × ${t} × ${v} = ${f2(S)} m.`}},
+    ()=>{const v1=pick([6,8,10,12]),t1=pick([2,3,4]),t2=pick([2,3,4,5]),t3=pick([2,3,4]);const dist=.5*v1*t1+v1*t2+.5*v1*t3;drawFn=()=>{const T=t1+t2+t3,g=G(80,24,560,250,T,0,v1+4,nice(T,6),nice(v1+4,4).map(Math.round));return g.svg+`<polygon points="${poly([[0,0],[t1,v1],[t1+t2,v1],[T,0]],g.X,g.Y)}" fill="${BLUE}" opacity=".22"/><polyline points="${poly([[0,0],[t1,v1],[t1+t2,v1],[T,0]],g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/>`};return {q:`يوضح الرسم منحنى (السرعة – الزمن) لجسم يتسارع من السكون إلى ${v1} m s⁻¹ خلال ${t1} s، ثم يتحرك بسرعة ثابتة ${t2} s، ثم يتباطأ حتى يتوقف خلال ${t3} s. المسافة الكلية تساوي:`,c:dist,w:[v1*(t1+t2+t3),.5*v1*(t1+t2+t3),dist+v1],unit:'m',why:`نجمع المساحات: ½ × ${t1} × ${v1} + ${t2} × ${v1} + ½ × ${t3} × ${v1} = ${f2(dist)} m.`}},
+    ()=>{const v1=pick([8,12,16,20]),t1=pick([2,4,5]),t2=pick([3,4,5]);const a1=v1/t1,aF=-v1/t2;const first=Math.random()<.5;drawFn=()=>{const T=t1+t2,g=G(80,24,560,250,T,0,v1+4,nice(T,6),nice(v1+4,4).map(Math.round));return g.svg+`<polyline points="${poly([[0,0],[t1,v1],[T,0]],g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/>`};return {q:first?`يوضح الرسم أن سرعة جسم تزداد من 0 إلى ${v1} m s⁻¹ خلال ${t1} s ثم تتناقص إلى 0 بعد ${t2} s أخرى. تسارعه في المرحلة الأولى يساوي:`:`يوضح الرسم أن سرعة جسم تزداد من 0 إلى ${v1} m s⁻¹ خلال ${t1} s ثم تتناقص إلى 0 بعد ${t2} s أخرى. تسارعه في المرحلة الثانية يساوي:`,c:first?a1:aF,w:first?[-a1,v1*t1,v1/t2]:[-aF,aF*-1+1,v1*t2],unit:U2,why:first?`a = الميل = ${v1} / ${t1} = ${f2(a1)} m s⁻².`:`a = الميل = ( 0 − ${v1} ) / ${t2} = ${f2(aF)} m s⁻². الإشارة السالبة تعني تباطؤًا.`}},
+    ()=>{const cases=[['سيارة تنطلق من السكون عند إشارة ضوئية فتزداد سرعتها',0],['دراجة تضغط الفرامل حتى تتوقف',1],['قطار يسير بسرعة ثابتة 30 m s⁻¹ في خط مستقيم',2],['حجر يسقط من حافة جرف',0],['شاحنة تقل سرعتها من 20 m s⁻¹ إلى 12 m s⁻¹',1]];const c=pick(cases);return {q:`ما نوع التسارع في الحالة الآتية: ${c[0]}؟`,opts:['تسارع تزايدي (a موجب)','تسارع تناقصي (تباطؤ)','لا يوجد تسارع (a = 0)','تسارع متغير'],ans:c[1],why:['السرعة تزداد فالتسارع تزايدي.','السرعة تقل فالتسارع تناقصي (تباطؤ).','السرعة ثابتة مقدارًا واتجاهًا فلا يوجد تسارع.'][c[1]],fixed:true}},
+    ()=>pick([{q:'ما الذي يمثله ميل الخط في منحنى (السرعة المتجهة – الزمن)؟',opts:['التسارع','الإزاحة','الزمن','القوة'],ans:0,why:'الميل = Δv / Δt وهو التسارع.',fixed:true},{q:'ما الذي تمثله المساحة تحت منحنى (السرعة المتجهة – الزمن)؟',opts:['الإزاحة','التسارع','السرعة','الزمن'],ans:0,why:'المساحة بين المنحنى ومحور الزمن تساوي الإزاحة.',fixed:true},{q:'ما وحدة التسارع في النظام الدولي؟',opts:['m s⁻²','m s⁻¹','m s','m² s⁻¹'],ans:0,why:'a = Δv / Δt = m s⁻¹ / s = m s⁻².',fixed:true},{q:'عدّاء يتسارع بمقدار 5 m s⁻². هذا يعني أن سرعته:',opts:['تزداد 5 m s⁻¹ كل ثانية','ثابتة 5 m s⁻¹','تزداد 5 m s⁻¹ مرة واحدة','تقطع 5 m كل ثانية'],ans:0,why:'التسارع معدل تغير السرعة، أي التغير في كل ثانية.',fixed:true},{q:'في منحنى (السرعة المتجهة – الزمن) خط أفقي. ماذا نستنتج؟',opts:['السرعة ثابتة والتسارع صفر','التسارع ثابت وموجب','الجسم ساكن دائمًا','التسارع سالب'],ans:0,why:'الخط الأفقي ميله صفر، فالتسارع صفر والسرعة ثابتة.',fixed:true}])
+  ];
+  function next(){
+    drawFn=null;let g=GEN[Math.floor(Math.random()*GEN.length)]();
+    let opts,ans;
+    if(g.fixed){opts=g.opts;ans=g.ans;}else{const o=numOpts(g.c,g.w,g.unit),right=f2(g.c)+' '+g.unit,sh=shuf(o);opts=sh;ans=sh.indexOf(right);if(ans<0){sh[0]=right;ans=0}}
+    Q.cur={...g,opts,ans};Q.done=false;
+    svg.innerHTML=drawFn?drawFn():tx(350,190,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixN(Q.cur.q)}</p><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixN(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixN(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('acc');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

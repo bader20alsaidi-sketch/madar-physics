@@ -161,8 +161,8 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const E=s=>`<span class="eq">${s}</span>`;
 const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
 /* x -> "6.67×10⁻¹¹" */
-function sci(x,sf=3){if(x===0)return'0';const e=Math.floor(Math.log10(Math.abs(x)));let m=x/Math.pow(10,e);let ms=m.toPrecision(sf);
-  if(Math.abs(parseFloat(ms))>=10){return sci(x,sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+function sci(x,sf=3){if(x===0)return'0';let e=Math.floor(Math.log10(Math.abs(x)));let ms=(x/Math.pow(10,e)).toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){e++;ms=(x/Math.pow(10,e)).toPrecision(sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
 const r2=(x,sf=2)=>+x.toPrecision(sf);
 function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
 const G=6.67e-11, ME=6.0e24, RE=6.4e6, PI2=4*Math.PI*Math.PI;
