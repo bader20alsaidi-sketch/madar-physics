@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>رالي مدار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0A19; --surface:#14142A; --surface2:#1B1B36; --line:#2D2D52;
+  --ink:#EEF0FF; --muted:#9EA3C8;
+  --sun:#FFB547; --sun-ink:#2A1A00; --orbit:#6FD3FF; --planet:#FF7A59;
+  --ok:#5EDB9C; --bad:#FF7B7B;
+  --display:"Changa","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;min-height:100%;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 72% 8%,#fff8 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 62%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 88% 44%,#fff9 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 84%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 30%,#fff8 50%,transparent 51%),
+    radial-gradient(1px 1px at 94% 90%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 5% 50%,#fff6 50%,transparent 51%),
+    radial-gradient(900px 500px at 85% -10%,#2A1E5C 0%,transparent 60%);
+  background-size:340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,100% 100%;
+  background-attachment:fixed}
+.wrap{max-width:840px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.top b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--sun);font-family:var(--mono)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.25;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.1rem)}
+h1 span{color:var(--sun)}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px 4px}
+.orbit-art{width:170px;height:170px}
+.orbit-art .sat{transform-origin:85px 85px;animation:spin 14s linear infinite}
+.orbit-art .sat2{transform-origin:85px 85px;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.orbit-art{display:none}}
+.id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.id-row label{color:var(--muted);font-size:.9rem}
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+.id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
+.rank{border:1px solid var(--orbit);color:var(--orbit);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
+
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px}
+.st{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:12px;align-content:start}
+.st-head{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.planet{width:54px;height:54px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 30%,#fff5 0 8%,transparent 30%),var(--pc);box-shadow:inset -8px -8px 14px #0006}
+.planet.ring::after{content:"";position:absolute;inset:18px -9px;border:2px solid #fff8;border-radius:50%;transform:rotate(-18deg)}
+.st-head p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lv{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;color:var(--ink);display:grid;gap:2px;justify-items:center;transition:border-color .15s,transform .15s}
+.lv:hover{border-color:var(--sun);transform:translateY(-2px)}
+.lv .n{font-family:var(--display);font-weight:700}
+.lv .dsc{font-size:.75rem;color:var(--muted)}
+.stars{color:var(--line);letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+.stars .on{color:var(--sun)}
+.boss{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:start;color:var(--ink);
+  background:linear-gradient(135deg,#3A1F10,var(--surface) 60%);border:1.5px solid var(--sun);border-radius:18px;padding:14px}
+.boss p{margin:0;color:var(--muted);font-size:.88rem}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:8px 12px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--surface);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orbit),var(--sun));transition:width .4s}
+.card{min-width:0;overflow-wrap:anywhere;background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tag.ex{color:var(--sun);border-color:color-mix(in srgb,var(--sun) 45%,var(--line))}
+.q{font-size:1.08rem;font-weight:700;margin:0;text-wrap:pretty}
+.given{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--line);color:var(--muted);font-size:.9rem}
+.eq{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{background:var(--surface2);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--sun)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--surface2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface2))}
+.ans{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sci{display:flex;align-items:center;gap:6px;direction:ltr;font-family:var(--mono);font-size:1.15rem}
+.sci input{font-family:var(--mono);font-size:1.15rem;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 8px;text-align:center}
+.sci .man{width:5.2em}
+.sci .exp{width:3.4em;border-color:var(--sun);font-size:.95rem;align-self:flex-start;margin-top:-6px}
+.sci .x{color:var(--muted)}
+.sci .ten{color:var(--ink)}
+.sci input.ok{border-color:var(--ok)} .sci input.no{border-color:var(--bad)}
+.num input{font-family:var(--mono);font-size:1.15rem;width:8em;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 10px;text-align:center}
+.num input.ok{border-color:var(--ok)} .num input.no{border-color:var(--bad)}
+.unit{font-family:var(--mono);color:var(--muted)}
+.hint2{margin:0;color:var(--muted);font-size:.8rem}
+.check{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:8px 18px;font-weight:700}
+.check:disabled{opacity:.5;cursor:default}
+.feedback{border-radius:12px;padding:12px 14px;background:var(--surface2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{justify-self:start;background:var(--sun);color:var(--sun-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+.diagram{width:100%;max-width:420px;justify-self:center;height:auto;direction:ltr}
+.diagram text{font-family:var(--mono);font-size:12px}
+/* boss */
+.launch{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch}
+.sky{position:relative;border-radius:14px;background:linear-gradient(180deg,#05050F,#1B1440 70%,#243B6B);border:1px solid var(--line);min-height:210px;overflow:hidden}
+.sky .earth{position:absolute;bottom:-40px;left:50%;width:120px;height:70px;transform:translateX(-50%);border-radius:50% 50% 0 0;background:radial-gradient(circle at 50% 100%,#3E9BFF,#1E5AA8)}
+.sky .rocket{position:absolute;left:50%;transform:translateX(-50%);transition:bottom .8s cubic-bezier(.3,1.3,.5,1);font-size:0}
+.sky .orbitline{position:absolute;top:18px;left:6px;right:6px;border-top:2px dashed var(--orbit);opacity:.7}
+.timer{height:8px;border-radius:99px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.timer i{display:block;height:100%;background:var(--sun);transition:width 1s linear}
+.timer.low i{background:var(--bad)}
+.hearts{color:var(--bad);letter-spacing:3px}
+.hearts .off{color:var(--line)}
+.summary{text-align:center;justify-items:center;margin-top:18px}
+.big{font-size:2.4rem;letter-spacing:6px;color:var(--line)} .big .on{color:var(--sun)}
+.cert{border:2px solid var(--sun);border-radius:16px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center;background:linear-gradient(180deg,#2A1A0A,var(--surface))}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.lb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.lb-count,.lb-note{color:var(--muted);font-size:.85rem;margin:0}
+.lb-note.small{font-size:.75rem}
+.lb-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lb-list li{display:grid;grid-template-columns:2em 1fr auto 3.5em;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--bg);font-variant-numeric:tabular-nums}
+.lb-list li:nth-child(-n+3) .rk{color:var(--sun);font-weight:700}
+.lb-list li.me{outline:2px solid var(--sun)}
+.lb-list .rk{text-align:center;color:var(--muted)}
+.lb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sr{color:var(--sun)}
+.lb-list .pt{text-align:end;color:var(--muted);font-size:.9rem}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.boss{grid-template-columns:1fr}.launch{grid-template-columns:54px 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span id="brand"><a href="../../" style="color:var(--sun);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · <b>مدار الفيزياء</b> · الصف الحادي عشر · الوحدة الثانية: السرعة والسرعة المتّجهة</span>
+    <span class="chips"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="sts">0</strong>/48</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=s=>`<span class="eq">${s}</span>`;
+const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+/* x -> "6.67×10⁻¹¹" */
+function sci(x,sf=3){if(x===0)return'0';let e=Math.floor(Math.log10(Math.abs(x)));let ms=(x/Math.pow(10,e)).toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){e++;ms=(x/Math.pow(10,e)).toPrecision(sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+const r2=(x,sf=2)=>+x.toPrecision(sf);
+function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
+
+/* ---------- state ---------- */
+const KEY='madar-g11u2';
+const S={name:'',points:0,stars:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v)Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
+function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
+const rankOf=n=>n>=36?T.ranks[2]:n>=15?T.ranks[1]:T.ranks[0];
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+const LB={game:'g11u2',api:'/api/scores'};
+
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
+/* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
+function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
+  if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
+let lbPending=Promise.resolve(), lbDeb=null;
+function lbSubmit(){ if(!S.name||!(S.points>0)) return lbPending;
+  lbPending=fetch(LB.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({game:LB.game,pid:playerId(),name:S.name,stars:totalStars(),points:S.points})}).catch(()=>{});
+  return lbPending }
+function lbNameChanged(){clearTimeout(lbDeb);lbDeb=setTimeout(()=>{lbSubmit().then(lbRender)},1200)}
+async function lbRender(){
+  const box=document.getElementById('lb'); if(!box) return;
+  try{
+    await lbPending;
+    const r=await fetch(`${LB.api}?game=${LB.game}&pid=${encodeURIComponent(playerId())}`,{cache:'no-store'});
+    const d=await r.json(); if(!d.ok) throw 0;
+    const rows=d.rows||[];
+    box.innerHTML=`<div class="lb-head"><h2>لوحة المتصدرين</h2><span class="lb-count">${d.total} لاعب</span></div>
+      ${rows.length?`<ol class="lb-list">${rows.map((x,i)=>`<li class="${x.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(x.name)}${x.me?' (أنت)':''}</span><span class="sr">★ ${x.stars}</span><span class="pt">${x.points}</span></li>`).join('')}</ol>`:'<p class="lb-note">لا يوجد لاعبون بعد. كن الأول!</p>'}
+      ${d.mine&&!rows.some(x=>x.me)?`<p class="lb-note">ترتيبك: <b>${d.mine.rank}</b> من ${d.total} · ★ ${d.mine.stars} · ${d.mine.points} نقطة</p>`:''}
+      <p class="lb-note small">الترتيب حسب النجوم ثم النقاط.</p>`;
+    box.hidden=false;
+  }catch(e){ box.hidden=true }
+}
+
+const SRC={a1:'اختبار نهائي 2024/2025 · الدور الأول',a2:'اختبار نهائي 2024/2025 · الدور الثاني',b1:'اختبار نهائي 2023/2024 · الدور الأول',b2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  c1:'اختبار نهائي 2025/2026 · الدور الأول',c2:'اختبار نهائي 2025/2026 · الدور الثاني',d1:'اختبار نهائي 2022/2023 · الدور الأول',d2:'اختبار نهائي 2022/2023 · الدور الثاني',x:'بنمط أسئلة الاختبارات النهائية'};
+const fx=(x,d=2)=>(+x.toFixed(d)).toString();
+const DEG=Math.PI/180;
+
+/* ================= STATION 1: العددية والمتجهة (2.2) ================= */
+const VEC=['الإزاحة','السرعة المتجهة','التسارع','القوة','الوزن'],SCA=['الزمن','الكتلة','المسافة','المساحة','السرعة المتوسطة','درجة الحرارة','الطاقة'];
+const gIsVec=()=>{const v=pick(VEC),s=shuffle(SCA).slice(0,3);return{kind:'mc',tag:pick(['a2','d1']),q:'أي مما يأتي يُعدّ كمية متجهة؟',o:[v,...s],a:0,sol:`${v} تحتاج إلى مقدار واتجاه، أما ${s.join(' و')} فكميات عددية.`}};
+const gIsSca=()=>{const s=pick(SCA),v=shuffle(VEC).slice(0,3);return{kind:'mc',tag:'x',q:'أي مما يأتي يُعدّ كمية عددية؟',o:[s,...v],a:0,sol:`${s} يكفي لوصفها المقدار فقط.`}};
+const gPair=()=>{const s=pick(SCA),v=pick(VEC),v2=shuffle(VEC.filter(x=>x!==v)).slice(0,2),s2=pick(SCA.filter(x=>x!==s));return{kind:'mc',tag:'x',q:'في أي زوج يكون الأول كمية عددية والثاني كمية متجهة؟',
+  o:[`${s} - ${v}`,`${v2[0]} - ${v2[1]}`,`${v} - ${s}`,`${s} - ${s2}`],a:0,sol:'العددية لها مقدار فقط، والمتجهة لها مقدار واتجاه.'}};
+const S1B={
+ def:{kind:'mc',tag:'b2',q:'ما تعريف الكمية العددية؟',o:['كمية تُحدَّد بالمقدار فقط','كمية تُحدَّد بالمقدار والاتجاه','كمية تُحدَّد بالاتجاه فقط','كمية ليس لها وحدة قياس'],a:0,sol:'مثل الزمن والكتلة والمسافة.'},
+ vdef:{kind:'mc',tag:'x',q:'ما تعريف الكمية المتجهة؟',o:['كمية تُحدَّد بالمقدار والاتجاه معاً','كمية تُحدَّد بالمقدار فقط','كمية لا تتغير أبداً','كمية تُقاس بالمتر فقط'],a:0,sol:'مثل الإزاحة والسرعة المتجهة والتسارع والقوة.'},
+ dispTerm:{kind:'mc',tag:'a1',q:'ما المفهوم العلمي الذي يعبّر عن «المسافة التي يقطعها جسم باتجاه معيّن»؟',o:['الإزاحة','التسارع','السرعة المتوسطة','السرعة المتجهة'],a:0,sol:'الإزاحة كمية متجهة.'},
+ circle:{kind:'mc',tag:'x',q:'سيارة تتحرك على مضمار دائري بسرعة ثابتة المقدار. هل سرعتها المتجهة ثابتة؟',o:['لا، لأن اتجاه حركتها يتغير باستمرار','نعم، لأن مقدار السرعة ثابت','نعم، لأن المضمار مغلق','لا، لأن مقدار السرعة يتغير'],a:0,sol:'السرعة المتجهة تتغير بتغير المقدار أو الاتجاه.'},
+ weight:{kind:'mc',tag:'x',q:'لماذا يُعدّ الوزن كمية متجهة بينما الكتلة كمية عددية؟',o:['لأن الوزن قوة لها اتجاه (نحو الأسفل)، والكتلة مقدار فقط','لأن الوزن يُقاس بالكيلوغرام','لأن الكتلة تتغير من مكان لآخر','لأن الوزن ثابت دائماً'],a:0,sol:`${E('W = mg')} متجه نحو مركز الأرض.`}
+};
+
+/* ================= STATION 2: المسافة والإزاحة (2.3) ================= */
+const S2B={
+ terms:{kind:'mc',tag:'c2',q:'ما المصطلح العلمي: أقصر مسافة من نقطة البداية إلى نقطة النهاية في اتجاه معيّن؟',o:['الإزاحة','المسافة','السرعة المتجهة','المتجه المحصّل'],a:0,sol:'أما الطول الكلي للمسار فهو المسافة.'},
+ curve:{kind:'mc',tag:'c1',q:'يركض عدّاء بسرعة منتظمة حول مسار منحنٍ. هل تتساوى المسافة التي يقطعها مع إزاحته؟',o:['لا، الإزاحة أصغر من المسافة لأن المسار منحنٍ','نعم، تتساويان دائماً','لا، الإزاحة أكبر من المسافة','نعم، لأن سرعته منتظمة'],a:0,sol:'تتساويان فقط في مسار مستقيم دون تغيير الاتجاه.'},
+ straight:{kind:'mc',tag:'c2',q:'يركض عدّاء في مسار مستقيم في اتجاه واحد. هل تتساوى المسافة مع الإزاحة؟',o:['نعم، لأن المسار مستقيم والاتجاه ثابت','لا، الإزاحة أصغر دائماً','لا، المسافة أصغر','لا يمكن معرفة ذلك'],a:0,sol:'المسار المستقيم دون رجوع: الإزاحة = المسافة.'},
+ diff:{kind:'mc',tag:'d2',q:'أي العبارات تصف الفرق بين المسافة والإزاحة؟',o:['المسافة عددية تساوي طول المسار، والإزاحة متجهة بين نقطتي البداية والنهاية','المسافة متجهة والإزاحة عددية','كلتاهما متجهة ولهما القيمة نفسها','المسافة بالمتر والإزاحة بالمتر لكل ثانية'],a:0,sol:'مقدار الإزاحة أقل من المسافة أو يساويها.'}
+};
+const gCircle=()=>{const d=pick([6,8,10]),k=pick([1,0.5,1.5,2]);const fr={1:'دورة كاملة',0.5:'نصف دورة',1.5:'دورة ونصف',2:'دورتين'}[k];const dist=k*3.14*d,disp=(k%1)?d:0;
+  return{kind:'mc',tag:pick(['b2','c1']),q:`جسم يتحرك على مسار دائري قطره ${E(d+' m')} ويقطع ${fr}. ما المسافة والإزاحة؟ (${E('π = 3.14')})`,
+  o:[`المسافة ${fx(dist,2)} m، الإزاحة ${disp} m`,`المسافة ${disp} m، الإزاحة ${fx(dist,2)} m`,`المسافة ${fx(dist,2)} m، الإزاحة ${fx(dist,2)} m`,`المسافة ${fx(dist/2,2)} m، الإزاحة ${disp?0:d} m`],a:0,ltr:1,
+  sol:`المسافة = ${k} × π × القطر ${E(`= ${k} × 3.14 × ${d} = ${fx(k*3.14*d,2)} m`)}<br>الإزاحة ${disp?'= القطر (النقطة المقابلة)':'= صفر (عاد إلى نقطة البداية)'}`.replace(fx(k*3.14*d,2),fx(k*3.14*d,2))}};
+const gBack=()=>{const a=pick([200,150,80,50]),b=pick([150,60,30,40]);if(a===b)return gBack();const dirs=pick([['الشرق','الغرب'],['الشمال','الجنوب']]);return pick([
+  {kind:'num',tag:'x',q:`تحركت دراجة ${E(a+' m')} نحو ${dirs[0]}، ثم عادت ${E(b+' m')} نحو ${dirs[1]}. احسب المسافة الكلية.`,ans:a+b,rel:.001,unit:'m',sol:`${E(`${a} + ${b} = ${a+b} m`)}`},
+  {kind:'num',tag:'x',q:`تحركت دراجة ${E(a+' m')} نحو ${dirs[0]}، ثم عادت ${E(b+' m')} نحو ${dirs[1]}. احسب مقدار الإزاحة النهائية.`,ans:Math.abs(a-b)||1e-9,rel:.001,unit:'m',sol:`${E(`(+${a}) + (−${b}) = ${a-b} m`)}${a===b?' (عاد لنقطة البداية)':` نحو ${a>b?dirs[0]:dirs[1]}`}`}])};
+const PY=[[3,4],[6,8],[5,12],[8,15],[80,60],[300,400],[4,5],[9,12],[7,24]];
+const gPerpDist=()=>{const [a,b]=pick(PY);const u=pick(['m','km']);const R=Math.hypot(a,b);return{kind:'num',tag:pick(['c2','x']),q:`سار شخص ${E(a+' '+u)} نحو الشرق، ثم ${E(b+' '+u)} نحو الشمال. احسب مقدار إزاحته الكلية.`,ans:R,rel:.01,unit:u,
+  sol:`المساران متعامدان: ${E(`s = √(${a}² + ${b}²) = ${fx(R,2)} ${u}`)}<br>(المسافة الكلية ${E(a+b+' '+u)})`}};
+
+/* ================= STATION 3: السرعة والسرعة المتجهة (2.1، 2.4) ================= */
+const S3B={
+ avg:{kind:'mc',tag:'x',q:'ما التعريف الصحيح للسرعة المتوسطة؟',o:['المسافة الكلية المقطوعة مقسومة على الزمن الكلي','الإزاحة مقسومة على الزمن','التغير في السرعة مقسوماً على الزمن','أقصى قراءة لعداد السرعة'],a:0,sol:'كمية عددية لا تهتم بالاتجاه.'},
+ vel:{kind:'mc',tag:'a1',q:'ما تعريف السرعة المتجهة؟',o:['معدل تغير إزاحة الجسم بالنسبة للزمن','المسافة الكلية مقسومة على الزمن الكلي','معدل تغير السرعة','المسافة المقطوعة في ثانية واحدة'],a:0,sol:`${E('v = s/t')} حيث s الإزاحة.`},
+ mercury:{kind:'mc',tag:'c2',q:`سرعة كوكب عطارد خلال إكماله دورة واحدة حول الشمس ${E('47.4 km s⁻¹')}. ما مقدار سرعته المتجهة المتوسطة خلال هذه الدورة؟`,o:['صفر','23.7 km s⁻¹','47.4 km s⁻¹','94.8 km s⁻¹'],a:0,ltr:1,sol:'بعد دورة كاملة تكون الإزاحة صفراً.'},
+ meter:{kind:'mc',tag:'x',q:'ماذا يقيس عداد السرعة في السيارة؟',o:['السرعة اللحظية في كل لحظة','السرعة المتوسطة للرحلة','الإزاحة الكلية','التسارع'],a:0,sol:'السرعة المتوسطة قيمة واحدة للرحلة كلها.'}
+};
+const gAvg=()=>{const s1=pick([300,150,50,40,60]),t1=pick([90,45,3,5,2]),s2=pick([400,200,30,20,80]),t2=pick([120,60,2,4,3]);const v=(s1+s2)/(t1+t2);const u=s1>=100?'m':pick(['m','km']);const tu=u==='km'?'h':'s';
+  return{kind:'num',tag:pick(['d1','d2','b1']),q:`قطع جسم ${E(s1+' '+u)} خلال ${E(t1+' '+tu)}، ثم ${E(s2+' '+u)} خلال ${E(t2+' '+tu)}. احسب سرعته المتوسطة.`,ans:v,rel:.01,unit:`${u} ${tu}⁻¹`,
+  sol:`${E(`v = (${s1} + ${s2}) / (${t1} + ${t2}) = ${s1+s2}/${t1+t2} = ${fx(v,2)} ${u} ${tu}⁻¹`)}`}};
+const gStop=()=>{const s1=pick([120,90,60]),t1=pick([2,1.5]),st=pick([0.5,0.25]),s2=pick([80,60,40]),t2=pick([1,0.5]);const v=(s1+s2)/(t1+st+t2);return{kind:'num',tag:'x',
+  q:`تحرّك قطار ${E(s1+' km')} خلال ${E(t1+' h')}، ثم توقّف ${E(st+' h')} في محطة، ثم قطع ${E(s2+' km')} خلال ${E(t2+' h')}. احسب سرعته المتوسطة للرحلة كاملة.`,ans:v,rel:.01,unit:'km h⁻¹',
+  sol:`الزمن الكلي يشمل التوقف: ${E(`t = ${t1} + ${st} + ${t2} = ${t1+st+t2} h`)}<br>${E(`v = ${s1+s2} / ${t1+st+t2} = ${fx(v,1)} km h⁻¹`)}`}};
+const gTrain=()=>{const m=pick([30,45,20,40]),d=pick([40,30,60]);const v=d/(m/60);return{kind:'num',tag:'c1',q:`غادر قطار المحطة الأولى الساعة ${E('08:00')} ووصل المحطة الثانية الساعة ${E('08:'+m)} قاطعاً ${E(d+' km')}. احسب سرعته المتوسطة.`,ans:v,rel:.01,unit:'km h⁻¹',
+  sol:`${E(`t = ${m} min = ${fx(m/60,3)} h`)}<br>${E(`v = ${d} / ${fx(m/60,3)} = ${fx(v,1)} km h⁻¹`)}`}};
+const gRace=()=>{for(;;){const d1=pick([50,40,60]),v1=pick([3,4,5]),d2=pick([35,30,25]),v2=pick([2,2.5,3]);const t1=d1/v1,t2=d2/v2;if(Math.abs(t1-t2)<0.3)continue;const first=t1<t2?1:2;
+  return{kind:'mc',tag:'b2',q:`يبعد اللاعب الأول عن الكرة ${E(d1+' m')} ويجري نحوها بسرعة ${E(v1+' m s⁻¹')}، ويبعد الثاني ${E(d2+' m')} ويجري بسرعة ${E(v2+' m s⁻¹')}. أي اللاعبين يصل إلى الكرة أولاً؟`,
+  o:[`اللاعب ${first===1?'الأول':'الثاني'}`,`اللاعب ${first===1?'الثاني':'الأول'}`,'يصلان معاً','لا يمكن تحديد ذلك'],a:0,sol:`${E(`t₁ = ${d1}/${v1} = ${fx(t1,2)} s`)}، ${E(`t₂ = ${d2}/${v2} = ${fx(t2,2)} s`)}`}}};
+const gVelEW=()=>{const a=pick([60,40,100]),b=pick([80,20,40]),t1=pick([2,1]),t2=pick([2,3]);const s=a-b,v=s/(t1+t2);if(s===0)return gVelEW();return{kind:'num',tag:'c2',
+  q:`تحركت سيارة ${E(a+' km')} شرقاً خلال ${E(t1+' h')} ثم ${E(b+' km')} غرباً خلال ${E(t2+' h')}. احسب مقدار سرعتها المتجهة المتوسطة.`,ans:Math.abs(v),rel:.01,unit:'km h⁻¹',
+  sol:`${E(`الإزاحة = ${a} − ${b} = ${s} km`)}، ${E(`t = ${t1+t2} h`)}<br>${E(`v = ${s}/${t1+t2} = ${fx(v,2)} km h⁻¹`)} أي ${fx(Math.abs(v),2)} نحو ${s>0?'الشرق':'الغرب'}`}};
+const gFindT=()=>{const s1=pick([44,30,50]),t1=pick([7,5,4]),s2=pick([60,40,70]),t2=pick([7.5,5,6]);const v=(s1+s2)/(t1+t2);const vr=+v.toFixed(2);const t=(s1+s2)/vr-t1;return{kind:'num',tag:'a2',
+  q:`قطعت سيارة ${E(s1+' m')} خلال ${E(t1+' s')}، ثم ${E(s2+' m')} في الجزء الثاني. إذا كانت السرعة المتوسطة للجزأين ${E(vr+' m s⁻¹')}، فأوجد زمن الجزء الثاني.`,ans:t,rel:.02,unit:'s',
+  sol:`${E(`${vr} = (${s1} + ${s2}) / (${t1} + t)`)} ⇒ ${E(`${t1} + t = ${fx((s1+s2)/vr,2)}`)} ⇒ ${E(`t = ${fx(t,2)} s`)}`}};
+const gTwoSpeeds=()=>{const d1=pick([400,300,600]),v1=pick([8,6,10]),d2=pick([600,300,400]),v2=pick([5,4,2]);const t=d1/v1+d2/v2,v=(d1+d2)/t;return{kind:'num',tag:'x',
+  q:`يجري عدّاء ${E(d1+' m')} بسرعة ${E(v1+' m s⁻¹')}، ثم ${E(d2+' m')} بسرعة ${E(v2+' m s⁻¹')}. احسب سرعته المتوسطة.`,ans:v,rel:.01,unit:'m s⁻¹',
+  sol:`${E(`t₁ = ${fx(d1/v1,2)} s`)}، ${E(`t₂ = ${fx(d2/v2,2)} s`)}<br>${E(`v = ${d1+d2} / ${fx(t,2)} = ${fx(v,2)} m s⁻¹`)} (ليست متوسط السرعتين)`}};
+
+/* ================= STATION 4: منحنى الإزاحة-الزمن (2.5، 2.6) ================= */
+/* pts: [[t,s],...] */
+function stSVG(pts,labels){const tm=Math.max(...pts.map(p=>p[0])),sm=Math.max(...pts.map(p=>p[1]))||1;const X=t=>40+t/tm*250,Y=s=>170-s/sm*140;
+  const tt=[...new Set(pts.map(p=>p[0]))],ss=[...new Set(pts.map(p=>p[1]))];
+  return `<svg class="diagram" viewBox="0 0 310 200" aria-hidden="true">
+  ${tt.map(t=>`<line x1="${X(t)}" y1="30" x2="${X(t)}" y2="170" stroke="var(--line)" stroke-dasharray="2 4"/><text x="${X(t)}" y="186" text-anchor="middle" fill="var(--muted)" font-size="11">${t}</text>`).join('')}
+  ${ss.map(s=>`<line x1="40" y1="${Y(s)}" x2="290" y2="${Y(s)}" stroke="var(--line)" stroke-dasharray="2 4"/><text x="34" y="${Y(s)+4}" text-anchor="end" fill="var(--muted)" font-size="11">${s}</text>`).join('')}
+  <line x1="40" y1="170" x2="295" y2="170" stroke="var(--ink)"/><line x1="40" y1="170" x2="40" y2="22" stroke="var(--ink)"/>
+  <text x="298" y="174" fill="var(--muted)" font-size="11">t/s</text><text x="44" y="18" fill="var(--muted)" font-size="11">s/m</text>
+  <polyline points="${pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}" fill="none" stroke="var(--sun)" stroke-width="3"/>
+  ${(labels||[]).map((l,i)=>{const a=pts[i],b=pts[i+1];return `<text x="${(X(a[0])+X(b[0]))/2}" y="${(Y(a[1])+Y(b[1]))/2-8}" text-anchor="middle" fill="var(--orbit)" font-weight="700">${l}</text>`}).join('')}</svg>`}
+function multiSVG(lines){const X=t=>40+t/10*250,Y=s=>170-s/100*140;const cols=['var(--sun)','var(--orbit)','var(--planet)','var(--ok)'];
+  return `<svg class="diagram" viewBox="0 0 310 200" aria-hidden="true"><line x1="40" y1="170" x2="295" y2="170" stroke="var(--ink)"/><line x1="40" y1="170" x2="40" y2="22" stroke="var(--ink)"/>
+  <text x="298" y="174" fill="var(--muted)" font-size="11">t</text><text x="44" y="18" fill="var(--muted)" font-size="11">s</text>
+  ${lines.map((l,i)=>`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(l.t)}" y2="${Y(l.s)}" stroke="${cols[i]}" stroke-width="3"/><text x="${X(l.t)+6}" y="${Y(l.s)+4}" fill="${cols[i]}" font-weight="700">${l.n}</text>`).join('')}</svg>`}
+const gGraphRest=()=>{const L=['A','B','C','D'];const k=pick([0,1,2,3]);let s=0;const pts=[[0,0]];const ts=[0,2,4,6,8];
+  for(let i=0;i<4;i++){if(i!==k)s+=pick([2,4,6]);pts.push([ts[i+1],s])}
+  return{kind:'mc',tag:pick(['d2','c2']),svg:stSVG(pts,L),q:'في منحنى (الإزاحة – الزمن)، ما المرحلة التي تكون فيها سرعة الجسم صفراً؟',o:[L[k],...L.filter((_,i)=>i!==k)],a:0,sol:'الجزء الأفقي: الإزاحة ثابتة مع الزمن (الميل صفر)، أي أن الجسم ساكن.'}};
+const gGraphV=()=>{for(;;){const pts=[[0,0]];let s=0;const ts=[0,3,5,9];const segs=[pick([2,3,4]),0,pick([-2,-1])];for(let i=0;i<3;i++){s+=segs[i]*(ts[i+1]-ts[i]);pts.push([ts[i+1],s])}
+  if(s<0)continue;const i=pick([0,2]);const v=segs[i];return{kind:'num',tag:'a1',svg:stSVG(pts),q:`من منحنى (الإزاحة – الزمن)، أوجد السرعة المتجهة في الفترة (${ts[i]} s – ${ts[i+1]} s). (اكتب الإشارة إن كانت سالبة)`,ans:v,rel:.01,unit:'m s⁻¹',
+  sol:`${E(`v = Δs/Δt = (${pts[i+1][1]} − ${pts[i][1]}) / (${ts[i+1]} − ${ts[i]}) = ${v} m s⁻¹`)}${v<0?' (يعود نحو نقطة البداية)':''}`}}};
+const gGradient=()=>{const t=pick([100,50,20,10]),s=pick([800,400,200,60]);return{kind:'num',tag:'b1',svg:stSVG([[0,0],[t,s]]),q:'من منحنى (الإزاحة – الزمن) لجسم يتحرك في خط مستقيم، احسب سرعته المتجهة.',ans:s/t,rel:.01,unit:'m s⁻¹',
+  sol:`${E(`v = الميل = ${s}/${t} = ${fx(s/t,2)} m s⁻¹`)}`}};
+const gExtrap=()=>{const s0=pick([2,4,1]),v=pick([0.75,0.5,1.5]),t1=8,s1=s0+v*t1,S=pick([16,20,14]);const t=(S-s0)/v;return{kind:'num',tag:'a2',svg:stSVG([[0,s0],[t1,s1]]),
+  q:`يوضح الشكل منحنى (الإزاحة – الزمن) لسيارة. ما الزمن اللازم لتصل السيارة إلى الإزاحة ${E(S+' m')}؟`,ans:t,rel:.02,unit:'s',
+  sol:`${E(`v = (${s1} − ${s0}) / 8 = ${v} m s⁻¹`)}<br>${E(`${S} = ${s0} + ${v}t`)} ⇒ ${E(`t = ${fx(t,2)} s`)}`}};
+const gFastest=()=>{const ns=['A','B','C','D'];const ls=shuffle([{t:4,s:90},{t:8,s:90},{t:10,s:60},{t:10,s:30}]).map((l,i)=>({...l,n:ns[i]}));const best=ls.reduce((a,b)=>b.s/b.t>a.s/a.t?b:a);
+  return{kind:'mc',tag:pick(['c1','d1']),svg:multiSVG(ls),q:'يوضح الشكل منحنيات (الإزاحة – الزمن) لأربعة أجسام. أيها سرعته أكبر؟',o:[best.n,...ns.filter(n=>n!==best.n)],a:0,sol:'الأكبر ميلاً هو الأسرع، لأن ميل منحنى (الإزاحة – الزمن) يساوي السرعة.'}};
+const S4B={
+ slope:{kind:'mc',tag:'x',q:'ماذا يمثّل ميل منحنى (الإزاحة – الزمن)؟',o:['السرعة المتجهة','التسارع','المسافة الكلية','الزمن'],a:0,sol:`${E('v = Δs/Δt')}`},
+ line:{kind:'mc',tag:'a1',q:'منحنى (الإزاحة – الزمن) خط مستقيم مائل موجب الميل. كيف يتحرك الجسم؟',o:['بسرعة منتظمة (ثابتة)','بسرعة متزايدة','بسرعة متناقصة','الجسم ساكن'],a:0,sol:'إزاحات متساوية في أزمنة متساوية.'},
+ back:{kind:'mc',tag:'b1',q:'بعد أن بلغت المسافة بين قطار والمحطة أقصى قيمة، بدأ المنحنى يتناقص بميل يزداد مقداره. أي عبارة تصف القطار؟',o:['تزداد سرعته ويتحرك نحو المحطة','تتناقص سرعته ويبتعد عن المحطة','تزداد سرعته ويبتعد عن المحطة','تتناقص سرعته ويتحرك نحو المحطة'],a:0,sol:'تناقص المسافة ⇒ يعود نحو المحطة، وازدياد مقدار الميل ⇒ تزداد سرعته.'},
+ neg:{kind:'mc',tag:'x',q:'ماذا تعني السرعة المتجهة السالبة المحسوبة من ميل منحنى (الإزاحة – الزمن)؟',o:['أن الجسم يتحرك في الاتجاه المعاكس (يعود نحو البداية)','أن الجسم يتباطأ','أن الجسم ساكن','أن الحساب خاطئ'],a:0,sol:'الإشارة تدل على الاتجاه.'}
+};
+
+/* ================= STATION 5: جمع المتجهات (2.7) ================= */
+const gPerpV=()=>{const [a,b]=pick([[8,6],[10,5],[12,5],[4,3],[20,15]]);const R=Math.hypot(a,b),th=Math.atan2(b,a)/DEG;return pick([
+  {kind:'num',tag:pick(['c1','a1']),q:`سفينة تبحر بسرعة ${E(a+' m s⁻¹')} شرقاً، وتهب رياح سرعتها ${E(b+' m s⁻¹')} شمالاً. احسب مقدار السرعة المحصّلة.`,ans:R,rel:.01,unit:'m s⁻¹',sol:`${E(`v = √(${a}² + ${b}²) = ${fx(R,2)} m s⁻¹`)}`},
+  {kind:'num',tag:'c1',q:`سفينة تبحر بسرعة ${E(a+' m s⁻¹')} شرقاً، وتهب رياح سرعتها ${E(b+' m s⁻¹')} شمالاً. احسب زاوية اتجاه السرعة المحصّلة شمال الشرق (بالدرجات).`,ans:th,rel:.02,unit:'°',sol:`${E(`tanθ = ${b}/${a}`)} ⇒ ${E(`θ = ${fx(th,1)}°`)} شمال الشرق`}])};
+const gDispAngle=()=>{const [a,b]=pick([[300,400],[3,4],[4,5],[80,60]]);const th=Math.atan2(b,a)/DEG;return{kind:'num',tag:'c2',q:`طائرة شراعية تطير ${E(a+' m')} شرقاً ثم ${E(b+' m')} شمالاً. احسب زاوية اتجاه الإزاحة الكلية شمال الشرق (بالدرجات).`,ans:th,rel:.02,unit:'°',
+  sol:`${E(`s = √(${a}² + ${b}²) = ${fx(Math.hypot(a,b),2)} m`)}<br>${E(`tanθ = ${b}/${a}`)} ⇒ ${E(`θ = ${fx(th,1)}°`)}`}};
+const gLineV=()=>{const A=pick([10,12,8,15]),B=pick([5,6,4,3]);const same=Math.random()<.5;return{kind:'num',tag:same?'b1':'a2',
+  q:`المتجه A مقداره ${E(A+' m s⁻¹')} نحو الشرق، والمتجه B مقداره ${E(B+' m s⁻¹')} نحو ${same?'الشرق':'الغرب'}. احسب مقدار ${same?E('A − B'):'محصلة A و B'}.`,ans:A-B,rel:.001,unit:'m s⁻¹',
+  sol:`على خط واحد: ${E(`${A} − ${B} = ${A-B} m s⁻¹`)} نحو الشرق`}};
+const gMissing=()=>{const [R,b]=pick([[100,70],[50,30],[25,7],[13,5]]);const A=Math.sqrt(R*R-b*b);return{kind:'num',tag:'a2',q:`محصلة إزاحتين متعامدتين ${E(R+' m')}، وإحداهما ${E(b+' m')}. احسب مقدار الإزاحة الأخرى A.`,ans:A,rel:.01,unit:'m',
+  sol:`${E(`A² + ${b}² = ${R}²`)} ⇒ ${E(`A = √(${R*R} − ${b*b}) = ${fx(A,1)} m`)}`}};
+const gComp=()=>{const a=pick([5,6,4]),b=pick([3,4,2]),ang=pick([60,30,45]);const ex=a+b*Math.cos(ang*DEG),ny=b*Math.sin(ang*DEG),R=Math.hypot(ex,ny);return{kind:'num',tag:'b1',
+  q:`تحركت شاحنة ${E(a+' km')} شرقاً، ثم ${E(b+' km')} بزاوية ${E(ang+'°')} شمال الشرق. احسب مقدار إزاحتها الكلية.`,ans:R,rel:.02,unit:'km',
+  sol:`مركبة الشرق: ${E(`${a} + ${b}cos${ang}° = ${fx(ex,2)}`)}<br>مركبة الشمال: ${E(`${b}sin${ang}° = ${fx(ny,2)}`)}<br>${E(`s = √(${fx(ex,2)}² + ${fx(ny,2)}²) = ${fx(R,2)} km`)}`}};
+const gComp2=()=>{const a=pick([4,6]),b=pick([3,2,5]);const n=a*Math.cos(45*DEG)+b,e=a*Math.sin(45*DEG),R=Math.hypot(n,e);return{kind:'num',tag:'d1',
+  q:`تبحر سفينة ${E(a+' km')} بزاوية ${E('45°')} شمال الشرق، ثم تنعطف نحو الشمال مسافة ${E(b+' km')}. احسب مقدار محصلة الإزاحة.`,ans:R,rel:.02,unit:'km',
+  sol:`الشمال: ${E(`${a}cos45° + ${b} = ${fx(n,2)}`)}، الشرق: ${E(`${a}sin45° = ${fx(e,2)}`)}<br>${E(`s = ${fx(R,2)} km`)}`}};
+const gAvgVel=()=>{const [x,y]=pick([[800,600],[300,400],[600,800]]),t=pick([60,50,100]);const s=Math.hypot(x,y);return{kind:'num',tag:'b2',
+  q:`قارب يتحرك في خط مستقيم من A إلى B: ${E(x+' m')} أفقياً و${E(y+' m')} رأسياً، خلال ${E(t+' s')}. احسب مقدار سرعته المتجهة المتوسطة.`,ans:s/t,rel:.01,unit:'m s⁻¹',
+  sol:`${E(`s = √(${x}² + ${y}²) = ${s} m`)}<br>${E(`v = ${s}/${t} = ${fx(s/t,2)} m s⁻¹`)}`}};
+const S5B={
+ tail:{kind:'mc',tag:'x',q:'عند جمع متجهين بالرسم، نستخدم طريقة:',o:['رأس المتجه الأول بذيل المتجه الثاني، ثم نصل البداية بالنهاية','نضع المتجهين متوازيين وننسى الاتجاه','نجمع الأطوال فقط','نطرح الأطوال دائماً'],a:0,sol:'المحصلة من ذيل الأول إلى رأس الأخير، بمقياس رسم مناسب.'},
+ max:{kind:'mc',tag:'x',q:'متجهان مقداراهما 6 و8. متى تكون محصلتهما أكبر ما يمكن؟',o:['عندما يكونان في الاتجاه نفسه (14)','عندما يكونان متعامدين (10)','عندما يكونان متعاكسين (2)','المحصلة ثابتة دائماً'],a:0,sol:'المحصلة بين 2 و14 حسب الزاوية.'},
+ sub:{kind:'mc',tag:'x',q:`طرح المتجه ${E('B')} من ${E('A')} يكافئ:`,o:['جمع A مع متجه يساوي B مقداراً ويعاكسه اتجاهاً','طرح مقداريهما فقط','جمع A وB','ضرب A في B'],a:0,sol:`${E('A − B = A + (−B)')}`}
+};
+
+/* ================= STATIONS ================= */
+const LV=['مبتدئ','متمكّن','خبير'];
+const STATIONS=[
+ {k:'s1',title:'مستودع الكميات',sub:'الكميات العددية والمتجهة',lessons:'الدرس 7-2',pc:'#FF7A59',
+  levels:[()=>[S1B.def,gIsVec(),S1B.vdef,gIsSca(),S1B.dispTerm],
+          ()=>[gIsVec(),gPair(),gIsSca(),S1B.weight,gPair()],
+          ()=>[gPair(),S1B.circle,gIsVec(),S1B.weight,gPair()]]},
+ {k:'s2',title:'مضمار الإزاحة',sub:'المسافة والإزاحة',lessons:'الدرس 1-2',pc:'#C58BFF',
+  levels:[()=>shuffle([S2B.terms,S2B.curve,S2B.straight,S2B.diff,gBack()]),
+          ()=>[gBack(),gCircle(),gPerpDist(),gBack(),gCircle()],
+          ()=>[gCircle(),gPerpDist(),gCircle(),gPerpDist(),gBack()]]},
+ {k:'s3',title:'عدّاد السرعة',sub:'السرعة المتوسطة والسرعة المتجهة',lessons:'الدرس 2-2',pc:'#4FA3FF',
+  levels:[()=>shuffle([S3B.avg,S3B.vel,S3B.meter,S3B.mercury,gAvg()]),
+          ()=>[gAvg(),gTrain(),gRace(),gAvg(),gStop()],
+          ()=>[gVelEW(),gFindT(),gTwoSpeeds(),gStop(),gVelEW()]]},
+ {k:'s4',title:'شاشة المنحنيات',sub:'التمثيل البياني (الإزاحة – الزمن) وميله',lessons:'الدرس 3-2',pc:'#5EDB9C',
+  levels:[()=>[S4B.slope,gGraphRest(),S4B.line,gGraphRest(),S4B.neg],
+          ()=>[gGradient(),gFastest(),gGradient(),gGraphRest(),S4B.back],
+          ()=>[gGraphV(),gExtrap(),gGraphV(),gFastest(),gExtrap()]]},
+ {k:'s5',title:'بوصلة المتجهات',sub:'جمع الإزاحات والسرعات المتجهة وطرحها',lessons:'الدروس 4-2 إلى 6-2',pc:'#FFD166',
+  levels:[()=>[S5B.tail,gLineV(),S5B.max,gLineV(),S5B.sub],
+          ()=>[gPerpV(),gDispAngle(),gMissing(),gAvgVel(),gPerpV()],
+          ()=>[gComp(),gComp2(),gAvgVel(),gComp(),gDispAngle()]]}
+];
+const bossSet=()=>shuffle([gCircle(),gPerpDist(),gAvg(),gStop(),gTrain(),gVelEW(),gFindT(),gGradient(),gGraphV(),gExtrap(),gPerpV(),gMissing(),gComp(),gAvgVel()]).slice(0,10);
+
+/* ================= THEME ================= */
+const T={h1:'رالي <span>مدار</span>',
+  lead:'أنت سائق في رالي الفيزياء. أنهِ مراحل المحطات الخمس على ثلاثة مستويات، ثم انطلق نحو خط النهاية في «السباق النهائي». أرقام المسائل تتجدد في كل مرة تلعب.',
+  who:'اسم السائق',errMsg:'اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ المهمة.',hub:'غرفة الصيانة',
+  boss:'السباق النهائي',bossSub:'10 مسائل مختلطة · 90 ثانية لكل مسألة · كل إجابة صحيحة تقرّب سيارتك من خط النهاية · 3 محاولات خاطئة فقط',meter:'المسافة',
+  win:'وصلت إلى خط النهاية!',lose:'خرجت من السباق',again:'سباق جديد',fail:'خرجت من السباق',
+  cert:'شهادة بطل الرالي',unit:'أتم الوحدة الثانية: السرعة والسرعة المتّجهة',
+  ranks:['سائق مبتدئ','سائق محترف','بطل الرالي']};
+const ART=`<svg class="orbit-art" viewBox="0 0 170 170" aria-hidden="true"><ellipse cx="85" cy="90" rx="74" ry="52" fill="none" stroke="var(--line)" stroke-width="16"/><ellipse cx="85" cy="90" rx="74" ry="52" fill="none" stroke="var(--sun)" stroke-width="2" stroke-dasharray="8 8"/>
+  <g class="car"><rect x="-10" y="-6" width="20" height="12" rx="4" fill="var(--planet)"/><circle cx="-6" cy="7" r="3" fill="#111"/><circle cx="6" cy="7" r="3" fill="#111"/></g>
+  <line x1="85" y1="30" x2="85" y2="46" stroke="#fff" stroke-width="3"/></svg>`;
+const BOSS_ICON=`<svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><rect x="6" y="6" width="4" height="38" fill="var(--ink)"/>${[0,1,2,3].map(r=>[0,1,2,3].map(c=>(r+c)%2?'':`<rect x="${10+c*8}" y="${6+r*6}" width="8" height="6" fill="var(--ink)"/>`).join('')).join('')}<rect x="10" y="6" width="32" height="24" fill="none" stroke="var(--ink)"/></svg>`;
+function carSVG(){return `<svg width="30" height="46" viewBox="0 0 30 46" aria-hidden="true"><rect x="4" y="4" width="22" height="38" rx="8" fill="#FF7A59"/><rect x="8" y="10" width="14" height="9" rx="2" fill="#6FD3FF"/><rect x="0" y="8" width="4" height="9" rx="1" fill="#111"/><rect x="26" y="8" width="4" height="9" rx="1" fill="#111"/><rect x="0" y="29" width="4" height="9" rx="1" fill="#111"/><rect x="26" y="29" width="4" height="9" rx="1" fill="#111"/></svg>`}
+function bossVis(p){return `<div class="finish"></div><div class="lane"></div><div class="rocket" id="rk" style="bottom:calc(2% + ${p*74}%)">${carSVG()}</div>`}
+function bossUpd(p){const r=$('#rk');if(r)r.style.bottom=`calc(2% + ${p*74}%)`}
+const BOSS_CSS=`.sky{background:linear-gradient(180deg,#1B1B36,#2A2A44)!important}
+.sky .finish{position:absolute;top:8px;left:6px;right:6px;height:14px;background:repeating-conic-gradient(#EEF0FF 0 25%,#111 0 50%) 0 0/14px 14px}
+.sky .lane{position:absolute;top:24px;bottom:0;left:50%;border-left:2px dashed #EEF0FF55}
+.orbit-art .car{offset-path:path('M85 38 A74 52 0 1 1 84.9 38');animation:drive 6s linear infinite}@keyframes drive{to{offset-distance:100%}}`;
+
+document.head.insertAdjacentHTML('beforeend','<style>'+BOSS_CSS+'</style>');
+
+/* ================= HOME ================= */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <div>
+      <h1>${T.h1}</h1>
+      <p class="lead">${T.lead}</p>
+      <div class="id-row"><label for="nm">${T.who}</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank">${rankOf(totalStars())}</span><p class="nm-err" id="nmErr" hidden>${T.errMsg}</p></div>
+    </div>
+    ${ART}
+  </section>
+  <div class="stations">
+   ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
+      <div class="st-head"><div class="planet ${st.ring?'ring':''}" style="--pc:${st.pc}"></div><div><h3>${st.title}</h3><p>${st.lessons} · ${st.sub}</p></div></div>
+      <div class="levels">${LV.map((l,j)=>`<button class="lv" data-s="${i}" data-l="${j}"><span class="n">المستوى ${j+1}</span><span class="dsc">${l} · ${(j+1)*10} نقاط</span>${starsHTML(S.stars[st.k+j]||0)}</button>`).join('')}</div>
+   </section>`).join('')}
+   <button class="boss" id="boss">
+     ${BOSS_ICON}
+     <span><h3>${T.boss}</h3><p>${T.bossSub}</p></span>
+     ${starsHTML(S.stars.boss||0)}
+   </button>
+  </div>
+  <section id="lb" class="lb" hidden></section>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
+  lbRender();
+}
+
+/* ================= RUNNER ================= */
+let timerId=null;
+function rocketSVG(){return `<svg width="34" height="52" viewBox="0 0 34 52" aria-hidden="true"><path d="M17 2c7 7 9 18 6 30H11C8 20 10 9 17 2z" fill="#EEF0FF"/><circle cx="17" cy="17" r="4" fill="#6FD3FF"/><path d="M11 30l-7 9h8zM23 30l7 9h-8z" fill="#FF7A59"/><path d="M13 34h8l-4 14z" fill="#FFB547"/></svg>`}
+function play(si,li){
+  const boss=si<0, st=boss?null:STATIONS[si];
+  const items=boss?bossSet():st.levels[li]();
+  const pts=boss?30:(li+1)*10;
+  const R={i:0,correct:0,hearts:3};
+  const title=boss?T.boss:`${st.title} · المستوى ${li+1}`;
+  function render(){
+    clearInterval(timerId);
+    const Q=items[R.i];
+    const alt=Math.round(R.correct/items.length*100);
+    app.innerHTML=`<div class="bar"><button class="back" id="bk">→ ${T.hub}</button><h2>${title}</h2><span class="chip">${R.i+1} / ${items.length}</span></div>
+      <div class="progress"><i style="width:${R.i/items.length*100}%"></i></div>
+      ${boss?`<div class="bar" style="margin-top:-4px"><span class="hearts" aria-label="المحاولات المتبقية">${[1,2,3].map(i=>`<span class="${i<=R.hearts?'':'off'}">♥</span>`).join('')}</span><span class="chip">${T.meter} <strong>${alt}%</strong></span><span class="chip" id="tl">90</span></div><div class="timer" id="tm"><i style="width:100%"></i></div>
+        <div class="launch" style="margin-top:12px"><div class="sky">${bossVis(R.correct/items.length)}</div><div class="card" id="card"></div></div>`
+      :`<div class="card" id="card"></div>`}`;
+    $('#bk').onclick=()=>{clearInterval(timerId);home()};
+    const card=$('#card');
+    let finished=false;
+    const done=(ok)=>{
+      if(finished)return;finished=true;clearInterval(timerId);
+      if(ok){R.correct++;S.points+=pts;save();hud();bossUpd(R.correct/items.length)} else if(boss){R.hearts--}
+      const fb=document.createElement('div');fb.className='feedback'+(ok?'':' no');
+      fb.innerHTML=`<b>${ok?`إجابة صحيحة! +${pts}`:'ليست الإجابة الصحيحة'}</b><div>${Q.sol||''}</div>`;
+      card.appendChild(fb);
+      const nx=document.createElement('button');nx.className='next';
+      const over=boss&&R.hearts<=0, last=R.i+1>=items.length;
+      nx.textContent=over?T.fail:last?'إنهاء':'التالي ←';
+      nx.onclick=()=>{ if(over) return lose(); R.i++; if(R.i>=items.length) return finish(); render(); };
+      card.appendChild(nx);nx.focus({preventScroll:true});
+    };
+    renderQ(card,Q,done);
+    if(boss){let t=90;timerId=setInterval(()=>{t--;const tl=$('#tl'),tm=$('#tm');if(!tl){clearInterval(timerId);return}
+      tl.textContent=t;tm.querySelector('i').style.width=(t/90*100)+'%';tm.classList.toggle('low',t<=20);
+      if(t<=0){card.querySelectorAll('button,input').forEach(x=>x.disabled=true);done(false)}},1000)}
+  }
+  function finish(){
+    const pct=R.correct/items.length;
+    const stars=boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+    const key=boss?'boss':st.k+li;
+    S.stars[key]=Math.max(S.stars[key]||0,stars);save();hud();lbSubmit();
+    app.innerHTML=`<div class="card summary">
+      <h2>${boss?T.win:'أنهيت المهمة'}</h2>${starsHTML(stars,'big')}
+      <p style="margin:0;color:var(--muted)">أجبت ${R.correct} من ${items.length} إجابة صحيحة.</p>
+      ${boss?`<div class="cert"><span style="color:var(--muted);font-size:.85rem">${T.cert}</span><h2>${esc(S.name||'')}</h2><span>${T.unit} · ${S.points} نقطة · الرتبة: ${rankOf(totalStars())}</span><span style="color:var(--muted);font-size:.85rem">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+      <div class="btns"><button class="next" id="h">${T.hub}</button><button class="back" id="ag">${boss?T.again:'أعد المستوى بأرقام جديدة'}</button>
+      ${!boss&&li<2?`<button class="back" id="nl">المستوى ${li+2} ←</button>`:''}</div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+    const nl=$('#nl');if(nl)nl.onclick=()=>play(si,li+1);
+  }
+  function lose(){
+    app.innerHTML=`<div class="card summary"><h2>${T.lose}</h2><p style="margin:0;color:var(--muted)">راجع خطوات الحل وحاول مرة أخرى، ستتغير الأرقام.</p>
+    <div class="btns"><button class="next" id="ag">${T.again}</button><button class="back" id="h">${T.hub}</button></div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+  }
+  render();
+}
+
+/* ================= RENDERERS ================= */
+function renderQ(card,Q,done){
+  card.innerHTML=`<div class="meta"><span class="tag ${Q.tag&&Q.tag!=='x'?'ex':''}">${SRC[Q.tag]||SRC.x}</span></div><p class="q">${Q.q}</p>`+(Q.svg||'')+(Q.given?`<p class="given">معطيات: ${Q.given}</p>`:'');
+  if(Q.kind==='mc'){
+    const order=shuffle(Q.o.map((_,i)=>i));
+    card.insertAdjacentHTML('beforeend',`<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${Q.ltr?E(Q.o[i]):Q.o[i]}</button>`).join('')}</div>`);
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.a)x.classList.add('right')});if(p!==Q.a)b.classList.add('wrong');done(p===Q.a)});
+  }
+  else if(Q.kind==='sci'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans"><span class="sci"><input class="man" id="man" inputmode="decimal" autocomplete="off" aria-label="الرقم"><span class="x">×</span><span class="ten">10</span><input class="exp" id="exp" inputmode="numeric" autocomplete="off" aria-label="الأُس"><span class="unit">${Q.unit}</span></span><button class="check" id="ck">تحقّق</button></div>
+      <p class="hint2">اكتب الناتج بالصيغة العلمية: الرقم في الخانة الزرقاء والأُس في الخانة الصغيرة. للأُس السالب اكتب إشارة −. استخدم الإشارة السالبة في الرقم إن كان الناتج سالباً.</p>`);
+    const m=$('#man'),e=$('#exp'),ck=$('#ck');
+    const go=()=>{const a=parseNum(m.value);let b=parseNum(e.value);if(isNaN(a)){m.focus();return}if(isNaN(b))b=0;
+      const v=a*Math.pow(10,b),ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.03);
+      [m,e].forEach(x=>{x.classList.add(ok?'ok':'no');x.disabled=true});ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(sci(Q.ans,2)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;[m,e].forEach(x=>x.addEventListener('keydown',ev=>{if(ev.key==='Enter')go()}));m.focus({preventScroll:true});
+  }
+  else if(Q.kind==='num'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans num"><input id="in" inputmode="decimal" dir="ltr" autocomplete="off" aria-label="الإجابة"><span class="unit">${Q.unit}</span><button class="check" id="ck">تحقّق</button></div>`);
+    const inp=$('#in'),ck=$('#ck');
+    const go=()=>{const v=parseNum(inp.value);if(isNaN(v)){inp.focus();return}
+      const ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.02);inp.classList.add(ok?'ok':'no');inp.disabled=ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(Q.ans.toPrecision(3)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus({preventScroll:true});
+  }
+}
+
+home();
+})();
+</script>
+
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</html>

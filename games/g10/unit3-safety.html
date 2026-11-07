@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>حارس الأمان الكهربائي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0A19; --surface:#14142A; --surface2:#1B1B36; --line:#2D2D52;
+  --ink:#EEF0FF; --muted:#9EA3C8;
+  --sun:#FFB547; --sun-ink:#2A1A00; --orbit:#6FD3FF; --planet:#FF7A59;
+  --ok:#5EDB9C; --bad:#FF7B7B;
+  --display:"Changa","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;min-height:100%;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 72% 8%,#fff8 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 62%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 88% 44%,#fff9 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 84%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 30%,#fff8 50%,transparent 51%),
+    radial-gradient(1px 1px at 94% 90%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 5% 50%,#fff6 50%,transparent 51%),
+    radial-gradient(900px 500px at 85% -10%,#2A1E5C 0%,transparent 60%);
+  background-size:340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,100% 100%;
+  background-attachment:fixed}
+.wrap{max-width:840px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.top b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--sun);font-family:var(--mono)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.25;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.1rem)}
+h1 span{color:var(--sun)}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px 4px}
+.orbit-art{width:170px;height:170px}
+.orbit-art .sat{transform-origin:85px 85px;animation:spin 14s linear infinite}
+.orbit-art .sat2{transform-origin:85px 85px;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.orbit-art{display:none}}
+.id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.id-row label{color:var(--muted);font-size:.9rem}
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+.id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
+.rank{border:1px solid var(--orbit);color:var(--orbit);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
+
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px}
+.st{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:12px;align-content:start}
+.st-head{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.planet{width:54px;height:54px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 30%,#fff5 0 8%,transparent 30%),var(--pc);box-shadow:inset -8px -8px 14px #0006}
+.planet.ring::after{content:"";position:absolute;inset:18px -9px;border:2px solid #fff8;border-radius:50%;transform:rotate(-18deg)}
+.st-head p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lv{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;color:var(--ink);display:grid;gap:2px;justify-items:center;transition:border-color .15s,transform .15s}
+.lv:hover{border-color:var(--sun);transform:translateY(-2px)}
+.lv .n{font-family:var(--display);font-weight:700}
+.lv .dsc{font-size:.75rem;color:var(--muted)}
+.stars{color:var(--line);letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+.stars .on{color:var(--sun)}
+.boss{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:start;color:var(--ink);
+  background:linear-gradient(135deg,#3A1F10,var(--surface) 60%);border:1.5px solid var(--sun);border-radius:18px;padding:14px}
+.boss p{margin:0;color:var(--muted);font-size:.88rem}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:8px 12px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--surface);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orbit),var(--sun));transition:width .4s}
+.card{min-width:0;overflow-wrap:anywhere;background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tag.ex{color:var(--sun);border-color:color-mix(in srgb,var(--sun) 45%,var(--line))}
+.q{font-size:1.08rem;font-weight:700;margin:0;text-wrap:pretty}
+.given{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--line);color:var(--muted);font-size:.9rem}
+.eq{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{background:var(--surface2);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--sun)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--surface2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface2))}
+.ans{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sci{display:flex;align-items:center;gap:6px;direction:ltr;font-family:var(--mono);font-size:1.15rem}
+.sci input{font-family:var(--mono);font-size:1.15rem;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 8px;text-align:center}
+.sci .man{width:5.2em}
+.sci .exp{width:3.4em;border-color:var(--sun);font-size:.95rem;align-self:flex-start;margin-top:-6px}
+.sci .x{color:var(--muted)}
+.sci .ten{color:var(--ink)}
+.sci input.ok{border-color:var(--ok)} .sci input.no{border-color:var(--bad)}
+.num input{font-family:var(--mono);font-size:1.15rem;width:8em;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 10px;text-align:center}
+.num input.ok{border-color:var(--ok)} .num input.no{border-color:var(--bad)}
+.unit{font-family:var(--mono);color:var(--muted)}
+.hint2{margin:0;color:var(--muted);font-size:.8rem}
+.check{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:8px 18px;font-weight:700}
+.check:disabled{opacity:.5;cursor:default}
+.feedback{border-radius:12px;padding:12px 14px;background:var(--surface2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{justify-self:start;background:var(--sun);color:var(--sun-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+.diagram{width:100%;max-width:420px;justify-self:center;height:auto;direction:ltr}
+.diagram text{font-family:var(--mono);font-size:12px}
+/* boss */
+.launch{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch}
+.sky{position:relative;border-radius:14px;background:linear-gradient(180deg,#05050F,#1B1440 70%,#243B6B);border:1px solid var(--line);min-height:210px;overflow:hidden}
+.sky .earth{position:absolute;bottom:-40px;left:50%;width:120px;height:70px;transform:translateX(-50%);border-radius:50% 50% 0 0;background:radial-gradient(circle at 50% 100%,#3E9BFF,#1E5AA8)}
+.sky .rocket{position:absolute;left:50%;transform:translateX(-50%);transition:bottom .8s cubic-bezier(.3,1.3,.5,1);font-size:0}
+.sky .orbitline{position:absolute;top:18px;left:6px;right:6px;border-top:2px dashed var(--orbit);opacity:.7}
+.timer{height:8px;border-radius:99px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.timer i{display:block;height:100%;background:var(--sun);transition:width 1s linear}
+.timer.low i{background:var(--bad)}
+.hearts{color:var(--bad);letter-spacing:3px}
+.hearts .off{color:var(--line)}
+.summary{text-align:center;justify-items:center;margin-top:18px}
+.big{font-size:2.4rem;letter-spacing:6px;color:var(--line)} .big .on{color:var(--sun)}
+.cert{border:2px solid var(--sun);border-radius:16px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center;background:linear-gradient(180deg,#2A1A0A,var(--surface))}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.lb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.lb-count,.lb-note{color:var(--muted);font-size:.85rem;margin:0}
+.lb-note.small{font-size:.75rem}
+.lb-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lb-list li{display:grid;grid-template-columns:2em 1fr auto 3.5em;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--bg);font-variant-numeric:tabular-nums}
+.lb-list li:nth-child(-n+3) .rk{color:var(--sun);font-weight:700}
+.lb-list li.me{outline:2px solid var(--sun)}
+.lb-list .rk{text-align:center;color:var(--muted)}
+.lb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sr{color:var(--sun)}
+.lb-list .pt{text-align:end;color:var(--muted);font-size:.9rem}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.boss{grid-template-columns:1fr}.launch{grid-template-columns:54px 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span id="brand"><a href="../../" style="color:var(--sun);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · <b>مدار الفيزياء</b> · الصف العاشر · الوحدة الثالثة: مخاطر الكهرباء</span>
+    <span class="chips"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="sts">0</strong>/30</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=s=>`<span class="eq">${s}</span>`;
+const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+/* x -> "6.67×10⁻¹¹" */
+function sci(x,sf=3){if(x===0)return'0';let e=Math.floor(Math.log10(Math.abs(x)));let ms=(x/Math.pow(10,e)).toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){e++;ms=(x/Math.pow(10,e)).toPrecision(sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+const r2=(x,sf=2)=>+x.toPrecision(sf);
+function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
+
+/* ---------- state ---------- */
+const KEY='madar-g10u3';
+const S={name:'',points:0,stars:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v)Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
+function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
+const rankOf=n=>n>=22?T.ranks[2]:n>=9?T.ranks[1]:T.ranks[0];
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+const LB={game:'g10u3',api:'/api/scores'};
+
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
+/* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
+function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
+  if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
+let lbPending=Promise.resolve(), lbDeb=null;
+function lbSubmit(){ if(!S.name||!(S.points>0)) return lbPending;
+  lbPending=fetch(LB.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({game:LB.game,pid:playerId(),name:S.name,stars:totalStars(),points:S.points})}).catch(()=>{});
+  return lbPending }
+function lbNameChanged(){clearTimeout(lbDeb);lbDeb=setTimeout(()=>{lbSubmit().then(lbRender)},1200)}
+async function lbRender(){
+  const box=document.getElementById('lb'); if(!box) return;
+  try{
+    await lbPending;
+    const r=await fetch(`${LB.api}?game=${LB.game}&pid=${encodeURIComponent(playerId())}`,{cache:'no-store'});
+    const d=await r.json(); if(!d.ok) throw 0;
+    const rows=d.rows||[];
+    box.innerHTML=`<div class="lb-head"><h2>لوحة المتصدرين</h2><span class="lb-count">${d.total} لاعب</span></div>
+      ${rows.length?`<ol class="lb-list">${rows.map((x,i)=>`<li class="${x.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(x.name)}${x.me?' (أنت)':''}</span><span class="sr">★ ${x.stars}</span><span class="pt">${x.points}</span></li>`).join('')}</ol>`:'<p class="lb-note">لا يوجد لاعبون بعد. كن الأول!</p>'}
+      ${d.mine&&!rows.some(x=>x.me)?`<p class="lb-note">ترتيبك: <b>${d.mine.rank}</b> من ${d.total} · ★ ${d.mine.stars} · ${d.mine.points} نقطة</p>`:''}
+      <p class="lb-note small">الترتيب حسب النجوم ثم النقاط.</p>`;
+    box.hidden=false;
+  }catch(e){ box.hidden=true }
+}
+
+const SRC={a1:'اختبار نهائي 2024/2025 · الدور الأول',a2:'اختبار نهائي 2024/2025 · الدور الثاني',b1:'اختبار نهائي 2023/2024 · الدور الأول',b2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  c1:'اختبار نهائي 2025/2026 · الدور الأول',c2:'اختبار نهائي 2025/2026 · الدور الثاني',d1:'اختبار نهائي 2022/2023 · الدور الأول',d2:'اختبار نهائي 2022/2023 · الدور الثاني',x:'بنمط أسئلة الاختبارات النهائية'};
+const fx=(x,d=2)=>(+x.toFixed(d)).toString();
+
+/* ================= STATION 1: المخاطر الكهربائية (1-3) ================= */
+const S1B={
+ insul:{kind:'mc',tag:'b1',q:'ماذا يحدث إذا تلف العازل لكابل موصول بمصدر للطاقة الكهربائية؟',o:['قد يتعرض من يلمس السلك المكشوف لصدمة كهربائية','يتوقف التيار تلقائياً','يقل فرق الجهد في الكابل','لا يحدث أي خطر'],a:0,sol:'عند لمس السلك المكشوف يتدفق التيار عبر الجسم.'},
+ howShock:{kind:'mc',tag:'a2',q:'كيف يؤدي تلف العوازل إلى حدوث صدمة كهربائية؟',o:['عند لمس الأسلاك المكشوفة يتدفق التيار عبر الجسم فتنقبض العضلات بشدة','لأن العازل التالف يزيد المقاومة','لأن التيار يتوقف فجأة','لأن العازل يخزّن الشحنات'],a:0,sol:'التيار المار في الجسم يسبب انقباض العضلات بشدة.'},
+ overload:{kind:'mc',tag:'a2',q:'ما الخطر الناشئ عن توصيل عدد كبير من الأجهزة الكهربائية بمقبس رئيسي واحد؟',o:['ارتفاع حرارة الكيبل أو نشوب حريق','انخفاض فاتورة الكهرباء','تعطّل المنصهر عن العمل نهائياً','زيادة عمر الأجهزة'],a:0,sol:'يُسحب تيار كلي كبير فتسخن الأسلاك (تحميل زائد).'},
+ thin:{kind:'mc',tag:'a1',q:'ما الخطر عند استخدام كيبل رفيع نسبياً لشحن سيارة كهربائية كبيرة؟',o:['نشوب حريق أو انصهار الكيبل بسبب ارتفاع درجة الحرارة','بطء الشحن فقط دون أي خطر','انعكاس اتجاه التيار','تلف البطارية بسبب نقص الجهد فقط'],a:0,sol:'يمر تيار كبير في سلك رفيع فترتفع درجة حرارته كثيراً.'},
+ laundry:{kind:'mc',tag:'c1',q:'وجد فني مفتاحاً كهربائياً داخل غرفة غسيل الملابس وأوصى بنقله خارجها. لماذا؟',o:['لأن الرطوبة والبلل يزيدان خطر الصدمة الكهربائية','لأن المفتاح يستهلك طاقة أكبر في الغرفة','لأن المفتاح يسخّن الماء','لأن المفتاح يتلف الملابس'],a:0,sol:'الماء (غير النقي) موصل للكهرباء، والرطوبة تقلل مقاومة الجلد.'},
+ dryer:{kind:'mc',tag:'d2',q:'لماذا يُفضَّل عدم استخدام مجفف الشعر في الحمام؟',o:['لخطر تعرّضه للماء والرطوبة مما قد يسبب صدمة كهربائية','لأن المجفف لا يعمل في الأماكن الرطبة','لأن الحمام بارد','لأن المجفف يستهلك طاقة أقل'],a:0,sol:'الماء موصل للكهرباء.'},
+ touch:{kind:'mc',tag:'b1',q:'متى يتعرض الشخص لخطر الصدمة الكهربائية؟',o:['عند لمس سلك كهربائي مكشوف مباشرة','عند استخدام أسلاك ذات عزل سليم','عند فصل الجهاز قبل تنظيفه','عند استخدام قفازات عازلة'],a:0,sol:'لمس الموصل المكشوف يجعل التيار يمر عبر الجسم.'},
+ common:{kind:'mc',tag:'x',q:'أي مما يلي يُعدّ من المخاطر الكهربائية الشائعة في المنزل؟',o:['توصيل عدد كبير من الأجهزة بمقبس واحد في وقت واحد','استخدام أسلاك ذات عزل سليم','فصل الجهاز قبل تنظيفه','استخدام قفازات عازلة مع الأسلاك المكشوفة'],a:0,sol:'هذا تحميل زائد على الدائرة، والخيارات الأخرى إجراءات وقائية.'},
+ short:{kind:'mc',tag:'x',q:'تمزق الغلاف العازل لسلك فانكشف السلك المعدني. ما الخطر الرئيسي؟',o:['صدمة كهربائية عند لمسه، أو دائرة قصر إذا لامس موصلاً آخر','يزداد فرق الجهد تلقائياً','يصبح التيار صفراً','يتحول السلك إلى عازل'],a:0,sol:'العازل يمنع التلامس المباشر مع الموصل.'},
+ heat:{kind:'mc',tag:'x',q:'ما الذي يسبب ارتفاع درجة حرارة الأسلاك بشكل خطير؟',o:['مرور تيار أكبر مما صُمّم السلك لتحمّله','استخدام سلك سميك مناسب','وجود منصهر مناسب','فصل الأجهزة غير المستخدمة'],a:0,sol:'كلما زاد التيار في السلك زادت الحرارة المتولدة فيه.'}
+};
+const gOver=()=>{const max=pick([13,10,16]),devs=shuffle([['غسالة',pick([8,9])],['مكواة',pick([5,8])],['سخان',pick([9,10])],['ثلاجة',pick([2,3])],['مكنسة',pick([6,7])]]).slice(0,pick([2,3]));const I=devs.reduce((a,d)=>a+d[1],0);
+  const ok=I<=max;return{kind:'mc',tag:'x',q:`دائرة في المنزل مصممة لتحمّل تيار أقصاه ${E(max+' A')}. وُصلت بها الأجهزة: ${devs.map(d=>`${d[0]} (${E(d[1]+' A')})`).join('، ')} في الوقت نفسه. ما الوصف الصحيح؟`,
+  o:ok?[`آمن، لأن التيار الكلي ${I} A لا يتجاوز ${max} A`,`خطر تحميل زائد، لأن التيار الكلي ${I} A`,'خطر، لأن الأجهزة موصولة على التوازي','لا يمكن الحكم دون معرفة الجهد']:[`خطر تحميل زائد، لأن التيار الكلي ${I} A أكبر من ${max} A`,`آمن، لأن كل جهاز تياره أقل من ${max} A`,'آمن، لأن الأجهزة موصولة على التوازي','لا يمكن الحكم دون معرفة الجهد'],a:0,
+  sol:`${E(`I = ${devs.map(d=>d[1]).join(' + ')} = ${I} A`)}${ok?'':' ⇒ ترتفع حرارة الأسلاك وقد ينشب حريق. الحل: توزيع الأحمال واستخدام منصهر مناسب.'}`}};
+
+/* ================= STATION 2: المنصهر (2-3) ================= */
+const S2B={
+ job:{kind:'mc',tag:'b2',q:'ما وظيفة المنصهر في الدائرة الكهربائية؟',o:['حماية الأجهزة من التلف بقطع التيار إذا زادت شدته عن الحد الآمن','زيادة شدة التيار عند الحاجة','تخزين الطاقة الكهربائية','تحويل التيار المتردد إلى مستمر'],a:0,sol:'المنصهر مكوّن لحماية الأجهزة عند تدفق تيارات عالية الشدة.'},
+ how:{kind:'mc',tag:'a2',q:'ما فكرة عمل المنصهر؟',o:['إذا تجاوز التيار قيمة معينة ينصهر السلك الرفيع بداخله فيقطع الدائرة','يزيد مقاومته تدريجياً حتى يتوقف التيار','يعكس اتجاه التيار','يخزّن الشحنات الزائدة'],a:0,sol:'الحرارة الناتجة عن التيار الزائد تصهر سلك المنصهر.'},
+ hair:{kind:'mc',tag:'b1',q:'كيف يحمي المنصهر الموجود داخل قابس مجفف الشعر الجهاز؟',o:['ينصهر سلكه ويقطع الدائرة إذا أصبحت شدة التيار كبيرة جداً','يقلل الجهد الواصل للمجفف','يبرّد المجفف','يمنع الماء من الدخول'],a:0,sol:'ينقطع التيار قبل أن يتلف الجهاز.'},
+ series:{kind:'mc',tag:'x',q:'لماذا يُوصَّل المنصهر على التوالي مع الجهاز الذي يحميه؟',o:['حتى يمر فيه التيار الكلي نفسه فيقطع الدائرة كلها عند انصهاره','حتى يقل التيار المار فيه','لأن التوازي يزيد المقاومة','لا فرق بين التوالي والتوازي'],a:0,sol:'لو وُصل على التوازي لبقيت الدائرة الأصلية مغلقة بعد انصهاره.'},
+ breaker:{kind:'mc',tag:'x',q:'ما الفرق بين المنصهر والقاطع الآلي من حيث إعادة الاستخدام؟',o:['المنصهر يُستبدل بعد انصهاره، والقاطع الآلي يُعاد ضبطه ويُستخدم مجدداً','كلاهما يُعاد ضبطه','القاطع يُستبدل بعد كل استخدام','لا يوجد فرق'],a:0,sol:'انصهار السلك تغيّر دائم، أما القاطع فيفصل ملامساً ميكانيكياً.'},
+ wire:{kind:'mc',tag:'x',q:'من أي نوع يُصنع سلك المنصهر عادة؟',o:['سلك رفيع من فلز درجة انصهاره منخفضة نسبياً','سلك سميك من النحاس','مادة عازلة','سلك من فلز درجة انصهاره عالية جداً'],a:0,sol:'رفيع ودرجة انصهاره منخفضة حتى ينصهر بسرعة عند زيادة التيار.'},
+ rule:{kind:'mc',tag:'c1',q:'كيف نختار المنصهر المناسب لجهاز كهربائي؟',o:['نحسب تيار التشغيل I = P/V ونختار منصهراً أعلى منه بقليل','نختار أكبر منصهر متوفر','نختار منصهراً يساوي قدرة الجهاز بالواط','نختار منصهراً أقل من تيار التشغيل'],a:0,sol:'المنصهر الأقل ينصهر أثناء التشغيل الطبيعي، والأكبر بكثير لا يحمي الجهاز.'},
+ big:{kind:'mc',tag:'d2',q:'تيار تشغيل مكنسة كهربائية 8.3 A. لماذا لا يُستخدم معها منصهر 30 A؟',o:['لأنه كبير جداً ولن ينصهر في الوقت المناسب لحماية الجهاز','لأنه سينصهر أثناء التشغيل الطبيعي','لأنه يقلل قدرة المكنسة','لأن المنصهر 30 A غير موجود'],a:0,sol:'يجب أن يكون المنصهر أعلى بقليل من تيار التشغيل.'}
+};
+
+/* ================= STATION 3: اختيار المنصهر (2-3) ================= */
+const DEV=[['مكنسة كهربائية',[2000,3000,1500]],['مجفف شعر',[840,1200,1000]],['مكواة',[1200,2000,1100]],['سخان كهربائي',[1500,2400,3000]],['مدفئة كهربائية',[1100,2000]],['غلاية',[2200,1800]],['مصباح مكتب',[60,100]],['تلفاز',[120,240]]];
+const FUSES=[1,3,5,7,9,10,13,20,30];
+const gI=()=>{const [n,ps]=pick(DEV),P=pick(ps),V=pick([240,220]);const I=P/V;return{kind:'num',tag:pick(['d1','a1','c1']),q:`${n} قدرته ${E(P+' W')} ويعمل بجهد ${E(V+' V')}. احسب شدة تيار التشغيل الطبيعي.`,ans:I,rel:.02,unit:'A',
+  sol:`${E(`I = P/V = ${P}/${V} = ${fx(I,2)} A`)}`}};
+const gFuse=()=>{for(;;){const [n,ps]=pick(DEV),P=pick(ps),V=pick([240,220]);const I=P/V;const best=FUSES.find(f=>f>I*1.001);if(!best)continue;const below=FUSES.filter(f=>f<I).slice(-1)[0];const far=FUSES.filter(f=>f>=best*2).slice(0,1)[0];
+  const opts=[best,below,far,FUSES.find(f=>f>best&&f!==far)].filter(v=>v!==undefined);if(new Set(opts).size<3)continue;
+  return{kind:'mc',tag:pick(['d1','b1','a2']),q:`${n} قدرته ${E(P+' W')} ويعمل بجهد ${E(V+' V')}. ما المنصهر المناسب له؟`,o:[...new Set(opts)].slice(0,4).map(f=>f+' A'),a:0,ltr:1,
+  sol:`${E(`I = P/V = ${P}/${V} = ${fx(I,2)} A`)}<br>نختار المنصهر الأعلى بقليل: ${E(best+' A')}${below?` (المنصهر ${below} A أقل من تيار التشغيل فينصهر فوراً)`:''}.`}}};
+const gCan=()=>{const [n,ps]=pick(DEV.slice(0,6)),P=pick(ps),V=pick([240,220]);const I=P/V;const best=FUSES.find(f=>f>I*1.001);const f=pick([best,FUSES.filter(x=>x<I).slice(-1)[0]||best]);const ok=f>I;
+  return{kind:'mc',tag:pick(['a1','c2']),q:`${n} قدرته ${E(P+' W')} ويعمل بجهد ${E(V+' V')}. هل يمكن استخدام المنصهر ${E(f+' A')} لحمايته؟`,
+  o:ok?[`نعم، لأن تيار التشغيل ${fx(I,1)} A وهو أقل بقليل من ${f} A`,`لا، لأن تيار التشغيل أكبر من ${f} A`,'لا، لأن قدرة الجهاز أكبر من قيمة المنصهر','نعم، لأن أي منصهر يصلح لأي جهاز']:[`لا، لأن تيار التشغيل ${fx(I,1)} A أكبر من ${f} A فسينصهر أثناء التشغيل`,`نعم، لأن ${f} A قريب من تيار التشغيل`,'نعم، لأن المنصهر يتحمل أي تيار','لا، لأن الجهد أكبر من قيمة المنصهر'],a:0,
+  sol:`${E(`I = P/V = ${P}/${V} = ${fx(I,2)} A`)}`}};
+const gMaxLamps=()=>{const P=pick([44,22,110,55]),fuse=pick([2,3,5]);const i=P/220,n=Math.floor(fuse/i+1e-9);return{kind:'num',tag:'b2',q:`مصابيح متماثلة قدرة كل منها ${E(P+' W')} موصولة على التوازي بمصدر ${E('220 V')} ومنصهر يتحمل ${E(fuse+' A')}. ما أكبر عدد من المصابيح يمكن توصيله دون تلف المنصهر؟`,
+  ans:n,rel:.001,unit:'مصباح',sol:`${E(`I = P/V = ${P}/220 = ${fx(i,2)} A`)} لكل مصباح<br>${E(`N = ${fuse} ÷ ${fx(i,2)} = ${n}`)}`}};
+const gPfromI=()=>{const I=pick([2,4,5,8,10]),V=pick([240,220]);return{kind:'num',tag:'x',q:`يسحب جهاز تياراً شدته ${E(I+' A')} عند تشغيله بجهد ${E(V+' V')}. احسب قدرته.`,ans:I*V,rel:.01,unit:'W',sol:`${E(`P = IV = ${I} × ${V} = ${I*V} W`)}`}};
+
+/* ================= STATIONS ================= */
+const LV=['مبتدئ','متمكّن','خبير'];
+const STATIONS=[
+ {k:'s1',title:'كاشف المخاطر',sub:'المخاطر الكهربائية في المنزل',lessons:'الدرس 1-3',pc:'#FF7A59',
+  levels:[()=>shuffle([S1B.insul,S1B.touch,S1B.dryer,S1B.common,S1B.heat]),
+          ()=>shuffle([S1B.howShock,S1B.overload,S1B.laundry,S1B.short,gOver()]),
+          ()=>shuffle([S1B.thin,gOver(),S1B.overload,S1B.laundry,gOver()])]},
+ {k:'s2',title:'ورشة المنصهر',sub:'وظيفة المنصهر وفكرة عمله',lessons:'الدرس 2-3',pc:'#C58BFF',
+  levels:[()=>shuffle([S2B.job,S2B.how,S2B.hair,S2B.wire,S2B.rule]),
+          ()=>shuffle([S2B.series,S2B.breaker,S2B.big,S2B.rule,gCan()]),
+          ()=>[gCan(),S2B.series,gCan(),S2B.big,gCan()]]},
+ {k:'s3',title:'اختيار المنصهر',sub:'حساب تيار التشغيل واختيار المنصهر المناسب',lessons:'الدرس 2-3',pc:'#5EDB9C',
+  levels:[()=>[gI(),gPfromI(),gI(),gFuse(),gI()],
+          ()=>[gFuse(),gI(),gFuse(),gCan(),gFuse()],
+          ()=>[gMaxLamps(),gFuse(),gCan(),gMaxLamps(),gFuse()]]}
+];
+const bossSet=()=>shuffle([gI(),gFuse(),gFuse(),gCan(),gMaxLamps(),gOver(),gPfromI(),pick([S1B.thin,S1B.laundry,S1B.overload]),pick([S2B.series,S2B.big,S2B.breaker]),gI(),gFuse()]).slice(0,10);
+
+/* ================= THEME ================= */
+const T={h1:'حارس <span>الأمان</span> الكهربائي',
+  lead:'أنت مفتش السلامة الكهربائية. اكشف المخاطر، وافهم المنصهر، واختر المنصهر المناسب لكل جهاز، ثم افحص المنزل كله في «الفحص الشامل». أرقام المسائل تتجدد في كل مرة تلعب.',
+  who:'اسم المفتش',errMsg:'اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ المهمة.',hub:'مكتب التفتيش',
+  boss:'الفحص الشامل',bossSub:'10 أسئلة مختلطة · 90 ثانية لكل سؤال · كل إجابة صحيحة تؤمّن غرفة من المنزل · 3 محاولات خاطئة فقط',meter:'الأمان',
+  win:'المنزل آمن بالكامل!',lose:'فشل الفحص',again:'فحص جديد',fail:'فشل الفحص',
+  cert:'شهادة مفتش السلامة الكهربائية',unit:'أتم الوحدة الثالثة: مخاطر الكهرباء',
+  ranks:['مفتش متدرّب','مفتش سلامة','كبير المفتشين']};
+const ART=`<svg class="orbit-art" viewBox="0 0 170 170" aria-hidden="true"><path d="M85 14 L146 40 V82 C146 118 120 144 85 156 C50 144 24 118 24 82 V40z" fill="#1B2A3A" stroke="var(--ok)" stroke-width="4"/>
+  <path class="shbolt" d="M92 40 L66 92 H84 L74 130 L106 76 H88z" fill="var(--sun)"/></svg>`;
+const BOSS_ICON=`<svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M24 4 L42 11 V24 C42 34 34 41 24 44 C14 41 6 34 6 24 V11z" fill="var(--ok)"/><path d="M15 24 l6 6 12 -13" stroke="#0A0A19" stroke-width="4" fill="none"/></svg>`;
+const ROOMS=['المطبخ','الحمام','الغسيل','الصالة','غرفة 1','غرفة 2','المكتب','المجلس','الممر','الحديقة'];
+function bossVis(p){const n=Math.round(p*10);return `<div class="rooms">${ROOMS.map((r,i)=>`<div class="rm${i<n?' safe':''}">${i<n?'✓':'!'}</div>`).join('')}</div>`}
+function bossUpd(p){const n=Math.round(p*10);document.querySelectorAll('.sky .rm').forEach((b,i)=>{b.classList.toggle('safe',i<n);b.textContent=i<n?'✓':'!'})}
+const BOSS_CSS=`.launch{grid-template-columns:76px 1fr}
+.sky .rooms{position:absolute;inset:8px;display:grid;grid-template-columns:1fr 1fr;gap:6px;align-content:end}
+.sky .rm{aspect-ratio:1;border-radius:8px;display:grid;place-items:center;font-weight:700;background:#3A1F28;color:var(--bad);border:1px solid #5A2A38;transition:all .5s}
+.sky .rm.safe{background:#163A2C;color:var(--ok);border-color:var(--ok)}
+.orbit-art .shbolt{animation:sh 2.6s infinite}@keyframes sh{50%{opacity:.4}}`;
+
+document.head.insertAdjacentHTML('beforeend','<style>'+BOSS_CSS+'</style>');
+
+/* ================= HOME ================= */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <div>
+      <h1>${T.h1}</h1>
+      <p class="lead">${T.lead}</p>
+      <div class="id-row"><label for="nm">${T.who}</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank">${rankOf(totalStars())}</span><p class="nm-err" id="nmErr" hidden>${T.errMsg}</p></div>
+    </div>
+    ${ART}
+  </section>
+  <div class="stations">
+   ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
+      <div class="st-head"><div class="planet ${st.ring?'ring':''}" style="--pc:${st.pc}"></div><div><h3>${st.title}</h3><p>${st.lessons} · ${st.sub}</p></div></div>
+      <div class="levels">${LV.map((l,j)=>`<button class="lv" data-s="${i}" data-l="${j}"><span class="n">المستوى ${j+1}</span><span class="dsc">${l} · ${(j+1)*10} نقاط</span>${starsHTML(S.stars[st.k+j]||0)}</button>`).join('')}</div>
+   </section>`).join('')}
+   <button class="boss" id="boss">
+     ${BOSS_ICON}
+     <span><h3>${T.boss}</h3><p>${T.bossSub}</p></span>
+     ${starsHTML(S.stars.boss||0)}
+   </button>
+  </div>
+  <section id="lb" class="lb" hidden></section>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
+  lbRender();
+}
+
+/* ================= RUNNER ================= */
+let timerId=null;
+function rocketSVG(){return `<svg width="34" height="52" viewBox="0 0 34 52" aria-hidden="true"><path d="M17 2c7 7 9 18 6 30H11C8 20 10 9 17 2z" fill="#EEF0FF"/><circle cx="17" cy="17" r="4" fill="#6FD3FF"/><path d="M11 30l-7 9h8zM23 30l7 9h-8z" fill="#FF7A59"/><path d="M13 34h8l-4 14z" fill="#FFB547"/></svg>`}
+function play(si,li){
+  const boss=si<0, st=boss?null:STATIONS[si];
+  const items=boss?bossSet():st.levels[li]();
+  const pts=boss?30:(li+1)*10;
+  const R={i:0,correct:0,hearts:3};
+  const title=boss?T.boss:`${st.title} · المستوى ${li+1}`;
+  function render(){
+    clearInterval(timerId);
+    const Q=items[R.i];
+    const alt=Math.round(R.correct/items.length*100);
+    app.innerHTML=`<div class="bar"><button class="back" id="bk">→ ${T.hub}</button><h2>${title}</h2><span class="chip">${R.i+1} / ${items.length}</span></div>
+      <div class="progress"><i style="width:${R.i/items.length*100}%"></i></div>
+      ${boss?`<div class="bar" style="margin-top:-4px"><span class="hearts" aria-label="المحاولات المتبقية">${[1,2,3].map(i=>`<span class="${i<=R.hearts?'':'off'}">♥</span>`).join('')}</span><span class="chip">${T.meter} <strong>${alt}%</strong></span><span class="chip" id="tl">90</span></div><div class="timer" id="tm"><i style="width:100%"></i></div>
+        <div class="launch" style="margin-top:12px"><div class="sky">${bossVis(R.correct/items.length)}</div><div class="card" id="card"></div></div>`
+      :`<div class="card" id="card"></div>`}`;
+    $('#bk').onclick=()=>{clearInterval(timerId);home()};
+    const card=$('#card');
+    let finished=false;
+    const done=(ok)=>{
+      if(finished)return;finished=true;clearInterval(timerId);
+      if(ok){R.correct++;S.points+=pts;save();hud();bossUpd(R.correct/items.length)} else if(boss){R.hearts--}
+      const fb=document.createElement('div');fb.className='feedback'+(ok?'':' no');
+      fb.innerHTML=`<b>${ok?`إجابة صحيحة! +${pts}`:'ليست الإجابة الصحيحة'}</b><div>${Q.sol||''}</div>`;
+      card.appendChild(fb);
+      const nx=document.createElement('button');nx.className='next';
+      const over=boss&&R.hearts<=0, last=R.i+1>=items.length;
+      nx.textContent=over?T.fail:last?'إنهاء':'التالي ←';
+      nx.onclick=()=>{ if(over) return lose(); R.i++; if(R.i>=items.length) return finish(); render(); };
+      card.appendChild(nx);nx.focus({preventScroll:true});
+    };
+    renderQ(card,Q,done);
+    if(boss){let t=90;timerId=setInterval(()=>{t--;const tl=$('#tl'),tm=$('#tm');if(!tl){clearInterval(timerId);return}
+      tl.textContent=t;tm.querySelector('i').style.width=(t/90*100)+'%';tm.classList.toggle('low',t<=20);
+      if(t<=0){card.querySelectorAll('button,input').forEach(x=>x.disabled=true);done(false)}},1000)}
+  }
+  function finish(){
+    const pct=R.correct/items.length;
+    const stars=boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+    const key=boss?'boss':st.k+li;
+    S.stars[key]=Math.max(S.stars[key]||0,stars);save();hud();lbSubmit();
+    app.innerHTML=`<div class="card summary">
+      <h2>${boss?T.win:'أنهيت المهمة'}</h2>${starsHTML(stars,'big')}
+      <p style="margin:0;color:var(--muted)">أجبت ${R.correct} من ${items.length} إجابة صحيحة.</p>
+      ${boss?`<div class="cert"><span style="color:var(--muted);font-size:.85rem">${T.cert}</span><h2>${esc(S.name||'')}</h2><span>${T.unit} · ${S.points} نقطة · الرتبة: ${rankOf(totalStars())}</span><span style="color:var(--muted);font-size:.85rem">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+      <div class="btns"><button class="next" id="h">${T.hub}</button><button class="back" id="ag">${boss?T.again:'أعد المستوى بأرقام جديدة'}</button>
+      ${!boss&&li<2?`<button class="back" id="nl">المستوى ${li+2} ←</button>`:''}</div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+    const nl=$('#nl');if(nl)nl.onclick=()=>play(si,li+1);
+  }
+  function lose(){
+    app.innerHTML=`<div class="card summary"><h2>${T.lose}</h2><p style="margin:0;color:var(--muted)">راجع خطوات الحل وحاول مرة أخرى، ستتغير الأرقام.</p>
+    <div class="btns"><button class="next" id="ag">${T.again}</button><button class="back" id="h">${T.hub}</button></div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+  }
+  render();
+}
+
+/* ================= RENDERERS ================= */
+function renderQ(card,Q,done){
+  card.innerHTML=`<div class="meta"><span class="tag ${Q.tag&&Q.tag!=='x'?'ex':''}">${SRC[Q.tag]||SRC.x}</span></div><p class="q">${Q.q}</p>`+(Q.svg||'')+(Q.given?`<p class="given">معطيات: ${Q.given}</p>`:'');
+  if(Q.kind==='mc'){
+    const order=shuffle(Q.o.map((_,i)=>i));
+    card.insertAdjacentHTML('beforeend',`<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${Q.ltr?E(Q.o[i]):Q.o[i]}</button>`).join('')}</div>`);
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.a)x.classList.add('right')});if(p!==Q.a)b.classList.add('wrong');done(p===Q.a)});
+  }
+  else if(Q.kind==='sci'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans"><span class="sci"><input class="man" id="man" inputmode="decimal" autocomplete="off" aria-label="الرقم"><span class="x">×</span><span class="ten">10</span><input class="exp" id="exp" inputmode="numeric" autocomplete="off" aria-label="الأُس"><span class="unit">${Q.unit}</span></span><button class="check" id="ck">تحقّق</button></div>
+      <p class="hint2">اكتب الناتج بالصيغة العلمية: الرقم في الخانة الزرقاء والأُس في الخانة الصغيرة. للأُس السالب اكتب إشارة −. استخدم الإشارة السالبة في الرقم إن كان الناتج سالباً.</p>`);
+    const m=$('#man'),e=$('#exp'),ck=$('#ck');
+    const go=()=>{const a=parseNum(m.value);let b=parseNum(e.value);if(isNaN(a)){m.focus();return}if(isNaN(b))b=0;
+      const v=a*Math.pow(10,b),ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.03);
+      [m,e].forEach(x=>{x.classList.add(ok?'ok':'no');x.disabled=true});ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(sci(Q.ans,2)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;[m,e].forEach(x=>x.addEventListener('keydown',ev=>{if(ev.key==='Enter')go()}));m.focus({preventScroll:true});
+  }
+  else if(Q.kind==='num'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans num"><input id="in" inputmode="decimal" dir="ltr" autocomplete="off" aria-label="الإجابة"><span class="unit">${Q.unit}</span><button class="check" id="ck">تحقّق</button></div>`);
+    const inp=$('#in'),ck=$('#ck');
+    const go=()=>{const v=parseNum(inp.value);if(isNaN(v)){inp.focus();return}
+      const ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.02);inp.classList.add(ok?'ok':'no');inp.disabled=ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(Q.ans.toPrecision(3)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus({preventScroll:true});
+  }
+}
+
+home();
+})();
+</script>
+
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</html>

@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر الدوائر الكهربائية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0A19; --surface:#14142A; --surface2:#1B1B36; --line:#2D2D52;
+  --ink:#EEF0FF; --muted:#9EA3C8;
+  --sun:#FFB547; --sun-ink:#2A1A00; --orbit:#6FD3FF; --planet:#FF7A59;
+  --ok:#5EDB9C; --bad:#FF7B7B;
+  --display:"Changa","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.7;margin:0;min-height:100%;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 72% 8%,#fff8 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 62%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 88% 44%,#fff9 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 84%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 58% 30%,#fff8 50%,transparent 51%),
+    radial-gradient(1px 1px at 94% 90%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 5% 50%,#fff6 50%,transparent 51%),
+    radial-gradient(900px 500px at 85% -10%,#2A1E5C 0%,transparent 60%);
+  background-size:340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,340px 340px,100% 100%;
+  background-attachment:fixed}
+.wrap{max-width:840px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;direction:rtl}
+button{font-family:inherit;font-size:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.top b{color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-variant-numeric:tabular-nums}
+.chip strong{color:var(--sun);font-family:var(--mono)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.25;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.1rem)}
+h1 span{color:var(--sun)}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+.lead{color:var(--muted);max-width:60ch;margin:6px 0 0}
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px 4px}
+.orbit-art{width:170px;height:170px}
+.orbit-art .sat{transform-origin:85px 85px;animation:spin 14s linear infinite}
+.orbit-art .sat2{transform-origin:85px 85px;animation:spin 26s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.orbit-art{display:none}}
+.id-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.id-row label{color:var(--muted);font-size:.9rem}
+#nm.need{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 30%,transparent);animation:nmShake .35s}
+@keyframes nmShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.nm-err{flex-basis:100%;margin:0;color:var(--bad);font-size:.85rem}
+.id-row input{font-family:inherit;font-size:1rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:0;flex:1;max-width:240px}
+.rank{border:1px solid var(--orbit);color:var(--orbit);border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
+
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:20px}
+.st{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:12px;align-content:start}
+.st-head{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center}
+.planet{width:54px;height:54px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 30%,#fff5 0 8%,transparent 30%),var(--pc);box-shadow:inset -8px -8px 14px #0006}
+.planet.ring::after{content:"";position:absolute;inset:18px -9px;border:2px solid #fff8;border-radius:50%;transform:rotate(-18deg)}
+.st-head p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.lv{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;color:var(--ink);display:grid;gap:2px;justify-items:center;transition:border-color .15s,transform .15s}
+.lv:hover{border-color:var(--sun);transform:translateY(-2px)}
+.lv .n{font-family:var(--display);font-weight:700}
+.lv .dsc{font-size:.75rem;color:var(--muted)}
+.stars{color:var(--line);letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+.stars .on{color:var(--sun)}
+.boss{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:start;color:var(--ink);
+  background:linear-gradient(135deg,#3A1F10,var(--surface) 60%);border:1.5px solid var(--sun);border-radius:18px;padding:14px}
+.boss p{margin:0;color:var(--muted);font-size:.88rem}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-block:8px 12px}
+.back{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:4px 12px}
+.progress{height:6px;background:var(--surface);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orbit),var(--sun));transition:width .4s}
+.card{min-width:0;overflow-wrap:anywhere;background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tag.ex{color:var(--sun);border-color:color-mix(in srgb,var(--sun) 45%,var(--line))}
+.q{font-size:1.08rem;font-weight:700;margin:0;text-wrap:pretty}
+.given{margin:0;padding:10px 12px;border-radius:12px;background:var(--bg);border:1px dashed var(--line);color:var(--muted);font-size:.9rem}
+.eq{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere}
+.opts{display:grid;gap:10px}
+.opt{background:var(--surface2);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--sun)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--surface2))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface2))}
+.ans{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sci{display:flex;align-items:center;gap:6px;direction:ltr;font-family:var(--mono);font-size:1.15rem}
+.sci input{font-family:var(--mono);font-size:1.15rem;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 8px;text-align:center}
+.sci .man{width:5.2em}
+.sci .exp{width:3.4em;border-color:var(--sun);font-size:.95rem;align-self:flex-start;margin-top:-6px}
+.sci .x{color:var(--muted)}
+.sci .ten{color:var(--ink)}
+.sci input.ok{border-color:var(--ok)} .sci input.no{border-color:var(--bad)}
+.num input{font-family:var(--mono);font-size:1.15rem;width:8em;background:var(--bg);color:var(--ink);border:2px solid var(--orbit);border-radius:10px;padding:6px 10px;text-align:center}
+.num input.ok{border-color:var(--ok)} .num input.no{border-color:var(--bad)}
+.unit{font-family:var(--mono);color:var(--muted)}
+.hint2{margin:0;color:var(--muted);font-size:.8rem}
+.check{background:var(--sun);color:var(--sun-ink);border:0;border-radius:10px;padding:8px 18px;font-weight:700}
+.check:disabled{opacity:.5;cursor:default}
+.feedback{border-radius:12px;padding:12px 14px;background:var(--surface2);border-inline-start:4px solid var(--ok)}
+.feedback.no{border-inline-start-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{justify-self:start;background:var(--sun);color:var(--sun-ink);border:0;border-radius:12px;padding:10px 22px;font-weight:700}
+.diagram{width:100%;max-width:420px;justify-self:center;height:auto;direction:ltr}
+.diagram text{font-family:var(--mono);font-size:12px}
+/* boss */
+.launch{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch}
+.sky{position:relative;border-radius:14px;background:linear-gradient(180deg,#05050F,#1B1440 70%,#243B6B);border:1px solid var(--line);min-height:210px;overflow:hidden}
+.sky .earth{position:absolute;bottom:-40px;left:50%;width:120px;height:70px;transform:translateX(-50%);border-radius:50% 50% 0 0;background:radial-gradient(circle at 50% 100%,#3E9BFF,#1E5AA8)}
+.sky .rocket{position:absolute;left:50%;transform:translateX(-50%);transition:bottom .8s cubic-bezier(.3,1.3,.5,1);font-size:0}
+.sky .orbitline{position:absolute;top:18px;left:6px;right:6px;border-top:2px dashed var(--orbit);opacity:.7}
+.timer{height:8px;border-radius:99px;background:var(--bg);overflow:hidden;border:1px solid var(--line)}
+.timer i{display:block;height:100%;background:var(--sun);transition:width 1s linear}
+.timer.low i{background:var(--bad)}
+.hearts{color:var(--bad);letter-spacing:3px}
+.hearts .off{color:var(--line)}
+.summary{text-align:center;justify-items:center;margin-top:18px}
+.big{font-size:2.4rem;letter-spacing:6px;color:var(--line)} .big .on{color:var(--sun)}
+.cert{border:2px solid var(--sun);border-radius:16px;padding:18px;display:grid;gap:4px;justify-items:center;text-align:center;background:linear-gradient(180deg,#2A1A0A,var(--surface))}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.lb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.lb-count,.lb-note{color:var(--muted);font-size:.85rem;margin:0}
+.lb-note.small{font-size:.75rem}
+.lb-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.lb-list li{display:grid;grid-template-columns:2em 1fr auto 3.5em;gap:10px;align-items:center;padding:6px 10px;border-radius:10px;background:var(--bg);font-variant-numeric:tabular-nums}
+.lb-list li:nth-child(-n+3) .rk{color:var(--sun);font-weight:700}
+.lb-list li.me{outline:2px solid var(--sun)}
+.lb-list .rk{text-align:center;color:var(--muted)}
+.lb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sr{color:var(--sun)}
+.lb-list .pt{text-align:end;color:var(--muted);font-size:.9rem}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;text-align:center}
+@media (max-width:460px){.boss{grid-template-columns:1fr}.launch{grid-template-columns:54px 1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span id="brand"><a href="../../" style="color:var(--sun);text-decoration:none;font-weight:700">→ العودة إلى مدار</a> · <b>مدار الفيزياء</b> · الصف العاشر · الوحدة الثانية: مخطّطات الدوائر الكهربائيّة</span>
+    <span class="chips"><span class="chip">النقاط <strong id="pts">0</strong></span><span class="chip">النجوم <strong id="sts">0</strong>/39</span></span>
+  </div>
+  <main id="app"></main>
+  <p class="foot">إعداد الأستاذ بدر السعيدي · مدار الفيزياء .. طريقك للتفوق</p>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E=s=>`<span class="eq">${s}</span>`;
+const SUPD={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+/* x -> "6.67×10⁻¹¹" */
+function sci(x,sf=3){if(x===0)return'0';let e=Math.floor(Math.log10(Math.abs(x)));let ms=(x/Math.pow(10,e)).toPrecision(sf);
+  if(Math.abs(parseFloat(ms))>=10){e++;ms=(x/Math.pow(10,e)).toPrecision(sf)} if(e===0)return ms; return ms+'×10'+String(e).split('').map(c=>SUPD[c]).join('')}
+const r2=(x,sf=2)=>+x.toPrecision(sf);
+function parseNum(s){s=String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g,'.').replace(/[−–]/g,'-').replace(/[^\d.\-]/g,'');return s===''||s==='.'||s==='-'?NaN:parseFloat(s)}
+
+/* ---------- state ---------- */
+const KEY='madar-g10u2';
+const S={name:'',points:0,stars:{}};
+try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v)Object.assign(S,v)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const totalStars=()=>Object.values(S.stars).reduce((a,b)=>a+b,0);
+function hud(){$('#pts').textContent=S.points;$('#sts').textContent=totalStars()}
+const rankOf=n=>n>=29?T.ranks[2]:n>=12?T.ranks[1]:T.ranks[0];
+const starsHTML=(n,cls='stars')=>`<span class="${cls}" aria-label="${n} من 3">${[1,2,3].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('')}</span>`;
+const LB={game:'g10u2',api:'/api/scores'};
+
+/* الاسم إجباري قبل اللعب: اسمان على الأقل */
+function nameOk(){return (S.name||'').trim().split(/\s+/).filter(w=>w.length>=2).length>=2}
+function needName(){const i=document.getElementById('nm'),m=document.getElementById('nmErr');
+  if(m){m.hidden=false}
+  if(i){i.classList.add('need');i.scrollIntoView({block:'center',behavior:'smooth'});i.focus({preventScroll:true})}}
+function guard(fn){return ()=>{if(!nameOk())return needName();fn()}}
+
+/* ===== لوحة المتصدرين (تعمل على موقع مدار فقط) ===== */
+function playerId(){let id=null;try{id=localStorage.getItem('madar_player_id')}catch(e){}
+  if(!id){id=((window.crypto&&crypto.randomUUID)?crypto.randomUUID():('p'+Date.now()+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9-]/g,'');try{localStorage.setItem('madar_player_id',id)}catch(e){}}return id}
+let lbPending=Promise.resolve(), lbDeb=null;
+function lbSubmit(){ if(!S.name||!(S.points>0)) return lbPending;
+  lbPending=fetch(LB.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({game:LB.game,pid:playerId(),name:S.name,stars:totalStars(),points:S.points})}).catch(()=>{});
+  return lbPending }
+function lbNameChanged(){clearTimeout(lbDeb);lbDeb=setTimeout(()=>{lbSubmit().then(lbRender)},1200)}
+async function lbRender(){
+  const box=document.getElementById('lb'); if(!box) return;
+  try{
+    await lbPending;
+    const r=await fetch(`${LB.api}?game=${LB.game}&pid=${encodeURIComponent(playerId())}`,{cache:'no-store'});
+    const d=await r.json(); if(!d.ok) throw 0;
+    const rows=d.rows||[];
+    box.innerHTML=`<div class="lb-head"><h2>لوحة المتصدرين</h2><span class="lb-count">${d.total} لاعب</span></div>
+      ${rows.length?`<ol class="lb-list">${rows.map((x,i)=>`<li class="${x.me?'me':''}"><span class="rk">${i+1}</span><span class="nm">${esc(x.name)}${x.me?' (أنت)':''}</span><span class="sr">★ ${x.stars}</span><span class="pt">${x.points}</span></li>`).join('')}</ol>`:'<p class="lb-note">لا يوجد لاعبون بعد. كن الأول!</p>'}
+      ${d.mine&&!rows.some(x=>x.me)?`<p class="lb-note">ترتيبك: <b>${d.mine.rank}</b> من ${d.total} · ★ ${d.mine.stars} · ${d.mine.points} نقطة</p>`:''}
+      <p class="lb-note small">الترتيب حسب النجوم ثم النقاط.</p>`;
+    box.hidden=false;
+  }catch(e){ box.hidden=true }
+}
+
+const SRC={a1:'اختبار نهائي 2024/2025 · الدور الأول',a2:'اختبار نهائي 2024/2025 · الدور الثاني',b1:'اختبار نهائي 2023/2024 · الدور الأول',b2:'اختبار نهائي 2023/2024 · الدور الثاني',
+  c1:'اختبار نهائي 2025/2026 · الدور الأول',c2:'اختبار نهائي 2025/2026 · الدور الثاني',d1:'اختبار نهائي 2022/2023 · الدور الأول',d2:'اختبار نهائي 2022/2023 · الدور الثاني',x:'بنمط أسئلة الاختبارات النهائية'};
+const fx=(x,d=2)=>(+x.toFixed(d)).toString();
+const nice=x=>Math.abs(x-Math.round(x))<1e-9?String(Math.round(x)):fx(x,2);
+
+/* ================= رموز المكوّنات ================= */
+const SW='stroke="var(--ink)" stroke-width="2.5" fill="none"';
+const SYM={
+ cell:`<line x1="10" y1="40" x2="52" y2="40" ${SW}/><line x1="52" y1="20" x2="52" y2="60" ${SW}/><line x1="64" y1="30" x2="64" y2="50" stroke="var(--ink)" stroke-width="6"/><line x1="64" y1="40" x2="110" y2="40" ${SW}/>`,
+ battery:`<line x1="6" y1="40" x2="34" y2="40" ${SW}/><line x1="34" y1="20" x2="34" y2="60" ${SW}/><line x1="44" y1="30" x2="44" y2="50" stroke="var(--ink)" stroke-width="6"/><line x1="44" y1="40" x2="74" y2="40" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 3"/><line x1="74" y1="20" x2="74" y2="60" ${SW}/><line x1="84" y1="30" x2="84" y2="50" stroke="var(--ink)" stroke-width="6"/><line x1="84" y1="40" x2="114" y2="40" ${SW}/>`,
+ lamp:`<line x1="6" y1="40" x2="40" y2="40" ${SW}/><circle cx="60" cy="40" r="20" ${SW}/><line x1="46" y1="26" x2="74" y2="54" ${SW}/><line x1="74" y1="26" x2="46" y2="54" ${SW}/><line x1="80" y1="40" x2="114" y2="40" ${SW}/>`,
+ switch:`<line x1="6" y1="40" x2="40" y2="40" ${SW}/><circle cx="42" cy="40" r="3" fill="var(--ink)"/><line x1="42" y1="40" x2="78" y2="22" ${SW}/><circle cx="80" cy="40" r="3" fill="var(--ink)"/><line x1="80" y1="40" x2="114" y2="40" ${SW}/>`,
+ resistor:`<line x1="6" y1="40" x2="34" y2="40" ${SW}/><rect x="34" y="30" width="52" height="20" ${SW}/><line x1="86" y1="40" x2="114" y2="40" ${SW}/>`,
+ variable:`<line x1="6" y1="40" x2="34" y2="40" ${SW}/><rect x="34" y="30" width="52" height="20" ${SW}/><line x1="86" y1="40" x2="114" y2="40" ${SW}/><line x1="30" y1="62" x2="88" y2="16" ${SW}/><path d="M88 16 l-12 2 m12 -2 l-4 11" ${SW}/>`,
+ ldr:`<line x1="6" y1="40" x2="34" y2="40" ${SW}/><circle cx="60" cy="40" r="30" ${SW}/><rect x="40" y="32" width="40" height="16" ${SW}/><line x1="86" y1="40" x2="114" y2="40" ${SW}/><path d="M22 4 l16 14 m0 0 l-9 -1 m9 1 l-2 -8 M36 0 l16 14 m0 0 l-9 -1 m9 1 l-2 -8" ${SW}/>`,
+ thermistor:`<line x1="6" y1="40" x2="34" y2="40" ${SW}/><rect x="34" y="30" width="52" height="20" ${SW}/><line x1="86" y1="40" x2="114" y2="40" ${SW}/><path d="M22 62 h10 L90 16" ${SW}/>`,
+ fuse:`<line x1="6" y1="40" x2="114" y2="40" ${SW}/><rect x="34" y="30" width="52" height="20" ${SW}/>`,
+ ammeter:`<line x1="6" y1="40" x2="40" y2="40" ${SW}/><circle cx="60" cy="40" r="20" ${SW}/><text x="60" y="47" text-anchor="middle" fill="var(--ink)" font-size="20" font-family="var(--mono)">A</text><line x1="80" y1="40" x2="114" y2="40" ${SW}/>`,
+ voltmeter:`<line x1="6" y1="40" x2="40" y2="40" ${SW}/><circle cx="60" cy="40" r="20" ${SW}/><text x="60" y="47" text-anchor="middle" fill="var(--ink)" font-size="20" font-family="var(--mono)">V</text><line x1="80" y1="40" x2="114" y2="40" ${SW}/>`
+};
+const SYMN={cell:'خلية كهربائية',battery:'بطارية',lamp:'مصباح',switch:'مفتاح كهربائي (مفتوح)',resistor:'مقاومة ثابتة',variable:'مقاومة متغيّرة',ldr:'مقاومة ضوئية (LDR)',thermistor:'مقاومة حرارية (NTC)',fuse:'منصهر',ammeter:'أميتر',voltmeter:'ڤولتميتر'};
+const SYMTAG={ldr:'a1',thermistor:'a2',variable:'d2',switch:'c2',fuse:'c2',lamp:'d1'};
+const symSVG=k=>`<svg class="diagram" viewBox="0 0 120 70" style="max-width:240px" aria-hidden="true">${SYM[k]}</svg>`;
+function gSym(pool){const k=pick(pool||Object.keys(SYM));const others=shuffle(Object.keys(SYM).filter(x=>x!==k&&!(k==='cell'&&x==='battery')&&!(k==='battery'&&x==='cell'))).slice(0,3);
+  return{kind:'mc',tag:SYMTAG[k]||'x',svg:symSVG(k),q:'على ماذا يدل الرمز الموضّح في الشكل؟',o:[SYMN[k],...others.map(o=>SYMN[o])],a:0,sol:`هذا رمز ${SYMN[k]}.`}}
+
+/* ================= دوائر ================= */
+const W='stroke="var(--orbit)" stroke-width="2" fill="none"';
+const rbox=(x,y,lab,vert)=>vert?`<rect x="${x-8}" y="${y-20}" width="16" height="40" rx="2" fill="var(--surface2)" stroke="var(--sun)" stroke-width="2"/><text x="${x+14}" y="${y+5}" fill="var(--sun)">${lab}</text>`
+  :`<rect x="${x-20}" y="${y-8}" width="40" height="16" rx="2" fill="var(--surface2)" stroke="var(--sun)" stroke-width="2"/><text x="${x}" y="${y+26}" text-anchor="middle" fill="var(--sun)">${lab}</text>`;
+const cellTop=(x,y,lab)=>`<rect x="${x-8}" y="${y-16}" width="16" height="32" fill="var(--bg)"/><line x1="${x-5}" y1="${y-14}" x2="${x-5}" y2="${y+14}" stroke="var(--ink)" stroke-width="2.5"/><line x1="${x+5}" y1="${y-7}" x2="${x+5}" y2="${y+7}" stroke="var(--ink)" stroke-width="5"/><text x="${x}" y="${y-22}" text-anchor="middle" fill="var(--ink)">${lab}</text>`;
+const meter=(x,y,l)=>`<circle cx="${x}" cy="${y}" r="13" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/><text x="${x}" y="${y+5}" text-anchor="middle" fill="var(--ink)" font-family="var(--mono)">${l}</text>`;
+function seriesSVG(V,Rs){const n=Rs.length,xs=Rs.map((_,i)=>60+i*(200/(n-1||1)));return `<svg class="diagram" viewBox="0 0 320 170" aria-hidden="true">
+  <rect x="30" y="35" width="260" height="100" ${W}/>${cellTop(160,35,V+' V')}${meter(290,85,'A')}${Rs.map((r,i)=>rbox(n===1?160:xs[i],135,r+' Ω')).join('')}</svg>`}
+function parallelSVG(V,Rs){const n=Rs.length,xs=Rs.map((_,i)=>120+i*80);const right=xs[n-1];return `<svg class="diagram" viewBox="0 0 330 190" aria-hidden="true">
+  <line x1="40" y1="30" x2="${right}" y2="30" ${W}/><line x1="40" y1="160" x2="${right}" y2="160" ${W}/><line x1="40" y1="30" x2="40" y2="160" ${W}/>
+  ${xs.map(x=>`<line x1="${x}" y1="30" x2="${x}" y2="160" ${W}/>`).join('')}${cellTop(40,95,'')}<text x="10" y="70" fill="var(--ink)" font-size="12">${V} V</text>${meter(80,30,'A')}
+  ${Rs.map((r,i)=>rbox(xs[i],95,r+' Ω',1)).join('')}</svg>`}
+
+/* ================= STATION 2: الحساسات وأجهزة القياس (1-2) ================= */
+const S2B={
+ therm:{kind:'mc',tag:'c1',q:'ما فكرة عمل المقاومة الحرارية (NTC)؟',o:['تقل مقاومتها عند ارتفاع درجة حرارتها، وتُستخدم مستشعراً لدرجة الحرارة','تزداد مقاومتها عند ارتفاع درجة حرارتها','تقل مقاومتها عند زيادة شدة الضوء','مقاومتها ثابتة لا تتغير'],a:0,sol:'المقاومة الحرارية: ترتفع الحرارة ⇒ تقل المقاومة.'},
+ thermA:{kind:'mc',tag:'a1',q:'دائرة فيها مقاومة حرارية موضوعة في ماء وأميتر. ماذا يحدث لقراءة الأميتر عند تسخين الماء؟',o:['تزداد، لأن المقاومة الحرارية تقل فيزيد التيار','تقل، لأن المقاومة الحرارية تزيد','لا تتغير','تصبح صفراً'],a:0,sol:'زيادة الحرارة ⇒ تقل المقاومة ⇒ تزداد شدة التيار.'},
+ ldrA:{kind:'mc',tag:'a2',q:'دائرة فيها مقاومة ضوئية (LDR) وأميتر. ماذا يحدث لقراءة الأميتر عند زيادة شدة الإضاءة عليها؟',o:['تزداد، لأن مقاومة LDR تقل','تقل، لأن مقاومة LDR تزيد','لا تتغير','تقل إلى النصف دائماً'],a:0,sol:'زيادة الضوء ⇒ تقل مقاومة LDR ⇒ يزداد التيار.'},
+ ldrDark:{kind:'mc',tag:'x',q:'ماذا يحدث لمقاومة المقاومة الضوئية (LDR) في الظلام؟',o:['تزداد كثيراً','تقل كثيراً','تصبح صفراً','لا تتغير'],a:0,sol:'كلما قلّ الضوء زادت مقاومة LDR.'},
+ amm:{kind:'mc',tag:'x',q:'كيف يُوصَّل الأميتر لقياس التيار المار في مصباح؟',o:['على التوالي مع المصباح','على التوازي مع المصباح','على التوالي مع البطارية فقط بعيداً عن المصباح','لا يهم طريقة التوصيل'],a:0,sol:'الأميتر على التوالي حتى يمر فيه التيار نفسه، ومقاومته صغيرة جداً.'},
+ volt:{kind:'mc',tag:'c2',q:'في تجربة لاستقصاء المقاومة الحرارية، كيف يوصل الڤولتميتر؟',o:['على التوازي مع المقاومة الحرارية','على التوالي مع المقاومة الحرارية','على التوالي مع الأميتر','بدلاً من مصدر الجهد'],a:0,sol:'الأميتر على التوالي، والڤولتميتر على التوازي مع المكوّن.'},
+ meters:{kind:'mc',tag:'x',q:'لماذا تكون مقاومة الڤولتميتر كبيرة جداً؟',o:['حتى لا يسحب تياراً يُذكر فلا يغيّر قراءات الدائرة','حتى يمر فيه تيار كبير','لأنه يوصل على التوالي','حتى تقل المقاومة الكلية'],a:0,sol:'الڤولتميتر يوصل على التوازي، فلو كانت مقاومته صغيرة لسحب تياراً.'},
+ serLamp:{kind:'mc',tag:'x',q:'مصباحان موصولان على التوالي مع بطارية. احترق أحدهما. ماذا يحدث للآخر؟',o:['ينطفئ، لأن الدائرة أصبحت مفتوحة','يبقى مضيئاً كما هو','يصبح أكثر إضاءة','يضيء بنصف الإضاءة'],a:0,sol:'في التوالي يوجد مسار واحد للتيار، فانقطاعه يوقف التيار في الدائرة كلها.'},
+ parLamp:{kind:'mc',tag:'x',q:'مصباحان موصولان على التوازي مع بطارية. احترق أحدهما. ماذا يحدث للآخر؟',o:['يبقى مضيئاً، لأن لكل مصباح فرعاً مستقلاً','ينطفئ','يضيء ثم ينطفئ','يحترق هو أيضاً'],a:0,sol:'في التوازي ينقطع التيار في فرع المصباح التالف فقط.'}
+};
+const gCells=()=>{const n=pick([2,3,4]),v=pick([1.5,2,1.2]);return{kind:'num',tag:'x',q:`${n} خلايا متطابقة، فرق جهد كل منها ${E(v+' V')}، موصولة على التوالي. احسب فرق الجهد الكلي.`,ans:n*v,rel:.01,unit:'V',sol:`${E(`V = ${Array(n).fill(v).join(' + ')} = ${fx(n*v)} V`)}`}};
+
+/* ================= STATION 3: التوالي (2-2) ================= */
+const S3B={
+ sum:{kind:'mc',tag:'x',q:'عند توصيل مقاومتين على التوالي، المقاومة الكلية تساوي:',o:['مجموع المقاومتين','أقل من أصغر مقاومة','نصف مجموع المقاومتين','مقلوب مجموع مقلوبيهما'],a:0,sol:`${E('R = R₁ + R₂')}`},
+ same:{kind:'mc',tag:'b1',q:'ثلاث مقاومات موصولة تباعاً بحيث يمر فيها التيار نفسه. ما نوع هذا التوصيل؟',o:['توالٍ','توازٍ','مختلط','لا يمكن تحديده'],a:0,sol:'في التوالي يمر التيار نفسه في جميع المكوّنات.'},
+ addSer:{kind:'mc',tag:'d1',q:'دائرة فيها مقاومتان على التوالي وأميتر. ماذا يحدث لقراءة الأميتر إذا أُضيفت مقاومة ثالثة على التوالي؟',o:['تقل، لأن المقاومة الكلية تزيد','تزيد، لأن المقاومة الكلية تقل','لا تتغير','تصبح صفراً'],a:0,sol:`${E('I = V/R')}: زيادة R تقلل I.`},
+ house:{kind:'mc',tag:'d1',q:'وصل عامل مصابيح منزل، فلاحظ انقطاع التيار عن جميع المصابيح عند تعطل أحدها. ما طريقة التوصيل التي استخدمها؟',o:['توالٍ','توازٍ','لا يمكن معرفة ذلك','توصيل أرضي'],a:0,sol:'في التوالي تعطل مصباح واحد يفتح الدائرة كلها.'},
+ rem:{kind:'mc',tag:'c2',q:'مقاومات موصولة على التوالي مع بطارية. ماذا يحدث لشدة التيار عند إزالة إحدى المقاومات (وتوصيل الدائرة مكانها)؟',o:['تزداد، لأن المقاومة المكافئة تقل','تقل، لأن المقاومة المكافئة تزيد','لا تتغير','تصبح صفراً'],a:0,sol:'إزالة مقاومة من التوالي تقلل المقاومة الكلية فيزيد التيار.'}
+};
+const gSerR=()=>{const n=pick([2,3]),Rs=Array.from({length:n},()=>pick([2,3,4,5,6,10,20]));const R=Rs.reduce((a,b)=>a+b,0);return{kind:'num',tag:pick(['c1','d1']),svg:seriesSVG(pick([6,12]),Rs),
+  q:'احسب المقاومة المكافئة للمقاومات الموصولة في الدائرة.',ans:R,rel:.001,unit:'Ω',sol:`على التوالي: ${E(`R = ${Rs.join(' + ')} = ${R} Ω`)}`}};
+const gSerI=()=>{for(;;){const Rs=[pick([2,4,5,10]),pick([4,6,10,20])],V=pick([4,6,12,18,20]);const R=Rs[0]+Rs[1],I=V/R;if(Math.abs(I*100-Math.round(I*100))>1e-9)continue;
+  return{kind:'num',tag:pick(['c1','x']),svg:seriesSVG(V,Rs),q:'احسب قراءة الأميتر (شدة التيار المار في الدائرة).',ans:I,rel:.01,unit:'A',sol:`${E(`R = ${Rs[0]} + ${Rs[1]} = ${R} Ω`)}<br>${E(`I = V/R = ${V}/${R} = ${nice(I)} A`)}`}}};
+const gSerV=()=>{for(;;){const I=pick([0.5,1,2,3]),R1=pick([2,4,6]),V=pick([12,18,24]);const V1=I*R1,V2=V-V1;if(V2<=0)continue;
+  return{kind:'num',tag:'a1',q:`مقاومتان على التوالي مع بطارية ${E(V+' V')}. المقاومة الأولى ${E(R1+' Ω')} ويمر في الدائرة تيار ${E(I+' A')}. احسب فرق الجهد بين طرفي المقاومة الثانية R.`,ans:V2,rel:.01,unit:'V',
+  sol:`${E(`V₁ = IR₁ = ${I} × ${R1} = ${nice(V1)} V`)}<br>${E(`V₂ = V − V₁ = ${V} − ${nice(V1)} = ${nice(V2)} V`)}`}}};
+const gSerVr=()=>{const R=[pick([2,4]),pick([2,4,6]),pick([2,4])],V=pick([12,24]);const Rt=R[0]+R[1]+R[2],I=V/Rt,V3=I*R[2];return{kind:'num',tag:'c2',svg:seriesSVG(V,R),
+  q:'ثلاث مقاومات على التوالي كما في الشكل. احسب فرق الجهد بين طرفي المقاومة الثالثة (الأخيرة).',ans:V3,rel:.02,unit:'V',sol:`${E(`R = ${Rt} Ω`)}، ${E(`I = ${V}/${Rt} = ${nice(I)} A`)}<br>${E(`V₃ = IR₃ = ${nice(V3)} V`)}`}};
+const gSameI=()=>{const I=pick([1,2,3,0.5]);return{kind:'num',tag:'d2',q:`مقاومتان ${E('2 Ω')} و${E('4 Ω')} موصولتان على التوالي، وقراءة الأميتر في الدائرة ${E(I+' A')}. ما التيار المار في المقاومة ${E('4 Ω')}؟`,ans:I,rel:.001,unit:'A',sol:'في التوالي يمر التيار نفسه في جميع المكوّنات.'}};
+
+/* ================= STATION 4: التوازي (2-2) ================= */
+const S4B={
+ less:{kind:'mc',tag:'x',q:'المقاومة المكافئة لمقاومات موصولة على التوازي تكون دائماً:',o:['أقل من أصغر مقاومة في المجموعة','أكبر من أكبر مقاومة','مساوية لمجموعها','مساوية لأصغر مقاومة'],a:0,sol:'كل فرع جديد يضيف مساراً آخر للتيار، فتقل المقاومة الكلية.'},
+ home:{kind:'mc',tag:'c2',q:'ما طريقة توصيل مصابيح غرفة المنزل؟',o:['توازٍ، بحيث إذا تعطل أحد المصابيح تبقى الأخرى مضاءة','توالٍ، بحيث إذا تعطل أحد المصابيح لا تضيء الأخرى','توازٍ، بحيث إذا تعطل أحد المصابيح لا تضيء الأخرى','توالٍ، بحيث إذا تعطل أحد المصابيح تبقى الأخرى مضاءة'],a:0,sol:'التوازي: كل مصباح مستقل.'},
+ adv:{kind:'mc',tag:'b2',q:'أي مما يلي من مزايا توصيل المصابيح على التوازي؟',o:['يمكن تشغيل كل مصباح وإيقافه بشكل مستقل','تقل الطاقة الكهربائية المستهلكة دائماً','يمر التيار نفسه في كل المصابيح','يتوزع جهد المصدر بين المصابيح'],a:0,sol:'وكذلك: إذا تعطل مصباح تبقى المصابيح الأخرى تعمل، وجهد كل مصباح يساوي جهد المصدر.'},
+ voltPar:{kind:'mc',tag:'d2',q:'مقاومتان على التوازي مع مصدر وڤولتميتر على أحد الفرعين. ماذا يحدث لقراءة الڤولتميتر إذا أُضيفت مقاومة ثالثة على التوازي؟',o:['لا تتغير','تزداد','تقل','تصبح صفراً'],a:0,sol:'جهد كل فرع في التوازي يساوي جهد المصدر.'},
+ a1a2:{kind:'mc',tag:'c1',q:'مصباحان على التوازي مع بطارية. الأميتر A₁ في الدائرة الرئيسية، والأميتر A₂ في فرع المصباح (1). ماذا يحدث عند إزالة المصباح (2)؟',o:['تقل قراءة A₁ ولا تتغير قراءة A₂','تزيد قراءة A₁ وتقل قراءة A₂','تقل القراءتان','لا تتغير القراءتان'],a:0,sol:'تزيد المقاومة الكلية فيقل التيار الكلي، أما فرع المصباح (1) فجهده ثابت.'},
+ compare:{kind:'mc',tag:'b1',q:'ثلاث مقاومات وُصلت مرة على التوالي ومرة على التوازي بالمصدر نفسه. في أي حالة يكون التيار الكلي أكبر؟',o:['التوازي','التوالي','متساويان','لا يمكن المقارنة'],a:0,sol:'مقاومة التوازي المكافئة أصغر، فالتيار أكبر.'}
+};
+const PAR=[[3,3,3],[6,3],[2,2],[20,30],[4,4],[12,6],[6,6,6],[10,10],[30,20],[12,4]];
+const parR=Rs=>1/Rs.reduce((a,r)=>a+1/r,0);
+const gParR=()=>{const Rs=pick(PAR),R=parR(Rs);return{kind:'num',tag:pick(['d1','c2','x']),svg:parallelSVG(pick([6,12]),Rs),q:'احسب المقاومة المكافئة للمقاومات الموصولة على التوازي.',ans:R,rel:.01,unit:'Ω',
+  sol:`${E(`1/R = ${Rs.map(r=>'1/'+r).join(' + ')}`)} ⇒ ${E(`R = ${nice(R)} Ω`)}`}};
+const gParI=()=>{for(;;){const Rs=[pick([2,4,6,8,12]),pick([3,4,6,12])],V=pick([6,12,24]);const I1=V/Rs[0],I2=V/Rs[1],I=I1+I2;if([I1,I2].some(x=>Math.abs(x*100-Math.round(x*100))>1e-9))continue;
+  return{kind:'num',tag:pick(['a2','a1']),svg:parallelSVG(V,Rs),q:'احسب شدة التيار المار عبر البطارية (قراءة الأميتر).',ans:I,rel:.01,unit:'A',
+  sol:`${E(`I₁ = ${V}/${Rs[0]} = ${nice(I1)} A`)}، ${E(`I₂ = ${V}/${Rs[1]} = ${nice(I2)} A`)}<br>${E(`I = ${nice(I1)} + ${nice(I2)} = ${nice(I)} A`)}`}}};
+const gParVsSer=()=>{const Rs=pick([[2,2,4],[3,3,6],[4,4,2]]),V=pick([4,6,12]);const Rs_=Rs[0]+Rs[1]+Rs[2],Rp=parR(Rs),I1=V/Rs_,I2=V/Rp;return{kind:'num',tag:'b1',
+  q:`ثلاث مقاومات ${E(Rs.join(' Ω، ')+' Ω')} وُصلت على التوازي مع مصدر ${E(V+' V')}. احسب التيار الكلي. (للمقارنة: على التوالي يكون التيار ${E(nice(I1)+' A')})`,ans:I2,rel:.02,unit:'A',
+  sol:`${E(`1/R = ${Rs.map(r=>'1/'+r).join(' + ')}`)} ⇒ ${E(`R = ${nice(Rp)} Ω`)}<br>${E(`I = ${V}/${nice(Rp)} = ${nice(I2)} A`)} أكبر من تيار التوالي.`}};
+const gMixed=()=>{const R1=pick([10,5,8]),R2=pick([20,10,12]);const R=R1+R2/2;return{kind:'num',tag:'x',q:`مقاومة ${E(R1+' Ω')} موصولة على التوالي مع مجموعة من مقاومتين متماثلتين قيمة كل منهما ${E(R2+' Ω')} موصولتين على التوازي. احسب المقاومة الكلية.`,ans:R,rel:.01,unit:'Ω',
+  sol:`${E(`R_توازي = ${R2}/2 = ${nice(R2/2)} Ω`)}<br>${E(`R = ${R1} + ${nice(R2/2)} = ${nice(R)} Ω`)}`}};
+const gLamps=()=>{const P=pick([44,22,110]),V=220,n=pick([3,4,5]),fuse=pick([2,3]);const i=P/V,I=n*i;return{kind:'num',tag:'b2',
+  q:`${n} مصابيح متماثلة قدرة كل منها ${E(P+' W')} موصولة على التوازي بمصدر ${E(V+' V')}. احسب التيار المار في المنصهر (التيار الكلي).`,ans:I,rel:.02,unit:'A',
+  sol:`جهد كل مصباح ${E('220 V')}، و${E(`I = P/V = ${P}/220 = ${nice(i)} A`)} لكل مصباح<br>${E(`I_كلي = ${n} × ${nice(i)} = ${nice(I)} A`)}`}};
+
+/* ================= STATIONS ================= */
+const LV=['مبتدئ','متمكّن','خبير'];
+const STATIONS=[
+ {k:'s1',title:'قاموس الرموز',sub:'رموز مكوّنات الدائرة الكهربائية',lessons:'الدرس 1-2',pc:'#FF7A59',
+  levels:[()=>[gSym(['cell','lamp','switch','resistor','ammeter']),gSym(['battery','voltmeter','fuse']),gSym(['cell','lamp','switch','resistor']),gSym(['ammeter','voltmeter','fuse']),gSym()],
+          ()=>[gSym(['variable','ldr','thermistor']),gSym(),gSym(['variable','ldr','thermistor','fuse']),gSym(),gSym(['ldr','thermistor'])],
+          ()=>[gSym(['ldr','thermistor','variable']),gSym(['fuse','switch','battery']),gSym(['ldr','thermistor']),gSym(),gSym(['variable','thermistor'])]]},
+ {k:'s2',title:'الحسّاسات والقياس',sub:'المقاومة الحرارية والضوئية وأجهزة القياس',lessons:'الدرس 1-2',pc:'#C58BFF',
+  levels:[()=>shuffle([S2B.therm,S2B.ldrDark,S2B.amm,S2B.serLamp,gCells()]),
+          ()=>shuffle([S2B.thermA,S2B.ldrA,S2B.volt,S2B.parLamp,gCells()]),
+          ()=>shuffle([S2B.meters,S2B.thermA,S2B.ldrA,S2B.volt,gCells()])]},
+ {k:'s3',title:'خط التوالي',sub:'توصيل المقاومات على التوالي وقانون أوم',lessons:'الدرس 2-2',pc:'#4FA3FF',
+  levels:[()=>shuffle([S3B.sum,S3B.same,S3B.house,gSerR(),gSameI()]),
+          ()=>[gSerR(),gSerI(),S3B.addSer,gSerI(),S3B.rem],
+          ()=>[gSerV(),gSerVr(),gSerI(),gSerV(),gSerVr()]]},
+ {k:'s4',title:'جسر التوازي',sub:'توصيل المقاومات على التوازي والتوصيل المختلط',lessons:'الدرس 2-2',pc:'#5EDB9C',
+  levels:[()=>shuffle([S4B.less,S4B.home,S4B.adv,S4B.voltPar,gParR()]),
+          ()=>[gParR(),gParI(),S4B.a1a2,gParR(),gParI()],
+          ()=>[gParVsSer(),gMixed(),gLamps(),S4B.compare,gParI()]]}
+];
+const bossSet=()=>shuffle([gSym(),gCells(),gSerR(),gSerI(),gSerV(),gSerVr(),gParR(),gParI(),gParVsSer(),gMixed(),gLamps(),gSym(['ldr','thermistor','variable'])]).slice(0,10);
+
+/* ================= THEME ================= */
+const T={h1:'مختبر <span>الدوائر</span> الكهربائية',
+  lead:'أنت فني في مختبر الدوائر. أنهِ مهام المحطات الأربع على ثلاثة مستويات، ثم أضئ المصباح الكبير في «تشغيل المختبر». أرقام المسائل تتجدد في كل مرة تلعب.',
+  who:'اسم الفني',errMsg:'اكتب اسمك (الاسم الأول واسم العائلة على الأقل) لتبدأ المهمة.',hub:'لوحة المختبر',
+  boss:'تشغيل المختبر',bossSub:'10 أسئلة مختلطة · 90 ثانية لكل سؤال · كل إجابة صحيحة تزيد إضاءة المصباح · 3 محاولات خاطئة فقط',meter:'الإضاءة',
+  win:'أضاء المصباح بالكامل!',lose:'انقطعت الدائرة',again:'محاولة جديدة',fail:'انقطعت الدائرة',
+  cert:'شهادة فني الدوائر',unit:'أتم الوحدة الثانية: مخطّطات الدوائر الكهربائيّة',
+  ranks:['فني مبتدئ','فني دوائر','خبير الدوائر']};
+const ART=`<svg class="orbit-art" viewBox="0 0 170 170" aria-hidden="true"><circle class="glow" cx="85" cy="70" r="46" fill="var(--sun)" opacity=".25"/>
+  <circle cx="85" cy="70" r="34" fill="none" stroke="var(--ink)" stroke-width="4"/><line x1="61" y1="46" x2="109" y2="94" stroke="var(--sun)" stroke-width="4"/><line x1="109" y1="46" x2="61" y2="94" stroke="var(--sun)" stroke-width="4"/>
+  <path d="M85 104 V140 H20 M20 140 V60 M150 140 H85 M150 140 V60" stroke="var(--orbit)" stroke-width="3" fill="none"/><line x1="12" y1="60" x2="28" y2="60" stroke="var(--ink)" stroke-width="3"/><line x1="15" y1="68" x2="25" y2="68" stroke="var(--ink)" stroke-width="5"/></svg>`;
+const BOSS_ICON=`<svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><circle cx="24" cy="20" r="13" fill="var(--sun)"/><line x1="16" y1="12" x2="32" y2="28" stroke="#2A1A00" stroke-width="3"/><line x1="32" y1="12" x2="16" y2="28" stroke="#2A1A00" stroke-width="3"/><rect x="19" y="35" width="10" height="6" fill="var(--ink)"/></svg>`;
+function bossVis(p){return `<div class="bulb" id="rk" style="--p:${p}"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" fill="none" stroke="#EEF0FF" stroke-width="3"/><line x1="16" y1="16" x2="44" y2="44" stroke="#EEF0FF" stroke-width="3"/><line x1="44" y1="16" x2="16" y2="44" stroke="#EEF0FF" stroke-width="3"/></svg></div><div class="wire"></div>`}
+function bossUpd(p){const b=$('#rk');if(b)b.style.setProperty('--p',p)}
+const BOSS_CSS=`.launch{grid-template-columns:100px 1fr}
+.sky .bulb{position:absolute;top:30px;left:50%;width:70px;height:70px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,181,71,var(--p)) 0,rgba(255,181,71,calc(var(--p)*.5)) 45%,transparent 70%);box-shadow:0 0 calc(var(--p)*60px) calc(var(--p)*20px) rgba(255,181,71,.55);transition:all .8s}
+.sky .bulb svg{width:100%;height:100%}
+.sky .wire{position:absolute;top:100px;bottom:10px;left:50%;border-left:3px solid var(--orbit);opacity:.6}
+.orbit-art .glow{animation:gl 3s ease-in-out infinite}@keyframes gl{50%{opacity:.6}}`;
+
+document.head.insertAdjacentHTML('beforeend','<style>'+BOSS_CSS+'</style>');
+
+/* ================= HOME ================= */
+function home(){
+  hud();
+  app.innerHTML=`
+  <section class="hero">
+    <div>
+      <h1>${T.h1}</h1>
+      <p class="lead">${T.lead}</p>
+      <div class="id-row"><label for="nm">${T.who}</label><input id="nm" maxlength="30" placeholder="اسمك الثلاثي" value="${esc(S.name)}"><span class="rank">${rankOf(totalStars())}</span><p class="nm-err" id="nmErr" hidden>${T.errMsg}</p></div>
+    </div>
+    ${ART}
+  </section>
+  <div class="stations">
+   ${STATIONS.map((st,i)=>`<section class="st" aria-label="${st.title}">
+      <div class="st-head"><div class="planet ${st.ring?'ring':''}" style="--pc:${st.pc}"></div><div><h3>${st.title}</h3><p>${st.lessons} · ${st.sub}</p></div></div>
+      <div class="levels">${LV.map((l,j)=>`<button class="lv" data-s="${i}" data-l="${j}"><span class="n">المستوى ${j+1}</span><span class="dsc">${l} · ${(j+1)*10} نقاط</span>${starsHTML(S.stars[st.k+j]||0)}</button>`).join('')}</div>
+   </section>`).join('')}
+   <button class="boss" id="boss">
+     ${BOSS_ICON}
+     <span><h3>${T.boss}</h3><p>${T.bossSub}</p></span>
+     ${starsHTML(S.stars.boss||0)}
+   </button>
+  </div>
+  <section id="lb" class="lb" hidden></section>`;
+  $('#nm').addEventListener('input',e=>{S.name=e.target.value.trim();save();if(nameOk()){e.target.classList.remove('need');$('#nmErr').hidden=true}lbNameChanged()});
+  app.querySelectorAll('.lv').forEach(b=>b.onclick=guard(()=>play(+b.dataset.s,+b.dataset.l)));
+  $('#boss').onclick=guard(()=>play(-1,2));
+  lbRender();
+}
+
+/* ================= RUNNER ================= */
+let timerId=null;
+function rocketSVG(){return `<svg width="34" height="52" viewBox="0 0 34 52" aria-hidden="true"><path d="M17 2c7 7 9 18 6 30H11C8 20 10 9 17 2z" fill="#EEF0FF"/><circle cx="17" cy="17" r="4" fill="#6FD3FF"/><path d="M11 30l-7 9h8zM23 30l7 9h-8z" fill="#FF7A59"/><path d="M13 34h8l-4 14z" fill="#FFB547"/></svg>`}
+function play(si,li){
+  const boss=si<0, st=boss?null:STATIONS[si];
+  const items=boss?bossSet():st.levels[li]();
+  const pts=boss?30:(li+1)*10;
+  const R={i:0,correct:0,hearts:3};
+  const title=boss?T.boss:`${st.title} · المستوى ${li+1}`;
+  function render(){
+    clearInterval(timerId);
+    const Q=items[R.i];
+    const alt=Math.round(R.correct/items.length*100);
+    app.innerHTML=`<div class="bar"><button class="back" id="bk">→ ${T.hub}</button><h2>${title}</h2><span class="chip">${R.i+1} / ${items.length}</span></div>
+      <div class="progress"><i style="width:${R.i/items.length*100}%"></i></div>
+      ${boss?`<div class="bar" style="margin-top:-4px"><span class="hearts" aria-label="المحاولات المتبقية">${[1,2,3].map(i=>`<span class="${i<=R.hearts?'':'off'}">♥</span>`).join('')}</span><span class="chip">${T.meter} <strong>${alt}%</strong></span><span class="chip" id="tl">90</span></div><div class="timer" id="tm"><i style="width:100%"></i></div>
+        <div class="launch" style="margin-top:12px"><div class="sky">${bossVis(R.correct/items.length)}</div><div class="card" id="card"></div></div>`
+      :`<div class="card" id="card"></div>`}`;
+    $('#bk').onclick=()=>{clearInterval(timerId);home()};
+    const card=$('#card');
+    let finished=false;
+    const done=(ok)=>{
+      if(finished)return;finished=true;clearInterval(timerId);
+      if(ok){R.correct++;S.points+=pts;save();hud();bossUpd(R.correct/items.length)} else if(boss){R.hearts--}
+      const fb=document.createElement('div');fb.className='feedback'+(ok?'':' no');
+      fb.innerHTML=`<b>${ok?`إجابة صحيحة! +${pts}`:'ليست الإجابة الصحيحة'}</b><div>${Q.sol||''}</div>`;
+      card.appendChild(fb);
+      const nx=document.createElement('button');nx.className='next';
+      const over=boss&&R.hearts<=0, last=R.i+1>=items.length;
+      nx.textContent=over?T.fail:last?'إنهاء':'التالي ←';
+      nx.onclick=()=>{ if(over) return lose(); R.i++; if(R.i>=items.length) return finish(); render(); };
+      card.appendChild(nx);nx.focus({preventScroll:true});
+    };
+    renderQ(card,Q,done);
+    if(boss){let t=90;timerId=setInterval(()=>{t--;const tl=$('#tl'),tm=$('#tm');if(!tl){clearInterval(timerId);return}
+      tl.textContent=t;tm.querySelector('i').style.width=(t/90*100)+'%';tm.classList.toggle('low',t<=20);
+      if(t<=0){card.querySelectorAll('button,input').forEach(x=>x.disabled=true);done(false)}},1000)}
+  }
+  function finish(){
+    const pct=R.correct/items.length;
+    const stars=boss?(R.hearts>=3?3:R.hearts===2?2:1):(pct>=.9?3:pct>=.6?2:1);
+    const key=boss?'boss':st.k+li;
+    S.stars[key]=Math.max(S.stars[key]||0,stars);save();hud();lbSubmit();
+    app.innerHTML=`<div class="card summary">
+      <h2>${boss?T.win:'أنهيت المهمة'}</h2>${starsHTML(stars,'big')}
+      <p style="margin:0;color:var(--muted)">أجبت ${R.correct} من ${items.length} إجابة صحيحة.</p>
+      ${boss?`<div class="cert"><span style="color:var(--muted);font-size:.85rem">${T.cert}</span><h2>${esc(S.name||'')}</h2><span>${T.unit} · ${S.points} نقطة · الرتبة: ${rankOf(totalStars())}</span><span style="color:var(--muted);font-size:.85rem">الأستاذ بدر السعيدي · مدار الفيزياء</span></div>`:''}
+      <div class="btns"><button class="next" id="h">${T.hub}</button><button class="back" id="ag">${boss?T.again:'أعد المستوى بأرقام جديدة'}</button>
+      ${!boss&&li<2?`<button class="back" id="nl">المستوى ${li+2} ←</button>`:''}</div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+    const nl=$('#nl');if(nl)nl.onclick=()=>play(si,li+1);
+  }
+  function lose(){
+    app.innerHTML=`<div class="card summary"><h2>${T.lose}</h2><p style="margin:0;color:var(--muted)">راجع خطوات الحل وحاول مرة أخرى، ستتغير الأرقام.</p>
+    <div class="btns"><button class="next" id="ag">${T.again}</button><button class="back" id="h">${T.hub}</button></div></div>`;
+    $('#h').onclick=home;$('#ag').onclick=()=>play(si,li);
+  }
+  render();
+}
+
+/* ================= RENDERERS ================= */
+function renderQ(card,Q,done){
+  card.innerHTML=`<div class="meta"><span class="tag ${Q.tag&&Q.tag!=='x'?'ex':''}">${SRC[Q.tag]||SRC.x}</span></div><p class="q">${Q.q}</p>`+(Q.svg||'')+(Q.given?`<p class="given">معطيات: ${Q.given}</p>`:'');
+  if(Q.kind==='mc'){
+    const order=shuffle(Q.o.map((_,i)=>i));
+    card.insertAdjacentHTML('beforeend',`<div class="opts">${order.map(i=>`<button class="opt" data-i="${i}">${Q.ltr?E(Q.o[i]):Q.o[i]}</button>`).join('')}</div>`);
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const p=+b.dataset.i;card.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.a)x.classList.add('right')});if(p!==Q.a)b.classList.add('wrong');done(p===Q.a)});
+  }
+  else if(Q.kind==='sci'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans"><span class="sci"><input class="man" id="man" inputmode="decimal" autocomplete="off" aria-label="الرقم"><span class="x">×</span><span class="ten">10</span><input class="exp" id="exp" inputmode="numeric" autocomplete="off" aria-label="الأُس"><span class="unit">${Q.unit}</span></span><button class="check" id="ck">تحقّق</button></div>
+      <p class="hint2">اكتب الناتج بالصيغة العلمية: الرقم في الخانة الزرقاء والأُس في الخانة الصغيرة. للأُس السالب اكتب إشارة −. استخدم الإشارة السالبة في الرقم إن كان الناتج سالباً.</p>`);
+    const m=$('#man'),e=$('#exp'),ck=$('#ck');
+    const go=()=>{const a=parseNum(m.value);let b=parseNum(e.value);if(isNaN(a)){m.focus();return}if(isNaN(b))b=0;
+      const v=a*Math.pow(10,b),ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.03);
+      [m,e].forEach(x=>{x.classList.add(ok?'ok':'no');x.disabled=true});ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(sci(Q.ans,2)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;[m,e].forEach(x=>x.addEventListener('keydown',ev=>{if(ev.key==='Enter')go()}));m.focus({preventScroll:true});
+  }
+  else if(Q.kind==='num'){
+    card.insertAdjacentHTML('beforeend',`<div class="ans num"><input id="in" inputmode="decimal" dir="ltr" autocomplete="off" aria-label="الإجابة"><span class="unit">${Q.unit}</span><button class="check" id="ck">تحقّق</button></div>`);
+    const inp=$('#in'),ck=$('#ck');
+    const go=()=>{const v=parseNum(inp.value);if(isNaN(v)){inp.focus();return}
+      const ok=Math.abs(v-Q.ans)<=Math.abs(Q.ans)*(Q.rel||.02);inp.classList.add(ok?'ok':'no');inp.disabled=ck.disabled=true;
+      if(!ok)Q.sol=`الإجابة الصحيحة: ${E(Q.ans.toPrecision(3)+' '+Q.unit)}<br>`+Q.sol;done(ok)};
+    ck.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus({preventScroll:true});
+  }
+}
+
+home();
+})();
+</script>
+
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</html>

@@ -2919,7 +2919,7 @@ ${kb}
 }
 
 // ===== لوحة المتصدرين لألعاب مدار (قاعدة بيانات D1 مربوطة باسم LEADERBOARD) =====
-const LB_GAMES = { g10u1: 12, g11u1: 39, g12u1: 39, g12u2: 48, g12u3: 48 }; // رمز اللعبة: أقصى عدد نجوم فيها
+const LB_GAMES = { g10u1: 12, g10u2: 39, g10u3: 30, g11u1: 39, g11u2: 48, g12u1: 39, g12u2: 48, g12u3: 48 }; // رمز اللعبة: أقصى عدد نجوم فيها
 let lbReady = false;
 function lbJson(obj, status = 200) {
   return new Response(JSON.stringify(obj), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
