@@ -1,0 +1,316 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر الدوائر العملية — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}}
+.steps li,.say,.rule{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div><h1>مختبر الدوائر العملية</h1><p class="sub">الوحدة الثالثة: الدوائر الكهربائية — الدرس 5-3: المقاومة الداخلية، مجزئ الجهد، مقياس الجهد</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8',TEAL='#0b7a83';
+const f1=x=>String(+x.toFixed(1)),f2=x=>String(+x.toFixed(2)),f3=x=>String(+x.toFixed(3)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=4){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(14,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([+\-−]?[0-9A-Za-zµμΔεΩρπ⁰-⁹₀-₉⁻¹²³][0-9A-Za-zµμΔεΩρπ⁰-⁹₀-₉⁻¹²³° .,+\-−×=\/%]*[0-9A-Za-zµμΔεΩρπ⁰-⁹₀-₉⁻¹²³%°]|[0-9A-Za-zµμΔεΩρπ⁰-⁹₀-₉⁻¹²³])/g,'⁦$1⁩');
+// page is RTL: SVG text-anchor start/end are mirrored (a:'start' = text extends to the right of x)
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`;
+const wire=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="3"/>`;
+const rbox=(cx,cy,w=62,h=24)=>`<rect x="${cx-w/2}" y="${cy-h/2}" width="${w}" height="${h}" fill="var(--raised)" stroke="currentColor" stroke-width="2.6"/>`;
+const rboxV=(cx,cy,w=24,h=62)=>`<rect x="${cx-w/2}" y="${cy-h/2}" width="${w}" height="${h}" fill="var(--raised)" stroke="currentColor" stroke-width="2.6"/>`;
+const battH=(cx,cy)=>`<line x1="${cx+6}" y1="${cy-19}" x2="${cx+6}" y2="${cy+19}" stroke="currentColor" stroke-width="3.6"/><line x1="${cx-6}" y1="${cy-10}" x2="${cx-6}" y2="${cy+10}" stroke="currentColor" stroke-width="6"/>`;
+const meter=(cx,cy,ch,col)=>`<circle cx="${cx}" cy="${cy}" r="16" fill="var(--raised)" stroke="${col}" stroke-width="2.6"/>`+`<text x="${cx}" y="${cy+6}" font-size="19" font-weight="700" fill="${col}" text-anchor="middle">${ch}</text>`;
+const dot=(x,y,c='currentColor')=>`<circle cx="${x}" cy="${y}" r="4.2" fill="${c}"/>`;
+
+const TABS=[{id:'r',t:'المقاومة الداخلية'},{id:'d',t:'مجزئ الجهد'},{id:'p',t:'مقياس الجهد'},{id:'q',t:'اختبر نفسك'}];
+let tab='r';{const h=(location.hash||'').slice(1);if(['r','d','p','q'].includes(h))tab=h;}
+const S={r:{e:6,r:1,R:5,sw:true},d:{mode:'fixed',vin:12,r1:400,r2:200,pos:50,rl:1000},p:{mode:'emf',e0:6,ex:1.5,ey:2.4,Rs1:20,Rs2:30,y:50,pick:'x',rec:{x:null,y:null},which:1},q:{}};
+const tabsEl=$('tabs');
+function drawTabs(){tabsEl.innerHTML=TABS.map(t=>`<button aria-pressed="${t.id===tab}" data-t="${t.id}">${t.t}</button>`).join('');tabsEl.querySelectorAll('button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;render();});}
+const slider=(id,label,min,max,step,val,unit)=>`<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}o">${val} ${unit}</output></div>`;
+function bind(id,obj,key,unit,after){const el=$(id),o=$(id+'o');el.oninput=()=>{obj[key]=+el.value;o.textContent=f3(+el.value)+' '+unit;after();};}
+const seg=(items,cur,attr)=>`<div class="seg">${items.map(i=>`<button data-${attr}="${i[0]}" aria-pressed="${i[0]===cur}">${i[1]}</button>`).join('')}</div>`;
+const chips=a=>`<div class="chips">${a.map(c=>`<div class="chip"><div class="k">${c[0]}</div><div class="v">${c[1]}</div></div>`).join('')}</div>`;
+
+/* ============================================================ TAB R : internal resistance */
+function viewR(){
+  const s=S.r;
+  ctrl.innerHTML=`<div><p class="gt">القوة الدافعة والمقاومتان</p>${slider('e','القوة الدافعة ε',1,12,0.5,s.e,'V')}${slider('rr','المقاومة الداخلية r',0,5,0.01,s.r,'Ω')}${slider('RR','المقاومة الخارجية R',0.05,20,0.05,s.R,'Ω')}</div>
+  <div><p class="gt">المفتاح</p><label class="chk"><input type="checkbox" id="sw" ${s.sw?'checked':''}> المفتاح مغلق (يمر تيار)</label></div>
+  <div><p class="gt">أمثلة جاهزة</p><div class="btns"><button class="btn small" id="p1">بطارية سيارة 12 V</button><button class="btn small" id="p2">3.0 V مع 10 Ω (مفتاح)</button><button class="btn small" id="p3">R ≈ 0 (تقصير)</button></div></div>`;
+  bind('e',s,'e','V',updR);bind('rr',s,'r','Ω',updR);bind('RR',s,'R','Ω',updR);
+  $('sw').onchange=e=>{s.sw=e.target.checked;updR();};
+  const set=(e,r,R)=>{s.e=e;s.r=r;s.R=R;s.sw=true;viewR();};
+  $('p1').onclick=()=>set(12,0.04,0.08);$('p2').onclick=()=>set(3,0.71,10);$('p3').onclick=()=>set(6,1,0.05);
+  talk.innerHTML=['ابدأ بالمفتاح المفتوح: V = ε لأن I = 0. ثم أغلقه واسأل: لماذا انخفضت القراءة؟','حرّك r: كلما زادت المقاومة الداخلية زاد الجهد المفقود I r وقل V.','حرّك R إلى قيمة صغيرة: يقترب التيار من أكبر قيمة ε / r ويهبط V.','اربط بالرسم البياني: الخط V = ε − I r، ميله (−r) وقطعه الصادي ε.','المثال الجاهز: بطارية السيارة تهبط من 12 V إلى 8.0 V عند 100 A.'].map(t=>`<li>${LTR(t)}</li>`).join('');
+  updR();
+}
+function updR(){
+  const s=S.r,e=s.e,r=s.r,R=s.R,I=s.sw?e/(R+r):0,V=e-I*r,lost=I*r,P=I*I*r;
+  const x0=60,x1=350,yt=100,yb=290,bx=130,rx=235;
+  let g='';
+  // circuit
+  g+=wire(x0,yt,bx-6,yt)+battH(bx,yt)+wire(bx+6,yt,rx-31,yt)+rbox(rx,yt)+wire(rx+31,yt,x1,yt);
+  g+=`<rect x="85" y="${yt-36}" width="205" height="72" fill="none" stroke="${GRAY}" stroke-width="2" stroke-dasharray="7 5"/>`;
+  g+=tx(bx-12,yt-18,'−',{f:BLUE,s:14})+tx(bx+14,yt-18,'+',{f:RED,s:14})+tx(bx,yt+56,'ε = '+f2(e)+' V',{f:ORANGE,s:13})+tx(rx,yt+56,'r = '+f2(r)+' Ω',{f:TEAL,s:13});
+  g+=wire(85,yt,85,yt-72)+wire(85,yt-72,160,yt-72)+wire(192,yt-72,290,yt-72)+wire(290,yt-72,290,yt)+meter(176,yt-72,'V',GREEN)+dot(85,yt)+dot(290,yt);
+  g+=tx(176,yt-102,'V = '+f2(V)+' V',{f:GREEN,s:15});
+  g+=wire(x0,yt,x0,yb-0)+wire(x1,yt,x1,s.sw?yb-100:yb-100);
+  if(s.sw){g+=wire(x1,yt,x1,yb)}else{g+=wire(x1,yt,x1,190)+dot(x1,190)+`<line x1="${x1}" y1="190" x2="${x1+26}" y2="222" stroke="currentColor" stroke-width="3"/>`+wire(x1,236,x1,yb)+dot(x1,236)}
+  g+=wire(x0,yb,x1,yb);
+  g=g.replace(wire(x0,yb,x1,yb),wire(x0,yb,x0+118,yb)+rbox(x0+150,yb,62,24)+wire(x0+181,yb,x1,yb));
+  g+=tx(x0+150,yb+36,'R = '+f2(R)+' Ω',{f:TEAL,s:13});
+  g+=`<circle cx="${x0}" cy="190" r="16" fill="var(--raised)" stroke="${RED}" stroke-width="2.6"/><text x="${x0}" y="196" font-size="19" font-weight="700" fill="${RED}" text-anchor="middle">A</text>`;
+  g+=tx(x0+26,232,'I = '+f2(I)+' A',{f:RED,s:13,a:'start'});
+  if(s.sw)g+=arr(x1+28,150,x1+28,196,RED,4);
+  // graph
+  const gx=410,gy=60,gw=260,gh=220,Imax=Math.max(e/Math.max(r,0.05),0.5);
+  const X=i=>gx+gw*i/Imax,Y=v=>gy+gh-gh*v/e;
+  g+=`<line x1="${gx}" y1="${gy+gh}" x2="${gx+gw+10}" y2="${gy+gh}" stroke="currentColor" stroke-width="2.4"/><line x1="${gx}" y1="${gy+gh}" x2="${gx}" y2="${gy-12}" stroke="currentColor" stroke-width="2.4"/>`;
+  g+=tx(gx+4,gy-18,'V',{f:BLUE,s:13,a:'start'})+tx(gx+gw+10,gy+gh+34,'I',{f:BLUE,s:13,a:'end'});
+  g+=`<line x1="${X(0)}" y1="${Y(e)}" x2="${X(Math.min(e/Math.max(r,1e-9),Imax))}" y2="${Y(Math.max(0,e-Math.min(e/Math.max(r,1e-9),Imax)*r))}" stroke="${BLUE}" stroke-width="3.4"/>`;
+  g+=tx(gx-8,Y(e)+5,f1(e),{s:12,a:'end'})+tx(gx+gw,gy+gh+18,f2(Imax),{s:12});
+  if(s.sw){g+=`<line x1="${gx}" y1="${Y(V)}" x2="${X(I)}" y2="${Y(V)}" stroke="${RED}" stroke-dasharray="6 5"/><line x1="${X(I)}" y1="${Y(V)}" x2="${X(I)}" y2="${gy+gh}" stroke="${RED}" stroke-dasharray="6 5"/><circle cx="${X(I)}" cy="${Y(V)}" r="6" fill="${RED}"/>`;}
+  else g+=`<circle cx="${gx}" cy="${Y(e)}" r="6" fill="${RED}"/>`;
+  g+=tx(gx+gw/2,gy+gh+58,'V = ε − I r',{f:GRAY,s:13});
+  svg.setAttribute('viewBox','0 0 700 370');svg.innerHTML=g;
+  const say=!s.sw?`المفتاح مفتوح: ${num('I = 0')} فلا جهد مفقود، وقراءة الفولتميتر تساوي القوة الدافعة ${num('V = ε = '+f2(e)+' V')}.`
+   :(r<0.005?`r تقريبًا صفر: ${num('V = ε')} لأن ${num('I r = 0')}.`:`يمر تيار ${num(f2(I)+' A')} فيُفقد داخل البطارية ${num('I r = '+f2(lost)+' V')} وتصبح القراءة ${num('V = '+f2(V)+' V')} أقل من ${num('ε')}.`);
+  info.innerHTML=chips([['شدة التيار I',f2(I)+' A'],['فرق الجهد الطرفي V',f2(V)+' V'],['الجهد المفقود I r',f2(lost)+' V'],['القدرة المفقودة I²r',f2(P)+' W'],['أكبر تيار ε / r',r>0?f1(e/r)+' A':'—']])
+   +`<p class="say${s.sw&&V>e*0.9?' ok':''}">${say}</p><div class="rule"><b>اربط بالدرس:</b> ${LTR('V = ε − I r')} ، ${LTR('I = ε / ( R + r )')} ، ${LTR('ε = V + I r')} . ميل خط V مقابل I يساوي (−r).</div>`;
+}
+
+/* ============================================================ TAB D : potential divider */
+function viewD(){
+  const s=S.d;
+  ctrl.innerHTML=`<div><p class="gt">نوع المجزئ</p>${seg([['fixed','مقاومتان ثابتتان'],['slider','منزلق'],['load','حمل / فولتميتر']],s.mode,'m')}</div>
+  <div><p class="gt">القيم</p>${slider('vin','جهد المصدر Vin',1,20,0.5,s.vin,'V')}
+   ${s.mode==='slider'?slider('pos','موضع المنزلق (من الأسفل)',0,100,1,s.pos,'%'):slider('r1','المقاومة R₁',50,2000,10,s.r1,'Ω')+slider('r2','المقاومة R₂',50,2000,10,s.r2,'Ω')}
+   ${s.mode==='load'?slider('rl','مقاومة الحمل / الفولتميتر',100,10000,50,s.rl,'Ω'):''}</div>`;
+  ctrl.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{s.mode=b.dataset.m;viewD();});
+  bind('vin',s,'vin','V',updD);
+  if(s.mode==='slider')bind('pos',s,'pos','%',updD);else{bind('r1',s,'r1','Ω',updD);bind('r2',s,'r2','Ω',updD);}
+  if(s.mode==='load')bind('rl',s,'rl','Ω',updD);
+  talk.innerHTML=['Vout = R₂ / (R₁ + R₂) × Vin: المقاومة الأكبر تأخذ جزءًا أكبر من الجهد.','ثبّت R₁ وزد R₂ وسترى Vout يقترب من Vin.','المنزلق: عند الأعلى Vout = Vin، وعند الأسفل Vout = 0.','الحمل أو الفولتميتر ذو المقاومة المحدودة على التوازي مع R₂ يقلل Vout عن القيمة المثالية.','الفولتميتر المثالي (مقاومته كبيرة جدًا) لا يغيّر الدائرة.'].map(t=>`<li>${LTR(t)}</li>`).join('');
+  updD();
+}
+function updD(){
+  const s=S.d;let r1,r2,rl=Infinity;
+  if(s.mode==='slider'){r1=Math.max(1e-6,1000*(1-s.pos/100));r2=Math.max(1e-6,1000*s.pos/100);}else{r1=s.r1;r2=s.r2;}
+  if(s.mode==='load')rl=s.rl;
+  const r2e=rl===Infinity?r2:(r2*rl)/(r2+rl),vout=s.vin*r2e/(r1+r2e),vid=s.vin*r2/(r1+r2),v1=s.vin-vout;
+  const xb=100,xr=240,yt=60,yb=300,ym=180;let g='';
+  g+=wire(xb,yt,xr,yt)+wire(xr,yt,xr,ym-70)+rboxV(xr,ym-35,26,70)+rboxV(xr,ym+35,26,70)+wire(xr,ym+70,xr,yb)+wire(xr,yb,xb,yb)+wire(xb,yt,xb,ym-20)+`<line x1="${xb-18}" y1="${ym-6}" x2="${xb+18}" y2="${ym-6}" stroke="currentColor" stroke-width="3.6"/><line x1="${xb-10}" y1="${ym+6}" x2="${xb+10}" y2="${ym+6}" stroke="currentColor" stroke-width="6"/>`+wire(xb,ym+20,xb,yb)+dot(xr,ym);
+  g+=tx(xb+8,yt-14,'Vin = '+f1(s.vin)+' V',{f:ORANGE,s:13,a:'start'});
+  if(s.mode==='slider'){const ys=ym+70-140*(s.pos/100);g+=arr(xr+90,ys,xr+16,ys,GREEN,3.4)+wire(xr+90,ys,330,ys);g=g.replace(dot(xr,ym),'');g+=tx(xr-26,yt+34,'R₁ = '+f0(r1)+' Ω',{f:TEAL,s:13,a:'end'})+tx(xr-26,yb-40,'R₂ = '+f0(r2)+' Ω',{f:TEAL,s:13,a:'end'});
+    g+=wire(330,ys,330,ys+10)+meter(330,ys+30,'V',GREEN)+wire(330,ys+46,330,yb)+wire(xr,yb,330,yb);}
+  else{g+=tx(xr-26,ym-30,'R₁ = '+f0(r1)+' Ω',{f:TEAL,s:13,a:'end'})+tx(xr-26,ym+44,'R₂ = '+f0(r2)+' Ω',{f:TEAL,s:13,a:'end'});
+    g+=wire(xr,ym,330,ym)+wire(xr,yb,330,yb);
+    if(s.mode==='load'){g+=wire(330,ym,330,ym+22)+rboxV(330,ym+54,26,62)+wire(330,ym+85,330,yb)+tx(354,ym+60,'R = '+f0(rl)+' Ω',{f:TEAL,s:13,a:'start'});}
+    else g+=wire(330,ym,330,ym+22)+meter(330,ym+38,'V',GREEN)+wire(330,ym+54,330,yb)+tx(354,ym+44,'∞',{f:GRAY,s:14,a:'start'});}
+  g+=dot(330,ym)+dot(330,yb);
+  // stacked bar
+  const bxx=470,by=60,bh=240,bw=70;g+=`<rect x="${bxx}" y="${by}" width="${bw}" height="${bh}" fill="none" stroke="currentColor" stroke-width="2.4"/>`;
+  const h1=bh*v1/s.vin,h2=bh-h1;
+  g+=`<rect x="${bxx}" y="${by}" width="${bw}" height="${h1}" fill="${RED}" fill-opacity=".25"/><rect x="${bxx}" y="${by+h1}" width="${bw}" height="${h2}" fill="${GREEN}" fill-opacity=".3"/>`;
+  g+=tx(bxx+bw+12,by+h1/2+5,'V₁ = '+f2(v1)+' V',{f:RED,s:14,a:'start'})+tx(bxx+bw+12,by+h1+h2/2+5,'V₂ = Vout = '+f2(vout)+' V',{f:GREEN,s:14,a:'start'});
+  g+=tx(bxx+bw/2,by-14,'Vin = '+f1(s.vin)+' V',{f:ORANGE,s:14});
+  svg.setAttribute('viewBox','0 0 700 340');svg.innerHTML=g;
+  info.innerHTML=chips([['V₁ عبر R₁',f2(v1)+' V'],['الجهد الخارج Vout',f2(vout)+' V'],['النسبة Vout / Vin',f2(vout/s.vin)],['Vout المثالي (بلا حمل)',f2(vid)+' V']])
+   +`<p class="say${Math.abs(vout-vid)<0.005?' ok':''}">${s.mode==='load'?`الحمل (${num(f0(rl)+' Ω')}) على التوازي مع R₂ يجعلها ${num(f0(r2e)+' Ω')} فينخفض الجهد الخارج من ${num(f2(vid)+' V')} إلى ${num(f2(vout)+' V')}.`:`${num('V₁ / V₂ = R₁ / R₂ = '+f2(r1/r2))} : المقاومة الأكبر تأخذ جهدًا أكبر، ومجموعهما ${num('Vin')}.`}</p>
+   <div class="rule"><b>اربط بالدرس:</b> ${LTR('Vout = ( R₂ / ( R₁ + R₂ ) ) × Vin')} ، نضع في البسط المقاومة التي نأخذ منها الجهد.</div>`;
+}
+
+/* ============================================================ TAB P : potentiometer */
+function wireSvg(y,ypos,bal,extra){
+  const x0=70,x1=630,W=x1-x0,yy=150;let g='';
+  g+=`<rect x="${x0}" y="${yy-7}" width="${W}" height="14" fill="#c98b3c" stroke="#8a5a24" stroke-width="1.6"/>`;
+  for(let k=0;k<=10;k++){const x=x0+W*k/10,tk=k%5===0?20:14;g+=`<line x1="${x}" y1="${yy+9}" x2="${x}" y2="${yy+tk}" stroke="currentColor" stroke-width="2"/>`;if(k%2===0)g+=tx(x,yy+38,f0(k*10),{s:12,w:500});}
+  g+=tx(x0-12,yy+6,'A',{s:17,a:'end'})+tx(x1+12,yy+6,'B',{s:17,a:'start'})+tx(x1-4,yy+56,'cm',{s:12,f:GRAY});
+  return g;
+}
+function viewP(){
+  const s=S.p;
+  ctrl.innerHTML=`<div><p class="gt">نوع التجربة</p>${seg([['emf','قياس ε مجهولة'],['two','مقارنة خليتين'],['res','مقارنة مقاومتين']],s.mode,'m')}</div>
+  <div><p class="gt">القوة الدافعة القائدة</p>${slider('e0','ε₀',2,12,0.5,s.e0,'V')}</div>
+  ${s.mode==='emf'?`<div>${slider('ex','القوة الدافعة المجهولة εx',0.2,Math.min(11,s.e0-0.2),0.05,Math.min(s.ex,s.e0-0.2),'V')}</div>`:''}
+  ${s.mode==='two'?`<div>${slider('ex','الخلية X',0.2,Math.min(11,s.e0-0.2),0.05,Math.min(s.ex,s.e0-0.2),'V')}${slider('ey','الخلية Y',0.2,Math.min(11,s.e0-0.2),0.05,Math.min(s.ey,s.e0-0.2),'V')}<p class="gt">الخلية الموصولة بالجلفانومتر</p>${seg([['x','X'],['y','Y']],s.pick,'k')}</div>`:''}
+  ${s.mode==='res'?`<div>${slider('Rs1','المقاومة R₁',5,60,1,s.Rs1,'Ω')}${slider('Rs2','المقاومة R₂',5,60,1,s.Rs2,'Ω')}<p class="gt">الجلفانومتر موصول بطرفي</p>${seg([['1','R₁'],['2','R₂']],String(s.which),'w')}</div>`:''}
+  <div><p class="gt">حرّك المنزلق Y</p>${slider('yy','الطول AY',0,100,0.1,s.y,'cm')}<div class="btns"><button class="btn small" id="solve">أظهر نقطة الاتزان</button><button class="btn small" id="clr">مسح التسجيل</button></div></div>`;
+  ctrl.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{s.mode=b.dataset.m;s.rec={x:null,y:null};viewP();});
+  ctrl.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{s.pick=b.dataset.k;viewP();});
+  ctrl.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{s.which=+b.dataset.w;viewP();});
+  bind('e0',s,'e0','V',()=>{s.ex=Math.min(s.ex,s.e0-0.2);s.ey=Math.min(s.ey,s.e0-0.2);viewP();});
+  if(s.mode!=='res'){bind('ex',s,'ex','V',updP);} if(s.mode==='two')bind('ey',s,'ey','V',updP);
+  if(s.mode==='res'){bind('Rs1',s,'Rs1','Ω',updP);bind('Rs2',s,'Rs2','Ω',updP);}
+  bind('yy',s,'y','cm',updP);const yy=$('yy');yy.oninput=()=>{s.y=+yy.value;$('yyo').textContent=f1(s.y)+' cm';updP();};
+  $('solve').onclick=()=>{s.y=balanceLen();yy.value=s.y;$('yyo').textContent=f1(s.y)+' cm';updP();};
+  $('clr').onclick=()=>{s.rec={x:null,y:null};updP();};
+  talk.innerHTML=['حرّك المنزلق وراقب الجلفانومتر: الانحراف يتغير ويصبح صفرًا عند نقطة الاتزان.','عند الاتزان لا يمر تيار في الخلية المجهولة، فلا يضيع جهد في مقاومتها الداخلية.','εx = ( AY / AB ) × ε₀: غيّر ε₀ وانظر كيف يتغير طول الاتزان.','مقارنة خليتين: سجّل طولي الاتزان ثم احسب النسبة εx / εy = AC / AD.','مقارنة مقاومتين: V₁ / V₂ = R₁ / R₂ = L₁ / L₂ لأن التيار واحد.','إذا أصبحت εx أكبر من ε₀ لا توجد نقطة اتزان (الشرط الأول).'].map(t=>`<li>${LTR(t)}</li>`).join('');
+  updP();
+}
+function targetV(){const s=S.p;if(s.mode==='emf')return s.ex;if(s.mode==='two')return s.pick==='x'?s.ex:s.ey;const I=6/(s.Rs1+s.Rs2);return s.which===1?I*s.Rs1:I*s.Rs2;}
+function balanceLen(){const s=S.p;return clamp(targetV()/s.e0*100,0,100);}
+function updP(){
+  const s=S.p,e0=s.e0,v=targetV(),vy=e0*s.y/100,diff=v-vy,bal=Math.abs(diff)<0.02*e0/2+1e-9||Math.abs(s.y-balanceLen())<0.15,L=balanceLen();
+  const x0=70,W=560,xs=x0+W*s.y/100;let g=wireSvg();
+  // driver cell
+  g+=wire(x0,150,x0,60)+wire(x0,60,330,60)+battH(350,60)+wire(356,60,630,60)+wire(630,60,630,150)+tx(350,34,'ε₀ = '+f1(e0)+' V',{f:ORANGE,s:14});
+  g+=dot(x0,150)+dot(630,150);
+  // lower branch
+  const yl=235;
+  if(s.mode==='res'){const I=6/(s.Rs1+s.Rs2),xP=90,xQ=250,xS=410,x2=530;
+    g+=wire(xP,yl,xP+20,yl)+rbox(xP+60,yl,76)+wire(xP+98,yl,xQ,yl)+rbox(xQ+60,yl,76)+wire(xQ+98,yl,x2,yl)+tx(xP+60,yl+30,'R₁ = '+f0(s.Rs1)+' Ω',{f:TEAL,s:13})+tx(xQ+60,yl+30,'R₂ = '+f0(s.Rs2)+' Ω',{f:TEAL,s:13});
+    g+=wire(xP,yl,xP,yl+48)+wire(xP,yl+48,300,yl+48)+battH(312,yl+48)+wire(318,yl+48,x2,yl+48)+wire(x2,yl+48,x2,yl)+tx(312,yl+78,'ε = 6 V',{f:ORANGE,s:13})+dot(xP,yl)+dot(xQ,yl)+dot(x2,yl);
+    const gxp=s.which===1?xQ:x2;g+=wire(gxp,yl,gxp,196)+wire(gxp,196,xs+22,196)+meter(xs,196,'G',RED).replace(/cx="[^"]*"/,`cx="${xs+6}"`)+arr(xs,184,xs,158,'currentColor',3);
+    g+=wire(x0,150,x0,178)+wire(x0,178,s.which===1?xP-22:xQ-24,178)+wire(s.which===1?xP-22:xQ-24,178,s.which===1?xP-22:xQ-24,yl)+wire(s.which===1?xP-22:xQ-24,yl,s.which===1?xP:xQ,yl);
+  }else{
+    g+=wire(x0,150,x0,yl)+wire(x0,yl,130,yl)+battH(142,yl)+wire(148,yl,220,yl)+meter(238,yl,'G',RED)+wire(254,yl,xs,yl)+arr(xs,yl,xs,160,'currentColor',3);
+    g+=tx(142,yl+34,(s.mode==='emf'?'εx':s.pick==='x'?'εx':'εy')+' = '+f2(v)+' V',{f:ORANGE,s:13});
+  }
+  g+=tx(xs+14,184,s.mode==='res'?'Y':'Y',{s:15,a:'start',f:RED});
+  // galvanometer needle (gauge)
+  const cx=560,cy=300,ang=clamp(diff/Math.max(e0,1)*Math.PI*3.2,-1.2,1.2);
+  g+=`<path d="M ${cx-52} ${cy} A 52 52 0 0 1 ${cx+52} ${cy}" fill="var(--raised)" stroke="currentColor" stroke-width="2.4"/><line x1="${cx}" y1="${cy}" x2="${cx+46*Math.sin(ang)}" y2="${cy-46*Math.cos(ang)}" stroke="${bal?GREEN:RED}" stroke-width="3.4" stroke-linecap="round"/>`+tx(cx,cy+22,'الجلفانومتر G',{s:12,f:GRAY});
+  svg.setAttribute('viewBox','0 0 700 360');svg.innerHTML=g;
+  // recording
+  if(bal&&s.mode==='two')s.rec[s.pick]=s.y;
+  let extra='',say;
+  const AB=100;
+  if(s.mode==='emf'){say=bal?`اتزان: الجلفانومتر يقرأ صفرًا. ${num('εx = ( AY / AB ) × ε₀ = ( '+f1(s.y)+' / 100 ) × '+f1(e0)+' = '+f2(vy)+' V')}`:`الجلفانومتر منحرف: فرق الجهد عبر AY هو ${num(f2(vy)+' V')} ${vy<v?'أقل':'أكبر'} من ${num('εx = '+f2(v)+' V')} فحرّك المنزلق ${vy<v?'بعيدًا عن A':'نحو A'}.`;}
+  else if(s.mode==='two'){const a=s.rec.x,b=s.rec.y;say=bal?`اتزان للخلية ${s.pick.toUpperCase()}: الطول ${num(f1(s.y)+' cm')}.`:`حرّك المنزلق حتى يصبح الجلفانومتر صفرًا للخلية ${s.pick.toUpperCase()}.`;
+    extra=`<div class="cards"><div class="card ${a!=null?'good':''}"><b>AC (الخلية X)</b>${a!=null?num(f1(a)+' cm'):'لم تُسجَّل'}</div><div class="card ${b!=null?'good':''}"><b>AD (الخلية Y)</b>${b!=null?num(f1(b)+' cm'):'لم تُسجَّل'}</div>${a!=null&&b!=null?`<div class="card good"><b>النسبة</b>${num('εx / εy = AC / AD = '+f2(a/b))}</div>`:''}</div>`;}
+  else{say=bal?`اتزان على ${s.which===1?'R₁':'R₂'}: طول الاتزان ${num('L'+s.which+' = '+f1(s.y)+' cm')}.`:`حرّك المنزلق حتى يصبح الجلفانومتر صفرًا على ${s.which===1?'R₁':'R₂'}.`;
+    const I=6/(s.Rs1+s.Rs2),L1=I*s.Rs1/e0*100,L2=I*s.Rs2/e0*100;extra=`<div class="cards"><div class="card good"><b>L₁ و L₂ (عند الاتزان)</b>${num(f1(L1)+' cm , '+f1(L2)+' cm')}</div><div class="card good"><b>النسب</b>${num('L₁ / L₂ = '+f2(L1/L2)+' = R₁ / R₂ = '+f2(s.Rs1/s.Rs2))}</div></div>`;}
+  info.innerHTML=chips([['فرق الجهد عبر AY',f2(vy)+' V'],['الجهد المراد موازنته',f2(v)+' V'],['الفرق (انحراف G)',f2(diff)+' V'],['طول الاتزان',f1(L)+' cm']])+`<p class="say${bal?' ok':''}">${say}</p>${extra}<div class="rule"><b>اربط بالدرس:</b> ${LTR('εx = ( AY / AB ) × ε₀')} ، ${LTR('εx / εy = AC / AD')} ، ${LTR('V₁ / V₂ = R₁ / R₂ = L₁ / L₂')} . الشرطان: εx أقل من ε₀ والطرفان الموجبان عند A.</div>`;
+}
+
+/* ============================================================ TAB Q : quiz */
+const rnd=(a,b,st=1)=>{const n=Math.round((b-a)/st);return +(a+st*Math.floor(Math.random()*(n+1))).toFixed(6);};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function mk(text,ans,wrongs,why,unit){const vals=[ans,...wrongs.filter(w=>Math.abs(w-ans)>1e-6)].slice(0,4);while(vals.length<4)vals.push(+(ans*(1+0.2*vals.length)).toFixed(2));const opts=shuffle(vals.map(v=>({v,ok:v===ans})));return{text,opts,why,unit};}
+const GEN=[
+ ()=>{const e=pick([6,9,12]),r=pick([0.5,1,1.5,2]),R=pick([4,5.5,8,10]),I=e/(R+r);return mk(`بطارية (ε = ${e} V) ومقاومتها الداخلية (${r} Ω) موصولة بمقاومة (${R} Ω). شدة التيار:`,+I.toFixed(2),[+(e/R).toFixed(2),+(e/(R-r)).toFixed(2),+(e*(R+r)).toFixed(2)],`I = ε / (R + r) = ${e} / ${R+r} = ${f2(I)} A`,'A');},
+ ()=>{const e=pick([6,9,12]),r=pick([0.5,1,2]),R=pick([4,6,8]),I=e/(R+r),V=I*R;return mk(`بطارية (ε = ${e} V) و(r = ${r} Ω) موصولة بمقاومة (${R} Ω). فرق الجهد الطرفي:`,+V.toFixed(2),[+e.toFixed(2),+(e-r).toFixed(2),+(I*r).toFixed(2)],`I = ${f2(I)} A ، V = I R = ${f2(V)} V ، وهو أقل من ε بمقدار I r`,'V');},
+ ()=>{const e=pick([3,4.5,6]),I=pick([0.5,1,2]),V=+(e-I*pick([0.4,0.5,1])).toFixed(2),r=(e-V)/I;return mk(`المفتاح مفتوح فيقرأ الفولتميتر (${e} V)، وعند إغلاقه تصبح القراءة (${V} V) والأميتر (${I} A). المقاومة الداخلية:`,+r.toFixed(2),[+(V/I).toFixed(2),+(e/I).toFixed(2),+((e+V)/I).toFixed(2)],`r = (ε − V) / I = (${e} − ${V}) / ${I} = ${f2(r)} Ω`,'Ω');},
+ ()=>{const vin=pick([6,9,12,15]),r1=pick([100,200,300]),r2=pick([100,200,400]),v=vin*r2/(r1+r2);return mk(`مجزئ جهد: Vin = ${vin} V و R₁ = ${r1} Ω و R₂ = ${r2} Ω. الجهد الخارج من طرفي R₂:`,+v.toFixed(2),[+(vin*r1/(r1+r2)).toFixed(2),+(vin/2).toFixed(2),+(vin*r2/r1).toFixed(2)],`Vout = R₂ / (R₁ + R₂) × Vin = ${f2(v)} V`,'V');},
+ ()=>{const vin=pick([9,12]),r1=pick([100,200,300]),vo=pick([3,4]),r2=r1*vo/(vin-vo);return mk(`في مجزئ جهد Vin = ${vin} V و R₁ = ${r1} Ω، الجهد الخارج من R₂ يساوي (${vo} V). قيمة R₂:`,+r2.toFixed(1),[+(r1*vo/vin).toFixed(1),+(r1*(vin-vo)/vo).toFixed(1),+(r1+vo).toFixed(1)],`R₂ = R₁ Vout / (Vin − Vout) = ${r1} × ${vo} / ${vin-vo} = ${f1(r2)} Ω`,'Ω');},
+ ()=>{const e0=pick([2,3,4,6]),L=pick([100,120]),y=pick([30,40,60,75]),ex=e0*y/L;return mk(`مقياس جهد: ε₀ = ${e0} V وطول السلك AB = ${L} cm، ونقطة الاتزان على بعد (${y} cm) من A. القوة الدافعة المجهولة:`,+ex.toFixed(2),[+(e0*(L-y)/L).toFixed(2),+(e0*y/100*1.2).toFixed(2),+(e0+y/L).toFixed(2)],`εx = (AY / AB) × ε₀ = (${y} / ${L}) × ${e0} = ${f2(ex)} V`,'V');},
+ ()=>{const ey=pick([1.5,2,3]),ac=pick([30,40,50]),ad=pick([60,75]),ex=ey*ac/ad;return mk(`مقارنة خليتين: الاتزان للخلية X عند AC = ${ac} cm وللخلية Y عند AD = ${ad} cm، و(εy = ${ey} V). قيمة εx:`,+ex.toFixed(2),[+(ey*ad/ac).toFixed(2),+(ey*ac/100).toFixed(2),+(ey+ac/ad).toFixed(2)],`εx / εy = AC / AD فـ εx = ${ey} × ${ac} / ${ad} = ${f2(ex)} V`,'V');},
+ ()=>{const r1=pick([4,6,8]),l1=pick([30,40,45]),l2=pick([60,75,90]),r2=r1*l2/l1;return mk(`مقارنة مقاومتين: R₁ = ${r1} Ω وطول الاتزان على R₁ هو (${l1} cm)، وعلى R₂ (${l2} cm). قيمة R₂:`,+r2.toFixed(1),[+(r1*l1/l2).toFixed(1),+(r1+l2-l1).toFixed(1),+(l2/l1).toFixed(1)],`L₁ / L₂ = R₁ / R₂ فـ R₂ = ${r1} × ${l2} / ${l1} = ${f1(r2)} Ω`,'Ω');},
+ ()=>{const q=pick([{t:'خلية متصلة بمقاومة متغيرة R. عند زيادة R ماذا يحدث للأميتر والفولتميتر (على طرفي الخلية)؟',a:'الأميتر يقل والفولتميتر يزيد',w:['الأميتر يزيد والفولتميتر يقل','كلاهما يزيد','كلاهما يقل'],y:'زيادة R تقلل التيار فيقل I r فيزيد V = ε − I r'},{t:'عند توصيل مقاومة إضافية على التوازي مع المقاومة الخارجية لخلية لها مقاومة داخلية:',a:'التيار يزيد وفرق الجهد الطرفي يقل',w:['التيار يقل وفرق الجهد الطرفي يزيد','كلاهما يزيد','كلاهما يقل'],y:'المقاومة الخارجية تقل فيزيد التيار ويزيد I r فيقل V'},{t:'لماذا مقياس الجهد أدق من الفولتميتر في قياس القوة الدافعة؟',a:'لا يمر تيار في الخلية عند الاتزان',w:['لأن سلكه مقاومته صغيرة','لأن الجلفانومتر يضخّم القراءة','لأن الخلية القائدة أكبر دائمًا'],y:'عند الاتزان I = 0 فلا يضيع جهد في المقاومة الداخلية'},{t:'ما شرط الحصول على نقطة اتزان في مقياس الجهد؟',a:'ε₀ أكبر من القوة الدافعة المجهولة',w:['ε₀ أصغر من القوة الدافعة المجهولة','ε₀ تساوي صفرًا','مقاومة السلك لا نهائية'],y:'فرق الجهد على السلك كله يجب أن يتجاوز القوة الدافعة المجهولة'}]);
+   const opts=shuffle([{v:q.a,ok:true},...q.w.map(v=>({v,ok:false}))]);return{text:q.t,opts,why:q.y,unit:'',txt:true};}
+];
+function viewQ(){
+  ctrl.innerHTML=`<div><p class="gt">عن الاختبار</p><p style="margin:0">أسئلة تتغير أرقامها كل مرة وتغطي أهداف الدرس: المقاومة الداخلية ومجزئ الجهد ومقياس الجهد.</p></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn small" id="rs">تصفير النتيجة</button></div>`;
+  $('nq').onclick=newQ;$('rs').onclick=()=>{S.q.ok=0;S.q.n=0;newQ();};
+  talk.innerHTML=['اطلب من الطلاب حل السؤال على الورق قبل الضغط على الإجابة.','اشرح السبب المكتوب بعد كل إجابة وربطه بالقانون.'].map(t=>`<li>${t}</li>`).join('');
+  svg.setAttribute('viewBox','0 0 700 120');svg.innerHTML=tx(350,70,'اختبر نفسك',{s:34,f:ORANGE});
+  if(S.q.ok===undefined){S.q.ok=0;S.q.n=0;}newQ();
+}
+function newQ(){const q=pick(GEN)();S.q.cur=q;S.q.done=false;showQ();}
+function showQ(){
+  const q=S.q.cur;
+  info.innerHTML=`<p class="gt">النتيجة: ${num(S.q.ok+' / '+S.q.n)}</p><p class="q-text">${LTR(q.text)}</p><div class="opts" id="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}">${q.txt?LTR(o.v):num(o.v+' '+q.unit)}</button>`).join('')}</div><div id="why"></div>`;
+  info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(S.q.done)return;S.q.done=true;S.q.n++;const o=q.opts[+b.dataset.i];if(o.ok)S.q.ok++;
+    info.querySelectorAll('.opt').forEach((x,i)=>{x.disabled=true;if(q.opts[i].ok)x.classList.add('right');});if(!o.ok)b.classList.add('wrong');
+    $('why').innerHTML=`<p class="why"><b>${o.ok?'صحيح ✔':'خطأ ✘'}</b> — ${LTR(q.why)}</p>`;info.querySelector('.gt').innerHTML='النتيجة: '+num(S.q.ok+' / '+S.q.n);});
+}
+
+function render(){drawTabs();({r:viewR,d:viewD,p:viewP,q:viewQ})[tab]();}
+render();
+
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

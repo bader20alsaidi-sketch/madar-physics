@@ -1,0 +1,292 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>محاكي التسارع اللحظي والمماس — الصف الحادي عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.steps li{overflow-wrap:anywhere}.steps .num,.say .num,.btn .num{white-space:normal}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>محاكي التسارع اللحظي والمماس</h1><p class="sub">الوحدة الثالثة: الحركة المتسارعة — 3.9 التسارع المنتظم وغير المنتظم، المماس، التسارع اللحظي، أخطاء المجسّ</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|]*[0-9A-Za-z%²³¹₀-₉)]|[0-9A-Za-zΔ½²³])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='shapes';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['shapes','المنتظم وغير المنتظم'],['tan','المماس والمثلث'],['steps','خطوات الحل'],['err','أخطاء المجسّ'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({shapes:tabShapes,tan:tabTan,steps:tabSteps,err:tabErr,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)).replace("-","−"),f1b=x=>String(+(+x).toFixed(1)).replace("-","−");
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+const TEAL='#1c8f95';
+const U1='m s⁻¹',U2='m s⁻²';
+/* graph frame: returns svg string and the X / Y mappers */
+function G(gx,gy,gw,gh,tmax,vmin,vmax,tt,vv,vlab){
+  const X=t=>gx+t/tmax*gw,Y=v=>gy+gh-(v-vmin)/(vmax-vmin)*gh;
+  let s=`<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" fill="none" stroke="${GRAY}" stroke-width="1.2"/>`;
+  vv.forEach(v=>{s+=`<line x1="${gx}" y1="${Y(v)}" x2="${gx+gw}" y2="${Y(v)}" stroke="${GRAY}" stroke-width="${v===0?2:.8}" opacity="${v===0?.9:.3}"/>`+tx(gx-5,Y(v)+4,String(v),{s:10,a:'end',f:GRAY})});
+  tt.forEach(t=>{s+=`<line x1="${X(t)}" y1="${gy}" x2="${X(t)}" y2="${gy+gh}" stroke="${GRAY}" stroke-width=".8" opacity=".22"/>`+tx(X(t),gy+gh+14,String(t),{s:10,f:GRAY})});
+  s+=tx(gx+gw/2,gy+gh+30,'t (s)',{s:11,f:GRAY})+tx(gx+4,gy-6,vlab||'v (m s⁻¹)',{s:11,f:GRAY,a:'start'});
+  return {svg:s,X,Y};
+}
+const nice=(max,n)=>{const raw=max/n,p=Math.pow(10,Math.floor(Math.log10(raw))),m=raw/p,st=(m<=1?1:m<=2?2:m<=5?5:10)*p;const a=[];for(let v=0;v<=max+1e-9;v+=st)a.push(+v.toFixed(4));return a};
+const poly=(pts,X,Y)=>pts.map(p=>X(p[0])+','+Y(p[1])).join(' ');
+const fixT=t=>String(t).replace(/(−?\+?\d+(?:\.\d+)?(?: ?(?:m s⁻[¹²]|km h⁻¹|m|s)(?![A-Za-z]))?)/g,'<span class="num">$1</span>');
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+
+/* the three curves of the lesson: v(t) and its exact gradient a(t) */
+const CURVES={
+  line:{name:'خط مستقيم',tmax:10,vmax:24,f:t=>2*t,a:t=>2,kind:'تسارع منتظم: الميل ثابت',col:BLUE},
+  dec:{name:'منحنى يزداد استواءً',tmax:12,vmax:30,f:t=>t<10?5*t-.25*t*t:25,a:t=>t<10?5-.5*t:0,kind:'تسارع غير منتظم: يتناقص',col:ORANGE},
+  inc:{name:'منحنى يزداد انحدارًا',tmax:10,vmax:30,f:t=>.3*t*t,a:t=>.6*t,kind:'تسارع غير منتظم: يتزايد',col:TEAL},
+};
+function curvePts(C,from,to,n=120){const a=[];for(let i=0;i<=n;i++){const t=from+(to-from)*i/n;a.push([t,C.f(t)])}return a}
+
+/* =====================================================================
+   1) الأنواع الثلاثة: المنتظم وغير المنتظم والتسارع اللحظي
+   ===================================================================== */
+function tabShapes(){
+  const W={c:'dec',t:4};
+  ctrl.innerHTML=`<div><p class="gt">اختر شكل المنحنى</p>${seg('cv',[['line','خط مستقيم'],['dec','يزداد استواءً'],['inc','يزداد انحدارًا']],W.c)}</div>`+slider('t','اللحظة t (حرّك النقطة)',0.5,9.5,0.5,W.t,'s');
+  setTalk(['ابدأ بالخط المستقيم: حرّك النقطة فيبقى الميل نفسه، أي أن التسارع منتظم.','انتقل إلى «يزداد استواءً»: الميل يتناقص كلما تحركت النقطة يمينًا، فالتسارع غير منتظم ويتناقص.','انتقل إلى «يزداد انحدارًا»: الميل يتزايد، فالتسارع يتزايد.','المماس البرتقالي يلامس المنحنى عند النقطة فقط، وميله هو التسارع اللحظي.','الرسم الصغير السفلي يرسم قيمة التسارع عند كل لحظة: ثابت أو متناقص أو متزايد.']);
+  bindSeg('cv',k=>{W.c=k;render()});bindSlider('t','s',v=>{W.t=v;render()});
+  function render(){
+    const C=CURVES[W.c],t=Math.min(W.t,C.tmax-.5),v=C.f(t),a=C.a(t);
+    const g=G(70,22,580,200,C.tmax,0,C.vmax,nice(C.tmax,6),nice(C.vmax,5).map(Math.round));
+    let s=g.svg+`<polyline points="${poly(curvePts(C,0,C.tmax),g.X,g.Y)}" fill="none" stroke="${C.col}" stroke-width="4"/>`;
+    const L=2,t1=Math.max(0,t-L),t2=Math.min(C.tmax,t+L);
+    s+=`<line x1="${g.X(t1)}" y1="${g.Y(v+a*(t1-t))}" x2="${g.X(t2)}" y2="${g.Y(v+a*(t2-t))}" stroke="${RED}" stroke-width="3"/>`+`<circle cx="${g.X(t)}" cy="${g.Y(v)}" r="7" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g.X(t)+14,g.Y(v)-12,'P',{s:14});
+    // acceleration against time (small plot): a(t) = gradient at every instant
+    const amax=6,ga=G(70,262,580,52,C.tmax,0,amax,[],[0,3,6],'a (m s⁻²)');
+    const ap=[];for(let i=0;i<=120;i++){const tt=C.tmax*i/120;ap.push([tt,C.a(tt)])}
+    s+=ga.svg+`<polyline points="${poly(ap,ga.X,ga.Y)}" fill="none" stroke="${GREEN}" stroke-width="3"/><circle cx="${ga.X(t)}" cy="${ga.Y(a)}" r="5.5" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`;
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('اللحظة t',f1b(t)+' s')}${chip('السرعة v',f1b(v)+' '+U1)}${chip('التسارع اللحظي a = ميل المماس',f2(a)+' '+U2)}</div><p class="say" style="border-right:5px solid ${W.c==='line'?BLUE:W.c==='dec'?ORANGE:TEAL}">${C.kind}</p><p class="rule"><b>اربط بالدرس:</b> التسارع اللحظي يساوي ميل المماس للمنحنى عند النقطة. إذا كان المنحنى خطًّا مستقيمًا فالميل ثابت، وإذا كان منحنيًا فالميل يتغير من نقطة إلى أخرى.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) المماس والمثلث: نحسب الميل من نقطتين على المماس
+   ===================================================================== */
+function tabTan(){
+  const W={c:'dec',t:4,d:8};
+  ctrl.innerHTML=`<div>${seg('cv',[['dec','يزداد استواءً'],['inc','يزداد انحدارًا']],W.c)}</div>`+slider('t','اللحظة t',1,9,1,W.t,'s')+slider('d','عرض المثلث Δt',2,10,1,W.d,'s')+`<div><p class="gt">مثال الدرس</p><div class="btns"><button class="btn" id="ex">t = 4 s و Δt = 8 s</button></div></div>`;
+  setTalk(['حدّد الزمن المطلوب، ثم اختر نقطتين على المماس تبعدان بالتساوي عن النقطة.','لاحظ أن Δv وΔt يتغيران لكن النسبة Δv / Δt تبقى ثابتة: لأن النقطتين على الخط المستقيم نفسه (المماس).','كبّر المثلث: يصبح قراءة الإحداثيات أسهل وخطؤها أقل أثرًا.','اضغط «مثال الدرس» لترى الحل: a = 24 / 8 = 3.0 m s⁻².']);
+  bindSeg('cv',k=>{W.c=k;render()});
+  [['t','s'],['d','s']].forEach(([k,u])=>bindSlider(k,u,v=>{W[k]=v;render()}));
+  $('ex').onclick=()=>{W.c='dec';W.t=4;W.d=8;$('cv').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k==='dec'));[['t',4],['d',8]].forEach(([k,v])=>{$(k).value=v;$(k+'_o').textContent=v+' s'});render()};
+  function render(){
+    const C=CURVES[W.c],t=W.t,v=C.f(t),a=C.a(t),h=W.d/2,t1=Math.max(0,t-h),t2=t1+W.d,v1=v+a*(t1-t),v2=v+a*(t2-t);
+    const vmax=Math.max(C.vmax,v2+3),tm=Math.max(C.tmax,t2+1);
+    const g=G(70,22,580,270,tm,Math.min(0,v1-2),vmax,nice(tm,6),nice(vmax,5).map(Math.round));
+    let s=g.svg+`<polyline points="${poly(curvePts(C,0,Math.min(tm,C.tmax)),g.X,g.Y)}" fill="none" stroke="${C.col}" stroke-width="4"/>`;
+    s+=`<line x1="${g.X(t1)}" y1="${g.Y(v1)}" x2="${g.X(t2)}" y2="${g.Y(v2)}" stroke="${RED}" stroke-width="3"/>`;
+    s+=`<polyline points="${poly([[t1,v1],[t2,v1],[t2,v2]],g.X,g.Y)}" fill="none" stroke="${GREEN}" stroke-width="2.6" stroke-dasharray="6 5"/>`;
+    s+=`<circle cx="${g.X(t)}" cy="${g.Y(v)}" r="7" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g.X(t)+14,g.Y(v)+24,'P',{s:14});
+    [[t1,v1],[t2,v2]].forEach(([x,y])=>{s+=`<circle cx="${g.X(x)}" cy="${g.Y(y)}" r="5" fill="${RED}" stroke="#1a1a1a" stroke-width="1.2"/>`});
+    s+=tx((g.X(t1)+g.X(t2))/2,g.Y(v1)+18,'Δt = '+f1b(W.d)+' s',{s:12,f:GREEN})+tx(g.X(t2)-8,(g.Y(v1)+g.Y(v2))/2,'Δv = '+f1b(v2-v1)+' '+U1,{s:12,f:GREEN,a:'start'});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('Δv',f1b(v2-v1)+' '+U1)}${chip('Δt',f1b(W.d)+' s')}${chip('a = Δv / Δt',f2((v2-v1)/W.d)+' '+U2)}</div><ul class="steps"><li>النقطة P عند ${num('t = '+f1b(t)+' s')} تقابلها ${num('v = '+f1b(v)+' '+U1)}.</li><li>المماس يمر بالنقطتين ${num('('+f1b(t1)+' s , '+f1b(v1)+' '+U1+')')} و${num('('+f1b(t2)+' s , '+f1b(v2)+' '+U1+')')}.</li><li>${num('Δv = '+f1b(v2)+' − '+f1b(v1)+' = '+f1b(v2-v1)+' '+U1)}</li><li>${num('Δt = '+f1b(t2)+' − '+f1b(t1)+' = '+f1b(W.d)+' s')}</li><li>${num('a = '+f1b(v2-v1)+' / '+f1b(W.d)+' = '+f2((v2-v1)/W.d)+' '+U2)}</li></ul><p class="rule"><b>تنبيه:</b> النقطتان على المماس لا على المنحنى. غيّر Δt وانظر كيف تبقى النسبة نفسها.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) خطوات الحل: خطوة بعد خطوة (مثل شرائح العرض)
+   ===================================================================== */
+function tabSteps(){
+  const W={k:0};
+  const bike=t=>4*t-.2*t*t;
+  ctrl.innerHTML=`<p class="gt">درّاجة نارية تنطلق من السكون. أوجد تسارعها اللحظي عند ${num('t = 5.0 s')}.</p><div class="btns"><button class="btn primary" id="nx">الخطوة التالية</button><button class="btn" id="pv">السابقة</button><button class="btn" id="rs">من البداية</button></div>`;
+  setTalk(['اضغط «الخطوة التالية» لتظهر الخطوات بالترتيب كما في العرض.','الخطوة 1: نحدد النقطة P بخط رأسي من الزمن المطلوب.','الخطوة 2: نرسم المماس بالمسطرة عند P فقط.','الخطوة 3: نقرأ إحداثيي نقطتين متباعدتين على المماس.','الخطوة 4: نحسب Δv / Δt، والخطوة 5: نكتب الوحدة m s⁻².']);
+  const txt=['اضغط «الخطوة التالية» للبدء.','الخطوة 1: نرفع خطًّا رأسيًّا من t = 5.0 s حتى المنحنى فنحصل على النقطة P، وقراءتها v = 15 m s⁻¹.','الخطوة 2: نضع المسطرة بحيث تلامس المنحنى عند P فقط، ونرسم المماس.','الخطوة 3: نختار نقطتين متباعدتين على المماس: (0 s , 5 m s⁻¹) و(10 s , 25 m s⁻¹).','الخطوة 4: Δv = 25 − 5 = 20 m s⁻¹ و Δt = 10 − 0 = 10 s، ثم a = Δv / Δt = 20 / 10.','الخطوة 5: a = 2.0 m s⁻² (نكتب الوحدة وننتبه للإشارة).'];
+  const go=d=>{W.k=Math.max(0,Math.min(5,W.k+d));render()};
+  $('nx').onclick=()=>go(1);$('pv').onclick=()=>go(-1);$('rs').onclick=()=>{W.k=0;render()};
+  function render(){
+    const g=G(70,22,580,285,10.5,0,30,nice(10,10),nice(30,6).map(Math.round));
+    const C={f:bike};
+    let s=g.svg+`<polyline points="${poly(curvePts({f:bike},0,10),g.X,g.Y)}" fill="none" stroke="${BLUE}" stroke-width="4"/>`;
+    if(W.k>=1)s+=`<line x1="${g.X(5)}" y1="${g.Y(0)}" x2="${g.X(5)}" y2="${g.Y(15)}" stroke="${GRAY}" stroke-width="2" stroke-dasharray="6 5"/><circle cx="${g.X(5)}" cy="${g.Y(15)}" r="7" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g.X(5)+14,g.Y(15)+24,'P',{s:14});
+    if(W.k>=2)s+=`<line x1="${g.X(0)}" y1="${g.Y(5)}" x2="${g.X(10)}" y2="${g.Y(25)}" stroke="${RED}" stroke-width="3"/>`;
+    if(W.k>=3)s+=[[0,5],[10,25]].map(([x,y])=>`<circle cx="${g.X(x)}" cy="${g.Y(y)}" r="5.5" fill="${RED}" stroke="#1a1a1a" stroke-width="1.2"/>`).join('');
+    if(W.k>=4)s+=`<polyline points="${poly([[0,5],[10,5],[10,25]],g.X,g.Y)}" fill="none" stroke="${GREEN}" stroke-width="2.6" stroke-dasharray="6 5"/>`+tx(g.X(5),g.Y(5)+18,'Δt = 10 s',{s:12,f:GREEN})+tx(g.X(10)-8,g.Y(15),'Δv = 20 m s⁻¹',{s:12,f:GREEN,a:'start'});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('الخطوة',W.k+' / 5')}${chip('التسارع',W.k>=4?'2.0 '+U2:'؟')}</div><p class="say" style="border-right:5px solid ${W.k>=4?GREEN:ORANGE}">${fixT(txt[W.k])}</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) الأخطاء العشوائية والنظامية في قراءات مجسّ الحركة
+   ===================================================================== */
+function tabErr(){
+  const TR=t=>t<.6?1.5*t:1.2-.3*Math.exp(-(t-.6)/.2),TA=t=>t<.6?1.5:1.5*Math.exp(-(t-.6)/.2);
+  const W={r:.03,s:0,seed:7};
+  const rng=seed=>()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646};
+  ctrl.innerHTML=slider('r','الخطأ العشوائي (التبعثر)',0,.12,.01,W.r,U1)+slider('s','الخطأ النظامي (إزاحة ثابتة)',-.3,.3,.05,W.s,U1)+`<div class="btns"><button class="btn" id="nw">قراءات جديدة</button><button class="btn" id="z">صفّر الأخطاء</button></div>`;
+  setTalk(['الخطأ العشوائي: تتبعثر النقاط حول المنحنى بلا نمط، فيصعب رسم المماس بدقة ويزداد عدم اليقين.','الخطأ النظامي: تنزاح كل النقاط بمقدار ثابت في اتجاه واحد (مثل خطأ الصفر).','حرّك الخطأ النظامي: ينزاح المنحنى كله لكن ميل المماس (التسارع) لا يتغير، بينما تتغير المساحة (المسافة).','حرّك الخطأ العشوائي: يبتعد التسارع المحسوب عن القيمة الحقيقية 0.91 m s⁻².']);
+  bindSlider('r',U1,v=>{W.r=v;render()});bindSlider('s',U1,v=>{W.s=v;render()});
+  $('nw').onclick=()=>{W.seed=Math.floor(Math.random()*1e6)+1;render()};
+  $('z').onclick=()=>{W.r=0;W.s=0;$('r').value=0;$('s').value=0;$('r_o').textContent='0 '+U1;$('s_o').textContent='0 '+U1;render()};
+  function render(){
+    const R=rng(W.seed),pts=[];for(let i=1;i<=22;i++){const t=i*.05,e=(R()*2-1)*W.r*1;pts.push([t,TR(t)+W.s+e])}
+    // gradient near t = 0.7: least-squares line through the readings between 0.55 s and 0.85 s
+    const win=pts.filter(p=>p[0]>=.6-1e-9&&p[0]<=.8+1e-9),n=win.length,mx=win.reduce((a,p)=>a+p[0],0)/n,my=win.reduce((a,p)=>a+p[1],0)/n;
+    const sl=win.reduce((a,p)=>a+(p[0]-mx)*(p[1]-my),0)/win.reduce((a,p)=>a+(p[0]-mx)**2,0);
+    const g=G(70,22,580,285,1.2,0,1.6,[.2,.4,.6,.8,1,1.2],[.4,.8,1.2,1.6]);
+    let s=g.svg+`<polyline points="${poly(curvePts({f:TR},0,1.1,100),g.X,g.Y)}" fill="none" stroke="${GRAY}" stroke-width="2.4" stroke-dasharray="7 5" opacity=".8"/>`;
+    s+=pts.map(p=>`<circle cx="${g.X(p[0])}" cy="${g.Y(p[1])}" r="4.2" fill="${BLUE}" stroke="#1a1a1a" stroke-width="1"/>`).join('');
+    const ym=my+sl*(.55-mx),yM=my+sl*(.85-mx);
+    s+=`<line x1="${g.X(.55)}" y1="${g.Y(ym)}" x2="${g.X(.85)}" y2="${g.Y(yM)}" stroke="${RED}" stroke-width="3.2"/>`+tx(g.X(.2),g.Y(1.5),'الخط المتقطع: القيم الحقيقية',{s:11,f:GRAY,a:'start'});
+    svg.innerHTML=s;
+    const ta=TA(.7),areaT=.5*(TR(.6)+TR(.8))*.2,areaM=.5*(TR(.6)+W.s+TR(.8)+W.s)*.2;
+    info.innerHTML=`<div class="chips">${chip('التسارع الحقيقي عند 0.70 s',f2(ta)+' '+U2)}${chip('التسارع المحسوب من المماس',f2(sl)+' '+U2)}${chip('المسافة 0.60 – 0.80 s',f2(areaM)+' m')}</div><p class="say" style="border-right:5px solid ${W.s!==0?ORANGE:W.r>0?RED:GREEN}">${W.s!==0&&W.r===0?'خطأ نظامي فقط: انزاح المنحنى كله، لكن الميل المحسوب لم يتغير بينما تغيّرت المساحة (المسافة).':W.r>0?'الخطأ العشوائي يبعثر النقاط، فيبتعد الميل المحسوب عن القيمة الحقيقية ويزداد عدم اليقين.':'لا توجد أخطاء: القراءات على المنحنى الحقيقي.'}</p><p class="rule"><b>اربط بالدرس:</b> الأخطاء العشوائية تزيد عدم اليقين في التسارع، والخطأ النظامي الثابت لا يغيّر ميل المماس لكنه يغيّر المساحة تحت المنحنى.</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   5) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من هدف الدرس: التسارع المنتظم وغير المنتظم، المماس، التسارع اللحظي.</p>`;
+  setTalk(['اطلب من الطالب أن يحسب بيده قبل أن يرى الخيارات.','في أسئلة المماس: Δv ÷ Δt من نقطتين على المماس.','ركّز على إشارة التسارع ووحدته m s⁻².','كرّر حتى يتقن الطالب الأنواع الثلاثة.']);
+  const uniq=a=>[...new Set(a)];
+  const numOpts=(c,w,unit)=>{let o=uniq([c,...w].map(x=>+(+x).toFixed(2)));let i=1;while(o.length<4){o.push(+(c+i*Math.max(.5,Math.abs(c)*.25)).toFixed(2));o=uniq(o);i++}return o.slice(0,4).map(x=>f2(x)+' '+unit)};
+  let drawFn=null;
+  const GEN=[
+    ()=>{const t0=pick([2,3,4,5,6]),t1=pick([0,1,2]),t2=t1+pick([4,6,8]),a=pick([1,2,3,4]),v0=pick([4,6,8,10]);const v1=v0-a*(t0-t1),v2=v0+a*(t2-t0);return {q:`يمر مماس منحنى (v – t) عند ${'(t = '+t0+' s)'} بالنقطتين (${t1} s , ${f1b(v1)} m s⁻¹) و(${t2} s , ${f1b(v2)} m s⁻¹). التسارع اللحظي عند ${'(t = '+t0+' s)'} يساوي:`,c:a,w:[1/a,v2/t2,(v2-v1)],unit:U2,why:`Δv = ${f1b(v2)} − ${f1b(v1)} = ${f1b(v2-v1)} m s⁻¹ و Δt = ${t2} − ${t1} = ${t2-t1} s، فإن a = ${f1b(v2-v1)} / ${t2-t1} = ${f2(a)} m s⁻².`}},
+    ()=>{const t1=pick([0,2]),t2=t1+pick([4,5,8]),v1=pick([12,16,20]),a=-pick([1,2,3]);const v2=v1+a*(t2-t1);return {q:`يمر مماس منحنى (v – t) عند لحظة ما بالنقطتين (${t1} s , ${v1} m s⁻¹) و(${t2} s , ${f1b(v2)} m s⁻¹). التسارع اللحظي يساوي:`,c:a,w:[-a,(v2-v1),v2/t2],unit:U2,why:`a = ( ${f1b(v2)} − ${v1} ) / ( ${t2} − ${t1} ) = ${f2(a)} m s⁻². الإشارة السالبة تعني تباطؤًا.`}},
+    ()=>pick([{q:'منحنى (السرعة المتجهة – الزمن) لجسم يبدأ من السكون ويزداد انحداره مع الزمن. كيف يتغير تسارعه؟',opts:['يتزايد','يتناقص','ثابت','يساوي صفرًا'],ans:0,why:'الميل يزداد فالتسارع يتزايد (تسارع غير منتظم).',fixed:true},{q:'منحنى (السرعة المتجهة – الزمن) صاعد ويزداد استواءً مع الزمن. ما الوصف الصحيح؟',opts:['السرعة تزداد والتسارع يتناقص','السرعة تزداد والتسارع يتزايد','السرعة تتناقص والتسارع ثابت','السرعة ثابتة'],ans:0,why:'المنحنى صاعد فالسرعة تزداد، وميله يقل فالتسارع يتناقص.',fixed:true},{q:'ماذا يعني أن يكون مماس منحنى (السرعة المتجهة – الزمن) أفقيًا عند لحظة؟',opts:['التسارع صفر عند تلك اللحظة','السرعة صفر','التسارع أكبر ما يمكن','الجسم ساكن دائمًا'],ans:0,why:'ميل المماس الأفقي صفر، فالتسارع صفر عند تلك اللحظة.',fixed:true},{q:'ما التسارع اللحظي لجسم عند لحظة معينة؟',opts:['ميل المماس لمنحنى (السرعة المتجهة – الزمن) عند تلك اللحظة','السرعة عند تلك اللحظة','المساحة تحت المنحنى','الزمن الكلي للحركة'],ans:0,why:'التسارع اللحظي = ميل المماس عند اللحظة المطلوبة.',fixed:true}]),
+    ()=>{const k=pick(['dec','inc']),C=CURVES[k],t=pick([2,4,6]),t2=t+pick([2,3]);drawFn=()=>{const g=G(80,24,560,250,C.tmax,0,C.vmax,nice(C.tmax,6),nice(C.vmax,5).map(Math.round));let s=g.svg+`<polyline points="${poly(curvePts(C,0,C.tmax),g.X,g.Y)}" fill="none" stroke="${C.col}" stroke-width="4"/>`;[[t,'A'],[t2,'B']].forEach(([x,n])=>{const v=C.f(x),a=C.a(x);s+=`<line x1="${g.X(x-1.2)}" y1="${g.Y(v-a*1.2)}" x2="${g.X(x+1.2)}" y2="${g.Y(v+a*1.2)}" stroke="${RED}" stroke-width="3"/><circle cx="${g.X(x)}" cy="${g.Y(v)}" r="6" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="1.5"/>`+tx(g.X(x)+12,g.Y(v)+22,n,{s:14})});return s};
+      const aA=C.a(t),aB=C.a(t2);return {q:`يوضح الرسم مماسين للمنحنى عند A وB. كيف يتغير تسارع الجسم من A إلى B؟`,opts:['يتزايد','يتناقص','ثابت','يساوي صفرًا'],ans:aB>aA?0:1,why:aB>aA?'ميل المماس عند B أكبر منه عند A، فالتسارع يتزايد.':'ميل المماس عند B أقل منه عند A، فالتسارع يتناقص.',fixed:true}},
+  ];
+  function next(){
+    drawFn=null;let g=GEN[Math.floor(Math.random()*GEN.length)]();
+    let opts,ans;
+    if(g.fixed){opts=g.opts;ans=g.ans;}else{const o=numOpts(g.c,g.w,g.unit),right=f2(g.c)+' '+g.unit,sh=shuf(o);opts=sh;ans=sh.indexOf(right);if(ans<0){sh[0]=right;ans=0}}
+    Q.cur={...g,opts,ans};Q.done=false;
+    svg.innerHTML=drawFn?drawFn():tx(350,190,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixT(Q.cur.q)}</p><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixT(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixT(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('shapes');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

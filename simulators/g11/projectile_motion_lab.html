@@ -1,0 +1,326 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>محاكي المقذوفات في بعدين — الصف الحادي عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.steps li{overflow-wrap:anywhere}.steps .num,.say .num,.btn .num{white-space:normal}.chip .k sub{font-size:.7em}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>محاكي المقذوفات في بعدين</h1><p class="sub">الوحدة الثالثة: الحركة المتسارعة — 3.8 حركة المقذوف، 3.9 و3.10 المركبتان، 3.11 معادلات الحركة</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|°]*[0-9A-Za-z%²³¹₀-₉)°]|[0-9A-Za-zΔ½²³])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='comp';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['comp','المركبتان'],['flight','رحلة المقذوف'],['horiz','القذف الأفقي'],['range','المدى والزاوية'],['vert','المقذوف الرأسي'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({comp:tabComp,flight:tabFlight,horiz:tabHoriz,range:tabRange,vert:tabVert,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)).replace("-","−"),f1b=x=>String(+(+x).toFixed(1)).replace("-","−");
+const S=t=>String(t).replace(/([A-Za-z])_([xy])/g,'$1<sub>$2</sub>');
+const chip=(k,v)=>`<div class="chip"><div class="k">${S(k)}</div><div class="v">${v}</div></div>`;
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${S(t)}</li>`).join('')}
+const sv=(x,y,b,sb,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="600" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${b}<tspan dy="5" font-size="70%">${sb}</tspan></text>`;
+const TEAL='#1c8f95',PURPLE='#7a55c8';
+const U1='m s⁻¹',U2='m s⁻²',g=9.81,D2R=Math.PI/180;
+const fixT=t=>S(String(t).replace(/(−?\+?\d+(?:\.\d+)?(?: ?(?:m s⁻[¹²]|km h⁻¹|m|s|°)(?![A-Za-z]))?)/g,'<span class="num">$1</span>'));
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+const say=(t,c)=>`<p class="say" style="border-right:5px solid ${c||ORANGE}">${S(t)}</p>`;
+/* ground strip */
+const ground=(y)=>`<rect x="0" y="${y}" width="700" height="${360-y}" fill="#c9b79c" opacity=".35"/><line x1="0" y1="${y}" x2="700" y2="${y}" stroke="#8a7a5e" stroke-width="3"/>`;
+const axes=(ox,oy,len=130,hgt=130)=>arr(ox,oy,ox+len,oy,'#888',2.5)+arr(ox,oy,ox,oy-hgt,'#888',2.5)+tx(ox+len+6,oy+5,'x',{s:14,a:'start',f:GRAY})+tx(ox-4,oy-hgt-6,'y',{s:14,f:GRAY});
+const P=(u,th)=>({ux:u*Math.cos(th*D2R),uy:u*Math.sin(th*D2R)});
+
+/* =====================================================================
+   1) المتجه ومركبتاه (3.9 و3.10)
+   ===================================================================== */
+function tabComp(){
+  const W={u:20,th:40,from:'h'};
+  ctrl.innerHTML=`<div>${seg('fr',[['h','الزاوية من الأفقي'],['v','الزاوية من الرأسي']],W.from)}</div>`+slider('u','مقدار السرعة u',5,40,1,W.u,U1)+slider('th','الزاوية θ',5,85,1,W.th,'°');
+  setTalk(['ابدأ بالزاوية من الأفقي: غيّر θ ولاحظ أن المركبة الأفقية تتناقص والرأسية تتزايد.','عند 45° تتساوى المركبتان، وعند 0° تكون السرعة كلها أفقية.','انتقل إلى «الزاوية من الرأسي»: تتبدّل الدالتان، فالمقابلة للزاوية هي الأفقية.','اربط ذلك بالمثلث القائم: المتجه وتر، والمركبتان ضلعا القائمة.','اطلب من الطالب حساب القيمتين بيده ثم تحقق منهما من الرقمين.']);
+  bindSeg('fr',k=>{W.from=k;render()});bindSlider('u',U1,v=>{W.u=v;render()});bindSlider('th','°',v=>{W.th=v;render()});
+  function render(){
+    // geometric angle with the horizontal
+    const phi=W.from==='h'?W.th:90-W.th, a=phi*D2R,k=170/40,ox=150,oy=300;
+    const L=W.u*k*1.0,ex=ox+L*Math.cos(a),ey=oy-L*Math.sin(a);
+    const vx=W.u*Math.cos(a),vy=W.u*Math.sin(a);
+    let s=axes(ox,oy,260,250)+`<line x1="${ex}" y1="${oy}" x2="${ex}" y2="${ey}" stroke="${GRAY}" stroke-width="1.6" stroke-dasharray="6 5"/><line x1="${ox}" y1="${ey}" x2="${ex}" y2="${ey}" stroke="${GRAY}" stroke-width="1.6" stroke-dasharray="6 5"/>`;
+    s+=arr(ox,oy,ex,ey,RED,5)+arr(ox,oy,ex,oy,GREEN,5)+arr(ox,oy,ox,ey,BLUE,5);
+    s+=tx((ox+ex)/2-8,(oy+ey)/2-8,'u',{s:18,f:RED,a:'end'})+sv((ox+ex)/2,oy+24,'u','x',{s:15,f:GREEN})+sv(ox-10,(oy+ey)/2,'u','y',{s:15,f:BLUE,a:'end'});
+    // angle arc (from the horizontal, or from the vertical)
+    if(W.from==='h'){s+=`<path d="M ${ox+46} ${oy} A 46 46 0 0 0 ${ox+46*Math.cos(a)} ${oy-46*Math.sin(a)}" fill="none" stroke="#333" stroke-width="2"/>`+tx(ox+62,oy-10,'θ = '+W.th+'°',{s:14,a:'start'});}
+    else{s+=`<path d="M ${ox} ${oy-46} A 46 46 0 0 1 ${ox+46*Math.cos(a)} ${oy-46*Math.sin(a)}" fill="none" stroke="#333" stroke-width="2"/>`+tx(ox+16,oy-56,'θ = '+W.th+'°',{s:14,a:'start'});}
+    svg.innerHTML=s;
+    const fx=W.from==='h'?'cos':'sin',fy=W.from==='h'?'sin':'cos';
+    info.innerHTML=`<div class="chips">${chip('المركبة الأفقية u_x = u '+fx+' θ',f1b(vx)+' '+U1)}${chip('المركبة الرأسية u_y = u '+fy+' θ',f1b(vy)+' '+U1)}${chip('التحقق: √ ( u_x² + u_y² )',f1b(Math.hypot(vx,vy))+' '+U1)}</div>`+say(W.from==='h'?'الزاوية من <b>الأفقي</b>: المركبة الأفقية = المجاورة (cos) والرأسية = المقابلة (sin).':'الزاوية من <b>الرأسي</b>: تتبدّل الدالتان، فالأفقية = المقابلة (sin) والرأسية = المجاورة (cos).');
+  }
+  render();
+}
+
+/* =====================================================================
+   2) رحلة المقذوف: الحركتان الأفقية والرأسية (3.8)
+   ===================================================================== */
+function tabFlight(){
+  const W={u:25,th:50,t:0,run:false,h0:0};
+  ctrl.innerHTML=slider('u','سرعة القذف u',10,40,1,W.u,U1)+slider('th','زاوية القذف θ',10,80,1,W.th,'°')+`<div class="btns"><button class="btn primary" id="go">أطلق</button><button class="btn" id="rs">أعد</button></div><div class="seg" id="opt"><button data-k="v" aria-pressed="true">أظهر مركبتي السرعة</button></div>`;
+  let showV=true;
+  setTalk(['اضغط «أطلق» وراقب: المركبة الأفقية (الخضراء) لا تتغير أبدًا.','المركبة الرأسية (الحمراء) تتناقص إلى صفر عند أقصى ارتفاع ثم تنعكس وتزداد نحو الأسفل.','التسارع واحد طوال الرحلة: 9.81 m s⁻² نحو الأسفل.','غيّر الزاوية وقارن المدى وأقصى ارتفاع وزمن الرحلة.','اربط: زمن الصعود = زمن الهبوط، والمدى = u_x × T.']);
+  bindSlider('u',U1,v=>{W.u=v;reset()});bindSlider('th','°',v=>{W.th=v;reset()});
+  $('go').onclick=()=>{if(W.t>=Tf())W.t=0;W.run=true};$('rs').onclick=()=>reset();
+  $('opt').onclick=e=>{const b=e.target.closest('button');if(!b)return;showV=!showV;b.setAttribute('aria-pressed',showV);draw()};
+  const Tf=()=>2*W.u*Math.sin(W.th*D2R)/g;
+  function reset(){W.t=0;W.run=false;draw()}
+  tick=dt=>{if(W.run){W.t+=dt*(reduceMotion?4:1);if(W.t>=Tf()){W.t=Tf();W.run=false}draw()}};
+  function draw(){
+    const {ux,uy}=P(W.u,W.th),T=Tf(),R=ux*T,H=uy*uy/(2*g),ox=50,oy=320;
+    const sc=Math.min(600/Math.max(R,1),250/Math.max(H,1)),X=x=>ox+x*sc,Y=y=>oy-y*sc;
+    let s=ground(oy);
+    const pts=[];for(let i=0;i<=80;i++){const t=T*i/80;pts.push([X(ux*t),Y(uy*t-.5*g*t*t)])}
+    s+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${GRAY}" stroke-width="2" stroke-dasharray="7 6"/>`;
+    // strobe dots every 0.5 s
+    for(let t=0;t<=T+1e-9;t+=.5){s+=`<circle cx="${X(ux*t)}" cy="${Y(uy*t-.5*g*t*t)}" r="3.5" fill="${GRAY}" opacity=".6"/>`}
+    const t=W.t,x=ux*t,y=uy*t-.5*g*t*t,vy=uy-g*t;
+    if(W.t>0||W.run){
+      if(showV){const k=3.2;s+=arr(X(x),Y(y),X(x)+ux*k,Y(y),GREEN,4)+(Math.abs(vy)>.3?arr(X(x),Y(y),X(x),Y(y)-vy*k,RED,4):'')+(Math.abs(vy)>.3?arr(X(x),Y(y),X(x)+ux*k,Y(y)-vy*k,'#222',2.6):'')}
+      s+=`<circle cx="${X(x)}" cy="${Y(y)}" r="9" fill="${ORANGE}" stroke="#222" stroke-width="2"/>`;
+    }else s+=`<circle cx="${X(0)}" cy="${Y(0)}" r="9" fill="${ORANGE}" stroke="#222" stroke-width="2"/>`;
+    s+=tx(X(R)+4,oy+22,'R = '+f1b(R)+' m',{s:13,f:BLUE,a:'end'})+tx(X(R/2),Y(H)-10,'H = '+f1b(H)+' m',{s:13,f:RED});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('الزمن t',f2(t)+' s')}${chip('السرعة الأفقية v_x',f1b(ux)+' '+U1)}${chip('السرعة الرأسية v_y',f1b(vy)+' '+U1)}${chip('الارتفاع y',f1b(Math.max(0,y))+' m')}${chip('زمن الرحلة T',f2(T)+' s')}</div>`+say(Math.abs(vy)<.35&&t>0&&t<T?'<b>أقصى ارتفاع:</b> v_y = 0 لحظيًا، وتبقى v_x والتسارع 9.81 m s⁻² نحو الأسفل.':(t>=T&&t>0?'عادت الكرة إلى مستوى القذف: المدى R = u_x × T = '+f1b(ux)+' × '+f2(T)+' = '+f1b(R)+' m':'السرعة الأفقية ثابتة دائمًا ('+f1b(ux)+' '+U1+')، والرأسية تتغير بانتظام.'),GREEN);
+  }
+  draw();
+}
+
+/* =====================================================================
+   3) القذف الأفقي من جرف
+   ===================================================================== */
+function tabHoriz(){
+  const W={h:30,u:12,t:0,run:false,cmp:true};
+  ctrl.innerHTML=slider('h','ارتفاع الجرف h',5,50,1,W.h,'m')+slider('u','السرعة الأفقية u_x',4,30,1,W.u,U1)+`<div class="btns"><button class="btn primary" id="go">أطلق</button><button class="btn" id="rs">أعد</button></div><div class="seg" id="cm"><button data-k="c" aria-pressed="true">قارن بجسم يسقط من السكون</button></div>`;
+  setTalk(['اضغط «أطلق»: الكرتان تصلان إلى الأرض في اللحظة نفسها.','الزمن يعتمد على الارتفاع فقط: t = √ ( 2 h ÷ g ).','غيّر السرعة الأفقية: يتغير المدى ولا يتغير الزمن.','غيّر الارتفاع: يتغير الزمن فيتغير المدى معه.','اربط بالسؤال الرسمي: دراجة نارية تغادر منحدرًا أفقيًا من ارتفاع معلوم.']);
+  bindSlider('h','m',v=>{W.h=v;reset()});bindSlider('u',U1,v=>{W.u=v;reset()});
+  $('go').onclick=()=>{if(W.t>=Tn())W.t=0;W.run=true};$('rs').onclick=()=>reset();
+  $('cm').onclick=e=>{const b=e.target.closest('button');if(!b)return;W.cmp=!W.cmp;b.setAttribute('aria-pressed',W.cmp);draw()};
+  const Tn=()=>Math.sqrt(2*W.h/g);
+  function reset(){W.t=0;W.run=false;draw()}
+  tick=dt=>{if(W.run){W.t+=dt*(reduceMotion?3:1);if(W.t>=Tn()){W.t=Tn();W.run=false}draw()}};
+  function draw(){
+    const T=Tn(),R=W.u*T,ox=110,oy=330,sc=Math.min(520/Math.max(R,1),250/W.h),X=x=>ox+x*sc,Y=y=>oy-y*sc;
+    let s=ground(oy)+`<rect x="40" y="${Y(W.h)}" width="${ox-40}" height="${oy-Y(W.h)}" fill="#c9b79c" stroke="#8a7a5e" stroke-width="2.5"/><line x1="40" y1="${Y(W.h)}" x2="${ox}" y2="${Y(W.h)}" stroke="#5c8a3a" stroke-width="6"/>`;
+    const pts=[];for(let i=0;i<=80;i++){const t=T*i/80;pts.push([X(W.u*t),Y(W.h-.5*g*t*t)])}
+    s+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${GRAY}" stroke-width="2" stroke-dasharray="7 6"/>`;
+    for(let t=0;t<=T+1e-9;t+=.5){s+=`<circle cx="${X(W.u*t)}" cy="${Y(W.h-.5*g*t*t)}" r="3.5" fill="${GRAY}" opacity=".6"/>`}
+    const t=W.t,x=W.u*t,y=W.h-.5*g*t*t,vy=g*t;
+    if(W.cmp)s+=`<circle cx="${X(0)-26}" cy="${Y(W.h-.5*g*t*t)}" r="8" fill="${BLUE}" stroke="#222" stroke-width="2"/>`+tx(X(0)-26,Y(W.h)-14,'سقوط حر',{s:12,f:BLUE});
+    s+=arr(X(x),Y(y),X(x)+W.u*3.4,Y(y),GREEN,4)+(vy>.3?arr(X(x),Y(y),X(x),Y(y)+vy*3.4,RED,4):'')+`<circle cx="${X(x)}" cy="${Y(y)}" r="9" fill="${ORANGE}" stroke="#222" stroke-width="2"/>`;
+    s+=tx(X(R/2),oy+22,'R = '+f1b(R)+' m',{s:13,f:BLUE})+tx(54,(Y(W.h)+oy)/2,'h = '+f1b(W.h)+' m',{s:13,f:RED,a:'start'});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('الزمن t',f2(t)+' s')}${chip('زمن السقوط t = √(2h ÷ g)',f2(T)+' s')}${chip('المدى R = u_x × t',f1b(R)+' m')}${chip('السرعة الرأسية v_y = g t',f1b(vy)+' '+U1)}</div>`+say(t>=T&&t>0?'وصل الجسمان معًا بعد '+f2(T)+' s: زمن السقوط لا يعتمد على السرعة الأفقية.':'السرعة الأفقية ثابتة ('+f1b(W.u)+' '+U1+')، والسرعة الرأسية تبدأ من الصفر وتزداد بمقدار 9.81 كل ثانية.',GREEN);
+  }
+  draw();
+}
+
+/* =====================================================================
+   4) المدى وزاوية القذف
+   ===================================================================== */
+function tabRange(){
+  const W={u:30,th:30};
+  ctrl.innerHTML=slider('u','سرعة القذف u',10,40,1,W.u,U1)+slider('th','زاوية القذف θ',5,85,1,W.th,'°')+`<div class="btns"><button class="btn" id="b45">45°</button><button class="btn" id="bc">الزاوية المتممة (90° − θ)</button></div>`;
+  const th=bindSlider('th','°',v=>{W.th=v;draw()});bindSlider('u',U1,v=>{W.u=v;draw()});
+  $('b45').onclick=()=>{W.th=45;th.set(45);draw()};$('bc').onclick=()=>{W.th=90-W.th;th.set(W.th);draw()};
+  setTalk(['حرّك الزاوية وراقب عمود المدى في الرسم الصغير: يبلغ أعلى قيمة عند 45°.','اضغط «45°» ثم لاحظ أن المركبتين الأفقية والرأسية متساويتان.','اضغط «الزاوية المتممة» لترى زاويتين مجموعهما 90° تعطيان المدى نفسه (ملاحظة تحقق منها بالأرقام).','لكل زاوية أقصى ارتفاع وزمن رحلة مختلفان رغم تساوي المدى.','المدى = u_x × T حيث T = 2 u_y ÷ g.']);
+  function R(u,t){return u*u*Math.sin(2*t*D2R)/g}
+  function draw(){
+    const u=W.u,ox=40,oy=225,Rm=u*u/g,sc=Math.min(400/Rm,170/(u*u/(2*g))),X=x=>ox+x*sc,Y=y=>oy-y*sc;
+    let s=ground(oy);
+    const one=(t,col,w,dash)=>{const {ux,uy}=P(u,t),T=2*uy/g,pts=[];for(let i=0;i<=70;i++){const tt=T*i/70;pts.push([X(ux*tt),Y(uy*tt-.5*g*tt*tt)])}return `<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${col}" stroke-width="${w}" ${dash?'stroke-dasharray="7 6"':''}/>`};
+    s+=one(90-W.th,GRAY,2.4,true)+one(W.th,ORANGE,4);
+    s+=`<circle cx="${X(R(u,W.th))}" cy="${oy}" r="6" fill="${ORANGE}" stroke="#222" stroke-width="1.5"/>`+tx(X(R(u,W.th)),oy+22,'R = '+f1b(R(u,W.th))+' m',{s:13,f:ORANGE});
+    // small chart R against theta
+    const cx=480,cy=60,cw=200,ch=110;
+    s+=`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" fill="none" stroke="${GRAY}" stroke-width="1.2"/>`;
+    const pts=[];for(let a=0;a<=90;a+=2)pts.push([cx+a/90*cw,cy+ch-R(u,a)/Rm*ch*.94]);
+    s+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${TEAL}" stroke-width="3"/>`+`<circle cx="${cx+W.th/90*cw}" cy="${cy+ch-R(u,W.th)/Rm*ch*.94}" r="6" fill="${ORANGE}" stroke="#222" stroke-width="1.5"/>`+`<line x1="${cx+cw/2}" y1="${cy}" x2="${cx+cw/2}" y2="${cy+ch}" stroke="${GRAY}" stroke-dasharray="5 4"/>`;
+    s+=tx(cx+cw/2,cy+ch+18,'45°',{s:12,f:GRAY})+tx(cx,cy+ch+18,'0°',{s:12,f:GRAY})+tx(cx+cw,cy+ch+18,'90°',{s:12,f:GRAY})+tx(cx+cw/2,cy-8,'المدى R بدلالة الزاوية',{s:13,f:TEAL});
+    svg.innerHTML=s;
+    const {ux,uy}=P(u,W.th),T=2*uy/g,Rc=ux*T,H=uy*uy/(2*g);
+    info.innerHTML=`<div class="chips">${chip('u_x',f1b(ux)+' '+U1)}${chip('u_y',f1b(uy)+' '+U1)}${chip('زمن الرحلة T',f2(T)+' s')}${chip('أقصى ارتفاع H',f1b(H)+' m')}${chip('المدى R',f1b(Rc)+' m')}</div>`+say(W.th===45?'عند <b>45°</b> يكون المدى أكبر ما يمكن، وتتساوى u_x و u_y.':'الخط المتقطع: المسار بالزاوية المتممة '+(90-W.th)+'°، مداه '+f1b(R(u,90-W.th))+' m (نفس المدى).',GREEN);
+  }
+  draw();
+}
+
+/* =====================================================================
+   5) المقذوف الرأسي ورسم v – t
+   ===================================================================== */
+function tabVert(){
+  const W={u:20,h0:0,t:0,run:false};
+  ctrl.innerHTML=slider('u','السرعة الابتدائية u (للأعلى +)',5,30,1,W.u,U1)+slider('h0','ارتفاع نقطة القذف فوق الأرض',0,30,1,W.h0,'m')+`<div class="btns"><button class="btn primary" id="go">أطلق</button><button class="btn" id="rs">أعد</button></div>`;
+  setTalk(['اضغط «أطلق»: الأعلى موجب، فالسرعة الابتدائية موجبة والتسارع g سالب.','في رسم v – t الميل ثابت (−9.81) والخط يقطع محور الزمن عند أقصى ارتفاع.','أعد ضبط ارتفاع القذف على 0: زمن الصعود = زمن الهبوط وسرعة العودة = سرعة القذف.','ارفع نقطة القذف: ستصل الكرة إلى الأرض بسرعة أكبر لأن الإزاحة تحت المرجع سالبة.','اربط بسؤال الجرف: s = −25 m والحل بالمعادلة التربيعية.']);
+  bindSlider('u',U1,v=>{W.u=v;reset()});bindSlider('h0','m',v=>{W.h0=v;reset()});
+  $('go').onclick=()=>{if(W.t>=Tg())W.t=0;W.run=true};$('rs').onclick=()=>reset();
+  const Tg=()=>(W.u+Math.sqrt(W.u*W.u+2*g*W.h0))/g;
+  function reset(){W.t=0;W.run=false;draw()}
+  tick=dt=>{if(W.run){W.t+=dt*(reduceMotion?3:1);if(W.t>=Tg()){W.t=Tg();W.run=false}draw()}};
+  function draw(){
+    const T=Tg(),Hm=W.h0+W.u*W.u/(2*g),oy=330,sc=270/Math.max(Hm,5),X=250,Y=y=>oy-(y+0)*sc;
+    let s=ground(oy);
+    if(W.h0>0)s+=`<rect x="190" y="${Y(W.h0)}" width="60" height="${oy-Y(W.h0)}" fill="#c9b79c" stroke="#8a7a5e" stroke-width="2.5"/><line x1="190" y1="${Y(W.h0)}" x2="250" y2="${Y(W.h0)}" stroke="#5c8a3a" stroke-width="6"/>`;
+    s+=`<line x1="250" y1="${Y(W.h0)}" x2="330" y2="${Y(W.h0)}" stroke="${GRAY}" stroke-dasharray="6 5"/>`+tx(336,Y(W.h0)+4,'المستوى المرجعي',{s:12,f:GRAY,a:'start'});
+    const t=W.t,s_=W.u*t-.5*g*t*t,v=W.u-g*t,yy=W.h0+s_;
+    s+=`<circle cx="${X+24}" cy="${Y(yy)}" r="9" fill="${ORANGE}" stroke="#222" stroke-width="2"/>`+(Math.abs(v)>.3?arr(X+24,Y(yy),X+24,Y(yy)-v*sc*0.4,v>0?GREEN:RED,4):'');
+    // v-t chart
+    const cx=440,cy=40,cw=230,ch=250,vmax=W.u,vmin=-(g*T-W.u);
+    const VX=tt=>cx+tt/T*cw,VY=vv=>cy+(vmax-vv)/(vmax-vmin)*ch;
+    s+=`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" fill="none" stroke="${GRAY}" stroke-width="1.2"/><line x1="${cx}" y1="${VY(0)}" x2="${cx+cw}" y2="${VY(0)}" stroke="#555" stroke-width="2"/>`;
+    s+=`<line x1="${VX(0)}" y1="${VY(W.u)}" x2="${VX(T)}" y2="${VY(W.u-g*T)}" stroke="${BLUE}" stroke-width="3.5"/>`+`<circle cx="${VX(t)}" cy="${VY(v)}" r="6" fill="${ORANGE}" stroke="#222" stroke-width="1.5"/>`;
+    s+=`<circle cx="${VX(W.u/g)}" cy="${VY(0)}" r="5" fill="${GREEN}"/>`+tx(cx+cw/2,cy-10,'v (m s⁻¹) – t (s)',{s:13,f:BLUE})+tx(VX(W.u/g),VY(0)-10,f2(W.u/g)+' s',{s:12,f:GREEN});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('الزمن t',f2(t)+' s')}${chip('السرعة v = u − g t',f1b(v)+' '+U1)}${chip('الإزاحة s عن المرجع',f1b(s_)+' m')}${chip('أقصى ارتفاع فوق المرجع',f1b(W.u*W.u/(2*g))+' m')}${chip('زمن الصعود',f2(W.u/g)+' s')}${chip('زمن الوصول للأرض',f2(T)+' s')}</div>`+say(t>=T&&t>0?'وصلت الكرة إلى الأرض بسرعة '+f1b(Math.abs(W.u-g*T))+' '+U1+' نحو الأسفل'+(W.h0===0?' (تساوي سرعة القذف، وزمن الصعود = زمن الهبوط)':'')+'.':'الأعلى موجب: a = −9.81 '+U2+'، وتنعكس إشارة السرعة عند أقصى ارتفاع.',GREEN);
+  }
+  draw();
+}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من كل أهداف الدرس 3.8 و3.9 و3.10 و3.11.</p>`;
+  setTalk(['اطلب من الطالب أن يحسب بيده قبل أن يرى الخيارات.','في أسئلة المركبتين: انظر من أين تُقاس الزاوية.','في أسئلة الزمن: احسبه من الاتجاه الذي تعرف فيه معلومات كافية.','اذكر أن السرعة الأفقية ثابتة وأن v_y = 0 عند أقصى ارتفاع.','كرّر حتى يتقن الطالب الأنواع كلها.']);
+  const uniq=a=>[...new Set(a)];
+  const numOpts=(c,w,unit)=>{let o=uniq([c,...w].map(x=>+(+x).toFixed(2)));let i=1;while(o.length<4){o.push(+(c+i*Math.max(.5,Math.abs(c)*.2)).toFixed(2));o=uniq(o);i++}return o.slice(0,4).map(x=>f2(x)+' '+unit)};
+  const GEN=[
+    ()=>{const u=pick([12,15,20,25,30]),t=pick([30,35,40,50,60]);const c=u*Math.cos(t*D2R);return {q:`سرعة مقدارها (${u} m s⁻¹) بزاوية (${t}°) مع الاتجاه الأفقي. المركبة الأفقية تساوي:`,c,w:[u*Math.sin(t*D2R),u/Math.cos(t*D2R),u*Math.tan(t*D2R)],unit:U1,why:`u_x = u cos θ = ${u} × cos ${t}° = ${f2(c)} ${U1}`}},
+    ()=>{const u=pick([10,15,20,25]),t=pick([20,25,30,35]);const c=u*Math.cos(t*D2R);return {q:`سرعة مقدارها (${u} m s⁻¹) تميل (${t}°) عن الاتجاه الرأسي. المركبة الرأسية تساوي:`,c,w:[u*Math.sin(t*D2R),u/Math.cos(t*D2R),u*Math.tan(t*D2R)],unit:U1,why:`الزاوية من الرأسي: u_y = u cos θ = ${u} × cos ${t}° = ${f2(c)} ${U1}`}},
+    ()=>{const u=pick([10,15,20,25,30]);const c=u/g;return {q:`قُذفت كرة رأسيًا إلى الأعلى بسرعة (${u} m s⁻¹). الزمن اللازم للوصول إلى أعلى نقطة (g = 9.81):`,c,w:[2*c,u*g,u/2],unit:'s',why:`v = u − g t ⟹ 0 = ${u} − 9.81 t ⟹ t = ${f2(c)} s`}},
+    ()=>{const h=pick([5,10,20,45]),u=pick([5,8,10,15]);const T=Math.sqrt(2*h/g),c=u*T;return {q:`تغادر كرة حافة سطح ارتفاعه (${h} m) أفقيًا بسرعة (${u} m s⁻¹). المسافة الأفقية التي تقطعها حتى الأرض:`,c,w:[u*2*T,u*h/g,h/T],unit:'m',why:`t = √ ( 2 h ÷ g ) = ${f2(T)} s ثم s_x = u_x × t = ${u} × ${f2(T)} = ${f2(c)} m`}},
+    ()=>{const u=pick([20,25,30,40]);return {q:`قُذف جسم من سطح الأرض بسرعة (${u} m s⁻¹). ما الزاوية التي تعطي أكبر مدى (بإهمال مقاومة الهواء)؟`,opts:['30°','45°','60°','90°'],ans:1,why:'أكبر مدى عند 45° حيث تتساوى المركبتان الأفقية والرأسية.',fixed:true}},
+    ()=>pick([{q:'ماذا يحدث للمركبة الأفقية لسرعة المقذوف أثناء طيرانه (بإهمال مقاومة الهواء)؟',opts:['تبقى ثابتة','تتناقص','تتزايد','تنعدم عند أقصى ارتفاع'],ans:0,why:'لا توجد قوة أفقية، فلا يوجد تسارع أفقي وتبقى السرعة الأفقية ثابتة.',fixed:true},{q:'عند أقصى ارتفاع لمقذوف أُطلق بزاوية، أي العبارات صحيحة؟',opts:['السرعة الرأسية صفر والتسارع g نحو الأسفل','السرعة صفر والتسارع صفر','السرعة الأفقية صفر','التسارع صفر'],ans:0,why:'تنعدم المركبة الرأسية فقط، وتبقى المركبة الأفقية وتسارع الجاذبية.',fixed:true},{q:'جسمان قُذفا أفقيًا من الارتفاع نفسه بسرعتين مختلفتين. أيهما يصل أولًا؟',opts:['يصلان معًا','الأسرع أفقيًا','الأبطأ أفقيًا','لا يمكن التحديد'],ans:0,why:'زمن السقوط يتحدد بالحركة الرأسية فقط، وهي نفسها للجسمين.',fixed:true}]),
+    ()=>{const u=pick([20,30,40]);const c=u*u/g;return {q:`كرة قُذفت من سطح الأرض بزاوية (45°) بسرعة (${u} m s⁻¹). ما مداها (بإهمال مقاومة الهواء)؟`,c,w:[c/2,c*2,u*u/(2*g)/1.5],unit:'m',why:`u_x = u_y = ${f2(u*Math.cos(Math.PI/4))} ⟹ T = ${f2(2*u*Math.sin(Math.PI/4)/g)} s ⟹ R = u_x × T = ${f2(c)} m`}}
+  ];
+  function next(){
+    let g_=GEN[Math.floor(Math.random()*GEN.length)]();let opts,ans;
+    if(g_.fixed){opts=g_.opts;ans=g_.ans;}else{const o=numOpts(g_.c,g_.w,g_.unit),right=f2(g_.c)+' '+g_.unit,sh=shuf(o);opts=sh;ans=sh.indexOf(right);if(ans<0){sh[0]=right;ans=0}}
+    Q.cur={...g_,opts,ans};Q.done=false;
+    svg.innerHTML=tx(350,190,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixT(Q.cur.q)}</p><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixT(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixT(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('comp');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>
