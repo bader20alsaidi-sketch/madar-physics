@@ -161,6 +161,16 @@
   }
 
   /* ad banner (tutoring) */
+
+  /* عدّاد الزيارات في الصفحة الرئيسية */
+  .visit-card{
+    margin-top:18px; display:flex; align-items:center; justify-content:center; gap:14px;
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:14px 18px;
+  }
+  .visit-card[hidden]{ display:none; }
+  .visit-icon{ font-size:26px; line-height:1; }
+  .visit-num{ font-family:'Space Grotesk','Tajawal',sans-serif; font-size:30px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums; line-height:1.1; }
+  .visit-label{ font-size:13px; color:var(--text-secondary); margin-top:2px; }
   .promo-card{
     margin-top:22px;
     background: linear-gradient(160deg, rgba(242,166,90,0.12), rgba(91,141,239,0.05));
@@ -1449,6 +1459,24 @@ function render(){
   if(s.screen==='list') return renderList(c, s.grade, s.cat, s.lesson);
 }
 
+/* ===== عدّاد الزيارات: تُحتسب زيارة جديدة مع كل دخول إلى الموقع (حتى من نفس الطالب) =====
+   يُسجَّل مرة واحدة لكل تحميل للصفحة؛ والتنقل داخل الموقع والرجوع للرئيسية لا يزيد الرقم. */
+let visitSent = false;
+async function loadVisits(){
+  const card = document.getElementById('visitCard');
+  if(!card) return;
+  const first = !visitSent;
+  visitSent = true;
+  try{
+    const r = await fetch('/api/visits', { method: first ? 'POST' : 'GET', cache:'no-store' });
+    const j = await r.json();
+    if(!j.ok) return;
+    document.getElementById('visitNum').textContent = Number(j.total).toLocaleString('en-US');
+    if(j.since) document.getElementById('visitLabel').textContent = 'زيارة لموقع مدار ' + j.since;
+    card.hidden = false;
+  }catch(e){ /* بلا اتصال بالخدمة: تبقى البطاقة مخفية */ }
+}
+
 /* ===== HOME: grade selection ===== */
 function renderHome(c){
   c.innerHTML = `
@@ -1462,6 +1490,13 @@ function renderHome(c){
           <div class="grade-label">الصف ${g.label}</div>
         </div>`;
       }).join('')}
+    </div>
+    <div class="visit-card" id="visitCard" hidden>
+      <div class="visit-icon" aria-hidden="true">👁️</div>
+      <div>
+        <div class="visit-num" id="visitNum" aria-live="polite">—</div>
+        <div class="visit-label" id="visitLabel">زيارة لموقع مدار منذ انطلاق المشروع</div>
+      </div>
     </div>
     <div class="promo-card">
       <div class="promo-top">
@@ -1484,6 +1519,7 @@ function renderHome(c){
       </div>
     </div>
   `;
+  loadVisits();
 }
 
 /* ===== UNITS for a grade (from textbook index) ===== */

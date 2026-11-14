@@ -2985,6 +2985,38 @@ async function handleScores(request, env) {
   }
 }
 
+// ===== عدّاد زيارات مدار (D1 — الجدول visits) =====
+// VISITS_BASE: الرقم الظاهر للزوّار. للتحديث الشهري: غيّر هذا الرقم فقط ثم انشر.
+// VISITS_AUTO: false = يُعرض VISITS_BASE كما هو (يدوي). true = يُعرض VISITS_BASE + الزيارات التي سجّلها العدّاد تلقائياً.
+// ملاحظة: العدّاد يسجّل الزيارات في قاعدة D1 دائماً (حتى لو كان العرض يدوياً)، فيمكن التحويل للتلقائي لاحقاً.
+const VISITS_BASE = 2345;
+const VISITS_AUTO = false;
+const VISITS_SINCE = 'منذ انطلاق المشروع'; // نص يظهر بجانب الرقم
+let visitsReady = false;
+async function handleVisits(request, env) {
+  try {
+    const db = env.LEADERBOARD;
+    if (!db) return lbJson({ ok: false, error: 'db-not-bound' }, 503);
+    if (!visitsReady) {
+      await db.prepare('CREATE TABLE IF NOT EXISTS visits (id INTEGER PRIMARY KEY, n INTEGER NOT NULL DEFAULT 0)').run();
+      await db.prepare('INSERT OR IGNORE INTO visits (id, n) VALUES (1, 0)').run();
+      visitsReady = true;
+    }
+    if (request.method === 'POST') {
+      const ua = request.headers.get('user-agent') || '';
+      if (!/bot|crawl|spider|slurp|preview|monitor|curl|wget/i.test(ua)) {
+        await db.prepare('UPDATE visits SET n = n + 1 WHERE id = 1').run();
+      }
+    } else if (request.method !== 'GET') {
+      return lbJson({ ok: false, error: 'method' }, 405);
+    }
+    const row = await db.prepare('SELECT n FROM visits WHERE id = 1').first();
+    return lbJson({ ok: true, total: VISITS_BASE + (VISITS_AUTO ? ((row && row.n) || 0) : 0), since: VISITS_SINCE });
+  } catch (err) {
+    return lbJson({ ok: false, error: 'server' }, 500);
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -3000,6 +3032,10 @@ export default {
 
     if (url.pathname === '/api/scores') {
       return handleScores(request, env);
+    }
+
+    if (url.pathname === '/api/visits') {
+      return handleVisits(request, env);
     }
 
     // كل الطلبات الأخرى: قدّم الملفات الثابتة كالمعتاد (index.html، الصور، الاختبارات...)
