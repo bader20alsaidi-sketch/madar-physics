@@ -1,0 +1,332 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>محاكي المكثفات — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.chip .k sub{font-size:.7em}.btns{flex-wrap:wrap}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>محاكي المكثفات</h1><p class="sub">الوحدة الرابعة: المكثفات — الشحن والسعة (1-4) وحفظ الشحنة والطاقة المخزَّنة (2-4)</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉µΩ][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|°µΩ]*[0-9A-Za-z%²³¹₀-₉)°µΩ]|[0-9A-Za-zΔ½²³µΩ])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='charge';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['charge','شحن المكثف'],['cap','السعة C = Q ÷ V'],['graph','التمثيل V–Q'],['share','توصيل مكثفين'],['energy','الطاقة المخزَّنة'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({charge:tabCharge,cap:tabCap,graph:tabGraph,share:tabShare,energy:tabEnergy,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)),f3=x=>String(+(+x).toFixed(3)),f4=x=>String(+(+x).toFixed(4));
+const fQ=q=>{const a=Math.abs(q);return a>=1?f2(q)+' C':a>=1e-3?f2(q*1e3)+' mC':f1(q*1e6)+' µC'};
+const fW=w=>{const a=Math.abs(w);return a>=1?f2(w)+' J':a>=1e-3?f2(w*1e3)+' mJ':f1(w*1e6)+' µJ'};
+const fI=i=>{const a=Math.abs(i);return a>=1?f2(i)+' A':f1(i*1e3)+' mA'};
+const fV=v=>f2(v)+' V';
+const sci=x=>{if(!x)return'0';const e=Math.floor(Math.log10(Math.abs(x))),m=x/Math.pow(10,e);const sup=String(e).split('').map(c=>({'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'}[c])).join('');return m.toFixed(2)+'×10'+sup};
+const nv=s=>`<span class="num">${s}</span>`;
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${nv(v)}</div></div>`;
+const say=(t,c)=>`<p class="say" style="border-right:5px solid ${c||ORANGE}">${t}</p>`;
+const rule=t=>`<p class="rule"><b>اربط بالدرس:</b> ${t}</p>`;
+const TEAL='#1c8f95',PURPLE='#7a55c8',PINK='#d86aa5';
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+/* a capacitor drawn with horizontal plates: centre (x,y), plate width w, gap g, charge fraction fr in [-1,1] (sign = top plate polarity) */
+function capDraw(x,y,w,g,fr,col='currentColor'){
+  let s=`<rect x="${x-w/2}" y="${y-g/2-7}" width="${w}" height="7" rx="2" fill="${col}"/><rect x="${x-w/2}" y="${y+g/2}" width="${w}" height="7" rx="2" fill="${col}"/>`;
+  const n=Math.round(Math.abs(fr)*Math.floor(w/22));const top=fr>=0?'+':'−',bot=fr>=0?'−':'+';
+  for(let i=0;i<n;i++){const px=x-w/2+14+i*((w-28)/Math.max(1,n-1)||0);
+    s+=`<text x="${px}" y="${y-g/2-13}" text-anchor="middle" font-size="19" font-weight="800" fill="${top==='+'?RED:BLUE}">${top}</text><text x="${px}" y="${y+g/2+26}" text-anchor="middle" font-size="19" font-weight="800" fill="${bot==='+'?RED:BLUE}">${bot}</text>`}
+  return s}
+const wire=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>`;
+
+/* =====================================================================
+   1) شحن المكثف وتفريغه (1-4)
+   ===================================================================== */
+function tabCharge(){
+  const W={V0:9,C:470,mode:'charge',vc:0,I:0,ph:0,fr:0};const R=2000;
+  ctrl.innerHTML=slider('V0','القوة الدافعة للبطارية',1,12,1,W.V0,'V')+slider('C','سعة المكثف',100,2200,10,W.C,'µF')+`<div class="btns"><button class="btn primary" id="go">اشحن (أغلق المفتاح)</button><button class="btn" id="op">افصل البطارية</button><button class="btn" id="ds">فرّغ المكثف</button><button class="btn" id="rs">إعادة من الصفر</button></div>`;
+  setTalk(['اضغط «اشحن» وراقب التيار: يبدأ كبيرًا ثم يتناقص حتى يصبح صفرًا.','لاحظ أن فرق جهد المكثف يرتفع حتى يساوي القوة الدافعة للبطارية، وعندها يتوقف الشحن.','الشحنتان على اللوحين متساويتان في المقدار ومتعاكستان في النوع، والشحنة الكلية صفر.','«افصل البطارية» يبقي المكثف مشحونًا، و«فرّغ المكثف» يعيد الشحنة عبر الدائرة بتيار معاكس.','كبّر السعة وسترى أن الشحن يستغرق وقتًا أطول لأن المكثف يحتاج شحنة أكبر.']);
+  bindSlider('V0','V',v=>W.V0=v);bindSlider('C','µF',v=>W.C=v);
+  $('go').onclick=()=>W.mode='charge';$('op').onclick=()=>W.mode='open';$('ds').onclick=()=>W.mode='dis';$('rs').onclick=()=>{W.vc=0;W.mode='open'};
+  let k=0;
+  tick=dt=>{
+    dt=Math.max(0,dt);const C=W.C*1e-6;let I=0;
+    if(W.mode==='charge')I=(W.V0-W.vc)/R;else if(W.mode==='dis')I=-W.vc/R;
+    W.vc+=I*dt/C;W.I=I;W.ph+=(I*R/12)*dt*150;
+    draw();if(++k%6===1)show()};
+  function draw(){
+    const L=120,Rr=580,T=70,B=300,cy=185;let s='';
+    s+=wire(L,T,Rr,T)+wire(L,B,Rr,B)+wire(L,T,L,cy-20)+wire(L,cy+20,L,B)+wire(Rr,T,Rr,cy-10)+wire(Rr,cy+10,Rr,B);
+    s+=`<line x1="${L-28}" y1="${cy-20}" x2="${L+28}" y2="${cy-20}" stroke="currentColor" stroke-width="4"/><line x1="${L-15}" y1="${cy+20}" x2="${L+15}" y2="${cy+20}" stroke="currentColor" stroke-width="9"/>`;
+    s+=tx(L+52,cy-14,'+',{f:RED,s:22})+tx(L+52,cy+30,'−',{f:BLUE,s:22})+tx(L-42,cy+4,'بطارية',{f:GRAY,s:13});
+    const fr=clamp(W.vc/12,-1,1);s+=capDraw(Rr,cy,90,20,fr);s+=tx(Rr+60,cy+4,'مكثف',{f:GRAY,s:13});
+    s+=`<circle cx="350" cy="${T}" r="23" fill="rgba(127,127,127,.18)" stroke="currentColor" stroke-width="3"/>`+tx(350,T+7,'A',{s:19})+tx(350,T+48,'I = '+fI(Math.abs(W.I)),{f:TEAL,s:15});
+    const sp=Math.abs(W.I)>2e-5;
+    if(sp){const dir=(W.I>0?1:-1);
+      for(let i=0;i<6;i++){const ph=((W.ph*dir*-1)/1+i*80)%480,x=((ph%480)+480)%480;const xt=Rr-30-x,xb=L+30+x;
+        s+=`<circle cx="${xt}" cy="${T}" r="6" fill="${BLUE}" opacity=".85"/><circle cx="${xb}" cy="${B}" r="6" fill="${BLUE}" opacity=".85"/>`}
+      s+=arr(430,T-26,430+dir*70,T-26,ORANGE,5)+tx(430+dir*35,T-40,'التيار الاصطلاحي',{f:ORANGE,s:12})}
+    s+=tx(350,342,'النقاط الزرقاء: الإلكترونات',{f:BLUE,s:12});
+    svg.innerHTML=s}
+  draw();show();
+  function show(){
+    const Q=W.vc*W.C*1e-6;let t;
+    if(W.mode==='charge'&&Math.abs(W.V0-W.vc)<.02)t='اكتمل الشحن: التيار صفر وفرق جهد المكثف يساوي القوة الدافعة للبطارية.';
+    else if(W.mode==='charge')t='المكثف يُشحن: الإلكترونات تتجمّع على اللوح السفلي فيصبح سالبًا، والعلوي يفقد إلكترونات فيصبح موجبًا. التيار يتناقص.';
+    else if(W.mode==='open')t=W.vc>.02?'البطارية مفصولة: يحتفظ المكثف بشحنته ولا يوجد تيار.':'المكثف فارغ: لا توجد شحنة على اللوحين.';
+    else t=W.vc<.02?'اكتمل التفريغ: لا توجد شحنة ولا تيار.':'المكثف يُفرَّغ: تعود الشحنة عبر الدائرة بتيار معاكس لتيار الشحن.';
+    info.innerHTML=`<div class="chips">${chip('فرق جهد المكثف',fV(W.vc))}${chip('الشحنة Q على اللوح',fQ(Q))}${chip('التيار I',fI(Math.abs(W.I)))}${chip('الشحنة الكلية','0 C')}</div>`+say(t,GREEN)+rule('عند اكتمال الشحن: I = 0 وفرق جهد المكثف = القوة الدافعة. اللوحان يحملان +Q و −Q والشحنة الكلية صفر.')}
+}
+
+/* =====================================================================
+   2) السعة الكهربائية C = Q / V (1-4)
+   ===================================================================== */
+function tabCap(){
+  const W={C:220,V:15,t:100};
+  ctrl.innerHTML=slider('C','السعة C',1,1000,1,W.C,'µF')+slider('V','فرق الجهد V',1,50,1,W.V,'V')+slider('t','زمن الشحن t',10,1000,10,W.t,'ms')+`<p class="gt">مسائل الدرس الجاهزة</p><div class="btns"><button class="btn" data-p="220,15,100">220 µF و 15 V</button><button class="btn" data-p="470,9,100">470 µF و 9 V</button><button class="btn" data-p="50,10,10">50 µF و 10 V خلال 10 ms</button></div>`;
+  setTalk(['السعة تعني: كم كولوم يخزّن المكثف لكل فولت؟ ووحدتها الفاراد (F).','غيّر السعة وفرق الجهد وراقب الشحنة Q = C V: تتضاعف الشحنة بتضاعف أي منهما.','الفاراد وحدة كبيرة جدًا، ولذلك تُقاس المكثفات العادية بالميكروفاراد (µF).','متوسط التيار عند الشحن I = Q ÷ t: كلما قصر زمن الشحن كبر التيار اللازم.','ذكّر الطلاب أن µF × V = µC مباشرة دون تحويل.']);
+  const sl={C:bindSlider('C','µF',v=>{W.C=v;draw()}),V:bindSlider('V','V',v=>{W.V=v;draw()}),t:bindSlider('t','ms',v=>{W.t=v;draw()})};
+  ctrl.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{const [c,v,t]=b.dataset.p.split(',').map(Number);W.C=c;W.V=v;W.t=t;sl.C.set(c);sl.V.set(v);sl.t.set(t);draw()});
+  function draw(){
+    const Q=W.C*1e-6*W.V,I=Q/(W.t*1e-3);let s='';
+    s+=capDraw(350,185,240,34,clamp(Q/0.02,.2,1));
+    s+=tx(350,76,'Q = C × V',{s:30,f:TEAL})+tx(350,116,`Q = ${f1(W.C)} µF × ${W.V} V = ${fQ(Q)}`,{s:20});
+    s+=tx(350,285,'C = '+f1(W.C)+' µF = '+sci(W.C*1e-6)+' F',{s:16,f:GRAY})+tx(350,315,'فرق الجهد بين اللوحين V = '+W.V+' V',{s:16,f:GRAY});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('السعة C',f1(W.C)+' µF')}${chip('فرق الجهد V',fV(W.V))}${chip('الشحنة Q = C V',fQ(Q))}${chip('متوسط التيار I = Q ÷ t',fI(I))}</div>`+say(`مكثف سعته ${nv(f1(W.C)+' µF')} عند ${nv(W.V+' V')} يخزّن شحنة ${nv(fQ(Q))}، أي ${nv(f1(Q*1e6)+' µC')}.`,TEAL)+rule('C = Q ÷ V ومنها Q = C V و V = Q ÷ C. الفاراد = كولوم لكل فولت، و µF = 10⁻⁶ F.')}
+  draw()}
+
+/* =====================================================================
+   3) التمثيل البياني (V–Q) وميله (1-4)
+   ===================================================================== */
+function tabGraph(){
+  const CAPS={A:10,B:15,C:30,D:60},COL={A:BLUE,B:ORANGE,C:GREEN,D:RED};
+  const W={sel:'D',Q:300,axes:'VQ',area:false};
+  ctrl.innerHTML=`<p class="gt">اختر المكثف</p>${seg('sel',[['A','A'],['B','B'],['C','C'],['D','D']],W.sel)}`+slider('Q','الشحنة Q',50,600,10,W.Q,'µC')+`<p class="gt" style="margin-top:12px">المحاور</p>${seg('ax',[['VQ','V مقابل Q'],['QV','Q مقابل V']],W.axes)}<div class="btns"><button class="btn" id="ar">أظهر/أخفِ المساحة تحت الخط</button></div>`;
+  setTalk(['الخطوط الأربعة لمكثفات مختلفة: ميل الخط في (V مقابل Q) يساوي 1 ÷ C.','اختر المكثفات واحدًا واحدًا: الأقل ميلًا هو الأكبر سعة (D).','حرّك الشحنة وانظر إلى فرق الجهد المقابل لها على الخط نفسه.','بدّل المحورين لترى أن ميل (Q مقابل V) هو السعة C نفسها.','المساحة تحت خط (V–Q) هي الطاقة، وستستخدمها في التبويب الرابع.']);
+  bindSeg('sel',k=>{W.sel=k;draw()});bindSeg('ax',k=>{W.axes=k;draw()});bindSlider('Q','µC',v=>{W.Q=v;draw()});$('ar').onclick=()=>{W.area=!W.area;draw()};
+  function draw(){
+    const x0=95,x1=650,y0=300,y1=40,vq=W.axes==='VQ';
+    const X=(q,v)=>vq?x0+q/600*(x1-x0):x0+v/60*(x1-x0),Y=(q,v)=>vq?y0-v/60*(y0-y1):y0-q/600*(y0-y1);
+    let s=arr(x0,y0,x1+22,y0,'#666',3)+arr(x0,y0,x0,y1-14,'#666',3);
+    s+=tx(x1+18,y0+50,vq?'Q (µC)':'V (V)',{a:'end',s:15})+tx(x0+6,y1-20,vq?'V (V)':'Q (µC)',{a:'start',s:15});
+    for(let i=1;i<=6;i++){const q=i*100,v=i*10;s+=tx(vq?X(q,0):X(0,v),y0+22,String(vq?q:v),{s:11,f:GRAY})+tx(x0-22,vq?Y(0,v)+4:Y(q,0)+4,String(vq?v:q),{s:11,f:GRAY})}
+    const c=CAPS[W.sel],vOf=q=>q/c;
+    if(W.area&&vq){s+=`<polygon points="${X(0,0)},${Y(0,0)} ${X(W.Q,0)},${Y(0,0)} ${X(W.Q,0)},${Y(0,vOf(W.Q))}" fill="${GREEN}" opacity=".28"/>`}
+    for(const k of Object.keys(CAPS)){const ck=CAPS[k],qEnd=Math.min(600,60*ck);const a=[X(0,0),Y(0,0)],b=[X(qEnd,qEnd/ck),Y(qEnd,qEnd/ck)];
+      s+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${COL[k]}" stroke-width="${k===W.sel?6:2.6}" opacity="${k===W.sel?1:.45}" stroke-linecap="round"/>`+tx(b[0]+(vq?14:-2),b[1]-8+(vq?8:0),k,{f:COL[k],s:16})}
+    const v=vOf(W.Q),px=X(W.Q,v),py=Y(W.Q,v);
+    s+=`<line x1="${px}" y1="${py}" x2="${px}" y2="${y0}" stroke="${GRAY}" stroke-dasharray="6 5" stroke-width="2.2"/><line x1="${px}" y1="${py}" x2="${x0}" y2="${py}" stroke="${GRAY}" stroke-dasharray="6 5" stroke-width="2.2"/><circle cx="${px}" cy="${py}" r="8" fill="${ORANGE}" stroke="currentColor" stroke-width="2"/>`;
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('المكثف المختار',W.sel)}${chip('السعة C',c+' µF')}${chip('الميل في (V–Q)','1 ÷ C = '+f3(1/c)+' V/µC')}${chip('عند Q = '+W.Q+' µC','V = '+f1(v)+' V')}</div>`+say(`الخط ${W.sel} ميله ${nv(f3(1/c)+' V/µC')} وسعته ${nv(c+' µF')}. ${W.sel==='D'?'هو أقل الخطوط ميلًا فهو الأكبر سعة.':W.sel==='A'?'هو أكثر الخطوط ميلًا فهو الأصغر سعة.':'ميله متوسط.'}`,COL[W.sel])+rule('ميل الخط في (V مقابل Q) = 1 ÷ C، وميل (Q مقابل V) = C. الميل الأقل في (V–Q) يعني سعة أكبر.')}
+  draw()}
+
+/* =====================================================================
+   4) توصيل مكثفين وحفظ الشحنة (1-4)
+   ===================================================================== */
+function tabShare(){
+  const W={C1:40,V1:15,C2:20,V2:0,pol:'same',joined:false,l1:15,l2:0};
+  ctrl.innerHTML=slider('C1','سعة المكثف الأول C1',10,100,5,W.C1,'µF')+slider('V1','جهد الأول V1',1,30,1,W.V1,'V')+slider('C2','سعة المكثف الثاني C2',10,100,5,W.C2,'µF')+slider('V2','جهد الثاني V2 (0 = غير مشحون)',0,30,1,W.V2,'V')+`<p class="gt">قطبية التوصيل</p>${seg('pol',[['same','متماثلة (+ مع +)'],['opp','متعاكسة (+ مع −)']],W.pol)}<div class="btns"><button class="btn primary" id="jn">وصّل المكثفين</button><button class="btn" id="sp">افصلهما وأعد الحالة</button></div><p class="gt">مسائل جاهزة</p><div class="btns"><button class="btn" data-p="50,20,30,0,same">50 µF عند 20 V مع 30 µF</button><button class="btn" data-p="30,24,60,0,same">30 µF عند 24 V مع 60 µF</button><button class="btn" data-p="10,30,20,12,opp">10 µF و 20 µF بقطبية متعاكسة</button></div>`;
+  setTalk(['شبّه المكثف بوعاء: عرضه هو السعة C وارتفاع الماء هو فرق الجهد V وحجم الماء هو الشحنة Q.','عند التوصيل ينتقل الماء حتى يتساوى الارتفاع في الوعاءين: هذا هو فرق الجهد المشترك.','الحجم الكلي (الشحنة الكلية) ثابت: Q = C1 V1 + C2 V2، وفرق الجهد V = Q ÷ (C1 + C2).','عند القطبية المتعاكسة يكون ارتفاع الوعاء الثاني تحت الخط الصفري (شحنة سالبة) فتُطرح الشحنتان.','قارن الطاقة قبل التوصيل وبعده: بعض الطاقة لا تبقى مخزنة بعد التوصيل.']);
+  const sl={C1:bindSlider('C1','µF',v=>{W.C1=v;rs()}),V1:bindSlider('V1','V',v=>{W.V1=v;rs()}),C2:bindSlider('C2','µF',v=>{W.C2=v;rs()}),V2:bindSlider('V2','V',v=>{W.V2=v;rs()})};
+  bindSeg('pol',k=>{W.pol=k;rs()});
+  const start=()=>{W.l1=W.V1;W.l2=W.pol==='opp'?-W.V2:W.V2};
+  function rs(){W.joined=false;start();show()}
+  $('jn').onclick=()=>{W.joined=true};$('sp').onclick=()=>{W.joined=false;start();show()};
+  ctrl.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{const [c1,v1,c2,v2,p]=b.dataset.p.split(',');W.C1=+c1;W.V1=+v1;W.C2=+c2;W.V2=+v2;W.pol=p;sl.C1.set(c1);sl.V1.set(v1);sl.C2.set(c2);sl.V2.set(v2);ctrl.querySelectorAll('#pol button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===p));rs()});
+  const calc=()=>{const q1=W.C1*W.V1,q2=W.C2*(W.pol==='opp'?-W.V2:W.V2),Q=q1+q2,V=Q/(W.C1+W.C2);const eb=.5*W.C1*W.V1*W.V1+.5*W.C2*W.V2*W.V2,ea=.5*(W.C1+W.C2)*V*V;return {q1,q2,Q,V,eb,ea}};
+  tick=dt=>{dt=Math.max(0,dt);const a=calc();const tgt1=W.joined?a.V:W.pol==='opp'?W.V1:W.V1,tgt2=W.joined?a.V:(W.pol==='opp'?-W.V2:W.V2);const k=Math.min(1,dt*3);W.l1+=(tgt1-W.l1)*k;W.l2+=(tgt2-W.l2)*k;draw();};
+  const sc=4.6,y0=210;
+  function tank(x,w,lv,col,lbl,vtxt){
+    const yl=y0-lv*sc;let s=`<rect x="${x}" y="${Math.min(y0,yl)}" width="${w}" height="${Math.abs(yl-y0)}" fill="${col}" opacity=".5"/><rect x="${x}" y="70" width="${w}" height="280" fill="none" stroke="currentColor" stroke-width="3"/><line x1="${x-8}" y1="${y0}" x2="${x+w+8}" y2="${y0}" stroke="currentColor" stroke-width="1.8" stroke-dasharray="6 4"/><line x1="${x}" y1="${yl}" x2="${x+w}" y2="${yl}" stroke="${col}" stroke-width="4"/>`;
+    s+=tx(x+w/2,62,lbl,{s:16})+tx(x+w/2,y0+(lv>=0?-lv*sc-8:-lv*sc+22),vtxt,{s:15,f:col});return s}
+  function draw(){
+    const w1=30+W.C1*1.7,w2=30+W.C2*1.7,x1=60,x2=640-w2;let s='';
+    s+=tank(x1,w1,W.l1,W.l1>=0?BLUE:PINK,'C1 = '+W.C1+' µF',f1(W.l1)+' V')+tank(x2,w2,W.l2,W.l2>=0?BLUE:PINK,'C2 = '+W.C2+' µF',f1(W.l2)+' V');
+    const py=y0;s+=`<rect x="${x1+w1}" y="${py-9}" width="${x2-x1-w1}" height="18" fill="${W.joined?'rgba(127,127,127,.55)':'rgba(127,127,127,.2)'}" stroke="currentColor" stroke-width="2"/>`;
+    s+=tx((x1+w1+x2)/2,py+36,W.joined?'موصولان':'غير موصولين',{s:14,f:W.joined?GREEN:GRAY})+tx(60,352,'الخط المتقطع: فرق الجهد صفر',{a:'start',s:11,f:GRAY});
+    svg.innerHTML=s;if(!draw.k||++draw.k%8===0)show();draw.k=draw.k||1}
+  function show(){
+    const a=calc();
+    info.innerHTML=`<div class="chips">${chip('الشحنة قبل التوصيل',f1(a.q1)+' µC  و  '+f1(a.q2)+' µC')}${chip('الشحنة الكلية (صافية)',f1(a.Q)+' µC')}${chip('فرق الجهد المشترك V',f2(a.V)+' V')}${chip('الشحنة بعد التوصيل',f1(W.C1*a.V)+' µC  و  '+f1(W.C2*a.V)+' µC')}${chip('الطاقة قبل / بعد',f1(a.eb)+' µJ  /  '+f1(a.ea)+' µJ')}</div>`+say(W.joined?`بعد التوصيل: ${nv('V = '+f1(a.Q)+' ÷ ('+W.C1+' + '+W.C2+') = '+f2(a.V)+' V')} والشحنة الكلية لم تتغير.`:'المكثفان غير موصولين: اضغط «وصّل المكثفين» وراقب مستوى الماء.',TEAL)+rule(`الشحنة الكلية محفوظة. ${W.pol==='opp'?'القطبية متعاكسة: Q = Q1 − Q2 (الصافية).':'القطبية متماثلة: Q = Q1 + Q2.'} ثم V = Q ÷ (C1 + C2).`)}
+  start();show()}
+
+/* =====================================================================
+   5) الطاقة المخزَّنة في المكثف (2-4)
+   ===================================================================== */
+function tabEnergy(){
+  const W={C:50,V:20,V2:10,g:'vq',loss:false,prev:null};
+  ctrl.innerHTML=slider('C','السعة C',10,200,5,W.C,'µF')+slider('V','فرق الجهد V',1,50,1,W.V,'V')+`<p class="gt">نوع التمثيل البياني</p>${seg('g',[['vq','V مقابل Q'],['wv','W مقابل V'],['wv2','W مقابل V²']],W.g)}<div class="btns"><button class="btn" id="dbl">ضاعف فرق الجهد</button><button class="btn" id="ls">فرّغ جزئيًا (الطاقة المفقودة)</button></div>`+slider('V2','الجهد بعد التفريغ الجزئي V2',0,50,1,W.V2,'V');
+  setTalk(['الطاقة المخزَّنة تساوي المساحة تحت منحنى (V–Q): مثلث قاعدته Q وارتفاعه V.','لذلك W = ½ Q V، وبالتعويض نحصل على ½ C V² و Q² ÷ 2C: كلها تعطي الرقم نفسه (انظر الشرائح الثلاث).','اضغط «ضاعف فرق الجهد»: تصبح الطاقة أربعة أمثالها لأن W تتناسب مع V².','في (W مقابل V) المنحنى قطع مكافئ، وفي (W مقابل V²) خط مستقيم ميله ½ C.','«فرّغ جزئيًا» يُظهر الطاقة المفقودة كمساحة شبه المنحرف بين V و V2.']);
+  const sC=bindSlider('C','µF',v=>{W.C=v;draw()}),sV=bindSlider('V','V',v=>{W.V=v;if(W.V2>v){W.V2=v;sV2.set(v)}draw()}),sV2=bindSlider('V2','V',v=>{W.V2=Math.min(v,W.V);draw()});
+  bindSeg('g',k=>{W.g=k;draw()});
+  $('dbl').onclick=()=>{W.prev=.5*W.C*1e-6*W.V*W.V;W.V=Math.min(50,W.V*2);sV.set(W.V);if(W.V2>W.V){W.V2=W.V;sV2.set(W.V)}draw()};
+  $('ls').onclick=()=>{W.loss=!W.loss;draw()};
+  function draw(){
+    const C=W.C*1e-6,Q=C*W.V,Wj=.5*C*W.V*W.V,Vmax=50,Qm=C*Vmax,Wm=.5*C*Vmax*Vmax,x0=95,x1=650,y0=300,y1=40;let s='';
+    s+=arr(x0,y0,x1+22,y0,'#666',3)+arr(x0,y0,x0,y1-14,'#666',3);
+    if(W.g==='vq'){
+      const X=q=>x0+q/Qm*(x1-x0),Y=v=>y0-v/Vmax*(y0-y1);
+      s+=tx(x1+18,y0+50,'Q (µC)',{a:'end',s:15})+tx(x0+6,y1-20,'V (V)',{a:'start',s:15});
+      s+=`<polygon points="${X(0)},${Y(0)} ${X(Q)},${Y(0)} ${X(Q)},${Y(W.V)}" fill="${GREEN}" opacity=".4"/>`;
+      if(W.loss&&W.V2<W.V)s+=`<polygon points="${X(C*W.V2)},${Y(0)} ${X(Q)},${Y(0)} ${X(Q)},${Y(W.V)} ${X(C*W.V2)},${Y(W.V2)}" fill="${PINK}" opacity=".55"/>`;
+      s+=`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(Qm)}" y2="${Y(Vmax)}" stroke="${BLUE}" stroke-width="4"/><circle cx="${X(Q)}" cy="${Y(W.V)}" r="8" fill="${ORANGE}" stroke="currentColor" stroke-width="2"/>`;
+      s+=tx(X(Q*.62),Y(W.V*.3),'W = ½ Q V',{s:19})+tx(X(Q),y0+22,f1(Q*1e6),{s:12,f:GRAY})+tx(x0-26,Y(W.V)+4,String(W.V),{s:12,f:GRAY})}
+    if(W.g==='wv'){
+      const X=v=>x0+v/Vmax*(x1-x0),Y=w=>y0-w/Wm*(y0-y1);let d='';for(let i=0;i<=60;i++){const v=Vmax*i/60;d+=(i?'L':'M')+X(v)+' '+Y(.5*C*v*v)+' '}
+      s+=tx(x1+18,y0+50,'V (V)',{a:'end',s:15})+tx(x0+6,y1-20,'W (mJ)',{a:'start',s:15})+`<path d="${d}" fill="none" stroke="${BLUE}" stroke-width="4"/>`+`<circle cx="${X(W.V)}" cy="${Y(Wj)}" r="8" fill="${ORANGE}" stroke="currentColor" stroke-width="2"/><line x1="${X(W.V)}" y1="${Y(Wj)}" x2="${X(W.V)}" y2="${y0}" stroke="${GRAY}" stroke-dasharray="6 5" stroke-width="2"/>`+tx(X(W.V),Y(Wj)-16,f2(Wj*1e3)+' mJ',{s:14})}
+    if(W.g==='wv2'){
+      const X=u=>x0+u/(Vmax*Vmax)*(x1-x0),Y=w=>y0-w/Wm*(y0-y1);
+      s+=tx(x1+18,y0+50,'V² (V²)',{a:'end',s:15})+tx(x0+6,y1-20,'W (mJ)',{a:'start',s:15})+`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(Vmax*Vmax)}" y2="${Y(Wm)}" stroke="${GREEN}" stroke-width="4"/><circle cx="${X(W.V*W.V)}" cy="${Y(Wj)}" r="8" fill="${ORANGE}" stroke="currentColor" stroke-width="2"/>`+tx(X(1100),Y(Wm*.2),'الميل = ½ C = '+f4(C/2*1e3)+' mJ/V²',{s:15,f:GREEN})}
+    svg.innerHTML=s;
+    const dW=.5*C*(W.V*W.V-W.V2*W.V2);
+    info.innerHTML=`<div class="chips">${chip('الشحنة Q = C V',fQ(Q))}${chip('W = ½ Q V',fW(.5*Q*W.V))}${chip('W = ½ C V²',fW(.5*C*W.V*W.V))}${chip('W = Q² ÷ 2C',fW(Q*Q/(2*C)))}${W.loss?chip('الطاقة المفقودة عند V → V2',fW(dW)):''}</div>`+say(W.prev?`ضاعفت فرق الجهد: الطاقة كانت ${nv(fW(W.prev))} وصارت ${nv(fW(Wj))}، أي ${nv('×'+f1(Wj/W.prev))}.`:`الطاقة المخزَّنة ${nv(fW(Wj))} وتساوي مساحة المثلث تحت الخط.`,GREEN)+rule('W = المساحة تحت منحنى (V–Q) = ½ Q V = ½ C V² = Q² ÷ 2C. الطاقة المفقودة بين V1 و V2: ½ C (V1² − V2²).')}
+  draw()}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة متنوعة تغطي معايير 1-4 و2-4: السعة، التمثيل البياني، حفظ الشحنة، والطاقة المخزَّنة.</p>`;
+  setTalk(['اطلب من الطالب أن يحل على الورق أولًا ثم يضغط على الخيار.','ركّز على التعليل الذي يظهر بعد الإجابة: يذكر القانون المستخدم.','كرّر الأسئلة حتى يتقن الطالب تحويل الوحدات (µF و µC) وحفظ الشحنة.']);
+  const opts4=(ok,wr)=>{const set=[ok];wr.forEach(w=>{if(!set.includes(w))set.push(w)});let k=1;while(set.length<4){const x=f2(parseFloat(ok)*(1+k*.5));if(!set.includes(x))set.push(x);k++}return set.slice(0,4)};
+  const GEN=[
+    ()=>{const q=rnd(2,9)*60,v=pick([6,12,15,20,24]);const c=q/v;return {q:`شُحن مكثف بشحنة ${q} µC عند فرق جهد ${v} V. ما سعته؟`,opts:[f1(c)+' µF',f1(q*v)+' µF',f1(v/q)+' µF',f1(c*1000)+' µF'],ans:0,why:`C = Q ÷ V = ${q} ÷ ${v} = ${f1(c)} µF.`}},
+    ()=>{const c=pick([22,47,100,220,330]),v=pick([5,9,12,15]);const q=c*v;return {q:`احسب الشحنة المخزَّنة في مكثف سعته ${c} µF عند فرق جهد ${v} V.`,opts:[q+' µC',(c/v).toFixed(1)+' µC',(q/1000)+' µC',(q*2)+' µC'],ans:0,why:`Q = C V = ${c} × ${v} = ${q} µC (µF × V تعطي µC مباشرة).`}},
+    ()=>{const c=pick([5,10,20,25]),v=rnd(2,8)*2;const q=c*v;return {q:`يخزّن مكثف سعته ${c} µF شحنة ${q} µC. ما فرق الجهد بين لوحيه؟`,opts:[v+' V',(q*c)+' V',(c/q).toFixed(2)+' V',(v*2)+' V'],ans:0,why:`V = Q ÷ C = ${q} ÷ ${c} = ${v} V.`}},
+    ()=>({q:'في تمثيل (V مقابل Q) كان ميل خط المكثف A ضعف ميل خط المكثف B. أيهما سعته أكبر؟',opts:['المكثف B','المكثف A','السعتان متساويتان','لا يمكن المعرفة'],ans:0,why:'الميل = 1 ÷ C، فالميل الأكبر يعني سعة أصغر؛ إذن سعة B أكبر.'}),
+    ()=>{const c1=pick([20,30,40,60]),v1=pick([10,12,15,20,24]),c2=pick([20,30,40,60]);const q=c1*v1,v=q/(c1+c2);return {q:`شُحن مكثف سعته ${c1} µF إلى ${v1} V ثم فُصل عن المصدر ووُصل بمكثف غير مشحون سعته ${c2} µF. ما فرق الجهد بعد التوصيل؟`,opts:[f1(v)+' V',v1+' V',f1(v1/2)+' V',f1(v1*c2/c1)+' V'],ans:0,why:`Q = ${c1} × ${v1} = ${q} µC ثم V = ${q} ÷ (${c1} + ${c2}) = ${f1(v)} V.`}},
+    ()=>{const c1=10,v1=pick([20,30]),c2=20,v2=pick([6,9,12]);const q=c1*v1-c2*v2,v=q/(c1+c2);return {q:`شُحن مكثف 10 µF إلى ${v1} V ومكثف 20 µF إلى ${v2} V، ثم وُصلت اللوحة الموجبة لأحدهما باللوحة السالبة للآخر. ما فرق الجهد المشترك؟`,opts:[f1(v)+' V',f1((c1*v1+c2*v2)/(c1+c2))+' V',f1((v1+v2)/2)+' V',f1(v1-v2)+' V'],ans:0,why:`القطبية متعاكسة فنطرح: Q = ${c1*v1} − ${c2*v2} = ${q} µC ثم V = ${q} ÷ 30 = ${f1(v)} V.`}},
+    ()=>{const c=pick([100,220,330,470]),v=pick([6,9,12]);const w=.5*c*v*v;return {q:`احسب الطاقة المخزَّنة في مكثف سعته ${c} µF عند فرق جهد ${v} V.`,opts:[f1(w)+' µJ',f1(c*v*v)+' µJ',f1(c*v)+' µJ',f1(w/2)+' µJ'],ans:0,why:`W = ½ C V² = ½ × ${c} × ${v}² = ${f1(w)} µJ.`}},
+    ()=>{const k=pick([2,3,4]);return {q:`مكثف سعته ثابتة، زاد فرق الجهد بين لوحيه إلى ${k} أمثاله. ماذا يحدث للطاقة المخزَّنة؟`,opts:['تصبح '+k*k+' أمثالها','تصبح '+k+' أمثالها','تبقى ثابتة','تصبح '+(k*k*k)+' أمثالها'],ans:0,why:`W = ½ C V² تتناسب مع V²: (${k})² = ${k*k}.`}},
+    ()=>({q:'مكثف A (100 µF عند 200 V) ومكثف B (200 µF عند 100 V). أيهما يخزّن شحنة أكبر؟ وأيهما يخزّن طاقة أكبر؟',opts:['الشحنتان متساويتان والطاقة في A أكبر','الشحنة في A أكبر وكذلك الطاقة','الشحنتان متساويتان والطاقتان متساويتان','الشحنة في B أكبر والطاقة في B أكبر'],ans:0,why:'Q = C V = 20 mC لكليهما. W = ½ Q V فالطاقة تتناسب مع V عند تساوي Q: A (200 V) يخزّن 2 J و B (100 V) يخزّن 1 J.'}),
+    ()=>({q:'ماذا تمثّل المساحة تحت منحنى (فرق الجهد – الشحنة) لمكثف؟',opts:['الطاقة المخزَّنة في المكثف','سعة المكثف','شدة التيار','المقاومة'],ans:0,why:'المساحة تحت منحنى V–Q = الشغل المبذول في الشحن = الطاقة المخزَّنة.'}),
+    ()=>({q:'عند اكتمال شحن مكثف موصول ببطارية، ما قراءة الأميتر؟ وما فرق جهد المكثف؟',opts:['صفر ، ويساوي القوة الدافعة للبطارية','أكبر ما يمكن ، ويساوي صفرًا','صفر ، ويساوي صفرًا','ثابتة ، ونصف القوة الدافعة'],ans:0,why:'يتوقف التيار عندما يتساوى فرق جهد المكثف مع القوة الدافعة للبطارية.'}),
+    ()=>{const s=pick([1.0,1.5,2.0,2.5]);return {q:`خط مستقيم في تمثيل (W مقابل V²) لمكثف ميله ${s} µJ لكل V². ما سعة المكثف؟`,opts:[f1(2*s)+' µF',f1(s)+' µF',f1(s/2)+' µF',f1(4*s)+' µF'],ans:0,why:`W = ½ C V² فالميل = ½ C ومنه C = 2 × ${s} = ${f1(2*s)} µF.`}},
+    ()=>{const c=pick([100,200,500]),v=pick([4,6,8]),t=pick([10,20,40]);const q=c*v,i=q/t;return {q:`شُحن مكثف سعته ${c} µF حتى ${v} V خلال ${t} ms. ما متوسط شدة التيار؟`,opts:[f1(i)+' mA',f1(q)+' mA',f1(i*1000)+' mA',f1(i/1000)+' mA'],ans:0,why:`Q = ${c} × ${v} = ${q} µC ثم I = Q ÷ t = ${q} µC ÷ ${t} ms = ${f1(i)} mA.`}},
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();const idx=shuf([0,1,2,3]);
+    Q.cur={...g,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans)};Q.done=false;
+    svg.innerHTML=tx(350,150,'السؤال '+(Q.n+1),{s:34,f:GRAY})+tx(350,215,'C = Q ÷ V     W = ½ Q V',{s:26,f:TEAL});
+    const wr=t=>t.replace(/(\d+(?:\.\d+)?(?: ?(?:µF|µC|mC|mA|µJ|mJ|ms|V|J|A))?)/g,'<span class="num">$1</span>');
+    info.innerHTML=`<p class="q-text">${wr(Q.cur.q)}</p><div class="opts">${Q.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${wr(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${wr(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('charge');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

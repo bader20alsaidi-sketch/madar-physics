@@ -1,0 +1,300 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر عزم القوة والاتزان — الصف العاشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.btns{flex-wrap:wrap}.btn[aria-pressed=true]{outline:3px solid var(--accent,#e07b1a)}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر عزم القوة والاتزان</h1><p class="sub">الوحدة الخامسة: عزم القوة ومركز الكتلة — التأثير الدوراني للقوة، حساب العزم، المفاتيح والعتلات، الأرجوحة، مبدأ العزوم والاتزان</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|]*[0-9A-Za-z%²³¹₀-₉)]|[0-9A-Za-zΔ½²³])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='door';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['door','الباب والمفصلة'],['wrench','المفتاح والعتلة'],['seesaw','الأرجوحة والاتزان'],['beam','حساب العزم والعارضة'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({door:tabDoor,wrench:tabWrench,seesaw:tabSeesaw,beam:tabBeam,quiz:tabQuiz})[k]();startLoop()}
+
+const QB=[{"q":"ما الاسم الذي يُطلق على النقطة الثابتة التي يدور الجسم حولها؟","opts":["الاتزان","الحمل","محور الدوران","النظام"],"ans":2,"why":"محور الدوران هو النقطة الثابتة التي يدور حولها الجسم، مثل مفصلات الباب."},{"q":"أي العبارات الآتية تصف عزم القوة بصورة صحيحة؟","opts":["مقياس لسرعة حركة الجسم","مقياس لتأثير القوة الدوراني حول نقطة","مقياس لكتلة الجسم","مقياس للزمن الذي تؤثر فيه القوة"],"ans":1,"why":"عزم القوة مقياس لتأثيرها الدوراني حول نقطة (محور) معينة."},{"q":"وحدة قياس عزم القوة في النظام الدولي للوحدات (SI) هي:","opts":["N m","N/m","N m²","kg m"],"ans":0,"why":"عزم القوة = القوة × المسافة، فوحدته نيوتن × متر، أي N m."},{"q":"أي المواقف الآتية يُعدّ مثالًا على التأثير الدوراني للقوة؟","opts":["سقوط حجر نحو الأرض","رفع كتاب رأسيًا إلى أعلى دون دوران","دفع باب ليدور حول مفصلاته","سحب صندوق على أرضية أفقية"],"ans":2,"why":"عند دفع الباب تُحدث القوة دورانًا حول مفصلاته، وهذا هو التأثير الدوراني للقوة."},{"q":"عند ثبات مقدار القوة ونقطة تأثيرها، يكون عزم القوة أكبر ما يمكن إذا أثّرت على الجسم بزاوية:","opts":["0°","30°","60°","90°"],"ans":3,"why":"يكون لقوة عزم أكبر ما يمكن إذا أثّرت على الجسم بزاوية قائمة 90°."},{"q":"رُكِّب مقبض الباب في الطرف البعيد عن المفصلات لأن ذلك:","opts":["يجعل الباب أخف وزنًا","يزيد مسافة القوة عن محور الدوران فيكبر العزم بالقوة نفسها","يقلل مقدار القوة اللازمة إلى الصفر","يجعل محور الدوران عند المقبض"],"ans":1,"why":"كلما ابتعدت القوة عن محور الدوران (المفصلات) زاد عزمها، فيُفتح الباب بقوة أصغر."},{"q":"أي العبارات الآتية صحيحة عن جسم في حالة اتزان؟","opts":["محصّلة القوى عليه صفر فقط","محصّلة العزوم عليه صفر فقط","محصّلة القوى صفر ومحصّلة العزوم صفر معًا","لا تؤثر عليه أي قوة إطلاقًا"],"ans":2,"why":"الاتزان يتطلب شرطين معًا: محصّلة القوى صفر ومحصّلة العزوم صفر. وقد تؤثر على الجسم المتزن قوى متزنة."},{"q":"يدفع طفلان بابًا بالقوة نفسها: الأول عند المقبض والثاني بالقرب من المفصلات. أيهما يسهل عليه تحريك الباب؟","opts":["الذي عند المقبض لأن عزم قوته أكبر","الذي قرب المفصلات لأن عزم قوته أكبر","كلاهما بالسهولة نفسها لأن القوة واحدة","لا يتحرك الباب بأي منهما"],"ans":0,"why":"القوة واحدة، والمسافة عن المفصلة عند المقبض أكبر، فعزم القوة هناك أكبر فيتحرك الباب بسهولة."},{"q":"تسقط شجرة طويلة أسهل من شجرة قصيرة عند هبوب رياح عاصفة. السبب الأقرب هو أن قوة الرياح على الشجرة الطويلة:","opts":["أصغر لكنها بعيدة عن الجذور","تؤثر على ارتفاع أكبر فتكون أبعد عن محور الدوران عند الجذور","تؤثر مباشرة في الجذور","لا تُحدث عزمًا"],"ans":1,"why":"قوة الرياح تؤثر عند ارتفاع أكبر، فتبعد أكثر عن محور الدوران (الجذور)، فيكبر عزمها."},{"q":"ما نص مبدأ العزوم؟","opts":["الجسم متزن إذا تساوت القوى على جانبي محور الدوران","الجسم متزن دورانيًا إذا تساوى مجموع العزوم مع عقارب الساعة ومجموعها عكسها","عزم القوة يساوي القوة مقسومة على المسافة","العزم يساوي كتلة الجسم مضروبة في تسارعه"],"ans":1,"why":"مبدأ العزوم: تكون العارضة متزنة عندما يتساوى مجموع العزوم باتجاه عقارب الساعة مع مجموع العزوم بعكس اتجاهها."},{"q":"طريقتان لشد برغي بالقوة نفسها: في الأولى تؤثر اليد على بعد (4 cm) من محور البرغي، وفي الثانية على بعد (6 cm). أي الطريقتين أفضل في شد البرغي؟","opts":["الأولى لأن المسافة أقل","الثانية لأن عزم القوة فيها أكبر","الطريقتان متساويتان","الأولى لأن عزم القوة فيها أكبر"],"ans":1,"why":"القوة نفسها في الطريقتين، والمسافة في الثانية أكبر (6 cm)، فعزم القوة فيها أكبر."},{"q":"قال علي: «إذا كانت القوتان على جانبي محور الدوران متساويتين فإن العارضة تتزن دائمًا». ما ردّك؟","opts":["صحيح دائمًا","غير صحيح، فالاتزان يتطلب تساوي العزمين وليس القوتين فقط","صحيح إذا كانتا متعاكستين","غير صحيح، فالعارضة لا تتزن أبدًا"],"ans":1,"why":"الاتزان الدوراني يتطلب تساوي مجموعي العزمين، وقد تتساوى القوتان وتختلف المسافتان فيختلف العزمان."}];
+const f2=x=>String(+(+x).toFixed(2)).replace('-','−'),f1b=x=>String(+(+x).toFixed(1)).replace('-','−'),f0b=x=>String(Math.round(x)).replace('-','−');
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+const TEAL='#1c8f95',PURPLE='#8a3aa8',WOOD='#c99a5b',WOOD2='#8b5e2b';
+const fixN=t=>String(t).replace(/(−?\d+(?:\.\d+)?(?: ?(?:N m|N|m|cm)(?![A-Za-z]))?|F × d|F\d?|d)/g,'<span class="num">$1</span>');
+const rad=d=>d*Math.PI/180;
+const hexPts=(cx,cy,r)=>[0,1,2,3,4,5].map(k=>(cx+r*Math.cos(k*Math.PI/3)).toFixed(1)+','+(cy+r*Math.sin(k*Math.PI/3)).toFixed(1)).join(' ');
+const bar=(x,y,w,h,frac,col,mark)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="none" stroke="${GRAY}" stroke-width="1.6"/><rect x="${x}" y="${y}" width="${Math.max(0,Math.min(1,frac))*w}" height="${h}" rx="6" fill="${col}" opacity=".85"/>`+(mark!==undefined?`<line x1="${x+mark*w}" y1="${y-5}" x2="${x+mark*w}" y2="${y+h+5}" stroke="#1a1a1a" stroke-width="2.4"/>`:'');
+/* push button helper: a toggle that keeps pushing/pulling */
+const pushBtn=(id,t)=>`<button class="btn primary" id="${id}" aria-pressed="false">${t}</button>`;
+
+/* =====================================================================
+   1) الباب والمفصلة
+   ===================================================================== */
+function tabDoor(){
+  const W={F:50,d:0.5,th:90,phi:0,om:0,push:false},P={x:90,y:215},LEN=520,PHI=75;
+  ctrl.innerHTML=slider('F','القوة F',10,100,10,W.F,'N')+slider('d','بُعد نقطة الدفع عن المفصلة d',0.1,1,0.1,W.d,'m')+slider('th','زاوية القوة مع الباب',15,90,15,W.th,'°')+`<div class="btns">${pushBtn('go','ادفع الباب')}<button class="btn" id="rst">أعد الباب</button></div><p class="gt">الزاوية 90° تعني أن القوة عمودية على الباب.</p>`;
+  setTalk(['افتح الباب بالقوة نفسها مرتين: مرة قريبًا من المفصلة ومرة عند المقبض، ولاحظ سرعة دوران الباب وقيمة العزم.','اترك القوة والمسافة ثابتتين وغيّر الزاوية: القوة العمودية (90°) تعطي أكبر عزم.','غيّر القوة وحدها: كلما زادت القوة زاد العزم.','اطلب من الطالب أن يتوقع أي الحالات أكبر عزمًا قبل أن يرى الرقم.']);
+  const upd=(id,u,key)=>bindSlider(id,u,v=>{W[key]=v;render()});
+  upd('F','N','F');upd('d','m','d');upd('th','°','th');
+  const g=$('go');g.onclick=()=>{W.push=!W.push;g.setAttribute('aria-pressed',W.push);g.textContent=W.push?'أوقف الدفع':'ادفع الباب'};
+  $('rst').onclick=()=>{W.phi=0;W.om=0;W.push=false;g.setAttribute('aria-pressed','false');g.textContent='ادفع الباب';render()};
+  const moment=()=>W.F*W.d*Math.sin(rad(W.th));
+  tick=dt=>{dt=Math.max(0,dt);if(W.push&&W.phi<PHI){W.om+=moment()*0.04*dt;W.om=Math.min(W.om,2.2);W.phi=Math.min(PHI,W.phi+W.om*dt*57.3)}if(!W.push){W.om*=0.9}if(W.phi>=PHI){W.om=0}render()};
+  function render(){
+    const ph=rad(W.phi),D=[Math.cos(ph),-Math.sin(ph)],N=[-Math.sin(ph),-Math.cos(ph)];
+    const sT=Math.sin(rad(W.th)),cT=Math.cos(rad(W.th));
+    const Fh=[sT*N[0]-cT*D[0],sT*N[1]-cT*D[1]];
+    const px=P.x+D[0]*W.d*LEN,py=P.y+D[1]*W.d*LEN,len=36+W.F*0.9;
+    let s=`<rect x="64" y="150" width="26" height="130" rx="3" fill="#b9c3cc" stroke="${GRAY}" stroke-width="1.6"/>`;
+    s+=`<g transform="rotate(${-W.phi} ${P.x} ${P.y})"><rect x="${P.x}" y="${P.y-8}" width="${LEN}" height="16" rx="3" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2"/><rect x="${P.x+LEN-34}" y="${P.y-12}" width="20" height="6" rx="3" fill="#6b7a8c"/></g>`;
+    s+=`<circle cx="${P.x}" cy="${P.y}" r="8" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="2"/>`+tx(P.x,P.y+44,'محور الدوران (المفصلة)',{s:12,f:ORANGE});
+    s+=`<line x1="${P.x}" y1="${P.y}" x2="${px}" y2="${py}" stroke="${BLUE}" stroke-width="2.4" stroke-dasharray="6 5"/>`;
+    s+=arr(px-Fh[0]*len,py-Fh[1]*len,px,py,RED,6)+`<circle cx="${px}" cy="${py}" r="5" fill="#1a1a1a"/>`;
+    s+=tx(px-Fh[0]*len+14,py-Fh[1]*len+8,'F = '+f0b(W.F)+' N',{s:13,f:RED,a:'start'});
+    s+=tx((P.x+px)/2+N[0]*-26,(P.y+py)/2+26,'d = '+f1b(W.d)+' m',{s:13,f:BLUE});
+    const M=moment(),Mmax=W.F*W.d;
+    s+=bar(150,318,420,18,M/100,M>=Mmax-0.01?GREEN:ORANGE,undefined)+tx(144,332,'عزم القوة',{s:12,a:'start'})+tx(580,332,f0b(M)+' N m',{s:12,a:'end'});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('القوة F',f0b(W.F)+' N')}${chip('البُعد d',f1b(W.d)+' m')}${chip('الزاوية مع الباب',W.th+'°')}${chip('عزم القوة',f1b(M)+' N m')}${chip('أكبر عزم بهذه القوة والبُعد',f1b(Mmax)+' N m')}</div><p class="say${W.th===90?' ok':''}">${W.th===90?fixN('القوة عمودية على الباب: العزم = F × d = '+f0b(W.F)+' × '+f1b(W.d)+' = '+f1b(M)+' N m وهو أكبر ما يمكن بهذه القوة وهذا البُعد.'):'القوة مائلة على الباب، فعزمها أصغر من عزم القوة العمودية نفسها.'}</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   2) المفتاح والعتلة
+   ===================================================================== */
+function tabWrench(){
+  const W={F:40,d:0.15,ang:0,pull:false,nut:0},C={x:110,y:200},SC=480,R=12;
+  ctrl.innerHTML=slider('F','القوة F',10,100,5,W.F,'N')+slider('d','طول ذراع المفتاح d',0.1,0.6,0.05,W.d,'m')+`<div class="btns">${pushBtn('go','اسحب المفتاح')}<button class="btn" id="ps">مفتاح قصير</button><button class="btn" id="pl">مفتاح طويل</button></div><p class="gt">الصامولة تحتاج إلى عزم لا يقل عن ${R} N m لتبدأ بالدوران.</p>`;
+  setTalk(['القوة 40 N على مفتاح قصير (0.15 m) لا تفك الصامولة، لكنها تفكّها على مفتاح طويل (0.45 m): المسافة هي التي تغيّرت.','اطلب من الطالب أن يجد قوة أصغر تكفي مع مفتاح أطول.','اربط ذلك بعتلة رفع الصخرة وبمقابض العربة اليدوية.']);
+  const set=(k,v,u)=>{W[k]=v;const o=$(k);o.value=v;$(k+'_o').textContent=v+' '+u;render()};
+  bindSlider('F','N',v=>{W.F=v;render()});bindSlider('d','m',v=>{W.d=v;render()});
+  $('ps').onclick=()=>set('d',0.15,'m');$('pl').onclick=()=>set('d',0.45,'m');
+  const g=$('go');g.onclick=()=>{W.pull=!W.pull;g.setAttribute('aria-pressed',W.pull);g.textContent=W.pull?'أوقف السحب':'اسحب المفتاح'};
+  tick=dt=>{dt=Math.max(0,dt);if(W.pull&&W.F*W.d>=R){W.ang+=(25+(W.F*W.d-R)*3)*dt;if(W.ang>70)W.ang=0}render()};
+  function render(){
+    const M=W.F*W.d,ok=M>=R,hx=C.x+W.d*SC;
+    let s=`<g transform="rotate(${-W.ang} ${C.x} ${C.y})"><rect x="${C.x-10}" y="${C.y-12}" width="${hx-C.x+30}" height="24" rx="12" fill="#c8d1d8" stroke="#1a1a1a" stroke-width="2.2"/><polygon points="${hexPts(C.x,C.y,38)}" fill="#8fa3b5" stroke="#1a1a1a" stroke-width="2.6"/><circle cx="${C.x}" cy="${C.y}" r="9" fill="${ORANGE}" stroke="#1a1a1a" stroke-width="2"/></g>`;
+    const a=rad(W.ang),tipx=C.x+(hx+8-C.x)*Math.cos(a),tipy=C.y-(hx+8-C.x)*Math.sin(a),len=36+W.F*0.8;
+    s+=arr(tipx+Math.sin(a)*len*0,tipy+len*Math.cos(a),tipx,tipy,RED,6)+tx(tipx+16,tipy+len*.55,'F = '+f0b(W.F)+' N',{s:13,f:RED,a:'start'});
+    s+=`<line x1="${C.x}" y1="${C.y+58}" x2="${C.x+(hx-C.x)*Math.cos(a)}" y2="${C.y+58}" stroke="${BLUE}" stroke-width="2.4" stroke-dasharray="6 5"/>`+tx((C.x+hx)/2,C.y+78,'d = '+f2(W.d)+' m',{s:13,f:BLUE});
+    s+=tx(C.x,C.y-58,'محور الدوران (الصامولة)',{s:12,f:ORANGE});
+    s+=bar(150,318,420,18,M/(R*2.5),ok?GREEN:RED,R/(R*2.5))+tx(144,332,'عزم القوة',{s:12,a:'start'})+tx(580,332,f1b(M)+' N m',{s:12,a:'end'})+tx(150+R/(R*2.5)*420,310,'عزم الفك '+R+' N m',{s:11});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('القوة F',f0b(W.F)+' N')}${chip('طول الذراع d',f2(W.d)+' m')}${chip('عزم القوة',f1b(M)+' N m')}${chip('عزم الفك المطلوب',R+' N m')}</div><p class="say${ok?' ok':''}">${ok?fixN('عزم القوة '+f1b(M)+' N m يكفي لفك الصامولة: اضغط «اسحب المفتاح».'):fixN('عزم القوة '+f1b(M)+' N m لا يكفي: زد القوة أو استخدم مفتاحًا أطول لتزداد المسافة.')}</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) الأرجوحة والاتزان
+   ===================================================================== */
+function tabSeesaw(){
+  const W={wa:400,da:2,wb:300,db:2,ang:0},PV={x:350,y:200},SC=112;
+  const sl=()=>slider('wa','وزن الطفل الأيسر',200,500,50,W.wa,'N')+slider('da','بُعده عن المحور',0.5,2.5,0.25,W.da,'m')+slider('wb','وزن الطفل الأيمن',200,500,50,W.wb,'N')+slider('db','بُعده عن المحور',0.5,2.5,0.25,W.db,'m');
+  ctrl.innerHTML=sl()+`<div class="btns"><button class="btn" id="p1">طفلان متماثلان</button><button class="btn" id="p2">الأخف أبعد</button><button class="btn" id="p3">أرجوحة مائلة</button></div>`;
+  setTalk(['ابدأ بطفلين متماثلين على البُعد نفسه: الأرجوحة متزنة.','غيّر وزن أحدهما فقط: تميل الأرجوحة نحو الأثقل.','أعد الاتزان دون تغيير الوزنين: اجعل الأخف يبتعد أو الأثقل يقترب.','لاحظ شرطي الاتزان معًا: محصلة القوى صفر (الركيزة تحمل الوزنين) ومحصلة العزوم صفر.']);
+  const bind=(id,k,u)=>bindSlider(id,u,v=>{W[k]=v});
+  bind('wa','wa','N');bind('da','da','m');bind('wb','wb','N');bind('db','db','m');
+  const setAll=(a,b,c,d)=>{[['wa',a,'N'],['da',b,'m'],['wb',c,'N'],['db',d,'m']].forEach(([k,v,u])=>{W[k]=v;$(k).value=v;$(k+'_o').textContent=v+' '+u})};
+  $('p1').onclick=()=>setAll(300,2,300,2);$('p2').onclick=()=>setAll(400,1.5,300,2);$('p3').onclick=()=>setAll(400,2,300,2);
+  tick=dt=>{dt=Math.max(0,dt);const net=W.wb*W.db-W.wa*W.da,tgt=Math.max(-1,Math.min(1,net/300))*10;W.ang+=(tgt-W.ang)*Math.min(1,dt*3);render()};
+  function render(){
+    const th=rad(W.ang),c=Math.cos(th),sn=Math.sin(th),net=W.wb*W.db-W.wa*W.da,ma=W.wa*W.da,mb=W.wb*W.db,bal=Math.abs(net)<1;
+    const pt=x=>[PV.x+x*c,PV.y+x*sn];
+    let s=`<polygon points="${PV.x},${PV.y} ${PV.x-34},${PV.y+62} ${PV.x+34},${PV.y+62}" fill="#9aa6af" stroke="#1a1a1a" stroke-width="2.4"/><line x1="40" y1="${PV.y+62}" x2="660" y2="${PV.y+62}" stroke="#6b5b3e" stroke-width="4"/>`;
+    s+=`<g transform="rotate(${W.ang} ${PV.x} ${PV.y})"><rect x="${PV.x-300}" y="${PV.y-8}" width="600" height="16" rx="4" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2"/>`;
+    const kid=(x,w,col)=>{const r=8+w/50;return `<circle cx="${PV.x+x}" cy="${PV.y-8-r*1.7}" r="${r}" fill="#f2c9a0" stroke="#1a1a1a" stroke-width="2"/><rect x="${PV.x+x-r*.9}" y="${PV.y-8-r*.8}" width="${r*1.8}" height="${r*.8}" rx="4" fill="${col}"/>`};
+    s+=kid(-W.da*SC,W.wa,'#b3541e')+kid(W.db*SC,W.wb,'#4b6fa5')+`</g>`;
+    const [ax,ay]=pt(-W.da*SC),[bx,by]=pt(W.db*SC);
+    s+=arr(ax,ay+10,ax,ay+10+W.wa*0.12,RED,5)+arr(bx,by+10,bx,by+10+W.wb*0.12,RED,5);
+    s+=tx(ax,ay+34+W.wa*0.12,f0b(W.wa)+' N',{s:12,f:RED})+tx(bx,by+34+W.wb*0.12,f0b(W.wb)+' N',{s:12,f:RED});
+    s+=`<line x1="${PV.x}" y1="${PV.y-100}" x2="${PV.x-W.da*SC}" y2="${PV.y-100}" stroke="${BLUE}" stroke-width="2"/><line x1="${PV.x}" y1="${PV.y-100}" x2="${PV.x+W.db*SC}" y2="${PV.y-100}" stroke="${BLUE}" stroke-width="2"/>`+tx(PV.x-W.da*SC/2,PV.y-108,'d = '+f2(W.da)+' m',{s:12,f:BLUE})+tx(PV.x+W.db*SC/2,PV.y-108,'d = '+f2(W.db)+' m',{s:12,f:BLUE});
+    s+=tx(PV.x,PV.y+84,'محور الدوران',{s:12,f:ORANGE});
+    s+=tx(350,38,bal?'الأرجوحة متزنة':(net>0?'تميل نحو الطفل الأيمن':'تميل نحو الطفل الأيسر'),{s:17,f:bal?GREEN:RED});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('عزم الطفل الأيسر (عكس عقارب الساعة)',f0b(ma)+' N m')}${chip('عزم الطفل الأيمن (مع عقارب الساعة)',f0b(mb)+' N m')}${chip('محصلة العزوم',f0b(Math.abs(net))+' N m')}${chip('محصلة القوى',bal?'0':'0 (الركيزة تحمل الوزنين)')}</div><p class="say${bal?' ok':''}">${bal?'محصلة العزوم صفر ومحصلة القوى صفر: الأرجوحة في حالة اتزان.':'العزمان غير متساويين، فتوجد محصلة عزوم وتدور الأرجوحة نحو العزم الأكبر. حاول أن تعيد الاتزان بتغيير بُعد أحد الطفلين.'}</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3ب) حساب العزم واتزان العارضة (مبدأ العزوم)
+   ===================================================================== */
+function tabBeam(){
+  const W={f1:40,d1:3,f2:60,d2:1,dF:2,F:60,ang:0,shown:false},PV={x:350,y:195},SC=70;
+  const need=()=>(W.f1*W.d1+W.f2*W.d2)/W.dF;
+  ctrl.innerHTML=slider('f1','القوة الأولى (يسار)',20,100,10,W.f1,'N')+slider('d1','بُعدها عن المحور',1,4,0.5,W.d1,'m')+slider('f2','القوة الثانية (يسار)',10,100,10,W.f2,'N')+slider('d2','بُعدها عن المحور',0.5,3,0.5,W.d2,'m')+slider('dF','بُعد القوة F (يمين) عن المحور',1,4,0.5,W.dF,'m')+slider('F','القوة F',10,300,5,W.F,'N')+`<div class="btns"><button class="btn primary" id="sol">أظهر الحل</button><button class="btn" id="nw">مسألة جديدة</button></div>`;
+  setTalk(['اطلب من الطالب أن يحسب العزم على كل جانب بيده ثم يضبط القوة F حتى تتزن العارضة.','العزوم عكس عقارب الساعة هي عزوم القوتين على اليسار، والعزم مع عقارب الساعة هو عزم F.','اضغط «أظهر الحل» لتظهر خطوات مبدأ العزوم والقيمة المطلوبة.','غيّر البُعد dF وانظر كيف تتغير القوة المطلوبة عكسيًا.']);
+  const bind=(id,k,u)=>bindSlider(id,u,v=>{W[k]=v;W.shown=false});
+  bind('f1','f1','N');bind('d1','d1','m');bind('f2','f2','N');bind('d2','d2','m');bind('dF','dF','m');bind('F','F','N');
+  const setAll=(a,b,c,d,e)=>{[['f1',a,'N'],['d1',b,'m'],['f2',c,'N'],['d2',d,'m'],['dF',e,'m']].forEach(([k,v,u])=>{W[k]=v;$(k).value=v;$(k+'_o').textContent=v+' '+u});W.shown=false};
+  $('sol').onclick=()=>{const n=need();W.F=Math.max(10,Math.min(300,Math.round(n)));$('F').value=W.F;$('F_o').textContent=W.F+' N';W.shown=true};
+  $('nw').onclick=()=>{for(let i=0;i<200;i++){const dF=[2,3,4][Math.floor(Math.random()*3)],f1=[20,30,40][Math.floor(Math.random()*3)],d1=[1,2,3][Math.floor(Math.random()*3)],f2=[10,20,30][Math.floor(Math.random()*3)],d2=[1,2][Math.floor(Math.random()*2)];if((f1*d1+f2*d2)%dF===0){setAll(f1,d1,f2,d2,dF);W.F=10;$('F').value=10;$('F_o').textContent='10 N';break}}};
+  tick=dt=>{dt=Math.max(0,dt);const net=W.F*W.dF-(W.f1*W.d1+W.f2*W.d2),tgt=Math.max(-1,Math.min(1,net/150))*9;W.ang+=(tgt-W.ang)*Math.min(1,dt*3);render()};
+  function render(){
+    const th=rad(W.ang),c=Math.cos(th),sn=Math.sin(th),ml=W.f1*W.d1+W.f2*W.d2,mr=W.F*W.dF,net=mr-ml,bal=Math.abs(net)<0.5,n=need();
+    const pt=x=>[PV.x+x*c,PV.y+x*sn];
+    let s=`<polygon points="${PV.x},${PV.y} ${PV.x-34},${PV.y+58} ${PV.x+34},${PV.y+58}" fill="#ee3b3b" stroke="#1a1a1a" stroke-width="2.4"/>`;
+    s+=`<g transform="rotate(${W.ang} ${PV.x} ${PV.y})"><rect x="${PV.x-4*SC-14}" y="${PV.y-8}" width="${8*SC+28}" height="16" rx="3" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2"/></g>`;
+    const frc=(x,F,col,lab,above)=>{const [bx,by]=pt(x),L=24+F*0.34;return arr(bx,by-10-L,bx,by-10,col,5)+tx(bx,by-16-L,lab,{s:12,f:col})};
+    s+=frc(-W.d1*SC,W.f1,'#2e9e5b',f0b(W.f1)+' N')+frc(-W.d2*SC,W.f2,'#2e9e5b',f0b(W.f2)+' N')+frc(W.dF*SC,W.F,RED,'F = '+f0b(W.F)+' N');
+    const yd=PV.y+82;
+    s+=`<line x1="${PV.x-W.d1*SC}" y1="${yd}" x2="${PV.x}" y2="${yd}" stroke="${BLUE}" stroke-width="2"/><line x1="${PV.x}" y1="${yd+16}" x2="${PV.x-W.d2*SC}" y2="${yd+16}" stroke="${BLUE}" stroke-width="2"/><line x1="${PV.x}" y1="${yd}" x2="${PV.x+W.dF*SC}" y2="${yd}" stroke="${BLUE}" stroke-width="2"/>`;
+    s+=tx(PV.x-W.d1*SC/2,yd-6,f1b(W.d1)+' m',{s:11,f:BLUE})+tx(PV.x-W.d2*SC/2,yd+34,f1b(W.d2)+' m',{s:11,f:BLUE})+tx(PV.x+W.dF*SC/2,yd-6,f1b(W.dF)+' m',{s:11,f:BLUE});
+    s+=tx(PV.x,PV.y+134,'محور الدوران',{s:12,f:ORANGE});
+    s+=tx(350,34,bal?'العارضة متزنة':(net>0?'تميل نحو F':'تميل نحو القوتين على اليسار'),{s:17,f:bal?GREEN:RED});
+    svg.innerHTML=s;
+    const steps=W.shown?`<p class="say ok">${fixN('مجموع العزوم عكس عقارب الساعة: ('+f0b(W.f1)+' × '+f1b(W.d1)+') + ('+f0b(W.f2)+' × '+f1b(W.d2)+') = '+f0b(ml)+' N m. مجموع العزوم مع عقارب الساعة: F × '+f1b(W.dF)+'. ولأن العارضة متزنة: F × '+f1b(W.dF)+' = '+f0b(ml)+' ومنها F = '+f1b(n)+' N.')}</p>`:'';
+    info.innerHTML=`<div class="chips">${chip('العزوم عكس عقارب الساعة',f0b(ml)+' N m')}${chip('عزم F مع عقارب الساعة',f0b(mr)+' N m')}${chip('الفرق',f0b(Math.abs(net))+' N m')}${chip('القوة المطلوبة للاتزان',f1b(n)+' N')}</div><p class="say${bal?' ok':''}">${bal?'العزمان متساويان: محصلة العزوم صفر، والعارضة في حالة اتزان.':'مبدأ العزوم: مجموع العزوم مع عقارب الساعة = مجموع العزوم عكسها. اضبط F أو بُعدها لتتساوى العزوم.'}</p>${steps}`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: عزم القوة والاتزان.</p>`;
+  setTalk(['اطلب من الطالب أن يفسّر اختياره قبل أن يرى الحل.','ركّز على الوحدات: عزم القوة بوحدة N m.','في أسئلة المقارنة: ابحث عن القوة الأبعد والأكبر والعمودية.','كرّر حتى يتقن الطالب الأنواع كلها.']);
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const uniq=a=>[...new Set(a)];
+  const numOpts=(c,w,unit)=>{let o=uniq([c,...w].map(x=>+(+x).toFixed(2)));let i=1;while(o.length<4){o.push(+(c+i*Math.max(1,Math.abs(c)*.25)).toFixed(2));o=uniq(o);i++}return o.slice(0,4).map(x=>f2(x)+' '+unit)};
+  const GEN=[
+    ()=>{const F=pick([10,20,25,40,50]),d=pick([0.2,0.3,0.4,0.5,0.8]);return {q:`أثّرت قوة عمودية مقدارها ${F} N على ذراع مفتاح ربط عند نقطة تبعد ${d} m عن مركز الصامولة. ما عزم القوة؟`,c:F*d,w:[F/d,F+d,F*d*10],unit:'N m',why:`عزم القوة = القوة × المسافة العمودية = ${F} × ${d} = ${f2(F*d)} N m.`}},
+    ()=>{const F=pick([8,10,15,20,40]),d=pick([20,25,30,40,50]);return {q:`أثّرت قوة عمودية مقدارها ${F} N على ذراع مفتاح عند نقطة تبعد ${d} cm عن محور الدوران. ما عزم القوة بوحدة N m؟`,c:F*d/100,w:[F*d,F*d/10,F*d*100],unit:'N m',why:`نحوّل المسافة إلى متر: ${d} cm = ${f2(d/100)} m. العزم = ${F} × ${f2(d/100)} = ${f2(F*d/100)} N m.`}},
+    ()=>{const M=pick([12,18,24,30]),k=pick([2,3,4]);return {q:`عزم قوة ما حول محور الدوران ${M} N m. ما عزم القوة نفسها إذا أُثّرت عند نصف المسافة عن المحور نفسه (وبزاوية قائمة)؟`,c:M/2,w:[M*2,M,M/4],unit:'N m',why:`العزم يتناسب طرديًا مع المسافة عند ثبات القوة، فإذا نقصت المسافة إلى النصف نقص العزم إلى النصف: ${M} ÷ 2 = ${f2(M/2)} N m.`}},
+    /*GEN_BEAM*/()=>{for(let i=0;i<300;i++){const dF=pick([2,3,4]),f1=pick([20,30,40]),d1=pick([1,2,3]),f2=pick([10,20,30]),d2=pick([1,2]),T=f1*d1+f2*d2;if(T%dF===0){const F=T/dF;return {q:`عارضة متزنة ترتكز عند نقطة. تؤثر عليها على أحد جانبيها قوة ${f1} N على بعد ${d1} m وقوة ${f2} N على بعد ${d2} m، وتؤثر على الجانب الآخر قوة F على بعد ${dF} m من نقطة الارتكاز. ما مقدار F؟`,c:F,w:[T,F*dF,F+dF],unit:'N',why:`مجموع العزوم عكس عقارب الساعة = (${f1} × ${d1}) + (${f2} × ${d2}) = ${T} N m. ومنه F × ${dF} = ${T}، فتكون F = ${T} ÷ ${dF} = ${F} N.`}}}return pick(QB)},
+    ()=>{for(let i=0;i<300;i++){const w1=pick([300,400,600]),d1=pick([0.5,1,1.5]),w2=pick([100,200,300]),M=w1*d1,d=M/w2;if(Number.isInteger(d*2)&&d>0.4&&d<=3){return {q:`يجلس أب وزنه ${w1} N على بعد ${d1} m من محور أرجوحة، ويجلس طفل وزنه ${w2} N في الجهة المقابلة. ما المسافة التي يجلس عندها الطفل لتتزن الأرجوحة؟`,c:d,w:[M,w1/w2,d1],unit:'m',why:`العزمان متساويان: ${w1} × ${d1} = ${w2} × d، أي ${M} = ${w2} d، فتكون d = ${M} ÷ ${w2} = ${f2(d)} m.`}}}return pick(QB)},
+    ()=>pick(QB),
+    ()=>pick(QB),
+    ()=>pick(QB)
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();
+    let opts,ans;
+    if(g.opts){const idx=shuf(g.opts.map((o,i)=>i));opts=idx.map(i=>g.opts[i]);ans=idx.indexOf(g.ans)}else{const o=numOpts(g.c,g.w,g.unit),right=f2(g.c)+' '+g.unit,sh=shuf(o);opts=sh;ans=sh.indexOf(right);if(ans<0){sh[0]=right;ans=0}}
+    Q.cur={...g,opts,ans};Q.done=false;
+    svg.innerHTML=tx(350,190,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixN(Q.cur.q)}</p><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixN(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixN(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('door');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>
