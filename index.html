@@ -162,14 +162,15 @@
 
   /* ad banner (tutoring) */
 
-  /* عدّاد الزيارات في الصفحة الرئيسية */
-  .visit-card{
-    margin-top:18px; display:flex; align-items:center; justify-content:center; text-align:center;
-    background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:14px 18px;
+  /* عدّاد الزيارات: شارة صغيرة في الشريط العلوي بجانب شعار مدار */
+  .visit-pill{
+    display:flex; align-items:baseline; gap:5px; margin-inline-start:12px;
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:4px 11px; white-space:nowrap; font-family:'Tajawal',sans-serif; line-height:1.3;
   }
-  .visit-card[hidden]{ display:none; }
-  .visit-num{ font-family:'Space Grotesk','Tajawal',sans-serif; font-size:42px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums; line-height:1.1; letter-spacing:.5px; }
-  .visit-label{ font-family:'Tajawal',sans-serif; font-size:17px; font-weight:700; color:var(--text-primary); margin-top:4px; line-height:1.5; text-wrap:balance; }
+  .visit-pill[hidden]{ display:none; }
+  .visit-pill .visit-num{ font-family:'Space Grotesk','Tajawal',sans-serif; font-size:15px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums; }
+  .visit-pill .visit-label{ font-size:12px; font-weight:700; color:var(--text-primary); }
   .promo-card{
     margin-top:22px;
     background: linear-gradient(160deg, rgba(242,166,90,0.12), rgba(91,141,239,0.05));
@@ -421,6 +422,7 @@
       </div>
       <div class="brand-name" id="brandText">مدار</div>
     </div>
+    <div class="visit-pill" id="visitCard" title="زيارة لموقع مدار منذ انطلاق المشروع" hidden><span class="visit-num" id="visitNum" aria-live="polite">—</span><span class="visit-label" id="visitLabel">زيارة</span></div>
     <div style="flex:1"></div>
     <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" aria-label="تبديل الوضع الليلي أو النهاري" title="تبديل الوضع الليلي/النهاري">🌙</button>
     <button class="icon-btn" id="addBtn" style="display:none;" onclick="showAddModal()" aria-label="إضافة محتوى">＋</button>
@@ -1408,6 +1410,7 @@ function push(s){ stack.push(s); render(); }
 function goBack(){ if(stack.length>1){ stack.pop(); render(); } }
 
 function updateTopbar(){
+  syncVisitPill();
   const backBtn = document.getElementById('backBtn');
   const brandText = document.getElementById('brandText');
   const s = cur();
@@ -1459,11 +1462,14 @@ function render(){
 }
 
 /* ===== عدّاد الزيارات: تُحتسب زيارة جديدة مع كل دخول إلى الموقع (حتى من نفس الطالب) =====
-   يُسجَّل مرة واحدة لكل تحميل للصفحة؛ والتنقل داخل الموقع والرجوع للرئيسية لا يزيد الرقم. */
-let visitSent = false;
-async function loadVisits(){
+   يُسجَّل مرة واحدة لكل تحميل للصفحة؛ والتنقل داخل الموقع والرجوع للرئيسية لا يزيد الرقم.
+   الشارة تظهر في الشريط العلوي بجانب شعار مدار في الصفحة الرئيسية فقط. */
+let visitSent = false, visitReady = false;
+function syncVisitPill(){
   const card = document.getElementById('visitCard');
-  if(!card) return;
+  if(card) card.hidden = !(visitReady && cur().screen==='home');
+}
+async function loadVisits(){
   const first = !visitSent;
   visitSent = true;
   try{
@@ -1471,9 +1477,9 @@ async function loadVisits(){
     const j = await r.json();
     if(!j.ok) return;
     document.getElementById('visitNum').textContent = Number(j.total).toLocaleString('en-US');
-    if(j.since) document.getElementById('visitLabel').textContent = 'زيارة لموقع مدار ' + j.since;
-    card.hidden = false;
-  }catch(e){ /* بلا اتصال بالخدمة: تبقى البطاقة مخفية */ }
+    visitReady = true;
+    syncVisitPill();
+  }catch(e){ /* بلا اتصال بالخدمة: تبقى الشارة مخفية */ }
 }
 
 /* ===== HOME: grade selection ===== */
@@ -1489,12 +1495,6 @@ function renderHome(c){
           <div class="grade-label">الصف ${g.label}</div>
         </div>`;
       }).join('')}
-    </div>
-    <div class="visit-card" id="visitCard" hidden>
-      <div>
-        <div class="visit-num" id="visitNum" aria-live="polite">—</div>
-        <div class="visit-label" id="visitLabel">زيارة لموقع مدار منذ انطلاق المشروع</div>
-      </div>
     </div>
     <div class="promo-card">
       <div class="promo-top">
