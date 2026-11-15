@@ -1,0 +1,330 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مختبر قانون نيوتن الأول وأنواع القوى — الصف الحادي عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.btns{flex-wrap:wrap}.btn[aria-pressed=true]{outline:3px solid var(--accent,#e07b1a)}.tb{width:100%;border-collapse:collapse;margin-top:10px}.tb th,.tb td{border:1px solid var(--line);padding:6px 8px;text-align:center}.tb th{background:var(--chip);font-size:.85rem}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>مختبر قانون نيوتن الأول وأنواع القوى</h1><p class="sub">الوحدة الرابعة: القوى — أنواع القوى، قانون نيوتن الأول، القصور الذاتي، السرعة المتجهة الحدية</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔΣ½²³⁻₀-₉][0-9A-Za-zΔΣ½ .,+-−×÷=/%²³⁻¹₀-₉()|]*[0-9A-Za-z%²³¹₀-₉)]|[0-9A-Za-zΔΣ½²³])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='types';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['types','أنواع القوى'],['first','قانون نيوتن الأول'],['bus','القصور الذاتي'],['term','السرعة الحدية'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({types:tabTypes,first:tabFirst,bus:tabBus,term:tabTerminal,quiz:tabQuiz})[k]();startLoop()}
+
+const QB=[{"q":"ما اسم القوة التي تؤثر بها الأرض على جسم فتجذبه نحو مركزها؟","opts":["قوة الشد","الوزن","قوة الطفو","قوة التلامس العمودية"],"ans":1,"why":"الوزن هو قوة الجاذبية المؤثرة على الجسم، ويتجه رأسيًا إلى الأسفل نحو مركز الأرض."},{"q":"الكتلة هي خاصية في الجسم تعبّر عن:","opts":["مقدار جذب الأرض له","مقاومته لإحداث تغيير في حالته الحركية","حجمه فقط","سرعته"],"ans":1,"why":"الكتلة هي خاصية مقاومة الجسم لإحداث التغيير في حالته الحركية، فكلما زادت الكتلة زادت هذه المقاومة."},{"q":"أي الحالات الآتية تمثّل خاصية القصور الذاتي؟","opts":["سقوط كرة سقوطًا حرًّا","هبوط مظلي بتسارع","اندفاع الركاب إلى الأمام عند ضغط السائق على المكابح","تباطؤ سيارة عند الاقتراب من إشارة مرور"],"ans":2,"why":"القصور الذاتي ميل الجسم إلى البقاء على حالته الحركية، فيستمر الراكب في الحركة إلى الأمام عند توقف الحافلة المفاجئ."},{"q":"قوة الشد هي القوة التي:","opts":["يؤثر بها سائل على جسم مغمور فيه","يؤثر بها حبل أو سلك مشدود على جسم متصل به","تقاوم حركة جسم في الهواء","تجذب الجسم نحو الأرض"],"ans":1,"why":"الشدّ هي القوة التي تؤثر على جسم متصل بحبل أو سلك مشدود، وتكون في اتجاه الحبل."},{"q":"ينص قانون نيوتن الأول على أن الجسم الذي تكون محصّلة القوى المؤثرة عليه صفرًا:","opts":["يتسارع باتجاه أكبر قوة","يبقى ساكنًا أو يتحرك بسرعة ثابتة","يتباطأ تدريجيًا حتى يسكن","يتحرك دائمًا بسرعة متزايدة"],"ans":1,"why":"عندما تكون محصّلة القوى صفرًا يكون التسارع صفرًا، فيبقى الجسم ساكنًا أو يستمر بسرعة ثابتة."},{"q":"ما وصف تسارع المظلي وسرعته المتجهة عند وصوله إلى السرعة الحدية؟","opts":["التسارع ثابت والسرعة ثابتة","التسارع ثابت والسرعة صفر","التسارع صفر والسرعة ثابتة","التسارع صفر والسرعة صفر"],"ans":2,"why":"عند السرعة الحدية تتساوى مقاومة الهواء مع الوزن فتكون المحصلة صفرًا، فالتسارع صفر والسرعة المتجهة ثابتة."},{"q":"سيارة تتحرك بسرعة ثابتة مقدارًا واتجاهًا على طريق مستقيم أفقي. ماذا نستنتج عن القوة المحصلة المؤثرة عليها؟","opts":["كبيرة ومتجهة مع اتجاه الحركة","تساوي صفرًا","تتناسب طرديًا مع السرعة","لا يمكن تحديدها دون معرفة الكتلة"],"ans":1,"why":"السرعة ثابتة يعني التسارع صفر، فمحصّلة القوى صفر وفق قانون نيوتن الأول، مع أن القوى كلها لا تزال موجودة ومتزنة."},{"q":"مظلي كتلته (65 kg) وصل إلى سرعته الحدية. أي البدائل صحيحة؟ (g = 9.81 m s⁻²)","opts":["التسارع 9.81 m s⁻² ومقاومة الهواء صفر","التسارع 9.81 m s⁻² ومقاومة الهواء 640 N","التسارع صفر ومقاومة الهواء صفر","التسارع صفر ومقاومة الهواء 640 N"],"ans":3,"why":"عند السرعة الحدية تتساوى مقاومة الهواء مع الوزن: 65 × 9.81 ≈ 640 N، والمحصلة صفر فالتسارع صفر."},{"q":"مظلي يهبط في موضع من مساره قبل أن يصل إلى سرعته الحدية، وقوة الوزن أكبر من مقاومة الهواء. أي الخيارات صحيح؟","opts":["المحصلة في اتجاه الوزن، والمظلي يهبط بسرعة متزايدة","المحصلة في اتجاه الوزن، والمظلي يهبط بسرعة ثابتة","المحصلة في اتجاه مقاومة الهواء، والمظلي يهبط بسرعة ثابتة","المحصلة في اتجاه مقاومة الهواء، والمظلي يهبط بسرعة متزايدة"],"ans":0,"why":"الوزن أكبر من المقاومة فالمحصلة نحو الأسفل (اتجاه الوزن)، فيتسارع المظلي وتتزايد سرعته حتى تتساوى القوتان."}];
+const f2=x=>String(+(+x).toFixed(2)).replace('-','−'),f1b=x=>String(+(+x).toFixed(1)).replace('-','−'),f0b=x=>String(Math.round(x)).replace('-','−');
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+const TEAL='#1c8f95',WOOD='#c99a5b',WOOD2='#8b5e2b',G=10;
+const fixN=t=>String(t).replace(/(−?\d+(?:\.\d+)?(?: ?(?:N|kg|m\/s|m s⁻¹|m s⁻²|m)(?![A-Za-z]))?|ΣF|v_T|a = 0|W|T|N|f|U)/g,'<span class="num">$1</span>');
+const rad=d=>d*Math.PI/180;
+const lab=(x,y,t,col,a)=>tx(x,y,t,{s:13,f:col,a:a||'middle'});
+
+/* =====================================================================
+   1) أنواع القوى (مخطط القوى لكل موقف)
+   ===================================================================== */
+function tabTypes(){
+  const W={sc:'table',m:4,F:20,ang:20};
+  const SCN=[['table','كتاب على طاولة'],['pull','صندوق يُسحب'],['hang','جسم معلّق'],['float','مكعب في الماء'],['slope','صندوق على منحدر']];
+  const ctl=()=>{const s=W.sc;
+    let c=seg('sc',SCN,s);
+    if(s!=='slope')c+=slider('m',s==='float'?'كتلة المكعب':'كتلة الجسم',s==='float'?0.2:1,s==='float'?2:10,s==='float'?0.1:1,W.m,'kg');
+    if(s==='pull')c+=slider('F','قوة السحب F',0,60,5,W.F,'N');
+    if(s==='slope')c+=slider('m','كتلة الصندوق',1,10,1,W.m,'kg')+slider('ang','زاوية المنحدر',0,45,5,W.ang,'°');
+    return c};
+  function build(){ctrl.innerHTML=ctl();bindSeg('sc',k=>{W.sc=k;W.m=k==='float'?1.0:4;build();render()});
+    if($('m'))bindSlider('m',W.sc==='float'?'kg':'kg',v=>{W.m=v;render()});
+    if($('F'))bindSlider('F','N',v=>{W.F=v;render()});
+    if($('ang'))bindSlider('ang','°',v=>{W.ang=v;render()})}
+  setTalk(['اختر موقفًا واطلب من الطالب أن يذكر القوى المؤثرة ونوع كل منها واتجاهها قبل أن يراها.','غيّر الكتلة: يتغير الوزن ويتغير معه كل ما يتوازن معه.','في المنحدر: لاحظ أن قوة التلامس العمودية تبقى عمودية على السطح وأن الاحتكاك يكون على طول المنحدر.','في الماء: عند كتلة 1.0 kg يتساوى الوزن مع قوة الطفو العظمى للمكعب (10 N).']);
+  const A=(x1,y1,x2,y2,c)=>arr(x1,y1,x2,y2,c,5);
+  function render(){
+    const m=W.m,w=m*G;let s='',rows=[],msg='',ok=true;
+    const sc=Math.max(0.9,Math.min(2.2,150/Math.max(w,1)));  // pixels per newton, keeps arrows on screen
+    if(W.sc==='table'){
+      s+=`<rect x="200" y="230" width="300" height="14" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2"/><rect x="290" y="168" width="120" height="62" rx="4" fill="#8fa3b5" stroke="#1a1a1a" stroke-width="2.4"/>`;
+      s+=A(350,230,350,230-w*sc*0.9-10,GREEN)+A(350,199,350,199+w*sc*0.9+10,RED)+lab(380,222-w*sc*.45,'N',GREEN,'start')+lab(380,200+w*sc*.45,'W',RED,'start');
+      rows=[['الوزن W',f0b(w)+' N','إلى أسفل'],['قوة التلامس العمودية N',f0b(w)+' N','إلى أعلى']];msg='الجسم ساكن، فالقوتان متساويتان ومتعاكستان: N = W (محصّلة القوى صفر).'}
+    if(W.sc==='pull'){
+      const lim=30,f=Math.min(W.F,lim),moves=W.F>lim,net=W.F-lim;
+      s+=`<rect x="80" y="240" width="540" height="12" fill="#6b5b3e"/><rect x="290" y="178" width="120" height="62" rx="4" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2.4"/>`;
+      s+=A(410,210,410+Math.max(10,W.F*2.4),210,GREEN)+lab(420+W.F*2.4,196,'F',GREEN,'start')+(f>0?A(290,226,290-Math.max(10,f*2.4),226,ORANGE)+lab(280-f*2.4,250,'f',ORANGE,'end'):'');
+      s+=A(350,178,350,120,GREEN)+lab(366,128,'N',GREEN,'start')+A(350,240,350,300,RED)+lab(366,296,'W',RED,'start');
+      rows=[['قوة السحب F',f0b(W.F)+' N','أفقيًا إلى اليمين'],['الاحتكاك f',f0b(f)+' N','عكس اتجاه الحركة (أو ميلها)'],['الوزن W / العمودية N',f0b(w)+' N','متزنتان رأسيًا']];
+      msg=moves?'السحب أكبر من أقصى احتكاك (30 N) فالمحصلة لا تساوي صفرًا والصندوق يتسارع.':'الاحتكاك يساوي قوة السحب فمحصلة القوى صفر والصندوق ساكن (أقصى احتكاك 30 N)';ok=!moves}
+    if(W.sc==='hang'){
+      s+=`<rect x="250" y="30" width="200" height="14" fill="#b9c3cc" stroke="#1a1a1a" stroke-width="2"/><line x1="350" y1="44" x2="350" y2="180" stroke="#1a1a1a" stroke-width="3"/><rect x="315" y="180" width="70" height="60" rx="4" fill="#8fa3b5" stroke="#1a1a1a" stroke-width="2.4"/>`;
+      s+=A(350,180,350,180-w*sc*0.8-12,GREEN)+lab(372,150,'T',GREEN,'start')+A(350,240,350,240+w*sc*0.8+12,RED)+lab(372,270,'W',RED,'start');
+      rows=[['الوزن W',f0b(w)+' N','إلى أسفل'],['قوة الشد T',f0b(w)+' N','إلى أعلى (في اتجاه الخيط)']];msg='الجسم ساكن: T = W ولا توجد قوة عمودية أو احتكاك.'}
+    if(W.sc==='float'){
+      const U=Math.min(w,10),sink=w>10+0.01;
+      s+=`<rect x="200" y="110" width="300" height="190" fill="#cfe6f5" stroke="#3b7ddd" stroke-width="2.6"/><line x1="200" y1="110" x2="500" y2="110" stroke="#3b7ddd" stroke-width="1.6" stroke-dasharray="6 4"/>`;
+      const by=sink?220:(w<10?112:160);
+      s+=`<rect x="320" y="${by-30}" width="60" height="60" rx="4" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2.4"/>`;
+      s+=A(350,by-30,350,by-30-U*sc*.5-8,GREEN)+lab(372,by-40-U*sc*.25,'U',GREEN,'start')+A(350,by+30,350,by+30+w*sc*.5+8,RED)+lab(372,by+40+w*sc*.25,'W',RED,'start');
+      rows=[['الوزن W',f0b(w)+' N','إلى أسفل'],['قوة الطفو U',f1b(U)+' N','إلى أعلى']];msg=sink?'الوزن أكبر من قوة الطفو العظمى فالمكعب يغرق.':(w<10?'قوة الطفو تساوي الوزن فيطفو المكعب ويستقر.':'الطفو يساوي الوزن: المكعب معلّق في الماء.');ok=!sink}
+    if(W.sc==='slope'){
+      const a=rad(W.ang),N=w*Math.cos(a),fr=w*Math.sin(a),x0=140,x1=560,y1=300,h=(x1-x0)*Math.tan(a);
+      s+=`<polygon points="${x0},${y1} ${x1},${y1} ${x1},${y1-Math.max(h,1)}" fill="#e4d7be" stroke="#6b5b3e" stroke-width="2.6"/>`;
+      const bx=350,by=y1-(bx-x0)*Math.tan(a);
+      s+=`<g transform="translate(${bx} ${by}) rotate(${-W.ang})"><rect x="-40" y="-40" width="80" height="40" rx="3" fill="${WOOD}" stroke="${WOOD2}" stroke-width="2.4"/></g>`;
+      const cx=bx-20*Math.sin(a),cy=by-20*Math.cos(a),L=70;
+      s+=A(cx,cy,cx,cy+L,RED)+lab(cx+14,cy+L+6,'W',RED,'start')+A(cx,cy,cx-Math.sin(a)*L*Math.max(.3,Math.cos(a)),cy-Math.cos(a)*L*Math.max(.3,Math.cos(a)),GREEN)+lab(cx-Math.sin(a)*L-14,cy-Math.cos(a)*L-8,'N',GREEN,'end');
+      if(W.ang>0)s+=A(cx,cy,cx+Math.cos(a)*L*Math.max(.3,Math.sin(a)*2),cy-Math.sin(a)*L*Math.max(.3,Math.sin(a)*2),ORANGE)+lab(cx+Math.cos(a)*L*.9+10,cy-Math.sin(a)*L*.9-10,'f',ORANGE,'start');
+      rows=[['الوزن W',f0b(w)+' N','رأسيًا إلى أسفل'],['التلامس العمودية N',f1b(N)+' N','عمودية على المنحدر'],['الاحتكاك f',f1b(fr)+' N','على طول المنحدر إلى أعلى']];msg='الصندوق ساكن على سطح خشن: القوى متزنة، N = W cos θ وf = W sin θ.'}
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${rows.map(r=>chip(r[0],r[1])).join('')}</div><table class="tb"><tr><th>القوة</th><th>المقدار</th><th>الاتجاه</th></tr>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</table><p class="say${ok?' ok':''}">${msg}</p>`;
+  }
+  build();render();
+}
+
+/* =====================================================================
+   2) قانون نيوتن الأول (عربة على مسار)
+   ===================================================================== */
+function tabFirst(){
+  const W={m:4,F:0,v:0,x:0,run:false},FR=10;
+  ctrl.innerHTML=slider('F','قوة الدفع F',0,40,5,W.F,'N')+slider('m','كتلة العربة',1,10,1,W.m,'kg')+`<div class="btns"><button class="btn primary" id="go">ابدأ</button><button class="btn" id="rs">أعد العربة</button></div><p class="gt">قوة الاحتكاك على العربة تساوي 10 N (أقصى قيمة للسكون وللحركة).</p>`;
+  setTalk(['اجعل F أقل من 10 N: العربة ساكنة لأن الاحتكاك يعدّل الدفع (محصلة صفر).','ارفع F إلى أكبر من 10 N: العربة تتسارع. ثم اخفض F إلى 10 N تمامًا: تتحرك بسرعة ثابتة (قانون نيوتن الأول).','أعد F إلى صفر: الاحتكاك يبطئ العربة لأن المحصلة لم تعد صفرًا.','غيّر الكتلة: العربة الأثقل تغيّر حالتها الحركية ببطء أكبر (قصور ذاتي أكبر).']);
+  bindSlider('F','N',v=>{W.F=v});bindSlider('m','kg',v=>{W.m=v});
+  $('go').onclick=()=>{W.run=!W.run;$('go').textContent=W.run?'أوقف':'ابدأ'};
+  $('rs').onclick=()=>{W.v=0;W.x=0;W.run=false;$('go').textContent='ابدأ';render()};
+  const net=()=>{if(W.v===0&&W.F<=FR)return 0;return W.F-FR};
+  tick=dt=>{dt=Math.max(0,dt);if(W.run){const n=net(),a=n/W.m;let v=W.v+a*dt;if(v<0)v=0;if(W.v===0&&W.F<=FR)v=0;W.v=v;W.x+=W.v*dt*12;if(W.x>520)W.x-=560}render()};
+  function render(){
+    const n=net(),a=n/W.m,x=100+((W.x%560)+560)%560;
+    let s=`<rect x="40" y="250" width="620" height="10" fill="#6b5b3e"/>`;
+    for(let k=0;k<12;k++)s+=`<line x1="${60+k*52}" y1="250" x2="${60+k*52}" y2="262" stroke="#6b5b3e" stroke-width="2"/>`;
+    s+=`<rect x="${x-50}" y="190" width="100" height="46" rx="6" fill="#e07b1a" stroke="#1a1a1a" stroke-width="2.4"/><circle cx="${x-28}" cy="242" r="12" fill="#333"/><circle cx="${x+28}" cy="242" r="12" fill="#333"/>`;
+    s+=tx(x,222,'m = '+f0b(W.m)+' kg',{s:12,f:'#fff'});
+    if(W.F>0)s+=arr(x+50,205,x+50+W.F*3.4+8,205,GREEN,5)+lab(x+58+W.F*3.4,192,'F = '+f0b(W.F)+' N',GREEN,'start');
+    s+=arr(x-50,225,x-50-FR*3.4-8,225,ORANGE,5)+lab(x-58-FR*3.4,214,'f = '+FR+' N',ORANGE,'end');
+    s+=arr(x,190,x,140,GREEN,4)+lab(x+14,148,'N',GREEN,'start')+arr(x,236,x,284,RED,4)+lab(x+14,282,'W',RED,'start');
+    if(W.v>0.05)s+=arr(x-30,120,x-30+Math.min(140,W.v*9)+10,120,BLUE,4)+lab(x-30+Math.min(140,W.v*9)+16,114,'v',BLUE,'start');
+    svg.innerHTML=s;
+    const state=W.v<0.01&&n===0?'ساكنة':(n===0?'تتحرك بسرعة ثابتة':(n>0?'تتسارع':'تتباطأ'));
+    info.innerHTML=`<div class="chips">${chip('قوة الدفع F',f0b(W.F)+' N')}${chip('الاحتكاك f',FR+' N')}${chip('محصلة القوى ΣF',f0b(n)+' N')}${chip('التسارع a',f2(a)+' m s⁻²')}${chip('السرعة v',f1b(W.v)+' m s⁻¹')}</div><p class="say${n===0?' ok':''}">${n===0?fixN('ΣF = 0: العربة '+state+' ولا يتغير مقدار سرعتها (قانون نيوتن الأول).'):'محصّلة القوى لا تساوي صفرًا: العربة '+state+'.'}</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   3) القصور الذاتي: الحافلة والراكب
+   ===================================================================== */
+function tabBus(){
+  const W={mode:'idle',t:0,belt:false,x:0,v:0,lean:0};
+  ctrl.innerHTML=`<div class="btns"><button class="btn primary" id="st">انطلاق مفاجئ</button><button class="btn primary" id="br">فرملة مفاجئة</button><button class="btn" id="bt" aria-pressed="false">حزام الأمان: مفكوك</button><button class="btn" id="rs">أعد</button></div><p class="gt">اضغط «فرملة مفاجئة» أثناء حركة الحافلة.</p>`;
+  setTalk(['الانطلاق المفاجئ: الراكب كان ساكنًا فيميل إلى حالته (السكون) فيتأخر نحو الخلف بالنسبة إلى الحافلة.','الفرملة المفاجئة: الراكب يستمر في الحركة بسرعته السابقة فيندفع إلى الأمام.','حزام الأمان قوة خارجية تغيّر حركة الراكب مع الحافلة.','اطلب من الطالب أن يربط ذلك بالمكابح الإضافية في الشاحنات (كتلة أكبر فقصور أكبر).']);
+  const set=m=>{W.mode=m;W.t=0};
+  $('st').onclick=()=>{W.v=0;set('start')};$('br').onclick=()=>{if(W.v<3)W.v=8;set('brake')};
+  $('bt').onclick=()=>{W.belt=!W.belt;$('bt').setAttribute('aria-pressed',W.belt);$('bt').textContent='حزام الأمان: '+(W.belt?'مربوط':'مفكوك')};
+  $('rs').onclick=()=>{W.mode='idle';W.v=0;W.x=0;W.lean=0;render()};
+  tick=dt=>{dt=Math.max(0,dt);W.t+=dt;let a=0;
+    if(W.mode==='start'){a=W.t<1.6?4:0}
+    if(W.mode==='brake'){a=W.v>0?-8:0}
+    W.v=Math.max(0,W.v+a*dt);W.x+=W.v*dt*14;if(W.x>260)W.x-=520;
+    const target=W.belt?Math.max(-6,Math.min(6,-a*1.2)):Math.max(-34,Math.min(34,-a*7));W.lean+=(target-W.lean)*Math.min(1,dt*6);render()};
+  function render(){
+    const x=W.x-130+260;let s=`<rect x="30" y="250" width="640" height="8" fill="#6b5b3e"/>`;
+    const bx=210+W.x%520-260+130;
+    s+=`<rect x="${bx}" y="150" width="290" height="100" rx="12" fill="#f2b63d" stroke="#1a1a1a" stroke-width="2.6"/>`;
+    [20,100,180].forEach(o=>s+=`<rect x="${bx+o+10}" y="160" width="60" height="32" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.6"/>`);
+    s+=`<circle cx="${bx+60}" cy="254" r="20" fill="#333"/><circle cx="${bx+230}" cy="254" r="20" fill="#333"/>`;
+    const px=bx+150,py=244,hx=px+W.lean*0.55;
+    s+=`<line x1="${px}" y1="${py}" x2="${hx}" y2="${py-52}" stroke="#4b6fa5" stroke-width="13" stroke-linecap="round"/><circle cx="${hx}" cy="${py-66}" r="14" fill="#f2c9a0" stroke="#1a1a1a" stroke-width="2"/>`;
+    if(W.belt)s+=`<line x1="${px-6}" y1="${py-44}" x2="${px+10}" y2="${py-8}" stroke="#d9483b" stroke-width="5"/>`;
+    if(W.mode==='start'&&W.t<1.6)s+=arr(bx+300,200,bx+360,200,GREEN,5)+lab(bx+330,188,'a',GREEN);
+    if(W.mode==='brake'&&W.v>0)s+=arr(bx-10,200,bx-70,200,RED,5)+lab(bx-40,188,'a',RED);
+    svg.innerHTML=s;
+    const txt=W.mode==='idle'?'اختر انطلاقًا مفاجئًا أو فرملة مفاجئة.':(W.mode==='start'?(W.t<1.6?'الحافلة تتسارع للأمام: الراكب يميل إلى الخلف لأن جسمه يميل للبقاء ساكنًا (قصور ذاتي).':'سرعة الحافلة ثابتة: يعود الراكب إلى وضعه.'):(W.v>0?'الحافلة تتباطأ: الراكب يندفع للأمام لأن جسمه يميل لمواصلة حركته بالسرعة نفسها.':'توقفت الحافلة.'));
+    info.innerHTML=`<div class="chips">${chip('سرعة الحافلة',f1b(W.v)+' m s⁻¹')}${chip('حزام الأمان',W.belt?'مربوط':'مفكوك')}</div><p class="say${W.mode!=='idle'?' ok':''}">${txt} ${W.belt?'والحزام يؤثر بقوة تغيّر حركة الراكب فلا يندفع.':''}</p>`;
+  }
+  render();
+}
+
+/* =====================================================================
+   4) السقوط في الهواء والسرعة الحدية
+   ===================================================================== */
+function tabTerminal(){
+  const W={who:'human',m:75,t:0,v:0,y:0,open:false,openT:0,run:false,pts:[]};
+  const K=()=>{if(W.who!=='human')return 0.001*G/9;const k0=W.m*G/2500,k1=W.m*G/25;return W.open?k0+(k1-k0)*Math.min(1,(W.t-W.openT)/2):k0};
+  const M=()=>W.who==='human'?W.m:0.001;
+  ctrl.innerHTML=seg('who',[['human','إنسان'],['insect','حشرة']],W.who)+slider('m','كتلة المظلي',50,100,5,W.m,'kg')+`<div class="btns"><button class="btn primary" id="go">اقفز</button><button class="btn" id="op">افتح المظلة</button><button class="btn" id="rs">أعد</button></div><p class="gt">مقاومة الهواء R = k v² تزداد بزيادة السرعة.</p>`;
+  setTalk(['ابدأ القفز: في اللحظة الأولى السرعة صفر فتكون مقاومة الهواء صفرًا ويكون التسارع g.','راقب انحناء المنحنى: مع زيادة السرعة تزداد R فيقل التسارع حتى تتساوى R مع W.','عند الوصول إلى السرعة الحدية محصلة القوى صفر والسرعة ثابتة.','افتح المظلة: تقفز R فجأة فتتباطأ السرعة حتى سرعة حدية أصغر.','بدّل إلى «حشرة»: وزنها صغير فسرعتها الحدية صغيرة جدًا.']);
+  bindSeg('who',k=>{W.who=k;reset();$('m').disabled=k!=='human'});bindSlider('m','kg',v=>{W.m=v;reset()});
+  function reset(){W.vmax=0;W.t=0;W.v=0;W.y=0;W.open=false;W.run=false;W.pts=[];$('go').textContent='اقفز';render()}
+  $('go').onclick=()=>{W.run=!W.run;$('go').textContent=W.run?'أوقف':'اقفز'};
+  $('op').onclick=()=>{if(W.who==='human'&&W.t>0&&!W.open){W.open=true;W.openT=W.t}};
+  $('rs').onclick=reset;
+  tick=dt=>{dt=Math.max(0,dt);if(W.run&&W.t<150){const sp=W.who==='human'?2:1;const h=dt*sp,k=K(),m=M();let n=Math.max(1,Math.round(h/0.01));const hh=h/n;for(let i=0;i<n;i++){const a=G-k*W.v*W.v/m;W.v+=a*hh;W.vmax=Math.max(W.vmax||0,W.v);W.y+=W.v*hh;W.t+=hh;if(i===0&&((W.pts.length===0)||W.t-W.pts[W.pts.length-1][0]>0.2))W.pts.push([W.t,W.v])}}render()};
+  function render(){
+    const k=K(),m=M(),R=k*W.v*W.v,Wt=m*G,vT=Math.sqrt(Wt/k),a=G-R/m,at=Math.abs(R-Wt)<0.03*Wt&&W.t>0;
+    let s='';
+    const tmax=W.who==='human'?Math.max(40,W.t*1.1):Math.max(2.5,W.t*1.1),vmax=Math.max(vT*1.15,(W.vmax||0)*1.1,10);
+    const gx=330,gy=40,gw=340,gh=240,X=t=>gx+t/tmax*gw,Y=v=>gy+gh-v/vmax*gh;
+    s+=`<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" fill="none" stroke="${GRAY}" stroke-width="1.2"/>`;
+    for(let k2=1;k2<=4;k2++)s+=`<line x1="${gx}" y1="${gy+gh*k2/5}" x2="${gx+gw}" y2="${gy+gh*k2/5}" stroke="${GRAY}" stroke-width=".8" opacity=".3"/>`;
+    s+=`<line x1="${gx}" y1="${Y(vT)}" x2="${gx+gw}" y2="${Y(vT)}" stroke="${ORANGE}" stroke-width="1.6" stroke-dasharray="6 5"/>`+tx(gx+gw-4,Y(vT)-6,'السرعة الحدية',{s:11,f:ORANGE,a:'end'});
+    if(W.pts.length>1)s+=`<polyline points="${W.pts.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' ')}" fill="none" stroke="${BLUE}" stroke-width="3.4"/>`;
+    s+=tx(gx+gw/2,gy+gh+26,'الزمن بوحدة s',{s:11,f:GRAY})+tx(gx+4,gy-8,'السرعة بوحدة m/s',{s:11,f:GRAY,a:'start'});
+    // figure
+    const cy=190+Math.min(40,W.v*0.8)-30,cx=150;
+    s+=`<line x1="${cx-6}" y1="${cy+4}" x2="${cx+6}" y2="${cy+46}" stroke="#4b6fa5" stroke-width="10" stroke-linecap="round"/><circle cx="${cx-8}" cy="${cy-8}" r="10" fill="#f2c9a0" stroke="#1a1a1a" stroke-width="2"/>`;
+    if(W.open&&W.who==='human')s+=`<path d="M${cx-60} ${cy-52} Q${cx} ${cy-110} ${cx+60} ${cy-52} Z" fill="#d9483b" stroke="#1a1a1a" stroke-width="2"/><line x1="${cx-60}" y1="${cy-52}" x2="${cx-6}" y2="${cy+2}" stroke="#1a1a1a"/><line x1="${cx+60}" y1="${cy-52}" x2="${cx+6}" y2="${cy+2}" stroke="#1a1a1a"/>`;
+    const sc=130/Math.max(Wt,R,1)*(W.who==='human'?1:1);
+    s+=arr(cx,cy+50,cx,cy+50+Math.max(14,Wt*sc*.7),RED,5)+lab(cx+14,cy+60+Wt*sc*.35,'W',RED,'start');
+    if(R>0.02)s+=arr(cx,cy-16-(W.open&&W.who==='human'?44:0),cx,cy-16-(W.open&&W.who==='human'?44:0)-Math.max(10,R*sc*.7),GREEN,5)+lab(cx+14,cy-30-R*sc*.35-(W.open?40:0),'R',GREEN,'start');
+    svg.innerHTML=s;
+    const stage=W.t===0?'لم يبدأ السقوط':(at?(W.open?'سرعة حدية جديدة (المظلة مفتوحة)':'السرعة الحدية: R = W والمحصلة صفر'):(R<Wt?(W.v===0||W.t<1.5&&R<0.1*Wt?'السقوط يبدأ: الوزن هو المؤثر وa ≈ g':'السرعة تزداد والتسارع يقل'):'R أكبر من W: تتناقص السرعة'));
+    info.innerHTML=`<div class="chips">${chip('الزمن',f1b(W.t)+' s')}${chip('السرعة v',f1b(W.v)+' m s⁻¹')}${chip('الوزن W',f2(Wt)+' N')}${chip('مقاومة الهواء R',f2(R)+' N')}${chip('التسارع a',f2(a)+' m s⁻²')}${chip('السرعة الحدية',f1b(vT)+' m s⁻¹')}</div><p class="say${at?' ok':''}">${fixN(stage)}</p>`;
+  }
+  reset();
+}
+
+/* =====================================================================
+   5) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة من أهداف الدرس: أنواع القوى وقانون نيوتن الأول والسرعة الحدية.</p>`;
+  setTalk(['اطلب من الطالب أن يرسم مخطط القوى بيده قبل أن يرى الخيارات.','في أسئلة السرعة الثابتة: المحصلة صفر، وليست القوة صفرًا.','ركّز على لغة الإجابة: محصلة القوى، التسارع، السرعة الثابتة.','كرّر حتى يتقن الطالب الأنواع كلها.']);
+  const pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+  const uniq=a=>[...new Set(a)];
+  const numOpts=(c,w,unit)=>{let o=uniq([c,...w].map(x=>+(+x).toFixed(2)));let i=1;while(o.length<4){o.push(+(c+i*Math.max(1,Math.abs(c)*.25)).toFixed(2));o=uniq(o);i++}return o.slice(0,4).map(x=>f2(x)+' '+unit)};
+  const GEN=[
+    ()=>{const m=pick([50,60,65,70,80]);return {q:`مظلي كتلته ${m} kg وصل إلى سرعته الحدية. ما مقدار مقاومة الهواء المؤثرة عليه؟ (g = 10 m s⁻²)`,c:m*10,w:[m,m/10,m*100],unit:'N',why:`عند السرعة الحدية تساوي مقاومة الهواء الوزن: ${m} × 10 = ${m*10} N.`}},
+    ()=>{const m=pick([200,400,500,800]);return {q:`مصعد كتلته ${m} kg يتحرك إلى أعلى بسرعة ثابتة. ما مقدار الشد في الكابل؟ (g = 10 m s⁻²)`,c:m*10,w:[m,m/10,m*20],unit:'N',why:`السرعة ثابتة فالمحصلة صفر: T = W = ${m} × 10 = ${m*10} N.`}},
+    ()=>{const F=pick([20,30,40,60]);return {q:`صندوق يُسحب بقوة أفقية ${F} N فيتحرك بسرعة ثابتة على سطح خشن. ما مقدار قوة الاحتكاك المؤثرة عليه؟`,c:F,w:[0,F*2,F/2],unit:'N',why:`السرعة ثابتة فمحصلة القوى الأفقية صفر، فالاحتكاك يساوي قوة السحب: ${F} N.`}},
+    ()=>{const a=pick([20,35,50]),b=pick([10,15,25]);return {q:`جسم ساكن تؤثر عليه قوة ${a} N نحو اليمين وقوة ${b} N نحو اليسار وقوة ثالثة F. ما مقدار F لتتزن القوى؟`,c:a-b,w:[a+b,a,b],unit:'N',why:`المحصلة صفر: القوة الثالثة تعدّل الفرق ${a} − ${b} = ${a-b} N في الاتجاه المعاكس لمحصلة القوتين.`}},
+    ()=>pick(QB),()=>pick(QB),()=>pick(QB),()=>pick(QB),()=>pick(QB)
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();
+    let opts,ans;
+    if(g.opts){const idx=shuf(g.opts.map((o,i)=>i));opts=idx.map(i=>g.opts[i]);ans=idx.indexOf(g.ans)}else{const o=numOpts(g.c,g.w,g.unit),right=f2(g.c)+' '+g.unit,sh=shuf(o);opts=sh;ans=sh.indexOf(right);if(ans<0){sh[0]=right;ans=0}}
+    Q.cur={...g,opts,ans};Q.done=false;
+    svg.innerHTML=tx(350,190,'السؤال '+(Q.n+1),{s:34,f:GRAY});
+    info.innerHTML=`<p class="q-text">${fixN(Q.cur.q)}</p><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${fixN(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${fixN(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('types');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

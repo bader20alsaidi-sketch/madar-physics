@@ -1,0 +1,400 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>محاكي توصيل المكثفات — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.chip .k sub{font-size:.7em}.btns{flex-wrap:wrap}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>محاكي توصيل المكثفات</h1><p class="sub">الوحدة الرابعة: المكثفات — التوازي (<span dir="ltr">3-4</span>) والتوالي (<span dir="ltr">4-4</span>) وشبكات المكثفات (<span dir="ltr">5-4</span>)</p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔ½²³⁻₀-₉µΩ][0-9A-Za-zΔ½ .,+-−×÷=/%²³⁻¹₀-₉()|°µΩ]*[0-9A-Za-z%²³¹₀-₉)°µΩ]|[0-9A-Za-zΔ½²³µΩ])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='par';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['par','على التوازي'],['ser','على التوالي'],['net','شبكات المكثفات'],['share','مكثف مشحون'],['design','تصميم'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({par:tabPar,ser:tabSer,net:tabNet,share:tabShare,design:tabDesign,quiz:tabQuiz})[k]();startLoop()}
+
+// Series/parallel capacitor network drawing engine (plain JS, no DOM): used by figs.js (node) and pasted into the simulator (browser).
+// Tree: leaf {name:'C_1', val:'2 µF', notes:['Q = 12 µC'], col:'#0B6E73'} | {sw:'S', open:true} | {meter:'V'} | {s:[...]} series | {p:[...]} parallel.
+// All capacitors use the standard symbol (two parallel plates). Flat 2-D drawing.
+(function (root) {
+  const D = { leafW: 128, swW: 104, mtW: 84, pad: 24, topH: 46, botH: 78, noteH: 22, sw: 3.2 };
+  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  // text with _x subscripts: C_1 -> C<sub>1</sub>
+  const lbl = (s) => esc(s).replace(/_\{([^}]*)\}/g, '<tspan dy="5" font-size="70%">$1</tspan><tspan dy="-5"></tspan>').replace(/_(\w)/g, '<tspan dy="5" font-size="70%">$1</tspan><tspan dy="-5"></tspan>');
+  function measure(n) {
+    if (n.s) { const ch = n.s.map(measure); const top = Math.max(...ch.map((c) => c.cy)), bot = Math.max(...ch.map((c) => c.h - c.cy)); n._m = { w: ch.reduce((a, c) => a + c.w, 0), cy: top, h: top + bot, ch }; return n._m; }
+    if (n.p) { const ch = n.p.map(measure); let y = 0, first = null, last = null; ch.forEach((c, i) => { c.y0 = y; if (i === 0) first = y + c.cy; last = y + c.cy; y += c.h; }); n._m = { w: Math.max(...ch.map((c) => c.w)) + 2 * D.pad, cy: (first + last) / 2, h: y, ch }; return n._m; }
+    if (n.sw !== undefined) { n._m = { w: D.swW, cy: D.topH, h: D.topH + D.botH - 14 }; return n._m; }
+    if (n.meter !== undefined) { n._m = { w: D.mtW, cy: D.topH, h: D.topH + D.botH - 14 }; return n._m; }
+    const notes = (n.notes || []).length;
+    n._m = { w: D.leafW, cy: D.topH, h: D.topH + D.botH + notes * D.noteH }; return n._m;
+  }
+  function draw(n, x, y, ink, wA, o) {
+    const m = n._m; let s = "";
+    const wire = (x1, y1, x2, y2, c) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c || ink}" stroke-width="${D.sw}" stroke-linecap="round"/>`;
+    const dot = (cx, cy) => `<circle cx="${cx}" cy="${cy}" r="5" fill="${ink}"/>`;
+    const text = (tx, ty, t, op = {}) => `<text x="${tx}" y="${ty}" ${o.ff ? `font-family="${o.ff}" ` : ""}font-size="${op.size || 20}" font-weight="${op.bold === false ? 400 : 700}" fill="${op.fill || ink}" text-anchor="${op.anchor || "middle"}" direction="ltr">${lbl(t)}</text>`;
+    const cy = y + m.cy;
+    if (wA && wA > m.w + 0.5) { const e = (wA - m.w) / 2; s += wire(x, cy, x + e, cy) + wire(x + e + m.w, cy, x + wA, cy); x += e; }
+    if (n.s) { let xx = x; for (const c of m.ch) { s += draw(n.s[m.ch.indexOf(c)], xx, y + m.cy - c.cy, ink, 0, o); xx += c.w; } return s; }
+    if (n.p) {
+      const w = m.w, xl = x + D.pad, xr = x + w - D.pad;
+      const c0 = m.ch[0], cL = m.ch[m.ch.length - 1];
+      s += wire(x, cy, xl, cy) + wire(xr, cy, x + w, cy);
+      s += wire(xl, y + c0.y0 + c0.cy, xl, y + cL.y0 + cL.cy) + wire(xr, y + c0.y0 + c0.cy, xr, y + cL.y0 + cL.cy);
+      s += dot(xl, cy) + dot(xr, cy);
+      m.ch.forEach((c, i) => { s += draw(n.p[i], xl, y + c.y0, ink, xr - xl, o); });
+      return s;
+    }
+    if (n.sw !== undefined) {
+      const x1 = x + 16, x2 = x + m.w - 16;
+      s += wire(x, cy, x1, cy) + wire(x2, cy, x + m.w, cy) + `<circle cx="${x1}" cy="${cy}" r="5" fill="#fff" stroke="${ink}" stroke-width="2.6"/><circle cx="${x2}" cy="${cy}" r="5" fill="#fff" stroke="${ink}" stroke-width="2.6"/>`;
+      s += n.open === false ? wire(x1, cy, x2, cy) : wire(x1, cy, x2 - 6, cy - 30);
+      s += text(x + m.w / 2, cy + 34, n.sw);
+      return s;
+    }
+    if (n.meter !== undefined) {
+      const cx = x + m.w / 2;
+      s += wire(x, cy, cx - 22, cy) + wire(cx + 22, cy, x + m.w, cy) + `<circle cx="${cx}" cy="${cy}" r="22" fill="#fff" stroke="${ink}" stroke-width="3"/>` + text(cx, cy + 7, n.meter, { size: 20 });
+      return s;
+    }
+    // capacitor leaf
+    const cx = x + m.w / 2, ph = 24, gp = 15;
+    s += wire(x, cy, cx - gp / 2, cy) + wire(cx + gp / 2, cy, x + m.w, cy);
+    s += `<line x1="${cx - gp / 2}" y1="${cy - ph}" x2="${cx - gp / 2}" y2="${cy + ph}" stroke="${ink}" stroke-width="5.2"/><line x1="${cx + gp / 2}" y1="${cy - ph}" x2="${cx + gp / 2}" y2="${cy + ph}" stroke="${ink}" stroke-width="5.2"/>`;
+    if (n.name) s += text(cx, cy - ph - 8, n.name, { size: 21, fill: n.col });
+    if (n.pl) s += text(cx - gp / 2 - 12, cy - 9, n.pl[0], { size: 17, fill: "#B3261E", anchor: "end" }) + text(cx + gp / 2 + 12, cy - 9, n.pl[1], { size: 17, fill: "#1F4E9C", anchor: "start" });
+    let ty = cy + ph + 24;
+    if (n.val) { s += text(cx, ty, n.val, { size: 19, fill: n.vcol || ink }); ty += D.noteH; }
+    for (const t of n.notes || []) { s += text(cx, ty, t, { size: 17, fill: n.ncol || "#C0581E" }); ty += D.noteH; }
+    return s;
+  }
+  /** circuit(tree, o): o.V = battery label ('' hides the source), o.ports = ['a','b'] (open ends with dots and letters), o.ink, o.ff, o.margin
+   *  returns {body, w, h} (body = svg markup without the outer <svg>) */
+  function circuit(tree, o = {}) {
+    const ink = o.ink || "currentColor", mg = o.margin || 34;
+    const m = measure(tree); const wire = (x1, y1, x2, y2) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${ink}" stroke-width="${D.sw}" stroke-linecap="round"/>`;
+    const text = (tx, ty, t, op = {}) => `<text x="${tx}" y="${ty}" ${o.ff ? `font-family="${o.ff}" ` : ""}font-size="${op.size || 21}" font-weight="700" fill="${op.fill || ink}" text-anchor="${op.anchor || "middle"}" direction="ltr">${lbl(t)}</text>`;
+    let body = "", W, H;
+    if (o.bare) { body = draw(tree, mg, mg, ink, 0, o); W = mg * 2 + m.w; H = mg * 2 + m.h; return { body, w: Math.round(W), h: Math.round(H) }; }
+    if (o.V !== undefined && o.V !== null && o.V !== false) {
+      const lead = 26, yb = mg + m.h + 36;
+      const xl = mg, xr = mg + lead * 2 + m.w;
+      body += draw(tree, xl + lead, mg, ink, 0, o);
+      const yp = mg + m.cy;
+      body += wire(xl, yp, xl + lead, yp) + wire(xr - lead, yp, xr, yp) + wire(xl, yp, xl, yb) + wire(xr, yp, xr, yb);
+      const bx = (xl + xr) / 2;
+      body += wire(xl, yb, bx - 8, yb) + wire(bx + 8, yb, xr, yb);
+      body += `<line x1="${bx - 8}" y1="${yb - 22}" x2="${bx - 8}" y2="${yb + 22}" stroke="${ink}" stroke-width="5.4"/><line x1="${bx + 8}" y1="${yb - 12}" x2="${bx + 8}" y2="${yb + 12}" stroke="${ink}" stroke-width="9"/>`;
+      body += text(bx - 22, yb - 12, "+", { size: 22, fill: "#B3261E", anchor: "end" });
+      if (o.V) body += text(bx, yb + 44, o.V, { size: 22 });
+      W = xr + mg; H = yb + (o.V ? 64 : 40);
+    } else {
+      const lead = 46, xl = mg;
+      body += draw(tree, xl + lead, mg, ink, 0, o);
+      const yp = mg + m.cy;
+      body += wire(xl, yp, xl + lead, yp) + wire(xl + lead + m.w, yp, xl + lead * 2 + m.w, yp);
+      body += `<circle cx="${xl}" cy="${yp}" r="6" fill="${ink}"/><circle cx="${xl + lead * 2 + m.w}" cy="${yp}" r="6" fill="${ink}"/>`;
+      if (o.ports) body += text(xl, yp - 16, o.ports[0], { size: 24 }) + text(xl + lead * 2 + m.w, yp - 16, o.ports[1], { size: 24 });
+      W = xl + lead * 2 + m.w + mg; H = mg * 2 + m.h;
+    }
+    return { body, w: Math.round(W), h: Math.round(H) };
+  }
+  const api = { circuit, measure, draw, D, lbl };
+  if (typeof module !== "undefined" && module.exports) module.exports = api; else root.NetDraw = api;
+})(typeof self !== "undefined" ? self : this);
+
+const f2=x=>String(+(+x).toFixed(2)),f3=x=>String(+(+x).toFixed(3));
+const fQ=q=>{const a=Math.abs(q);return a>=1000?f2(q/1000)+' mC':f1(q)+' µC'};        /* q in µC */
+const fW=w=>{const a=Math.abs(w);return a>=1000?f2(w/1000)+' mJ':f1(w)+' µJ'};        /* w in µJ */
+const fV=v=>f2(v)+' V';
+const nv=s=>`<span class="num">${s}</span>`;
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${nv(v)}</div></div>`;
+const say=(t,c)=>`<p class="say" style="border-right:5px solid ${c||ORANGE}">${t}</p>`;
+const rule=t=>`<p class="rule"><b>اربط بالدرس:</b> ${t}</p>`;
+const TEAL='#1c8f95',PURPLE='#7a55c8';
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+/* ---- network model: leaf {c: µF} | {s:[..]} | {p:[..]} ---- */
+const capEq=n=>n.s?1/n.s.reduce((a,c)=>a+1/capEq(c),0):n.p?n.p.reduce((a,c)=>a+capEq(c),0):n.c;
+function asgV(n,V){n.V=V;n.Q=V*capEq(n);if(n.s){n.s.forEach(c=>asgQ(c,n.Q))}else if(n.p){n.p.forEach(c=>asgV(c,V))}}
+function asgQ(n,Q){n.Q=Q;n.V=Q/capEq(n);if(n.s){n.s.forEach(c=>asgQ(c,Q))}else if(n.p){n.p.forEach(c=>asgV(c,n.V))}}
+const leaves=n=>n.s?n.s.flatMap(leaves):n.p?n.p.flatMap(leaves):[n];
+/* convert the model to a NetDraw tree with notes */
+function toDraw(n,names,o){
+  if(n.s)return {s:n.s.map(c=>toDraw(c,names,o))};
+  if(n.p)return {p:n.p.map(c=>toDraw(c,names,o))};
+  const nm=names.shift();
+  const notes=[];if(o.V)notes.push('V = '+f2(n.V)+' V');if(o.Q)notes.push('Q = '+fQ(n.Q));
+  return {name:nm,val:f1(n.c)+' µF',notes};
+}
+function drawNet(model,Vsrc,box,o={}){
+  asgV(model,Vsrc);
+  const names=['C_1','C_2','C_3','C_4','C_5','C_6','C_7','C_8'];
+  const tree=toDraw(model,names,{V:o.V!==false,Q:o.Q!==false});
+  const r=NetDraw.circuit(tree,{V:f1(Vsrc)+' V',margin:24});
+  const sc=Math.min(box.w/r.w,box.h/r.h,1.25);
+  const dx=box.x+(box.w-r.w*sc)/2,dy=box.y+(box.h-r.h*sc)/2;
+  return `<g direction="ltr" transform="translate(${dx} ${dy}) scale(${sc})" style="color:currentColor">${r.body}</g>`;
+}
+function bars(items,x,y,w,h,title,unit,col){ /* items [{t,v}] vertical bars */
+  const mx=Math.max(...items.map(i=>i.v),1e-9);const bw=Math.min(46,(w-10)/items.length-10),tot=items.length*(bw+10)-10;let s=tx(x+w/2,y-26,title,{f:GRAY,s:12});
+  s+=`<line x1="${x}" y1="${y+h}" x2="${x+w}" y2="${y+h}" stroke="currentColor" stroke-width="2"/>`;
+  items.forEach((it,i)=>{const bh=h*it.v/mx,bx=x+(w-tot)/2+i*(bw+10);
+    s+=`<rect x="${bx}" y="${y+h-bh}" width="${bw}" height="${bh}" rx="4" fill="${it.col||col||TEAL}" opacity=".88"/>`+tx(bx+bw/2,y+h-bh-6,f1(it.v),{s:12})+tx(bx+bw/2,y+h+16,it.t,{s:12})});
+  return s;
+}
+
+/* =====================================================================
+   1) التوصيل على التوازي (3-4)
+   ===================================================================== */
+function tabPar(){
+  const W={n:2,C:[3,5,4,2],V:12};
+  ctrl.innerHTML=`<p class="gt">عدد المكثفات على التوازي</p>`+seg('nn',[['2','2'],['3','3'],['4','4']],'2')+slider('c1','السعة C1',1,20,1,W.C[0],'µF')+slider('c2','السعة C2',1,20,1,W.C[1],'µF')+`<div id="c3w">`+slider('c3','السعة C3',1,20,1,W.C[2],'µF')+`</div><div id="c4w">`+slider('c4','السعة C4',1,20,1,W.C[3],'µF')+`</div>`+slider('V','فرق جهد المصدر V',1,24,1,W.V,'V');
+  setTalk(['ابدأ بمكثفين: لاحظ أن فرق الجهد على كل مكثف يساوي فرق جهد المصدر مهما اختلفت السعتان.','غيّر C1 وراقب الشحنة Q1 = C1 V: تتناسب طرديًا مع السعة، وتتوزع الشحنة الكلية بنسبة السعات.','اجمع السعات: C_T = C1 + C2 + C3 وهي أكبر من أكبر سعة، فالتوازي يعطي أكبر سعة.','اجعل السعات متساوية وراقب C_T = n C.','أضف مكثفًا ثالثًا ثم رابعًا: تزداد السعة المكافئة والشحنة الكلية.']);
+  bindSeg('nn',k=>{W.n=+k;show()});
+  bindSlider('c1','µF',v=>{W.C[0]=v;show()});bindSlider('c2','µF',v=>{W.C[1]=v;show()});bindSlider('c3','µF',v=>{W.C[2]=v;show()});bindSlider('c4','µF',v=>{W.C[3]=v;show()});bindSlider('V','V',v=>{W.V=v;show()});
+  tick=null;
+  function show(){
+    $('c3w').style.display=W.n>=3?'':'none';$('c4w').style.display=W.n>=4?'':'none';
+    const model={p:W.C.slice(0,W.n).map(c=>({c}))};
+    svg.innerHTML=drawNet(model,W.V,{x:6,y:6,w:440,h:348})+bars(leaves(model).map((l,i)=>({t:'Q'+(i+1),v:l.Q})).concat([{t:'Q_T',v:model.Q,col:ORANGE}]),470,44,220,250,'الشحنة بـ µC','µC');
+    const CT=capEq(model),QT=model.Q,W_T=.5*CT*W.V*W.V;
+    const same=W.C.slice(0,W.n).every(c=>c===W.C[0]);
+    info.innerHTML=`<div class="chips">${chip('السعة المكافئة C_T',f1(CT)+' µF')}${chip('الشحنة الكلية Q_T',fQ(QT))}${chip('فرق الجهد على كل مكثف',fV(W.V))}${chip('الطاقة الكلية',fW(W_T))}</div>`+say(same?`المكثفات متماثلة: C_T = n C = ${W.n} × ${W.C[0]} = ${f1(CT)} µF.`:`C_T = ${W.C.slice(0,W.n).join(' + ')} = ${f1(CT)} µF، وهي أكبر من أكبر سعة (${Math.max(...W.C.slice(0,W.n))} µF).`,GREEN)+rule('على التوازي: فرق الجهد واحد V1 = V2 = V، والشحنة الكلية Q_T = Q1 + Q2 + Q3، ومنها C_T = C1 + C2 + C3')}
+  show();
+}
+
+/* =====================================================================
+   2) التوصيل على التوالي (4-4)
+   ===================================================================== */
+function tabSer(){
+  const W={n:2,C:[6,3,12,4],V:12};
+  ctrl.innerHTML=`<p class="gt">عدد المكثفات على التوالي</p>`+seg('nn',[['2','2'],['3','3'],['4','4']],'2')+slider('c1','السعة C1',1,20,1,W.C[0],'µF')+slider('c2','السعة C2',1,20,1,W.C[1],'µF')+`<div id="c3w">`+slider('c3','السعة C3',1,20,1,W.C[2],'µF')+`</div><div id="c4w">`+slider('c4','السعة C4',1,20,1,W.C[3],'µF')+`</div>`+slider('V','فرق جهد المصدر V',1,24,1,W.V,'V');
+  setTalk(['الشحنة Q واحدة على كل مكثف: انظر إلى الأعمدة، وكلها بالارتفاع نفسه.','فرق الجهد يتوزع: المكثف الأصغر سعة يأخذ فرق جهد أكبر لأن V = Q ÷ C.','مجموع فروق الجهد على المكثفات يساوي فرق جهد المصدر (العمود البرتقالي).','السعة المكافئة أصغر من أصغر سعة: جرّب أن تجعل سعتين 6 و 3 فتصبح C_T = 2.','أضف مكثفًا آخر على التوالي: تقل السعة المكافئة دائمًا.']);
+  bindSeg('nn',k=>{W.n=+k;show()});
+  bindSlider('c1','µF',v=>{W.C[0]=v;show()});bindSlider('c2','µF',v=>{W.C[1]=v;show()});bindSlider('c3','µF',v=>{W.C[2]=v;show()});bindSlider('c4','µF',v=>{W.C[3]=v;show()});bindSlider('V','V',v=>{W.V=v;show()});
+  tick=null;
+  function show(){
+    $('c3w').style.display=W.n>=3?'':'none';$('c4w').style.display=W.n>=4?'':'none';
+    const model={s:W.C.slice(0,W.n).map(c=>({c}))};
+    svg.innerHTML=drawNet(model,W.V,{x:6,y:6,w:440,h:348})+bars(leaves(model).map((l,i)=>({t:'V'+(i+1),v:l.V})).concat([{t:'V',v:W.V,col:ORANGE}]),470,44,220,250,'فرق الجهد بـ V','V');
+    const CT=capEq(model),Q=model.Q,Wt=.5*CT*W.V*W.V;
+    const sum=leaves(model).reduce((a,l)=>a+l.V,0),mn=Math.min(...W.C.slice(0,W.n));
+    info.innerHTML=`<div class="chips">${chip('السعة المكافئة C_T',f2(CT)+' µF')}${chip('الشحنة على كل مكثف',fQ(Q))}${chip('مجموع فروق الجهد',fV(sum))}${chip('الطاقة الكلية',fW(Wt))}</div>`+say(`C_T = ${f2(CT)} µF أصغر من أصغر سعة (${mn} µF). الشحنة ${fQ(Q)} واحدة على كل مكثف.`,GREEN)+rule('على التوالي: الشحنة واحدة Q1 = Q2 = Q، وفرق الجهد الكلي مجموعها V = V1 + V2 + V3، ومنها 1 ÷ C_T = 1 ÷ C1 + 1 ÷ C2 + 1 ÷ C3')}
+  show();
+}
+
+/* =====================================================================
+   3) شبكات المكثفات (5-4)
+   ===================================================================== */
+function tabNet(){
+  const W={k:'a',C:[6,3,9,5],V:12};
+  const mk=k=>{const c=W.C.map(c=>({c}));
+    return {a:{s:[{p:[c[0],c[1]]},c[2]]},b:{s:[c[0],{p:[c[1],c[2]]}]},c:{p:[{s:[c[0],c[1]]},c[2]]},d:{s:[c[0],{p:[c[1],{s:[c[2],c[3]]}]}]}}[k]};
+  const desc={a:'(C1 على التوازي مع C2) ثم على التوالي مع C3',b:'C1 على التوالي مع (C2 على التوازي مع C3)',c:'(C1 على التوالي مع C2) ثم على التوازي مع C3',d:'C1 على التوالي مع [ C2 على التوازي مع (C3 على التوالي مع C4) ]'};
+  const steps={a:'C12 = C1 + C2 ثم C_T = C12 C3 ÷ ( C12 + C3 )',b:'C23 = C2 + C3 ثم C_T = C1 C23 ÷ ( C1 + C23 )',c:'C12 = C1 C2 ÷ ( C1 + C2 ) ثم C_T = C12 + C3',d:'C34 = C3 C4 ÷ ( C3 + C4 ) ثم C234 = C2 + C34 ثم C_T = C1 C234 ÷ ( C1 + C234 )'};
+  ctrl.innerHTML=`<p class="gt">اختر الشبكة</p>`+seg('kk',[['a','شبكة 1'],['b','شبكة 2'],['c','شبكة 3'],['d','شبكة 4']],'a')+slider('c1','السعة C1',1,20,1,W.C[0],'µF')+slider('c2','السعة C2',1,20,1,W.C[1],'µF')+slider('c3','السعة C3',1,20,1,W.C[2],'µF')+`<div id="c4w" style="display:none">`+slider('c4','السعة C4',1,20,1,W.C[3],'µF')+`</div>`+slider('V','فرق جهد المصدر V',1,24,1,W.V,'V')+`<div class="btns"><button class="btn" id="pr">املأ بأرقام الامتحان</button></div>`;
+  setTalk(['اقرأ وصف الشبكة بالكلمات أولًا: ما المجموعة المتوازية وما المجموعة المتوالية؟','بسّط من الداخل إلى الخارج: الخطوات مكتوبة تحت الرسم.','لكل مكثف يظهر فرق الجهد والشحنة: في التوالي الشحنة نفسها، وفي التوازي فرق الجهد نفسه.','تحقق: مجموع فروق الجهد على أي مسار = V، وشحنات الفروع المتوازية تجمع إلى شحنة المجموعة.','الطاقة الكلية تساوي مجموع طاقات المكثفات: قارنها بـ ½ C_T V².']);
+  bindSeg('kk',k=>{W.k=k;$('c4w').style.display=k==='d'?'':'none';show()});
+  const S1=bindSlider('c1','µF',v=>{W.C[0]=v;show()}),S2=bindSlider('c2','µF',v=>{W.C[1]=v;show()}),S3=bindSlider('c3','µF',v=>{W.C[2]=v;show()});bindSlider('c4','µF',v=>{W.C[3]=v;show()});const sV=bindSlider('V','V',v=>{W.V=v;show()});
+  $('pr').onclick=()=>{const p={a:[6,3,9,5,9],b:[4,3,2,5,6],c:[6,3,6,5,12],d:[10,10,10,10,12]}[W.k];W.C=[p[0],p[1],p[2],p[3]];W.V=p[4];S1.set(p[0]);S2.set(p[1]);S3.set(p[2]);sV.set(p[4]);show()};
+  tick=null;
+  function show(){
+    const model=mk(W.k);svg.innerHTML=drawNet(model,W.V,{x:6,y:6,w:688,h:348});
+    const CT=capEq(model),Q=model.Q,L=leaves(model),Wsum=L.reduce((a,l)=>a+.5*l.c*l.V*l.V,0),Wt=.5*CT*W.V*W.V;
+    info.innerHTML=`<p class="gt">${desc[W.k]}</p><div class="chips">${chip('السعة المكافئة C_T',f2(CT)+' µF')}${chip('الشحنة الكلية Q_T',fQ(Q))}${chip('الطاقة ½ C_T V²',fW(Wt))}${chip('مجموع طاقات المكثفات',fW(Wsum))}</div>`+say('التبسيط: '+steps[W.k],GREEN)+rule('احسب C_T أولًا، ثم Q_T = C_T V، ثم ارجع إلى الشبكة: الشحنة واحدة في التوالي وفرق الجهد واحد في التوازي. الطاقة الكلية W = ½ C_T V² = مجموع طاقات المكثفات.')}
+  show();
+}
+
+/* =====================================================================
+   4) مكثف مشحون يُوصل بمكثف آخر (حفظ الشحنة)
+   ===================================================================== */
+function tabShare(){
+  const W={C1:40,V1:30,C2:20,on:false};
+  ctrl.innerHTML=slider('c1','سعة المكثف المشحون C1',5,60,5,W.C1,'µF')+slider('v1','فرق جهده V1',5,40,5,W.V1,'V')+slider('c2','سعة المكثف غير المشحون C2',5,60,5,W.C2,'µF')+`<div class="btns"><button class="btn primary" id="jn">اغلق المفتاح (وصّل)</button><button class="btn" id="op">افتح المفتاح</button></div>`;
+  setTalk(['المكثف C1 مشحون ومفصول عن المصدر، والمكثف C2 فارغ.','اضغط «اغلق المفتاح»: يصبح المكثفان على التوازي وتتوزع الشحنة بينهما.','الشحنة الكلية محفوظة، وفرق الجهد ينخفض لأن السعة المكافئة أكبر.','قارن الطاقة قبل التوصيل وبعده: تنقص الطاقة والفرق يتحول إلى حرارة وضوء.','جرّب C2 = C1: ينخفض فرق الجهد إلى النصف وتنخفض الطاقة إلى النصف.']);
+  bindSlider('c1','µF',v=>{W.C1=v;show()});bindSlider('v1','V',v=>{W.V1=v;show()});bindSlider('c2','µF',v=>{W.C2=v;show()});
+  $('jn').onclick=()=>{W.on=true;show()};$('op').onclick=()=>{W.on=false;show()};
+  tick=null;
+  function show(){
+    const Q0=W.C1*W.V1,V=Q0/(W.C1+W.C2),q1=W.C1*V,q2=W.C2*V,W0=.5*W.C1*W.V1*W.V1,Wa=.5*(W.C1+W.C2)*V*V;
+    const v=W.on?V:W.V1,Qa=W.on?q1:Q0,Qb=W.on?q2:0,Wc=W.on?Wa:W0;
+    let s=tx(350,26,W.on?'بعد التوصيل: المكثفان على التوازي':'قبل التوصيل',{s:17,f:TEAL});
+    s+=bars([{t:'Q1',v:Qa},{t:'Q2',v:Qb,col:PURPLE}],40,80,200,200,'الشحنة بـ µC','µC')+bars([{t:'V',v:v,col:ORANGE}],270,80,120,200,'فرق الجهد بـ V','V')+bars([{t:'الطاقة',v:Wc/1000,col:GREEN}],420,80,120,200,'الطاقة بـ mJ','mJ');
+    if(W.on)s+=bars([{t:'المفقودة',v:(W0-Wa)/1000,col:RED}],565,80,110,200,'الطاقة المفقودة بـ mJ','mJ');
+    s+=tx(350,342,W.on?'الشحنة الكلية لم تتغير: Q1 + Q2 = '+fQ(Q0):'الشحنة الكلية = '+fQ(Q0)+' والمكثف الثاني فارغ',{s:13,f:GRAY});
+    svg.innerHTML=s;
+    info.innerHTML=`<div class="chips">${chip('الشحنة الكلية المحفوظة',fQ(Q0))}${chip('فرق الجهد بعد التوصيل',fV(V))}${chip('Q1 و Q2 بعد التوصيل',fQ(q1)+' و '+fQ(q2))}${chip('الطاقة قبل → بعد',fW(W0)+' → '+fW(Wa))}</div>`+say(W.on?`V = Q ÷ ( C1 + C2 ) = ${fQ(Q0)} ÷ ${W.C1+W.C2} µF = ${fV(V)}، ضاع ${fW(W0-Wa)} من الطاقة.`:'اضغط «اغلق المفتاح» لتوصيل المكثفين.',W.on?GREEN:ORANGE)+rule('عند توصيل مكثف مشحون بمكثف غير مشحون: Q = C1 V1 تبقى ثابتة، ثم V = Q ÷ ( C1 + C2 ) وQ1 = C1 V وQ2 = C2 V.')}
+  show();
+}
+
+/* =====================================================================
+   5) تصميم: مكثفات متماثلة (توالٍ في كل فرع وفروع على التوازي)
+   ===================================================================== */
+function tabDesign(){
+  const W={C:220,Vm:10,m:2,k:2};
+  ctrl.innerHTML=slider('c','سعة كل مكثف C',10,500,10,W.C,'µF')+slider('vm','أقصى جهد لكل مكثف',2,20,1,W.Vm,'V')+slider('m','عدد المكثفات على التوالي في كل فرع',1,4,1,W.m,'')+slider('k','عدد الفروع على التوازي',1,4,1,W.k,'');
+  setTalk(['التوالي يقسّم فرق الجهد بين المكثفات المتماثلة، فيزيد أقصى جهد تتحمله المجموعة، لكنه يقلل السعة.','التوازي يزيد السعة دون أن يزيد أقصى جهد.','جرّب m = 2 و k = 2: أربعة مكثفات تعطي السعة نفسها C لكن بجهد أقصى 2 Vmax (مسألة تصميم الدائرة).','لاحظ: عدد المكثفات = m × k، والسعة المكافئة = k C ÷ m.','اجعل m = 1 فقط: كل المكثفات على التوازي، وk = 1: كلها على التوالي.']);
+  bindSlider('c','µF',v=>{W.C=v;show()});bindSlider('vm','V',v=>{W.Vm=v;show()});bindSlider('m','',v=>{W.m=v;show()});bindSlider('k','',v=>{W.k=v;show()});
+  tick=null;
+  function show(){
+    const br=()=>({s:Array.from({length:W.m},()=>({c:W.C}))});
+    const model=W.k===1?br():{p:Array.from({length:W.k},br)};
+    const CT=capEq(model),Vmax=W.m*W.Vm,Qmax=CT*Vmax,Wmax=.5*CT*Vmax*Vmax;
+    svg.innerHTML=drawNet(model,Vmax,{x:6,y:6,w:688,h:348},{V:true,Q:false});
+    info.innerHTML=`<div class="chips">${chip('عدد المكثفات',W.m*W.k)}${chip('السعة المكافئة',f1(CT)+' µF')}${chip('أقصى فرق جهد للمجموعة',fV(Vmax))}${chip('أقصى شحنة',fQ(Qmax))}</div>`+say(`السعة المكافئة = k C ÷ m = ${W.k} × ${W.C} ÷ ${W.m} = ${f1(CT)} µF، وأقصى جهد = m × ${W.Vm} = ${Vmax} V.`,GREEN)+rule('للحصول على السعة نفسها بجهد أكبر: مكثفان على التوالي في كل فرع (تنخفض السعة للنصف) ثم فرعان متماثلان على التوازي (تعود السعة). في الشكل: V على كل مكثف = أقصى جهد المجموعة ÷ m.')}
+  show();
+}
+
+/* =====================================================================
+   6) اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  const Q={n:0,ok:0,cur:null,done:false};
+  ctrl.innerHTML=`<div class="chips"><div class="chip"><div class="k">الأسئلة</div><div class="v" id="qn">0</div></div><div class="chip"><div class="k">الصحيحة</div><div class="v" id="qk">0</div></div></div><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button><button class="btn" id="rs">صفّر النتيجة</button></div><p class="gt">أسئلة متنوعة تغطي 3-4 و4-4 و5-4: التوازي والتوالي والشبكات والشحنة والطاقة.</p>`;
+  setTalk(['اطلب من الطالب أن يرسم الشبكة ويبسّطها على الورق قبل أن يضغط الخيار.','ركّز على التعليل الذي يظهر بعد الإجابة: يذكر القاعدة المستخدمة.','كرّر حتى يفرّق الطالب بين ما هو واحد في التوازي (V) وما هو واحد في التوالي (Q).']);
+  const GEN=[
+    ()=>{const a=rnd(2,9),b=rnd(2,9);return {q:`مكثفان (${a} µF) و (${b} µF) موصولان على التوازي. ما سعتهما المكافئة؟`,opts:[f1(a+b)+' µF',f2(a*b/(a+b))+' µF',f1(a*b)+' µF',f1(Math.abs(a-b)||1)+' µF'],ans:0,why:`C_T = ${a} + ${b} = ${a+b} µF.`}},
+    ()=>{const p=pick([[6,3],[12,4],[6,6],[4,12],[10,15]]);const a=p[0],b=p[1],c=a*b/(a+b);return {q:`مكثفان (${a} µF) و (${b} µF) موصولان على التوالي. ما سعتهما المكافئة؟`,opts:[f2(c)+' µF',f1(a+b)+' µF',f1(a*b)+' µF',f2(1/a+1/b)+' µF'],ans:0,why:`C_T = ( ${a} × ${b} ) ÷ ( ${a} + ${b} ) = ${f2(c)} µF.`}},
+    ()=>{const c=pick([4,5,6,10,20]),n=pick([2,4,5]);return {q:`${n} مكثفات متماثلة سعة كل منها ${c} µF. ما سعتها المكافئة إذا وُصلت على التوالي؟`,opts:[f2(c/n)+' µF',f1(c*n)+' µF',f1(c)+' µF',f2(c/(n*n))+' µF'],ans:0,why:`C_T = C ÷ n = ${c} ÷ ${n} = ${f2(c/n)} µF.`}},
+    ()=>{const a=pick([6,12,18]),b=pick([3,6,9]),v=pick([12,18,24]);const q=a*b/(a+b)*v,v1=q/a;return {q:`مكثفان (${a} µF) و (${b} µF) موصولان على التوالي ببطارية ${v} V. ما فرق الجهد بين لوحي المكثف (${a} µF)؟`,opts:[f2(v1)+' V',f2(v-v1)+' V',f1(v/2)+' V',f1(v)+' V'],ans:0,why:`الشحنة واحدة Q = ${f1(q)} µC ثم V = Q ÷ C = ${f1(q)} ÷ ${a} = ${f2(v1)} V.`}},
+    ()=>{const a=rnd(2,8),b=rnd(2,8),v=pick([6,9,12]);return {q:`مكثفان (${a} µF) و (${b} µF) موصولان على التوازي ببطارية ${v} V. ما الشحنة الكلية المخزَّنة؟`,opts:[f1((a+b)*v)+' µC',f1(a*v)+' µC',f1(a*b*v)+' µC',f1(a*b/(a+b)*v)+' µC'],ans:0,why:`C_T = ${a+b} µF ثم Q_T = C_T V = ${a+b} × ${v} = ${(a+b)*v} µC.`}},
+    ()=>{const a=pick([4,6,8]),b=pick([2,3,4]),c=pick([6,9,12]);const cp=a+b,ct=cp*c/(cp+c);return {q:`المكثفان (${a} µF) و (${b} µF) على التوازي، وهذه المجموعة على التوالي مع مكثف (${c} µF). ما السعة المكافئة؟`,opts:[f2(ct)+' µF',f1(a+b+c)+' µF',f2(1/(1/a+1/b+1/c))+' µF',f1(cp)+' µF'],ans:0,why:`C12 = ${a} + ${b} = ${cp} µF ثم C_T = ( ${cp} × ${c} ) ÷ ( ${cp} + ${c} ) = ${f2(ct)} µF.`}},
+    ()=>{const a=pick([4,6]),b=pick([2,3]),c=pick([2,3,6]);const cp=b+c,ct=a*cp/(a+cp);return {q:`المكثف (${a} µF) على التوالي مع مجموعة متوازية من (${b} µF) و (${c} µF). ما السعة المكافئة؟`,opts:[f2(ct)+' µF',f1(a+b+c)+' µF',f2(a*b*c/(a*b+b*c+a*c))+' µF',f1(cp)+' µF'],ans:0,why:`C23 = ${b} + ${c} = ${cp} µF ثم C_T = ( ${a} × ${cp} ) ÷ ( ${a} + ${cp} ) = ${f2(ct)} µF.`}},
+    ()=>{const k=pick([1,2,3]);return {q:'عند توصيل مكثفين على التوالي ببطارية، أي الكميتين تتساوى على المكثفين؟',opts:['الشحنة','فرق الجهد','الطاقة','السعة'],ans:0,why:'في التوالي يمر المسار نفسه بالمكثفين فتتساوى الشحنة، أما فرق الجهد فيتوزع.'}},
+    ()=>({q:'عند توصيل مكثفين على التوازي ببطارية، أي الكميتين تتساوى على المكثفين؟',opts:['فرق الجهد','الشحنة','الطاقة','السعة'],ans:0,why:'في التوازي يتصل المكثفان بالنقطتين نفسيهما فيتساوى فرق الجهد، أما الشحنة فتتناسب مع السعة.'}),
+    ()=>{const c1=pick([20,30,40]),v1=pick([10,20,30]),c2=pick([10,20]);const v=c1*v1/(c1+c2);return {q:`شُحن مكثف ${c1} µF إلى ${v1} V ثم فُصل ووُصل بمكثف غير مشحون ${c2} µF. ما فرق الجهد بعد التوصيل؟`,opts:[f2(v)+' V',v1+' V',f1(v1/2)+' V',f1(v1*c2/c1)+' V'],ans:0,why:`Q = ${c1} × ${v1} = ${c1*v1} µC ثم V = ${c1*v1} ÷ ( ${c1} + ${c2} ) = ${f2(v)} V.`}},
+    ()=>{const c=pick([2,4,6]);return {q:`مكثفان (${c} µF) و (${3*c} µF) موصولان على التوالي بمصدر. أي المكثفين يخزّن طاقة أكبر؟`,opts:[`(${c} µF) لأنه الأصغر سعة`,`(${3*c} µF) لأنه الأكبر سعة`,'الطاقة متساوية','لا يمكن المعرفة'],ans:0,why:'الشحنة واحدة، و W = Q² ÷ 2C فالطاقة تتناسب عكسيًا مع السعة: الأصغر سعة يخزّن طاقة أكبر.'}},
+    ()=>{const c=pick([2,4,6]);return {q:`مكثفان (${c} µF) و (${3*c} µF) موصولان على التوازي بمصدر. أي المكثفين يخزّن طاقة أكبر؟`,opts:[`(${3*c} µF) لأنه الأكبر سعة`,`(${c} µF) لأنه الأصغر سعة`,'الطاقة متساوية','لا يمكن المعرفة'],ans:0,why:'فرق الجهد واحد، و W = ½ C V² فالطاقة تتناسب طرديًا مع السعة.'}},
+    ()=>({q:'استُبدلت بطارية شبكة مكثفات بأخرى قوتها الدافعة أكبر. ماذا يحدث للسعة المكافئة وللشحنة الكلية؟',opts:['السعة ثابتة والشحنة تزداد','السعة تزداد والشحنة ثابتة','كلتاهما تزداد','كلتاهما ثابتة'],ans:0,why:'السعة المكافئة تعتمد على المكثفات وتوصيلها فقط، أما Q_T = C_T V فتزداد بزيادة V.'}),
+    ()=>{const n=pick([2,3,4]),c=pick([6,12]);return {q:`وُصلت ${n} مكثفات متماثلة على التوالي فكانت سعتها المكافئة ${f2(c/n)} µF. ما سعة كل مكثف؟`,opts:[c+' µF',f2(c/n/n)+' µF',f2(c*n)+' µF',f2(c/n)+' µF'],ans:0,why:`C_T = C ÷ n فـ C = ${f2(c/n)} × ${n} = ${c} µF.`}},
+  ];
+  function next(){
+    const g=GEN[Math.floor(Math.random()*GEN.length)]();const idx=shuf([0,1,2,3]);
+    Q.cur={...g,opts:idx.map(i=>g.opts[i]),ans:idx.indexOf(g.ans)};Q.done=false;
+    svg.innerHTML=tx(350,150,'السؤال '+(Q.n+1),{s:34,f:GRAY})+tx(350,215,'C_T = C1 + C2     1 ÷ C_T = 1 ÷ C1 + 1 ÷ C2',{s:22,f:TEAL});
+    const wr=t=>t.replace(/(\d+(?:\.\d+)?(?: ?(?:µF|µC|mC|µJ|mJ|V))?)/g,'<span class="num">$1</span>');
+    info.innerHTML=`<p class="q-text">${wr(Q.cur.q)}</p><div class="opts">${Q.cur.opts.map((o,i)=>`<button class="opt" data-i="${i}">${wr(o)}</button>`).join('')}</div><div id="why"></div>`;
+    info.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(Q.done)return;Q.done=true;Q.n++;const i=+b.dataset.i,right=i===Q.cur.ans;if(right)Q.ok++;
+      info.querySelectorAll('.opt').forEach((x,k)=>{x.disabled=true;if(k===Q.cur.ans)x.classList.add('right');else if(k===i)x.classList.add('wrong')});
+      $('why').innerHTML=`<p class="why"><b>${right?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${wr(Q.cur.why)}</p>`;
+      $('qn').textContent=Q.n;$('qk').textContent=Q.ok});
+  }
+  $('nq').onclick=next;$('rs').onclick=()=>{Q.n=0;Q.ok=0;$('qn').textContent=0;$('qk').textContent=0;next()};
+  next();
+}
+
+openTab('par');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>

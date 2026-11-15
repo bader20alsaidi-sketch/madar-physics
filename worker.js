@@ -2986,11 +2986,12 @@ async function handleScores(request, env) {
 }
 
 // ===== عدّاد زيارات مدار (D1 — الجدول visits) =====
-// VISITS_BASE: الرقم الظاهر للزوّار. للتحديث الشهري: غيّر هذا الرقم فقط ثم انشر.
-// VISITS_AUTO: false = يُعرض VISITS_BASE كما هو (يدوي). true = يُعرض VISITS_BASE + الزيارات التي سجّلها العدّاد تلقائياً.
-// ملاحظة: العدّاد يسجّل الزيارات في قاعدة D1 دائماً (حتى لو كان العرض يدوياً)، فيمكن التحويل للتلقائي لاحقاً.
+// الرقم الظاهر = VISITS_BASE (الرقم الابتدائي) + الزيارات التي يسجّلها العدّاد تلقائياً في قاعدة D1.
+// العدّ محفوظ في قاعدة البيانات وليس في الكود، فلا يعود إلى الصفر عند النشر أو تحديث الموقع.
+// لا حاجة لتحديث يدوي دوري. غيّر VISITS_BASE فقط إن أردت تعديل الرقم الابتدائي.
+// VISITS_AUTO: false = يُعرض VISITS_BASE كما هو دون إضافة (وضع يدوي).
 const VISITS_BASE = 2345;
-const VISITS_AUTO = false;
+const VISITS_AUTO = true;
 const VISITS_SINCE = 'منذ انطلاق المشروع'; // نص يظهر بجانب الرقم
 let visitsReady = false;
 async function handleVisits(request, env) {
