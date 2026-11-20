@@ -119,7 +119,7 @@ function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
 const TABS=[['charge','شحن المكثف'],['cap','السعة C = Q ÷ V'],['graph','التمثيل V–Q'],['share','توصيل مكثفين'],['energy','الطاقة المخزَّنة'],['quiz','اختبر نفسك']];
 $('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
-function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({charge:tabCharge,cap:tabCap,graph:tabGraph,share:tabShare,energy:tabEnergy,quiz:tabQuiz})[k]();startLoop()}
+function openTab(k){curTab=k;tick=null;svg.setAttribute('viewBox','0 0 700 360');$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({charge:tabCharge,cap:tabCap,graph:tabGraph,share:tabShare,energy:tabEnergy,quiz:tabQuiz})[k]();startLoop()}
 
 const f2=x=>String(+(+x).toFixed(2)),f3=x=>String(+(+x).toFixed(3)),f4=x=>String(+(+x).toFixed(4));
 const fQ=q=>{const a=Math.abs(q);return a>=1?f2(q)+' C':a>=1e-3?f2(q*1e3)+' mC':f1(q*1e6)+' µC'};
@@ -146,16 +146,16 @@ const wire=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" str
    1) شحن المكثف وتفريغه (1-4)
    ===================================================================== */
 function tabCharge(){
-  const W={V0:9,C:470,mode:'charge',vc:0,I:0,ph:0,fr:0};const R=2000;
+  const W={V0:9,C:470,mode:'charge',vc:0,I:0,ph:0,fr:0,h:[],t:0};const R=2000;svg.setAttribute('viewBox','0 0 700 540');
   ctrl.innerHTML=slider('V0','القوة الدافعة للبطارية',1,12,1,W.V0,'V')+slider('C','سعة المكثف',100,2200,10,W.C,'µF')+`<div class="btns"><button class="btn primary" id="go">اشحن (أغلق المفتاح)</button><button class="btn" id="op">افصل البطارية</button><button class="btn" id="ds">فرّغ المكثف</button><button class="btn" id="rs">إعادة من الصفر</button></div>`;
-  setTalk(['اضغط «اشحن» وراقب التيار: يبدأ كبيرًا ثم يتناقص حتى يصبح صفرًا.','لاحظ أن فرق جهد المكثف يرتفع حتى يساوي القوة الدافعة للبطارية، وعندها يتوقف الشحن.','الشحنتان على اللوحين متساويتان في المقدار ومتعاكستان في النوع، والشحنة الكلية صفر.','«افصل البطارية» يبقي المكثف مشحونًا، و«فرّغ المكثف» يعيد الشحنة عبر الدائرة بتيار معاكس.','كبّر السعة وسترى أن الشحن يستغرق وقتًا أطول لأن المكثف يحتاج شحنة أكبر.']);
+  setTalk(['اضغط «اشحن» وراقب التيار: يبدأ كبيرًا ثم يتناقص حتى يصبح صفرًا.','لاحظ أن فرق جهد المكثف يرتفع حتى يساوي القوة الدافعة للبطارية، وعندها يتوقف الشحن.','الشحنتان على اللوحين متساويتان في المقدار ومتعاكستان في النوع، والشحنة الكلية صفر.','«افصل البطارية» يبقي المكثف مشحونًا، و«فرّغ المكثف» يعيد الشحنة عبر الدائرة بتيار معاكس.','كبّر السعة وسترى أن الشحن يستغرق وقتًا أطول لأن المكثف يحتاج شحنة أكبر.','في الأسفل تُرسم المنحنيات (V و Q و I مقابل t): عند الشحن يزداد V و Q ويتناقص I إلى الصفر، وعند التفريغ تتناقص الثلاثة جميعها.']);
   bindSlider('V0','V',v=>W.V0=v);bindSlider('C','µF',v=>W.C=v);
-  $('go').onclick=()=>W.mode='charge';$('op').onclick=()=>W.mode='open';$('ds').onclick=()=>W.mode='dis';$('rs').onclick=()=>{W.vc=0;W.mode='open'};
+  $('go').onclick=()=>{W.mode='charge';W.h=[];W.t=0};$('op').onclick=()=>W.mode='open';$('ds').onclick=()=>{W.mode='dis';W.h=[];W.t=0};$('rs').onclick=()=>{W.vc=0;W.mode='open';W.h=[];W.t=0};
   let k=0;
   tick=dt=>{
     dt=Math.max(0,dt);const C=W.C*1e-6;let I=0;
     if(W.mode==='charge')I=(W.V0-W.vc)/R;else if(W.mode==='dis')I=-W.vc/R;
-    W.vc+=I*dt/C;W.I=I;W.ph+=(I*R/12)*dt*150;
+    W.vc+=I*dt/C;W.I=I;W.ph+=(I*R/12)*dt*150;if(W.mode!=='open'&&W.t<5*R*C){W.t+=dt;W.h.push([W.t,W.vc,Math.abs(I)])}
     draw();if(++k%6===1)show()};
   function draw(){
     const L=120,Rr=580,T=70,B=300,cy=185;let s='';
@@ -170,6 +170,13 @@ function tabCharge(){
         s+=`<circle cx="${xt}" cy="${T}" r="6" fill="${BLUE}" opacity=".85"/><circle cx="${xb}" cy="${B}" r="6" fill="${BLUE}" opacity=".85"/>`}
       s+=arr(430,T-26,430+dir*70,T-26,ORANGE,5)+tx(430+dir*35,T-40,'التيار الاصطلاحي',{f:ORANGE,s:12})}
     s+=tx(350,342,'النقاط الزرقاء: الإلكترونات',{f:BLUE,s:12});
+    const Ct=W.C*1e-6,TM=5*R*Ct,P=[['V',W.V0,q=>q[1],ORANGE],['Q',W.V0*Ct,q=>q[1]*Ct,GREEN],['I',W.V0/R,q=>Math.abs(q[2]),BLUE]];
+    P.forEach((p,k)=>{const gx=40+k*220,gw=180,gt=396,gh=100;
+      s+=`<path d="M${gx} ${gt-8}V${gt+gh}H${gx+gw+8}" fill="none" stroke="currentColor" stroke-width="2"/><line x1="${gx}" y1="${gt+4}" x2="${gx+gw}" y2="${gt+4}" stroke="${GRAY}" stroke-dasharray="5 4" opacity=".6"/>`;
+      s+=tx(gx+10,gt-10,p[0],{s:16})+tx(gx+gw+4,gt+gh+18,'t',{s:13});
+      let d='';W.h.forEach((q,i)=>{const x=gx+Math.min(1,q[0]/TM)*gw,y=gt+gh-Math.min(1,p[2](q)/p[1])*(gh-4);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' '});
+      if(d)s+=`<path d="${d}" fill="none" stroke="${p[3]}" stroke-width="3.2"/>`});
+    s+=tx(350,532,'المنحنيات تُرسم أثناء الشحن أو التفريغ (الخط المتقطع: القيمة العظمى)',{f:GRAY,s:12});
     svg.innerHTML=s}
   draw();show();
   function show(){

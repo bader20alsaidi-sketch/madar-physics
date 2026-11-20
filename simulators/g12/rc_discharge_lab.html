@@ -1,0 +1,331 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta name="author" content="أ. بدر السعيدي"><meta name="copyright" content="© 2026 أ. بدر السعيدي — جميع الحقوق محفوظة"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>محاكي شحن المكثفات وتفريغها — الصف الثاني عشر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Readex+Pro:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#edf1f4;--surface:#fbfcfd;--raised:#ffffff;--ink:#14223a;--muted:#56677c;--line:#d2dbe4;--grid:#e1e8ef;--chip:#e9eef3;
+  --accent:#b9581a;--on-accent:#fff;--ok:#1b7a43;--ok-bg:#e1f2e7;--bad:#b8372d;--bad-bg:#f8e3e1;--warn-bg:#fff1dc;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;--f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151f;--surface:#141e2b;--raised:#1a2636;--ink:#e4ebf3;--muted:#93a3b7;--line:#283a50;--grid:#1a2738;--chip:#1f2d3f;--accent:#f08b3f;--on-accent:#1b0e04;--ok:#52c784;--ok-bg:#16301f;--bad:#f06c61;--bad-bg:#3a1a18;--warn-bg:#3a2a12}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
+.app{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:16px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.75rem;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.credit{font-size:.8rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ctrl{display:flex;flex-direction:column;gap:16px}
+.gt{font-size:.78rem;font-weight:700;color:var(--muted);margin:0 0 6px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:10px;padding:3px;gap:3px}
+.seg button{flex:1;font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:7px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0/.14)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:4px 10px;align-items:center;margin-bottom:10px}
+.field label{grid-column:1/-1;font-weight:600;font-size:.92rem}
+.field input[type=range]{width:100%;accent-color:var(--accent);direction:ltr}
+.field output{font:700 13px var(--f-mono);direction:ltr;text-align:center;background:var(--chip);border-radius:7px;padding:4px 2px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:8px 14px;border-radius:9px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.small{padding:5px 10px;font-size:.85rem}
+.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:600}
+.chk input{accent-color:var(--accent);width:18px;height:18px}
+select{font:inherit;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);width:100%}
+.stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.board{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.board svg{display:block;width:100%;height:auto;color:var(--ink)}
+svg text{font-family:var(--f-body)}
+.num{font-family:var(--f-mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.chip{background:var(--chip);border-radius:10px;padding:9px 12px}
+.chip .k{font-size:.78rem;color:var(--muted)}
+.chip .v{font:700 1.1rem var(--f-mono);direction:ltr;text-align:right}
+.say{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--warn-bg);font-weight:600}
+.say.ok{background:var(--ok-bg);color:var(--ok)}
+.rule{margin:12px 0 0;padding:10px 14px;border-radius:10px;border:1.5px dashed var(--accent);font-size:.92rem}
+.rule b{color:var(--accent)}
+.steps{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps li{background:var(--chip);border-radius:9px;padding:8px 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.card{border-radius:10px;padding:10px 12px;font-size:.92rem}
+.card.good{background:var(--ok-bg)} .card.bad{background:var(--bad-bg)}
+.card b{display:block;margin-bottom:2px}
+details.talk{padding:0}
+details.talk summary{cursor:pointer;font-weight:700;padding:12px 16px}
+details.talk ul{margin:0;padding:0 34px 14px 16px}
+details.talk li{margin:5px 0}
+.q-text{font-size:1.05rem;font-weight:600;margin:0 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opt{font:inherit;font-weight:600;text-align:center;border:1.5px solid var(--line);background:var(--raised);color:var(--ink);padding:10px;border-radius:10px;cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.why{margin:12px 0 0;padding:10px 14px;border-radius:10px;background:var(--chip)}
+@media (max-width:860px){.layout{display:flex;flex-direction:column;gap:14px}.stage{display:contents}.board{order:1}.ctrl{order:2}#info{order:3}#talkBox{order:4}h1{font-size:1.45rem}#info,#talkBox,.board,.ctrl{min-width:0;max-width:100%}}
+.chip .k sub{font-size:.7em}.btns{flex-wrap:wrap}
+</style></head><body>
+<div class="app">
+  <header>
+    <div><h1>محاكي شحن المكثفات وتفريغها</h1><p class="sub">الوحدة الرابعة: المكثفات — شحن المكثف وتفريغه (<span class="num">6-4</span>) والثابت الزمني <span class="num">τ = R C</span></p></div>
+    <div class="credit">إعداد: أ. بدر السعيدي | 93669399 | mr.baderalsaidi</div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="أقسام المحاكي"></nav>
+  <div class="layout">
+    <aside class="panel ctrl" id="ctrl" aria-label="التحكم"></aside>
+    <section class="stage">
+      <div class="board"><svg id="svg" viewBox="0 0 700 360" role="img" aria-label="مشهد المحاكاة"></svg></div>
+      <div class="panel" id="info"></div>
+      <details class="panel talk" id="talkBox"><summary>نقاط الشرح للمعلم (اضغط للفتح)</summary><ul id="talk"></ul></details>
+    </section>
+  </div>
+</div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const svg=$('svg'),ctrl=$('ctrl'),info=$('info'),talk=$('talk');
+const reduceMotion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const GREEN='#2e9e5b',RED='#d9483b',ORANGE='#e07b1a',BLUE='#3b7ddd',GRAY='#8a97a8';
+const f1=x=>String(+x.toFixed(1)),f0=x=>String(Math.round(x));
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const num=s=>`<span class="num">${s}</span>`;
+function arr(x1,y1,x2,y2,col,w=5){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<3)return'';const ux=dx/L,uy=dy/L,hl=Math.min(16,L*.55),bx=x2-ux*hl,by=y2-uy*hl;
+  return `<line x1="${x1}" y1="${y1}" x2="${bx}" y2="${by}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/><polygon points="${x2},${y2} ${bx-uy*hl*.55},${by+ux*hl*.55} ${bx+uy*hl*.55},${by-ux*hl*.55}" fill="${col}"/>`}
+const LTR=t=>String(t).replace(/([0-9A-Za-zΔτ½²³⁻₀-₉µΩ][0-9A-Za-zΔτ½ .,+-−×÷=/%²³⁻¹₀-₉()|°µΩ_]*[0-9A-Za-z%²³¹₀-₉)°µΩ]|[0-9A-Za-zΔτ½²³µΩ])/g,'⁦$1⁩');
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" font-size="${(o.s||15)*1.28}" font-weight="${o.w||600}" fill="${o.f||'currentColor'}" text-anchor="${o.a==='start'?'end':o.a==='end'?'start':'middle'}">${LTR(t)}</text>`; // the page is RTL: SVG start/end are mirrored, so swap them (a:'start' = text extends to the right of x)
+const carSvg=(x,y,sc=1,col='#4e86d6')=>`<g transform="translate(${x} ${y}) scale(${-sc} ${sc})"><path d="M-62 0 L-62 -22 Q-60 -30 -48 -31 L-30 -31 L-18 -50 Q-14 -54 -6 -54 L28 -54 Q36 -54 40 -48 L52 -31 L60 -29 Q66 -26 66 -18 L66 0 Z" fill="${col}" stroke="#1a1a1a" stroke-width="2.4"/><path d="M-14 -31 L-4 -48 L24 -48 L36 -31 Z" fill="#e8f4fb" stroke="#1a1a1a" stroke-width="1.8"/><circle cx="-34" cy="2" r="14" fill="#333"/><circle cx="-34" cy="2" r="6" fill="#bbb"/><circle cx="38" cy="2" r="14" fill="#333"/><circle cx="38" cy="2" r="6" fill="#bbb"/></g>`;
+const groundMarks=(off,y,col)=>{let s='';for(let x=-((off%80)+80)%80-80;x<780;x+=80)s+=`<line x1="${x}" y1="${y}" x2="${x+38}" y2="${y}" stroke="${col}" stroke-width="4"/>`;return s};
+
+/* ---------- UI helpers ---------- */
+function slider(id,label,min,max,step,val,unit){return `<div class="field"><label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"><output id="${id}_o">${val} ${unit}</output></div>`}
+function bindSlider(id,unit,fn){const el=$(id),o=$(id+'_o');const upd=()=>{o.textContent=el.value+' '+unit;fn(parseFloat(el.value))};el.addEventListener('input',upd);return {set(v){el.value=v;o.textContent=el.value+' '+unit}}}
+function seg(id,items,cur){return `<div class="seg" id="${id}" role="group">${items.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===cur}">${t}</button>`).join('')}</div>`}
+function bindSeg(id,fn){const el=$(id);el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(b.dataset.k)})}
+
+/* ---------- engine: one active tab at a time ---------- */
+let tick=null,raf=0,lastT=0,curTab='dis';
+function loop(t){const dt=Math.min(.05,(t-lastT)/1000||0);lastT=t;if(tick)tick(dt);raf=requestAnimationFrame(loop)}
+function startLoop(){cancelAnimationFrame(raf);lastT=performance.now();raf=requestAnimationFrame(loop)}
+function setTalk(list){talk.innerHTML=list.map(t=>`<li>${t}</li>`).join('')}
+
+const TABS=[['dis','الشحن والتفريغ'],['tau','الثابت الزمني'],['time','أوجد الزمن'],['eq','مكثفان وR'],['quiz','اختبر نفسك']];
+$('tabs').innerHTML=TABS.map(([k,t])=>`<button data-k="${k}" aria-pressed="${k===curTab}">${t}</button>`).join('');
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;openTab(b.dataset.k)});
+function openTab(k){curTab=k;tick=null;$('tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));({dis:tabDis,tau:tabTau,time:tabTime,eq:tabEq,quiz:tabQuiz})[k]();startLoop()}
+
+const f2=x=>String(+(+x).toFixed(2)),f3=x=>String(+(+x).toFixed(3)),f4=x=>String(+(+x).toFixed(4));
+const fQ=q=>{const a=Math.abs(q);return a>=1?f2(q)+' C':a>=1e-3?f2(q*1e3)+' mC':f1(q*1e6)+' µC'};
+const fI=i=>{const a=Math.abs(i);return a>=1?f2(i)+' A':a>=1e-3?f2(i*1e3)+' mA':f1(i*1e6)+' µA'};
+const fV=v=>f2(v)+' V';
+const fT=t=>t>=1?f2(t)+' s':t>=1e-3?f1(t*1e3)+' ms':f1(t*1e6)+' µs';
+const WR=/[A-Za-zΔτ0-9₀-₉µΩ][A-Za-zΔτ0-9₀-₉µΩ .,+-−×÷=/%²³⁻¹()^_|°]*[A-Za-zτ0-9₀-₉µΩ%)]|[A-Za-zΔτ0-9₀-₉µΩ]/g;
+const ar=t=>String(t).replace(WR,m=>`<span class="num">${m}</span>`);
+const nv=s=>`<span class="num">${s}</span>`;
+const chip=(k,v)=>`<div class="chip"><div class="k">${k}</div><div class="v">${nv(v)}</div></div>`;
+const say=(t,c)=>`<p class="say ${c===GREEN?'ok':''}">${ar(t)}</p>`;
+const rule=t=>`<p class="rule"><b>اربط بالدرس:</b> ${ar(t)}</p>`;
+const TEAL='#1c8f95';
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1)),pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+const wire=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>`;
+const E=Math.E;
+/* a capacitor drawn with horizontal plates: centre (x,y), plate width w, gap g, charge fraction fr in [0,1] */
+function capDraw(x,y,w,g,fr){
+  let s=`<rect x="${x-w/2}" y="${y-g/2-7}" width="${w}" height="7" rx="2" fill="currentColor"/><rect x="${x-w/2}" y="${y+g/2}" width="${w}" height="7" rx="2" fill="currentColor"/>`;
+  const n=Math.round(clamp(fr,0,1)*Math.floor(w/22));
+  for(let i=0;i<n;i++){const px=x-w/2+14+i*((w-28)/Math.max(1,n-1)||0);
+    s+=`<text x="${px}" y="${y-g/2-13}" text-anchor="middle" font-size="18" font-weight="800" fill="${RED}">+</text><text x="${px}" y="${y+g/2+24}" text-anchor="middle" font-size="18" font-weight="800" fill="${BLUE}">−</text>`}
+  return s}
+/* small graph: x0,y0 top-left, w,h; fn(t) in [0,1]; hist = [[t,val01]]; tmax; col; title */
+function miniGraph(x0,y0,w,h,hist,col,title,y0lab,mk){
+  let s=`<path d="M${x0} ${y0-8}V${y0+h}H${x0+w+8}" fill="none" stroke="currentColor" stroke-width="2"/>`;
+  s+=tx(x0+w/2,y0-12,title,{s:14,f:col})+tx(x0-6,y0+8,y0lab,{s:12,a:'end'})+tx(x0+w+4,y0+h+16,'t',{s:12,a:'end'});
+  if(mk!==undefined){const xm=x0+mk*w;s+=`<line x1="${xm}" y1="${y0+h}" x2="${xm}" y2="${y0+h-(h*Math.exp(-mk*5))}" stroke="${RED}" stroke-width="1.4" stroke-dasharray="4 3" opacity=".8"/>`}
+  let d='';hist.forEach((p,i)=>{d+=(i?'L':'M')+(x0+p[0]*w).toFixed(1)+' '+(y0+h-p[1]*(h-4)).toFixed(1)+' '});
+  if(d)s+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="3.2"/>`;
+  return s}
+
+/* =====================================================================
+   1) شحن المكثف وتفريغه (4-7)
+   ===================================================================== */
+function tabDis(){
+  svg.setAttribute('viewBox','0 0 700 520');
+  const W={V0:12,C:1000,R:2,mode:'idle',kind:'dis',t:0,vc:12,hist:[],start:12};
+  ctrl.innerHTML=slider('V0','فرق جهد البطارية',1,12,1,W.V0,'V')+slider('C','سعة المكثف',100,2200,100,W.C,'µF')+slider('R','المقاومة',0.5,10,0.5,W.R,'kΩ')+`<div class="btns"><button class="btn primary" id="dq">فرّغ (المفتاح عند Q)</button><button class="btn" id="cp">اشحن (المفتاح عند P)</button><button class="btn" id="rs">إعادة</button></div>`;
+  setTalk(['البداية: المكثف مشحون كاملًا عند فرق جهد البطارية. اضغط «فرّغ» وراقب المنحنيات الثلاثة.','في التفريغ تتناقص Q و V و I أسّيًا: بسرعة في البداية ثم ببطء حتى تقترب من الصفر.','عند الزمن τ = R C تبقى 37 % من القيمة الابتدائية (الخط الأحمر المتقطع).','اضغط «اشحن»: يبدأ التيار كبيرًا ثم يتناقص إلى الصفر، بينما يزداد V و Q حتى القيمة العظمى.','غيّر R أو C وأعد التجربة: يتغير زمن التجربة كله ويبقى الشكل الأسّي نفسه.']);
+  const tauOf=()=>W.R*1e3*W.C*1e-6;
+  const reset=()=>{W.vc=W.V0;W.start=W.V0;W.mode='idle';W.kind='dis';W.t=0;W.hist=[]};
+  bindSlider('V0','V',v=>{W.V0=v;reset()});bindSlider('C','µF',v=>{W.C=v;reset()});bindSlider('R','kΩ',v=>{W.R=v;reset()});
+  $('dq').onclick=()=>{W.mode='dis';W.kind='dis';W.t=0;W.hist=[];W.start=W.V0;W.vc=W.V0};
+  $('cp').onclick=()=>{W.mode='charge';W.kind='charge';W.t=0;W.hist=[];W.start=0;W.vc=0};
+  $('rs').onclick=reset;
+  let k=0;
+  tick=dt=>{
+    const tau=tauOf();
+    if(W.mode!=='idle'){
+      const ds=dt*(5*tau/6);W.t+=ds;
+      if(W.mode==='dis')W.vc=W.start*Math.exp(-W.t/tau);else W.vc=W.V0-(W.V0-W.start)*Math.exp(-W.t/tau);
+      if(W.t<=5*tau){const xv=W.t/(5*tau);const vv=W.mode==='dis'?W.vc/W.start:W.vc/W.V0;const ii=W.mode==='dis'?W.vc/W.start:(W.V0-W.vc)/W.V0;W.hist.push([xv,vv,ii])}
+      else{W.mode='done'}
+    }
+    draw();if(++k%6===1)show()};
+  function draw(){
+    const tau=tauOf(),Lx=110,Rx=590,T=60,B=300,cy=176;let s='';
+    s+=wire(Lx,T,260,T)+wire(440,T,Rx,T)+wire(Rx,T,Rx,B)+wire(Lx,B,Rx,B)+wire(Lx,T,Lx,cy-20)+wire(Lx,cy+20,Lx,B);
+    s+=`<line x1="${Lx-26}" y1="${cy-20}" x2="${Lx+26}" y2="${cy-20}" stroke="currentColor" stroke-width="4"/><line x1="${Lx-14}" y1="${cy+20}" x2="${Lx+14}" y2="${cy+20}" stroke="currentColor" stroke-width="9"/>`;
+    s+=tx(Lx+46,cy-14,'+',{f:RED,s:20})+tx(Lx+46,cy+28,'−',{f:BLUE,s:20})+tx(Lx-48,cy+6,fV(W.V0),{s:13,f:GRAY});
+    const armP=W.mode==='charge';
+    s+=`<circle cx="260" cy="${T}" r="6" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="440" cy="${T}" r="6" fill="none" stroke="currentColor" stroke-width="2.6"/>`;
+    s+=`<line x1="350" y1="108" x2="${armP?260:440}" y2="${T+6}" stroke="${ORANGE}" stroke-width="5" stroke-linecap="round"/><circle cx="350" cy="108" r="5" fill="${ORANGE}"/>`;
+    s+=tx(260,T-14,'P',{f:TEAL,s:18})+tx(440,T-14,'Q',{f:TEAL,s:18});
+    s+=wire(350,108,350,146)+capDraw(350,168,90,22,W.vc/Math.max(W.V0,W.start))+wire(350,196,350,214)+`<circle cx="350" cy="232" r="18" fill="rgba(127,127,127,.15)" stroke="currentColor" stroke-width="3"/>`+tx(350,238,'µA',{s:13})+wire(350,250,350,258)+`<rect x="338" y="258" width="24" height="34" fill="none" stroke="currentColor" stroke-width="3"/>`+wire(350,292,350,B);
+    s+=tx(430,176,'C = '+f0(W.C)+' µF',{s:14,f:TEAL,a:'start'})+tx(410,280,'R = '+f1(W.R)+' kΩ',{s:14,f:TEAL,a:'start'});
+    s+=miniGraph(80,360,150,120,W.hist.map(p=>[p[0],p[1]]),ORANGE,'فرق الجهد V',W.kind==='dis'?'V₀':'V_max',W.kind==='dis'?1/5:undefined);
+    s+=miniGraph(290,360,150,120,W.hist.map(p=>[p[0],W.mode==='charge'?p[2]:p[1]]),BLUE,'شدة التيار I','I₀',1/5);
+    s+=miniGraph(500,360,150,120,W.hist.map(p=>[p[0],p[1]]),GREEN,'الشحنة Q',W.kind==='dis'?'Q₀':'Q_max',W.kind==='dis'?1/5:undefined);
+    s+=tx(350,508,'كل منحنى يغطي زمنًا قدره 5τ، والخط الأحمر يمثّل الزمن τ',{s:12,f:GRAY});
+    svg.innerHTML=s}
+  draw();show();
+  function show(){
+    const tau=tauOf(),i0=W.V0/(W.R*1e3);let cur=W.mode==='charge'?(W.V0-W.vc)/(W.R*1e3):W.vc/(W.R*1e3);
+    let t;
+    if(W.mode==='idle')t='المكثف مشحون كاملًا. اضغط «فرّغ» لتوصيل المفتاح بالطرف Q.';
+    else if(W.mode==='dis')t='التفريغ جارٍ: الشحنة وفرق الجهد والتيار تتناقص معًا بالمعدل الأسّي نفسه، وبعد τ تبقى 37 % من كل منها.';
+    else if(W.mode==='charge')t='الشحن جارٍ: يبدأ التيار كبيرًا ثم يتناقص، وتزداد الشحنة وفرق الجهد نحو القيمة العظمى.';
+    else t='انتهى العرض (5τ): الشحنة المتبقية أقل من 1 % من قيمتها، وتقترب من الصفر دون أن تصل إليه نظريًا.';
+    info.innerHTML=`<div class="chips">${chip('فرق جهد المكثف',fV(W.vc))}${chip('الشحنة Q',fQ(W.vc*W.C*1e-6))}${chip('شدة التيار I',fI(cur))}${chip('الثابت الزمني τ',fT(tau))}</div>`+say(t,W.mode==='dis'?RED:GREEN)+rule(W.kind==='charge'?'في أثناء الشحن يتناقص التيار إلى الصفر ويزداد V و Q حتى القيمة العظمى ، وسرعة ذلك يحددها τ = R C أيضًا.':'V = V₀ e^(−t ÷ τ) ، τ = R C ، I₀ = V₀ ÷ R'+' ، وهنا I₀ = '+fI(i0)+' .')}
+}
+
+/* =====================================================================
+   2) الثابت الزمني τ = R C (4-8)
+   ===================================================================== */
+function tabTau(){
+  svg.setAttribute('viewBox','0 0 700 420');
+  const W={R:2,C:1000,x:1,cmp:0};
+  ctrl.innerHTML=slider('R','المقاومة',0.5,10,0.5,W.R,'kΩ')+slider('C','سعة المكثف',100,2200,100,W.C,'µF')+slider('x','الزمن t بدلالة τ',0,5,0.1,W.x,'τ')+`<div class="btns"><button class="btn" id="mr">قارن: ضاعف R</button><button class="btn" id="mc">قارن: ضاعف C</button><button class="btn" id="mn">إلغاء المقارنة</button></div>`;
+  setTalk(['الثابت الزمني τ = R C زمن، ووحدته الثانية: الأوم × الفاراد = ثانية.','حرّك شريط الزمن: عند τ يبقى 37 %، وعند 2τ يبقى 14 %، وعند 3τ يبقى 5 %، وعند 5τ أقل من 1 %.','اضغط «قارن: ضاعف R» ليظهر المنحنى الأحمر المتقطع: يتمدد على محور الزمن لأن τ تضاعفت.','«ضاعف C» يعطي الأثر نفسه على الزمن لكن بشحنة ابتدائية أكبر (Q₀ = C V₀).','زمن فقد نصف الشحنة t = 0.693 τ لأي دائرة.']);
+  bindSlider('R','kΩ',v=>W.R=v);bindSlider('C','µF',v=>W.C=v);bindSlider('x','τ',v=>W.x=v);
+  $('mr').onclick=()=>W.cmp=1;$('mc').onclick=()=>W.cmp=2;$('mn').onclick=()=>W.cmp=0;
+  tick=()=>{draw();show()};
+  const tau=()=>W.R*1e3*W.C*1e-6;
+  function draw(){
+    const x0=70,y0=40,w=560,h=290;let s=`<path d="M${x0} ${y0-10}V${y0+h}H${x0+w+10}" fill="none" stroke="currentColor" stroke-width="2.4"/>`;
+    s+=tx(x0+10,y0-14,'Q ÷ Q₀  (%)',{s:13,a:'start'})+tx(x0+w+14,y0+h+44,'t  (τ)',{s:13,a:'end'});
+    for(let n=0;n<=5;n++){const X=x0+n/5*w;s+=`<line x1="${X}" y1="${y0+h}" x2="${X}" y2="${y0+h+6}" stroke="currentColor" stroke-width="2"/>`+tx(X,y0+h+22,String(n),{s:12})}
+    for(const p of [0,25,50,75,100]){const Y=y0+h-p/100*h;s+=`<line x1="${x0-5}" y1="${Y}" x2="${x0+w}" y2="${Y}" stroke="currentColor" stroke-width="1" opacity=".14"/>`+tx(x0-8,Y+4,String(p),{s:12,a:'end'})}
+    const curve=(kk,col,dash)=>{let d='';for(let i=0;i<=120;i++){const t=5*i/120;d+=(i?'L':'M')+(x0+t/5*w).toFixed(1)+' '+(y0+h-Math.exp(-t*kk)*h).toFixed(1)+' '}return `<path d="${d}" fill="none" stroke="${col}" stroke-width="3.4"${dash?' stroke-dasharray="9 6"':''}/>`};
+    s+=curve(1,BLUE,false);
+    if(W.cmp)s+=curve(0.5,RED,true)+tx(x0+w*0.56,y0+h*0.45,W.cmp===1?'المقاومة 2R':'السعة 2C',{s:14,f:RED});
+    const xv=W.x/5*w+x0,yv=y0+h-Math.exp(-W.x)*h;
+    s+=`<line x1="${xv}" y1="${y0+h}" x2="${xv}" y2="${yv}" stroke="${ORANGE}" stroke-width="2" stroke-dasharray="5 4"/><line x1="${x0}" y1="${yv}" x2="${xv}" y2="${yv}" stroke="${ORANGE}" stroke-width="2" stroke-dasharray="5 4"/><circle cx="${xv}" cy="${yv}" r="7" fill="${ORANGE}" stroke="currentColor" stroke-width="1.6"/>`;
+    s+=tx(xv+12,yv-12,f1(Math.exp(-W.x)*100)+' %',{s:14,f:ORANGE,a:'start'});
+    const yt=y0+h-Math.exp(-1)*h;s+=`<circle cx="${x0+w/5}" cy="${yt}" r="4.5" fill="${RED}"/>`+tx(x0+w/5+10,yt+22,'τ : 37 %',{s:12,f:RED,a:'start'});
+    svg.innerHTML=s}
+  function show(){const t=tau(),T=W.x*t;
+    info.innerHTML=`<div class="chips">${chip('الثابت الزمني τ',fT(t))}${chip('الزمن t',fT(T))}${chip('المتبقي Q ÷ Q₀',f1(Math.exp(-W.x)*100)+' %')}${chip('زمن النصف 0.693 τ',fT(0.693*t))}</div>`+say(W.x<0.05?'عند t = 0 تكون الشحنة كاملة (100 %).':W.x>4.5?'بعد نحو 5τ لا يتبقى إلا أقل من 1 % من الشحنة.':'عند t = '+f1(W.x)+' τ تبقى '+f1(Math.exp(-W.x)*100)+' % من الشحنة الابتدائية.',GREEN)+rule('τ = R C ، وعند t = τ تبقى 37 % ، وعند t = 2τ تبقى 14 % ، وعند t = 3τ تبقى 5 %.')}
+  draw();show()}
+
+/* =====================================================================
+   3) أوجد الزمن t = τ ln ( x₀ ÷ x ) (4-9)
+   ===================================================================== */
+function tabTime(){
+  svg.setAttribute('viewBox','0 0 700 420');
+  const W={f:50,R:2,C:500};
+  ctrl.innerHTML=slider('f','النسبة المتبقية من القيمة الابتدائية',5,95,1,W.f,'%')+slider('R','المقاومة',0.5,10,0.5,W.R,'kΩ')+slider('C','سعة المكثف',100,2200,100,W.C,'µF')+`<div class="btns"><button class="btn" id="p1">37 % ( t = τ )</button><button class="btn" id="p2">50 % ( النصف )</button><button class="btn" id="p3">10 %</button><button class="btn" id="p4">5 %</button></div>`;
+  setTalk(['اختر النسبة المتبقية من الشحنة (أو من فرق الجهد أو التيار): الزمن واحد في الثلاثة لأن النسبة هي نفسها.','المعادلة: Q ÷ Q₀ = e^(−t ÷ τ) ثم نأخذ ln للطرفين فنجد t = τ ln ( Q₀ ÷ Q ).','مثال: للنصف t = τ ln 2 = 0.693 τ ، وللعُشر t = τ ln 10 = 2.30 τ.','غيّر R أو C فيتغير τ ويتغير الزمن بالنسبة نفسها، ولا تتغير النسبة t ÷ τ.']);
+  bindSlider('f','%',v=>W.f=v);bindSlider('R','kΩ',v=>W.R=v);bindSlider('C','µF',v=>W.C=v);
+  const sf=(id,v)=>{$(id).onclick=()=>{W.f=v;$('f').value=v;$('f_o').textContent=v+' %'}};sf('p1',37);sf('p2',50);sf('p3',10);sf('p4',5);
+  tick=()=>{draw();show()};
+  const tau=()=>W.R*1e3*W.C*1e-6,nT=()=>Math.log(100/W.f);
+  function draw(){
+    const x0=70,y0=40,w=560,h=290,tm=Math.max(5,Math.ceil(nT()+0.5));let s=`<path d="M${x0} ${y0-10}V${y0+h}H${x0+w+10}" fill="none" stroke="currentColor" stroke-width="2.4"/>`;
+    s+=tx(x0+10,y0-14,'%',{s:13,a:'start'})+tx(x0+w+14,y0+h+44,'t  (τ)',{s:13,a:'end'});
+    for(let n=0;n<=tm;n++){const X=x0+n/tm*w;s+=`<line x1="${X}" y1="${y0+h}" x2="${X}" y2="${y0+h+6}" stroke="currentColor" stroke-width="2"/>`+tx(X,y0+h+22,String(n),{s:12})}
+    for(const p of [0,25,50,75,100]){const Y=y0+h-p/100*h;s+=`<line x1="${x0-5}" y1="${Y}" x2="${x0+w}" y2="${Y}" stroke="currentColor" stroke-width="1" opacity=".14"/>`+tx(x0-8,Y+4,String(p),{s:12,a:'end'})}
+    let d='';for(let i=0;i<=120;i++){const t=tm*i/120;d+=(i?'L':'M')+(x0+t/tm*w).toFixed(1)+' '+(y0+h-Math.exp(-t)*h).toFixed(1)+' '}
+    s+=`<path d="${d}" fill="none" stroke="${BLUE}" stroke-width="3.4"/>`;
+    const xv=x0+nT()/tm*w,yv=y0+h-W.f/100*h;
+    s+=`<line x1="${x0}" y1="${yv}" x2="${xv}" y2="${yv}" stroke="${ORANGE}" stroke-width="2" stroke-dasharray="5 4"/><line x1="${xv}" y1="${yv}" x2="${xv}" y2="${y0+h}" stroke="${ORANGE}" stroke-width="2" stroke-dasharray="5 4"/><circle cx="${xv}" cy="${yv}" r="7" fill="${ORANGE}"/>`;
+    s+=tx(xv+12,y0+h-14,'t = '+f2(nT())+' τ',{s:14,f:ORANGE,a:'start'});svg.innerHTML=s}
+  function show(){const t=tau(),n=nT();
+    info.innerHTML=`<div class="chips">${chip('النسبة المتبقية',W.f+' %')}${chip('t ÷ τ = ln ( 100 ÷ '+W.f+' )',f2(n))}${chip('الثابت الزمني τ',fT(t))}${chip('الزمن t',fT(n*t))}</div>`+say('الزمن اللازم لتبقى '+W.f+' % من القيمة الابتدائية: t = '+f2(n)+' × '+fT(t)+' = '+fT(n*t)+'.',GREEN)+rule('t = τ ln ( x₀ ÷ x ) ؛ لا حاجة لإعادة كتابة المعادلة كل مرة.')}
+  draw();show()}
+
+/* =====================================================================
+   4) السعة المكافئة وثابت الزمن (مكثفان وتوصيلهما)
+   ===================================================================== */
+function tabEq(){
+  svg.setAttribute('viewBox','0 0 700 420');
+  const W={C1:22,C2:47,R:2.7,mode:'ser'};
+  ctrl.innerHTML=`<div><p class="gt">توصيل المكثفين</p>${seg('mode',[['ser','على التوالي'],['par','على التوازي']],'ser')}</div>`+slider('C1','السعة C₁',10,100,1,W.C1,'µF')+slider('C2','السعة C₂',10,100,1,W.C2,'µF')+slider('R','المقاومة',0.5,10,0.1,W.R,'MΩ');
+  setTalk(['المكثفان المتصلان بالمقاومة يُفرَّغان معًا، فنستبدلهما بمكثف واحد سعته C_T.','على التوالي: 1 ÷ C_T = 1 ÷ C₁ + 1 ÷ C₂ فتقل السعة المكافئة ويقل τ وزمن التفريغ.','على التوازي: C_T = C₁ + C₂ فتزداد السعة المكافئة ويزداد τ وزمن التفريغ.','قارن بالأسئلة الرسمية: دائرة C₁ = 22 µF و C₂ = 47 µF و R = 2.7 MΩ على التوالي: τ = 40.5 s.']);
+  bindSeg('mode',k=>W.mode=k);bindSlider('C1','µF',v=>W.C1=v);bindSlider('C2','µF',v=>W.C2=v);bindSlider('R','MΩ',v=>W.R=v);
+  const ct=()=>W.mode==='ser'?W.C1*W.C2/(W.C1+W.C2):W.C1+W.C2;
+  tick=()=>{draw();show()};
+  function draw(){
+    const x0=70,y0=30,w=520,h=240;let s='';
+    // schematic
+    s+='<g transform="translate(0 22)">';s+=wire(80,70,80,130)+wire(80,130,80,170)+wire(80,170,620,170)+wire(620,70,620,170);
+    if(W.mode==='ser'){s+=wire(80,70,250,70)+capH(262,70,'C₁')+wire(274,70,400,70)+capH(412,70,'C₂')+wire(424,70,620,70)}
+    else{s+=wire(80,70,160,70)+wire(160,70,160,40)+wire(160,40,300,40)+capH(312,40,'C₁')+wire(324,40,480,40)+wire(480,40,480,70)+wire(160,70,160,100)+wire(160,100,300,100)+capH(312,100,'C₂',true)+wire(324,100,480,100)+wire(480,100,480,70)+wire(480,70,620,70)}
+    s+=`<rect x="606" y="108" width="28" height="42" fill="none" stroke="currentColor" stroke-width="3"/>`+tx(580,134,'R',{s:15,f:TEAL,a:'end'})+'</g>';
+    // curve
+    const gx=70,gy=245,gw=540,gh=130;let d='';
+    s+=`<path d="M${gx} ${gy-10}V${gy+gh}H${gx+gw+8}" fill="none" stroke="currentColor" stroke-width="2.2"/>`+tx(gx+10,gy-12,'Q ÷ Q₀',{s:12,a:'start'})+tx(gx+gw+8,gy+gh+34,'t (s)',{s:12,a:'end'});
+    const tau=W.R*1e6*ct()*1e-6,tmax=Math.max(5*tau,1);
+    for(let i=0;i<=100;i++){const t=tmax*i/100;d+=(i?'L':'M')+(gx+t/tmax*gw).toFixed(1)+' '+(gy+gh-Math.exp(-t/tau)*gh).toFixed(1)+' '}
+    s+=`<path d="${d}" fill="none" stroke="${BLUE}" stroke-width="3.2"/>`;
+    const xt=gx+tau/tmax*gw,yt=gy+gh-Math.exp(-1)*gh;s+=`<circle cx="${xt}" cy="${yt}" r="5" fill="${RED}"/>`+tx(xt+10,yt-10,'τ = '+f1(tau)+' s',{s:13,f:RED,a:'start'});
+    for(let n=0;n<=5;n++){const X=gx+n/5*gw;s+=tx(X,gy+gh+16,f1(n*tau),{s:11})}
+    svg.innerHTML=s}
+  const capH=(x,y,l,below)=>`<line x1="${x-6}" y1="${y-20}" x2="${x-6}" y2="${y+20}" stroke="currentColor" stroke-width="6"/><line x1="${x+6}" y1="${y-20}" x2="${x+6}" y2="${y+20}" stroke="currentColor" stroke-width="6"/>`+tx(x,below?y+38:y-30,l,{s:14,f:TEAL});
+  function show(){const c=ct(),tau=W.R*1e6*c*1e-6;
+    info.innerHTML=`<div class="chips">${chip('C_T المكافئة',f2(c)+' µF')}${chip('الثابت الزمني τ = R C_T',f2(tau)+' s')}${chip('زمن النصف 0.693 τ',f2(0.693*tau)+' s')}${chip('زمن 10 % ( 2.30 τ )',f2(2.303*tau)+' s')}</div>`+say(W.mode==='ser'?'على التوالي تقل السعة المكافئة عن أصغر السعتين، فيقل ثابت الزمن.':'على التوازي تُجمع السعتان، فتزداد السعة المكافئة ويزداد ثابت الزمن.',W.mode==='ser'?ORANGE:GREEN)+rule('احسب C_T أولًا ثم τ = R C_T ثم استخدم e^(−t ÷ τ).')}
+  draw();show()}
+
+/* =====================================================================
+   اختبر نفسك
+   ===================================================================== */
+function tabQuiz(){
+  svg.setAttribute('viewBox','0 0 700 420');
+  let st={q:null,score:0,n:0};
+  ctrl.innerHTML=`<p class="gt">اختر الإجابة، ثم اضغط «التالي».</p><div class="btns"><button class="btn primary" id="nq">سؤال جديد</button></div><p id="sc" class="note"></p>`;
+  setTalk(['الأسئلة مولَّدة عشوائيًا: تغطي الثابت الزمني، والزمن لنسبة معينة، وأثر تغيير R أو C، وإيجاد R من معادلة أسّية.','بعد كل إجابة يظهر السبب مع القاعدة.']);
+  const mk=()=>{
+    const t=pick(['tau','half','effR','pct','findR']);
+    const C=pick([100,220,330,470,680,1000]),R=pick([1,2,2.2,4.7,5,10]); // C in µF , R in kΩ
+    if(t==='tau'){const ans=R*1e3*C*1e-6;const opts=shuf([ans,ans*1000,ans/1000,R/C]);const v=opts.map(x=>fT(x));
+      return {q:`مكثف سعته ${C} µF يُفرَّغ عبر مقاومة ${f1(R)} kΩ. ما ثابت الزمن τ للدائرة؟`,opts:v,ok:opts.indexOf(ans),why:`τ = R C = ${f1(R)}×10³ × ${C}×10⁻⁶ = ${fT(ans)}. (انتبه لتحويل µF إلى F و kΩ إلى Ω.)`}}
+    if(t==='half'){const tau=R*1e3*C*1e-6;const opts=[tau*0.693,tau,tau*0.368,tau*2];const idx=shuf([0,1,2,3]);
+      return {q:`ثابت الزمن لدائرة تفريغ τ = ${fT(tau)}. ما الزمن اللازم ليفقد المكثف نصف شحنته؟`,opts:idx.map(i=>fT(opts[i])),ok:idx.indexOf(0),why:`t = τ ln 2 = 0.693 τ = ${fT(opts[0])}.`}}
+    if(t==='effR'){const o=['تقل شدة التيار الابتدائية ويزداد زمن التفريغ','تزداد شدة التيار الابتدائية ويقل زمن التفريغ','لا يتغير شيء','تزداد الشحنة الابتدائية ويزداد زمن التفريغ'];const idx=shuf([0,1,2,3]);
+      return {q:`مكثف مشحون يُفرَّغ عبر مقاومة. ماذا يحدث عند مضاعفة المقاومة وبقاء السعة وفرق الجهد الابتدائي ثابتين؟`,opts:idx.map(i=>o[i]),ok:idx.indexOf(0),why:`I₀ = V₀ ÷ R تقل إلى النصف، و τ = R C تتضاعف فيزداد الزمن، أما الشحنة الابتدائية Q₀ = C V₀ فلا تتغير.`}}
+    if(t==='pct'){const n=pick([1,2,3]);const p=[37,14,5];const all=[74,37,14,5,63];const ok=p[n-1];const opts=shuf([ok,...all.filter(x=>x!==ok).slice(0,3)]);
+      return {q:`بعد مرور زمن يساوي ${n}τ من بدء تفريغ مكثف، كم تبقى من شحنته الابتدائية تقريبًا؟`,opts:opts.map(x=>x+' %'),ok:opts.indexOf(ok),why:`Q ÷ Q₀ = e^(−${n}) = ${f3(Math.exp(-n))} أي نحو ${ok} %.`}}
+    const k=pick([2,3]);const tt=pick([6,12,24]);const Cm=pick([1,2,4]); // C in mF
+    const tau=tt/k,Rv=tau/(Cm*1e-3);const opts=shuf([Rv,Rv*k,Rv/k,Rv*1000]);
+    return {q:`مكثف سعته ${Cm} mF يُفرَّغ عبر مقاومة R، فتنخفض قراءة الفولتميتر من V₀ إلى V₀ e^(−${k}) خلال ${tt} s. ما قيمة R؟`,opts:opts.map(x=>x>=1000?f2(x/1000)+' kΩ':f1(x)+' Ω'),ok:opts.indexOf(Rv),why:`V = V₀ e^(−t ÷ τ) فـ t ÷ τ = ${k} ومنه τ = ${tt} ÷ ${k} = ${f1(tau)} s ، ثم R = τ ÷ C = ${f1(tau)} ÷ ${Cm}×10⁻³ = ${(Rv>=1000?f2(Rv/1000)+' kΩ':f1(Rv)+' Ω')}.`}};
+  function render(){
+    st.q=mk();const q=st.q;
+    svg.innerHTML=tx(350,60,'السؤال '+(st.n+1),{s:18,f:TEAL})+tx(350,110,'أجب في اللوحة أسفل المشهد',{s:15,f:GRAY});
+    info.innerHTML=`<div class="chips">${chip('النتيجة',st.score+' / '+st.n)}</div><p class="q-text">${ar(q.q)}</p><div class="opts" id="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}">${nv(o)}</button>`).join('')}</div><div id="why"></div>`;
+    $('opts').onclick=e=>{const b=e.target.closest('.opt');if(!b||st.done)return;st.done=true;const i=+b.dataset.i,ok=i===q.ok;st.n++;if(ok)st.score++;
+      $('opts').querySelectorAll('.opt').forEach((x,j)=>{{if(j===q.ok)x.classList.add('right');else if(j===i)x.classList.add('wrong')};x.disabled=true});
+      $('why').innerHTML=`<p class="why"><b>${ok?'إجابة صحيحة. ':'إجابة غير صحيحة. '}</b>${ar(q.why)}</p>`;
+      $('sc').textContent='النتيجة: '+st.score+' من '+st.n}};
+  $('nq').onclick=()=>{st.done=false;render()};
+  st.done=false;render();tick=null}
+
+openTab('dis');
+</script>
+
+<!--mp-rights-v1-->
+<style>.mp-rights{clear:both;direction:rtl;text-align:center;font:600 12.5px/1.9 Tahoma,Arial,sans-serif;color:#5d6778;padding:14px 16px 22px;margin:18px auto 0;border-top:1px solid rgba(120,130,150,.35);max-width:900px}.mp-rights b{color:#1f2d4d;font-weight:800}.mp-rights .mp-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.mp-wm{position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Tahoma%2CArial%2Csans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%20fill%3D%22%237a8599%22%20fill-opacity%3D%220.16%22%3E%D8%A3.%20%D8%A8%D8%AF%D8%B1%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A%D8%AF%D9%8A%20%C2%B7%20mr.baderalsaidi%3C%2Ftext%3E%3C%2Fsvg%3E") repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.mp-rights{color:#000;border-top:1px solid #000}}</style><div class="mp-wm" aria-hidden="true"></div><div class="mp-rights" role="contentinfo">© 2026 <b>أ. بدر السعيدي</b> — جميع الحقوق محفوظة · <span class="mp-ltr">93669399</span> · <span class="mp-ltr">mr.baderalsaidi</span><br>يُمنع نسخ هذا المحتوى أو تعديله أو إعادة نشره أو بيعه بأي شكل دون إذن كتابي من المعلّم.</div>
+</body></html>
