@@ -199,3 +199,15 @@
   }
   if (typeof module !== "undefined" && module.exports) module.exports = { convert: convert };
 })();
+
+/* تحميل ميزة الكتابة بالقلم/الإصبع في «منطقة الحل» (madar-pen.js بجانب هذا الملف) */
+(function () {
+  try {
+    var s = document.currentScript;
+    if (!s || !s.src) return;
+    var p = document.createElement("script");
+    p.src = s.src.replace(/madar-frac\.js(\?.*)?$/, "madar-pen.js");
+    p.defer = true;
+    document.head.appendChild(p);
+  } catch (e) { }
+})();
